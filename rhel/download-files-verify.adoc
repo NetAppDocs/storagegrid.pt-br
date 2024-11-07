@@ -1,0 +1,71 @@
+---
+permalink: rhel/download-files-verify.html 
+sidebar: sidebar 
+keywords: red hat linux installation files, how to verify files 
+summary: Se necessário, você pode verificar manualmente os arquivos no arquivo de instalação do StorageGRID. 
+---
+= Verificar manualmente os arquivos de instalação (opcional)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se necessário, você pode verificar manualmente os arquivos no arquivo de instalação do StorageGRID.
+
+.Antes de começar
+Você tem link:../rhel/downloading-and-extracting-storagegrid-installation-files.html#rhel-download-verification-package["download do pacote de verificação"]do https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["Página de downloads do NetApp para StorageGRID"^].
+
+.Passos
+. Extraia os artefatos do pacote de verificação:
++
+`tar -xf StorageGRID_11.9.0_Code_Signature_Verification_Package.tar.gz`
+
+. Certifique-se de que estes artefactos foram extraídos:
++
+** Folha de certificado: `Leaf-Cert.pem`
+** Cadeia de certificados: `CA-Int-Cert.pem`
+** Cadeia de resposta do carimbo de hora: `TS-Cert.pem`
+** Ficheiro checksum: `sha256sum`
+** Assinatura do checksum: `sha256sum.sig`
+** Ficheiro de resposta do carimbo de hora: `sha256sum.sig.tsr`
+
+
+. Utilize a corrente para verificar se o certificado de lâminas é válido.
++
+*Exemplo*: `openssl verify -CAfile CA-Int-Cert.pem Leaf-Cert.pem`
+
++
+*Saída esperada*: `Leaf-Cert.pem: OK`
+
+. Se a etapa _2_ falhou devido a um certificado de folha expirado, use o `tsr` arquivo para verificar.
++
+*Exemplo*: `openssl ts -CAfile CA-Int-Cert.pem -untrusted TS-Cert.pem -verify -data sha256sum.sig -in sha256sum.sig.tsr`
+
++
+*Saída esperada inclui*: `Verification: OK`
+
+. Crie um arquivo de chave pública a partir do certificado Leaf.
++
+*Exemplo*: `openssl x509 -pubkey -noout -in Leaf-Cert.pem > Leaf-Cert.pub`
+
++
+*Saída esperada*: _None_
+
+. Use a chave pública para verificar o `sha256sum` arquivo contra `sha256sum.sig`.
++
+*Exemplo*: `openssl dgst -sha256 -verify Leaf-Cert.pub -signature sha256sum.sig sha256sum`
+
++
+*Saída esperada*: `Verified OK`
+
+. Verifique o `sha256sum` conteúdo do arquivo em relação às somas de verificação recém-criadas.
++
+*Exemplo*: `sha256sum -c sha256sum`
+
++
+*Saída esperada*: `_<filename>_: OK`
+`_<filename>_` É o nome do arquivo que você baixou.
+
+. link:../rhel/downloading-and-extracting-storagegrid-installation-files.html["Conclua as etapas restantes"] para extrair e escolher os arquivos apropriados do arquivo de instalação.
+

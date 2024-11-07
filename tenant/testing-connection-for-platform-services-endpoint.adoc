@@ -1,0 +1,39 @@
+---
+permalink: tenant/testing-connection-for-platform-services-endpoint.html 
+sidebar: sidebar 
+keywords: how to test platform services endpoint connection 
+summary: Se a conexão com um serviço de plataforma tiver sido alterada, você pode testar a conexão para que o endpoint valide que o recurso de destino existe e que ele pode ser alcançado usando as credenciais especificadas. 
+---
+= Teste a conexão para endpoint de serviços de plataforma
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se a conexão com um serviço de plataforma tiver sido alterada, você pode testar a conexão para que o endpoint valide que o recurso de destino existe e que ele pode ser alcançado usando as credenciais especificadas.
+
+.Antes de começar
+* Você está conetado ao Gerenciador do Locatário usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você pertence a um grupo de usuários que tem o link:tenant-management-permissions.html["Gerencie endpoints ou permissão de acesso root"].
+
+
+.Sobre esta tarefa
+O StorageGRID não valida se as credenciais têm as permissões corretas.
+
+.Passos
+. Selecione *STORAGE (S3)* > *endpoints de serviços de plataforma*.
++
+A página de endpoints de serviços da plataforma é exibida e mostra a lista de endpoints de serviços da plataforma que já foram configurados.
+
+. Selecione o ponto final cuja ligação pretende testar.
++
+A página de detalhes do ponto final é exibida.
+
+. Selecione *Test Connection*.
++
+** Uma mensagem de sucesso será exibida se o endpoint puder ser alcançado usando as credenciais especificadas. A conexão com o endpoint é validada a partir de um nó em cada local.
+** Uma mensagem de erro será exibida se a validação do endpoint falhar. Se você precisar modificar o endpoint para corrigir o erro, selecione *Configuração* e atualize as informações. Em seguida, selecione *testar e salvar alterações*.
+
+
+

@@ -1,0 +1,51 @@
+---
+permalink: maintain/selecting-start-recovery-to-configure-gateway-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, gateway node 
+summary: Depois de substituir um nó de gateway, você deve selecionar Iniciar recuperação no Gerenciador de Grade para configurar o novo nó como um substituto para o nó com falha. 
+---
+= Selecione Iniciar recuperação para configurar o Gateway Node
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois de substituir um nó de gateway, você deve selecionar Iniciar recuperação no Gerenciador de Grade para configurar o novo nó como um substituto para o nó com falha.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:../admin/admin-group-permissions.html["Permissão de manutenção ou acesso root"].
+* Você tem a senha de provisionamento.
+* Você implantou e configurou o nó de substituição.
+
+
+.Passos
+. No Gerenciador de Grade, selecione *MAINTENANCE* > *Tasks* > *Recovery*.
+. Selecione o nó de grade que você deseja recuperar na lista de nós pendentes.
++
+Os nós aparecem na lista depois que eles falham, mas você não pode selecionar um nó até que ele seja reinstalado e esteja pronto para recuperação.
+
+. Introduza a *frase-passe de aprovisionamento*.
+. Clique em *Iniciar recuperação*.
++
+image::../media/4b_select_recovery_node.png[Captura de tela mostrando a página Manutenção > recuperação]
+
+. Monitore o progresso da recuperação na tabela Recovering Grid Node (Recovering Grid Node).
++
+
+NOTE: Enquanto o procedimento de recuperação estiver em execução, você pode clicar em *Reset* para iniciar uma nova recuperação. Uma caixa de diálogo é exibida, indicando que o nó será deixado em um estado indeterminado se você redefinir o procedimento.
+
++
+image::../media/recovery_reset_warning.gif[captura de tela mostrando a caixa de diálogo de aviso de recuperação de redefinição]
+
++
+Se pretender tentar novamente a recuperação após reiniciar o procedimento, tem de restaurar o nó para um estado pré-instalado, da seguinte forma:
+
++
+** *VMware*: Exclua o nó de grade virtual implantado. Em seguida, quando estiver pronto para reiniciar a recuperação, reimplante o nó.
+** * Linux*: Reinicie o nó executando este comando no host Linux: `storagegrid node force-recovery _node-name_`
+** *Appliance*: Se você quiser repetir a recuperação após redefinir o procedimento, você deve restaurar o nó do dispositivo para um estado pré-instalado executando `sgareinstall` no nó. link:preparing-appliance-for-reinstallation-platform-replacement-only.html["Prepare o aparelho para reinstalação (apenas substituição da plataforma)"]Consulte .
+
+
+

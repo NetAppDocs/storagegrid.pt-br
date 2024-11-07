@@ -1,0 +1,33 @@
+---
+permalink: vmware/specifying-domain-name-system-server-information.html 
+sidebar: sidebar 
+keywords: how to specify domain name system server information 
+summary: Você deve especificar informações de DNS para seu sistema StorageGRID, para que você possa acessar servidores externos usando nomes de host em vez de endereços IP. 
+---
+= Especifique as informações do servidor DNS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve especificar informações de DNS para seu sistema StorageGRID, para que você possa acessar servidores externos usando nomes de host em vez de endereços IP.
+
+.Sobre esta tarefa
+Especificar https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/checking-dns-server-configuration.html["Informações do servidor DNS"^] permite que você use nomes de host de nome de domínio totalmente qualificados (FQDN) em vez de endereços IP para notificações de e-mail e AutoSupport.
+
+Para garantir o funcionamento correto, especifique dois ou três servidores DNS. Se você especificar mais de três, é possível que apenas três serão usados por causa das limitações conhecidas do sistema operacional em algumas plataformas. Se você tiver restrições de roteamento em seu ambiente, pode link:../maintain/modifying-dns-configuration-for-single-grid-node.html["Personalize a lista de servidores DNS"]usar um conjunto diferente de até três servidores DNS para nós individuais (normalmente todos os nós em um site).
+
+Se possível, use servidores DNS que cada site pode acessar localmente para garantir que um site islanded possa resolver os FQDNs para destinos externos.
+
+.Passos
+. Especifique o endereço IPv4 para pelo menos um servidor DNS na caixa de texto *Server 1*.
+. Se necessário, selecione o sinal de adição ao lado da última entrada para adicionar entradas adicionais do servidor.
++
+image::../media/9_gmi_installer_dns_page.gif[Esta imagem é explicada pelo texto circundante.]
+
++
+A prática recomendada é especificar pelo menos dois servidores DNS. Você pode especificar até seis servidores DNS.
+
+. Selecione *seguinte*.
+

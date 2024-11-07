@@ -1,0 +1,307 @@
+---
+permalink: monitor/email-alert-notifications.html 
+sidebar: sidebar 
+keywords: how to disable alert rules, how to remove a custom alert rule 
+summary: Se você quiser que as notificações por e-mail sejam enviadas quando os alertas ocorrerem, você deve fornecer informações sobre o servidor SMTP. Você também deve inserir endereços de e-mail para os destinatários das notificações de alerta. 
+---
+= Configurar notificações por e-mail para alertas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você quiser que as notificações por e-mail sejam enviadas quando os alertas ocorrerem, você deve fornecer informações sobre o servidor SMTP. Você também deve inserir endereços de e-mail para os destinatários das notificações de alerta.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:../admin/admin-group-permissions.html["Gerencie alertas ou permissão de acesso root"].
+
+
+.Sobre esta tarefa
+A configuração de e-mail usada para notificações de alerta não é usada para pacotes AutoSupport. No entanto, você pode usar o mesmo servidor de e-mail para todas as notificações.
+
+Se sua implantação do StorageGRID incluir vários nós de administração, o nó de administração principal é o remetente preferido para notificações de alerta, pacotes AutoSupport e traps SNMP e informa. Se o nó de administração principal ficar indisponível, as notificações serão enviadas temporariamente por outros nós de administração. link:../primer/what-admin-node-is.html["O que é um nó de administração?"]Consulte .
+
+.Passos
+. Selecione *ALERTAS* > *Configuração do e-mail*.
++
+A página Configuração de e-mail é exibida.
+
+. Marque a caixa de seleção *Ativar notificações por e-mail* para indicar que deseja que os e-mails de notificação sejam enviados quando os alertas atingirem limites configurados.
++
+As seções servidor de e-mail (SMTP), TLS (Transport Layer Security), endereços de e-mail e filtros são exibidas.
+
+. Na seção servidor de e-mail (SMTP), insira as informações que o StorageGRID precisa para acessar seu servidor SMTP.
++
+Se o servidor SMTP exigir autenticação, você deve fornecer um nome de usuário e uma senha.
+
++
+[cols="1a,2a"]
+|===
+| Campo | Introduza 
+
+
+ a| 
+Servidor de correio
+ a| 
+O nome de domínio totalmente qualificado (FQDN) ou o endereço IP do servidor SMTP.
+
+
+
+ a| 
+Porta
+ a| 
+A porta usada para acessar o servidor SMTP. Deve estar entre 1 e 65535.
+
+
+
+ a| 
+Nome de utilizador (opcional)
+ a| 
+Se o servidor SMTP exigir autenticação, insira o nome de usuário com o qual se autenticar.
+
+
+
+ a| 
+Senha (opcional)
+ a| 
+Se o servidor SMTP exigir autenticação, introduza a palavra-passe com a qual pretende autenticar.
+
+|===
+. Na seção endereços de e-mail, insira endereços de e-mail para o remetente e para cada destinatário.
++
+.. Para *Endereço de e-mail do remetente*, especifique um endereço de e-mail válido para usar como endereço de para notificações de alerta.
++
+Por exemplo: `storagegrid-alerts@example.com`
+
+.. Na seção destinatários, insira um endereço de e-mail para cada lista de e-mail ou pessoa que deve receber um e-mail quando ocorrer um alerta.
++
+Selecione o ícone de mais image:../media/icon_plus_sign_black_on_white.gif["ícone plus"]para adicionar destinatários.
+
+
+
+. Se a TLS (Transport Layer Security) for necessária para comunicações com o servidor SMTP, selecione *Require TLS* na seção TLS (Transport Layer Security).
++
+.. No campo *certificado CA*, forneça o certificado CA que será usado para verificar a identificação do servidor SMTP.
++
+Você pode copiar e colar o conteúdo neste campo ou selecionar *Procurar* e selecionar o arquivo.
+
++
+Você deve fornecer um único arquivo que contenha os certificados de cada autoridade de certificação de emissão intermediária (CA). O arquivo deve conter cada um dos arquivos de certificado CA codificados em PEM, concatenados em ordem de cadeia de certificados.
+
+.. Marque a caixa de seleção *Send Client Certificate* se o servidor de e-mail SMTP exigir que os remetentes de e-mail forneçam certificados de cliente para autenticação.
+.. No campo *Client Certificate*, forneça o certificado de cliente codificado em PEM para enviar para o servidor SMTP.
++
+Você pode copiar e colar o conteúdo neste campo ou selecionar *Procurar* e selecionar o arquivo.
+
+.. No campo *chave privada*, insira a chave privada do certificado do cliente na codificação PEM não criptografada.
++
+Você pode copiar e colar o conteúdo neste campo ou selecionar *Procurar* e selecionar o arquivo.
+
++
+
+NOTE: Se for necessário editar a configuração do e-mail, selecione o ícone de lápis image:../media/icon_edit_tm.png["Ícone de edição"]para atualizar este campo.
+
+
+
+. Na seção filtros, selecione quais níveis de gravidade de alerta devem resultar em notificações por e-mail, a menos que a regra de um alerta específico tenha sido silenciada.
++
+[cols="1a,2a"]
+|===
+| Gravidade | Descrição 
+
+
+ a| 
+Menor, maior, crítico
+ a| 
+Uma notificação por e-mail é enviada quando a condição menor, maior ou crítica de uma regra de alerta é atendida.
+
+
+
+ a| 
+Importante, crítico
+ a| 
+Uma notificação por e-mail é enviada quando a condição principal ou crítica de uma regra de alerta é atendida. As notificações não são enviadas para alertas menores.
+
+
+
+ a| 
+Apenas crítica
+ a| 
+Uma notificação por e-mail é enviada somente quando a condição crítica de uma regra de alerta é atendida. As notificações não são enviadas para alertas menores ou maiores.
+
+|===
+. Quando estiver pronto para testar suas configurações de e-mail, execute estas etapas:
++
+.. Selecione *Enviar e-mail de teste*.
++
+Uma mensagem de confirmação é exibida, indicando que um e-mail de teste foi enviado.
+
+.. Marque as caixas de entrada de todos os destinatários de e-mail e confirme se um e-mail de teste foi recebido.
++
+
+NOTE: Se o e-mail não for recebido em poucos minutos ou se o alerta *Falha na notificação por e-mail* for acionado, verifique as configurações e tente novamente.
+
+.. Faça login em qualquer outro nó Admin e envie um e-mail de teste para verificar a conetividade de todos os sites.
++
+
+NOTE: Ao testar notificações de alerta, você deve entrar em cada nó de administração para verificar a conetividade. Isso é em contraste com o teste de pacotes do AutoSupport, onde todos os nós de administração enviam o e-mail de teste.
+
+
+
+. Selecione *Guardar*.
++
+Enviar um e-mail de teste não salva suas configurações. Você deve selecionar *Salvar*.
+
++
+As configurações de e-mail são salvas.
+
+
+
+
+
+== Informações incluídas nas notificações por e-mail de alerta
+
+Depois de configurar o servidor de e-mail SMTP, as notificações de e-mail são enviadas aos destinatários designados quando um alerta é acionado, a menos que a regra de alerta seja suprimida por um silêncio. link:silencing-alert-notifications.html["Silenciar notificações de alerta"]Consulte .
+
+As notificações por e-mail incluem as seguintes informações:
+
+image::../media/alerts_email_notification.png[Notificação por e-mail de alertas]
+
+[cols="1a,6a"]
+|===
+| Legenda | Descrição 
+
+
+ a| 
+1
+ a| 
+O nome do alerta, seguido pelo número de instâncias ativas deste alerta.
+
+
+
+ a| 
+2
+ a| 
+A descrição do alerta.
+
+
+
+ a| 
+3
+ a| 
+Quaisquer ações recomendadas para o alerta.
+
+
+
+ a| 
+4
+ a| 
+Detalhes sobre cada instância ativa do alerta, incluindo o nó e o site afetados, a gravidade do alerta, a hora UTC em que a regra de alerta foi acionada e o nome da tarefa e serviço afetados.
+
+
+
+ a| 
+5
+ a| 
+O nome do host do nó Admin que enviou a notificação.
+
+|===
+
+
+== Como os alertas são agrupados
+
+Para evitar que um número excessivo de notificações por e-mail seja enviado quando os alertas são acionados, o StorageGRID tenta agrupar vários alertas na mesma notificação.
+
+Consulte a tabela a seguir para obter exemplos de como o StorageGRID agrupa vários alertas em notificações por e-mail.
+
+[cols="1a,1a"]
+|===
+| Comportamento | Exemplo 
+
+
+ a| 
+Cada notificação de alerta aplica-se apenas a alertas com o mesmo nome. Se dois alertas com nomes diferentes forem acionados ao mesmo tempo, duas notificações por e-mail serão enviadas.
+ a| 
+* O alerta A é acionado em dois nós ao mesmo tempo. Apenas uma notificação é enviada.
+* O alerta A é acionado no nó 1 e o alerta B é acionado no nó 2 ao mesmo tempo. Duas notificações são enviadas - uma para cada alerta.
+
+
+
+
+ a| 
+Para um alerta específico em um nó específico, se os limites forem atingidos por mais de uma gravidade, uma notificação será enviada apenas para o alerta mais grave.
+ a| 
+* O alerta A é acionado e os limites de alerta menor, maior e crítico são atingidos. Uma notificação é enviada para o alerta crítico.
+
+
+
+
+ a| 
+Na primeira vez que um alerta é acionado, o StorageGRID aguarda 2 minutos antes de enviar uma notificação. Se outros alertas com o mesmo nome forem acionados durante esse período, o StorageGRID agrupa todos os alertas na notificação inicial.​
+ a| 
+. O alerta A é acionado no nó 1 às 08:00. Nenhuma notificação é enviada.
+. O alerta A é acionado no nó 2 às 08:01. Nenhuma notificação é enviada.
+. Às 08:02, uma notificação é enviada para relatar ambas as instâncias do alerta.
+
+
+
+
+ a| 
+Se um outro alerta com o mesmo nome for acionado, o StorageGRID aguarda 10 minutos antes de enviar uma nova notificação. A nova notificação relata todos os alertas ativos (alertas atuais que não foram silenciados), mesmo que tenham sido reportados anteriormente.
+ a| 
+. O alerta A é acionado no nó 1 às 08:00. Uma notificação é enviada às 08:02.
+. O alerta A é acionado no nó 2 às 08:05. Uma segunda notificação é enviada às 08:15 (10 minutos depois). Ambos os nós são relatados.
+
+
+
+
+ a| 
+Se houver vários alertas atuais com o mesmo nome e um desses alertas for resolvido, uma nova notificação não será enviada se o alerta ocorrer novamente no nó para o qual o alerta foi resolvido.
+ a| 
+. O alerta A é acionado para o nó 1. Uma notificação é enviada.
+. O alerta A é acionado para o nó 2. Uma segunda notificação é enviada.
+. O alerta A foi resolvido para o nó 2, mas permanece ativo para o nó 1.
+. O alerta A é acionado novamente para o nó 2. Nenhuma nova notificação é enviada porque o alerta ainda está ativo para o nó 1.
+
+
+
+
+ a| 
+O StorageGRID continua a enviar notificações por e-mail uma vez a cada 7 dias até que todas as instâncias do alerta sejam resolvidas ou a regra de alerta seja silenciada.
+ a| 
+. O alerta A é acionado para o nó 1 em 8 de março. Uma notificação é enviada.
+. O alerta A não foi resolvido ou silenciado. Notificações adicionais são enviadas em 15 de março, 22 de março, 29 de março, e assim por diante.
+
+
+|===
+
+
+== Solucionar problemas de notificações por e-mail de alerta
+
+Se o alerta *Falha na notificação por e-mail* for acionado ou você não conseguir receber a notificação por e-mail de alerta de teste, siga estas etapas para resolver o problema.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:../admin/admin-group-permissions.html["Gerencie alertas ou permissão de acesso root"].
+
+
+.Passos
+. Verifique as suas definições.
++
+.. Selecione *ALERTAS* > *Configuração do e-mail*.
+.. Verifique se as configurações do servidor de e-mail (SMTP) estão corretas.
+.. Verifique se você especificou endereços de e-mail válidos para os destinatários.
+
+
+. Verifique o filtro de spam e certifique-se de que o e-mail não foi enviado para uma pasta de lixo eletrônico.
+. Peça ao administrador de e-mail para confirmar que os e-mails do endereço do remetente não estão sendo bloqueados.
+. Colete um arquivo de log para o Admin Node e entre em Contato com o suporte técnico.
++
+O suporte técnico pode usar as informações nos logs para ajudar a determinar o que deu errado. Por exemplo, o arquivo prometheus.log pode mostrar um erro ao se conetar ao servidor especificado.
+
++
+link:collecting-log-files-and-system-data.html["Colete arquivos de log e dados do sistema"]Consulte .
+
+

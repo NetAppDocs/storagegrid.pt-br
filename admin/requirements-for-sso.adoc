@@ -1,0 +1,95 @@
+---
+permalink: admin/requirements-for-sso.html 
+sidebar: sidebar 
+keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, azure ad, ad fs 
+summary: Antes de ativar o logon único para um sistema StorageGRID, revise os requisitos e considerações. 
+---
+= Requisitos e considerações para logon único
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de ativar o logon único (SSO) para um sistema StorageGRID, revise os requisitos e considerações.
+
+
+
+== Requisitos do provedor de identidade
+
+O StorageGRID oferece suporte aos seguintes provedores de identidade SSO (IDP):
+
+* Serviço de Federação do ative Directory (AD FS)
+* Azure ative Directory (Azure AD)
+* PingFederate
+
+
+Você deve configurar a federação de identidade para o seu sistema StorageGRID antes de poder configurar um provedor de identidade SSO. O tipo de serviço LDAP que você usa para controles de federação de identidade que tipo de SSO você pode implementar.
+
+[cols="1a,1a"]
+|===
+| Tipo de serviço LDAP configurado | Opções para provedor de identidade SSO 
+
+
+ a| 
+Ative Directory
+ a| 
+* Ative Directory
+* Azure
+* PingFederate
+
+
+
+
+ a| 
+Azure
+ a| 
+Azure
+
+|===
+
+
+=== Requisitos do AD FS
+
+Você pode usar qualquer uma das seguintes versões do AD FS:
+
+* Windows Server 2022 AD FS
+* Windows Server 2019 AD FS
+* Windows Server 2016 AD FS
+
+
+
+NOTE: O Windows Server 2016 deve estar usando o https://support.microsoft.com/en-us/help/3201845/cumulative-update-for-windows-10-version-1607-and-windows-server-2016["Atualização do KB3201845"^], ou superior.
+
+
+
+=== Requisitos adicionais
+
+* Transport Layer Security (TLS) 1,2 ou 1,3
+* Microsoft .NET Framework, versão 3.5.1 ou superior
+
+
+
+
+=== Considerações para o Azure
+
+Se você usar o Azure como o tipo SSO e os usuários tiverem nomes principais de usuário que não usam o sAMAccountName como prefixo, problemas de login podem ocorrer se o StorageGRID perder sua conexão com o servidor LDAP. Para permitir que os utilizadores iniciem sessão, tem de restaurar a ligação ao servidor LDAP.
+
+
+
+== Requisitos de certificado do servidor
+
+Por padrão, o StorageGRID usa um certificado de interface de gerenciamento em cada nó de administrador para proteger o acesso ao Gerenciador de Grade, ao Gerenciador de locatário, à API de gerenciamento de grade e à API de gerenciamento de locatário. Quando você configura confiança de parte confiável (AD FS), aplicativos empresariais (Azure) ou conexões de provedor de serviços (PingFederate) para StorageGRID, você usa o certificado de servidor como o certificado de assinatura para solicitações StorageGRID.
+
+Se ainda não link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["configurado um certificado personalizado para a interface de gerenciamento"]o fez, deve fazê-lo agora. Quando você instala um certificado de servidor personalizado, ele é usado para todos os nós de administração e você pode usá-lo em todos os trusts de partes dependentes do StorageGRID, aplicativos empresariais ou conexões SP.
+
+
+NOTE: O uso do certificado de servidor padrão de um nó de administrador em uma conexão de confiança de parte confiável, aplicativo empresarial ou SP não é recomendado. Se o nó falhar e você o recuperar, um novo certificado de servidor padrão será gerado. Antes de iniciar sessão no nó recuperado, tem de atualizar a confiança de parte fidedigna, a aplicação empresarial ou a ligação SP com o novo certificado.
+
+Você pode acessar o certificado de servidor de um nó de administrador fazendo login no shell de comando do nó e indo para `/var/local/mgmt-api` o diretório. Um certificado de servidor personalizado é `custom-server.crt` nomeado . O certificado de servidor padrão do nó é `server.crt` nomeado .
+
+
+
+== Requisitos portuários
+
+O logon único (SSO) não está disponível nas portas do Gerenciador de Grade restrito ou do Gerenciador de locatário. Você deve usar a porta HTTPS padrão (443) se quiser que os usuários se autentiquem com logon único. link:controlling-access-through-firewalls.html["Controle o acesso no firewall externo"]Consulte .

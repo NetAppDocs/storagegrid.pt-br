@@ -1,0 +1,28 @@
+---
+permalink: audit/management-audit-message.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, management, user request, user requests 
+summary: A categoria Gerenciamento Registra as solicitações do usuário para a API de gerenciamento. 
+---
+= Mensagem de auditoria de gerenciamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A categoria Gerenciamento Registra as solicitações do usuário para a API de gerenciamento.
+
+[cols="1a,3a,1a"]
+|===
+| Código | Título e descrição da mensagem | Consulte 
+
+
+ a| 
+MGAU
+ a| 
+Mensagem de auditoria da API de gerenciamento: Um log de solicitações de usuário.
+ a| 
+link:mgau-management-audit-message.html["MGAU: Mensagem de auditoria de gestão"]
+
+|===

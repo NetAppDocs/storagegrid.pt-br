@@ -1,0 +1,83 @@
+---
+permalink: monitor/information-you-should-monitor-regularly.html 
+sidebar: sidebar 
+keywords: when to monitor, what to monitor 
+summary: Mesmo que o sistema StorageGRID possa continuar a funcionar quando ocorrerem erros ou partes da grade não estiverem disponíveis, você deve monitorar e resolver possíveis problemas antes que eles afetem a eficiência ou a disponibilidade da grade. 
+---
+= O que e quando monitorar
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Mesmo que o sistema StorageGRID possa continuar a funcionar quando ocorrerem erros ou partes da grade não estiverem disponíveis, você deve monitorar e resolver possíveis problemas antes que eles afetem a eficiência ou a disponibilidade da grade.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
+
+
+.Sobre tarefas de monitoramento
+Um sistema ocupado gera grandes quantidades de informações. A lista a seguir fornece orientação sobre as informações mais importantes a serem monitoradas de forma contínua.
+
+[cols="1a,1a"]
+|===
+| O que monitorar | Frequência 
+
+
+ a| 
+link:monitoring-system-health.html["Estado de integridade do sistema"]
+ a| 
+Diariamente
+
+
+
+ a| 
+Taxa em que link:monitoring-storage-capacity.html["Capacidade de metadados e objetos do nó de storage"]está sendo consumido
+ a| 
+Semanalmente
+
+
+
+ a| 
+link:monitoring-information-lifecycle-management.html["Operações de gerenciamento do ciclo de vida das informações"]
+ a| 
+Semanalmente
+
+
+
+ a| 
+link:monitoring-network-connections-and-performance.html["Recursos de rede e sistema"]
+ a| 
+Semanalmente
+
+
+
+ a| 
+link:monitoring-tenant-activity.html["Atividade do locatário"]
+ a| 
+Semanalmente
+
+
+
+ a| 
+link:monitoring-object-ingest-and-retrieval-rates.html["S3 operações de cliente"]
+ a| 
+Semanalmente
+
+
+
+ a| 
+link:monitoring-load-balancing-operations.html["Operações de balanceamento de carga"]
+ a| 
+Após a configuração inicial e após quaisquer alterações de configuração
+
+
+
+ a| 
+link:grid-federation-monitor-connections.html["Conexões de federação de grade"]
+ a| 
+Semanalmente
+
+|===

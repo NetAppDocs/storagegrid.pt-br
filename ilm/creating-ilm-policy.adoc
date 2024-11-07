@@ -1,0 +1,282 @@
+---
+permalink: ilm/creating-ilm-policy.html 
+sidebar: sidebar 
+keywords: how to create ILM policy 
+summary: Crie uma ou mais políticas de ILM para atender aos seus requisitos de qualidade do serviço. 
+---
+= Criar políticas ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Crie uma ou mais políticas de ILM para atender aos seus requisitos de qualidade do serviço.
+
+Ter uma política ILM ativa permite que você aplique as mesmas regras ILM a todos os locatários e buckets.
+
+Ter várias políticas de ILM ativas permite que você aplique as regras de ILM apropriadas a locatários e buckets específicos para atender a vários requisitos de qualidade do serviço.
+
+
+
+== Crie uma política ILM
+
+.Sobre esta tarefa
+Antes de criar sua própria política, verifique se o link:ilm-policy-overview.html#default-ilm-policy["Política ILM padrão"]não atende aos requisitos de storage.
+
+
+NOTE: Use apenas as políticas fornecidas pelo sistema, a Política de cópias 2 (para grades de um local) ou a cópia 1 por local (para grades de vários locais), em sistemas de teste. Para o StorageGRID 11,6 e versões anteriores, a regra padrão dessa política usa o pool de storage de todos os nós de storage, que contém todos os sites. Se o seu sistema StorageGRID tiver mais de um local, duas cópias de um objeto poderão ser colocadas no mesmo local.
+
+
+NOTE: Se o link:enabling-s3-object-lock-globally.html["A definição Global S3 Object Lock foi ativada"], você deve garantir que a diretiva ILM esteja em conformidade com os requisitos dos buckets que têm o bloqueio de objeto S3 ativado. Nesta seção, siga as instruções que mencionam ter o bloqueio de objeto S3 ativado.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:../admin/admin-group-permissions.html["permissões de acesso necessárias"].
+* Você link:access-create-ilm-rule-wizard.html["Regras ILM criadas"] tem baseado se o bloqueio de objeto S3 está ativado.
++
+[role="tabbed-block"]
+====
+.S3 bloqueio de objetos não ativado
+--
+** Você link:what-ilm-rule-is.html["Criou as regras ILM"]deseja adicionar à política. Conforme necessário, você pode salvar uma política, criar regras adicionais e editar a política para adicionar as novas regras.
+** Você tem link:creating-default-ilm-rule.html["Criou uma regra ILM padrão"] que não contém nenhum filtro.
+
+
+--
+.S3 bloqueio de objetos ativado
+--
+** link:enabling-s3-object-lock-globally.html["A definição Global S3 Object Lock já está ativada"]O para o sistema StorageGRID.
+** Você link:what-ilm-rule-is.html["Criou as regras ILM em conformidade e não compatível"]deseja adicionar à política. Conforme necessário, você pode salvar uma política, criar regras adicionais e editar a política para adicionar as novas regras.
+** Você tem link:creating-default-ilm-rule.html["Criou uma regra ILM padrão"] para a política que é compatível.
+
+
+--
+====
+* Opcionalmente, você assistiu ao vídeo: https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e768d4da-da88-413c-bbaa-b1ff00874d10["Vídeo: Visão geral das políticas do ILM"^]
++
+[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e768d4da-da88-413c-bbaa-b1ff00874d10]
+image::../media/video-screenshot-ilm-policies-118.png[Vídeo: Visão geral das políticas do ILM]
+
+
+
+Consulte também link:ilm-policy-overview.html["Use políticas ILM"].
+
+.Passos
+. Selecione *ILM* > *políticas*.
++
+Se a configuração Global S3 Object Lock estiver ativada, a página ILM Policies (políticas ILM) indica quais regras ILM são compatíveis.
+
+. Determine como você deseja criar a política ILM.
++
+[role="tabbed-block"]
+====
+.Criar nova política
+--
+.. Selecione *criar política*.
+
+
+--
+.Clonar a política existente
+--
+.. Marque a caixa de seleção da política com a qual deseja começar e selecione *Clone*.
+
+
+--
+.Editar política existente
+.. Se uma política estiver inativa, você poderá editá-la. Marque a caixa de seleção da política inativa com a qual deseja começar e selecione *Editar*.
+
+
+====
+
+
+. No campo *Nome da política*, insira um nome exclusivo para a política.
+. Opcionalmente, no campo *motivo da mudança*, insira o motivo pelo qual você está criando uma nova política.
+. Para adicionar regras à política, selecione *Selecionar regras*. Selecione um nome de regra para exibir as configurações dessa regra.
++
+--
+Se você estiver clonando uma política:
+
+** As regras usadas pela política de clonagem são selecionadas.
+** Se a política que você está clonando usou quaisquer regras sem filtros que não eram a regra padrão, você será solicitado a remover todas, exceto uma dessas regras.
+** Se a regra padrão usou um filtro, você será solicitado a selecionar uma nova regra padrão.
+** Se a regra padrão não for a última regra, você poderá mover a regra para o fim da nova política.
+
+
+--
++
+[role="tabbed-block"]
+====
+.S3 bloqueio de objetos não ativado
+--
+.. Selecione uma regra padrão para a política. Para criar uma nova regra padrão, selecione *ILM rules page*.
++
+A regra padrão se aplica a quaisquer objetos que não correspondam a outra regra na política. A regra padrão não pode usar nenhum filtro e é sempre avaliada por último.
+
++
+
+NOTE: Não use a regra fazer cópias 2 como regra padrão para uma política. A regra fazer 2 cópias usa um único pool de storage, todos os nós de storage, que contém todos os locais. Se o seu sistema StorageGRID tiver mais de um local, duas cópias de um objeto poderão ser colocadas no mesmo local.
+
+
+
+--
+.S3 bloqueio de objetos ativado
+--
+.. Selecione uma regra padrão para a política. Para criar uma nova regra padrão, selecione *ILM rules page*.
++
+A lista de regras contém apenas as regras que são compatíveis e não usam filtros.
+
++
+
+NOTE: Não use a regra fazer cópias 2 como regra padrão para uma política. A regra fazer 2 cópias usa um único pool de storage, todos os nós de storage, que contém todos os locais. Se você usar essa regra, várias cópias de um objeto podem ser colocadas no mesmo site.
+
+.. Se você precisar de uma regra "padrão" diferente para objetos em buckets S3 não compatíveis, selecione *incluir uma regra sem filtros para buckets S3 não compatíveis* e selecione uma regra não compatível que não use um filtro.
++
+Por exemplo, você pode querer usar um pool de armazenamento em nuvem para armazenar objetos em buckets que não têm o bloqueio de objeto S3 ativado.
+
++
+
+NOTE: Você só pode selecionar uma regra não compatível que não use um filtro.
+
+
+
+Consulte também link:example-7-compliant-ilm-policy-for-s3-object-lock.html["Exemplo 7: Política de ILM compatível para bloqueio de objetos S3"].
+
+--
+====
+
+
+. Quando terminar de selecionar a regra padrão, selecione *continuar*.
+. Para a etapa outras regras, selecione quaisquer outras regras que você deseja adicionar à política. Essas regras usam pelo menos um filtro (conta de locatário, nome do bucket, filtro avançado ou tempo de referência não atual). Em seguida, selecione *Select*.
++
+A janela criar uma política lista agora as regras selecionadas. A regra padrão está no final, com as outras regras acima dela.
+
++
+Se o bloqueio de objeto S3 estiver ativado e você também tiver selecionado uma regra "padrão" não compatível, essa regra será adicionada como a regra segunda a última na política.
+
++
+
+NOTE: Um aviso aparece se qualquer regra não reter objetos para sempre. Quando você ativa essa política, você deve confirmar que deseja que o StorageGRID exclua objetos quando as instruções de posicionamento da regra padrão decorrerem (a menos que um ciclo de vida de bucket mantenha os objetos por um período de tempo mais longo).
+
+. Arraste as linhas para as regras não padrão para determinar a ordem em que essas regras serão avaliadas.
++
+Não é possível mover a regra padrão. Se o bloqueio de objetos S3 estiver ativado, também não poderá mover a regra "padrão" não compatível se uma tiver sido selecionada.
+
++
+
+NOTE: Você deve confirmar se as regras ILM estão na ordem correta. Quando a política é ativada, objetos novos e existentes são avaliados pelas regras na ordem listada, começando na parte superior.
+
+. Conforme necessário, selecione *Selecionar regras* para adicionar ou remover regras.
+. Quando terminar, selecione *Guardar*.
+. Repita estas etapas para criar políticas ILM adicionais.
+. <<simulate-ilm-policy,Simule uma política de ILM>>. Você deve sempre simular uma política antes de ativá-la para garantir que ela funcione como esperado.
+
+
+
+
+== Simule uma política
+
+Simule uma política em objetos de teste antes de ativar a política e aplicá-la aos dados de produção.
+
+.Antes de começar
+* Você conhece o bucket/Object-key S3 para cada objeto que deseja testar.
+
+
+.Passos
+. Usando um cliente S3 ou o link:../tenant/use-s3-console.html["S3 Console"], ingira os objetos necessários para testar cada regra.
+. Na página políticas ILM, marque a caixa de seleção da política e selecione *simular*.
+. No campo *Object*, insira o S3 `bucket/object-key` para um objeto de teste. Por exemplo, `bucket-01/filename.png`.
+. Se o controle de versão S3 estiver ativado, insira opcionalmente um ID de versão para o objeto no campo *Version ID*.
+. Selecione *simular*.
+. Na seção resultados da simulação, confirme se cada objeto foi correspondido pela regra correta.
+. Para determinar qual pool de armazenamento ou perfil de codificação de apagamento está em vigor, selecione o nome da regra correspondente para ir para a página de detalhes da regra.
+
+
+
+CAUTION: Revise todas as alterações no posicionamento de objetos replicados e codificados por apagamento existentes. Alterar a localização de um objeto existente pode resultar em problemas de recursos temporários quando os novos posicionamentos são avaliados e implementados.
+
+.Resultados
+Quaisquer edições nas regras da política serão refletidas nos resultados da simulação e mostrarão a nova correspondência e a correspondência anterior. A janela de política simular mantém os objetos testados até selecionar *Clear All* (Limpar tudo) ou o ícone remove (removerimage:../media/icon-x-to-remove.png["Remover ícone"]) para cada objeto na lista Simulation Results (resultados da simulação).
+
+.Informações relacionadas
+link:simulating-ilm-policy-examples.html["Exemplo de simulações de política ILM"]
+
+
+
+== Ative uma política
+
+Quando você ativa uma única nova política de ILM, os objetos existentes e os objetos recém-ingeridos são gerenciados por essa política. Quando você ativa várias políticas, as tags de política ILM atribuídas aos buckets determinam os objetos a serem gerenciados.
+
+Antes de ativar uma nova política:
+
+. Simule a política para confirmar que ela se comporta como você espera.
+. Revise todas as alterações no posicionamento de objetos replicados e codificados por apagamento existentes. Alterar a localização de um objeto existente pode resultar em problemas de recursos temporários quando os novos posicionamentos são avaliados e implementados.
+
+
+
+CAUTION: Erros em uma política ILM podem causar perda de dados irrecuperável.
+
+.Sobre esta tarefa
+Quando você ativa uma política de ILM, o sistema distribui a nova política para todos os nós. No entanto, a nova política ativa pode não ter efeito até que todos os nós de grade estejam disponíveis para receber a nova política. Em alguns casos, o sistema espera implementar uma nova política ativa para garantir que os objetos de grade não sejam removidos acidentalmente. Especificamente:
+
+* Se você fizer alterações de política que *aumentem a redundância de dados ou a durabilidade*, essas alterações serão implementadas imediatamente. Por exemplo, se você ativar uma nova política que inclua uma regra de três cópias em vez de uma regra de duas cópias, essa política será implementada imediatamente porque aumenta a redundância de dados.
+* Se você fizer alterações de política que *possam diminuir a redundância de dados ou a durabilidade*, essas alterações não serão implementadas até que todos os nós de grade estejam disponíveis. Por exemplo, se você ativar uma nova política que usa uma regra de duas cópias em vez de uma regra de três cópias, a nova política aparecerá na guia diretiva ativa, mas ela não entrará em vigor até que todos os nós estejam online e disponíveis.
+
+
+.Passos
+Siga as etapas para ativar uma política ou várias políticas:
+
+[role="tabbed-block"]
+====
+.Ative uma política
+--
+Siga estes passos se tiver apenas uma política ativa. Se já tiver uma ou mais políticas ativas e estiver a ativar políticas adicionais, siga os passos para ativar várias políticas.
+
+. Quando estiver pronto para ativar uma política, selecione *ILM* > *políticas*.
++
+Alternativamente, você pode ativar uma única política na página *ILM* > *Policy tags*.
+
+. Na guia políticas, marque a caixa de seleção da política que deseja ativar e selecione *Ativar*.
+. Siga o passo apropriado:
++
+** Se uma mensagem de aviso solicitar que você confirme que deseja ativar a política, selecione *OK*.
+** Se for apresentada uma mensagem de aviso contendo detalhes sobre a política:
++
+... Analise os detalhes para garantir que a política gerenciaria os dados conforme esperado.
+... Se a regra padrão armazenar objetos por um número limitado de dias, revise o diagrama de retenção e digite esse número de dias na caixa de texto.
+... Se a regra padrão armazenar objetos para sempre, mas uma ou mais outras regras tiver retenção limitada, digite *yes* na caixa de texto.
+... Selecione *Ativar política*.
+
+
+
+
+
+
+--
+.Ative várias políticas
+--
+Para ativar várias políticas, você deve criar tags e atribuir uma política a cada tag.
+
+
+TIP: Quando várias tags estão em uso, se os locatários frequentemente reatribuírem tags de política a buckets, o desempenho da grade pode ser afetado. Se você tiver locatários não confiáveis, considere usar apenas a tag padrão.
+
+. Selecione *ILM* > *Policy tags*.
+. Selecione *criar*.
+. Na caixa de diálogo criar tag de política, digite um nome de tag e, opcionalmente, uma descrição para a tag.
++
+
+NOTE: Os nomes e as descrições das etiquetas são visíveis para os inquilinos. Escolha valores que ajudarão os locatários a tomar uma decisão informada ao selecionar as tags de política a serem atribuídas a seus buckets. Por exemplo, se a política atribuída excluir objetos após um período de tempo, você pode comunicar isso na descrição. Não inclua informações confidenciais nesses campos.
+
+. Selecione *criar tag*.
+. Na tabela etiquetas de política ILM, use a lista suspensa para selecionar uma política a ser atribuída à tag.
+. Se os avisos aparecerem na coluna limitações da política, selecione *Exibir detalhes da política* para revisar a política.
+. Garantir que cada política gerencie os dados conforme o esperado.
+. Selecione *Ativar políticas atribuídas*. Ou selecione *Limpar alterações* para remover a atribuição de políticas.
+. Na caixa de diálogo Ativar políticas com novas tags, revise as descrições de como cada tag, política e regra gerenciará objetos. Faça alterações conforme necessário para garantir que as políticas gerenciem objetos conforme o esperado.
+. Quando tiver certeza de que deseja ativar as políticas, digite *sim* na caixa de texto e selecione *Ativar políticas*.
+
+
+--
+====
+.Informações relacionadas
+link:example-6-changing-ilm-policy.html["Exemplo 6: Alterando uma política ILM"]

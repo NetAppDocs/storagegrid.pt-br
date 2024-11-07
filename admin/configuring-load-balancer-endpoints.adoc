@@ -1,0 +1,553 @@
+---
+permalink: admin/configuring-load-balancer-endpoints.html 
+sidebar: sidebar 
+keywords: how to configure load balancer endpoint, how to attach certificate to load balancer endpoint 
+summary: Os pontos de extremidade do balanceador de carga determinam as portas e os protocolos de rede que os clientes S3 podem usar ao se conetar ao balanceador de carga StorageGRID nos nós de gateway e administrador. Você também pode usar endpoints para acessar o Gerenciador de Grade, o Gerenciador de Tenant ou ambos. 
+---
+= Configurar pontos de extremidade do balanceador de carga
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os pontos de extremidade do balanceador de carga determinam as portas e os protocolos de rede que os clientes S3 podem usar ao se conetar ao balanceador de carga StorageGRID nos nós de gateway e administrador. Você também pode usar endpoints para acessar o Gerenciador de Grade, o Gerenciador de Tenant ou ambos.
+
+
+TIP: Os detalhes do Swift foram removidos desta versão do site do doc.  https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-client-connections.html["Configurar conexões de cliente S3 e Swift"^]Consulte .
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:admin-group-permissions.html["Permissão de acesso à raiz"].
+* Você revisou o link:managing-load-balancing.html["considerações para balanceamento de carga"].
+* Se você remapeou anteriormente uma porta que pretende usar para o ponto de extremidade do balanceador de carga, você tem link:../maintain/removing-port-remaps.html["removido o remapeamento da porta"]o .
+* Você criou todos os grupos de alta disponibilidade (HA) que planeja usar. Os GRUPOS HA são recomendados, mas não são necessários. link:managing-high-availability-groups.html["Gerenciar grupos de alta disponibilidade"]Consulte .
+* Se o ponto final do balanceador de carga for usado link:../admin/manage-s3-select-for-tenant-accounts.html["S3 inquilinos para S3 Select"]pelo , ele não deve usar os endereços IP ou FQDNs de nenhum nó bare-metal. Somente dispositivos de serviços e nós de software baseados em VMware são permitidos para os pontos de extremidade do balanceador de carga usados para o S3 Select.
+* Você configurou todas as interfaces VLAN que planeja usar. link:configure-vlan-interfaces.html["Configurar interfaces VLAN"]Consulte .
+* Se você estiver criando um endpoint HTTPS (recomendado), você terá as informações para o certificado do servidor.
++
+
+NOTE: As alterações a um certificado de endpoint podem levar até 15 minutos para serem aplicadas a todos os nós.
+
++
+** Para carregar um certificado, você precisa do certificado do servidor, da chave privada do certificado e, opcionalmente, de um pacote de CA.
+** Para gerar um certificado, você precisa de todos os nomes de domínio e endereços IP que os clientes S3 usarão para acessar o endpoint. Você também deve conhecer o assunto (Nome distinto).
+** Se você quiser usar o certificado de API do StorageGRID S3 (que também pode ser usado para conexões diretamente aos nós de storage), você já substituiu o certificado padrão por um certificado personalizado assinado por uma autoridade de certificação externa. link:../admin/configuring-custom-server-certificate-for-storage-node.html["Configure os certificados API do S3"]Consulte .
+
+
+
+
+
+
+== Crie um ponto de extremidade do balanceador de carga
+
+Cada ponto de extremidade do balanceador de carga do cliente S3 especifica uma porta, um tipo de cliente (S3) e um protocolo de rede (HTTP ou HTTPS). Os pontos de extremidade do balanceador de carga da interface de gerenciamento especificam uma porta, tipo de interface e rede cliente não confiável.
+
+
+
+=== Acesse o assistente
+
+.Passos
+. Selecione *CONFIGURATION* > *Network* > *Load balancer endpoints*.
+. Para criar um endpoint para um cliente S3 ou Swift, selecione a guia *S3 ou Swift client*.
+. Para criar um endpoint para acesso ao Gerenciador de Grade, Gerenciador de Tenant ou ambos, selecione a guia *Interface de Gerenciamento*.
+. Selecione *criar*.
+
+
+
+
+=== Introduza os detalhes do endpoint
+
+.Passos
+. Selecione as instruções apropriadas para inserir detalhes do tipo de endpoint que você deseja criar.
+
+
+[role="tabbed-block"]
+====
+.Cliente S3 ou Swift
+--
+[cols="1a,3a"]
+|===
+| Campo | Descrição 
+
+
+ a| 
+Nome
+ a| 
+Um nome descritivo para o endpoint, que aparecerá na tabela na página pontos de extremidade do balanceador de carga.
+
+
+
+ a| 
+Porta
+ a| 
+A porta StorageGRID que você deseja usar para balanceamento de carga. Este campo é padrão para 10433 para o primeiro endpoint que você criar, mas você pode inserir qualquer porta externa não utilizada de 1 a 65535.
+
+Se você digitar *80* ou *8443*, o endpoint será configurado somente em nós de Gateway, a menos que você tenha liberado a porta 8443. Em seguida, você pode usar a porta 8443 como um endpoint S3 e a porta será configurada nos nós Gateway e Admin.
+
+
+
+ a| 
+Tipo de cliente
+ a| 
+O tipo de aplicativo cliente que usará esse endpoint, *S3* ou *Swift*.
+
+
+
+ a| 
+Protocolo de rede
+ a| 
+O protocolo de rede que os clientes utilizarão ao ligar a este ponto final.
+
+* Selecione *HTTPS* para comunicação segura e criptografada TLS (recomendada). Você deve anexar um certificado de segurança antes de salvar o endpoint.
+* Selecione *HTTP* para comunicação menos segura e não criptografada. Use HTTP apenas para uma grade não-produção.
+
+
+|===
+--
+.Interface de gerenciamento
+--
+[cols="1a,3a"]
+|===
+| Campo | Descrição 
+
+
+ a| 
+Nome
+ a| 
+Um nome descritivo para o endpoint, que aparecerá na tabela na página pontos de extremidade do balanceador de carga.
+
+
+
+ a| 
+Porta
+ a| 
+A porta StorageGRID que você deseja usar para acessar o Gerenciador de Grade, o Gerenciador do Locatário ou ambos.
+
+* Grid Manager: *8443*
+* Gerente de inquilino: *9443*
+* Gerente de Grade e Gerente de Locatário: *443*
+
+
+*Nota*: Você pode usar essas portas predefinidas ou outras portas disponíveis.
+
+
+
+ a| 
+Tipo de interface
+ a| 
+Selecione o botão de opção para a interface do StorageGRID que você acessará usando este endpoint.
+
+
+
+ a| 
+Rede cliente não confiável
+ a| 
+Selecione *Sim* se este endpoint estiver acessível a redes de clientes não confiáveis. Caso contrário, selecione *não*.
+
+Quando você seleciona *Sim*, a porta é aberta em todas as redes de clientes não confiáveis.
+
+*Observação*: Você só pode configurar uma porta para ser aberta ou fechada para redes de clientes não confiáveis quando estiver criando o endpoint do balanceador de carga.
+
+|===
+--
+====
+. Selecione *continuar*.
+
+
+
+
+=== Selecione um modo de encadernação
+
+.Passos
+. Selecione um modo de encadernação para o endpoint controlar como o endpoint é acessado usando qualquer endereço IP ou usando endereços IP específicos e interfaces de rede.
++
+Alguns modos de vinculação estão disponíveis para endpoints de cliente ou endpoints de interface de gerenciamento. Todos os modos para ambos os tipos de endpoint estão listados aqui.
+
++
+[cols="1a,3a"]
+|===
+| Modo | Descrição 
+
+
+ a| 
+Global (padrão para endpoints do cliente)
+ a| 
+Os clientes podem acessar o endpoint usando o endereço IP de qualquer nó de gateway ou nó de administrador, o endereço IP virtual (VIP) de qualquer grupo de HA em qualquer rede ou um FQDN correspondente.
+
+Use a configuração *Global*, a menos que você precise restringir a acessibilidade deste endpoint.
+
+
+
+ a| 
+IPs virtuais de grupos de HA
+ a| 
+Os clientes devem usar um endereço IP virtual (ou FQDN correspondente) de um grupo de HA para acessar esse endpoint.
+
+Os endpoints com esse modo de encadernação podem usar o mesmo número de porta, desde que os grupos de HA selecionados para os endpoints não se sobreponham.
+
+
+
+ a| 
+Interfaces de nós
+ a| 
+Os clientes devem usar os endereços IP (ou FQDNs correspondentes) das interfaces de nó selecionadas para acessar esse endpoint.
+
+
+
+ a| 
+Tipo de nó (somente endpoints do cliente)
+ a| 
+Com base no tipo de nó selecionado, os clientes devem usar o endereço IP (ou FQDN correspondente) de qualquer nó Admin ou o endereço IP (ou FQDN correspondente) de qualquer nó Gateway para acessar esse ponto final.
+
+
+
+ a| 
+Todos os nós de administração (padrão para endpoints de interface de gerenciamento)
+ a| 
+Os clientes devem usar o endereço IP (ou FQDN correspondente) de qualquer nó Admin para acessar esse endpoint.
+
+|===
++
+Se mais de um ponto de extremidade utilizar a mesma porta, o StorageGRID utiliza esta ordem de prioridade para decidir qual ponto de extremidade utilizar: *IPs virtuais de grupos de HA* > *interfaces de nó* > *tipo de nó* > *Global*.
+
++
+Se você estiver criando endpoints de interface de gerenciamento, somente os nós de administrador serão permitidos.
+
+. Se você selecionou *IPs virtuais de grupos de HA*, selecione um ou mais grupos de HA.
++
+Se estiver a criar endpoints de interface de gestão, selecione VIPs associados apenas a nós de administração.
+
+. Se você selecionou *interfaces de nó*, selecione uma ou mais interfaces de nó para cada nó de administrador ou nó de gateway que você deseja associar a esse ponto de extremidade.
+. Se você selecionou *tipo de nó*, selecione os nós de administrador, que incluem o nó de administrador principal e quaisquer nós de administrador não primários ou nós de gateway.
+
+
+
+
+=== Controle o acesso do locatário
+
+
+NOTE: Um endpoint de interface de gerenciamento pode controlar o acesso do locatário somente quando o endpoint tiver o <<enter-endpoint-details,Tipo de interface do Gerenciador de inquilinos>>.
+
+.Passos
+. Para a etapa *Acesso ao locatário*, selecione uma das seguintes opções:
++
+[cols="1a,2a"]
+|===
+| Campo | Descrição 
+
+
+ a| 
+Permitir todos os locatários (padrão)
+ a| 
+Todas as contas de inquilino podem usar esse endpoint para acessar seus buckets.
+
+Você deve selecionar essa opção se ainda não tiver criado nenhuma conta de locatário. Depois de adicionar contas de locatário, você pode editar o endpoint do balanceador de carga para permitir ou bloquear contas específicas.
+
+
+
+ a| 
+Permitir inquilinos selecionados
+ a| 
+Somente as contas de locatário selecionadas podem usar esse endpoint para acessar seus buckets.
+
+
+
+ a| 
+Bloquear locatários selecionados
+ a| 
+As contas de locatário selecionadas não podem usar esse endpoint para acessar seus buckets. Todos os outros inquilinos podem usar este endpoint.
+
+|===
+. Se você estiver criando um endpoint *HTTP*, não será necessário anexar um certificado. Selecione *Create* para adicionar o novo ponto de extremidade do balanceador de carga. Em seguida, vá <<after-you-finish,Depois de terminar>>para . Caso contrário, selecione *continuar* para anexar o certificado.
+
+
+
+
+=== Anexar certificado
+
+.Passos
+. Se você estiver criando um endpoint *HTTPS*, selecione o tipo de certificado de segurança que deseja anexar ao endpoint.
++
+O certificado protege as conexões entre clientes S3 e o serviço Load Balancer no nó Admin ou nos nós Gateway.
+
++
+** * Carregar certificado*. Selecione esta opção se tiver certificados personalizados para carregar.
+** *Gerar certificado*. Selecione esta opção se tiver os valores necessários para gerar um certificado personalizado.
+** *Use o certificado StorageGRID S3*. Selecione essa opção se quiser usar o certificado global da API S3, que também pode ser usado para conexões diretamente aos nós de storage.
++
+Não é possível selecionar essa opção a menos que você tenha substituído o certificado padrão da API S3, que é assinado pela CA de grade, por um certificado personalizado assinado por uma autoridade de certificação externa. link:../admin/configuring-custom-server-certificate-for-storage-node.html["Configure os certificados API do S3"]Consulte .
+
+** *Use o certificado de interface de gerenciamento*. Selecione esta opção se pretender utilizar o certificado de interface de gestão global, que também pode ser utilizado para ligações diretas a nós de administração.
+
+
+. Se não estiver a utilizar o certificado StorageGRID S3, carregue ou gere o certificado.
++
+[role="tabbed-block"]
+====
+.Carregar certificado
+--
+.. Selecione *carregar certificado*.
+.. Carregue os ficheiros de certificado do servidor necessários:
++
+*** *Certificado do servidor*: O arquivo de certificado do servidor personalizado na codificação PEM.
+*** *Chave privada de certificado*: O arquivo de chave privada de certificado de servidor personalizado (`.key`).
++
+
+NOTE: As chaves privadas EC devem ter 224 bits ou mais. As chaves privadas RSA devem ter 2048 bits ou mais.
+
+*** *Pacote CA*: Um único arquivo opcional contendo os certificados de cada autoridade de certificação de emissão intermediária (CA). O arquivo deve conter cada um dos arquivos de certificado CA codificados em PEM, concatenados em ordem de cadeia de certificados.
+
+
+.. Expanda *Detalhes do certificado* para ver os metadados de cada certificado que você carregou. Se você carregou um pacote opcional da CA, cada certificado será exibido em sua própria guia.
++
+*** Selecione *Baixar certificado* para salvar o arquivo de certificado ou selecione *Baixar pacote de CA* para salvar o pacote de certificado.
++
+Especifique o nome do arquivo de certificado e o local de download. Salve o arquivo com a extensão `.pem`.
+
++
+Por exemplo: `storagegrid_certificate.pem`
+
+*** Selecione *Copiar certificado PEM* ou *Copiar pacote de CA PEM* para copiar o conteúdo do certificado para colar em outro lugar.
+
+
+.. Selecione *criar*. O ponto de extremidade do balanceador de carga é criado. O certificado personalizado é usado para todas as novas conexões subsequentes entre clientes S3 ou a interface de gerenciamento e o endpoint.
+
+
+--
+.Gerar certificado
+--
+.. Selecione *Generate certificate* (gerar certificado).
+.. Especifique as informações do certificado:
++
+[cols="1a,3a"]
+|===
+| Campo | Descrição 
+
+
+ a| 
+Nome de domínio
+ a| 
+Um ou mais nomes de domínio totalmente qualificados a incluir no certificado. Use um * como um curinga para representar vários nomes de domínio.
+
+
+
+ a| 
+IP
+ a| 
+Um ou mais endereços IP a incluir no certificado.
+
+
+
+ a| 
+Assunto (opcional)
+ a| 
+X,509 Assunto ou nome distinto (DN) do proprietário do certificado.
+
+Se nenhum valor for inserido neste campo, o certificado gerado usará o primeiro nome de domínio ou endereço IP como o nome comum do assunto (CN).
+
+
+
+ a| 
+Dias válidos
+ a| 
+Número de dias após a criação em que o certificado expira.
+
+
+
+ a| 
+Adicione extensões de uso de chave
+ a| 
+Se selecionado (padrão e recomendado), o uso de chave e extensões estendidas de uso de chave são adicionados ao certificado gerado.
+
+Essas extensões definem a finalidade da chave contida no certificado.
+
+*Nota*: Deixe esta caixa de seleção selecionada, a menos que você tenha problemas de conexão com clientes mais antigos quando os certificados incluem essas extensões.
+
+|===
+.. Selecione *Generate*.
+.. Selecione *Detalhes do certificado* para ver os metadados do certificado gerado.
++
+*** Selecione *Transferir certificado* para guardar o ficheiro de certificado.
++
+Especifique o nome do arquivo de certificado e o local de download. Salve o arquivo com a extensão `.pem`.
+
++
+Por exemplo: `storagegrid_certificate.pem`
+
+*** Selecione *Copy Certificate PEM* para copiar o conteúdo do certificado para colar em outro lugar.
+
+
+.. Selecione *criar*.
++
+O ponto final do balanceador de carga é criado. O certificado personalizado é usado para todas as novas conexões subsequentes entre clientes S3 ou a interface de gerenciamento e este endpoint.
+
+
+
+--
+====
+
+
+
+
+=== Depois de terminar
+
+.Passos
+. Se você usar um DNS, verifique se o DNS inclui um Registro para associar o nome de domínio totalmente qualificado (FQDN) do StorageGRID a cada endereço IP que os clientes usarão para fazer conexões.
++
+O endereço IP inserido no Registro DNS depende se você está usando um grupo HA de nós de balanceamento de carga:
+
++
+** Se você tiver configurado um grupo HA, os clientes se conetarão aos endereços IP virtuais desse grupo HA.
+** Se você não estiver usando um grupo de HA, os clientes se conetarão ao serviço do StorageGRID Load Balancer usando o endereço IP de um nó de gateway ou nó de administrador.
++
+Você também deve garantir que o Registro DNS faça referência a todos os nomes de domínio de endpoint necessários, incluindo quaisquer nomes de curinga.
+
+
+
+. Forneça aos clientes S3 as informações necessárias para se conetar ao endpoint:
++
+** Número da porta
+** Nome de domínio ou endereço IP totalmente qualificado
+** Todos os detalhes necessários do certificado
+
+
+
+
+
+
+== Visualize e edite pontos de extremidade do balanceador de carga
+
+Você pode exibir detalhes dos endpoints existentes do balanceador de carga, incluindo os metadados do certificado para um endpoint seguro. Você pode alterar certas configurações para um endpoint.
+
+* Para exibir informações básicas de todos os pontos de extremidade do balanceador de carga, revise as tabelas na página pontos de extremidade do balanceador de carga.
+* Para exibir todos os detalhes sobre um endpoint específico, incluindo metadados de certificado, selecione o nome do endpoint na tabela. As informações apresentadas variam consoante o tipo de ponto de extremidade e a forma como são configuradas.
++
+image::../media/load_balancer_endpoint_details.png[Detalhes do ponto de extremidade do balanceador de carga]
+
+* Para editar um endpoint, use o menu *ações* na página pontos de extremidade do balanceador de carga.
++
+
+NOTE: Se você perder o acesso ao Gerenciador de Grade ao editar a porta de um endpoint de interface de gerenciamento, atualize o URL e a porta para recuperar o acesso.
+
++
+
+TIP: Depois de editar um endpoint, você pode precisar esperar até 15 minutos para que suas alterações sejam aplicadas a todos os nós.
+
++
+[cols="1a, 2a,2a"]
+|===
+| Tarefa | Menu ações | Página de detalhes 
+
+
+ a| 
+Edite o nome do endpoint
+ a| 
+.. Selecione a caixa de verificação para o endpoint.
+.. Selecione *ações* > *Editar nome do endpoint*.
+.. Introduza o novo nome.
+.. Selecione *Guardar*.
+
+ a| 
+.. Selecione o nome do endpoint para exibir os detalhes.
+.. Selecione o ícone de edição image:../media/icon_edit_tm.png["Ícone de edição"].
+.. Introduza o novo nome.
+.. Selecione *Guardar*.
+
+
+
+
+ a| 
+Editar porta de endpoint
+ a| 
+.. Selecione a caixa de verificação para o endpoint.
+.. Selecione *ações* > *Editar porta de endpoint*
+.. Introduza um número de porta válido.
+.. Selecione *Guardar*.
+
+ a| 
+_n/a_
+
+
+
+ a| 
+Editar o modo de encadernação de endpoint
+ a| 
+.. Selecione a caixa de verificação para o endpoint.
+.. Selecione *actions* > *Edit endpoint binding mode*
+.. Atualize o modo de encadernação conforme necessário.
+.. Selecione *Salvar alterações*.
+
+ a| 
+.. Selecione o nome do endpoint para exibir os detalhes.
+.. Selecione *Editar modo de encadernação*.
+.. Atualize o modo de encadernação conforme necessário.
+.. Selecione *Salvar alterações*.
+
+
+
+
+ a| 
+Editar certificado de endpoint
+ a| 
+.. Selecione a caixa de verificação para o endpoint.
+.. Selecione *ações* > *Editar certificado de endpoint*.
+.. Carregue ou gere um novo certificado personalizado ou comece a utilizar o certificado global S3, conforme necessário.
+.. Selecione *Salvar alterações*.
+
+ a| 
+.. Selecione o nome do endpoint para exibir os detalhes.
+.. Selecione a guia *certificado*.
+.. Selecione *Editar certificado*.
+.. Carregue ou gere um novo certificado personalizado ou comece a utilizar o certificado global S3, conforme necessário.
+.. Selecione *Salvar alterações*.
+
+
+
+
+ a| 
+Editar acesso ao locatário
+ a| 
+.. Selecione a caixa de verificação para o endpoint.
+.. Selecione *ações* > *Editar acesso ao locatário*.
+.. Escolha uma opção de acesso diferente, selecione ou remova locatários da lista ou faça ambos.
+.. Selecione *Salvar alterações*.
+
+ a| 
+.. Selecione o nome do endpoint para exibir os detalhes.
+.. Selecione a guia *Acesso ao locatário*.
+.. Selecione *Editar acesso ao locatário*.
+.. Escolha uma opção de acesso diferente, selecione ou remova locatários da lista ou faça ambos.
+.. Selecione *Salvar alterações*.
+
+
+|===
+
+
+
+
+== Remova os pontos finais do balanceador de carga
+
+Você pode remover um ou mais endpoints usando o menu *ações* ou remover um único endpoint da página de detalhes.
+
+
+CAUTION: Para evitar interrupções do cliente, atualize os aplicativos de cliente S3 afetados antes de remover um endpoint de balanceador de carga. Atualize cada cliente para se conetar usando uma porta atribuída a outro ponto de extremidade do balanceador de carga. Certifique-se de atualizar todas as informações de certificado necessárias também.
+
+
+NOTE: Se você perder o acesso ao Gerenciador de Grade ao remover um endpoint de interface de gerenciamento, atualize o URL.
+
+* Para remover um ou mais pontos finais:
++
+.. Na página Load balancer, marque a caixa de seleção para cada ponto final que deseja remover.
+.. Selecione *ações* > *Remover*.
+.. Selecione *OK*.
+
+
+* Para remover um endpoint da página de detalhes:
++
+.. Na página Load balancer. Selecione o nome do endpoint.
+.. Selecione *Remover* na página de detalhes.
+.. Selecione *OK*.
+
+
+

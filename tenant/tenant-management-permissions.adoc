@@ -1,0 +1,106 @@
+---
+permalink: tenant/tenant-management-permissions.html 
+sidebar: sidebar 
+keywords: tenant management permissions 
+summary: Antes de criar um grupo de inquilinos, considere quais permissões você deseja atribuir a esse grupo. As permissões de gerenciamento do locatário determinam quais tarefas os usuários podem executar usando o Gerenciador do locatário ou a API de gerenciamento do locatário. Um usuário pode pertencer a um ou mais grupos. As permissões são cumulativas se um usuário pertencer a vários grupos. 
+---
+= Permissões de gerenciamento do locatário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de criar um grupo de inquilinos, considere quais permissões você deseja atribuir a esse grupo. As permissões de gerenciamento do locatário determinam quais tarefas os usuários podem executar usando o Gerenciador do locatário ou a API de gerenciamento do locatário. Um usuário pode pertencer a um ou mais grupos. As permissões são cumulativas se um usuário pertencer a vários grupos.
+
+Para fazer login no Gerenciador do Locatário ou usar a API de Gerenciamento do Locatário, os usuários devem pertencer a um grupo que tenha pelo menos uma permissão. Todos os usuários que podem entrar podem executar as seguintes tarefas:
+
+* Visualizar o painel de instrumentos
+* Alterar sua própria senha (para usuários locais)
+
+
+Para todas as permissões, a configuração do modo de acesso do grupo determina se os usuários podem alterar configurações e executar operações ou se eles podem exibir somente as configurações e recursos relacionados.
+
+
+NOTE: Se um usuário pertencer a vários grupos e qualquer grupo estiver definido como somente leitura, o usuário terá acesso somente leitura a todas as configurações e recursos selecionados.
+
+Pode atribuir as seguintes permissões a um grupo. Observe que S3 locatários e locatários Swift têm permissões de grupo diferentes.
+
+[cols="1a,3a,3a"]
+|===
+| Permissão | Descrição | Detalhes 
+
+
+ a| 
+Acesso à raiz
+ a| 
+Fornece acesso total ao Gerenciador do Locatário e à API de Gerenciamento do Locatário.
+ a| 
+Os usuários Swift devem ter permissão de acesso root para entrar na conta do locatário.
+
+
+
+ a| 
+Administrador
+ a| 
+Apenas inquilinos Swift. Fornece acesso total aos contentores e objetos Swift para essa conta de locatário
+ a| 
+Os usuários Swift devem ter a permissão Swift Administrator para executar qualquer operação com a SWIFT REST API.
+
+
+
+ a| 
+Gerencie suas próprias credenciais S3
+ a| 
+Permite que os usuários criem e removam suas próprias chaves de acesso S3.
+ a| 
+Os utilizadores que não têm esta permissão não veem a opção de menu *STORAGE (S3)* > *My S3 Access Keys*.
+
+
+
+ a| 
+Veja todos os baldes
+ a| 
+*S3 locatários*: Permite que os usuários visualizem todos os buckets e configurações de bucket.
+
+*Swift tenants*: Permite que os usuários do Swift visualizem todos os contentores e configurações de contentores usando a API de Gerenciamento do locatário.
+ a| 
+Os usuários que não têm a permissão Exibir todos os buckets ou Gerenciar todos os buckets não veem a opção de menu *Buckets*.
+
+Essa permissão é substituída pela permissão Gerenciar todos os buckets. Não afeta as políticas de grupo ou bucket S3 usadas por clientes S3 ou console S3.
+
+Você só pode atribuir essa permissão aos grupos Swift a partir da API de Gerenciamento de Tenant. Não é possível atribuir essa permissão a grupos Swift usando o Gerenciador de Locações.
+
+
+
+ a| 
+Gerenciar todos os buckets
+ a| 
+*S3 inquilinos*: Permite que os usuários usem o Gerenciador do locatário e a API de gerenciamento do locatário para criar e excluir buckets do S3 e gerenciar as configurações de todos os buckets do S3 na conta do locatário, independentemente das políticas de bucket ou grupo do S3.
+
+*Swift tenants*: Permite que usuários Swift controlem a consistência para contentores Swift usando a API de Gerenciamento de inquilinos.
+ a| 
+Os usuários que não têm a permissão Exibir todos os buckets ou Gerenciar todos os buckets não veem a opção de menu *Buckets*.
+
+Esta permissão substitui a permissão Exibir todos os buckets. Não afeta as políticas de grupo ou bucket S3 usadas por clientes S3 ou console S3.
+
+Você só pode atribuir essa permissão aos grupos Swift a partir da API de Gerenciamento de Tenant. Não é possível atribuir essa permissão a grupos Swift usando o Gerenciador de Locações.
+
+
+
+ a| 
+Gerenciar endpoints
+ a| 
+Permite que os usuários usem o Gerenciador do Locatário ou a API de Gerenciamento do Locatário para criar ou editar endpoints de serviço da plataforma, que são usados como o destino dos serviços da plataforma StorageGRID.
+ a| 
+Os usuários que não têm essa permissão não veem a opção de menu *endpoints de serviços da plataforma*.
+
+
+
+ a| 
+Use a guia Console do S3
+ a| 
+Quando combinada com a permissão Exibir todos os buckets ou Gerenciar todos os buckets, permite que os usuários visualizem e gerenciem objetos na guia Console do S3 na página de detalhes de um bucket.
+ a| 
+
+|===

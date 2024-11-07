@@ -1,0 +1,71 @@
+---
+permalink: audit/etaf-security-authentication-failed.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, ETAF, Security Authentication Failed 
+summary: 'Esta mensagem é gerada quando uma tentativa de conexão usando Transport Layer Security (TLS) falhou.' 
+---
+= ETAF: Falha na autenticação de segurança
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta mensagem é gerada quando uma tentativa de conexão usando TLS (Transport Layer Security) falhou.
+
+[cols="1a,1a,4a"]
+|===
+| Código | Campo | Descrição 
+
+
+ a| 
+CNID
+ a| 
+Identificador de ligação
+ a| 
+O identificador de sistema exclusivo para a conexão TCP/IP sobre a qual a autenticação falhou.
+
+
+
+ a| 
+RUIDA
+ a| 
+Identidade do usuário
+ a| 
+Um identificador dependente do serviço que representa a identidade do utilizador remoto.
+
+
+
+ a| 
+RSLT
+ a| 
+Código de motivo
+ a| 
+O motivo da falha:
+
+SCNI: Falha no estabelecimento de conexão segura.
+
+CERM: O certificado estava ausente.
+
+CERT: Certificado inválido.
+
+CERE: O certificado expirou.
+
+CERR: O certificado foi revogado.
+
+CSGN: A assinatura do certificado era inválida.
+
+CSGU: O signatário do certificado era desconhecido.
+
+UCRM: As credenciais do usuário estavam ausentes.
+
+UCRI: As credenciais do usuário eram inválidas.
+
+UCRU: As credenciais do usuário não foram permitidas.
+
+TOUT: A autenticação expirou.
+
+|===
+Quando uma conexão é estabelecida com um serviço seguro que usa TLS, as credenciais da entidade remota são verificadas usando o perfil TLS e a lógica adicional incorporada ao serviço. Se esta autenticação falhar devido a certificados ou credenciais inválidos, inesperados ou não permitidos, é registada uma mensagem de auditoria. Isso permite consultas para tentativas de acesso não autorizado e outros problemas de conexão relacionados à segurança.
+
+A mensagem pode resultar de uma entidade remota ter uma configuração incorreta ou de tentativas de apresentar credenciais inválidas ou não permitidas ao sistema. Essa mensagem de auditoria deve ser monitorada para detetar tentativas de obter acesso não autorizado ao sistema.

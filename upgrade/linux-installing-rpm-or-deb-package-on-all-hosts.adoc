@@ -1,0 +1,336 @@
+---
+permalink: upgrade/linux-installing-rpm-or-deb-package-on-all-hosts.html 
+sidebar: sidebar 
+keywords: upgrade, linux, rpm, deb, 
+summary: Se algum nó StorageGRID for implantado em hosts Linux, instale um pacote RPM ou DEB adicional em cada um desses hosts antes de iniciar a atualização. 
+---
+= Linux: Baixe e instale o pacote RPM ou DEB em todos os hosts
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se algum nó StorageGRID for implantado em hosts Linux, baixe e instale um pacote RPM ou DEB adicional em cada um desses hosts antes de iniciar a atualização.
+
+
+
+== Faça o download de arquivos de atualização, Linux e hotfix
+
+Ao executar uma atualização do StorageGRID a partir do Gerenciador de Grade, você será solicitado a baixar o arquivo de atualização e qualquer hotfix necessário como a primeira etapa. No entanto, se você precisar baixar arquivos para atualizar hosts Linux, você pode economizar tempo baixando todos os arquivos necessários com antecedência.
+
+.Passos
+. Vá para https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["NetApp Downloads: StorageGRID"^].
+. Selecione o botão para baixar a versão mais recente ou selecione outra versão no menu suspenso e selecione *Go*.
++
+As versões do software StorageGRID têm este formato: 11._x.y_. Os hotfixes do StorageGRID têm este formato: 11._x.y.z_.
+
+. Inicie sessão com o nome de utilizador e a palavra-passe da sua conta NetApp.
+. Se um aviso de cuidado/MustRead for exibido, anote o número do hotfix e marque a caixa de seleção.
+. Leia o Contrato de Licença de Utilizador final (EULA), selecione a caixa de verificação e, em seguida, selecione *Accept & continue*.
++
+É apresentada a página de transferências para a versão selecionada. A página contém três colunas.
+
+. Na segunda coluna (*Upgrade StorageGRID*), baixe dois arquivos:
++
+** O arquivo de atualização para a versão mais recente (este é o arquivo na seção *VMware, SG1000 ou SG100 Main Admin Node*). Embora esse arquivo não seja necessário até que você execute a atualização, baixá-lo agora economizará tempo.
+** Um arquivo RPM ou DEB em qualquer `.tgz` formato ou `.zip`. Selecione o `.zip` ficheiro se estiver a executar o Windows no computador portátil de serviço.
++
+*** Red Hat Enterprise Linux
+`StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip`
+`StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz`
+*** Ubuntu ou Debian
+`StorageGRID-Webscale-_version_-DEB-_uniqueID_.zip`
+`StorageGRID-Webscale-_version_-DEB-_uniqueID_.tgz`
+
+
+
+
+. Se você precisar concordar com um aviso de cuidado/MustRead devido a um hotfix necessário, baixe o hotfix:
++
+.. Volte para https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["NetApp Downloads: StorageGRID"^].
+.. Selecione o número do hotfix na lista suspensa.
+.. Aceite novamente o aviso de precaução e o EULA.
+.. Baixe e salve o hotfix e seu README.
++
+Ser-lhe-á pedido que carregue o ficheiro de correção na página Atualização do StorageGRID quando iniciar a atualização.
+
+
+
+
+
+
+
+== Instale o arquivo em todos os hosts Linux
+
+Execute estas etapas antes de atualizar o software StorageGRID.
+
+.Passos
+. Extraia os pacotes RPM ou DEB do arquivo de instalação.
+. Instale os pacotes RPM ou DEB em todos os hosts Linux.
++
+Consulte as etapas para instalar os serviços de host do StorageGRID nas instruções de instalação:
+
++
+** link:../rhel/installing-storagegrid-webscale-host-service.html["Red Hat Enterprise Linux: Instale os serviços de host do StorageGRID"]
+** link:../ubuntu/installing-storagegrid-webscale-host-services.html["Ubuntu ou Debian: Instale serviços host StorageGRID"]
+
+
++
+Os novos pacotes são instalados como pacotes adicionais.
+
+
+
+
+
+== Remover arquivos de instalação para versões anteriores
+
+Para liberar espaço em hosts Linux, você pode remover os arquivos de instalação de versões anteriores do StorageGRID que você não precisa mais.
+
+.Passos
+. Remova os arquivos de instalação antigos do StorageGRID.
+
+
+[role="tabbed-block"]
+====
+.Red Hat
+--
+. Capture a lista de pacotes StorageGRID instalados: `dnf list | grep -i storagegrid`.
++
+Exemplo:
+
++
+[listing]
+----
+[root@rhel-example ~]# dnf list | grep -i storagegrid
+StorageGRID-Webscale-Images-11-6-0.x86_64 11.6.0-20220210.0232.8d56cfe @System
+StorageGRID-Webscale-Images-11-7-0.x86_64 11.7.0-20230424.2238.1a2cf8c @System
+StorageGRID-Webscale-Images-11-8-0.x86_64 11.8.0-20240131.0139.e3e0c87 @System
+StorageGRID-Webscale-Images-11-9-0.x86_64 11.9.0-20240826.1753.4aeeb70 @System
+StorageGRID-Webscale-Service-11-6-0.x86_64 11.6.0-20220210.0232.8d56cfe @System
+StorageGRID-Webscale-Service-11-7-0.x86_64 11.7.0-20230424.2238.1a2cf8c @System
+StorageGRID-Webscale-Service-11-8-0.x86_64 11.8.0-20240131.0139.e3e0c87 @System
+StorageGRID-Webscale-Service-11-9-0.x86_64 11.9.0-20240826.1753.4aeeb70 @System
+[root@rhel-example ~]#
+----
+. Remover pacotes StorageGRID anteriores: `dnf remove _images-package_ _service-package_`
++
+
+CAUTION: Não remova os arquivos de instalação para a versão do StorageGRID que você está executando atualmente ou as versões do StorageGRID para o qual você está planejando atualizar.
+
++
+Você pode ignorar com segurança os avisos que aparecem. Eles se referem a arquivos que foram substituídos quando você instala pacotes StorageGRID mais recentes.
+
++
+Exemplo:
+
++
+[listing]
+----
+[root@rhel-example ~]# dnf remove StorageGRID-Webscale-Images-11-6-0.x86_64 StorageGRID-Webscale-Service-11-6-0.x86_64
+Updating Subscription Management repositories.
+Unable to read consumer identity
+
+This system is not registered with an entitlement server. You can use subscription-manager to register.
+
+Dependencies resolved.
+============================================================================
+Package            Architecture      Version           Repository  Size
+============================================================================
+Removing:
+StorageGRID-Webscale-Images-11-6-0 x86_64 11.6.0-20220210.0232.8d56cfe @System 2.7 G
+StorageGRID-Webscale-Service-11-6-0 x86_64 11.6.0-20220210.0232.8d56cfe @System 7.5 M
+
+Transaction Summary
+============================================================================
+Remove 2 Packages
+
+Freed space: 2.8 G
+Is this ok [y/N]: y
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing: 1/1
+  Running scriptlet: StorageGRID-Webscale-Service-11-6-0-11.6.0-20220210.0232.8d56cfe.x86_64  1/2
+  Erasing: StorageGRID-Webscale-Service-11-6-0-11.6.0-20220210.0232.8d56cfe.x86_64  1/2
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/strategy/ipv6.pyc: remove failed: No such file or directory
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/strategy/ipv4.pyc: remove failed: No such file or directory
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/strategy/eui64.pyc: remove failed: No such file or directory
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/strategy/eui48.pyc: remove failed: No such file or directory
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/strategy/__init__.pyc: remove failed: No such file or directory
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/ip/sets.pyc: remove failed: No such file or directory
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/ip/rfc1924.pyc: remove failed: No such file or directory
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/ip/nmap.pyc: remove failed: No such file or directory
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/ip/iana.pyc: remove failed: No such file or directory
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/ip/glob.pyc: remove failed: No such file or directory
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/ip/__init__.pyc: remove failed: No such file or directory
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/fbsocket.pyc: remove failed: No such file or directory
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/eui/ieee.pyc: remove failed: No such file or directory
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/eui/__init__.pyc: remove failed: No such file or directory
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/core.pyc: remove failed: No such file or directory
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/contrib/subnet_splitter.pyc: remove failed: No such file or directory
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/contrib/__init__.pyc: remove failed: No such file or directory
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/compat.pyc: remove failed: No such file or directory
+warning: file /usr/lib64/python2.7/site-packages/netapp/storagegrid/vendor/latest/netaddr/__init__.pyc: remove failed: No such file or directory
+
+  Erasing: StorageGRID-Webscale-Images-11-6-0-11.6.0-20220210.0232.8d56cfe.x86_64   2/2
+  Verifying: StorageGRID-Webscale-Images-11-6-0-11.6.0-20220210.0232.8d56cfe.x86_64  1/2
+  Verifying: StorageGRID-Webscale-Service-11-6-0-11.6.0-20220210.0232.8d56cfe.x86_64  2/2
+Installed products updated.
+
+Removed:
+  StorageGRID-Webscale-Images-11-6-0-11.6.0-20220210.0232.8d56cfe.x86_64
+  StorageGRID-Webscale-Service-11-6-0-11.6.0-20220210.0232.8d56cfe.x86_64
+
+Complete!
+[root@rhel-example ~]#
+----
+
+
+--
+.Ubuntu e Debian
+--
+. Capture a lista de pacotes StorageGRID instalados: `dpkg -l | grep storagegrid`
++
+Exemplo:
+
++
+[listing]
+----
+root@debian-example:~# dpkg -l | grep storagegrid
+ii  storagegrid-webscale-images-11-6-0  11.6.0-20220210.0232.8d56cfe amd64 StorageGRID Webscale docker images for 11.6.0
+ii  storagegrid-webscale-images-11-7-0  11.7.0-20230424.2238.1a2cf8c.dev-signed amd64 StorageGRID Webscale docker images for 11.7.0
+ii  storagegrid-webscale-images-11-8-0  11.8.0-20240131.0139.e3e0c87 amd64 StorageGRID Webscale docker images for 11.8.0
+ii  storagegrid-webscale-images-11-9-0  11.9.0-20240826.1753.4aeeb70 amd64 StorageGRID Webscale docker images for 11.9.0
+ii  storagegrid-webscale-service-11-6-0 11.6.0-20220210.0232.8d56cfe amd64 StorageGRID Webscale host services for 11.6.0
+ii  storagegrid-webscale-service-11-7-0 11.7.0-20230424.2238.1a2cf8c amd64 StorageGRID Webscale host services for 11.7.0
+ii  storagegrid-webscale-service-11-8-0 11.8.0-20240131.0139.e3e0c87 amd64 StorageGRID Webscale host services for 11.8.0
+ii  storagegrid-webscale-service-11-9-0 11.9.0-20240826.1753.4aeeb70 amd64 StorageGRID Webscale host services for 11.9.0
+root@debian-example:~#
+----
+. Remover pacotes StorageGRID anteriores: `dpkg -r _images-package_ _service-package_`
++
+
+CAUTION: Não remova os arquivos de instalação para a versão do StorageGRID que você está executando atualmente ou as versões do StorageGRID para o qual você está planejando atualizar.
+
++
+Exemplo:
+
++
+[listing]
+----
+root@debian-example:~# dpkg -r storagegrid-webscale-service-11-6-0 storagegrid-webscale-images-11-6-0
+(Reading database ... 38190 files and directories currently installed.)
+Removing storagegrid-webscale-service-11-6-0 (11.6.0-20220210.0232.8d56cfe) ...
+locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_MESSAGES to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or directory
+dpkg: warning: while removing storagegrid-webscale-service-11-6-0, directory '/usr/lib/python2.7/dist-packages/netapp/storagegrid/vendor/latest' not empty so not removed
+Removing storagegrid-webscale-images-11-6-0 (11.6.0-20220210.0232.8d56cfe) ...
+root@debian-example:~#
+----
+
+
+--
+====
+. Remova imagens do recipiente StorageGRID.
+
+
+[role="tabbed-block"]
+====
+.Docker
+--
+. Capture a lista de imagens de contentor instaladas: `docker images`
++
+Exemplo:
+
++
+[listing]
+----
+[root@docker-example ~]# docker images
+REPOSITORY           TAG            IMAGE ID       CREATED         SIZE
+storagegrid-11.9.0   Admin_Node     610f2595bcb4   2 days ago      2.77GB
+storagegrid-11.9.0   Storage_Node   7f73d33eb880   2 days ago      2.65GB
+storagegrid-11.9.0   API_Gateway    2f0bb79526e9   2 days ago      1.82GB
+storagegrid-11.8.0   Storage_Node   7125480de71b   7 months ago    2.54GB
+storagegrid-11.8.0   Admin_Node     404e9f1bd173   7 months ago    2.63GB
+storagegrid-11.8.0   Archive_Node   c3294a29697c   7 months ago    2.39GB
+storagegrid-11.8.0   API_Gateway    1f88f24b9098   7 months ago    1.74GB
+storagegrid-11.7.0   Storage_Node   1655350eff6f   16 months ago   2.51GB
+storagegrid-11.7.0   Admin_Node     872258dd0dc8   16 months ago   2.48GB
+storagegrid-11.7.0   Archive_Node   121e7c8b6d3b   16 months ago   2.41GB
+storagegrid-11.7.0   API_Gateway    5b7a26e382de   16 months ago   1.77GB
+storagegrid-11.6.0   Admin_Node     ee39f71a73e1   2 years ago     2.38GB
+storagegrid-11.6.0   Storage_Node   f5ef895dcad0   2 years ago     2.08GB
+storagegrid-11.6.0   Archive_Node   5782de552db0   2 years ago     1.95GB
+storagegrid-11.6.0   API_Gateway    cb480ed37eea   2 years ago     1.35GB
+[root@docker-example ~]#
+----
+. Remova as imagens do contentor para versões anteriores do StorageGRID: `docker rmi _image id_`
++
+
+CAUTION: Não remova as imagens de contentor para a versão do StorageGRID que você está executando atualmente ou as versões do StorageGRID para o qual você está planejando atualizar.
+
++
+Exemplo:
+
++
+[listing]
+----
+[root@docker-example ~]# docker rmi cb480ed37eea
+Untagged: storagegrid-11.6.0:API_Gateway
+Deleted: sha256:cb480ed37eea0ae9cf3522de1dadfbff0075010d89c1c0a2337a3178051ddf02
+Deleted: sha256:5f269aabf15c32c1fe6f36329c304b6c6ecb563d973794b9b59e8e5ab8cccafa
+Deleted: sha256:47c2b2c295a77b312b8db69db58a02d8e09e929e121352bec713fa12dae66bde
+[root@docker-example ~]#
+----
+
+
+--
+.Podman
+--
+. Capture a lista de imagens de contentor instaladas: `podman images`
++
+Exemplo:
+
++
+[listing]
+----
+[root@podman-example ~]# podman images
+REPOSITORY                    TAG           IMAGE ID      CREATED        SIZE
+localhost/storagegrid-11.8.0  Storage_Node  7125480de71b  7 months ago   2.57 GB
+localhost/storagegrid-11.8.0  Admin_Node    404e9f1bd173  7 months ago   2.67 GB
+localhost/storagegrid-11.8.0  Archive_Node  c3294a29697c  7 months ago   2.42 GB
+localhost/storagegrid-11.8.0  API_Gateway   1f88f24b9098  7 months ago   1.77 GB
+localhost/storagegrid-11.7.0  Storage_Node  1655350eff6f  16 months ago  2.54 GB
+localhost/storagegrid-11.7.0  Admin_Node    872258dd0dc8  16 months ago  2.51 GB
+localhost/storagegrid-11.7.0  Archive_Node  121e7c8b6d3b  16 months ago  2.44 GB
+localhost/storagegrid-11.7.0  API_Gateway   5b7a26e382de  16 months ago  1.8 GB
+localhost/storagegrid-11.6.0  Admin_Node    ee39f71a73e1  2 years ago    2.42 GB
+localhost/storagegrid-11.6.0  Storage_Node  f5ef895dcad0  2 years ago    2.11 GB
+localhost/storagegrid-11.6.0  Archive_Node  5782de552db0  2 years ago    1.98 GB
+localhost/storagegrid-11.6.0  API_Gateway   cb480ed37eea  2 years ago    1.38 GB
+[root@podman-example ~]#
+----
+. Remova as imagens do contentor para versões anteriores do StorageGRID: `podman rmi _image id_`
++
+
+CAUTION: Não remova as imagens de contentor para a versão do StorageGRID que você está executando atualmente ou as versões do StorageGRID para o qual você está planejando atualizar.
+
++
+Exemplo:
+
++
+[listing]
+----
+[root@podman-example ~]# podman rmi f5ef895dcad0
+Untagged: localhost/storagegrid-11.6.0:Storage_Node
+Deleted: f5ef895dcad0d78d0fd21a07dd132d7c7f65f45d80ee7205a4d615494e44cbb7
+[root@podman-example ~]#
+----
+
+
+--
+====

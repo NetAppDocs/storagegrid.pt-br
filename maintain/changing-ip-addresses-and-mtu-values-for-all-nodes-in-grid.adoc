@@ -1,0 +1,144 @@
+---
+permalink: maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html 
+sidebar: sidebar 
+keywords: storagegrid, node ip address, change node ip, change node ip address, changing node ip, changing node ip address 
+summary: Se você precisar alterar o endereço IP da rede de Grade para todos os nós da grade, siga este procedimento especial. Você não pode fazer uma alteração de IP de rede de grade em toda a grade usando o procedimento para alterar nós individuais. 
+---
+= Altere endereços IP para todos os nós na grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você precisar alterar o endereço IP da rede de Grade para todos os nós da grade, siga este procedimento especial. Você não pode fazer uma alteração de IP de rede de grade em toda a grade usando o procedimento para alterar nós individuais.
+
+.Antes de começar
+* Você tem o `Passwords.txt` arquivo.
+
+
+Para garantir que a grade seja iniciada com sucesso, você deve fazer todas as alterações ao mesmo tempo.
+
+
+NOTE: Este procedimento aplica-se apenas à rede de grelha. Não é possível usar este procedimento para alterar endereços IP nas redes Admin ou Client.
+
+Se você quiser alterar os endereços IP e MTU para os nós apenas em um site, siga as link:changing-nodes-network-configuration.html["Alterar a configuração da rede do nó"] instruções.
+
+.Passos
+. Planeje com antecedência as alterações que você precisa fazer fora da ferramenta Change IP, como alterações no DNS ou NTP, e alterações na configuração de logon único (SSO), se usado.
++
+
+NOTE: Se os servidores NTP existentes não estiverem acessíveis à grade nos novos endereços IP, adicione os novos servidores NTP antes de executar o procedimento Change-ip.
+
++
+
+NOTE: Se os servidores DNS existentes não estiverem acessíveis à grade nos novos endereços IP, adicione os novos servidores DNS antes de executar o procedimento Change-ip.
+
++
+
+NOTE: Se o SSO estiver habilitado para o seu sistema StorageGRID e quaisquer confianças de terceiros confiáveis tiverem sido configuradas usando endereços IP de nó de administrador (em vez de nomes de domínio totalmente qualificados, conforme recomendado), esteja preparado para atualizar ou reconfigurar essas confianças de terceiros confiáveis nos Serviços de Federação do ative Directory (AD FS) imediatamente após você alterar endereços IP. link:../admin/configuring-sso.html["Configurar o logon único"]Consulte .
+
++
+
+NOTE: Se necessário, adicione a nova sub-rede para os novos endereços IP.
+
+. Faça login no nó de administração principal:
++
+.. Introduza o seguinte comando: `ssh admin@_primary_Admin_Node_IP_`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+
+
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+. Inicie a ferramenta Change IP inserindo o seguinte comando: `change-ip`
+. Insira a senha de provisionamento no prompt.
++
+É apresentado o menu principal. Por padrão, o `Selected nodes` campo é definido como `all`.
+
++
+image::../media/change_ip_tool_main_menu.png[Captura de tela mostrando a tela de boas-vindas da ferramenta Change IP]
+
+. No menu principal, selecione *2* para editar informações sobre máscara de IP/sub-rede, gateway e MTU para todos os nós.
++
+.. Selecione *1* para fazer alterações na rede de Grade.
++
+Depois de fazer a seleção, o prompt mostra os nomes dos nós, o nome da rede da grade, o tipo de dados (IP/máscara, Gateway ou MTU) e os valores atuais.
+
++
+Editar o endereço IP, o comprimento do prefixo, o gateway ou MTU de uma interface configurada por DHCP alterará a interface para estática. É apresentado um aviso antes de cada interface configurada pelo DHCP.
+
++
+Interfaces configuradas como `fixed` não podem ser editadas.
+
+.. Para definir um novo valor, introduza-o no formato apresentado para o valor atual.
+.. Depois de editar todos os nós que você deseja alterar, digite *q* para retornar ao menu principal.
++
+Suas alterações são mantidas até serem limpas ou aplicadas.
+
+
+
+. Reveja as alterações selecionando uma das seguintes opções:
++
+** *5*: Mostra edições na saída que são isoladas para mostrar apenas o item alterado. As alterações são realçadas em verde (adições) ou vermelho (exclusões), como mostrado na saída do exemplo:
++
+image::../media/change_ip_tool_edit_ip_mask_sample_output.png[captura de tela descrita pelo texto circundante]
+
+** *6*: Mostra edições na saída que exibe a configuração completa. As alterações são realçadas em verde (adições) ou vermelho (exclusões).
++
+
+NOTE: Certas interfaces de linha de comando podem mostrar adições e exclusões usando a formatação strikethrough. A exibição adequada depende do cliente terminal que suporta as sequências de escape VT100 necessárias.
+
+
+
+. Selecione a opção *7* para validar todas as alterações.
++
+Essa validação garante que as regras da rede de Grade, como não usar sub-redes sobrepostas, não sejam violadas.
+
++
+Neste exemplo, a validação retornou erros.
+
++
+image::../media/change_ip_tool_validate_sample_error_messages.gif[captura de tela descrita pelo texto circundante]
+
++
+Neste exemplo, a validação passou.
+
++
+image::../media/change_ip_tool_validate_sample_passed_messages.gif[captura de tela descrita pelo texto circundante]
+
+. Após a aprovação da validação, selecione *10* para aplicar a nova configuração de rede.
+. Selecione *stage* para aplicar as alterações na próxima vez que os nós forem reiniciados.
++
+
+NOTE: Você deve selecionar *stage*. Não execute uma reinicialização contínua, manualmente ou selecionando *Apply* em vez de *stage*; a grade não será iniciada com êxito.
+
+. Depois que as alterações estiverem concluídas, selecione *0* para sair da ferramenta Change IP (alterar IP).
+. Encerre todos os nós simultaneamente.
++
+
+NOTE: Toda a grade deve ser desligada, de modo que todos os nós estejam inativos ao mesmo tempo.
+
+. Faça as alterações de rede física ou virtual necessárias.
+. Verifique se todos os nós da grade estão inativos.
+. Potência em todos os nós.
+. Depois que a grelha for iniciada com sucesso:
++
+.. Se você adicionou novos servidores NTP, exclua os valores antigos do servidor NTP.
+.. Se você adicionou novos servidores DNS, exclua os valores antigos do servidor DNS.
+
+
+. Faça o download do novo Pacote de recuperação do Gerenciador de Grade.
++
+.. Selecione *MAINTENANCE* > *System* > *Recovery package*.
+.. Introduza a frase-passe de aprovisionamento.
+
+
+
+
+.Informações relacionadas
+* link:adding-to-or-changing-subnet-lists-on-grid-network.html["Adicionar ou alterar listas de sub-rede na rede de Grade"]
+* link:shutting-down-grid-node.html["Encerre o nó da grade"]
+

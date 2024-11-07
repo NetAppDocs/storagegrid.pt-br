@@ -1,0 +1,60 @@
+---
+permalink: ilm/when-to-use-cloud-storage-pools.html 
+sidebar: sidebar 
+keywords: use cloud storage pool, benefits of cloud storage pools 
+summary: Com o Cloud Storage Pools, é possível fazer backup ou categorizar dados em um local externo. Além disso, você pode fazer backup ou categorizar dados em mais de uma nuvem. 
+---
+= Quando usar Cloud Storage Pools
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Com o Cloud Storage Pools, é possível fazer backup ou categorizar dados em um local externo. Além disso, você pode fazer backup ou categorizar dados em mais de uma nuvem.
+
+
+
+== Faça backup dos dados do StorageGRID em um local externo
+
+Você pode usar um pool de armazenamento em nuvem para fazer backup de objetos do StorageGRID para um local externo.
+
+Se as cópias no StorageGRID estiverem inacessíveis, os dados de objeto no pool de armazenamento em nuvem podem ser usados para atender solicitações de clientes. No entanto, talvez seja necessário emitir a solicitação S3 RestoreObject para acessar a cópia de objeto de backup no pool de armazenamento em nuvem.
+
+Os dados de objeto em um pool de storage de nuvem também podem ser usados para recuperar dados perdidos do StorageGRID devido a uma falha de volume de storage ou nó de storage. Se a única cópia restante de um objeto estiver em um pool de armazenamento em nuvem, o StorageGRID restaurará temporariamente o objeto e criará uma nova cópia no nó de armazenamento recuperado.
+
+Para implementar uma solução de backup:
+
+. Crie um único pool de storage de nuvem.
+. Configurar uma regra de ILM que armazene simultaneamente cópias de objetos em nós de storage (como cópias replicadas ou codificadas por apagamento) e uma única cópia de objeto no Cloud Storage Pool.
+. Adicione a regra à sua política ILM. Em seguida, simule e ative a política.
+
+
+
+
+== Categorize os dados do StorageGRID para o local externo
+
+Você pode usar um pool de armazenamento em nuvem para armazenar objetos fora do sistema StorageGRID. Por exemplo, suponha que você tenha um grande número de objetos que você precisa reter, mas você espera acessar esses objetos raramente, se nunca. Você pode usar um pool de storage de nuvem para categorizar os objetos em storage de baixo custo e liberar espaço no StorageGRID.
+
+Para implementar uma solução de disposição em camadas:
+
+. Crie um único pool de storage de nuvem.
+. Configure uma regra de ILM que mova objetos raramente usados de nós de storage para o Cloud Storage Pool.
+. Adicione a regra à sua política ILM. Em seguida, simule e ative a política.
+
+
+
+
+== Manter vários pontos de extremidade de nuvem
+
+Você pode configurar vários pontos de extremidade do Cloud Storage Pool se quiser categorizar ou fazer backup de dados de objetos em mais de uma nuvem. Os filtros nas regras do ILM permitem especificar quais objetos são armazenados em cada pool de armazenamento em nuvem. Por exemplo, você pode querer armazenar objetos de alguns locatários ou buckets no Amazon S3 Glacier e objetos de outros locatários ou buckets no storage Blob do Azure. Ou, talvez você queira mover dados entre o Amazon S3 Glacier e o storage Azure Blob.
+
+
+NOTE: Ao usar vários pontos de extremidade do Cloud Storage Pool, lembre-se de que um objeto pode ser armazenado em apenas um pool de armazenamento em nuvem de cada vez.
+
+Para implementar vários pontos de extremidade de nuvem:
+
+. Crie até 10 pools de armazenamento em nuvem.
+. Configure as regras do ILM para armazenar os dados de objeto apropriados no momento apropriado em cada pool de armazenamento em nuvem. Por exemplo, armazene objetos do bucket A no Cloud Storage Pool A e armazene objetos do bucket B no Cloud Storage Pool B. ou armazene objetos no Cloud Storage Pool A por algum tempo e, em seguida, mova-os para o Cloud Storage Pool B.
+. Adicione as regras à sua política ILM. Em seguida, simule e ative a política.
+

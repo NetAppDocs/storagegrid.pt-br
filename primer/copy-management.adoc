@@ -1,0 +1,69 @@
+---
+permalink: primer/copy-management.html 
+sidebar: sidebar 
+keywords: object data, ilm policy, ilm rules, replicated copy, replication, erasure-coded copy, ec, cloud storage pool 
+summary: Os dados de objeto são gerenciados pela política ILM ativa e suas regras ILM. As regras de ILM fazem cópias replicadas ou codificadas por apagamento para proteger os dados de objetos contra perda. 
+---
+= Gerenciamento de cópias
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os dados de objeto são gerenciados pelas políticas ativas do ILM e pelas regras associadas do ILM. As regras de ILM fazem cópias replicadas ou codificadas por apagamento para proteger os dados de objetos contra perda.
+
+Diferentes tipos ou locais de cópias de objetos podem ser necessários em momentos diferentes na vida do objeto. As regras do ILM são periodicamente avaliadas para garantir que os objetos sejam colocados conforme necessário.
+
+Os dados do objeto são geridos pelo serviço LDR.
+
+
+
+== Proteção de conteúdo: Replicação
+
+Se as instruções de posicionamento de conteúdo de uma regra ILM exigirem cópias replicadas de dados de objetos, as cópias serão feitas e armazenadas no disco pelos nós de storage que compõem o pool de storage configurado.
+
+O mecanismo ILM no serviço LDR controla a replicação e garante que o número correto de cópias seja armazenado nos locais corretos e durante o período de tempo correto.
+
+image::../media/replication_data_flow.png[diagrama que mostra o processo descrito no texto circundante]
+
+. O mecanismo ILM consulta o serviço ADC para determinar o melhor serviço LDR de destino dentro do pool de armazenamento especificado pela regra ILM. Em seguida, envia um comando para iniciar a replicação ao serviço LDR.
+. O serviço LDR de destino consulta o serviço ADC para obter a melhor localização de origem. Em seguida, envia uma solicitação de replicação para o serviço LDR de origem.
+. O serviço LDR de origem envia uma cópia para o serviço LDR de destino.
+. O serviço LDR de destino notifica o mecanismo ILM de que os dados do objeto foram armazenados.
+. O mecanismo ILM atualiza o armazenamento de metadados com metadados de localização de objetos.
+
+
+
+
+== Proteção de conteúdo: Codificação de apagamento
+
+Se uma regra de ILM incluir instruções para fazer cópias codificadas para apagamento de dados de objetos, o esquema de codificação de apagamento aplicável quebra os dados de objetos em dados e fragmentos de paridade e distribui esses fragmentos entre os nós de storage configurados no perfil de codificação de apagamento.
+
+O mecanismo ILM, que é um componente do serviço LDR, controla a codificação de apagamento e garante que o perfil de codificação de apagamento seja aplicado aos dados do objeto.
+
+image::../media/erasure_coding_data_flow.png[Fluxo de dados de codificação de apagamento]
+
+. O mecanismo ILM consulta o serviço ADC para determinar qual serviço DDS pode executar melhor a operação de codificação de apagamento. Quando determinado, o motor ILM envia uma solicitação de "iniciar" para esse serviço.
+. O serviço DDS instrui um LDR a apagar os dados do objeto.
+. O serviço LDR de origem envia uma cópia para o serviço LDR selecionado para codificação de apagamento.
+. Depois de criar o número apropriado de paridade e fragmentos de dados, o serviço LDR distribui esses fragmentos pelos nós de armazenamento (serviços Chunk) que compõem o pool de armazenamento do perfil de codificação de apagamento.
+. O serviço LDR notifica o mecanismo ILM, confirmando que os dados do objeto são distribuídos com sucesso.
+. O mecanismo ILM atualiza o armazenamento de metadados com metadados de localização de objetos.
+
+
+
+
+== Proteção de conteúdo: Cloud Storage Pool
+
+Se as instruções de posicionamento de conteúdo de uma regra ILM exigirem que uma cópia replicada dos dados de objetos seja armazenada em um Cloud Storage Pool, os dados de objetos serão duplicados para o bucket externo do S3 ou para o contêiner de storage Azure Blob especificado para o Cloud Storage Pool.
+
+O mecanismo ILM, que é um componente do serviço LDR, e o serviço Data Mover controlam o movimento de objetos para o Cloud Storage Pool.
+
+image::../media/cloud_storage_pool_data_flow.png[Fluxo de dados de pool de storage de nuvem]
+
+. O mecanismo ILM seleciona um serviço Data Mover para replicação no Cloud Storage Pool.
+. O serviço Data Mover envia os dados do objeto para o Cloud Storage Pool.
+. O serviço Data Mover notifica o mecanismo ILM de que os dados do objeto foram armazenados.
+. O mecanismo ILM atualiza o armazenamento de metadados com metadados de localização de objetos.
+

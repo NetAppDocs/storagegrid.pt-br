@@ -1,0 +1,258 @@
+---
+permalink: troubleshoot/verifying-object-integrity.html 
+sidebar: sidebar 
+keywords: how to verify object integrity, object existence check, background verification 
+summary: O sistema StorageGRID verifica a integridade dos dados de objetos nos nós de storage, verificando se há objetos corrompidos ou ausentes. 
+---
+= Verifique a integridade do objeto
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O sistema StorageGRID verifica a integridade dos dados de objetos nos nós de storage, verificando se há objetos corrompidos ou ausentes.
+
+Existem dois processos de verificação: Verificação de fundo e verificação de existência de objeto (anteriormente chamada de verificação de primeiro plano). Eles trabalham juntos para garantir a integridade dos dados. A verificação em segundo plano é executada automaticamente e verifica continuamente a correção dos dados do objeto. Verificação de existência de objeto pode ser acionada por um usuário para verificar mais rapidamente a existência (embora não a correção) de objetos.
+
+
+
+== O que é a verificação em segundo plano?
+
+O processo de verificação em segundo plano verifica automaticamente e continuamente os nós de storage em busca de cópias corrompidas de dados de objetos e tenta reparar automaticamente quaisquer problemas encontrados.
+
+A verificação em segundo plano verifica a integridade dos objetos replicados e dos objetos codificados por apagamento, da seguinte forma:
+
+* *Objetos replicados*: Se o processo de verificação em segundo plano encontrar um objeto replicado que está corrompido, a cópia corrompida será removida de seu local e colocada em quarentena em outro lugar no nó de armazenamento. Em seguida, uma nova cópia não corrompida é gerada e colocada para satisfazer as políticas ILM ativas. A nova cópia pode não ser colocada no nó de armazenamento que foi usado para a cópia original.
+
+
+
+NOTE: Os dados de objetos corrompidos são colocados em quarentena em vez de excluídos do sistema, para que ainda possam ser acessados. Para obter mais informações sobre como acessar dados de objetos em quarentena, entre em Contato com o suporte técnico.
+
+* *Objetos codificados por apagamento*: Se o processo de verificação em segundo plano detetar que um fragmento de um objeto codificado por apagamento está corrompido, o StorageGRID tentará automaticamente reconstruir o fragmento ausente no mesmo nó de storage, usando os dados restantes e fragmentos de paridade. Se o fragmento corrompido não puder ser reconstruído, uma tentativa é feita para recuperar outra cópia do objeto. Se a recuperação for bem-sucedida, uma avaliação ILM será executada para criar uma cópia de substituição do objeto codificado de apagamento.
++
+O processo de verificação em segundo plano verifica objetos apenas nos nós de storage. Ele não verifica objetos em um pool de armazenamento em nuvem. Os objetos devem ter mais de quatro dias para serem qualificados para verificação em segundo plano.
+
+
+
+A verificação em segundo plano é executada a uma taxa contínua que é projetada para não interferir nas atividades comuns do sistema. A verificação em segundo plano não pode ser interrompida. No entanto, você pode aumentar a taxa de verificação em segundo plano para verificar mais rapidamente o conteúdo de um nó de armazenamento se suspeitar de um problema.
+
+
+
+=== Alertas relacionados à verificação em segundo plano
+
+Se o sistema detetar um objeto corrompido que ele não pode corrigir automaticamente (porque a corrupção impede que o objeto seja identificado), o alerta *Objeto corrompido não identificado detetado* é acionado.
+
+Se a verificação em segundo plano não puder substituir um objeto corrompido porque ele não consegue localizar outra cópia, o alerta *objetos perdidos* é acionado.
+
+
+
+=== Altere a taxa de verificação em segundo plano
+
+Você pode alterar a taxa na qual a verificação em segundo plano verifica os dados de objetos replicados em um nó de storage se tiver preocupações com a integridade dos dados.
+
+.Antes de começar
+* Você deve estar conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
+
+
+.Sobre esta tarefa
+Você pode alterar a taxa de verificação para verificação em segundo plano em um nó de storage:
+
+* Adaptive (adaptável): Predefinição. A tarefa foi projetada para verificar no máximo 4 MB/s ou 10 objetos/s (o que for excedido primeiro).
+* Alta: A verificação do armazenamento prossegue rapidamente, a uma taxa que pode retardar as atividades normais do sistema.
+
+
+Use a taxa de verificação alta somente quando suspeitar que uma falha de hardware ou software pode ter dados de objeto corrompidos. Após a conclusão da verificação de fundo de alta prioridade, a taxa de verificação é automaticamente redefinida para Adaptive (adaptável).
+
+.Passos
+. Selecione *SUPPORT* > *Tools* > *Grid topology*.
+. Selecione *_Storage Node_* > *LDR* > *Verificação*.
+. Selecione *Configuração* > *Principal*.
+. Aceda a *LDR* > *Verificação* > *Configuração* > *Principal*.
+. Em Verificação em segundo plano, selecione *taxa de verificação* > *alta* ou *taxa de verificação* > *adaptável*.
++
+image::../media/background_verification_rate.png[Definição da taxa de verificação]
+
+. Clique em *aplicar alterações*.
+. Monitore os resultados da verificação em segundo plano para objetos replicados.
++
+.. Vá para *NODES* > *_Storage Node_* > *Objects*.
+.. Na seção Verificação, monitore os valores para *objetos corrompidos* e *objetos corrompidos não identificados*.
++
+Se a verificação em segundo plano encontrar dados de objeto replicados corrompidos, a métrica *objetos corrompidos* será incrementada e o StorageGRID tentará extrair o identificador de objeto dos dados, da seguinte forma:
+
++
+*** Se o identificador do objeto puder ser extraído, o StorageGRID criará automaticamente uma nova cópia dos dados do objeto. A nova cópia pode ser feita em qualquer lugar do sistema StorageGRID que satisfaça as políticas ativas de ILM.
+*** Se o identificador de objeto não puder ser extraído (porque foi corrompido), a métrica *objetos corrompidos não identificados* é incrementada e o alerta *Objeto corrompido não identificado detetado* é acionado.
+
+
+.. Se forem encontrados dados de objeto replicados corrompidos, entre em Contato com o suporte técnico para determinar a causa raiz da corrupção.
+
+
+. Monitore os resultados da verificação em segundo plano para objetos codificados por apagamento.
++
+Se a verificação em segundo plano encontrar fragmentos corrompidos de dados de objetos codificados por apagamento, o atributo fragmentos corrompidos detetados é incrementado. O StorageGRID se recupera reconstruindo o fragmento corrompido no mesmo nó de storage.
+
++
+.. Selecione *SUPPORT* > *Tools* > *Grid topology*.
+.. Selecione *_Storage Node_* > *LDR* > *Erasure Coding*.
+.. Na tabela resultados da verificação, monitore o atributo fragmentos corrompidos detetados (ECCD).
+
+
+. Depois que os objetos corrompidos forem restaurados automaticamente pelo sistema StorageGRID, redefina a contagem de objetos corrompidos.
++
+.. Selecione *SUPPORT* > *Tools* > *Grid topology*.
+.. Selecione *_Storage Node_* > *LDR* > *Verificação* > *Configuração*.
+.. Selecione *Redefinir contagem de objetos corrompidos*.
+.. Clique em *aplicar alterações*.
+
+
+. Se você estiver confiante de que objetos em quarentena não são necessários, você pode excluí-los.
++
+
+NOTE: Se o alerta *Objects Lost* foi acionado, o suporte técnico pode querer acessar objetos em quarentena para ajudar a depurar o problema subjacente ou tentar a recuperação de dados.
+
++
+.. Selecione *SUPPORT* > *Tools* > *Grid topology*.
+.. Selecione *_Storage Node_* > *LDR* > *Verificação* > *Configuração*.
+.. Selecione *Excluir objetos em quarentena*.
+.. Selecione *aplicar alterações*.
+
+
+
+
+
+
+== O que é verificação de existência de objeto?
+
+A verificação de existência de objeto verifica se todas as cópias replicadas esperadas de objetos e fragmentos codificados por apagamento existem em um nó de storage. A verificação de existência do objeto não verifica os dados do objeto em si (a verificação em segundo plano faz isso); em vez disso, fornece uma maneira de verificar a integridade dos dispositivos de armazenamento, especialmente se um problema de hardware recente poderia ter afetado a integridade dos dados.
+
+Ao contrário da verificação em segundo plano, que ocorre automaticamente, você deve iniciar manualmente uma tarefa de verificação de existência de objeto.
+
+A verificação de existência de objeto lê os metadados de cada objeto armazenado no StorageGRID e verifica a existência de cópias de objeto replicadas e fragmentos de objeto codificados por apagamento. Quaisquer dados em falta são tratados da seguinte forma:
+
+* *Cópias replicadas*: Se uma cópia de dados de objetos replicados estiver ausente, o StorageGRID tentará substituir automaticamente a cópia de uma cópia armazenada em outro lugar do sistema. O nó de armazenamento executa uma cópia existente através de uma avaliação ILM, que determinará que a política ILM atual não está mais sendo atendida para este objeto porque outra cópia está faltando. Uma nova cópia é gerada e colocada para satisfazer as políticas de ILM ativas do sistema. Esta nova cópia pode não ser colocada no mesmo local onde a cópia em falta foi armazenada.
+* *Fragmentos codificados por apagamento*: Se um fragmento de um objeto codificado por apagamento estiver ausente, o StorageGRID tentará reconstruir automaticamente o fragmento ausente no mesmo nó de storage usando os fragmentos restantes. Se o fragmento ausente não puder ser reconstruído (porque muitos fragmentos foram perdidos), o ILM tenta encontrar outra cópia do objeto, que ele pode usar para gerar um novo fragmento codificado de apagamento.
+
+
+
+
+=== Executar verificação de existência de objeto
+
+Você cria e executa um trabalho de verificação de existência de objeto de cada vez. Ao criar uma tarefa, você seleciona os nós de storage e os volumes que deseja verificar. Você também seleciona a consistência do trabalho.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:../admin/admin-group-permissions.html["Permissão de manutenção ou acesso root"].
+* Você garantiu que os nós de storage que deseja verificar estão online. Selecione *NÓS* para exibir a tabela de nós. Certifique-se de que nenhum ícone de alerta aparece ao lado do nome do nó para os nós que você deseja verificar.
+* Você garantiu que os seguintes procedimentos estão *não* sendo executados nos nós que deseja verificar:
++
+** Expansão de grade para adicionar um nó de storage
+** Desativação do nó de storage
+** Recuperação de um volume de armazenamento com falha
+** Recuperação de um nó de armazenamento com uma unidade de sistema com falha
+** Rebalancear a EC
+** Clone de nó do dispositivo
+
+
+
+
+A verificação existência de objeto não fornece informações úteis enquanto estes procedimentos estão em curso.
+
+.Sobre esta tarefa
+Uma tarefa de verificação de existência de objeto pode levar dias ou semanas para ser concluída, dependendo do número de objetos na grade, dos nós e volumes de storage selecionados e da consistência selecionada. Você pode executar apenas uma tarefa de cada vez, mas pode selecionar vários nós e volumes de storage ao mesmo tempo.
+
+.Passos
+. Selecione *MAINTENANCE* > *Tasks* > *Object existence check*.
+. Selecione *criar trabalho*. O assistente criar uma tarefa de verificação de existência de objeto é exibido.
+. Selecione os nós que contêm os volumes que você deseja verificar. Para selecionar todos os nós on-line, marque a caixa de seleção *Nome do nó* no cabeçalho da coluna.
++
+Você pode pesquisar por nome do nó ou site.
+
++
+Não é possível selecionar nós que não estão conetados à grade.
+
+. Selecione *continuar*.
+. Selecione um ou mais volumes para cada nó na lista. Você pode pesquisar volumes usando o número do volume de armazenamento ou o nome do nó.
++
+Para selecionar todos os volumes para cada nó selecionado, marque a caixa de seleção *volume de armazenamento* no cabeçalho da coluna.
+
+. Selecione *continuar*.
+. Selecione a consistência do trabalho.
++
+A consistência determina quantas cópias dos metadados de objetos são usadas para a verificação de existência do objeto.
+
++
+** * Strong-site*: Duas cópias de metadados em um único site.
+** *Strong-global*: Duas cópias de metadados em cada local.
+** *Todos* (padrão): Todas as três cópias de metadados em cada site.
++
+Para obter mais informações sobre consistência, consulte as descrições no assistente.
+
+
+
+. Selecione *continuar*.
+. Reveja e verifique as suas seleções. Você pode selecionar *Previous* para ir para uma etapa anterior no assistente para atualizar suas seleções.
++
+Uma tarefa de verificação de existência de objeto é gerada e é executada até que uma das seguintes situações ocorra:
+
++
+** O trabalho é concluído.
+** Pausa ou cancelar o trabalho. Você pode retomar um trabalho em pausa, mas não pode retomar um trabalho cancelado.
+** O trabalho vai abaixo. O alerta *Object existence check has stalled* é acionado. Siga as ações corretivas especificadas para o alerta.
+** O trabalho falha. O alerta *Verificação de existência de objeto falhou* é acionado. Siga as ações corretivas especificadas para o alerta.
+** É apresentada uma mensagem "Service unavailable" (Serviço indisponível) ou "Internal Server error" (erro interno do servidor). Após um minuto, atualize a página para continuar a monitorizar o trabalho.
++
+
+NOTE: Conforme necessário, você pode navegar para longe da página de verificação existência de Objeto e retornar para continuar monitorando o trabalho.
+
+
+
+. À medida que a tarefa é executada, exiba a guia *trabalho ativo* e observe o valor de cópias de objetos ausentes detetadas.
++
+Esse valor representa o número total de cópias ausentes de objetos replicados e objetos codificados por apagamento com um ou mais fragmentos ausentes.
+
++
+Se o número de cópias de objetos ausentes detetadas for maior que 100, pode haver um problema com o armazenamento do nó de armazenamento.
+
++
+image::../media/oec_active.png[Trabalho ativo OEC]
+
+. Após a conclusão do trabalho, execute quaisquer ações adicionais necessárias:
++
+** Se as cópias de objeto em falta detetadas forem zero, não foram encontrados problemas. Nenhuma ação é necessária.
+** Se as cópias de objetos em falta detetadas forem maiores que zero e o alerta *objetos perdidos* não tiver sido acionado, todas as cópias em falta foram reparadas pelo sistema. Verifique se quaisquer problemas de hardware foram corrigidos para evitar danos futuros às cópias de objetos.
+** Se as cópias de objetos em falta detetadas forem maiores que zero e o alerta *objetos perdidos* tiver sido acionado, a integridade dos dados poderá ser afetada. Entre em Contato com o suporte técnico.
+** Você pode investigar cópias de objetos perdidos usando grep para extrair as mensagens de auditoria LLST: `grep LLST audit_file_name`.
++
+Este procedimento é semelhante ao de link:../troubleshoot/investigating-lost-objects.html["investigando objetos perdidos"], embora para cópias de objetos que você pesquise em `LLST` vez `OLST` de .
+
+
+
+. Se você selecionou a consistência forte ou forte-global para a tarefa, aguarde aproximadamente três semanas pela consistência dos metadados e execute novamente a tarefa nos mesmos volumes novamente.
++
+Quando o StorageGRID tiver tido tempo para alcançar a consistência de metadados para os nós e volumes incluídos na tarefa, a execução novamente da tarefa pode limpar cópias de objetos ausentes relatadas erroneamente ou fazer com que cópias de objetos adicionais sejam verificadas se elas foram perdidas.
+
++
+.. Selecione *MAINTENANCE* > *Object existence check* > *Job history*.
+.. Determine quais trabalhos estão prontos para serem executados novamente:
++
+... Olhe para a coluna *hora de fim* para determinar quais trabalhos foram executados há mais de três semanas.
+... Para esses trabalhos, examine a coluna de controle de consistência para sites fortes ou globais.
+
+
+.. Selecione a caixa de verificação para cada trabalho que pretende executar novamente e, em seguida, selecione *Reexecutar*.
++
+image::../media/oec_rerun.png[Reexecutar o OEC]
+
+.. No assistente de reexecução de trabalhos, reveja os nós e volumes selecionados e a consistência.
+.. Quando estiver pronto para executar novamente os trabalhos, selecione *Reexecutar*.
+
+
+
+
+É apresentado o separador trabalho ativo. Todos os trabalhos selecionados são reexecutados como um trabalho com consistência de um local forte. Um campo *trabalhos relacionados* na seção Detalhes lista os IDs dos trabalhos originais.
+
+.Depois de terminar
+Se ainda tiver preocupações sobre a integridade dos dados, aceda a *SUPPORT* > *Tools* > *Grid topoly* > *_site_* > *_Storage Node_* > *LDR* > *Verification* > *Configuration* > *Main* e aumente a taxa de verificação em segundo plano. A verificação em segundo plano verifica a exatidão de todos os dados de objetos armazenados e repara quaisquer problemas que encontrar. Encontrar e reparar possíveis problemas o mais rápido possível reduz o risco de perda de dados.

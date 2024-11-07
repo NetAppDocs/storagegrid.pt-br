@@ -1,0 +1,80 @@
+---
+permalink: maintain/restoring-network-connectivity-for-isolated-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, network connection, restore network connection, isolated node, restore isolated node connection 
+summary: Em certas circunstâncias, um ou mais grupos de nós podem não ser capazes de entrar em Contato com o resto da grade. Por exemplo, alterações de endereço IP em todo o local ou grade podem resultar em nós isolados. 
+---
+= Restaure a conetividade de rede para nós isolados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Em certas circunstâncias, um ou mais grupos de nós podem não ser capazes de entrar em Contato com o resto da grade. Por exemplo, alterações de endereço IP em todo o local ou grade podem resultar em nós isolados.
+
+.Sobre esta tarefa
+O isolamento do nó é indicado por:
+
+* Alertas, como *não é possível se comunicar com o nó* (*Alertas* > *atual*)
+* Diagnósticos relacionados à conetividade (*SUPORTE* > *Ferramentas* > *Diagnóstico*)
+
+
+Algumas das consequências de ter nós isolados incluem o seguinte:
+
+* Se vários nós estiverem isolados, talvez você não consiga entrar ou acessar o Gerenciador de Grade.
+* Se vários nós estiverem isolados, o uso do storage e os valores de cota mostrados no painel do Gerenciador do locatário podem estar desatualizados. Os totais serão atualizados quando a conetividade de rede for restaurada.
+
+
+Para resolver o problema de isolamento, você executa um utilitário de linha de comando em cada nó isolado ou em um nó em um grupo (todos os nós em uma sub-rede que não contém o nó Admin principal) que é isolado da grade. O utilitário fornece aos nós o endereço IP de um nó não isolado na grade, o que permite que o nó isolado ou grupo de nós entre em Contato com toda a grade novamente.
+
+
+NOTE: Se o sistema de nomes de domínio multicast (mDNS) estiver desativado nas redes, talvez seja necessário executar o utilitário de linha de comando em cada nó isolado.
+
+.Passos
+Este procedimento não se aplica quando apenas alguns serviços estão offline ou a comunicar erros de comunicação.
+
+. Acesse o nó e `/var/local/log/dynip.log` verifique se há mensagens de isolamento.
++
+Por exemplo:
+
++
+[listing]
+----
+[2018-01-09T19:11:00.545] UpdateQueue - WARNING -- Possible isolation, no contact with other nodes.
+If this warning persists, manual action might be required.
+----
++
+Se você estiver usando o console VMware, ele conterá uma mensagem informando que o nó pode estar isolado.
+
++
+Nas implantações Linux, as mensagens de isolamento aparecerão nos `/var/log/storagegrid/node/<nodename>.log` arquivos.
+
+. Se as mensagens de isolamento forem recorrentes e persistentes, execute o seguinte comando:
++
+`add_node_ip.py <address>`
+
++
+ `<address>`Onde está o endereço IP de um nó remoto que está conetado à grade.
+
++
+[listing]
+----
+# /usr/sbin/add_node_ip.py  10.224.4.210
+
+Retrieving local host information
+Validating remote node at address 10.224.4.210
+Sending node IP hint for 10.224.4.210 to local node
+Local node found on remote node. Update complete.
+----
+. Verifique o seguinte para cada nó que foi isolado anteriormente:
++
+** Os serviços do nó foram iniciados.
+** O estado do serviço IP dinâmico é "em execução" depois de executar o `storagegrid-status` comando.
+** Na página nós, o nó não aparece mais desconetado do resto da grade.
+
+
+
+
+
+NOTE: Se a execução do `add_node_ip.py` comando não resolver o problema, pode haver outros problemas de rede que precisam ser resolvidos.

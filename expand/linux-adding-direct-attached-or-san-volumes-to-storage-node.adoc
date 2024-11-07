@@ -1,0 +1,186 @@
+---
+permalink: expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html 
+sidebar: sidebar 
+keywords: expansion, Linux, add storage volumes 
+summary: Se um nó de armazenamento incluir menos de 16 volumes de armazenamento, você poderá aumentar sua capacidade adicionando novos dispositivos de armazenamento de bloco, tornando-os visíveis aos hosts Linux e adicionando os novos mapeamentos de dispositivo de bloco ao arquivo de configuração do StorageGRID usado para o nó de armazenamento. 
+---
+= Linux: Adicione volumes de SAN ou de conexão direta ao nó de storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se um nó de armazenamento incluir menos de 16 volumes de armazenamento, você poderá aumentar sua capacidade adicionando novos dispositivos de armazenamento de bloco, tornando-os visíveis aos hosts Linux e adicionando os novos mapeamentos de dispositivo de bloco ao arquivo de configuração do StorageGRID usado para o nó de armazenamento.
+
+.Antes de começar
+* Você tem acesso às instruções para instalar o StorageGRID para sua plataforma Linux.
++
+** link:../rhel/index.html["Instale o StorageGRID no Red Hat Enterprise Linux"]
+** link:../ubuntu/index.html["Instale o StorageGRID no Ubuntu ou Debian"]
+
+
+* Você tem o `Passwords.txt` arquivo.
+* Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
+
+
+
+CAUTION: Não tente adicionar volumes de armazenamento a um nó de armazenamento enquanto uma atualização de software, procedimento de recuperação ou outro procedimento de expansão estiver ativo.
+
+.Sobre esta tarefa
+O nó de armazenamento não está disponível por um breve período de tempo quando você adiciona volumes de armazenamento. Você deve executar este procedimento em um nó de storage de cada vez para evitar afetar os serviços de grade voltados para o cliente.
+
+.Passos
+. Instale o novo hardware de armazenamento.
++
+Para obter mais informações, consulte a documentação fornecida pelo fornecedor de hardware.
+
+. Crie novos volumes de armazenamento de blocos dos tamanhos desejados.
++
+** Anexe as novas unidades e atualize a configuração da controladora RAID conforme necessário, ou aloque os novos LUNs SAN nos storages de armazenamento compartilhados e permita que o host Linux as acesse.
+** Use o mesmo esquema de nomenclatura persistente usado para os volumes de storage no nó de storage existente.
+** Se você usar o recurso de migração de nó do StorageGRID, torne os novos volumes visíveis para outros hosts Linux que são destinos de migração para este nó de storage. Para obter mais informações, consulte as instruções para instalar o StorageGRID para sua plataforma Linux.
+
+
+. Faça login no host Linux que suporta o nó de storage como raiz ou com uma conta que tenha permissão sudo.
+. Confirme se os novos volumes de armazenamento estão visíveis no host Linux.
++
+Talvez seja necessário voltar a digitalizar dispositivos.
+
+. Execute o seguinte comando para desativar temporariamente o nó de armazenamento:
++
+`sudo storagegrid node stop <node-name>`
+
+. Usando um editor de texto como vim ou pico, edite o arquivo de configuração do nó para o nó de armazenamento, que pode ser encontrado em `/etc/storagegrid/nodes/<node-name>.conf`.
+. Localize a seção do arquivo de configuração do nó que contém os mapeamentos de dispositivo de bloco de armazenamento de objetos existentes.
++
+No exemplo, `BLOCK_DEVICE_RANGEDB_00` `BLOCK_DEVICE_RANGEDB_03` para são os mapeamentos de dispositivo de bloco de armazenamento de objetos existentes.
+
++
+[listing, subs="specialcharacters,quotes"]
+----
+NODE_TYPE = VM_Storage_Node
+ADMIN_IP = 10.1.0.2
+BLOCK_DEVICE_VAR_LOCAL = /dev/mapper/sgws-sn1-var-local
+*BLOCK_DEVICE_RANGEDB_00 = /dev/mapper/sgws-sn1-rangedb-0*
+*BLOCK_DEVICE_RANGEDB_01 = /dev/mapper/sgws-sn1-rangedb-1*
+*BLOCK_DEVICE_RANGEDB_02 = /dev/mapper/sgws-sn1-rangedb-2*
+*BLOCK_DEVICE_RANGEDB_03 = /dev/mapper/sgws-sn1-rangedb-3*
+GRID_NETWORK_TARGET = bond0.1001
+ADMIN_NETWORK_TARGET = bond0.1002
+CLIENT_NETWORK_TARGET = bond0.1003
+GRID_NETWORK_IP = 10.1.0.3
+GRID_NETWORK_MASK = 255.255.255.0
+GRID_NETWORK_GATEWAY = 10.1.0.1
+----
+. Adicione novos mapeamentos de dispositivo de bloco de armazenamento de objetos correspondentes aos volumes de armazenamento de bloco adicionados para este nó de armazenamento.
++
+Certifique-se de começar no `BLOCK_DEVICE_RANGEDB_nn` próximo . Não deixe uma lacuna.
+
++
+** Com base no exemplo acima, comece em `BLOCK_DEVICE_RANGEDB_04`.
+** No exemplo abaixo, quatro novos volumes de armazenamento de bloco foram adicionados ao nó: `BLOCK_DEVICE_RANGEDB_04` Para `BLOCK_DEVICE_RANGEDB_07`.
+
+
++
+[listing, subs="specialcharacters,quotes"]
+----
+NODE_TYPE = VM_Storage_Node
+ADMIN_IP = 10.1.0.2
+BLOCK_DEVICE_VAR_LOCAL = /dev/mapper/sgws-sn1-var-local
+BLOCK_DEVICE_RANGEDB_00 = /dev/mapper/sgws-sn1-rangedb-0
+BLOCK_DEVICE_RANGEDB_01 = /dev/mapper/sgws-sn1-rangedb-1
+BLOCK_DEVICE_RANGEDB_02 = /dev/mapper/sgws-sn1-rangedb-2
+BLOCK_DEVICE_RANGEDB_03 = /dev/mapper/sgws-sn1-rangedb-3
+*BLOCK_DEVICE_RANGEDB_04 = /dev/mapper/sgws-sn1-rangedb-4*
+*BLOCK_DEVICE_RANGEDB_05 = /dev/mapper/sgws-sn1-rangedb-5*
+*BLOCK_DEVICE_RANGEDB_06 = /dev/mapper/sgws-sn1-rangedb-6*
+*BLOCK_DEVICE_RANGEDB_07 = /dev/mapper/sgws-sn1-rangedb-7*
+GRID_NETWORK_TARGET = bond0.1001
+ADMIN_NETWORK_TARGET = bond0.1002
+CLIENT_NETWORK_TARGET = bond0.1003
+GRID_NETWORK_IP = 10.1.0.3
+GRID_NETWORK_MASK = 255.255.255.0
+GRID_NETWORK_GATEWAY = 10.1.0.1
+----
+. Execute o seguinte comando para validar suas alterações no arquivo de configuração do nó para o nó de armazenamento:
++
+`sudo storagegrid node validate <node-name>`
+
++
+Solucione quaisquer erros ou avisos antes de prosseguir para a próxima etapa.
+
++
+[NOTE]
+====
+Se você observar um erro semelhante ao seguinte, isso significa que o arquivo de configuração do nó está tentando mapear o dispositivo de bloco usado por `<node-name>` para para para `<PURPOSE>` dado `<path-name>` no sistema de arquivos Linux, mas não há um arquivo especial válido de dispositivo de bloco (ou softlink para um arquivo especial de dispositivo de bloco) nesse local.
+
+[listing]
+----
+Checking configuration file for node <node-name>…
+ERROR: BLOCK_DEVICE_<PURPOSE> = <path-name>
+<path-name> is not a valid block device
+----
+Verifique se você inseriu o `<path-name>` correto .
+
+====
+. Execute o seguinte comando para reiniciar o nó com os novos mapeamentos de dispositivo de bloco em vigor:
++
+`sudo storagegrid node start <node-name>`
+
+. Faça login no nó de armazenamento como administrador usando a senha listada no `Passwords.txt` arquivo.
+. Verifique se os serviços começam corretamente:
++
+.. Veja uma lista do status de todos os serviços no servidor
+`sudo storagegrid-status`
++
+O estado é atualizado automaticamente.
+
+.. Aguarde até que todos os serviços estejam em execução ou verificados.
+.. Saia do ecrã de estado:
++
+`Ctrl+C`
+
+
+
+. Configure o novo armazenamento para uso pelo nó de armazenamento:
++
+.. Configure os novos volumes de armazenamento:
++
+`sudo add_rangedbs.rb`
+
++
+Este script encontra quaisquer novos volumes de armazenamento e solicita que você os formate.
+
+.. Digite *y* para formatar os volumes de armazenamento.
+.. Se algum dos volumes tiver sido formatado anteriormente, decida se deseja reformatá-los.
++
+*** Introduza *y* para reformatar.
+*** Digite *n* para ignorar a reformatação.
+
+
+
+
++
+O `setup_rangedbs.sh` script é executado automaticamente.
+
+. Verifique se o estado de storage do nó de storage está online:
++
+.. Faça login no Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+.. Selecione *SUPPORT* > *Tools* > *Grid topology*.
+.. Selecione *_site_* > *_Storage Node_* > *LDR* > *Storage*.
+.. Selecione a guia *Configuração* e a guia *Principal*.
+.. Se a lista suspensa *Estado de armazenamento - desejado* estiver definida como somente leitura ou Offline, selecione *Online*.
+.. Clique em *aplicar alterações*.
+
+
+. Para ver os novos armazenamentos de objetos:
++
+.. Selecione *NÓS* > *_site_* > *_Storage Node_* > *Storage*.
+.. Veja os detalhes na tabela *Object Stores*.
+
+
+
+
+.Resultado
+Agora você pode usar a capacidade expandida dos nós de storage para salvar dados de objetos.

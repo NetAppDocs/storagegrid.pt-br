@@ -1,0 +1,27 @@
+---
+permalink: network/subnet-requirements.html 
+sidebar: sidebar 
+keywords: network subnets 
+summary: Siga estes requisitos e diretrizes para sub-redes de rede. 
+---
+= Requisitos de sub-rede
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga estes requisitos e diretrizes para sub-redes de rede.
+
+
+NOTE: Cada rede deve estar conetada à sua própria sub-rede que não se sobreponha a nenhuma outra rede no nó.
+
+As seguintes restrições são impostas pelo Gerenciador de Grade durante a implantação. Eles são fornecidos aqui para ajudar no Planejamento de rede pré-implantação.
+
+* A máscara de sub-rede para qualquer endereço IP de rede não pode ser 255.255.255.254 ou 255.255.255.255 (/31 ou /32 em notação CIDR).
+* A sub-rede definida por um endereço IP de interface de rede e uma máscara de sub-rede (CIDR) não pode sobrepor a sub-rede de qualquer outra interface configurada no mesmo nó.
+* A sub-rede da rede de Grade para cada nó deve ser incluída no GNSL.
+* A sub-rede Admin Network não pode sobrepor a sub-rede Grid Network, a sub-rede Client Network ou qualquer sub-rede no GNSL.
+* As sub-redes no AESL não podem se sobrepor com nenhuma sub-rede no GNSL.
+* A sub-rede da rede do cliente não pode sobrepor a sub-rede da rede da grade, a sub-rede da rede do administrador, qualquer sub-rede no GNSL ou qualquer sub-rede no AESL.
+

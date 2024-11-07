@@ -1,0 +1,55 @@
+---
+permalink: audit/ebkr-empty-bucket-request.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, EBKR, Empty Bucket Request 
+summary: 'Essa mensagem indica que um usuário enviou uma solicitação para ativar ou desativar o bucket vazio (ou seja, para excluir objetos do bucket ou parar de excluir objetos).' 
+---
+= EBKR: Pedido de balde vazio
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Essa mensagem indica que um usuário enviou uma solicitação para ativar ou desativar o bucket vazio (ou seja, para excluir objetos do bucket ou parar de excluir objetos).
+
+[cols="1a,1a,4a"]
+|===
+| Código | Campo | Descrição 
+
+
+ a| 
+BUID
+ a| 
+UUID do balde
+ a| 
+A ID do balde.
+
+
+
+ a| 
+EBJS
+ a| 
+Configuração JSON do bucket vazio
+ a| 
+Contém o JSON que representa a configuração atual de bucket vazio.
+
+
+
+ a| 
+S3AI
+ a| 
+S3 ID da conta do locatário
+ a| 
+O ID da conta do locatário do usuário que enviou a solicitação. Um valor vazio indica acesso anônimo.
+
+
+
+ a| 
+S3BK
+ a| 
+S3 balde
+ a| 
+O nome do bucket S3.
+
+|===

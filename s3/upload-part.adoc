@@ -1,0 +1,60 @@
+---
+permalink: s3/upload-part.html 
+sidebar: sidebar 
+keywords: s3 UploadPart operation 
+summary: A operação UploadPart carrega uma parte em um upload multipart para um objeto. 
+---
+= UploadPart
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A operação UploadPart carrega uma parte em um upload multipart para um objeto.
+
+
+
+== Cabeçalhos de solicitação suportados
+
+Os seguintes cabeçalhos de solicitação são suportados:
+
+* `x-amz-checksum-sha256`
+* `Content-Length`
+* `Content-MD5`
+
+
+
+
+== Cabeçalhos de solicitação para criptografia do lado do servidor
+
+Se você especificou criptografia SSE-C para a solicitação CreateMultipartUpload, você também deve incluir os seguintes cabeçalhos de solicitação em cada solicitação UploadPart:
+
+* `x-amz-server-side-encryption-customer-algorithm`: Especificar `AES256`.
+* `x-amz-server-side-encryption-customer-key`: Especifique a mesma chave de criptografia fornecida na solicitação CreateMultipartUpload.
+* `x-amz-server-side-encryption-customer-key-MD5`: Especifique o mesmo resumo MD5 que você forneceu na solicitação CreateMultipartUpload.
+
+
+
+CAUTION: As chaves de criptografia que você fornece nunca são armazenadas. Se você perder uma chave de criptografia, perderá o objeto correspondente. Antes de usar chaves fornecidas pelo cliente para proteger os dados do objeto, revise as considerações no link:using-server-side-encryption.html["Use a criptografia do lado do servidor"].
+
+Se você especificou uma soma de verificação SHA-256 durante a solicitação CreateMultipartUpload, você também deve incluir o seguinte cabeçalho de solicitação em cada solicitação UploadPart:
+
+* `x-amz-checksum-sha256`: Especifique a soma de verificação SHA-256 para esta parte.
+
+
+
+
+== Cabeçalhos de solicitação não suportados
+
+Os seguintes cabeçalhos de solicitação não são suportados:
+
+* `x-amz-sdk-checksum-algorithm`
+* `x-amz-trailer`
+
+
+
+
+== Controle de versão
+
+O upload de várias partes consiste em operações separadas para iniciar o upload, listar uploads, carregar peças, montar as peças carregadas e concluir o upload. Os objetos são criados (e versionados, se aplicável) quando a operação CompleteMultipartUpload é executada.

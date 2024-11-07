@@ -1,0 +1,20 @@
+= 
+:allow-uri-read: 
+
+
+.Antes de começar
+* Você deve estar conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você deve ter a permissão de acesso root ou outra configuração de grade.
+
+
+.Passos
+. Selecione *SUPPORT* > *Tools* > *AutoSupport*.
+. Na guia *ações*, selecione *Enviar AutoSupport acionado pelo usuário*.
++
+O StorageGRID tenta enviar um pacote AutoSupport para o site de suporte da NetApp. Se a tentativa for bem-sucedida, os valores *resultado mais recente* e *último tempo bem-sucedido* na guia *resultados* serão atualizados. Se houver um problema, o valor *resultado mais recente* será atualizado para "Falha" e o StorageGRID não tentará enviar o pacote AutoSupport novamente.
+
++
+
+TIP: Depois de enviar um pacote AutoSupport acionado pelo usuário, atualize a página AutoSupport no seu navegador após 1 minuto para acessar os resultados mais recentes.
+
+

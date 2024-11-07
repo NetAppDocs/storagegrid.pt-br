@@ -1,0 +1,31 @@
+= 
+:allow-uri-read: 
+
+
+[cols="1a,3a"]
+|===
+| Permissão | Se selecionado... 
+
+
+ a| 
+Permitir serviços de plataforma
+ a| 
+O locatário pode usar serviços de plataforma S3, como o CloudMirror. link:../admin/manage-platform-services-for-tenants.html["Gerencie os serviços de plataforma para contas de inquilino S3"]Consulte .
+
+
+
+ a| 
+Use a própria fonte de identidade
+ a| 
+O locatário pode configurar e gerenciar sua própria fonte de identidade para grupos federados e usuários. Esta opção é desativada se tiver link:../admin/configuring-sso.html["SSO configurado"] para o seu sistema StorageGRID.
+
+
+
+ a| 
+Permitir S3 Selecione
+ a| 
+O locatário pode emitir S3 solicitações de API SelectObjectContent para filtrar e recuperar dados de objeto. link:../admin/manage-s3-select-for-tenant-accounts.html["Gerenciar S3 Selecione para contas de inquilino"]Consulte .
+
+*Importante*: As solicitações SelectObjectContent podem diminuir o desempenho do balanceador de carga para todos os clientes S3 e todos os locatários. Ative esse recurso somente quando necessário e somente para locatários confiáveis.
+
+|===

@@ -1,0 +1,47 @@
+---
+permalink: audit/sadd-security-audit-disable.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, SADD, Security Audit Disable 
+summary: 'Esta mensagem indica que o serviço de origem "(ID do nó) desativou o Registro de mensagens de auditoria; as mensagens de auditoria não estão mais sendo coletadas ou entregues.' 
+---
+= ADICIONAR: Desativação da auditoria de segurança
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Essa mensagem indica que o serviço de origem (ID do nó) desativou o Registro de mensagens de auditoria; as mensagens de auditoria não estão mais sendo coletadas ou entregues.
+
+[cols="1a,1a,4a"]
+|===
+| Código | Campo | Descrição 
+
+
+ a| 
+AETM
+ a| 
+Ativar método
+ a| 
+O método utilizado para desativar a auditoria.
+
+
+
+ a| 
+AEUN
+ a| 
+Nome de utilizador
+ a| 
+O nome de usuário que executou o comando para desativar o log de auditoria.
+
+
+
+ a| 
+RSLT
+ a| 
+Resultado
+ a| 
+Este campo tem o valor NENHUM. RSLT é um campo de mensagem obrigatório, mas não é relevante para esta mensagem. NENHUM é usado em vez DE SUCS para que esta mensagem não seja filtrada.
+
+|===
+A mensagem implica que o registo foi anteriormente ativado, mas agora foi desativado. Normalmente, isso é usado apenas durante a ingestão em massa para melhorar o desempenho do sistema. Após a atividade em massa, a auditoria é restaurada (SADE) e a capacidade de desativar a auditoria é então permanentemente bloqueada.

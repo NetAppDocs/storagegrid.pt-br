@@ -1,0 +1,36 @@
+---
+permalink: monitor/reviewing-audit-messages.html 
+sidebar: sidebar 
+keywords: how to review audit messages, how to view audit messages 
+summary: As mensagens de auditoria podem ajudá-lo a entender melhor as operações detalhadas do seu sistema StorageGRID. Você pode usar logs de auditoria para solucionar problemas e avaliar o desempenho. 
+---
+= Rever mensagens de auditoria
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+As mensagens de auditoria podem ajudá-lo a entender melhor as operações detalhadas do seu sistema StorageGRID. Você pode usar logs de auditoria para solucionar problemas e avaliar o desempenho.
+
+Durante a operação normal do sistema, todos os serviços StorageGRID geram mensagens de auditoria, como segue:
+
+* As mensagens de auditoria do sistema estão relacionadas ao próprio sistema de auditoria, aos estados dos nós da grade, à atividade de tarefas em todo o sistema e às operações de backup de serviço.
+* As mensagens de auditoria de storage de objetos estão relacionadas ao armazenamento e gerenciamento de objetos no StorageGRID, incluindo armazenamento de objetos e recuperações, transferências de nó de grade para nó de grade e verificações.
+* As mensagens de auditoria de leitura e gravação do cliente são registradas quando um aplicativo cliente S3 faz uma solicitação para criar, modificar ou recuperar um objeto.
+* As mensagens de auditoria de gerenciamento Registram solicitações de usuários para a API de gerenciamento.
+
+
+Cada nó Admin armazena mensagens de auditoria em arquivos de texto. O compartilhamento de auditoria contém o arquivo ativo (audit.log), bem como logs de auditoria compatados de dias anteriores. Cada nó na grade também armazena uma cópia das informações de auditoria geradas no nó.
+
+Você pode acessar arquivos de log de auditoria diretamente da linha de comando do nó Admin.
+
+O StorageGRID pode enviar informações de auditoria por padrão, ou você pode alterar o destino:
+
+* O padrão do StorageGRID é destinos de auditoria de nó local.
+* As entradas de log de auditoria do Grid Manager e do Tenant Manager podem ser enviadas para um nó de storage.
+* Opcionalmente, você pode alterar o destino dos logs de auditoria e enviar informações de auditoria para um servidor syslog externo. Os logs locais dos Registros de auditoria continuam a ser gerados e armazenados quando um servidor syslog externo é configurado.
+* link:../monitor/configure-audit-messages.html["Saiba mais sobre como configurar mensagens de auditoria e destinos de log"].
+
+
+Para obter detalhes sobre o arquivo de log de auditoria, o formato das mensagens de auditoria, os tipos de mensagens de auditoria e as ferramentas disponíveis para analisar mensagens de auditoria, link:../audit/index.html["Rever registos de auditoria"]consulte .

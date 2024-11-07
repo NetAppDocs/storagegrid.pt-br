@@ -1,0 +1,39 @@
+---
+permalink: audit/sysu-node-start.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, SYSU, Node Start 
+summary: 'Quando um serviço é reiniciado, esta mensagem é gerada para indicar se o desligamento anterior foi limpo (comandado) ou desordenado (inesperado).' 
+---
+= SYSU: Início do nó
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando um serviço é reiniciado, essa mensagem é gerada para indicar se o desligamento anterior foi limpo (comandado) ou desordenado (inesperado).
+
+[cols="1a,1a,4a"]
+|===
+| Código | Campo | Descrição 
+
+
+ a| 
+RSLT
+ a| 
+Limpar encerramento
+ a| 
+A natureza do desligamento:
+
+SUCS: O sistema foi desligado de forma limpa.
+
+DSDN: O sistema não foi desligado corretamente.
+
+VRGN: O sistema foi iniciado pela primeira vez após a instalação do servidor (ou reinstalação).
+
+|===
+A mensagem não indica se o servidor host foi iniciado, apenas o serviço de relatórios. Esta mensagem pode ser usada para:
+
+* Detecte a descontinuidade na trilha de auditoria.
+* Determine se um serviço está falhando durante a operação (uma vez que a natureza distribuída do sistema StorageGRID pode mascarar essas falhas). O Server Manager reinicia automaticamente um serviço com falha.
+

@@ -1,0 +1,96 @@
+---
+permalink: ilm/how-object-retention-is-determined.html 
+sidebar: sidebar 
+keywords: how object retention is determined 
+summary: O StorageGRID fornece opções para administradores de grade e usuários individuais de locatários especificarem por quanto tempo armazenar objetos. Em geral, todas as instruções de retenção fornecidas por um usuário locatário têm precedência sobre as instruções de retenção fornecidas pelo administrador da grade. 
+---
+= Como a retenção de objetos é determinada
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O StorageGRID fornece opções para administradores de grade e usuários individuais de locatários especificarem por quanto tempo armazenar objetos. Em geral, todas as instruções de retenção fornecidas por um usuário locatário têm precedência sobre as instruções de retenção fornecidas pelo administrador da grade.
+
+
+
+== Como os usuários do locatário controlam a retenção de objetos
+
+Os usuários do locatário podem usar esses métodos para controlar por quanto tempo seus objetos são armazenados no StorageGRID:
+
+* Se a configuração global S3 Object Lock estiver ativada para a grade, os usuários do locatário S3 poderão criar buckets com o S3 Object Lock ativado e, em seguida, selecionar um *período de retenção padrão* para cada bucket.
+* Se a configuração global S3 Object Lock estiver ativada para a grade, os usuários do locatário S3 poderão criar buckets com o S3 Object Lock ativado e, em seguida, usar a API REST S3 para especificar as configurações de retenção de data e retenção legal para cada versão de objeto adicionada a esse bucket.
++
+** Uma versão de objeto que está sob uma retenção legal não pode ser excluída por nenhum método.
+** Antes que a data de retenção de uma versão de objeto seja alcançada, essa versão não pode ser excluída por nenhum método.
+** Objetos em buckets com o S3 Object Lock ativado são retidos pelo ILM "Forever". No entanto, após a data de retenção ser alcançada, uma versão de objeto pode ser excluída por uma solicitação de cliente ou pela expiração do ciclo de vida do bucket. link:managing-objects-with-s3-object-lock.html["Gerencie objetos com o S3 Object Lock"]Consulte .
+
+
+* S3 os usuários de locatários podem adicionar uma configuração de ciclo de vida aos buckets que especifica uma ação de expiração. Se existir um ciclo de vida de bucket, o StorageGRID armazena um objeto até que a data ou o número de dias especificados na ação de expiração sejam atendidos, a menos que o cliente exclua o objeto primeiro. link:../s3/create-s3-lifecycle-configuration.html["Crie a configuração do ciclo de vida do S3"]Consulte .
+* Um cliente S3 pode emitir uma solicitação de exclusão de objeto. O StorageGRID sempre prioriza solicitações de exclusão de clientes ao longo do ciclo de vida do bucket S3 ou ILM ao determinar se deseja excluir ou reter um objeto.
+
+
+
+
+== Como os administradores de grade controlam a retenção de objetos
+
+Os administradores de grade podem usar esses métodos para controlar a retenção de objetos:
+
+* Defina um período de retenção máximo de bloqueio de objetos S3D para cada locatário. Em seguida, os usuários do locatário podem definir um período de retenção padrão para cada um de seus buckets. O período máximo de retenção também é aplicado em quaisquer objetos recém-ingeridos para esse bucket (data de retenção do objeto até a data).
+* Crie instruções de posicionamento ILM para controlar quanto tempo objetos são armazenados. Quando os objetos são correspondidos por uma regra ILM, o StorageGRID armazena esses objetos até que o último período de tempo na regra ILM tenha decorrido. Os objetos são mantidos indefinidamente se "para sempre" for especificado para as instruções de colocação.
+* Independentemente de quem controla por quanto tempo os objetos são retidos, as configurações do ILM controlam quais tipos de cópias de objetos (replicadas ou codificadas para apagamento) são armazenadas e onde as cópias estão localizadas (nós de storage ou pools de storage em nuvem).
+
+
+
+
+== Como o ciclo de vida do bucket do S3 e o ILM interagem
+
+Quando um ciclo de vida do bucket do S3 é configurado, as ações de expiração do ciclo de vida substituem a política do ILM para objetos que correspondem ao filtro do ciclo de vida. Como resultado, um objeto pode ser retido na grade mesmo depois que quaisquer instruções ILM para colocar o objeto tenham expirado.
+
+
+
+== Exemplos para retenção de objetos
+
+Para entender melhor as interações entre o bloqueio de objetos S3, as configurações do ciclo de vida do bucket, as solicitações de exclusão do cliente e o ILM, considere os exemplos a seguir.
+
+
+
+=== Exemplo 1: O ciclo de vida do bucket S3 mantém objetos mais longos do que o ILM
+
+ILM:: Armazenar duas cópias por 1 ano (365 dias)
+Ciclo de vida do balde:: Expira objetos em 2 anos (730 dias)
+Resultado:: O StorageGRID armazena o objeto por 730 dias. O StorageGRID usa as configurações do ciclo de vida do bucket para determinar se deseja excluir ou reter um objeto.
+
+
+
+NOTE: Se o ciclo de vida do bucket especificar que os objetos devem ser mantidos por mais tempo do que o especificado pelo ILM, o StorageGRID continuará a usar as instruções de colocação do ILM ao determinar o número e o tipo de cópias a armazenar. Neste exemplo, duas cópias do objeto continuarão sendo armazenadas no StorageGRID de dias 366 a 730.
+
+
+
+=== Exemplo 2: O ciclo de vida do bucket S3 expira objetos antes do ILM
+
+ILM:: Armazenar duas cópias por 2 anos (730 dias)
+Ciclo de vida do balde:: Expira objetos em 1 ano (365 dias)
+Resultado:: O StorageGRID exclui ambas as cópias do objeto após o dia 365.
+
+
+
+
+=== Exemplo 3: A exclusão do cliente substitui o ciclo de vida do bucket e o ILM
+
+ILM:: Armazenar duas cópias em nós de storage "para sempre"
+Ciclo de vida do balde:: Expira objetos em 2 anos (730 dias)
+Solicitação de exclusão do cliente:: Emitido no dia 400
+Resultado:: O StorageGRID exclui ambas as cópias do objeto no dia 400 em resposta à solicitação de exclusão do cliente.
+
+
+
+
+=== Exemplo 4: S3 Object Lock substitui a solicitação de exclusão do cliente
+
+S3 bloqueio de objetos:: Reter-até-data para uma versão de objeto é 2026-03-31. Uma retenção legal não está em vigor.
+Regra ILM compatível:: Armazenar duas cópias em nós de storage "para sempre"
+Solicitação de exclusão do cliente:: Emitido em 2024-03-31
+Resultado:: O StorageGRID não excluirá a versão do objeto porque a data de retenção ainda está a 2 anos de distância.
+

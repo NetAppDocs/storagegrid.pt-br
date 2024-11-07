@@ -1,0 +1,69 @@
+---
+permalink: maintain/restoring-audit-log-on-recovered-non-primary-admin-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, restore audit log, non-primary admin node 
+summary: Se você conseguiu preservar o log de auditoria do nó de administração não primário com falha, de modo que as informações de log de auditoria histórica sejam mantidas, você pode copiá-lo para o nó de administração não primário que você está recuperando. 
+---
+= Restaure o log de auditoria no nó de administração não primário recuperado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você conseguiu preservar o log de auditoria do nó de administração não primário com falha, de modo que as informações de log de auditoria histórica sejam mantidas, você pode copiá-lo para o nó de administração não primário que você está recuperando.
+
+.Antes de começar
+* O Admin Node recuperado está instalado e em execução.
+* Você copiou os logs de auditoria para outro local depois que o nó Admin original falhou.
+
+
+.Sobre esta tarefa
+Se um nó Admin falhar, os logs de auditoria salvos nesse nó Admin são potencialmente perdidos. Pode ser possível preservar dados de perda copiando logs de auditoria do nó de administração com falha e restaurando esses logs de auditoria para o nó de administração recuperado. Dependendo da falha, talvez não seja possível copiar logs de auditoria do nó de administração com falha. Nesse caso, se a implantação tiver mais de um nó Admin, você poderá recuperar logs de auditoria de outro nó Admin à medida que os logs de auditoria são replicados para todos os nós Admin.
+
+Se houver apenas um nó Admin e o log de auditoria não puder ser copiado do nó com falha, o nó Admin recuperado inicia a gravação de eventos para o log de auditoria como se a instalação fosse nova.
+
+Você deve recuperar um nó Admin o mais rápido possível para restaurar a funcionalidade de log.
+
+[NOTE]
+====
+Por padrão, as informações de auditoria são enviadas para o log de auditoria nos nós de administração. Você pode ignorar estas etapas se qualquer uma das seguintes situações se aplicar:
+
+* Você configurou um servidor syslog externo e os logs de auditoria agora estão sendo enviados para o servidor syslog em vez de para nós de administrador.
+* Você especificou explicitamente que as mensagens de auditoria devem ser salvas somente nos nós locais que as geraram.
+
+
+link:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria e destinos de log"]Consulte para obter detalhes.
+
+====
+.Passos
+. Faça login no nó de administração recuperado:
++
+.. Digite o seguinte comando
+`ssh admin@recovery_Admin_Node_IP`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+
+
++
+Depois de iniciar sessão como root, o aviso muda de `$` para `#`.
+
+. Verifique quais arquivos de auditoria foram preservados:
++
+`cd /var/local/log`
+
+. Copie os arquivos de log de auditoria preservados para o Admin Node recuperado:
++
+`scp admin@grid_node_IP:/var/local/tmp/saved-audit-logs/YYYY*`
+
++
+Quando solicitado, insira a senha para admin.
+
+. Para segurança, exclua os logs de auditoria do nó de grade com falha depois de verificar se eles foram copiados com sucesso para o nó de administração recuperado.
+. Atualize as configurações de usuário e grupo dos arquivos de log de auditoria no Admin Node recuperado:
++
+`chown ams-user:bycast *`
+
+. Faça logout como root: `exit`
+

@@ -1,0 +1,139 @@
+---
+permalink: network/linux-deployments.html 
+sidebar: sidebar 
+keywords: linux network, container engine, red hat enterprise linux rhel network, ubuntu network 
+summary: Para eficiência, confiabilidade e segurança, o sistema StorageGRID é executado no Linux como uma coleção de motores de contentor. A configuração de rede relacionada ao motor do contentor não é necessária num sistema StorageGRID. 
+---
+= Implantações Linux
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para eficiência, confiabilidade e segurança, o sistema StorageGRID é executado no Linux como uma coleção de motores de contentor. A configuração de rede relacionada ao motor do contentor não é necessária num sistema StorageGRID.
+
+Use um dispositivo não-bond, como um par VLAN ou Ethernet virtual (vete), para a interface de rede do contentor. Especifique este dispositivo como a interface de rede no arquivo de configuração do nó.
+
+
+CAUTION: Não use dispositivos bond ou bridge diretamente como a interface de rede do contentor. Fazer isso pode impedir a inicialização do nó por causa de um problema de kernel com o uso de macvlan com dispositivos de ligação e ponte no namespace do contentor.
+
+Consulte as instruções de instalação para link:../rhel/index.html["Red Hat Enterprise Linux"] ou link:../ubuntu/index.html["Ubuntu ou Debian"] implantações.
+
+
+
+== Configuração de rede de host para implantações do mecanismo de contêiner
+
+Antes de iniciar a implantação do StorageGRID em uma plataforma de mecanismo de contentor, determine quais redes (Grade, Administrador, Cliente) cada nó usará. Você deve garantir que a interface de rede de cada nó esteja configurada na interface de host física ou virtual correta e que cada rede tenha largura de banda suficiente.
+
+
+
+=== Hosts físicos
+
+Se você estiver usando hosts físicos para oferecer suporte a nós de grade:
+
+* Certifique-se de que todos os hosts usem a mesma interface de host para cada interface de nó. Essa estratégia simplifica a configuração de host e permite a migração futura de nós.
+* Obtenha um endereço IP para o próprio host físico.
++
+
+NOTE: Uma interface física no host pode ser usada pelo próprio host e por um ou mais nós executados no host. Todos os endereços IP atribuídos ao host ou nós que usam essa interface devem ser exclusivos. O host e o nó não podem compartilhar endereços IP.
+
+* Abra as portas necessárias para o host.
+* Se você pretende usar interfaces de VLAN no StorageGRID, o host deve ter uma ou mais interfaces de tronco que forneçam acesso às VLANs desejadas. Essas interfaces podem ser passadas para o contentor de nós como eth0, eth2 ou como interfaces adicionais. Para adicionar interfaces de tronco ou acesso, consulte o seguinte:
++
+** *RHEL (antes de instalar o nó)*: link:../rhel/creating-node-configuration-files.html["Criar arquivos de configuração de nó"]
+** * Ubuntu ou Debian (antes de instalar o nó)*: link:../ubuntu/creating-node-configuration-files.html["Criar arquivos de configuração de nó"]
+** *RHEL, Ubuntu ou Debian (após instalar o nó)*: link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux: Adicione interfaces de tronco ou acesso a um nó"]
+
+
+
+
+
+
+=== Recomendações mínimas de largura de banda
+
+A tabela a seguir fornece as recomendações mínimas de largura de banda da LAN para cada tipo de nó StorageGRID e cada tipo de rede. Você precisa provisionar cada host físico ou virtual com largura de banda suficiente para atender aos requisitos mínimos de largura de banda agregada para o número total e tipo de nós de StorageGRID que você planeja executar nesse host.
+
+[cols="1a,1a,1a,1a"]
+|===
+| Tipo de nó 3+| Tipo de rede 
+
+
+ a| 
+ a| 
+Grelha
+ a| 
+Administrador
+ a| 
+Cliente
+
+
+
+ a| 
+ a| 
+* Largura de banda mínima da LAN*
+
+
+
+ a| 
+Administrador
+ a| 
+10 Gbps
+ a| 
+1 Gbps
+ a| 
+1 Gbps
+
+
+
+ a| 
+Gateway
+ a| 
+10 Gbps
+ a| 
+1 Gbps
+ a| 
+10 Gbps
+
+
+
+ a| 
+Armazenamento
+ a| 
+10 Gbps
+ a| 
+1 Gbps
+ a| 
+10 Gbps
+
+
+
+ a| 
+Arquivar
+ a| 
+10 Gbps
+ a| 
+1 Gbps
+ a| 
+10 Gbps
+
+|===
+
+NOTE: Esta tabela não inclui largura de banda SAN, que é necessária para acesso ao armazenamento compartilhado. Se você estiver usando storage compartilhado acessado por Ethernet (iSCSI ou FCoE), você deverá provisionar interfaces físicas separadas em cada host para fornecer largura de banda suficiente para SAN. Para evitar a introdução de um gargalo, a largura de banda da SAN para um determinado host deve corresponder aproximadamente à largura de banda da rede do nó de storage agregado para todos os nós de storage executados nesse host.
+
+Use a tabela para determinar o número mínimo de interfaces de rede a provisionar em cada host, com base no número e no tipo de nós de StorageGRID que você planeja executar nesse host.
+
+Por exemplo, para executar um nó de administrador, um nó de gateway e um nó de storage em um único host:
+
+* Conetar as redes de Grade e Admin no nó Admin (requer 10 mais de 1 11 Gbps)
+* Conetar as redes Grid e Client no Gateway Node (requer 10 e 10, ou 20 Gbps)
+* Ligar a rede de grelha no nó de armazenamento (requer 10 Gbps)
+
+
+Nesse cenário, você deve fornecer um mínimo de 11 41 Gbps e 20 Gbps ou 10 Gbps de largura de banda de rede, que pode ser atendida por duas interfaces de 40 Gbps ou cinco interfaces de 10 Gbps, potencialmente agregadas em troncos e, em seguida, compartilhadas pelas três ou mais VLANs que transportam as sub-redes Grid, Admin e Client locais para o data center físico que contém o host.
+
+Para obter algumas maneiras recomendadas de configurar recursos físicos e de rede nos hosts do cluster StorageGRID para se preparar para a implantação do StorageGRID, consulte o seguinte:
+
+* link:../rhel/configuring-host-network.html["Configurar a rede host (Red Hat Enterprise Linux)"]
+* link:../ubuntu/configuring-host-network.html["Configurar a rede host (Ubuntu ou Debian)"]
+

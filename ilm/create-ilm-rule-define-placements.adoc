@@ -1,0 +1,178 @@
+---
+permalink: ilm/create-ilm-rule-define-placements.html 
+sidebar: sidebar 
+keywords: ilm rule step 2, define placements 
+summary: 'A etapa Definir posicionamentos do assistente criar regra ILM permite definir as instruções de posicionamento que determinam quanto tempo os objetos são armazenados, o tipo de cópias (replicadas ou codificadas por apagamento), o local de armazenamento e o número de cópias.' 
+---
+= Passo 2 de 3: Definir posicionamentos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A etapa *Definir posicionamentos* do assistente criar regra ILM permite definir as instruções de posicionamento que determinam quanto tempo os objetos são armazenados, o tipo de cópias (replicadas ou codificadas por apagamento), o local de armazenamento e o número de cópias.
+
+
+NOTE: As capturas de tela mostradas são exemplos. Seus resultados podem variar dependendo da versão do StorageGRID.
+
+.Sobre esta tarefa
+Uma regra ILM pode incluir uma ou mais instruções de colocação. Cada instrução de colocação aplica-se a um único período de tempo. Quando você usa mais de uma instrução, os períodos de tempo devem ser contíguos, e pelo menos uma instrução deve começar no dia 0. As instruções podem continuar para sempre ou até que você não precise mais nenhuma cópia de objeto.
+
+Cada instrução de colocação pode ter várias linhas se você quiser criar diferentes tipos de cópias ou usar locais diferentes durante esse período de tempo.
+
+Neste exemplo, a regra ILM armazena uma cópia replicada no local 1 e uma cópia replicada no local 2 para o primeiro ano. Após um ano, uma cópia codificada por apagamento de 2 mais de 1 é feita e salva em apenas um local.
+
+image::../media/ilm_create_ilm_rule_wizard_2.png[Criar Assistente de regras ILM passo 2]
+
+.Passos
+. Para *tempo de referência*, selecione o tipo de tempo a ser utilizado para calcular a hora de início de uma instrução de colocação.
++
+[cols="1a,2a"]
+|===
+| Opção | Descrição 
+
+
+ a| 
+Tempo de ingestão
+ a| 
+O tempo em que o objeto foi ingerido.
+
+
+
+ a| 
+Último tempo de acesso
+ a| 
+A hora em que o objeto foi recuperado pela última vez (lido ou visualizado).
+
+Para usar essa opção, as atualizações do último tempo de acesso devem estar ativadas para o bucket do S3. link:using-last-access-time-in-ilm-rules.html["Use o último tempo de acesso nas regras do ILM"]Consulte a .
+
+
+
+ a| 
+Tempo de criação definido pelo utilizador
+ a| 
+Um tempo especificado nos metadados definidos pelo usuário.
+
+
+
+ a| 
+Hora não atual
+ a| 
+"Hora não atual" é selecionado automaticamente se você selecionou *Sim* para a pergunta, "aplicar esta regra apenas a versões de objetos mais antigas (em buckets do S3 com controle de versão ativado)?" em link:create-ilm-rule-enter-details.html["Etapa 1 do assistente criar uma regra ILM"].
+
+|===
++
+Se você quiser criar uma regra _compliant_, selecione *tempo de ingestão*. link:managing-objects-with-s3-object-lock.html["Gerencie objetos com o S3 Object Lock"]Consulte a .
+
+. Na seção *período de tempo e colocações*, insira uma hora de início e uma duração para o primeiro período de tempo.
++
+Por exemplo, você pode querer especificar onde armazenar objetos para o primeiro ano (_from day 0 store for 365 Days_). Pelo menos uma instrução deve começar no dia 0.
+
+. Se você quiser criar cópias replicadas:
++
+.. Na lista suspensa *Store Objects by*, selecione *replicing*.
+.. Selecione o número de cópias que deseja fazer.
++
+Um aviso será exibido se você alterar o número de cópias para 1. Uma regra de ILM que cria apenas uma cópia replicada para qualquer período de tempo coloca os dados em risco de perda permanente. link:why-you-should-not-use-single-copy-replication.html["Por que você não deve usar replicação de cópia única"]Consulte a .
+
++
+Para evitar o risco, faça um ou mais dos seguintes procedimentos:
+
++
+*** Aumente o número de cópias para o período de tempo.
+*** Adicione cópias a outros pools de storage ou a um pool de storage de nuvem.
+*** Selecione *codificação de apagamento* em vez de *replicação*.
++
+Você pode ignorar esse aviso com segurança se essa regra já criar várias cópias para todos os períodos de tempo.
+
+
+
+.. No campo *Copies at*, selecione os pools de armazenamento que deseja adicionar.
++
+*Se você especificar apenas um pool de armazenamento*, esteja ciente de que o StorageGRID pode armazenar apenas uma cópia replicada de um objeto em qualquer nó de armazenamento. Se a grade incluir três nós de storage e você selecionar 4 como o número de cópias, apenas três cópias serão feitas& no. 8212;uma cópia para cada nó de storage.
+
++
+O alerta *ILM Placement Unachievable* é acionado para indicar que a regra ILM não pôde ser completamente aplicada.
+
++
+*Se você especificar mais de um pool de armazenamento*, tenha em mente estas regras:
+
++
+*** O número de cópias não pode ser maior do que o número de pools de armazenamento.
+*** Se o número de cópias for igual ao número de pools de storage, uma cópia do objeto será armazenada em cada pool de storage.
+*** Se o número de cópias for menor que o número de pools de storage, uma cópia será armazenada no local de ingestão e, em seguida, o sistema distribui as cópias restantes para manter o uso do disco entre os pools balanceado, garantindo que nenhum local receba mais de uma cópia de um objeto.
+*** Se os pools de storage se sobreporem (contiverem os mesmos nós de storage), todas as cópias do objeto poderão ser salvas em apenas um local. Por esse motivo, não especifique o pool de storage de todos os nós de storage (StorageGRID 11,6 e anterior) e outro pool de storage.
+
+
+
+
+. Se você quiser criar uma cópia codificada por apagamento:
++
+.. Na lista suspensa *armazenar objetos por*, selecione *codificação de apagamento*.
++
+
+NOTE: A codificação de apagamento é mais adequada para objetos com mais de 1 MB. Não use a codificação de apagamento para objetos com menos de 200 KB para evitar a sobrecarga de gerenciamento de fragmentos codificados de apagamento muito pequenos.
+
+.. Se você não adicionou um filtro de tamanho de objeto para um valor maior que 200 KB, selecione *anterior* para retornar à Etapa 1. Em seguida, selecione *Adicionar um filtro avançado* e defina um filtro *tamanho do objeto* para qualquer valor maior que 200 KB.
+.. Selecione o pool de armazenamento que deseja adicionar e o esquema de codificação de apagamento que deseja usar.
++
+O local de storage para uma cópia codificada de apagamento inclui o nome do esquema de codificação de apagamento, seguido do nome do pool de storage.
+
++
+Os esquemas de codificação de apagamento disponíveis são limitados pelo número de nós de storage no pool de storage selecionado. Um `Recommended` crachá aparece ao lado dos esquemas que fornecem o link:../ilm/what-erasure-coding-schemes-are.html["melhor proteção ou menor sobrecarga de storage"].
+
+
+
+. Opcionalmente:
++
+.. Selecione *Adicionar outro tipo ou local* para criar cópias adicionais em locais diferentes.
+.. Selecione *Adicionar outro período de tempo* para adicionar diferentes períodos de tempo.
++
+[NOTE]
+====
+As exclusões de objetos ocorrem com base nas seguintes configurações:
+
+*** Os objetos são automaticamente excluídos no final do período de tempo final, a menos que outro período de tempo termine com *Forever*.
+*** Dependendo link:../ilm/example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html#example-of-bucket-lifecycle-taking-priority-over-ilm-policy["definições do período de retenção do balde e do inquilino"]do , os objetos podem não ser excluídos mesmo que o período de retenção ILM termine.
+
+
+====
+
+
+. Se você quiser armazenar objetos em um pool de armazenamento em nuvem:
++
+.. Na lista suspensa *Store Objects by*, selecione *replicing*.
+.. Selecione o campo *Copies at* e, em seguida, selecione um pool de armazenamento em nuvem.
++
+Ao usar Cloud Storage Pools, tenha em mente estas regras:
+
++
+*** Você não pode selecionar mais de um pool de armazenamento em nuvem em uma única instrução de colocação. Da mesma forma, você não pode selecionar um pool de armazenamento em nuvem e um pool de armazenamento na mesma instrução de colocação.
+*** Você pode armazenar apenas uma cópia de um objeto em qualquer pool de armazenamento em nuvem. Uma mensagem de erro será exibida se você definir *Copies* como 2 ou mais.
+*** Você não pode armazenar mais de uma cópia de objeto em qualquer pool de armazenamento em nuvem ao mesmo tempo. Uma mensagem de erro será exibida se vários posicionamentos que usam um pool de armazenamento em nuvem tiverem datas sobrepostas ou se várias linhas no mesmo posicionamento usarem um pool de armazenamento em nuvem.
+*** Você pode armazenar um objeto em um pool de storage de nuvem ao mesmo tempo em que o objeto está sendo armazenado como cópias replicadas ou codificadas por apagamento no StorageGRID. No entanto, você deve incluir mais de uma linha na instrução de colocação para o período de tempo, para que você possa especificar o número e os tipos de cópias para cada local.
+
+
+
+
+. No diagrama de retenção, confirme as instruções de colocação.
++
+Neste exemplo, a regra ILM armazena uma cópia replicada no local 1 e uma cópia replicada no local 2 para o primeiro ano. Depois de um ano e por mais 10 anos, uma cópia codificada por apagamento 6-3 será salva em três sites. Após 11 anos no total, os objetos serão excluídos do StorageGRID.
+
++
+A seção análise de regras do diagrama de retenção afirma:
+
++
+** A proteção contra perda de site da StorageGRID será aplicada durante a duração desta regra.
+** Os objetos processados por esta regra serão excluídos após o dia 4015.
++
+Consulte link:using-multiple-storage-pools-for-cross-site-replication.html["Ativar a proteção contra perda de local."]
+
++
+image::../media/ilm_rule_retention_diagram.png[Diagrama de retenção de regras ILM]
+
+
+
+. Selecione *continuar*. link:create-ilm-rule-select-ingest-behavior.html["Etapa 3 (Selecionar comportamento de ingestão)"] Do assistente criar uma regra ILM é exibido.
+

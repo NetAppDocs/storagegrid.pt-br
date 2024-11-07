@@ -1,0 +1,187 @@
+---
+permalink: audit/shea-s3-head.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, SHEA, S3 HEAD 
+summary: Quando um cliente S3 emite uma TRANSAÇÃO PRINCIPAL, uma solicitação é feita para verificar a existência de um objeto ou bucket e recuperar os metadados sobre um objeto. Esta mensagem é emitida pelo servidor se a transação for bem-sucedida. 
+---
+= SHEA: S3 CABEÇA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando um cliente S3 emite uma TRANSAÇÃO PRINCIPAL, uma solicitação é feita para verificar a existência de um objeto ou bucket e recuperar os metadados sobre um objeto. Esta mensagem é emitida pelo servidor se a transação for bem-sucedida.
+
+[cols="1a,1a,4a"]
+|===
+| Código | Campo | Descrição 
+
+
+ a| 
+CBID
+ a| 
+Identificador do bloco de conteúdo
+ a| 
+O identificador exclusivo do bloco de conteúdo solicitado. Se o CBID for desconhecido, este campo é definido como 0. As operações em baldes não incluem este campo.
+
+
+
+ a| 
+CNID
+ a| 
+Identificador de ligação
+ a| 
+O identificador de sistema exclusivo para a conexão TCP/IP.
+
+
+
+ a| 
+CSIZ
+ a| 
+Tamanho do conteúdo
+ a| 
+O tamanho do objeto verificado em bytes. As operações em baldes não incluem este campo.
+
+
+
+ a| 
+HTRH
+ a| 
+Cabeçalho de solicitação HTTP
+ a| 
+Lista de nomes e valores de cabeçalho de solicitação HTTP registrados, conforme selecionado durante a configuração.
+
+ `X-Forwarded-For` É incluído automaticamente se estiver presente na solicitação e se o `X-Forwarded-For` valor for diferente do endereço IP do remetente da solicitação (campo de auditoria SAIP).
+
+
+
+ a| 
+RSLT
+ a| 
+Código do resultado
+ a| 
+Resultado da TRANSAÇÃO GET. O resultado é sempre:
+
+SUCS: Bem-sucedido
+
+
+
+ a| 
+S3AI
+ a| 
+S3 ID da conta do locatário (remetente da solicitação)
+ a| 
+O ID da conta do locatário do usuário que enviou a solicitação. Um valor vazio indica acesso anônimo.
+
+
+
+ a| 
+S3AK
+ a| 
+S3 ID da chave de acesso (remetente do pedido)
+ a| 
+O código de chave de acesso S3 hash para o usuário que enviou a solicitação. Um valor vazio indica acesso anônimo.
+
+
+
+ a| 
+S3BK
+ a| 
+S3 balde
+ a| 
+O nome do bucket S3.
+
+
+
+ a| 
+S3KY
+ a| 
+Tecla S3
+ a| 
+O nome da chave S3, não incluindo o nome do intervalo. As operações em baldes não incluem este campo.
+
+
+
+ a| 
+SACC
+ a| 
+S3 Nome da conta do locatário (remetente da solicitação)
+ a| 
+O nome da conta de locatário para o usuário que enviou a solicitação. Vazio para pedidos anónimos.
+
+
+
+ a| 
+SAIP
+ a| 
+Endereço IP (remetente do pedido)
+ a| 
+O endereço IP do aplicativo cliente que fez a solicitação.
+
+
+
+ a| 
+SBAC
+ a| 
+S3 Nome da conta do locatário (proprietário do balde)
+ a| 
+O nome da conta do locatário para o proprietário do bucket. Usado para identificar acesso entre contas ou anônimo.
+
+
+
+ a| 
+SBAI
+ a| 
+S3 ID da conta do locatário (proprietário do balde)
+ a| 
+O ID da conta do locatário do proprietário do bucket alvo. Usado para identificar acesso entre contas ou anônimo.
+
+
+
+ a| 
+SUSR
+ a| 
+S3 URNA do usuário (solicitar remetente)
+ a| 
+O ID da conta do locatário e o nome de usuário do usuário que faz a solicitação. O utilizador pode ser um utilizador local ou um utilizador LDAP. Por exemplo: `urn:sgws:identity::03393893651506583485:root`
+
+Vazio para pedidos anónimos.
+
+
+
+ a| 
+TEMPO
+ a| 
+Tempo
+ a| 
+Tempo total de processamento da solicitação em microssegundos.
+
+
+
+ a| 
+TLIP
+ a| 
+Endereço IP do balanceador de carga confiável
+ a| 
+Se a solicitação foi roteada por um balanceador de carga confiável da camada 7, o endereço IP do balanceador de carga.
+
+
+
+ a| 
+UUID
+ a| 
+Identificador universal único
+ a| 
+O identificador do objeto dentro do sistema StorageGRID.
+
+
+
+ a| 
+VSID
+ a| 
+ID da versão
+ a| 
+O ID da versão da versão específica de um objeto que foi solicitado. Operações em buckets e objetos em buckets não versionados não incluem este campo.
+
+|===

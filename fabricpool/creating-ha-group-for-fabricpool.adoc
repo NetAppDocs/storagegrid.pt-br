@@ -1,0 +1,99 @@
+---
+permalink: fabricpool/creating-ha-group-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, high availability group, HA group, create, creating, virtual IP, VIP, active interface, backup interface 
+summary: 'Ao configurar o StorageGRID para uso com o FabricPool, você pode, opcionalmente, criar um ou mais grupos de alta disponibilidade (HA). Um grupo de HA é uma coleção de nós que contêm cada um o serviço StorageGRID Load Balancer. Um grupo de HA pode conter nós de gateway, nós de administração ou ambos.' 
+---
+= Criar um grupo de alta disponibilidade (HA) para o FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ao configurar o StorageGRID para uso com o FabricPool, você pode, opcionalmente, criar um ou mais grupos de alta disponibilidade (HA). Um grupo de HA é uma coleção de nós que contêm cada um o serviço StorageGRID Load Balancer. Um grupo de HA pode conter nós de gateway, nós de administração ou ambos.
+
+Você pode usar um grupo de HA para ajudar a manter as conexões de dados do FabricPool disponíveis. Um grupo de HA usa endereços IP virtuais (VIPs) para fornecer acesso altamente disponível ao serviço Load Balancer. Se a interface ativa no grupo de HA falhar, uma interface de backup poderá gerenciar o workload com pouco impacto nas operações do FabricPool.
+
+Para obter detalhes sobre esta tarefa, link:../admin/managing-high-availability-groups.html["Gerenciar grupos de alta disponibilidade"]consulte . Para usar o assistente de configuração do FabricPool para concluir esta tarefa, vá para link:use-fabricpool-setup-wizard-steps.html["Acesse e conclua o assistente de configuração do FabricPool"].
+
+.Antes de começar
+* Você revisou o link:best-practices-for-high-availability-groups.html["práticas recomendadas para grupos de alta disponibilidade"].
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:../admin/admin-group-permissions.html["Permissão de acesso à raiz"].
+* Se você planeja usar uma VLAN, criou a interface VLAN. link:../admin/configure-vlan-interfaces.html["Configurar interfaces VLAN"]Consulte .
+
+
+.Passos
+. Selecione *CONFIGURATION* > *Network* > *High Availability groups*.
+. Selecione *criar*.
+. Para a etapa *Digite detalhes*, preencha os campos a seguir.
++
+[cols="1a,2a"]
+|===
+| Campo | Descrição 
+
+
+ a| 
+Nome do grupo HA
+ a| 
+Um nome de exibição exclusivo para este grupo HA.
+
+
+
+ a| 
+Descrição (opcional)
+ a| 
+A descrição deste grupo HA.
+
+|===
+. Para a etapa *Adicionar interfaces*, selecione as interfaces de nó que deseja usar neste grupo HA.
++
+Use os cabeçalhos de coluna para classificar as linhas ou insira um termo de pesquisa para localizar interfaces mais rapidamente.
+
++
+Você pode selecionar um ou mais nós, mas só pode selecionar uma interface para cada nó.
+
+. Para a etapa *priorizar interfaces*, determine a interface principal e quaisquer interfaces de backup para esse grupo de HA.
++
+Arraste linhas para alterar os valores na coluna *Priority Order*.
+
++
+A primeira interface na lista é a interface principal. A interface principal é a interface ativa, a menos que ocorra uma falha.
+
++
+Se o grupo HA incluir mais de uma interface e a interface ativa falhar, os endereços IP virtual (VIP) serão movidos para a primeira interface de backup na ordem de prioridade. Se essa interface falhar, os endereços VIP serão movidos para a próxima interface de backup, e assim por diante. Quando as falhas são resolvidas, os endereços VIP voltam para a interface de maior prioridade disponível.
+
+. Para a etapa *Inserir endereços IP*, preencha os campos a seguir.
++
+[cols="1a,2a"]
+|===
+| Campo | Descrição 
+
+
+ a| 
+CIDR de sub-rede
+ a| 
+O endereço da sub-rede VIP na notação CIDR& n.o 8212;um endereço IPv4 seguido de uma barra e o comprimento da sub-rede (0-32).
+
+O endereço de rede não deve ter nenhum bit de host definido. Por exemplo, `192.16.0.0/22`.
+
+
+
+ a| 
+Endereço IP do gateway (opcional)
+ a| 
+Opcional. Se os endereços IP do ONTAP usados para acessar o StorageGRID não estiverem na mesma sub-rede que os endereços VIP do StorageGRID, insira o endereço IP do gateway local do StorageGRID VIP. O endereço IP do gateway local deve estar dentro da sub-rede VIP.
+
+
+
+ a| 
+Endereço IP virtual
+ a| 
+Introduza pelo menos um e não mais de dez endereços VIP para a interface ativa no grupo HA. Todos os endereços VIP devem estar dentro da sub-rede VIP.
+
+Pelo menos um endereço deve ser IPv4. Opcionalmente, você pode especificar endereços IPv4 e IPv6 adicionais.
+
+|===
+. Selecione *Create HA group* e, em seguida, selecione *Finish*.
+

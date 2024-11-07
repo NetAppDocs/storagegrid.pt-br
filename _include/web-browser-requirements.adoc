@@ -1,0 +1,49 @@
+= 
+:allow-uri-read: 
+
+
+[cols="2a,2a"]
+|===
+| Navegador da Web | Versão mínima suportada 
+
+
+ a| 
+Google Chrome
+ a| 
+119
+
+
+
+ a| 
+Microsoft Edge
+ a| 
+119
+
+
+
+ a| 
+Mozilla Firefox
+ a| 
+119
+
+|===
+Você deve definir a janela do navegador para uma largura recomendada.
+
+[cols="3a,1a"]
+|===
+| Largura do navegador | Pixels 
+
+
+ a| 
+Mínimo
+ a| 
+1024
+
+
+
+ a| 
+Ótimo
+ a| 
+1280
+
+|===

@@ -1,0 +1,70 @@
+---
+permalink: maintain/accessing-server-manager-log-file.html 
+sidebar: sidebar 
+keywords: storagegrid, server manager, log file 
+summary: Se surgir um problema ao utilizar o Gestor de servidor, verifique o respetivo ficheiro de registo. 
+---
+= Solucionar problemas do Server Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se surgir um problema ao utilizar o Gestor de servidor, verifique o respetivo ficheiro de registo.
+
+As mensagens de erro relacionadas ao Gestor de servidor são capturadas no ficheiro de registo do Gestor de servidor, que se encontra em: `/var/local/log/servermanager.log`
+
+Verifique este arquivo para ver se há mensagens de erro relacionadas a falhas. Encaminhe o problema para o suporte técnico, se necessário. Poderá ser-lhe pedido que encaminhe ficheiros de registo para o suporte técnico.
+
+
+
+== Serviço com um estado de erro
+
+Se detetar que um serviço introduziu um estado de erro, tente reiniciar o serviço.
+
+.Antes de começar
+Você tem o `Passwords.txt` arquivo.
+
+.Sobre esta tarefa
+O Server Manager monitora os serviços e reinicia qualquer um que tenha parado inesperadamente. Se um serviço falhar, o Gerenciador do servidor tentará reiniciá-lo. Se houver três tentativas falhadas de iniciar um serviço dentro de cinco minutos, o serviço entrará em um estado de erro. O Gerenciador de servidores não tenta outra reinicialização.
+
+.Passos
+. Faça login no nó da grade:
++
+.. Introduza o seguinte comando: `ssh admin@_grid_node_IP_`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+
+
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+. Confirme o estado de erro do serviço: `service _servicename_ status`
++
+Por exemplo:
+
++
+[listing]
+----
+service ldr status
+----
++
+Se o serviço estiver em um estado de erro, a seguinte mensagem será retornada: `_servicename_ in error state`. Por exemplo:
+
++
+[listing]
+----
+ldr in error state
+----
++
+
+NOTE: Se o status do serviço for `disabled`, consulte as instruções para link:using-donotstart-file.html["Removendo um arquivo DoNotStart para um serviço"].
+
+. Tente remover o estado de erro reiniciando o serviço: `service _servicename_ restart`
++
+Se o serviço não reiniciar, contacte o suporte técnico.
+
+. Faça logout do shell de comando: `exit`
+

@@ -1,0 +1,19 @@
+---
+permalink: admin/global-certificate-types.html 
+sidebar: sidebar 
+keywords: rsa, ecdsa, custom certificate encryption 
+summary: 'O sistema StorageGRID suporta certificados de servidor encriptados com RSA ou ECDSA (algoritmo de assinatura digital de curva elítica).' 
+---
+= Tipos de certificado de servidor suportados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O sistema StorageGRID suporta certificados personalizados criptografados com RSA ou ECDSA (algoritmo de assinatura digital de curva elítica).
+
+
+TIP: O tipo de codificação da diretiva de segurança deve corresponder ao tipo de certificado do servidor. Por exemplo, as cifras RSA exigem certificados RSA e as cifras ECDSA exigem certificados ECDSA. link:using-storagegrid-security-certificates.html["Gerenciar certificados de segurança"]Consulte . Se configurar uma política de segurança personalizada que não seja compatível com o certificado do servidor, pode link:manage-tls-ssh-policy.html#temporarily-revert-to-default-security-policy["reverter temporariamente para a política de segurança padrão"].
+
+Para obter mais informações sobre como o StorageGRID protege as conexões do cliente, link:security-for-clients.html["Segurança para clientes S3"]consulte .

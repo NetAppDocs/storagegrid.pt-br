@@ -1,0 +1,23 @@
+---
+permalink: maintain/consolidating-storage-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, storage node, consolidate storage node, consolidating storage node 
+summary: Você pode consolidar os nós de storage para reduzir a contagem de nós de storage para um local ou implantação, aumentando a capacidade de storage. 
+---
+= Consolide os nós de storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode consolidar os nós de storage para reduzir a contagem de nós de storage para um local ou implantação, aumentando a capacidade de storage.
+
+Ao consolidar os nós de storage, você link:../expand/index.html["Expanda o sistema StorageGRID"]adiciona nós de storage de capacidade novos e maiores e, em seguida, desativa os nós de storage de capacidade antigos e menores. Durante o procedimento de desativação, os objetos são migrados dos nós de armazenamento antigos para os novos nós de armazenamento.
+
+
+NOTE: Se você estiver consolidando dispositivos mais antigos e menores com novos modelos ou dispositivos de maior capacidade, considere https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/how-appliance-node-cloning-works.html["clonar o nó do dispositivo"^] (ou use a clonagem do nó do dispositivo e o procedimento de desativação se você não estiver fazendo uma substituição individual).
+
+Por exemplo, você pode adicionar dois nós de storage de capacidade novos e maiores para substituir três nós de storage mais antigos. Primeiro, você usaria o procedimento de expansão para adicionar os dois nós de storage novos e maiores e, em seguida, usaria o procedimento de desativação para remover os três nós de storage de capacidade antigos e menores.
+
+Ao adicionar nova capacidade antes de remover nós de storage existentes, você garante uma distribuição mais equilibrada dos dados pelo sistema StorageGRID. Você também reduz a possibilidade de que um nó de armazenamento existente possa ser empurrado para além do nível de marca d'água de armazenamento.

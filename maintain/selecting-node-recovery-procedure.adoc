@@ -1,0 +1,62 @@
+---
+permalink: maintain/selecting-node-recovery-procedure.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, procedure 
+summary: Você deve selecionar o procedimento de recuperação correto para o tipo de nó que falhou. 
+---
+= Selecione o procedimento de recuperação do nó
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve selecionar o procedimento de recuperação correto para o tipo de nó que falhou.
+
+[cols="1a,2a"]
+|===
+| Nó de grade | Procedimento de recuperação 
+
+
+ a| 
+Mais de um nó de storage
+ a| 
+Entre em Contato com o suporte técnico. Se mais de um nó de storage falhar, o suporte técnico deve ajudar na recuperação para evitar inconsistências no banco de dados que podem levar à perda de dados. Um procedimento de recuperação de local pode ser necessário.
+
+link:how-site-recovery-is-performed-by-technical-support.html["Como o suporte técnico recupera um site"]
+
+
+
+ a| 
+Um único nó de storage
+ a| 
+O procedimento de recuperação do nó de armazenamento depende do tipo e duração da falha.
+
+link:recovering-from-storage-node-failures.html["Recuperar de falhas no nó de storage"]
+
+
+
+ a| 
+Nó de administração
+ a| 
+O procedimento Admin Node depende se você precisa recuperar o nó Admin primário ou um nó Admin não primário.
+
+link:recovering-from-admin-node-failures.html["Recuperar de falhas no Admin Node"]
+
+
+
+ a| 
+Nó de gateway
+ a| 
+link:replacing-gateway-node.html["Recuperação de falhas do Gateway Node"]
+
+
+
+ a| 
+Nó de arquivo
+ a| 
+https://docs.netapp.com/us-en/storagegrid-118/maintain/recovering-from-archive-node-failures.html["Recuperação de falhas de nó de arquivo (StorageGRID 11,8 doc site)"^]
+
+|===
+
+NOTE: Se um servidor que hospeda mais de um nó de grade falhar, você poderá recuperar os nós em qualquer ordem. No entanto, se o servidor com falha estiver hospedando o nó Admin principal, você deve recuperar esse nó primeiro. A recuperação do nó de administração principal primeiro impede que outras recuperações de nós parem à medida que esperam para entrar em Contato com o nó de administração principal.

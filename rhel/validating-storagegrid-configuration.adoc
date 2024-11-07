@@ -1,0 +1,34 @@
+---
+permalink: rhel/validating-storagegrid-configuration.html 
+sidebar: sidebar 
+keywords: how to validate red hat linux configuration 
+summary: Depois de criar arquivos de configuração em /etc/StorageGRID/nodes para cada um dos seus nós do StorageGRID, você deve validar o conteúdo desses arquivos. 
+---
+= Valide a configuração do StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois de criar arquivos de configuração `/etc/storagegrid/nodes` para cada um dos nós do StorageGRID, você deve validar o conteúdo desses arquivos.
+
+Para validar o conteúdo dos arquivos de configuração, execute o seguinte comando em cada host:
+
+[listing]
+----
+sudo storagegrid node validate all
+----
+Se os arquivos estiverem corretos, a saída mostra *PASSADO* para cada arquivo de configuração, como mostrado no exemplo.
+
+
+NOTE: Ao usar apenas um LUN em nós somente metadados, você pode receber uma mensagem de aviso que pode ser ignorada.
+
+image::../media/rhel_node_configuration_file_output.gif[Esta imagem é explicada pelo texto circundante.]
+
+
+TIP: Para uma instalação automatizada, pode suprimir esta saída utilizando as `-q` opções ou `--quiet` do `storagegrid` comando (por exemplo, `storagegrid --quiet...` ). Se você suprimir a saída, o comando terá um valor de saída não zero se quaisquer avisos de configuração ou erros foram detetados.
+
+Se os arquivos de configuração estiverem incorretos, os problemas serão exibidos como *AVISO* e *ERRO*, conforme mostrado no exemplo. Se forem encontrados quaisquer erros de configuração, é necessário corrigi-los antes de continuar com a instalação.
+
+image::../media/rhel_node_configuration_file_output_with_errors.gif[Esta imagem é explicada pelo texto circundante.]

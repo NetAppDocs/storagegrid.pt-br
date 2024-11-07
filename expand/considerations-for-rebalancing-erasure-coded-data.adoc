@@ -1,0 +1,185 @@
+---
+permalink: expand/considerations-for-rebalancing-erasure-coded-data.html 
+sidebar: sidebar 
+keywords: erasure coding, rebalance, ec rebalance, site rebalance 
+summary: Se você estiver executando uma expansão para adicionar nós de storage e usar regras de ILM para apagar dados de código, talvez seja necessário executar o procedimento de rebalanceamento de EC se não for possível adicionar nós de storage suficientes para o esquema de codificação de apagamento que você está usando. 
+---
+= Considerações para rebalanceamento de dados codificados por apagamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você estiver executando uma expansão para adicionar nós de storage e usar regras de ILM para apagar dados de código, talvez seja necessário executar o procedimento de rebalanceamento de codificação de apagamento (EC) se não for possível adicionar nós de storage suficientes para o esquema de codificação de apagamento que você está usando.
+
+Depois de analisar estas considerações, execute a expansão e, em seguida, vá para para link:rebalancing-erasure-coded-data-after-adding-storage-nodes.html["Rebalancear os dados codificados por apagamento após adicionar nós de storage"] para executar o procedimento.
+
+
+
+== O que é o reequilíbrio CE?
+
+O rebalanceamento EC é um procedimento StorageGRID que pode ser necessário após uma expansão do nó de storage. O procedimento é executado como um script de linha de comando a partir do nó de administração principal. Ao executar o procedimento de rebalancear, o StorageGRID redistribui fragmentos codificados por apagamento entre os nós de storage existentes e recém-adicionados em um local.
+
+O procedimento de reequilíbrio CE:
+
+* Move apenas dados de objetos codificados por apagamento. Ele não move dados de objetos replicados.
+* Redistribui os dados em um local. Ele não move dados entre sites.
+* Redistribui dados entre todos os nós de storage em um local. Ele não redistribui dados dentro de volumes de storage.
+* Não considera o uso de dados replicados em cada nó de storage ao determinar para onde mover dados codificados por apagamento.
+* Redistribui uniformemente os dados codificados por apagamento entre os nós de storage, sem considerar as capacidades relativas de cada nó.
+* Não distribuirá dados codificados por apagamento para nós de storage que estejam mais de 80% cheios.
+* Pode diminuir o desempenho das operações ILM e das operações de cliente S3 quando executa& n.o 8212;recursos adicionais são necessários para redistribuir os fragmentos de codificação de apagamento.
+
+
+Quando o procedimento de reequilíbrio CE estiver concluído:
+
+* Os dados codificados por apagamento terão migrado dos nós de storage com menos espaço disponível para os nós de storage com mais espaço disponível.
+* A proteção de dados de objetos codificados por apagamento não será alterada.
+* Os valores usados (%) podem ser diferentes entre nós de storage por dois motivos:
++
+** As cópias de objetos replicadas continuarão a consumir espaço nos nós existentes& n.o 8212; o procedimento de rebalanceamento EC não move dados replicados.
+** Os nós de maior capacidade ficarão relativamente menos cheios do que os nós de menor capacidade, mesmo que todos os nós acabem com aproximadamente a mesma quantidade de dados codificados por apagamento.
++
+Por exemplo, suponha que três nós de 200 TB estejam preenchidos a 80% (200 e 215; 0,8: 160 TB em cada nó ou 480 TB para o local). Se você adicionar um nó de 400 TB e executar o procedimento de rebalancear, todos os nós agora terão aproximadamente a mesma quantidade de dados de código de apagamento (480/4: 120 TB). No entanto, o usado (%) para o nó maior será menor do que o usado (%) para os nós menores.
+
++
+image::../media/used_space_with_larger_node.png[Espaço usado antes da expansão]
+
+
+
+
+
+
+
+== Quando rebalancear os dados codificados por apagamento
+
+Considere o seguinte cenário:
+
+* O StorageGRID é executado em um único local, que contém três nós de storage.
+* A política ILM usa uma regra de codificação de apagamento de mais de 2 1 para todos os objetos com mais de 1,0 MB e uma regra de replicação de 2 cópias para objetos menores.
+* Todos os nós de storage ficaram completamente cheios. O alerta *Low Object Storage* foi acionado no nível de gravidade principal.
++
+image::../media/used_space_before_expansion.png[Espaço usado antes da expansão]
+
+
+
+
+
+=== O rebalancear não será necessário se você adicionar nós suficientes
+
+Para entender quando o rebalanceamento de EC não é necessário, suponha que você adicionou três (ou mais) novos nós de storage. Nesse caso, você não precisa executar o EC rebalanceamento. Os nós de storage originais permanecerão cheios, mas novos objetos agora usarão os três novos nós para 2 codificação de apagamento de mais de 1 e 8212; os dois fragmentos de dados e um fragmento de paridade podem ser armazenados em um nó diferente.
+
+image::../media/used_space_after_3_node_expansion.png[Espaço usado após a expansão de 3 nós]
+
+
+CAUTION: Embora você possa executar o procedimento de rebalanceamento EC nesse caso, mover os dados codificados de apagamento diminuirá temporariamente o desempenho da grade, o que pode afetar as operações do cliente.
+
+
+
+=== O rebalanceamento é necessário se você não puder adicionar nós suficientes
+
+Para entender quando o EC rebalanceamento é necessário, suponha que você só possa adicionar dois nós de storage, em vez de três. Como o esquema 2-1U requer pelo menos três nós de storage para ter espaço disponível, os nós vazios não podem ser usados para novos dados codificados por apagamento.
+
+image::../media/used_space_after_2_node_expansion.png[Espaço usado após a expansão de 2 nós]
+
+Para usar os novos nós de storage, execute o procedimento de rebalanceamento de EC. Quando esse procedimento é executado, o StorageGRID redistribui dados codificados por apagamento e fragmentos de paridade entre todos os nós de storage no local. Neste exemplo, quando o procedimento de rebalanceamento do EC estiver concluído, todos os cinco nós agora estão apenas 60% cheios e os objetos podem continuar a ser ingeridos no 2 esquema de codificação de apagamento de mais de 1% em todos os nós de storage.
+
+image::../media/used_space_after_ec_rebalance.png[Espaço usado aAAfter EC reequilíbrio]
+
+
+
+== Recomendações para o reequilíbrio CE
+
+O NetApp requer rebalanceamento EC se _all_ das seguintes afirmações forem verdadeiras:
+
+* Você usa codificação de apagamento para seus dados de objeto.
+* O alerta *Low Object Storage* foi acionado para um ou mais nós de storage em um local, indicando que os nós estão 80% ou mais cheios.
+* Não é possível adicionar nós de storage novos suficientes para o esquema de codificação de apagamento em uso. link:adding-storage-capacity-for-erasure-coded-objects.html["Adicionar capacidade de storage para objetos codificados por apagamento"]Consulte .
+* Seus clientes S3 podem tolerar um desempenho inferior para suas operações de gravação e leitura enquanto o procedimento EC Rebalanceance está sendo executado.
+
+
+Você pode, opcionalmente, executar o procedimento de rebalanceamento de EC se preferir que os nós de storage sejam preenchidos a níveis semelhantes. Além disso, seus clientes do S3 podem tolerar uma performance menor para as operações de gravação e leitura enquanto o procedimento de rebalanceamento de EC estiver em execução.
+
+
+
+== Como o procedimento EC Rebalanceance interage com outras tarefas de manutenção
+
+Não é possível executar determinados procedimentos de manutenção ao mesmo tempo que executa o procedimento EC Rebalanceance.
+
+[cols="1a,2a"]
+|===
+| Procedimento | Permitido durante o procedimento de reequilíbrio CE? 
+
+
+ a| 
+Procedimentos adicionais de reequilíbrio da CE
+ a| 
+Não
+
+Só é possível executar um procedimento de rebalanceamento EC de cada vez.
+
+
+
+ a| 
+Procedimento de desativação
+
+Trabalho de reparação de dados EC
+ a| 
+Não
+
+* É impedido de iniciar um procedimento de desativação ou uma reparação de dados EC enquanto o procedimento de reequilíbrio EC está em execução.
+* É impedido de iniciar o procedimento de rebalanceamento EC enquanto um procedimento de desativação do nó de storage ou um reparo de dados EC estiver em execução.
+
+
+
+
+ a| 
+Procedimento de expansão
+ a| 
+Não
+
+Se você precisar adicionar novos nós de storage em uma expansão, execute o procedimento de rebalanceamento do EC depois de adicionar todos os novos nós.
+
+
+
+ a| 
+Procedimento de atualização
+ a| 
+Não
+
+Se você precisar atualizar o software StorageGRID, execute o procedimento de atualização antes ou depois de executar o procedimento EC Rebalanceance. Conforme necessário, você pode encerrar o procedimento EC Rebalanceance para realizar uma atualização de software.
+
+
+
+ a| 
+Procedimento de clone de nó do dispositivo
+ a| 
+Não
+
+Se você precisar clonar um nó de storage de dispositivo, execute o procedimento de rebalanceamento de EC depois de adicionar o novo nó.
+
+
+
+ a| 
+Procedimento de correção
+ a| 
+Sim.
+
+Você pode aplicar um hotfix do StorageGRID enquanto o procedimento EC Rebalanceance estiver sendo executado.
+
+
+
+ a| 
+Outros procedimentos de manutenção
+ a| 
+Não
+
+Você deve terminar o procedimento EC Rebalanceance antes de executar outros procedimentos de manutenção.
+
+|===
+
+
+== Como o procedimento EC Rebalanceance interage com o ILM
+
+Enquanto o procedimento de rebalanceamento EC estiver em execução, evite fazer alterações no ILM que possam alterar o local dos objetos codificados por apagamento existentes. Por exemplo, não comece a usar uma regra ILM que tenha um perfil de codificação de apagamento diferente. Se você precisar fazer essas alterações no ILM, você deve encerrar o procedimento EC Rebalanceance.

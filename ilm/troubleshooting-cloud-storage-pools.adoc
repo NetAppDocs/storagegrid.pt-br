@@ -1,0 +1,155 @@
+---
+permalink: ilm/troubleshooting-cloud-storage-pools.html 
+sidebar: sidebar 
+keywords: cloud storage pool, troubleshoot 
+summary: Use estas etapas de solução de problemas para ajudar a resolver erros que você pode encontrar ao criar, editar ou excluir um pool de armazenamento em nuvem. 
+---
+= Solucionar problemas em Cloud Storage Pools
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Use estas etapas de solução de problemas para ajudar a resolver erros que você pode encontrar ao criar, editar ou excluir um pool de armazenamento em nuvem.
+
+
+
+== Determine se ocorreu um erro
+
+O StorageGRID executa uma verificação de integridade simples em cada pool de armazenamento em nuvem lendo o objeto conhecido `x-ntap-sgws-cloud-pool-uuid` para garantir que o pool de armazenamento em nuvem possa ser acessado e esteja funcionando corretamente. Quando o StorageGRID encontra um erro no endpoint, ele executa uma verificação de integridade a cada minuto a partir de cada nó de storage. Quando o erro é resolvido, as verificações de integridade param. Se uma verificação de integridade detetar um problema, uma mensagem será exibida na coluna último erro da tabela Cloud Storage Pools na página Storage Pools.
+
+A tabela mostra o erro mais recente detetado para cada pool de armazenamento em nuvem e indica há quanto tempo o erro ocorreu.
+
+Além disso, um alerta de *erro de conetividade do Cloud Storage Pool* é acionado se a verificação de integridade detetar que um ou mais novos erros do Cloud Storage Pool ocorreram nos últimos 5 minutos. Se você receber uma notificação por e-mail para esse alerta, vá para a página pools de armazenamento (selecione *ILM* > *pools de armazenamento*), revise as mensagens de erro na coluna último erro e consulte as diretrizes de solução de problemas abaixo.
+
+
+
+== Verifique se um erro foi resolvido
+
+Depois de resolver quaisquer problemas subjacentes, você pode determinar se o erro foi resolvido. Na página Cloud Storage Pool, selecione o ponto final e selecione *Limpar erro*. Uma mensagem de confirmação indica que o StorageGRID apagou o erro do pool de armazenamento em nuvem.
+
+Se o problema subjacente tiver sido resolvido, a mensagem de erro já não é apresentada. No entanto, se o problema subjacente não foi corrigido (ou se um erro diferente for encontrado), a mensagem de erro será mostrada na coluna último erro dentro de alguns minutos.
+
+
+
+== Erro: Falha na verificação de integridade. Erro do endpoint
+
+Você pode encontrar esse erro ao ativar o bloqueio de objetos S3 com retenção padrão para o bucket do Amazon S3 depois de começar a usar esse bucket em um pool de armazenamento em nuvem. Esse erro ocorre quando a operação PUT não tem um cabeçalho HTTP com um valor de checksum de payload, como `Content-MD5`. Esse valor de cabeçalho é exigido pela AWS para COLOCAR operações em buckets com o S3 Object Lock ativado.
+
+Para corrigir esse problema, siga as etapas em link:editing-cloud-storage-pool.html["Edite um pool de armazenamento em nuvem"] sem fazer alterações. Essa ação aciona a validação da configuração do Cloud Storage Pool que deteta e atualiza automaticamente o sinalizador S3 Object Lock em uma configuração de endpoint do Cloud Storage Pool.
+
+
+
+== Erro: Este pool de armazenamento em nuvem contém conteúdo inesperado
+
+Você pode encontrar esse erro ao tentar criar, editar ou excluir um pool de armazenamento em nuvem. Esse erro ocorre se o intervalo ou contentor incluir o `x-ntap-sgws-cloud-pool-uuid` arquivo marcador, mas esse arquivo não tiver o campo metadados com o UUID esperado.
+
+Normalmente, você só verá esse erro se estiver criando um novo pool de armazenamento em nuvem e outra instância do StorageGRID já estiver usando o mesmo pool de armazenamento em nuvem.
+
+Tente estas etapas para corrigir o problema:
+
+* Verifique se ninguém na sua organização também está usando este pool de armazenamento em nuvem.
+* Exclua todos os objetos existentes dentro do intervalo de destino, incluindo o `x-ntap-sgws-cloud-pool-uuid` arquivo, e tente configurar o pool de armazenamento do Cloud novamente.
+
+
+
+
+== Erro: Não foi possível criar ou atualizar o Cloud Storage Pool. Erro do endpoint
+
+Pode encontrar este erro nas seguintes circunstâncias:
+
+* Quando você tenta criar ou editar um pool de armazenamento em nuvem.
+* Quando você seleciona uma combinação de plataforma, autenticação ou protocolo sem suporte com o bloqueio de objetos S3 durante a configuração de um novo pool de armazenamento em nuvem. link:../ilm/considerations-for-cloud-storage-pools.html["Considerações para pools de storage em nuvem"]Consulte .
+
+
+Esse erro indica que um problema de conetividade ou configuração está impedindo a gravação do StorageGRID no pool de armazenamento em nuvem.
+
+Para corrigir o problema, revise a mensagem de erro do endpoint.
+
+* Se a mensagem de erro contiver `Get _url_: EOF`, verifique se o endpoint de serviço usado para o Cloud Storage Pool não usa HTTP para um contentor ou bucket que requer HTTPS.
+* Se a mensagem de erro contiver `Get _url_: net/http: request canceled while waiting for connection`, verifique se a configuração de rede permite que os nós de armazenamento acessem o endpoint de serviço usado para o pool de armazenamento em nuvem.
+* Se o erro se dever a uma plataforma, autenticação ou protocolo não suportados, altere para uma configuração suportada com o bloqueio de objetos S3 e tente salvar o novo pool de armazenamento em nuvem novamente.
+* Para todas as outras mensagens de erro de endpoint, tente uma ou mais das seguintes opções:
++
+** Crie um recipiente ou bucket externo com o mesmo nome que você inseriu para o Cloud Storage Pool e tente salvar o novo Cloud Storage Pool novamente.
+** Corrija o nome do recipiente ou do bucket especificado para o pool de armazenamento em nuvem e tente salvar o novo pool de armazenamento em nuvem novamente.
+
+
+
+
+
+
+== Erro: Falha ao analisar o certificado CA
+
+Você pode encontrar esse erro ao tentar criar ou editar um pool de armazenamento em nuvem. O erro ocorre se o StorageGRID não puder analisar o certificado digitado ao configurar o pool de armazenamento em nuvem.
+
+Para corrigir o problema, verifique se há problemas no certificado da CA fornecido.
+
+
+
+== Erro: Um pool de armazenamento em nuvem com esta ID não foi encontrado
+
+Você pode encontrar esse erro ao tentar editar ou excluir um pool de armazenamento em nuvem. Esse erro ocorre se o endpoint retornar uma resposta 404, o que pode significar uma das seguintes opções:
+
+* As credenciais usadas para o Cloud Storage Pool não têm permissão de leitura para o bucket.
+* O intervalo usado para o pool de armazenamento em nuvem não inclui o `x-ntap-sgws-cloud-pool-uuid` arquivo de marcador.
+
+
+Tente um ou mais destes passos para corrigir o problema:
+
+* Verifique se o usuário associado à chave de acesso configurada tem as permissões necessárias.
+* Edite o Cloud Storage Pool com credenciais que tenham as permissões necessárias.
+* Se as permissões estiverem corretas, entre em Contato com o suporte.
+
+
+
+
+== Erro: Não foi possível verificar o conteúdo do pool de armazenamento em nuvem. Erro do endpoint
+
+Você pode encontrar esse erro ao tentar excluir um pool de armazenamento em nuvem. Esse erro indica que algum tipo de problema de conetividade ou configuração está impedindo o StorageGRID de ler o conteúdo do bucket do pool de armazenamento em nuvem.
+
+Para corrigir o problema, revise a mensagem de erro do endpoint.
+
+
+
+== Erro: Os objetos já foram colocados neste intervalo
+
+Você pode encontrar esse erro ao tentar excluir um pool de armazenamento em nuvem. Não é possível excluir um Cloud Storage Pool se ele contiver dados que foram movidos pelo ILM, dados que estavam no bucket antes de configurar o Cloud Storage Pool ou dados que foram colocados no bucket por outra fonte após a criação do Cloud Storage Pool.
+
+Tente um ou mais destes passos para corrigir o problema:
+
+* Siga as instruções para mover objetos de volta para o StorageGRID em "ciclo de vida de um objeto de pool de armazenamento em nuvem".
+* Se você tiver certeza de que os objetos restantes não foram colocados no Cloud Storage Pool pelo ILM, exclua manualmente os objetos do bucket.
++
+
+NOTE: Nunca exclua manualmente objetos de um pool de armazenamento em nuvem que possam ter sido colocados lá pelo ILM. Se você tentar acessar um objeto excluído manualmente do StorageGRID, o objeto excluído não será encontrado.
+
+
+
+
+
+== Erro: O proxy encontrou um erro externo ao tentar alcançar o pool de armazenamento em nuvem
+
+Você pode encontrar esse erro se tiver configurado um proxy de armazenamento não transparente entre nós de armazenamento e o endpoint S3 externo usado para o Cloud Storage Pool. Esse erro ocorre se o servidor proxy externo não conseguir alcançar o ponto de extremidade do Cloud Storage Pool. Por exemplo, o servidor DNS pode não conseguir resolver o nome do host ou pode haver um problema de rede externo.
+
+Tente um ou mais destes passos para corrigir o problema:
+
+* Verifique as configurações do pool de armazenamento em nuvem (*ILM* > *pools de armazenamento*).
+* Verifique a configuração de rede do servidor proxy de armazenamento.
+
+
+
+
+== Erro: O certificado X,509 está fora do período de validade
+
+Você pode encontrar esse erro ao tentar excluir um pool de armazenamento em nuvem. Esse erro ocorre quando a autenticação requer um certificado X,509 para garantir que o pool de armazenamento externo correto seja validado e o pool externo esteja vazio antes que a configuração do pool de armazenamento em nuvem seja excluída.
+
+Tente estas etapas para corrigir o problema:
+
+* Atualize o certificado configurado para autenticação para o Cloud Storage Pool.
+* Certifique-se de que qualquer alerta de expiração de certificado neste Cloud Storage Pool esteja resolvido.
+
+
+.Informações relacionadas
+link:lifecycle-of-cloud-storage-pool-object.html["Ciclo de vida de um objeto Cloud Storage Pool"]

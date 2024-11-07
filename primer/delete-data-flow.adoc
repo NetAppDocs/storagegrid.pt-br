@@ -1,0 +1,62 @@
+---
+permalink: primer/delete-data-flow.html 
+sidebar: sidebar 
+keywords: object, delete, deletion, object lock, bucket lifecycle, expiration, ilm, placement instruction 
+summary: Todas as cópias de objetos são removidas do sistema StorageGRID quando um cliente ou locatário executa uma operação de exclusão ou quando a vida útil do objeto expira, acionando sua remoção automática. Há um fluxo de dados definido para exclusão de objeto. 
+---
+= Eliminar fluxo de dados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Todas as cópias de objetos são removidas do sistema StorageGRID quando um cliente executa uma operação de exclusão ou quando a vida útil do objeto expira, acionando sua remoção automática. Há um fluxo de dados definido para exclusão de objeto.
+
+
+
+== Hierarquia de exclusão
+
+O StorageGRID fornece vários métodos para controlar quando objetos são retidos ou excluídos. Os objetos podem ser excluídos por solicitação do cliente ou automaticamente. O StorageGRID sempre prioriza quaisquer configurações de bloqueio de objetos S3 sobre solicitações de exclusão do cliente, que são priorizadas sobre o ciclo de vida do bucket S3 e instruções de posicionamento do ILM.
+
+* *S3 Object Lock*: Se a configuração global S3 Object Lock estiver ativada para a grade, os clientes S3 podem criar buckets com o S3 Object Lock ativado e, em seguida, usar a API REST S3 para especificar as configurações de retenção legal e de retenção para cada versão de objeto adicionada a esse bucket.
++
+** Uma versão de objeto que está sob uma retenção legal não pode ser excluída por nenhum método.
+** Antes que a data de retenção de uma versão de objeto seja alcançada, essa versão não pode ser excluída por nenhum método.
+** Objetos em buckets com o bloqueio de objetos S3 ativado são retidos pelo ILM "Forever". No entanto, após a data de retenção ser alcançada, uma versão de objeto pode ser excluída por uma solicitação de cliente ou pela expiração do ciclo de vida do bucket.
+** Se os clientes S3 aplicarem uma data retida-até-data padrão ao intervalo, eles não precisarão especificar uma data retida-até para cada objeto.
+
+
+* *Solicitação de exclusão de cliente*: Um cliente S3 pode emitir uma solicitação de exclusão de objeto. Quando um cliente exclui um objeto, todas as cópias do objeto são removidas do sistema StorageGRID.
+* *Excluir objetos no bucket*: Os usuários do Gerenciador de locatários podem usar essa opção para remover permanentemente todas as cópias dos objetos e versões de objetos em buckets selecionados do sistema StorageGRID.
+* *Ciclo de vida do bucket do S3*: Os clientes do S3 podem adicionar uma configuração do ciclo de vida aos buckets que especifica uma ação de expiração. Se existir um ciclo de vida de bucket, o StorageGRID excluirá automaticamente todas as cópias de um objeto quando a data ou o número de dias especificados na ação de expiração forem atendidos, a menos que o cliente exclua o objeto primeiro.
+* *Instruções de colocação de ILM*: Supondo que o bucket não tenha o bloqueio de objeto S3 ativado e que não haja ciclo de vida de bucket, o StorageGRID exclui automaticamente um objeto quando o último período de tempo na regra ILM termina e não há mais colocações especificadas para o objeto.
++
+
+NOTE: Quando um ciclo de vida do bucket do S3 é configurado, as ações de expiração do ciclo de vida substituem a política do ILM para objetos que correspondem ao filtro do ciclo de vida. Como resultado, um objeto pode ser retido na grade mesmo depois que quaisquer instruções ILM para colocar o objeto tenham expirado.
+
+
+
+Consulte link:../ilm/how-objects-are-deleted.html["Como os objetos são excluídos"] para obter mais informações.
+
+
+
+== Fluxo de dados para exclusões do cliente
+
+image::../media/delete_data_flow.png[Fluxo de dados de eliminação do cliente]
+
+. O serviço LDR recebe uma solicitação de exclusão do aplicativo cliente.
+. O serviço LDR atualiza o armazenamento de metadados para que o objeto pareça excluído às solicitações do cliente e instrui o mecanismo ILM a remover todas as cópias dos dados do objeto.
+. O objeto é removido do sistema. O armazenamento de metadados é atualizado para remover metadados de objetos.
+
+
+
+
+== Fluxo de dados para exclusões de ILM
+
+image::../media/automatic_deletion_data_flow.png[Fluxo de dados de exclusão automática]
+
+. O mecanismo ILM determina que o objeto precisa ser excluído.
+. O mecanismo ILM notifica o armazenamento de metadados. O armazenamento de metadados atualiza os metadados de objetos para que o objeto pareça excluído para solicitações de cliente.
+. O mecanismo ILM remove todas as cópias do objeto. O armazenamento de metadados é atualizado para remover metadados de objetos.
+

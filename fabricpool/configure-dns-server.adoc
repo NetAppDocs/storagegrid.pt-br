@@ -1,0 +1,33 @@
+---
+permalink: fabricpool/configure-dns-server.html 
+sidebar: sidebar 
+keywords: dns, vip, virtual ip, fqdn, server name 
+summary: Depois de configurar grupos de alta disponibilidade, pontos de extremidade do balanceador de carga e nomes de domínio S3, você deve garantir que o DNS inclua as entradas necessárias para o StorageGRID. 
+---
+= Configure o servidor DNS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois de configurar grupos de alta disponibilidade, pontos de extremidade do balanceador de carga e nomes de domínio de endpoint S3, você deve garantir que o DNS inclua as entradas necessárias para o StorageGRID. Você deve incluir uma entrada DNS para cada nome no certificado de segurança e para cada endereço IP que você possa usar.
+
+link:../admin/managing-load-balancing.html["Considerações para balanceamento de carga"]Consulte .
+
+
+
+== Entradas DNS para o nome do servidor StorageGRID
+
+Adicione entradas de DNS para associar o nome do servidor StorageGRID (nome de domínio totalmente qualificado) a cada endereço IP do StorageGRID que você usará. Os endereços IP inseridos no DNS dependem se você está usando um grupo de HA de nós de balanceamento de carga:
+
+* Se você tiver configurado um grupo de HA, o ONTAP se conetará aos endereços IP virtuais desse grupo de HA.
+* Se você não estiver usando um grupo de HA, o ONTAP poderá se conetar ao serviço do balanceador de carga do StorageGRID usando o endereço IP de qualquer nó de gateway ou nó de administrador.
+* Se o nome do servidor resolver para mais de um endereço IP, o ONTAP estabelece conexões de cliente com todos os endereços IP (até um máximo de 16 endereços IP). Os endereços IP são coletados em um método round-robin quando as conexões são estabelecidas.
+
+
+
+
+== Entradas DNS para solicitações virtuais de estilo hospedado
+
+Se você definiu link:../admin/configuring-s3-api-endpoint-domain-names.html["S3 nomes de domínio de endpoint"] e usará solicitações virtuais de estilo hospedado, adicione entradas DNS para todos os nomes de domínio de endpoint S3 necessários, incluindo nomes de curinga.

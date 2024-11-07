@@ -1,0 +1,62 @@
+---
+permalink: network/index.html 
+sidebar: sidebar 
+keywords: storagegrid, network, networking, ethernet, subnet, routing 
+summary: Use essas diretrizes para conhecer a arquitetura e as topologias de rede do StorageGRID e conhecer os requisitos de configuração e provisionamento de rede. 
+---
+= Diretrizes de rede
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Use essas diretrizes para conhecer a arquitetura e as topologias de rede do StorageGRID e conhecer os requisitos de configuração e provisionamento de rede.
+
+
+
+== Sobre estas instruções
+
+Essas diretrizes fornecem informações que você pode usar para criar a infraestrutura de rede do StorageGRID antes de implantar e configurar os nós do StorageGRID. Use essas diretrizes para ajudar a garantir que a comunicação possa ocorrer entre todos os nós da grade e entre a grade e clientes e serviços externos.
+
+Clientes externos e serviços externos precisam se conetar a redes StorageGRID para executar funções como as seguintes:
+
+* Armazenar e recuperar dados de objeto
+* Receber notificações por e-mail
+* Acesse a interface de gerenciamento do StorageGRID (Gerenciador de grade e Gerenciador de locatário)
+* Acessar o compartilhamento de auditoria (opcional)
+* Fornecer serviços como:
++
+** Protocolo de tempo de rede (NTP)
+** Sistema de nomes de domínio (DNS)
+** Servidor de gerenciamento de chaves (KMS)
+
+
+
+
+A rede StorageGRID deve ser configurada adequadamente para lidar com o tráfego dessas funções e muito mais.
+
+
+
+== Antes de começar
+
+A configuração da rede para um sistema StorageGRID requer um alto nível de experiência com comutação Ethernet, rede TCP/IP, sub-redes, roteamento de rede e firewalls.
+
+Antes de configurar a rede, familiarize-se com a arquitetura StorageGRID conforme descrito em link:../primer/index.html["Saiba mais sobre o StorageGRID"].
+
+Depois de determinar quais redes StorageGRID você deseja usar e como essas redes serão configuradas, você poderá instalar e configurar os nós StorageGRID seguindo as instruções apropriadas.
+
+.Instale os nós do dispositivo
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["Instale o hardware do dispositivo"^]
+
+
+.Instalar nós baseados em software
+* link:../rhel/index.html["Instale o StorageGRID no Red Hat Enterprise Linux"]
+* link:../ubuntu/index.html["Instale o StorageGRID no Ubuntu ou Debian"]
+* link:../vmware/index.html["Instale o StorageGRID no VMware"]
+
+
+.Configurar e administrar o software StorageGRID
+* link:../admin/index.html["Administrar o StorageGRID"]
+* link:../release-notes/index.html["Notas de lançamento"]
+

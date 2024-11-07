@@ -1,0 +1,86 @@
+---
+permalink: admin/temporarily-disabling-and-reenabling-sso-for-admin-node.html 
+sidebar: sidebar 
+keywords: signing in when sso is down, single sign on failure 
+summary: 'Talvez você não consiga entrar no Gerenciador de Grade se o sistema de logon único (SSO) for desativado. Nesse caso, você pode desativar e reativar temporariamente o SSO para um nó de administrador. Para desativar e reativar o SSO, você deve acessar o shell de comando do nó.' 
+---
+= Desative e reative temporariamente o logon único para um nó de administração
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Talvez você não consiga entrar no Gerenciador de Grade se o sistema de logon único (SSO) estiver inativo. Nesse caso, você pode desativar e reativar temporariamente o SSO para um nó de administrador. Para desativar e reativar o SSO, você deve acessar o shell de comando do nó.
+
+.Antes de começar
+* Você link:admin-group-permissions.html["permissões de acesso específicas"]tem .
+* Você tem o `Passwords.txt` arquivo.
+* Você sabe a senha para o usuário raiz local.
+
+
+.Sobre esta tarefa
+Depois de desativar o SSO para um nó Admin, você pode entrar no Gerenciador de Grade como o usuário raiz local. Para proteger seu sistema StorageGRID, você deve usar o shell de comando do nó para reativar o SSO no nó Admin assim que você sair.
+
+
+TIP: A desativação do SSO para um nó Admin não afeta as configurações de SSO para quaisquer outros nós Admin na grade. A caixa de seleção *Ativar SSO* na página de logon único no Gerenciador de Grade permanece selecionada e todas as configurações SSO existentes são mantidas, a menos que você as atualize.
+
+.Passos
+. Faça login em um nó Admin:
++
+.. Introduza o seguinte comando: `ssh admin@Admin_Node_IP`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+
+
+. Execute o seguinte comando:``disable-saml``
++
+Uma mensagem indica que o comando se aplica somente a esse nó Admin.
+
+. Confirme que você deseja desativar o SSO.
++
+Uma mensagem indica que o logon único está desativado no nó.
+
+. Em um navegador da Web, acesse o Gerenciador de Grade no mesmo nó Admin.
++
+A página de login do Gerenciador de Grade agora é exibida porque o SSO foi desativado.
+
+. Inicie sessão com a raiz do nome de utilizador e a palavra-passe do utilizador raiz local.
+. Se você desativou o SSO temporariamente porque precisava corrigir a configuração SSO:
++
+.. Selecione *CONFIGURATION* > *access control* > *Single sign-on*.
+.. Altere as configurações de SSO incorretas ou desatualizadas.
+.. Selecione *Guardar*.
++
+Selecionar *Save* na página Single Sign-On (Início de sessão único) reativa automaticamente o SSO para toda a grelha.
+
+
+
+. Se você desativou o SSO temporariamente porque precisava acessar o Gerenciador de Grade por algum outro motivo:
++
+.. Execute qualquer tarefa ou tarefas que você precisa executar.
+.. Selecione *Sair* e feche o Gerenciador de Grade.
+.. Reative o SSO no nó Admin. Você pode executar uma das seguintes etapas:
++
+*** Execute o seguinte comando: `enable-saml`
++
+Uma mensagem indica que o comando se aplica somente a esse nó Admin.
+
++
+Confirme se você deseja ativar o SSO.
+
++
+Uma mensagem indica que o logon único está ativado no nó.
+
+*** Reinicie o nó da grade: `reboot`
+
+
+
+
+. A partir de um navegador da Web, acesse o Gerenciador de Grade a partir do mesmo nó Admin.
+. Confirme se a página de login do StorageGRID é exibida e que você deve inserir suas credenciais SSO para acessar o Gerenciador de Grade.
+

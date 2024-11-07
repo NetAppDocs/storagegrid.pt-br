@@ -1,0 +1,51 @@
+---
+permalink: harden/hardening-guidelines-for-software-upgrades.html 
+sidebar: sidebar 
+keywords: Hardening guidelines, upgrades 
+summary: Você deve manter seu sistema StorageGRID e serviços relacionados atualizados para se defender contra ataques. 
+---
+= Diretrizes de fortalecimento para atualizações de software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve manter seu sistema StorageGRID e serviços relacionados atualizados para se defender contra ataques.
+
+
+
+== Atualizações para o software StorageGRID
+
+Sempre que possível, você deve atualizar o software StorageGRID para a versão principal mais recente ou para a versão principal anterior. Manter o StorageGRID atualizado ajuda a reduzir o tempo em que as vulnerabilidades conhecidas estão ativas e reduz a área geral da superfície de ataque. Além disso, as versões mais recentes do StorageGRID geralmente contêm recursos de proteção de segurança que não estão incluídos em versões anteriores.
+
+Consulte o https://imt.netapp.com/matrix/#welcome["Ferramenta de Matriz de interoperabilidade do NetApp"^] (IMT) para determinar qual versão do software StorageGRID você deve usar. Quando um hotfix é necessário, o NetApp prioriza a criação de atualizações para as versões mais recentes. Alguns patches podem não ser compatíveis com versões anteriores.
+
+* Para baixar as versões e hotfixes mais recentes do StorageGRID, vá para https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["NetApp Downloads: StorageGRID"^].
+* Para atualizar o software StorageGRID, consulte link:../upgrade/performing-upgrade.html["instruções de atualização"].
+* Para aplicar um hotfix, consulte link:../maintain/storagegrid-hotfix-procedure.html["Procedimento de correção do StorageGRID"].
+
+
+
+
+== Upgrades para serviços externos
+
+Os serviços externos podem ter vulnerabilidades que afetam o StorageGRID indiretamente. Você deve garantir que os serviços dos quais o StorageGRID depende são atualizados. Esses serviços incluem LDAP, KMS (ou servidor KMIP), DNS e NTP.
+
+Para obter uma lista de versões suportadas, consulte o https://imt.netapp.com/matrix/#welcome["Ferramenta de Matriz de interoperabilidade do NetApp"^].
+
+
+
+== Atualizações para hypervisors
+
+Se seus nós do StorageGRID estiverem em execução no VMware ou em outro hypervisor, você deverá garantir que o software e o firmware do hypervisor estejam atualizados.
+
+Para obter uma lista de versões suportadas, consulte o https://imt.netapp.com/matrix/#welcome["Ferramenta de Matriz de interoperabilidade do NetApp"^].
+
+
+
+== * Atualizações para nós Linux*
+
+Se seus nós do StorageGRID estiverem usando plataformas host Linux, você deve garantir que as atualizações de segurança e as atualizações do kernel sejam aplicadas ao sistema operacional do host. Além disso, você deve aplicar atualizações de firmware a hardware vulnerável quando essas atualizações estiverem disponíveis.
+
+Para obter uma lista de versões suportadas, consulte o https://imt.netapp.com/matrix/#welcome["Ferramenta de Matriz de interoperabilidade do NetApp"^].

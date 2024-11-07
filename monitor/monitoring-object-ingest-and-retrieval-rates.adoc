@@ -1,0 +1,35 @@
+---
+permalink: monitor/monitoring-object-ingest-and-retrieval-rates.html 
+sidebar: sidebar 
+keywords: object ingest rates, object retrieval rates, monitor s3, client operations 
+summary: Você pode monitorar taxas de ingestão e recuperação de objetos, bem como métricas para contagens de objetos, consultas e verificação. Você pode exibir o número de tentativas bem-sucedidas e com falha por aplicativos clientes para ler, gravar e modificar objetos no sistema StorageGRID. 
+---
+= Monitorar S3 operações do cliente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode monitorar taxas de ingestão e recuperação de objetos, bem como métricas para contagens de objetos, consultas e verificação. Você pode exibir o número de tentativas bem-sucedidas e com falha por aplicativos clientes para ler, gravar e modificar objetos no sistema StorageGRID.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+
+
+.Passos
+. No painel, selecione a guia *desempenho*.
+. Consulte os gráficos S3D, que resumem o número de operações do cliente executadas pelos nós de storage e o número de solicitações de API recebidas pelos nós de storage durante o período de tempo selecionado.
+. Selecione *NÓS* para acessar a página nós.
+. Na página inicial dos nós (nível de grade), selecione a guia *objetos*.
++
+O gráfico mostra S3 taxas de ingestão e recuperação para todo o seu sistema StorageGRID em bytes por segundo e a quantidade de dados ingeridos ou recuperados. Pode selecionar um intervalo de tempo ou aplicar um intervalo personalizado.
+
+. Para ver as informações de um nó de armazenamento específico, selecione o nó na lista à esquerda e selecione a guia *Objects*.
++
+O gráfico mostra as taxas de ingestão e recuperação para o nó. A guia também inclui métricas para contagens de objetos, consultas de metadados e operações de verificação.
+
++
+image::../media/nodes_storage_node_objects_help.png[Captura de tela de nós > _nó de armazenamento_ > objetos > ajuda de atributo]
+
+

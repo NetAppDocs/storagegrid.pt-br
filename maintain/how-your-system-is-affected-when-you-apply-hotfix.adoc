@@ -1,0 +1,55 @@
+---
+permalink: maintain/how-your-system-is-affected-when-you-apply-hotfix.html 
+sidebar: sidebar 
+keywords: storagegrid, hotfix 
+summary: Você deve entender como seu sistema StorageGRID será afetado quando você aplicar um hotfix. 
+---
+= Como seu sistema é afetado quando você aplica um hotfix
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve entender como seu sistema StorageGRID será afetado quando você aplicar um hotfix.
+
+
+
+== Os hotfixes do StorageGRID não causam interrupções
+
+O sistema StorageGRID pode obter e recuperar dados de aplicativos clientes durante todo o processo de hotfix. Se você aprovar todos os nós do mesmo tipo para hotfix (por exemplo, nós de storage), os nós serão derrubados um de cada vez, portanto, não haverá tempo em que todos os nós de grade ou todos os nós de grade de um determinado tipo não estejam disponíveis.
+
+Para permitir disponibilidade contínua, verifique se sua política de ILM contém regras que especificam o armazenamento de várias cópias de cada objeto. Você também deve garantir que todos os clientes S3 externos estejam configurados para enviar solicitações para um dos seguintes:
+
+* Um endereço IP virtual do grupo de alta disponibilidade (HA)
+* Um balanceador de carga de terceiros de alta disponibilidade
+* Vários nós de gateway para cada cliente
+* Vários nós de storage para cada cliente
+
+
+
+
+== As aplicações do cliente podem sofrer interrupções de curto prazo
+
+O sistema StorageGRID pode obter e recuperar dados de aplicativos clientes durante todo o processo de hotfix; no entanto, as conexões de clientes com nós de gateway individuais ou nós de armazenamento podem ser interrompidas temporariamente se o hotfix precisar reiniciar os serviços nesses nós. A conetividade será restaurada após a conclusão do processo de correção e os serviços são retomados nos nós individuais.
+
+Talvez seja necessário agendar o tempo de inatividade para aplicar um hotfix se a perda de conetividade por um curto período não for aceitável. Você pode usar a aprovação seletiva para agendar quando certos nós são atualizados.
+
+
+NOTE: Você pode usar vários gateways e grupos de alta disponibilidade (HA) para fornecer failover automático durante o processo de hotfix. Consulte as instruções para link:../admin/configure-high-availability-group.html["configurando grupos de alta disponibilidade"].
+
+
+
+== Alertas e notificações SNMP podem ser acionados
+
+Alertas e notificações SNMP podem ser acionados quando os serviços são reiniciados e quando o sistema StorageGRID está operando como um ambiente de versão mista (alguns nós de grade executando uma versão anterior, enquanto outros foram atualizados para uma versão posterior). Em geral, esses alertas e notificações serão apagados quando o hotfix for concluído.
+
+
+
+== As alterações de configuração são restritas
+
+Ao aplicar um hotfix ao StorageGRID:
+
+* Não faça alterações na configuração da grade (por exemplo, especificando sub-redes de rede de grade ou aprovando nós de grade pendentes) até que o hotfix tenha sido aplicado a todos os nós.
+* Não atualize a configuração do ILM até que o hotfix tenha sido aplicado a todos os nós.
+

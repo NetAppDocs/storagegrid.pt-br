@@ -1,0 +1,89 @@
+---
+permalink: admin/editing-tenant-account.html 
+sidebar: sidebar 
+keywords: edit tenant account, change tenant name, allow platform services, tenant quota 
+summary: Você pode editar uma conta de locatário para alterar o nome de exibição, a cota de armazenamento ou as permissões de locatário. 
+---
+= Editar conta de locatário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode editar uma conta de locatário para alterar o nome de exibição, a cota de armazenamento ou as permissões de locatário.
+
+
+TIP: Se um locatário tiver a permissão *usar conexão de federação de grade*, você poderá editar os detalhes do locatário de qualquer grade na conexão. No entanto, quaisquer alterações feitas em uma grade na conexão não serão copiadas para a outra grade. Se você quiser manter os detalhes do locatário exatamente em sincronia entre grades, faça as mesmas edições em ambas as grades. link:grid-federation-manage-tenants.html["Gerenciar os locatários permitidos para conexão de federação de grade"]Consulte .
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:admin-group-permissions.html["Acesso root ou permissão de contas do locatário"].
+
+
+
+NOTE: A aplicação de configurações de locatário na grade pode levar 15 minutos ou mais com base na conetividade de rede, no status do nó e nas operações do Cassandra.
+
+.Passos
+. Selecione *TENANTS*.
++
+image::../media/tenant_accounts_page.png[Página de contas de inquilino]
+
+. Localize a conta de locatário que você deseja editar.
++
+Use a caixa de pesquisa para procurar um locatário por nome ou ID de locatário.
+
+. Selecione o locatário. Você pode fazer um dos seguintes procedimentos:
++
+** Marque a caixa de seleção para o locatário e selecione *ações* > *Editar*.
+** Selecione o nome do locatário para exibir a página de detalhes e selecione *Editar*.
+
+
+. Opcionalmente, altere os valores para estes campos:
++
+** *Nome*
+** *Descrição*
+** *Cota de armazenamento*
+
+
+. Selecione *continuar*.
+. Selecione ou desmarque as permissões para a conta de locatário.
++
+** Se você desabilitar *Serviços de plataforma* para um locatário que já os esteja usando, os serviços que eles configuraram para seus buckets do S3 deixarão de funcionar. Nenhuma mensagem de erro é enviada ao locatário. Por exemplo, se o locatário tiver configurado a replicação do CloudMirror para um bucket do S3, ele ainda poderá armazenar objetos no bucket, mas as cópias desses objetos não serão mais feitas no bucket externo do S3 configurado como um endpoint. link:manage-platform-services-for-tenants.html["Gerencie os serviços de plataforma para contas de inquilino S3"]Consulte .
+** Altere a configuração de *Use own Identity source* para determinar se a conta do locatário usará sua própria origem de identidade ou a fonte de identidade que foi configurada para o Grid Manager.
++
+Se *usar a própria fonte de identidade* for:
+
++
+*** Desativado e selecionado, o locatário já habilitou sua própria fonte de identidade. Um locatário deve desativar sua origem de identidade antes de poder usar a fonte de identidade que foi configurada para o Gerenciador de Grade.
+*** Desativado e não selecionado, SSO está ativado para o sistema StorageGRID. O locatário deve usar a fonte de identidade que foi configurada para o Gerenciador de Grade.
+
+
+** Selecione ou desmarque a permissão *Allow S3 Select* conforme necessário. link:manage-s3-select-for-tenant-accounts.html["Gerenciar S3 Selecione para contas de inquilino"]Consulte .
+** Para remover a permissão *Use Grid Federation Connection*:
++
+... Selecione a guia *Grid Federation*.
+... Selecione *Remover permissão*.
+
+
+** Para adicionar a permissão *Use Grid Federation Connection*:
++
+... Selecione a guia *Grid Federation*.
+... Marque a caixa de seleção *usar conexão de federação de grade*.
+... Opcionalmente, selecione *Clonar usuários locais existentes e grupos* para cloná-los para a grade remota. Se desejar, você pode parar a clonagem em andamento ou tentar novamente a clonagem se alguns usuários ou grupos locais não tiverem sido clonados após a última operação de clone ter sido concluída.
+
+
+** Para definir um período de retenção máximo ou permitir o modo de conformidade:
++
+
+NOTE: S3 o bloqueio de objetos tem de estar ativado na grelha antes de poder utilizar estas definições.
+
++
+... Selecione a guia *S3 Object Lock*.
+... Para *Definir período de retenção máximo*, insira um valor e selecione o período de tempo na lista suspensa.
+... Para *permitir o modo de conformidade*, selecione a caixa de verificação.
+
+
+
+
+

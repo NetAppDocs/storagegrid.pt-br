@@ -1,0 +1,69 @@
+---
+permalink: tenant/update-default-retention-settings.html 
+sidebar: sidebar 
+keywords: update default retention for s3 object lock bucket, default retention mode, default retention period, compliance, governance 
+summary: 'Se você ativou o bloqueio de objeto S3 quando criou o bucket, poderá editar o bucket para alterar as configurações de retenção padrão. Você pode ativar (ou desativar) a retenção padrão e definir um modo de retenção e um período de retenção padrão.' 
+---
+= Atualização S3 retenção padrão bloqueio Objeto
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você ativou o bloqueio de objeto S3 quando criou o bucket, poderá editar o bucket para alterar as configurações de retenção padrão. Você pode ativar (ou desativar) a retenção padrão e definir um modo de retenção e um período de retenção padrão.
+
+.Antes de começar
+* Você está conetado ao Gerenciador do Locatário usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você pertence a um grupo de usuários que tem o link:tenant-management-permissions.html["Gerencie todos os buckets ou permissão de acesso root"]. Essas permissões substituem as configurações de permissões em políticas de grupo ou bucket.
+* O bloqueio de objetos S3D é ativado globalmente para o seu sistema StorageGRID e você ativou o bloqueio de objetos S3D quando criou o bucket. link:using-s3-object-lock.html["Use o bloqueio de objetos S3D para reter objetos"]Consulte .
+
+
+.Passos
+. Selecione *View buckets* no painel ou selecione *STORAGE (S3)* > *Buckets*.
+. Selecione o nome do intervalo na tabela.
++
+É apresentada a página de detalhes do balde.
+
+. Na guia *Opções de balde*, selecione o acordeão *S3 Object Lock*.
+. Opcionalmente, ative ou desative *retenção padrão* para este bucket.
++
+As alterações a essa configuração não se aplicam a objetos que já estejam no bucket ou a quaisquer objetos que possam ter seus próprios períodos de retenção.
+
+. Se *retenção padrão* estiver ativada, especifique um *modo de retenção padrão* para o intervalo.
++
+[cols="1a,2a"]
+|===
+| Modo de retenção predefinido | Descrição 
+
+
+ a| 
+Governança
+ a| 
+** Os usuários com `s3:BypassGovernanceRetention` permissão podem usar o `x-amz-bypass-governance-retention: true` cabeçalho de solicitação para ignorar as configurações de retenção.
+** Esses usuários podem excluir uma versão de objeto antes de sua data de retenção ser alcançada.
+** Esses usuários podem aumentar, diminuir ou remover a data de retenção até um objeto.
+
+
+
+
+ a| 
+Conformidade
+ a| 
+** O objeto não pode ser excluído até que sua data de retenção seja alcançada.
+** O retent-until-date do objeto pode ser aumentado, mas não pode ser diminuído.
+** A data de retenção do objeto não pode ser removida até que essa data seja atingida.
+
+
+*Nota*: O administrador da grade deve permitir que você use o modo de conformidade.
+
+|===
+. Se *retenção padrão* estiver ativada, especifique o *período de retenção padrão* para o intervalo.
++
+O *período de retenção padrão* indica quanto tempo novos objetos adicionados a esse intervalo devem ser retidos, a partir do momento em que são ingeridos. Especifique um valor menor ou igual ao período máximo de retenção para o locatário, conforme definido pelo administrador da grade.
+
++
+Um período de retenção _máximo_, que pode ser um valor de 1 dia a 100 anos, é definido quando o administrador da grade cria o locatário. Quando você define um período de retenção _default_, ele não pode exceder o valor definido para o período de retenção máximo. Se necessário, peça ao administrador da grade para aumentar ou diminuir o período máximo de retenção.
+
+. Selecione *Salvar alterações*.
+

@@ -1,0 +1,75 @@
+---
+permalink: monitor/deployment-and-maintenance-logs.html 
+sidebar: sidebar 
+keywords: deployment, logs, Maintenance 
+summary: Você pode usar os logs de implantação e manutenção para solucionar problemas. 
+---
+= Logs de implantação e manutenção
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar os logs de implantação e manutenção para solucionar problemas.
+
+[cols="1a,3a,1a"]
+|===
+| Nome do ficheiro | Notas | Encontrado em 
+
+
+| /var/local/log/install.log  a| 
+Criado durante a instalação do software. Contém um registo dos eventos de instalação.
+ a| 
+Todos os nós
+
+
+
+| /var/local/log/expansion-progress.log  a| 
+Criado durante operações de expansão. Contém um Registro dos eventos de expansão.
+ a| 
+Nós de storage
+
+
+
+| /var/local/log/pa-move.log  a| 
+Criado durante a execução `pa-move.sh` do script.
+ a| 
+Nó de administração principal
+
+
+
+| /var/local/log/pa-move-new_pa.log  a| 
+Criado durante a execução `pa-move.sh` do script.
+ a| 
+Nó de administração principal
+
+
+
+| /var/local/log/pa-move-old_pa.log  a| 
+Criado durante a execução `pa-move.sh` do script.
+ a| 
+Nó de administração principal
+
+
+
+| /var/local/log/gdu-server.log  a| 
+Criado pelo serviço GDU. Contém eventos relacionados aos procedimentos de provisionamento e manutenção gerenciados pelo nó de administração principal.
+ a| 
+Nó de administração principal
+
+
+
+| /var/local/log/send_admin_hw.log  a| 
+Criado durante a instalação. Contém informações de depuração relacionadas às comunicações de um nó com o nó de administração principal.
+ a| 
+Todos os nós
+
+
+
+| /var/local/log/upgrade.log  a| 
+Criado durante a atualização de software. Contém um registo dos eventos de atualização de software.
+ a| 
+Todos os nós
+
+|===

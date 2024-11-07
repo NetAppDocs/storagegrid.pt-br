@@ -1,0 +1,52 @@
+---
+permalink: upgrade/changes-to-grid-management-api.html 
+sidebar: sidebar 
+keywords: grid management api, api, api version, swagger, rest api, usageCacheDuration 
+summary: O StorageGRID 11,9 usa a versão 4 da API de gerenciamento de grade. A versão 4 desconsidera a versão 3; no entanto, as versões 1, 2 e 3 ainda são suportadas. 
+---
+= Alterações na API Grid Management
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O StorageGRID 11,9 usa a versão 4 da API de gerenciamento de grade. A versão 4 desconsidera a versão 3; no entanto, as versões 1, 2 e 3 ainda são suportadas.
+
+
+NOTE: Você pode continuar usando versões obsoletas da API de gerenciamento com o StorageGRID 11,9; no entanto, o suporte para essas versões da API será removido em uma versão futura do StorageGRID. Depois de atualizar para o StorageGRID 11,9, você pode desativar as APIs obsoletas usando a `PUT /grid/config/management` API.
+
+Para saber mais, link:../admin/using-grid-management-api.html["Use a API de gerenciamento de grade"]acesse .
+
+
+
+== Revise as configurações de conformidade depois de ativar o bloqueio de objetos S3 global
+
+Revise as configurações de conformidade dos locatários existentes depois de ativar a configuração global S3 Object Lock. Quando você ativa essa configuração, as configurações de bloqueio de objeto S3 por locatário dependem da versão do StorageGRID no momento em que o locatário foi criado.
+
+
+
+== Solicitações legadas de mgmt-api removidas
+
+Essas solicitações legadas foram removidas:
+
+`/grid/server-types`
+
+`/grid/ntp-roles`
+
+
+
+== Alterações à `GET /private/storage-usage` API
+
+* Uma nova propriedade, `usageCacheDuration`, foi adicionada ao corpo de resposta. Esta propriedade especifica a duração (em segundos) para a qual o cache de pesquisa de uso permanece válido. Esse valor se aplica ao verificar o uso em relação aos limites de cota de armazenamento do locatário e capacidade do bucket.
+* O `GET /api/v4/private/storage-usage` comportamento foi corrigido para combinar o aninhamento do esquema.
+* Essas alterações se aplicam somente à API privada.
+
+
+
+
+== Alterações à `GET cross-grid-replication` API
+
+A API */org/containers/:name/cross-grid-replication* GET não requer mais a (`rootAccess`permissão root Access ); no entanto, você deve pertencer a um grupo de usuários que tenha a (`viewAllContainers`permissão Gerenciar todos os buckets (`manageAllContainers`) ou Exibir todos os buckets ).
+
+A API PUT */org/containers/:name/cross-grid-replication* não foi alterada e ainda requer a (`rootAccess`permissão root Access ).

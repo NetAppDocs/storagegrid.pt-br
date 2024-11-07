@@ -1,0 +1,52 @@
+---
+permalink: upgrade/upgrade-workflow.html 
+sidebar: sidebar 
+keywords: upgrade workflow 
+summary: Antes de iniciar a atualização, reveja o fluxo de trabalho geral. A página Atualização do StorageGRID orienta você pelas etapas de atualização. 
+---
+= Atualize o início rápido
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de iniciar a atualização, reveja o fluxo de trabalho geral. A página Atualização do StorageGRID orienta você em cada etapa de atualização.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"] Prepare hosts Linux
+[role="quick-margin-para"]
+Se algum nó do StorageGRID for implantado em hosts Linux, link:linux-installing-rpm-or-deb-package-on-all-hosts.html["Instale o pacote RPM ou DEB em cada host"] antes de iniciar a atualização.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"] Carregar ficheiros de atualização e correção
+[role="quick-margin-para"]
+A partir do nó de administração principal, aceda à página Atualização do StorageGRID e carregue o ficheiro de atualização e o ficheiro de correção, se necessário.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"] Baixar Recovery Package
+[role="quick-margin-para"]
+Baixe o pacote de recuperação atual antes de iniciar a atualização.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"] Execute as pré-verificações de atualização
+[role="quick-margin-para"]
+As pré-verificações de atualização ajudam a detetar problemas, para que você possa resolvê-los antes de iniciar a atualização real.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"] Inicie a atualização
+[role="quick-margin-para"]
+Quando você inicia a atualização, as pré-verificações são executadas novamente e o nó de administração principal é atualizado automaticamente. Não é possível acessar o Gerenciador de Grade enquanto o nó Admin principal estiver sendo atualizado. Os logs de auditoria também estarão indisponíveis. Esta atualização pode demorar até 30 minutos.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"] Baixar Recovery Package
+[role="quick-margin-para"]
+Depois que o nó Admin principal tiver sido atualizado, faça o download de um novo pacote de recuperação.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sete"] Aprovar nós
+[role="quick-margin-para"]
+Você pode aprovar nós de grade individuais, grupos de nós de grade ou todos os nós de grade.
+
+
+CAUTION: Não aprove a atualização para um nó de grade a menos que você tenha certeza de que o nó está pronto para ser interrompido e reinicializado.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["Oito"] Retomar as operações
+[role="quick-margin-para"]
+Quando todos os nós de grade tiverem sido atualizados, novos recursos serão ativados e você poderá retomar as operações. Você deve esperar para executar um procedimento de desativação ou expansão até que a tarefa *Atualizar banco de dados* em segundo plano e a tarefa *etapas finais de atualização* tenham sido concluídas.
+
+.Informações relacionadas
+link:estimating-time-to-complete-upgrade.html["Estime o tempo para concluir uma atualização"]

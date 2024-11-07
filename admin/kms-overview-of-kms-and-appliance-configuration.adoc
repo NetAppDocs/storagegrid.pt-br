@@ -1,0 +1,94 @@
+---
+permalink: admin/kms-overview-of-kms-and-appliance-configuration.html 
+sidebar: sidebar 
+keywords: kms, appliance configuration, node encryption 
+summary: 'Antes de poder utilizar um servidor de gestão de chaves (KMS) para proteger dados StorageGRID nos nós do dispositivo, tem de concluir duas tarefas de configuração: Configurar um ou mais servidores KMS e ativar a encriptação de nós para os nós do dispositivo. Quando essas duas tarefas de configuração são concluídas, o processo de gerenciamento de chaves ocorre automaticamente.' 
+---
+= KMS e configuração do dispositivo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de usar um servidor de gerenciamento de chaves (KMS) para proteger dados do StorageGRID nos nós do dispositivo, você deve concluir duas tarefas de configuração: Configurar um ou mais servidores KMS e habilitar a criptografia de nós para os nós do dispositivo. Quando essas duas tarefas de configuração são concluídas, o processo de gerenciamento de chaves ocorre automaticamente.
+
+O fluxograma mostra as etapas de alto nível para usar um KMS para proteger os dados do StorageGRID em nós do dispositivo.
+
+image::../media/kms_configuration_overview.png[Fluxo de trabalho de configuração DE KMS, que é descrito no texto seguinte]
+
+O fluxograma mostra a configuração do KMS e a configuração do appliance ocorrendo em paralelo; no entanto, você pode configurar os servidores de gerenciamento de chaves antes ou depois de habilitar a criptografia de nó para novos nós de dispositivo, com base em seus requisitos.
+
+
+
+== Configurar o servidor de gerenciamento de chaves (KMS)
+
+A configuração de um servidor de gerenciamento de chaves inclui as seguintes etapas de alto nível.
+
+[cols="1a,1a"]
+|===
+| Passo | Consulte 
+
+
+ a| 
+Acesse o software KMS e adicione um cliente para StorageGRID a cada cluster KMS ou KMS.
+ a| 
+link:kms-configuring-storagegrid-as-client.html["Configure o StorageGRID como um cliente no KMS"]
+
+
+
+ a| 
+Obtenha as informações necessárias para o cliente StorageGRID no KMS.
+ a| 
+link:kms-configuring-storagegrid-as-client.html["Configure o StorageGRID como um cliente no KMS"]
+
+
+
+ a| 
+Adicione o KMS ao Gerenciador de Grade, atribua-o a um único site ou a um grupo padrão de sites, carregue os certificados necessários e salve a configuração do KMS.
+ a| 
+link:kms-adding.html["Adicionar um servidor de gerenciamento de chaves (KMS)"]
+
+|===
+
+
+== Configure o aparelho
+
+A configuração de um nó de dispositivo para uso do KMS inclui os seguintes passos de alto nível.
+
+. Durante o estágio de configuração de hardware da instalação do dispositivo, use o Instalador de dispositivos StorageGRID para ativar a configuração *criptografia de nó* para o dispositivo.
++
+
+NOTE: Não é possível ativar a configuração *criptografia de nó* depois que um dispositivo é adicionado à grade e não é possível usar o gerenciamento de chaves externas para dispositivos que não têm criptografia de nó ativada.
+
+. Execute o Instalador de dispositivos StorageGRID. Durante a instalação, uma chave de criptografia de dados aleatórios (DEK) é atribuída a cada volume de dispositivo, da seguinte forma:
++
+** Os DEKs são usados para criptografar os dados em cada volume. Essas chaves são geradas usando a criptografia de disco LUKS (Unified Key Setup) do Linux no sistema operacional do dispositivo e não podem ser alteradas.
+** Cada DEK individual é criptografado por uma chave mestra de criptografia (KEK). O KEK inicial é uma chave temporária que criptografa os DEKs até que o dispositivo possa se conetar ao KMS.
+
+
+. Adicione o nó do dispositivo ao StorageGRID.
+
+
+ https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-enabling-node-encryption.html["Habilite a criptografia do nó"^]Consulte para obter detalhes.
+
+
+
+== Processo de criptografia de gerenciamento de chaves (ocorre automaticamente)
+
+A criptografia de gerenciamento de chaves inclui as seguintes etapas de alto nível que são executadas automaticamente.
+
+. Quando você instala um dispositivo que tem criptografia de nó ativada na grade, o StorageGRID determina se existe uma configuração de KMS para o site que contém o novo nó.
++
+** Se um KMS já tiver sido configurado para o site, o appliance receberá a configuração do KMS.
+** Se um KMS ainda não tiver sido configurado para o site, os dados no appliance continuarão a ser criptografados pelo KEK temporário até que você configure um KMS para o site e o appliance receba a configuração do KMS.
+
+
+. O dispositivo usa a configuração KMS para se conetar ao KMS e solicitar uma chave de criptografia.
+. O KMS envia uma chave de criptografia para o dispositivo. A nova chave do KMS substitui o KEK temporário e agora é usada para criptografar e descriptografar os DEKs para os volumes do dispositivo.
++
+
+CAUTION: Todos os dados existentes antes do nó de dispositivo criptografado se conetarem ao KMS configurado são criptografados com uma chave temporária. No entanto, os volumes do dispositivo não devem ser considerados protegidos contra a remoção do data center até que a chave temporária seja substituída pela chave de criptografia KMS.
+
+. Se o aparelho estiver ligado ou reinicializado, ele se reconeta ao KMS para solicitar a chave. A chave, que é salva na memória volátil, não pode sobreviver a uma perda de energia ou a uma reinicialização.
+

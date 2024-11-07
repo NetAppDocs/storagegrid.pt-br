@@ -1,0 +1,62 @@
+---
+permalink: tenant/viewing-and-editing-group-details.html 
+sidebar: sidebar 
+keywords: how to view and edit group 
+summary: Ao exibir os detalhes de um grupo, você pode alterar o nome de exibição, as permissões, as políticas e os usuários que pertencem ao grupo. 
+---
+= Ver e editar detalhes do grupo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ao exibir os detalhes de um grupo, você pode alterar o nome de exibição, as permissões, as políticas e os usuários que pertencem ao grupo.
+
+.Antes de começar
+* Você está conetado ao Gerenciador do Locatário usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você pertence a um grupo de usuários que tem a permissão de acesso root.
+
+
+.Passos
+. Selecione *GERENCIAMENTO DE ACESSO* > *grupos*.
+. Selecione o nome do grupo cujos detalhes deseja exibir ou editar.
++
+Em alternativa, pode selecionar *ações* > *Ver detalhes do grupo*.
+
++
+A página de detalhes do grupo é exibida. O exemplo a seguir mostra a página de detalhes do grupo S3.
+
++
+image::../media/tenant_group_details.png[Ver detalhes do grupo]
+
+. Faça alterações nas definições do grupo conforme necessário.
++
+
+TIP: Para garantir que suas alterações sejam salvas, selecione *Salvar alterações* depois de fazer alterações em cada seção. Quando as alterações são salvas, uma mensagem de confirmação aparece no canto superior direito da página.
+
++
+.. Opcionalmente, selecione o nome de exibição ou o ícone de edição image:../media/icon_edit_tm.png["Ícone de edição"]para atualizar o nome de exibição.
++
+Não é possível alterar o nome exclusivo de um grupo. Não é possível editar o nome de exibição de um grupo federado.
+
+.. Opcionalmente, atualize as permissões.
+.. Para a política de grupo, faça as alterações apropriadas para o seu locatário do S3.
++
+*** Se você estiver editando um grupo para um locatário S3, opcionalmente, selecione uma política de grupo S3 diferente. Se você selecionar uma política S3 personalizada, atualize a cadeia de carateres JSON conforme necessário.
+*** Se você estiver editando um grupo para um locatário Swift, opcionalmente marque ou desmarque a caixa de seleção *Administrador Swift*.
++
+Para obter mais informações sobre a permissão Swift Administrator, consulte as instruções para criar grupos para um locatário Swift.
+
+
+
+.. Opcionalmente, adicione ou remova usuários.
+
+
+. Confirme que selecionou *Guardar alterações* para cada secção alterada.
+
+
+.Informações relacionadas
+* link:creating-groups-for-s3-tenant.html["Criar grupos para S3 inquilino"]
+* link:creating-groups-for-swift-tenant.html["Crie grupos para o locatário Swift"]
+

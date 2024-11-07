@@ -1,0 +1,56 @@
+---
+permalink: maintain/rebooting-grid-node-from-grid-manager.html 
+sidebar: sidebar 
+keywords: reboot grid node, tasks tab 
+summary: Você pode reinicializar um nó de grade individual a partir da guia tarefas na página nós. 
+---
+= Reinicie o nó da grade a partir da guia tarefas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode reinicializar um nó de grade individual a partir da guia tarefas na página nós.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:../admin/admin-group-permissions.html["Permissão de manutenção ou acesso root"].
+* Você tem a senha de provisionamento.
+* Se você estiver reinicializando o nó Admin principal ou qualquer nó de armazenamento, você revisou as seguintes considerações:
++
+** Quando você reinicia o nó Admin principal, seu navegador perde temporariamente o acesso ao Gerenciador de Grade.
+** Se você reinicializar dois ou mais nós de storage em um determinado local, talvez não consiga acessar certos objetos durante a reinicialização. Esse problema pode ocorrer se qualquer regra ILM usar a opção de ingestão *Dual commit* (ou uma regra especifica *Balanced* e não é possível criar imediatamente todas as cópias necessárias). Nesse caso, o StorageGRID comprometerá objetos recém-ingeridos a dois nós de storage no mesmo local e avaliará o ILM posteriormente.
+** Para garantir que você possa acessar todos os objetos enquanto um nó de armazenamento estiver reiniciando, pare de ingerir objetos em um site por aproximadamente uma hora antes de reiniciar o nó.
+
+
+
+
+.Sobre esta tarefa
+Quando o StorageGRID reinicializa um nó de grade, ele emite o `reboot` comando no nó, o que faz com que o nó desligue e reinicie. Todos os serviços são reiniciados automaticamente.
+
+* Reiniciar um nó VMware reinicializa a máquina virtual.
+* Reiniciar um nó Linux reinicializa o contentor.
+* Reiniciar um nó de dispositivo StorageGRID reinicializa o controlador de computação.
+
+
+
+TIP: Se for necessário reiniciar mais de um nó, pode utilizar o link:../maintain/rolling-reboot-procedure.html["procedimento de reinicialização a rolar"].
+
+.Passos
+. Selecione *NODES*.
+. Selecione o nó de grade que deseja reinicializar.
+. Selecione a guia *tarefas*.
+. Selecione *Reboot*.
++
+É apresentada uma caixa de diálogo de confirmação. Se você estiver reinicializando o nó Admin principal, a caixa de diálogo de confirmação lembra que a conexão do seu navegador com o Gerenciador de Grade será perdida temporariamente quando os serviços forem interrompidos.
+
+. Introduza a frase-passe de aprovisionamento e selecione *OK*.
+. Aguarde até que o nó seja reiniciado.
++
+Pode levar algum tempo para que os serviços sejam desativados.
+
++
+Quando o nó é reinicializado, o ícone cinza (administrativamente para baixo) aparece para o nó na página nós. Quando todos os serviços tiverem sido iniciados novamente e o nó for conetado com êxito à grade, a página de nós deve exibir o status normal (sem ícones à esquerda do nome do nó), indicando que nenhum alerta está ativo e o nó está conetado à grade.
+
+

@@ -1,0 +1,213 @@
+---
+permalink: primer/what-storage-node-is.html 
+sidebar: sidebar 
+keywords: what is a storage node, how many storage nodes 
+summary: Os nós de storage gerenciam e armazenam dados e metadados de objetos. Os nós de storage incluem os serviços e processos necessários para armazenar, mover, verificar e recuperar dados de objetos e metadados em disco. 
+---
+= O que é um nó de storage?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os nós de storage gerenciam e armazenam dados e metadados de objetos. Os nós de storage incluem os serviços e processos necessários para armazenar, mover, verificar e recuperar dados de objetos e metadados em disco.
+
+Cada local do seu sistema StorageGRID precisa ter pelo menos três nós de storage.
+
+
+
+== Tipos de nós de storage
+
+Durante a instalação, você pode selecionar o tipo de nó de armazenamento que deseja instalar. Esses tipos estão disponíveis para nós de storage baseados em software e para nós de storage baseados no dispositivo que oferecem suporte ao recurso:
+
+* Nó de storage combinado de dados e metadados
+* Nó de storage somente de metadados
+* Nó de storage somente de dados
+
+
+Você pode selecionar o tipo de nó de armazenamento nestas situações:
+
+* Ao instalar inicialmente um nó de storage
+* Quando você adiciona um nó de storage durante a expansão do sistema StorageGRID
+
+
+
+NOTE: Não é possível alterar o tipo depois que a instalação do nó de armazenamento estiver concluída.
+
+Nó de storage de dados e metadados (combinado):: Por padrão, todos os novos nós de storage armazenarão dados de objetos e metadados. Esse tipo de nó de armazenamento é chamado de nó de armazenamento _combinado_.
+Nó de storage somente de metadados:: Usar um nó de armazenamento exclusivo para metadados pode fazer sentido se sua grade armazenar um número muito grande de objetos pequenos. A instalação da capacidade de metadados dedicada fornece um melhor equilíbrio entre o espaço necessário para um grande número de pequenos objetos e o espaço necessário para os metadados desses objetos. Além disso, os nós de storage somente de metadados hospedados em dispositivos de alta performance podem aumentar a performance.
+
+
+Ao instalar nós somente metadados, a grade também deve conter um número mínimo de nós para o storage de dados:
+
+* Para uma grade de um único local, configure pelo menos dois nós de storage combinados ou somente de dados.
+* Para uma grade de vários locais, configure pelo menos um nó de armazenamento combinado ou somente de dados _por local_.
+
+
+
+NOTE: Embora os nós de storage somente metadados contenham o <<ldr-service,Serviço LDR>> e possam processar solicitações de clientes do S3, a performance do StorageGRID pode não aumentar.
+
+Nó de storage somente de dados:: O uso de um nó de storage exclusivo para dados pode fazer sentido se seus nós de storage tiverem características de desempenho diferentes. Por exemplo, para aumentar potencialmente a performance, você pode ter nós de storage de disco giratório somente de dados e alta capacidade acompanhados por nós de storage de alta performance somente de metadados.
+
+
+Ao instalar nós somente dados, a grade deve conter o seguinte:
+
+* Um mínimo de dois nós de storage combinados ou somente de dados _por grade_
+* Pelo menos um nó de storage combinado ou somente de dados _por local_
+* Um mínimo de três nós de storage combinados ou somente de metadados _por local_
+
+
+
+
+== Serviços primários para nós de storage
+
+A tabela a seguir mostra os serviços primários para nós de storage; no entanto, essa tabela não lista todos os serviços de nós.
+
+
+NOTE: Alguns serviços, como o serviço ADC e o serviço RSM, normalmente existem apenas em três nós de storage em cada local.
+
+[cols="1a,3a"]
+|===
+| Serviço | Função de chave 
+
+
+ a| 
+Conta (acct)
+ a| 
+Gerencia contas de locatários.
+
+
+
+ a| 
+Controlador de domínio administrativo (ADC)
+ a| 
+Mantém a topologia e a configuração em toda a grade.
+
+*Nota*: Os nós de storage somente de dados não hospedam o serviço ADC.
+
+.Detalhes
+[%collapsible]
+====
+O serviço controlador de domínio administrativo (ADC) autentica os nós de grade e suas conexões entre si. O serviço ADC é hospedado em um mínimo de três nós de storage em um local.
+
+O serviço ADC mantém informações de topologia, incluindo a localização e disponibilidade dos serviços. Quando um nó de grade requer informações de outro nó de grade ou uma ação a ser executada por outro nó de grade, ele entra em Contato com um serviço ADC para encontrar o melhor nó de grade para processar sua solicitação. Além disso, o serviço ADC retém uma cópia dos pacotes de configuração da implantação do StorageGRID, permitindo que qualquer nó de grade recupere informações de configuração atuais.
+
+Para facilitar operações distribuídas e desembarcadas, cada serviço ADC sincroniza certificados, pacotes de configuração e informações sobre serviços e topologia com os outros serviços ADC no sistema StorageGRID.
+
+Em geral, todos os nós de grade mantêm uma conexão com pelo menos um serviço ADC. Isso garante que os nós de grade estejam sempre acessando as informações mais recentes. Quando os nós de grade se conetam, eles armazenam em cache certificados de outros nós de grade, permitindo que os sistemas continuem funcionando com nós de grade conhecidos, mesmo quando um serviço ADC não está disponível. Novos nós de grade só podem estabelecer conexões usando um serviço ADC.
+
+A conexão de cada nó de grade permite que o serviço ADC colete informações de topologia. Essas informações de nó de grade incluem a carga da CPU, o espaço disponível em disco (se ele tiver armazenamento), os serviços suportados e o ID do site do nó de grade. Outros serviços pedem ao serviço ADC informações de topologia por meio de consultas de topologia. O serviço ADC responde a cada consulta com as informações mais recentes recebidas do sistema StorageGRID.
+
+====
+
+
+ a| 
+Cassandra
+ a| 
+Armazena e protege metadados de objetos.
+
+*Nota*: Os nós de storage somente de dados não hospedam o serviço Cassandra.
+
+
+
+ a| 
+Cassandra Reaper
+ a| 
+Executa reparos automáticos de metadados de objetos.
+
+*Nota*: Os nós de storage somente de dados não hospedam o serviço Cassandra Reaper.
+
+
+
+ a| 
+Chunk
+ a| 
+Gerencia dados codificados por apagamento e fragmentos de paridade.
+
+
+
+ a| 
+Transferência de dados (dmv)
+ a| 
+Move dados para Cloud Storage Pools.
+
+
+
+ a| 
+Armazenamento de dados distribuídos (DDS)
+ a| 
+Monitora o armazenamento de metadados de objetos.
+
+.Detalhes
+[%collapsible]
+====
+Cada nó de armazenamento inclui o serviço armazenamento de dados distribuído (DDS). Esse serviço faz interface com o banco de dados Cassandra para executar tarefas em segundo plano nos metadados de objetos armazenados no sistema StorageGRID.
+
+O serviço DDS rastreia o número total de objetos ingeridos no sistema StorageGRID, bem como o número total de objetos ingeridos através de cada uma das interfaces suportadas do sistema (S3).
+
+====
+
+
+ a| 
+Identidade (idnt)
+ a| 
+Federa identidades de usuários do LDAP e do ative Directory.
+
+
+
+ a| 
+[[ldr-service]]Router de distribuição local (LDR)
+ a| 
+Processa solicitações de protocolo de storage de objetos e gerencia dados de objetos em disco.
+
+.Detalhes
+[%collapsible]
+====
+Cada nó de armazenamento _combined_, _data-only_ e _metadata-only_ inclui o serviço LDR (roteador de distribuição local). Este serviço lida com funções de transporte de conteúdo, incluindo armazenamento de dados, roteamento e manuseio de solicitações. O serviço LDR faz a maior parte do trabalho árduo do sistema StorageGRID, manipulando cargas de transferência de dados e funções de tráfego de dados.
+
+O serviço LDR lida com as seguintes tarefas:
+
+* Consultas
+* Atividade de gerenciamento do ciclo de vida das informações (ILM)
+* Exclusão de objeto
+* Storage de dados de objetos
+* Transferências de dados de objeto de outro serviço LDR (Storage Node)
+* Gerenciamento de storage de dados
+* Interface de protocolo S3
+
+
+O serviço LDR também mapeia cada objeto S3 para seu UUID exclusivo.
+
+Armazenamentos de objetos:: O armazenamento de dados subjacente de um serviço LDR é dividido em um número fixo de armazenamentos de objetos (também conhecidos como volumes de armazenamento). Cada armazenamento de objetos é um ponto de montagem separado.
++
+--
+Os armazenamentos de objetos em um nó de armazenamento são identificados por um número hexadecimal de 0000 a 002F, que é conhecido como ID de volume. O espaço é reservado no primeiro armazenamento de objetos (volume 0) para metadados de objetos em um banco de dados Cassandra; qualquer espaço restante nesse volume é usado para dados de objeto. Todos os outros armazenamentos de objetos são usados exclusivamente para dados de objetos, o que inclui cópias replicadas e fragmentos codificados por apagamento.
+
+Para garantir até mesmo o uso de espaço para cópias replicadas, os dados de objeto de um determinado objeto são armazenados em um armazenamento de objetos com base no espaço de storage disponível. Quando um armazenamento de objetos enche a capacidade, os armazenamentos de objetos restantes continuam armazenando objetos até que não haja mais espaço no nó de armazenamento.
+
+--
+Proteção de metadados:: O StorageGRID armazena metadados de objetos em um banco de dados Cassandra, que faz interface com o serviço LDR.
++
+--
+Para garantir redundância e, portanto, proteção contra perda, três cópias dos metadados de objetos são mantidas em cada local. Esta replicação não é configurável e executada automaticamente. Para obter detalhes, link:../admin/managing-object-metadata-storage.html["Gerenciar o storage de metadados de objetos"]consulte .
+
+--
+
+
+====
+
+
+ a| 
+Máquina de estado replicado (RSM)
+ a| 
+Garante que as solicitações de serviços da plataforma S3 sejam enviadas para seus respetivos endpoints.
+
+
+
+ a| 
+Monitor de status do servidor (SSM)
+ a| 
+Monitora o sistema operacional e o hardware subjacente.
+
+|===

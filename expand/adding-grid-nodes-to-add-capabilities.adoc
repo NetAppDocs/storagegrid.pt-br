@@ -1,0 +1,31 @@
+---
+permalink: expand/adding-grid-nodes-to-add-capabilities.html 
+sidebar: sidebar 
+keywords: grid nodes, expand, expansion, site, add 
+summary: Você pode adicionar redundância ou recursos adicionais a um sistema StorageGRID adicionando novos nós de grade a sites existentes. 
+---
+= Adicione nós de grade para adicionar recursos ao seu sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode adicionar redundância ou recursos adicionais a um sistema StorageGRID adicionando novos nós de grade a sites existentes.
+
+Por exemplo, você pode optar por adicionar nós de gateway a serem usados em um grupo de alta disponibilidade (HA) ou adicionar um nó de administrador em um site remoto para permitir o monitoramento usando um nó local.
+
+Você pode adicionar um ou mais dos seguintes tipos de nós a um ou mais locais existentes em uma única operação de expansão:
+
+* Nós de administração não primários
+* Nós de storage
+* Nós de gateway
+
+
+Ao se preparar para adicionar nós de grade, esteja ciente das seguintes limitações:
+
+* O nó de administração principal é implantado durante a instalação inicial. Não é possível adicionar um nó de administração principal durante uma expansão.
+* Você pode adicionar nós de storage e outros tipos de nós na mesma expansão.
+* Ao adicionar nós de storage, você deve Planejar cuidadosamente o número e o local dos novos nós. link:../expand/guidelines-for-adding-object-capacity.html["Diretrizes para adicionar capacidade de objeto"]Consulte .
+* Se a opção *Definir novo nó padrão* for *não confiável* na guia redes de clientes não confiáveis na página de controle do Firewall, os aplicativos clientes que se conetarem a nós de expansão usando a rede de cliente devem se conetar usando uma porta de endpoint do balanceador de carga (*CONFIGURAÇÃO* > *Segurança* > *Controle do Firewall*). Consulte as instruções para link:../admin/configure-firewall-controls.html["altere a configuração de segurança do novo nó"] e para link:../admin/configuring-load-balancer-endpoints.html["configurar pontos de extremidade do balanceador de carga"].
+

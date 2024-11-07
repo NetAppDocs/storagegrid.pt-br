@@ -1,0 +1,114 @@
+---
+permalink: audit/gtsu-grid-task-submitted.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, GTSU, Grid Task Submitted 
+summary: Esta mensagem de auditoria indica que uma tarefa de grade foi enviada ao serviço CMN. 
+---
+= GTSU: Tarefa de grelha enviada
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta mensagem de auditoria indica que uma tarefa de grade foi enviada ao serviço CMN.
+
+[cols="1a,1a,4a"]
+|===
+| Código | Campo | Descrição 
+
+
+ a| 
+TSID
+ a| 
+Código tarefa
+ a| 
+Identifica de forma única uma tarefa de grade gerada e permite que a tarefa seja gerenciada ao longo de seu ciclo de vida.
+
+*Observação:* o ID da tarefa é atribuído no momento em que uma tarefa de grade é gerada, não no momento em que ela é enviada. É possível que uma determinada tarefa de grade seja enviada várias vezes e, neste caso, o campo ID da tarefa não é suficiente para vincular exclusivamente as mensagens de auditoria enviadas, iniciadas e encerradas.
+
+
+
+ a| 
+TTYP
+ a| 
+Tipo tarefa
+ a| 
+O tipo de tarefa de grade.
+
+
+
+ a| 
+TVER
+ a| 
+Versão da tarefa
+ a| 
+Um número que indica a versão da tarefa de grade.
+
+
+
+ a| 
+TDSC
+ a| 
+Descrição tarefa
+ a| 
+Uma descrição humanamente legível da tarefa de grade.
+
+
+
+ a| 
+CUBAS
+ a| 
+Válido após Timestamp
+ a| 
+A primeira vez (UINT64 microssegundos a partir de 1 de janeiro de 1970 - horário UNIX) em que a tarefa de grade é válida.
+
+
+
+ a| 
+VBTS
+ a| 
+Válido antes do Timestamp
+ a| 
+A última hora (UINT64 microssegundos a partir de 1 de janeiro de 1970 - horário UNIX) em que a tarefa de grade é válida.
+
+
+
+ a| 
+TSRC
+ a| 
+Fonte
+ a| 
+A origem da tarefa:
+
+* TXTB: A tarefa de grade foi enviada pelo sistema StorageGRID como um bloco de texto assinado.
+* GRADE: A tarefa de grade foi enviada através do Serviço interno de envio de tarefa de Grade.
+
+
+
+
+ a| 
+ACTV
+ a| 
+Tipo de ativação
+ a| 
+O tipo de ativação:
+
+* AUTO: A tarefa de grade foi submetida para ativação automática.
+* PEND: A tarefa de grade foi enviada para a tabela pendente. Esta é a única possibilidade para a fonte TXTB.
+
+
+
+
+ a| 
+RSLT
+ a| 
+Resultado
+ a| 
+O resultado da submissão:
+
+* SUCS: A tarefa de grade foi enviada com sucesso.
+* FALHA: A tarefa foi movida diretamente para a tabela histórica.
+
+
+|===

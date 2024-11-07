@@ -1,0 +1,6 @@
+= 
+:allow-uri-read: 
+
+
+
+NOTE: A aplicação de configurações de locatário na grade pode levar 15 minutos ou mais com base na conetividade de rede, no status do nó e nas operações do Cassandra.

@@ -1,0 +1,174 @@
+---
+permalink: maintain/decommissioning-disconnected-grid-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, disconnected nodes, decommission node 
+summary: Talvez seja necessário desativar um nó que não esteja conetado à grade no momento. 
+---
+= Desativar nós de grade desconetados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Talvez seja necessário desativar um nó que não esteja conetado à grade no momento (aquele cuja Saúde é desconhecida ou administrativamente inativa).
+
+.Antes de começar
+* Compreende as considerações relativas à link:considerations-for-decommissioning-admin-or-gateway-nodes.html["Nós de administrador e gateway"]desativação e as considerações relativas à desativação link:considerations-for-decommissioning-storage-nodes.html["Nós de storage"].
+* Você obteve todos os itens pré-requisitos.
+* Você garantiu que nenhum trabalho de reparo de dados está ativo. link:checking-data-repair-jobs.html["Verifique os trabalhos de reparação de dados"]Consulte .
+* Você confirmou que a recuperação do nó de storage não está em andamento em nenhum lugar da grade. Se estiver, você deve esperar até que qualquer reconstrução do Cassandra executada como parte da recuperação esteja concluída. Você pode então prosseguir com a desativação.
+* Você garantiu que outros procedimentos de manutenção não serão executados enquanto o procedimento de desativação do nó estiver em execução, a menos que o procedimento de desativação do nó esteja pausado.
+* A coluna *Decommission possible* para o nó ou nós desconetados que você deseja desativar inclui uma marca de seleção verde.
+* Você tem a senha de provisionamento.
+
+
+.Sobre esta tarefa
+Você pode identificar nós desconetados procurando o ícone desconhecido azul image:../media/icon_alarm_blue_unknown.png["Ícone desconhecido"]ou o ícone cinza administrativamente para baixo image:../media/icon_alarm_gray_administratively_down.png["Ícone administrativamente para baixo"]na coluna *Saúde*.
+
+Antes de desativar qualquer nó desconetado, observe o seguinte:
+
+* Este procedimento destina-se principalmente à remoção de um único nó desconetado. Se sua grade contiver vários nós desconetados, o software exige que você os desative todos ao mesmo tempo, o que aumenta o potencial de resultados inesperados.
++
+
+CAUTION: A perda de dados pode ocorrer se você desativar mais de um nó de storage desconetado de cada vez. link:considerations-for-decommissioning-storage-nodes.html#considerations-disconnected-storage-nodes["Considerações para nós de storage desconetados"]Consulte .
+
++
+
+CAUTION: Tenha cuidado ao desativar os nós de storage em uma grade que contém nós somente metadados baseados em software. Se você desativar todos os nós configurados para armazenar _tanto_ objetos quanto metadados, a capacidade de armazenar objetos será removida da grade. Consulte link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nós de storage"] para obter mais informações sobre nós de storage somente de metadados.
+
+* Se um nó desconetado não puder ser removido (por exemplo, um nó de armazenamento que é necessário para o quórum de ADC), nenhum outro nó desconetado poderá ser removido.
+
+
+.Passos
+. A menos que você esteja desativando um nó de arquivo (que deve ser desconetado), tente colocar todos os nós de grade desconetados novamente on-line ou recuperá-los.
++
+link:warnings-and-considerations-for-grid-node-recovery.html["Procedimentos de recuperação do nó de grade"]Consulte para obter instruções.
+
+. Se você não conseguir recuperar um nó de grade desconetado e quiser desativá-lo enquanto ele estiver desconetado, marque a caixa de seleção desse nó.
++
+
+NOTE: Se sua grade contiver vários nós desconetados, o software exige que você os desative todos ao mesmo tempo, o que aumenta o potencial de resultados inesperados.
+
++
+
+CAUTION: Tenha cuidado ao escolher desativar mais de um nó de grade desconetado de cada vez, especialmente se você estiver selecionando vários nós de storage desconetados. Se você tiver mais de um nó de armazenamento desconetado que não possa recuperar, entre em Contato com o suporte técnico para determinar o melhor curso de ação.
+
+. Introduza a frase-passe de aprovisionamento.
++
+O botão *Start Decommission* está ativado.
+
+. Clique em *Start Decommission*.
++
+Um aviso é exibido, indicando que você selecionou um nó desconetado e que os dados do objeto serão perdidos se o nó tiver a única cópia de um objeto.
+
+. Revise a lista de nós e clique em *OK*.
++
+O procedimento de desativação é iniciado e o progresso é exibido para cada nó. Durante o procedimento, um novo Pacote de recuperação é gerado contendo a alteração de configuração da grade.
+
+. Assim que o novo pacote de recuperação estiver disponível, clique no link ou selecione *MAINTENANCE* > *System* > *Recovery package* para acessar a página Recovery Package. Em seguida, baixe o `.zip` arquivo.
++
+Consulte as instruções para link:downloading-recovery-package.html["Transferir o pacote de recuperação"].
+
++
+
+NOTE: Baixe o pacote de recuperação o mais rápido possível para garantir que você possa recuperar sua grade se algo der errado durante o procedimento de desativação.
+
++
+
+CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID.
+
+. Monitorize periodicamente a página de desativação para garantir que todos os nós selecionados sejam desativados com êxito.
++
+Os nós de storage podem levar dias ou semanas para serem desativados. Quando todas as tarefas estiverem concluídas, a lista de seleção de nós é reexibida com uma mensagem de sucesso. Se você tiver desativado um nó de armazenamento desconetado, uma mensagem de informações indicará que os trabalhos de reparo foram iniciados.
+
+. Depois que os nós forem desligados automaticamente como parte do procedimento de desativação, remova quaisquer máquinas virtuais restantes ou outros recursos associados ao nó desativado.
++
+
+CAUTION: Não execute esta etapa até que os nós sejam desligados automaticamente.
+
+. Se você estiver desativando um nó de storage, monitore o status dos trabalhos de reparo *dados replicados* e *dados codificados por apagamento (EC)* que são iniciados automaticamente durante o processo de desativação.
+
+
+[role="tabbed-block"]
+====
+.Dados replicados
+--
+* Para obter uma conclusão percentual estimada para o reparo replicado, adicione a `show-replicated-repair-status` opção ao comando repair-data.
++
+`repair-data show-replicated-repair-status`
+
+* Para determinar se as reparações estão concluídas:
++
+.. Selecione *NODES* > *_Storage Node a ser reparado_* > *ILM*.
+.. Reveja os atributos na secção avaliação. Quando os reparos estiverem concluídos, o atributo *aguardando - All* indica objetos 0D.
+
+
+* Para monitorizar a reparação em mais detalhes:
++
+.. Selecione *SUPPORT* > *Tools* > *Grid topology*.
+.. Selecione *_Grid_* > *_Storage Node a ser reparado_* > *LDR* > *Data Store*.
+.. Use uma combinação dos seguintes atributos para determinar, assim como possível, se as reparações replicadas estão concluídas.
++
+
+NOTE: As inconsistências do Cassandra podem estar presentes e as reparações falhadas não são rastreadas.
+
++
+*** * Tentativas de reparos (XRPA)*: Use este atributo para rastrear o progresso de reparos replicados. Esse atributo aumenta cada vez que um nó de storage tenta reparar um objeto de alto risco. Quando este atributo não aumenta por um período superior ao período de digitalização atual (fornecido pelo atributo *período de digitalização -- estimado*), significa que a digitalização ILM não encontrou objetos de alto risco que precisam ser reparados em nenhum nó.
++
+
+NOTE: Objetos de alto risco são objetos que correm o risco de serem completamente perdidos. Isso não inclui objetos que não satisfazem sua configuração ILM.
+
+*** *Período de digitalização -- estimado (XSCM)*: Use este atributo para estimar quando uma alteração de política será aplicada a objetos ingeridos anteriormente. Se o atributo *Repairs tented* não aumentar durante um período superior ao período de digitalização atual, é provável que sejam efetuadas reparações replicadas. Note que o período de digitalização pode mudar. O atributo *período de digitalização -- estimado (XSCM)* aplica-se a toda a grade e é o máximo de todos os períodos de varredura de nós. Você pode consultar o histórico de atributos *período de digitalização -- estimado* para a grade para determinar um período de tempo apropriado.
+
+
+
+
+
+
+--
+.Dados codificados por apagamento (EC)
+--
+Para monitorar o reparo de dados codificados por apagamento e tentar novamente quaisquer solicitações que possam ter falhado:
+
+. Determinar o status dos reparos de dados codificados por apagamento:
++
+** Selecione *SUPPORT* > *Tools* > *Metrics* para visualizar o tempo estimado para conclusão e a porcentagem de conclusão do trabalho atual. Em seguida, selecione *EC Overview* na seção Grafana. Veja os painéis *Grid EC Job tempo estimado para conclusão* e *Grid EC Job percentage Completed*.
+** Use este comando para ver o status de uma operação específica `repair-data`:
++
+`repair-data show-ec-repair-status --repair-id repair ID`
+
+** Utilize este comando para listar todas as reparações:
++
+`repair-data show-ec-repair-status`
+
++
+A saída lista informações, `repair ID`incluindo , para todas as reparações anteriores e atualmente em execução.
+
+
+
+. Se a saída mostrar que a operação de reparo falhou, use a `--repair-id` opção para tentar novamente a reparação.
++
+Este comando tenta novamente um reparo de nó com falha, usando a ID de reparo 6949309319275667690:
+
++
+`repair-data start-ec-node-repair --repair-id 6949309319275667690`
+
++
+Este comando tenta novamente uma reparação de volume com falha, utilizando a ID de reparação 6949309319275667690:
+
++
+`repair-data start-ec-volume-repair --repair-id 6949309319275667690`
+
+
+
+--
+====
+.Depois de terminar
+Assim que os nós desconetados forem desativados e todos os trabalhos de reparo de dados tiverem sido concluídos, você poderá desativar todos os nós de grade conetados conforme necessário.
+
+Em seguida, execute estas etapas depois de concluir o procedimento de desativação:
+
+* Certifique-se de que as unidades do nó de grade desativado estão limpas. Utilize uma ferramenta ou serviço de limpeza de dados disponíveis no mercado para remover dados das unidades de forma permanente e segura.
+* Se você desativou um nó de dispositivo e os dados no dispositivo foram protegidos usando criptografia de nó, use o Instalador de dispositivos StorageGRID para limpar a configuração do servidor de gerenciamento de chaves (limpar KMS). Você deve limpar a configuração do KMS se quiser adicionar o dispositivo a outra grade. Para obter instruções, https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/monitoring-node-encryption-in-maintenance-mode.html["Monitore a criptografia do nó no modo de manutenção"^] consulte .
+

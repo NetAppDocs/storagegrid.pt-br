@@ -1,0 +1,98 @@
+---
+permalink: audit/cgrr-cross-grid-replication-request.html 
+sidebar: sidebar 
+keywords: cgrr, cross-grid replication request, audit message, 
+summary: Essa mensagem é gerada quando o StorageGRID tenta uma operação de replicação entre grades para replicar objetos entre buckets em uma conexão de federação de grade. 
+---
+= CGRR: Solicitação de replicação de Grade cruzada
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Essa mensagem é gerada quando o StorageGRID tenta uma operação de replicação entre grades para replicar objetos entre buckets em uma conexão de federação de grade.
+
+[cols="1a,1a,4a"]
+|===
+| Código | Campo | Descrição 
+
+
+ a| 
+CSIZ
+ a| 
+Tamanho do objeto
+ a| 
+O tamanho do objeto em bytes.
+
+O atributo CSIZ foi introduzido no StorageGRID 11,8. Como resultado, as solicitações de replicação entre grade que abrangem uma atualização do StorageGRID 11,7 para 11,8 podem ter um tamanho total de objeto impreciso.
+
+
+
+ a| 
+S3AI
+ a| 
+S3 ID da conta do locatário
+ a| 
+O ID da conta de locatário que possui o bucket do qual o objeto está sendo replicado.
+
+
+
+ a| 
+GFID
+ a| 
+ID de ligação da federação da grelha
+ a| 
+O ID da conexão de federação de grade sendo usado para replicação entre grade.
+
+
+
+ a| 
+OPER
+ a| 
+Operação CGR
+ a| 
+O tipo de operação de replicação entre redes que foi tentada:
+
+* 0: Replique objeto
+* 1: Replique objeto multipart
+* 2: Replique o marcador de exclusão
+
+
+
+
+ a| 
+S3BK
+ a| 
+Balde S3
+ a| 
+O nome do bucket S3.
+
+
+
+ a| 
+S3KY
+ a| 
+Tecla S3
+ a| 
+O nome da chave S3, não incluindo o nome do intervalo.
+
+
+
+ a| 
+VSID
+ a| 
+ID da versão
+ a| 
+O ID da versão da versão específica de um objeto que estava sendo replicado.
+
+
+
+ a| 
+RSLT
+ a| 
+Código do resultado
+ a| 
+Retorna bem-sucedido (SUCS) ou erro geral (GERR).
+
+|===

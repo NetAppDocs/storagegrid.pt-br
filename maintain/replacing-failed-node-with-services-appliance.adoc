@@ -1,0 +1,35 @@
+---
+permalink: maintain/replacing-failed-node-with-services-appliance.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, replace failed node, services appliance 
+summary: Você pode usar um utilitário de serviços para recuperar um nó de gateway com falha, um nó de administrador não primário com falha ou um nó de administrador principal com falha hospedado em VMware, um host Linux ou um dispositivo de serviços. Este procedimento é uma etapa do procedimento de recuperação do nó de grade. 
+---
+= Substitua o nó com falha pelo dispositivo de serviços
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar um utilitário de serviços para recuperar um nó de gateway com falha, um nó de administrador não primário com falha ou um nó de administrador principal com falha hospedado em VMware, um host Linux ou um dispositivo de serviços. Este procedimento é uma etapa do procedimento de recuperação do nó de grade.
+
+.Antes de começar
+* Você determinou que uma das seguintes situações é verdadeira:
++
+** A máquina virtual que hospeda o nó não pode ser restaurada.
+** O host físico ou virtual do Linux para o nó de grade falhou e deve ser substituído.
+** O dispositivo de serviços que hospeda o nó de grade deve ser substituído.
+
+
+* Você confirmou que a versão do Instalador de dispositivos StorageGRID no utilitário de serviços corresponde à versão de software do seu sistema StorageGRID.  https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/verifying-and-upgrading-storagegrid-appliance-installer-version.html["Verifique e atualize a versão do instalador do StorageGRID Appliance"^]Consulte .
+
+
+
+NOTE: Não implante um dispositivo de serviços SG110 e SG1100 ou um dispositivo de serviços SG100 e SG1000 no mesmo site. Pode resultar em performance imprevisível.
+
+.Sobre esta tarefa
+Você pode usar um dispositivo de serviços para recuperar um nó de grade com falha nos seguintes casos:
+
+* O nó com falha foi hospedado no VMware ou Linux (link:installing-services-appliance-platform-change-only.html["mudança de plataforma"])
+* O nó com falha foi hospedado em um dispositivo de serviços (link:preparing-appliance-for-reinstallation-platform-replacement-only.html["substituição da plataforma"])
+

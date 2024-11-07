@@ -1,0 +1,62 @@
+---
+permalink: maintain/grid-node-decommissioning.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission, remove grid node 
+summary: Você pode usar o procedimento de desativação do nó para remover um ou mais nós de grade em um ou mais locais. Não é possível desativar o nó de administração principal. 
+---
+= Desativação do nó de grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o procedimento de desativação do nó para remover um ou mais nós de grade em um ou mais locais. Não é possível desativar o nó de administração principal.
+
+
+
+== Quando desativar um nó
+
+Use o procedimento de desativação do nó quando qualquer uma das seguintes situações for verdadeira:
+
+* Você adicionou um nó de storage maior em uma expansão e deseja remover um ou mais nós de storage menores, ao mesmo tempo em que preserva objetos.
++
+
+TIP: Se quiser substituir um aparelho mais antigo por um aparelho mais novo, considere https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/how-appliance-node-cloning-works.html["clonar o nó do dispositivo"^] em vez de adicionar um novo aparelho em uma expansão e, em seguida, desativar o aparelho antigo.
+
+* Você exige menos storage total.
+* Você não precisa mais de um nó de gateway.
+* Você não precisa mais de um nó de administrador não primário.
+* Sua grade inclui um nó desconetado que você não pode recuperar ou trazer de volta on-line.
+* Sua grade inclui um nó de arquivo.
+
+
+
+
+== Como desativar um nó
+
+Você pode desativar os nós de grade conetados ou os nós de grade desconetados.
+
+Desativar os nós conectados:: Em geral, você deve desativar os nós de grade somente quando eles estiverem conetados ao sistema StorageGRID e somente quando todos os nós estiverem em estado normal (tenha ícones verdes nas páginas *NÓS* e na página *NÓS de desintegração*).
++
+--
+Para obter instruções, link:decommissioning-connected-grid-nodes.html["Desativar os nós de grade conetados"]consulte .
+
+--
+Desativar os nós desligados:: Em alguns casos, talvez seja necessário desativar um nó de grade que não esteja conetado atualmente à grade (um cuja Saúde é desconhecida ou administrativamente inativo).
++
+--
+Para obter instruções, link:decommissioning-disconnected-grid-nodes.html["Desativar nós de grade desconetados"]consulte .
+
+--
+
+
+
+
+== O que considerar antes de desativar um nó
+
+Antes de executar qualquer procedimento, reveja as considerações para cada tipo de nó:
+
+* link:considerations-for-decommissioning-admin-or-gateway-nodes.html["Considerações para desativação do nó de administrador ou gateway"]
+* link:considerations-for-decommissioning-storage-nodes.html["Considerações para desativação do nó de storage"]
+

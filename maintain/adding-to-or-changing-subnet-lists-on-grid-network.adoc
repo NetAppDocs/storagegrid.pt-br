@@ -1,0 +1,155 @@
+---
+permalink: maintain/adding-to-or-changing-subnet-lists-on-grid-network.html 
+sidebar: sidebar 
+keywords: storagegrid, subnet list, grid network 
+summary: Você pode usar a ferramenta alterar IP para adicionar ou alterar sub-redes na rede de Grade. 
+---
+= Adicionar ou alterar listas de sub-rede na rede de Grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar a ferramenta alterar IP para adicionar ou alterar sub-redes na rede de Grade.
+
+.Antes de começar
+* Você tem o `Passwords.txt` arquivo.
+
+
+Você pode adicionar, excluir ou alterar sub-redes na Lista de sub-redes de rede de Grade. As alterações afetarão o roteamento em todos os nós da grade.
+
+
+NOTE: Se você estiver fazendo alterações somente na Lista de sub-redes de rede de Grade, use o Gerenciador de Grade para adicionar ou alterar a configuração da rede. Caso contrário, use a ferramenta alterar IP se o Gerenciador de Grade estiver inacessível devido a um problema de configuração de rede, ou você estiver executando uma alteração de roteamento de rede de Grade e outras alterações de rede ao mesmo tempo.
+
+.Passos
+. Faça login no nó de administração principal:
++
+.. Introduza o seguinte comando: `ssh admin@_primary_Admin_Node_IP_`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+
+
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+. Inicie a ferramenta Change IP inserindo o seguinte comando: `change-ip`
+. Insira a senha de provisionamento no prompt.
++
+É apresentado o menu principal.
+
++
+image::../media/change_ip_tool_main_menu.png[Captura de tela mostrando a tela de boas-vindas da ferramenta Change IP]
+
+. No menu principal, selecione a opção para editar sub-redes para a rede de Grade (opção *4*).
++
+
+NOTE: As alterações na Lista de sub-redes de rede de Grade são em toda a grade.
+
+. Escolha uma das seguintes opções:
++
+--
+** Adicione uma sub-rede inserindo este comando: `add CIDR`
+** Exclua uma sub-rede inserindo este comando: `del CIDR`
+** Defina a lista de sub-redes inserindo este comando: `set CIDR`
+
+
+--
++
+--
+
+NOTE: Para todos os comandos, você pode inserir vários endereços usando este formato: `add CIDR, CIDR`
+
+Exemplo: `add 172.14.0.0/16, 172.15.0.0/16, 172.16.0.0/16`
+
+
+TIP: Você pode reduzir a quantidade de digitação necessária usando "seta para cima" para recuperar valores digitados anteriormente para o prompt de entrada atual e, em seguida, editá-los, se necessário.
+
+A entrada de exemplo abaixo mostra a configuração de sub-redes para a Lista de sub-redes de rede de Grade:
+
+image::../media/change_ip_tool_gnsl_sample_input.gif[captura de tela descrita pelo texto circundante]
+
+--
+. Quando estiver pronto, digite *q* para voltar à tela do menu principal. Suas alterações são mantidas até serem limpas ou aplicadas.
+. Escolha uma das seguintes opções:
++
+** Selecione a opção *5* para mostrar as edições na saída que estão isoladas para mostrar apenas o item alterado. As alterações são realçadas em verde (adições) ou vermelho (exclusões), como mostrado na saída de exemplo abaixo:
++
+image::../media/change_ip_tool_gnsl_sample_output.gif[captura de tela descrita pelo texto circundante]
+
+** Selecione a opção *6* para mostrar as edições na saída que exibem a configuração completa. As alterações são realçadas em verde (adições) ou vermelho (exclusões).
++
+
+NOTE: Certas interfaces de linha de comando podem mostrar adições e exclusões usando a formatação strikethrough.
+
+
+
+. Selecione a opção *7* para validar todas as alterações faseadas.
++
+Essa validação garante que as regras para redes Grid, Admin e Client sejam seguidas, como o uso de sub-redes sobrepostas.
+
+. Opcionalmente, selecione a opção *8* para guardar todas as alterações faseadas e voltar mais tarde para continuar a efetuar alterações.
++
+Essa opção permite que você saia da ferramenta Change IP e inicie-a novamente mais tarde, sem perder nenhuma alteração não aplicada.
+
+. Execute um dos seguintes procedimentos:
++
+** Selecione a opção *9* se quiser limpar todas as alterações sem salvar ou aplicar a nova configuração de rede.
+** Selecione a opção *10* se estiver pronto para aplicar alterações e provisionar a nova configuração de rede. Durante o provisionamento, a saída exibe o status à medida que as atualizações são aplicadas conforme mostrado na saída de exemplo a seguir:
++
+[listing]
+----
+Generating new grid networking description file...
+
+Running provisioning...
+
+Updating grid network configuration on Name
+----
+
+
+. Se você selecionou a opção *10* ao fazer alterações na rede de Grade, selecione uma das seguintes opções:
++
+** *Apply*: Aplique as alterações imediatamente e reinicie automaticamente cada nó, se necessário.
++
+Se a nova configuração de rede funcionar simultaneamente com a configuração de rede antiga sem alterações externas, você pode usar a opção *Apply* para uma alteração de configuração totalmente automatizada.
+
+** *Stage*: Aplique as alterações na próxima vez que os nós forem reiniciados.
++
+Se você precisar fazer alterações na configuração de rede física ou virtual para que a nova configuração de rede funcione, use a opção *stage*, encerre os nós afetados, faça as alterações de rede física necessárias e reinicie os nós afetados.
+
++
+
+NOTE: Se você usar a opção *stage*, reinicie o nó o mais rápido possível após o preparo para minimizar interrupções.
+
+** *Cancel*: Não faça alterações na rede neste momento.
++
+Se você não sabia que as alterações propostas exigem que os nós sejam reiniciados, você pode adiar as alterações para minimizar o impactos do usuário. Selecionar *CANCEL* retorna ao menu principal e preserva as alterações para que você possa aplicá-las mais tarde.
+
+
+
++
+Depois de aplicar ou alterar o estágio, um novo pacote de recuperação é gerado como resultado da alteração de configuração da grade.
+
+. Se a configuração for interrompida devido a erros, as seguintes opções estarão disponíveis:
++
+** Para terminar o procedimento de alteração de IP e regressar ao menu principal, introduza *a*.
+** Para tentar novamente a operação que falhou, digite *r*.
+** Para continuar para a próxima operação, digite *c*.
++
+A operação com falha pode ser tentada mais tarde selecionando a opção *10* (aplicar alterações) no menu principal. O procedimento de alteração de IP não será concluído até que todas as operações tenham sido concluídas com êxito.
+
+** Se você teve que intervir manualmente (para reinicializar um nó, por exemplo) e está confiante de que a ação que a ferramenta acha que falhou foi realmente concluída com sucesso, digite *f* para marcá-lo como bem-sucedido e passar para a próxima operação.
+
+
+. Faça o download de um novo Pacote de recuperação do Gerenciador de Grade.
++
+.. Selecione *MAINTENANCE* > *System* > *Recovery package*.
+.. Introduza a frase-passe de aprovisionamento.
+
+
++
+
+CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID.
+
+

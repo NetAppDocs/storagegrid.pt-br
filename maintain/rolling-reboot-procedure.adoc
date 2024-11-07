@@ -1,0 +1,134 @@
+---
+permalink: maintain/rolling-reboot-procedure.html 
+sidebar: sidebar 
+keywords: reboot nodes, rolling reboot procedure 
+summary: Você pode executar uma reinicialização contínua para reinicializar vários nós de grade sem causar uma interrupção do serviço. 
+---
+= Execute uma reinicialização contínua
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode executar uma reinicialização contínua para reinicializar vários nós de grade sem causar uma interrupção do serviço.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade no nó Admin principal e está usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
++
+
+NOTE: Você deve estar conetado ao nó de administração principal para executar este procedimento.
+
+* Você tem o link:../admin/admin-group-permissions.html["Permissão de manutenção ou acesso root"].
+
+
+.Sobre esta tarefa
+Use este procedimento se você precisar reinicializar vários nós ao mesmo tempo. Por exemplo, você pode usar este procedimento depois de alterar o modo FIPS para a grade link:../admin/manage-tls-ssh-policy.html["Política de segurança TLS e SSH"]. Quando o modo FIPS muda, você deve reinicializar todos os nós para colocar a alteração em vigor.
+
+
+TIP: Se você só precisa reiniciar um nó, você pode link:../maintain/rebooting-grid-node-from-grid-manager.html["Reinicie o nó a partir do separador tarefas"].
+
+Quando o StorageGRID reinicializa os nós de grade, ele emite o `reboot` comando em cada nó, o que faz com que o nó desligue e reinicie. Todos os serviços são reiniciados automaticamente.
+
+* Reiniciar um nó VMware reinicializa a máquina virtual.
+* Reiniciar um nó Linux reinicializa o contentor.
+* Reiniciar um nó de dispositivo StorageGRID reinicializa o controlador de computação.
+
+
+O procedimento de reinicialização contínua pode reinicializar vários nós ao mesmo tempo, com estas exceções:
+
+* Dois nós do mesmo tipo não serão reinicializados ao mesmo tempo.
+* Os nós de Gateway e os nós de administrador não serão reiniciados ao mesmo tempo.
+
+
+Em vez disso, esses nós são reinicializados sequencialmente para garantir que grupos de HA, dados de objetos e serviços de nós críticos permaneçam sempre disponíveis.
+
+Quando você reinicia o nó Admin principal, seu navegador perde temporariamente o acesso ao Gerenciador de Grade, para que você não possa mais monitorar o procedimento. Por este motivo, o nó de administração principal é reiniciado por último.
+
+
+
+== Execute uma reinicialização contínua
+
+Selecione os nós que pretende reiniciar, reveja as suas seleções, inicie o procedimento de reinício e monitorize o progresso.
+
+
+
+=== Selecione nós
+
+Como primeiro passo, acesse a página de reinicialização contínua e selecione os nós que deseja reinicializar.
+
+.Passos
+. Selecione *MAINTENANCE* > *Tasks* > *Rolling reboot*.
+. Revise o estado da conexão e os ícones de alerta na coluna *Nome do nó*.
++
+
+TIP: Não é possível reiniciar um nó se ele estiver desconetado da grade. As caixas de verificação estão desativadas para nós com estes ícones: image:../media/icon_alarm_gray_administratively_down.png["ícone de ponto de interrogação cinzento"] Ou image:../media/icon_alarm_blue_unknown.png["ícone de ponto de interrogação azul"].
+
+. Se algum nó tiver alertas ativos, revise a lista de alertas na coluna *Resumo de alertas*.
++
+
+TIP: Para ver todos os alertas atuais de um nó, você também pode selecionar o link:../monitor/viewing-overview-tab.html["Separador Descrição geral dos nós >"].
+
+. Opcionalmente, execute as ações recomendadas para resolver quaisquer alertas atuais.
+. Opcionalmente, se todos os nós estiverem conetados e você quiser reinicializar todos eles, marque a caixa de seleção no cabeçalho da tabela e selecione *Selecionar tudo*. Caso contrário, selecione cada nó que você deseja reinicializar.
++
+Você pode usar as opções de filtro da tabela para exibir subconjuntos de nós. Por exemplo, você pode exibir e selecionar somente nós de storage ou todos os nós em um determinado local.
+
+. Selecione *seleção de revisão*.
+
+
+
+
+=== Seleção de revisão
+
+Nesta etapa, você pode determinar quanto tempo o procedimento de reinicialização total pode demorar e confirmar se selecionou os nós corretos.
+
+. Na página de seleção Revisão, revise o Resumo, que indica quantos nós serão reinicializados e o tempo total estimado para que todos os nós sejam reiniciados.
+. Opcionalmente, para remover um nó específico da lista de reinicialização, selecione *Remover*.
+. Opcionalmente, para adicionar mais nós, selecione *passo anterior*, selecione os nós adicionais e selecione *seleção de revisão*.
+. Quando estiver pronto para iniciar o procedimento de reinicialização contínua para todos os nós selecionados, selecione *Reboot Nodes*.
+. Se você selecionou para reinicializar o nó de administração principal, leia a mensagem de informações e selecione *Yes*.
++
+
+NOTE: O nó Admin principal será o último nó a reiniciar. Enquanto este nó estiver reiniciando, a conexão do seu navegador será perdida. Quando o nó Admin principal estiver disponível novamente, você deve recarregar a página de reinicialização contínua.
+
+
+
+
+
+=== Monitore uma reinicialização contínua
+
+Enquanto o procedimento de reinicialização contínua estiver em execução, você pode monitorá-lo a partir do nó de administração principal.
+
+.Passos
+. Reveja o progresso geral da operação, que inclui as seguintes informações:
++
+** Número de nós reiniciados
+** Número de nós em processo de reinicialização
+** Número de nós que ainda precisam ser reiniciados
+
+
+. Revise a tabela para cada tipo de nó.
++
+As tabelas fornecem uma barra de progresso da operação em cada nó e mostram a etapa de reinicialização para esse nó, que pode ser um destes:
+
++
+** A aguardar para reiniciar
+** Parar serviços
+** Reiniciar o sistema
+** Iniciar serviços
+** Reinicialização concluída
+
+
+
+
+
+
+== Pare o procedimento de reinicialização contínua
+
+Você pode parar o procedimento de reinicialização contínua do nó de administração principal. Quando você parar o procedimento, todos os nós que têm o status "parando serviços", "reinicializando o sistema" ou "iniciando serviços" concluirão a operação de reinicialização. No entanto, esses nós não serão mais rastreados como parte do procedimento.
+
+.Passos
+. Selecione *MAINTENANCE* > *Tasks* > *Rolling reboot*.
+. Na etapa *Monitor Reboot*, selecione *Stop Reboot Procedure*.
+

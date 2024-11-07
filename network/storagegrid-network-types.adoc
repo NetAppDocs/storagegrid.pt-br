@@ -1,0 +1,217 @@
+---
+permalink: network/storagegrid-network-types.html 
+sidebar: sidebar 
+keywords: network types, grid traffic, admin traffic, client traffic, grid network, admin network, client network 
+summary: Os nós de grade em um sistema StorageGRID processam o tráfego de grade, o tráfego de administrador e o tráfego de cliente. Você deve configurar a rede adequadamente para gerenciar esses três tipos de tráfego e fornecer controle e segurança. 
+---
+= Tipos de rede StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os nós de grade em um sistema StorageGRID processam _grid traffic_, _admin traffic_ e _client traffic_. Você deve configurar a rede adequadamente para gerenciar esses três tipos de tráfego e fornecer controle e segurança.
+
+
+
+== Tipos de tráfego
+
+[cols="1a,4a,2a"]
+|===
+| Tipo de trânsito | Descrição | Tipo de rede 
+
+
+ a| 
+Tráfego de grade
+ a| 
+O tráfego StorageGRID interno que viaja entre todos os nós na grade. Todos os nós de grade devem ser capazes de se comunicar com todos os outros nós de grade por essa rede.
+ a| 
+Rede de rede (necessária)
+
+
+
+ a| 
+Tráfego de administração
+ a| 
+O tráfego utilizado para a administração e manutenção do sistema.
+ a| 
+Admin Network (opcional), <<Redes VLAN opcionais,Rede VLAN (opcional)>>
+
+
+
+ a| 
+Tráfego do cliente
+ a| 
+O tráfego que viaja entre aplicativos clientes externos e a grade, incluindo todas as solicitações de armazenamento de objetos de clientes S3.
+ a| 
+Rede do cliente (opcional), <<Redes VLAN opcionais,Rede VLAN (opcional)>>
+
+|===
+Você pode configurar a rede das seguintes maneiras:
+
+* Apenas rede de grelha
+* Redes Grid e Admin
+* Rede e redes de clientes
+* Redes Grid, Admin e Client
+
+
+A rede de Grade é obrigatória e pode gerenciar todo o tráfego de grade. As redes Admin e Client podem ser incluídas no momento da instalação ou adicionadas posteriormente para se adaptarem às alterações nos requisitos. Embora a rede de administração e a rede de cliente sejam opcionais, quando você usa essas redes para lidar com o tráfego administrativo e de cliente, a rede de grade pode ser isolada e segura.
+
+As portas internas só são acessíveis através da rede de Grade. As portas externas são acessíveis a partir de todos os tipos de rede. Essa flexibilidade oferece várias opções para projetar uma implantação do StorageGRID e configurar o IP externo e a filtragem de portas em switches e firewalls. link:../network/internal-grid-node-communications.html["comunicações internas do nó da grade"]Consulte e link:../network/external-communications.html["comunicações externas"].
+
+
+
+== Interfaces de rede
+
+Os nós de StorageGRID são conetados a cada rede usando as seguintes interfaces específicas:
+
+[cols="1a,1a"]
+|===
+| Rede | Nome da interface 
+
+
+ a| 
+Rede de rede (necessária)
+ a| 
+eth0
+
+
+
+ a| 
+Admin Network (opcional)
+ a| 
+eth1
+
+
+
+ a| 
+Rede cliente (opcional)
+ a| 
+eth2
+
+|===
+Para obter detalhes sobre o mapeamento de portas virtuais ou físicas para interfaces de rede de nós, consulte as instruções de instalação:
+
+.Nós baseados em software
+* link:../rhel/index.html["Instale o StorageGRID no Red Hat Enterprise Linux"]
+* link:../ubuntu/index.html["Instale o StorageGRID no Ubuntu ou Debian"]
+* link:../vmware/index.html["Instale o StorageGRID no VMware"]
+
+
+.Nós do dispositivo
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/hardware-description-sg6100.html["SG6160 dispositivo de armazenamento"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/hardware-description-sg6100.html["SGF6112 dispositivo de armazenamento"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/hardware-description-sg6000.html["SG6000 dispositivo de armazenamento"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/hardware-description-sg5800.html["SG5800 dispositivo de armazenamento"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/hardware-description-sg5700.html["SG5700 dispositivo de armazenamento"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/hardware-description-sg110-and-1100.html["Aparelhos de serviços SG110 e SG1100"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/hardware-description-sg100-and-1000.html["Aparelhos de serviços SG100 e SG1000"^]
+
+
+
+
+=== Informações de rede para cada nó
+
+Você deve configurar o seguinte para cada rede ativa em um nó:
+
+* Endereço IP
+* Máscara de sub-rede
+* Endereço IP do gateway
+
+
+Você só pode configurar uma combinação de endereço IP/máscara/gateway para cada uma das três redes em cada nó de grade. Se você não quiser configurar um gateway para uma rede, use o endereço IP como endereço de gateway.
+
+
+
+=== Grupos de alta disponibilidade
+
+Os grupos de alta disponibilidade (HA) fornecem a capacidade de adicionar endereços IP virtuais (VIP) à interface Grid ou Client Network. Para obter mais informações, link:../admin/managing-high-availability-groups.html["Gerenciar grupos de alta disponibilidade"]consulte .
+
+
+
+== Rede de rede
+
+A rede de Grade é necessária. É usado para todo o tráfego interno do StorageGRID. A rede de Grade fornece conetividade entre todos os nós da grade, em todos os sites e sub-redes. Todos os nós na rede de Grade devem ser capazes de se comunicar com todos os outros nós. A rede de Grade pode consistir em várias sub-redes. As redes que contêm serviços de grade críticos, como NTP, também podem ser adicionadas como sub-redes de grade.
+
+
+NOTE: O StorageGRID não oferece suporte à conversão de endereços de rede (NAT) entre nós.
+
+A rede de grade pode ser usada para todo o tráfego de administração e todo o tráfego de cliente, mesmo que a rede de administração e a rede de cliente estejam configuradas. O gateway de rede de grade é o gateway padrão do nó, a menos que o nó tenha a rede de cliente configurada.
+
+
+CAUTION: Ao configurar a rede de Grade, você deve garantir que a rede esteja protegida de clientes não confiáveis, como aqueles na Internet aberta.
+
+Observe os seguintes requisitos e detalhes para o gateway de rede de grade:
+
+* O gateway de rede de grade deve ser configurado se houver várias sub-redes de grade.
+* O gateway Grid Network é o gateway padrão do nó até que a configuração da grade esteja concluída.
+* As rotas estáticas são geradas automaticamente para todos os nós para todas as sub-redes configuradas na lista global de sub-redes de rede de Grade.
+* Se for adicionada uma rede de cliente, o gateway predefinido muda do gateway de rede de grelha para o gateway de rede de cliente quando a configuração da grelha estiver concluída.
+
+
+
+
+== Rede de administração
+
+A rede de administração é opcional. Quando configurado, ele pode ser usado para administração do sistema e tráfego de manutenção. A rede Admin é normalmente uma rede privada e não precisa ser roteável entre nós.
+
+Você pode escolher quais nós de grade devem ter a rede Admin ativada neles.
+
+Quando você usa a rede de administração, o tráfego administrativo e de manutenção não precisa viajar pela rede de grade. Os usos típicos da rede de administração incluem o seguinte:
+
+* Acesso às interfaces de usuário do Grid Manager e do Tenant Manager.
+* Acesso a serviços críticos, como servidores NTP, servidores DNS, servidores de gerenciamento de chaves externas (KMS) e servidores LDAP (Lightweight Directory Access Protocol).
+* Acesso a logs de auditoria em nós de administração.
+* Acesso ao Secure Shell Protocol (SSH) para manutenção e suporte.
+
+
+A rede Admin nunca é utilizada para o tráfego interno da grelha. Um gateway de rede Admin é fornecido e permite que a rede Admin se comunique com várias sub-redes externas. No entanto, o gateway Admin Network nunca é usado como o gateway padrão do nó.
+
+Observe os seguintes requisitos e detalhes para o gateway de rede de administração:
+
+* O gateway de rede Admin é necessário se as conexões forem feitas fora da sub-rede da rede Admin ou se várias sub-redes da rede Admin estiverem configuradas.
+* As rotas estáticas são criadas para cada sub-rede configurada na Lista de sub-rede Admin da rede do nó.
+
+
+
+
+== Rede de clientes
+
+A rede do cliente é opcional. Quando configurado, ele é usado para fornecer acesso a serviços de grade para aplicativos clientes, como S3. Se você planeja tornar os dados do StorageGRID acessíveis a um recurso externo (por exemplo, um pool de armazenamento em nuvem ou o serviço de replicação do StorageGRID CloudMirror), o recurso externo também poderá usar a rede do cliente. Os nós de grade podem se comunicar com qualquer sub-rede acessível através do gateway rede cliente.
+
+Você pode escolher quais nós de grade devem ter a rede do cliente ativada neles. Todos os nós não precisam estar na mesma rede de clientes, e os nós nunca se comunicam uns com os outros pela rede de clientes. A rede do cliente não se torna operacional até que a instalação da grade esteja concluída.
+
+Para maior segurança, você pode especificar que a interface de rede do cliente de um nó não seja confiável para que a rede do cliente seja mais restritiva de quais conexões são permitidas. Se a interface de rede do cliente de um nó não for confiável, a interface aceita conexões de saída, como as usadas pela replicação do CloudMirror, mas aceita somente conexões de entrada em portas que foram explicitamente configuradas como endpoints do balanceador de carga. link:../admin/manage-firewall-controls.html["Gerenciar controles de firewall"]Consulte e link:../admin/configuring-load-balancer-endpoints.html["Configurar pontos de extremidade do balanceador de carga"].
+
+Quando você usa uma rede de cliente, o tráfego de cliente não precisa viajar pela rede de grade. O tráfego de rede de grade pode ser separado em uma rede segura e não roteável. Os seguintes tipos de nó são frequentemente configurados com uma rede de cliente:
+
+* Nós de gateway, porque esses nós fornecem acesso ao serviço do StorageGRID Load Balancer e ao acesso do cliente S3 à grade.
+* Nós de storage, porque esses nós fornecem acesso ao protocolo S3, aos Cloud Storage Pools e ao serviço de replicação do CloudMirror.
+* Nós de administração, para garantir que os usuários do locatário possam se conetar ao Gerenciador do locatário sem precisar usar a rede de administração.
+
+
+Observe o seguinte para o gateway de rede do cliente:
+
+* O gateway de rede do cliente é necessário se a rede do cliente estiver configurada.
+* O gateway de rede do cliente torna-se a rota padrão para o nó de grade quando a configuração de grade estiver concluída.
+
+
+
+
+== Redes VLAN opcionais
+
+Como necessário, você pode usar opcionalmente redes LAN virtual (VLAN) para tráfego de clientes e para alguns tipos de tráfego de administração. O tráfego de grade, no entanto, não pode usar uma interface VLAN. O tráfego StorageGRID interno entre nós deve sempre usar a rede de Grade no eth0.
+
+Para suportar o uso de VLANs, você deve configurar uma ou mais interfaces em um nó como interfaces de tronco no switch. Você pode configurar a interface de rede de grade (eth0) ou a interface de rede de cliente (eth2) para ser um tronco, ou você pode adicionar interfaces de tronco ao nó.
+
+Se eth0 estiver configurado como um tronco, o tráfego da rede de Grade flui sobre a interface nativa do tronco, conforme configurado no switch. Da mesma forma, se eth2 estiver configurado como um tronco e a rede do cliente também estiver configurada no mesmo nó, a rede do cliente usará a VLAN nativa da porta do tronco conforme configurada no switch.
+
+Somente o tráfego de administração de entrada, como usado para o tráfego SSH, Grid Manager ou Tenant Manager, é suportado em redes VLAN. O tráfego de saída, como usado para NTP, DNS, LDAP, KMS e pools de armazenamento em nuvem, não é suportado em redes VLAN.
+
+
+NOTE: As interfaces VLAN podem ser adicionadas apenas aos nós de administração e aos nós de gateway. Não é possível usar uma interface VLAN para acesso de cliente ou administrador a nós de storage.
+
+link:../admin/configure-vlan-interfaces.html["Configurar interfaces VLAN"]Consulte para obter instruções e diretrizes.
+
+As interfaces VLAN são usadas apenas em grupos de HA e são atribuídos endereços VIP no nó ativo. link:../admin/managing-high-availability-groups.html["Gerenciar grupos de alta disponibilidade"]Consulte para obter instruções e diretrizes.

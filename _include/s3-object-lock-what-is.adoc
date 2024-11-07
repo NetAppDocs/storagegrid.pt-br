@@ -1,0 +1,73 @@
+= O que é S3 Object Lock?
+:allow-uri-read: 
+
+
+
+
+== O que é S3 Object Lock?
+
+O recurso bloqueio de objetos do StorageGRID S3 é uma solução de proteção de objetos equivalente ao bloqueio de objetos do S3 no Amazon Simple Storage Service (Amazon S3).
+
+Quando a configuração de bloqueio de objeto S3 global está ativada para um sistema StorageGRID, uma conta de locatário S3 pode criar buckets com ou sem bloqueio de objeto S3 ativado. Se um bucket tiver o bloqueio de objetos S3 ativado, o controle de versão do bucket é necessário e é ativado automaticamente.
+
+*Um bucket sem S3 Object Lock* só pode ter objetos sem as configurações de retenção especificadas. Nenhum objeto ingerido terá configurações de retenção.
+
+* Um bucket com S3 Object Lock* pode ter objetos com e sem configurações de retenção especificadas por aplicativos clientes S3. Alguns objetos ingeridos terão definições de retenção.
+
+*Um bucket com o bloqueio de objeto S3 e a retenção padrão configurada* pode ter carregado objetos com configurações de retenção especificadas e novos objetos sem configurações de retenção. Os novos objetos usam a configuração padrão, porque a configuração de retenção não foi configurada no nível do objeto.
+
+Efetivamente, todos os objetos recém-ingeridos têm configurações de retenção quando a retenção padrão é configurada. Os objetos existentes sem configurações de retenção de objetos permanecem inalterados.
+
+
+
+=== Modos de retenção
+
+O recurso bloqueio de objetos do StorageGRID S3 suporta dois modos de retenção para aplicar diferentes níveis de proteção aos objetos. Esses modos são equivalentes aos modos de retenção do Amazon S3.
+
+* No modo de conformidade:
++
+** O objeto não pode ser excluído até que sua data de retenção seja alcançada.
+** O retent-until-date do objeto pode ser aumentado, mas não pode ser diminuído.
+** A data de retenção do objeto não pode ser removida até que essa data seja atingida.
+
+
+* No modo de governança:
++
+** Os usuários com permissão especial podem usar um cabeçalho de desvio em solicitações para modificar determinadas configurações de retenção.
+** Esses usuários podem excluir uma versão de objeto antes de sua data de retenção ser alcançada.
+** Esses usuários podem aumentar, diminuir ou remover a data de retenção até um objeto.
+
+
+
+
+
+
+=== Configurações de retenção para versões de objetos
+
+Se um bucket for criado com o bloqueio de objeto S3 ativado, os usuários poderão usar o aplicativo cliente S3 para especificar opcionalmente as seguintes configurações de retenção para cada objeto adicionado ao bucket:
+
+* *Modo de retenção*: Conformidade ou governança.
+* *Retent-until-date*: Se a data de retent-until de uma versão de objeto estiver no futuro, o objeto pode ser recuperado, mas não pode ser excluído.
+* *Retenção legal*: Aplicar uma retenção legal a uma versão de objeto bloqueia imediatamente esse objeto. Por exemplo, você pode precisar colocar uma retenção legal em um objeto relacionado a uma investigação ou disputa legal. Uma retenção legal não tem data de expiração, mas permanece em vigor até que seja explicitamente removida. As obrigações legais são independentes da retenção até à data.
++
+
+NOTE: Se um objeto estiver sob uma retenção legal, ninguém poderá excluir o objeto, independentemente de seu modo de retenção.
+
++
+Para obter detalhes sobre as configurações do objeto, link:../s3/use-s3-api-for-s3-object-lock.html["Use a API REST do S3 para configurar o bloqueio de objetos do S3"]consulte .
+
+
+
+
+
+=== Configuração de retenção padrão para buckets
+
+Se um bucket for criado com o bloqueio de objetos S3 ativado, os usuários podem especificar opcionalmente as seguintes configurações padrão para o bucket:
+
+* *Modo de retenção padrão*: Conformidade ou governança.
+* *Período de retenção padrão*: Quanto tempo as novas versões de objetos adicionadas a este intervalo devem ser mantidas, a partir do dia em que são adicionadas.
+
+
+As configurações padrão de bucket se aplicam somente a novos objetos que não têm suas próprias configurações de retenção. Os objetos de bucket existentes não são afetados quando você adiciona ou altera essas configurações padrão.
+
+link:../tenant/creating-s3-bucket.html["Crie um bucket do S3"]Consulte e link:../tenant/update-default-retention-settings.html["Atualização S3 retenção padrão bloqueio Objeto"].

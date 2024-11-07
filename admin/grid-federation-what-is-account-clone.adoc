@@ -1,0 +1,116 @@
+---
+permalink: admin/grid-federation-what-is-account-clone.html 
+sidebar: sidebar 
+keywords: account clone, tenant replication, disaster recovery, grid federation 
+summary: O clone de conta é a replicação automática de uma conta de locatário, grupos de locatários, usuários de locatários e, opcionalmente, chaves de acesso S3 entre os sistemas StorageGRID em uma conexão de federação de grade. 
+---
+= O que é o clone de conta?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O clone de conta é a replicação automática de uma conta de locatário, grupos de locatários, usuários de locatários e, opcionalmente, chaves de acesso S3 entre os sistemas StorageGRID em um link:grid-federation-overview.html["conexão de federação de grade"].
+
+O clone de conta é necessário para link:grid-federation-what-is-cross-grid-replication.html["replicação entre grade"]o . Clonar informações de conta de um sistema StorageGRID de origem para um sistema StorageGRID de destino garante que usuários e grupos de locatários possam acessar os buckets e objetos correspondentes em qualquer grade.
+
+
+
+== Fluxo de trabalho para clone de conta
+
+O diagrama de fluxo de trabalho mostra as etapas que administradores de grade e locatários permitidos executarão para configurar o clone de conta. Estas etapas são executadas após o link:grid-federation-create-connection.html["a conexão de federação de grade está configurada"].
+
+image::../media/grid-federation-account-clone-workflow.png[fluxo de trabalho para clone de conta]
+
+
+
+== Fluxo de trabalho de administração de grade
+
+As etapas que os administradores de grade executam dependem se os sistemas StorageGRID na link:grid-federation-overview.html["conexão de federação de grade"]federação usar logon único (SSO) ou identidade.
+
+
+
+=== [[Account-clone-sso]]Configurar SSO para o clone de conta (opcional)
+
+Se qualquer um dos sistemas StorageGRID na conexão de federação de grade usar SSO, ambas as grades devem usar SSO. Antes de criar as contas de locatário para federação de grade, os administradores de grade para as grades de origem e destino do locatário devem executar essas etapas.
+
+.Passos
+. Configure a mesma fonte de identidade para ambas as grades. link:using-identity-federation.html["Use a federação de identidade"]Consulte .
+. Configure o mesmo provedor de identidade SSO (IDP) para ambas as grades. link:configuring-sso.html["Configurar o logon único"]Consulte .
+. link:managing-admin-groups.html["Crie o mesmo grupo de administração"] em ambas as grades importando o mesmo grupo federado.
++
+Ao criar o locatário, você selecionará esse grupo para ter a permissão de acesso raiz inicial para as contas de locatário de origem e destino.
+
++
+
+NOTE: Se esse grupo de administração não existir em ambas as grades antes de criar o locatário, o locatário não será replicado para o destino.
+
+
+
+
+
+=== [[Account-clone-identity-Federation]]Configurar federação de identidade em nível de grade para o clone de conta (opcional)
+
+Se um dos sistemas StorageGRID usar federação de identidade sem SSO, ambas as grades devem usar federação de identidade. Antes de criar as contas de locatário para federação de grade, os administradores de grade para as grades de origem e destino do locatário devem executar essas etapas.
+
+.Passos
+. Configure a mesma fonte de identidade para ambas as grades. link:using-identity-federation.html["Use a federação de identidade"]Consulte .
+. Opcionalmente, se um grupo federado tiver permissão de acesso raiz inicial para as contas de locatário de origem e destino, link:managing-admin-groups.html["crie o mesmo grupo de administração"] em ambas as grades importando o mesmo grupo federado.
++
+
+NOTE: Se você atribuir permissão de acesso root a um grupo federado que não existe em ambas as grades, o locatário não será replicado para a grade de destino.
+
+. Se você não quiser que um grupo federado tenha permissão de acesso raiz inicial para ambas as contas, especifique uma senha para o usuário raiz local.
+
+
+
+
+=== Crie uma conta de locatário S3 permitida
+
+Depois de configurar opcionalmente o SSO ou a federação de identidade, um administrador de grade executa essas etapas para determinar quais locatários podem replicar objetos de bucket para outros sistemas StorageGRID.
+
+.Passos
+. Determine qual grade você deseja ser a grade de origem do locatário para operações de clone de conta.
++
+A grade onde o locatário é originalmente criado é conhecida como _source grid_ do locatário. A grade onde o locatário é replicado é conhecida como _grade de destino_ do locatário.
+
+. Nessa grade, crie uma nova conta de locatário do S3 ou edite uma conta existente.
+. Atribua a permissão *Use Grid Federation Connection*.
+. Se a conta de locatário gerenciar seus próprios usuários federados, atribua a permissão *Use own Identity source*.
++
+Se essa permissão for atribuída, as contas de locatário de origem e destino deverão configurar a mesma fonte de identidade antes de criar grupos federados. Os grupos federados adicionados ao locatário de origem não podem ser clonados para o locatário de destino, a menos que ambas as grades usem a mesma fonte de identidade.
+
+. Selecione uma conexão de federação de grade específica.
+. Salve o locatário novo ou modificado.
++
+Quando um novo locatário com a permissão *usar conexão de federação de grade* é salvo, o StorageGRID cria automaticamente uma réplica desse locatário na outra grade, da seguinte forma:
+
++
+** Ambas as contas de inquilino têm o mesmo ID de conta, nome, cota de armazenamento e permissões atribuídas.
+** Se você selecionou um grupo federado para ter permissão de acesso root para o locatário, esse grupo será clonado para o locatário de destino.
+** Se você selecionou um usuário local para ter permissão de acesso root para o locatário, esse usuário será clonado para o locatário de destino. No entanto, a senha para esse usuário não é clonada.
+
+
+
+
+Para obter detalhes, link:grid-federation-manage-tenants.html["Gerenciar locatários permitidos para federação de grade"]consulte .
+
+
+
+== Fluxo de trabalho de conta de locatário permitido
+
+Depois que um locatário com a permissão *usar conexão de federação de grade* for replicado para a grade de destino, as contas de locatário permitidas podem executar essas etapas para clonar grupos de locatários, usuários e chaves de acesso S3.
+
+.Passos
+. Faça login na conta do locatário na grade de origem do locatário.
+. Se permitido, configure a federação de identificação nas contas de locatário de origem e destino.
+. Crie grupos e usuários no locatário de origem.
++
+Quando novos grupos ou usuários são criados no locatário de origem, o StorageGRID os clonará automaticamente para o locatário de destino, mas nenhuma clonagem ocorre do destino de volta para a origem.
+
+. Crie S3 chaves de acesso.
+. Opcionalmente, clone chaves de acesso S3 do locatário de origem para o locatário de destino.
+
+
+Para obter detalhes sobre o fluxo de trabalho permitido da conta de locatário e saber como grupos, usuários e chaves de acesso S3 são clonados, link:../tenant/grid-federation-account-clone.html["Clonar grupos de locatários e usuários"]consulte e link:../tenant/grid-federation-clone-keys-with-api.html["Clonar chaves de acesso S3 usando a API"].

@@ -1,0 +1,28 @@
+---
+permalink: expand/adding-storage-capacity-for-erasure-coded-objects.html 
+sidebar: sidebar 
+keywords: erasure coding, capacity, storage nodes, ec, expand, expansion 
+summary: Se a política de ILM incluir uma regra que faça cópias codificadas por apagamento, você deve Planejar onde adicionar um novo storage e quando adicionar um novo storage. A quantidade de armazenamento que você adiciona e o tempo da adição podem afetar a capacidade de armazenamento utilizável da grade. 
+---
+= Adicionar capacidade de storage para objetos codificados por apagamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se a política de ILM incluir uma regra que faça cópias codificadas por apagamento, você deve Planejar onde adicionar um novo storage e quando adicionar um novo storage. A quantidade de armazenamento que você adiciona e o tempo da adição podem afetar a capacidade de armazenamento utilizável da grade.
+
+A primeira etapa no Planejamento de uma expansão de storage é examinar as regras da política de ILM que criam objetos codificados por apagamento. Como o StorageGRID cria fragmentos _k-m_ para cada objeto codificado de apagamento e armazena cada fragmento em um nó de storage diferente, você deve garantir que pelo menos os nós de storage _k-m_ tenham espaço para novos dados codificados de apagamento após a expansão. Se o perfil de codificação de apagamento fornecer proteção contra perda de site, você precisará adicionar storage a cada local. link:../ilm/what-erasure-coding-schemes-are.html["O que são esquemas de codificação de apagamento"]Consulte para obter informações sobre perfis de codificação de apagamento.
+
+O número de nós que você precisa adicionar também depende de quão cheios os nós existentes estão quando você executa a expansão.
+
+
+
+== Recomendação geral para adicionar capacidade de storage para objetos codificados por apagamento
+
+Se você quiser evitar cálculos detalhados, pode adicionar dois nós de storage por local quando os nós de storage existentes atingirem 70% de capacidade.
+
+Esta recomendação geral fornece resultados razoáveis em uma ampla variedade de esquemas de codificação de apagamento para grades de um único local e para grades onde a codificação de apagamento fornece proteção contra perda de site.
+
+Para entender melhor os fatores que levaram a esta recomendação ou para desenvolver um plano mais preciso para o seu site, link:considerations-for-rebalancing-erasure-coded-data.html["Considerações para rebalanceamento de dados codificados por apagamento"]consulte . Para obter uma recomendação personalizada otimizada para a sua situação, entre em Contato com o consultor de Serviços profissionais da NetApp.

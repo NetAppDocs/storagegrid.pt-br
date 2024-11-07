@@ -1,0 +1,16 @@
+---
+permalink: maintain/recovering-from-archive-node-failures.html 
+sidebar: sidebar 
+keywords: recover, archive node failure, workflow 
+summary: O suporte para nós de arquivamento foi removido. 
+---
+= Recuperação de falhas do nó de arquivo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O suporte para nós de arquivamento foi removido.
+
+Para obter informações sobre como recuperar nós de arquivamento, https://docs.netapp.com/us-en/storagegrid-118/maintain/recovering-from-archive-node-failures.html["Recuperação de falhas de nó de arquivo (StorageGRID 11,8 doc site)"^] consulte .

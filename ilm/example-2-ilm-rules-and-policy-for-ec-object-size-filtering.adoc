@@ -1,0 +1,108 @@
+---
+permalink: ilm/example-2-ilm-rules-and-policy-for-ec-object-size-filtering.html 
+sidebar: sidebar 
+keywords: object size for erasure coding, example ILM rule, information lifecycle rule examples, 1 MB 
+summary: Você pode usar as seguintes regras e políticas de exemplo como pontos de partida para definir uma política de ILM que filtra por tamanho do objeto para atender aos requisitos de EC recomendados. 
+---
+= Exemplo 2: Regras de ILM e política para filtragem de tamanho de objeto EC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar as seguintes regras e políticas de exemplo como pontos de partida para definir uma política de ILM que filtra por tamanho do objeto para atender aos requisitos de EC recomendados.
+
+
+CAUTION: As seguintes regras e políticas do ILM são apenas exemplos. Existem muitas maneiras de configurar regras ILM. Antes de ativar uma nova política, simule-a para confirmar que ela funcionará da forma pretendida para proteger o conteúdo da perda.
+
+
+
+== Regra ILM 1 por exemplo 2: Use EC para objetos maiores que 1 MB
+
+Este exemplo ILM regra de apagamento codifica objetos que são maiores que 1 MB.
+
+
+NOTE: A codificação de apagamento é mais adequada para objetos com mais de 1 MB. Não use a codificação de apagamento para objetos com menos de 200 KB para evitar a sobrecarga de gerenciamento de fragmentos codificados de apagamento muito pequenos.
+
+[cols="2a,2a"]
+|===
+| Definição de regra | Exemplo de valor 
+
+
+ a| 
+Nome da regra
+ a| 
+Objetos somente EC > 1 MB
+
+
+
+ a| 
+Tempo de referência
+ a| 
+Tempo de ingestão
+
+
+
+ a| 
+Filtro avançado para tamanho do objeto
+ a| 
+Tamanho do objeto superior a 1 MB
+
+
+
+ a| 
+Colocações
+ a| 
+Crie uma cópia codificada por apagamento 2-1 usando três sites
+
+|===
+image::../media/policy_2_rule_1_ec_objects_adv_filtering.png[Regra ILM 1 por exemplo 2: Use EC para todos os objetos com mais de 1 MB]
+
+
+
+== Regra ILM 2 por exemplo 2: Duas cópias replicadas
+
+Este exemplo de regra ILM cria duas cópias replicadas e não filtra pelo tamanho do objeto. Esta regra é a regra padrão da política. Como a primeira regra filtra todos os objetos com mais de 1 MB, essa regra só se aplica a objetos com 1 MB ou menos.
+
+[cols="1a,2a"]
+|===
+| Definição de regra | Exemplo de valor 
+
+
+ a| 
+Nome da regra
+ a| 
+Duas cópias replicadas
+
+
+
+ a| 
+Tempo de referência
+ a| 
+Tempo de ingestão
+
+
+
+ a| 
+Filtro avançado para tamanho do objeto
+ a| 
+Nenhum
+
+
+
+ a| 
+Colocações
+ a| 
+No dia 0 para sempre, mantenha uma cópia replicada no local 1 e uma cópia replicada no local 2.
+
+|===
+
+
+== Política ILM por exemplo 2: Use EC para objetos maiores que 1 MB
+
+Este exemplo de política ILM inclui duas regras ILM:
+
+* A primeira regra de apagamento codifica todos os objetos com mais de 1 MB.
+* A segunda regra ILM (padrão) cria duas cópias replicadas. Como objetos com mais de 1 MB foram filtrados pela regra 1, a regra 2 aplica-se apenas a objetos com 1 MB ou menos.
+

@@ -1,0 +1,56 @@
+---
+permalink: primer/what-gateway-node-is.html 
+sidebar: sidebar 
+keywords: gateway nodes, api gateway 
+summary: Os nós de gateway fornecem uma interface dedicada de balanceamento de carga que os aplicativos clientes S3 podem usar para se conetar ao StorageGRID. O balanceamento de carga maximiza a velocidade e a capacidade de conexão distribuindo a carga de trabalho em vários nós de storage. Os nós de gateway são opcionais. 
+---
+= O que é um nó de gateway?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os nós de gateway fornecem uma interface dedicada de balanceamento de carga que os aplicativos clientes S3 podem usar para se conetar ao StorageGRID. O balanceamento de carga maximiza a velocidade e a capacidade de conexão distribuindo a carga de trabalho em vários nós de storage. Os nós de gateway são opcionais.
+
+O serviço de balanceador de carga do StorageGRID é fornecido em todos os nós de administração e todos os nós de gateway. Ele executa o encerramento do TLS (Transport Layer Security) das solicitações do cliente, inspeciona as solicitações e estabelece novas conexões seguras aos nós de storage. O serviço Load Balancer direciona os clientes de forma otimizada para um nó de storage ideal, de modo que a falha de nós ou até mesmo um local inteiro seja transparente.
+
+Você configura um ou mais pontos de extremidade do balanceador de carga para definir a porta e o protocolo de rede (HTTPS ou HTTP) que as solicitações de clientes de entrada e saída usarão para acessar os serviços do Load Balancer nos nós Gateway e Admin. O ponto de extremidade do balanceador de carga também define o tipo de cliente (S3), o modo de encadernação e, opcionalmente, uma lista de locatários permitidos ou bloqueados. link:../admin/managing-load-balancing.html["Considerações para balanceamento de carga"]Consulte .
+
+Conforme necessário, você pode agrupar as interfaces de rede de vários nós de gateway e nós de administrador em um grupo de alta disponibilidade (HA). Se a interface ativa no grupo HA falhar, uma interface de backup poderá gerenciar a carga de trabalho do aplicativo cliente. link:../admin/managing-high-availability-groups.html["Gerenciar grupos de alta disponibilidade (HA)"]Consulte .
+
+
+
+== Serviços primários para nós de gateway
+
+A tabela a seguir mostra os serviços primários para nós de Gateway; no entanto, essa tabela não lista todos os serviços de nós.
+
+[cols="1a,2a"]
+|===
+| Serviço | Função de chave 
+
+
+ a| 
+Alta disponibilidade
+ a| 
+Gerencia endereços IP virtuais de alta disponibilidade para grupos de nós de administração e nós de gateway.
+
+*Observação:* este serviço também é encontrado em nós de administração.
+
+
+
+ a| 
+Balanceador de carga
+ a| 
+Fornece balanceamento de carga de camada 7 do tráfego S3 de clientes para nós de storage. Este é o mecanismo de balanceamento de carga recomendado.
+
+*Observação:* este serviço também é encontrado em nós de administração.
+
+
+
+ a| 
+Monitor de status do servidor (SSM)
+ a| 
+Monitora o sistema operacional e o hardware subjacente.
+
+|===

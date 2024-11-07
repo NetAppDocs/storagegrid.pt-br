@@ -1,0 +1,84 @@
+---
+permalink: tenant/manage-bucket-consistency.html 
+sidebar: sidebar 
+keywords: how to manage bucket consistency, how to change bucket consistency, read after new write, read-after-new-write, strong site, strong-site, strong global, strong-global 
+summary: Valores de consistência podem ser usados para especificar a disponibilidade de alterações de configuração de bucket, bem como para fornecer um equilíbrio entre a disponibilidade dos objetos dentro de um bucket e a consistência desses objetos em diferentes nós de storage e locais. Você pode alterar os valores de consistência para serem diferentes dos valores padrão para que os aplicativos clientes possam atender às suas necessidades operacionais. 
+---
+= Gerenciar a consistência do balde
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Valores de consistência podem ser usados para especificar a disponibilidade de alterações de configuração de bucket, bem como para fornecer um equilíbrio entre a disponibilidade dos objetos dentro de um bucket e a consistência desses objetos em diferentes nós de storage e locais. Você pode alterar os valores de consistência para serem diferentes dos valores padrão para que os aplicativos clientes possam atender às suas necessidades operacionais.
+
+.Antes de começar
+* Você está conetado ao Gerenciador do Locatário usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você pertence a um grupo de usuários que tem o link:tenant-management-permissions.html["Gerencie todos os buckets ou permissão de acesso root"]. Essas permissões substituem as configurações de permissões em políticas de grupo ou bucket.
+
+
+
+
+== Diretrizes de consistência do balde
+
+A consistência do bucket é usada para determinar a consistência dos aplicativos clientes que afetam objetos dentro desse bucket do S3. Em geral, você deve usar a consistência *Read-after-novo-write* para seus buckets.
+
+
+
+== [[change-bucket-consistency]]altere a consistência do balde
+
+Se a consistência *Read-after-new-write* não atender aos requisitos do aplicativo cliente, você pode alterar a consistência definindo a consistência do bucket ou usando o `Consistency-Control` cabeçalho. O `Consistency-Control` colhedor substitui a consistência do balde.
+
+
+NOTE: Quando você altera a consistência de um balde, apenas os objetos que são ingeridos após a alteração têm a garantia de atender à configuração revisada.
+
+.Passos
+. Selecione *View buckets* no painel ou selecione *STORAGE (S3)* > *Buckets*.
+. Selecione o nome do intervalo na tabela.
++
+É apresentada a página de detalhes do balde.
+
+. Na guia *Opções de balde*, selecione o acordeão **.
+. Selecione uma consistência para as operações realizadas nos objetos neste intervalo.
++
+** *Todos*: Fornece o mais alto nível de consistência. Todos os nós recebem os dados imediatamente, ou a solicitação falhará.
+** *Strong-global*: Garante consistência de leitura após gravação para todas as solicitações de clientes em todos os sites.
+** * Strong-site*: Garante consistência de leitura-após-gravação para todas as solicitações de clientes dentro de um site.
+** *Read-after-novo-write* (padrão): Fornece consistência de leitura-após-gravação para novos objetos e eventual consistência para atualizações de objetos. Oferece alta disponibilidade e garantias de proteção de dados. Recomendado para a maioria dos casos.
+** *Disponível*: Fornece consistência eventual para novos objetos e atualizações de objetos. Para buckets do S3, use somente conforme necessário (por exemplo, para um bucket que contém valores de log raramente lidos, ou para operações HEAD ou GET em chaves que não existem). Não compatível com buckets do FabricPool S3.
+
+
+. Selecione *Salvar alterações*.
+
+
+
+
+== O que acontece quando você altera as configurações do balde
+
+Os buckets têm várias configurações que afetam o comportamento dos buckets e dos objetos dentro desses buckets.
+
+As seguintes configurações de bucket usam a consistência *strong* por padrão. Se dois ou mais nós de storage não estiverem disponíveis em nenhum local, ou se um site não estiver disponível, quaisquer alterações nessas configurações poderão não estar disponíveis.
+
+* link:deleting-s3-bucket-objects.html["Eliminação do balde vazio em segundo plano"]
+* link:enabling-or-disabling-last-access-time-updates.html["Último tempo de acesso"]
+* link:../s3/create-s3-lifecycle-configuration.html["Ciclo de vida do balde"]
+* link:../s3/bucket-and-group-access-policies.html["Política de balde"]
+* link:../s3/operations-on-buckets.html["Identificação do balde"]
+* link:changing-bucket-versioning.html["Controle de versão do bucket"]
+* link:using-s3-object-lock.html["S3 bloqueio de objetos"]
+* link:../admin/reviewing-storagegrid-encryption-methods.html#bucket-encryption-table["Criptografia do bucket"]
+
+
+
+NOTE: O valor de consistência para controle de versão de bucket, bloqueio de objeto S3 e criptografia de bucket não pode ser definido para um valor que não é fortemente consistente.
+
+As seguintes configurações de bucket não usam consistência forte e têm maior disponibilidade para alterações. As alterações a essas configurações podem levar algum tempo antes de ter um efeito.
+
+* link:considerations-for-platform-services.html["Configuração de serviços de plataforma: Integração de notificação, replicação ou pesquisa"]
+* link:configuring-cross-origin-resource-sharing-cors.html["Configuração CORS"]
+* <<change-bucket-consistency,Altere a consistência do balde>>
+
+
+
+TIP: Se a consistência padrão usada ao alterar as configurações do bucket não atender aos requisitos do aplicativo cliente, você poderá alterar a consistência usando o `Consistency-Control` cabeçalho para link:../s3/put-bucket-consistency-request.html["S3 API REST"]ou usando `reducedConsistency` as opções ou `force` no link:understanding-tenant-management-api.html["API de gerenciamento do locatário"].

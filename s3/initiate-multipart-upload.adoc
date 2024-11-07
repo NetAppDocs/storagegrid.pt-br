@@ -1,0 +1,154 @@
+---
+permalink: s3/initiate-multipart-upload.html 
+sidebar: sidebar 
+keywords: initiate multipart upload, CreateMultipartUpload, upload ID 
+summary: A operação CreateMultipartUpload inicia um upload de várias partes para um objeto e retorna um ID de upload. 
+---
+= CreateMultipartUpload
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A operação CreateMultipartUpload (anteriormente chamada Iniciar carregamento Multipart) inicia um upload multipart para um objeto e retorna um ID de upload.
+
+O `x-amz-storage-class` cabeçalho da solicitação é suportado. O valor enviado para `x-amz-storage-class` afeta a forma como o StorageGRID protege os dados de objetos durante a ingestão e não quantas cópias persistentes do objeto são armazenadas no sistema StorageGRID (que é determinado pelo ILM).
+
+Se a regra ILM que corresponde a um objeto ingerido usar o strict link:../ilm/data-protection-options-for-ingest.html["opção de ingestão"], o `x-amz-storage-class` cabeçalho não terá efeito.
+
+Os seguintes valores podem ser usados para `x-amz-storage-class`:
+
+* `STANDARD` (Predefinição)
++
+** * Commit duplo*: Se a regra ILM especificar a opção ingestão de commit duplo, assim que um objeto é ingerido, uma segunda cópia desse objeto é criada e distribuída para um nó de armazenamento diferente (commit duplo). Quando o ILM é avaliado, o StorageGRID determina se essas cópias provisórias iniciais satisfazem as instruções de colocação na regra. Caso contrário, novas cópias de objetos podem precisar ser feitas em locais diferentes e as cópias provisórias iniciais podem precisar ser excluídas.
+** *Balanced*: Se a regra ILM especificar a opção Balanced e o StorageGRID não puder fazer imediatamente todas as cópias especificadas na regra, o StorageGRID fará duas cópias provisórias em diferentes nós de storage.
++
+Se o StorageGRID puder criar imediatamente todas as cópias de objeto especificadas na regra ILM (colocação síncrona), `x-amz-storage-class` o cabeçalho não terá efeito.
+
+
+
+* `REDUCED_REDUNDANCY`
++
+** *Commit duplo*: Se a regra ILM especificar a opção Commit duplo, o StorageGRID cria uma única cópia provisória à medida que o objeto é ingerido (commit único).
+** *Balanced*: Se a regra ILM especificar a opção Balanced, o StorageGRID fará uma única cópia provisória somente se o sistema não puder fazer imediatamente todas as cópias especificadas na regra. Se o StorageGRID puder executar o posicionamento síncrono, este cabeçalho não terá efeito. A `REDUCED_REDUNDANCY` opção é melhor usada quando a regra ILM que corresponde ao objeto cria uma única cópia replicada. Neste caso, o uso `REDUCED_REDUNDANCY` elimina a criação e exclusão desnecessárias de uma cópia de objeto extra para cada operação de ingestão.
+
+
++
+A utilização da `REDUCED_REDUNDANCY` opção não é recomendada noutras circunstâncias. `REDUCED_REDUNDANCY` aumenta o risco de perda de dados do objeto durante a ingestão. Por exemplo, você pode perder dados se a única cópia for inicialmente armazenada em um nó de armazenamento que falha antes que a avaliação ILM possa ocorrer.
+
+
+
+
+CAUTION: Ter apenas uma cópia replicada para qualquer período de tempo coloca os dados em risco de perda permanente. Se houver apenas uma cópia replicada de um objeto, esse objeto será perdido se um nó de armazenamento falhar ou tiver um erro significativo. Você também perde temporariamente o acesso ao objeto durante procedimentos de manutenção, como atualizações.
+
+Especificar `REDUCED_REDUNDANCY` apenas afeta quantas cópias são criadas quando um objeto é ingerido pela primeira vez. Ele não afeta quantas cópias do objeto são feitas quando o objeto é avaliado pelas políticas ativas de ILM e não faz com que os dados sejam armazenados em níveis mais baixos de redundância no sistema StorageGRID.
+
+
+NOTE: Se você estiver ingerindo um objeto em um bucket com o S3 Object Lock ativado, a `REDUCED_REDUNDANCY` opção será ignorada. Se você estiver ingerindo um objeto em um bucket compatível com legado, a `REDUCED_REDUNDANCY` opção retornará um erro. A StorageGRID sempre realizará uma ingestão de confirmação dupla para garantir que os requisitos de conformidade sejam atendidos.
+
+
+
+== Cabeçalhos de solicitação suportados
+
+Os seguintes cabeçalhos de solicitação são suportados:
+
+* `Content-Type`
+* `x-amz-checksum-algorithm`
++
+Atualmente, apenas o valor SHA256 para `x-amz-checksum-algorithm` é suportado.
+
+* `x-amz-meta-`, seguido por um par de nome-valor contendo metadados definidos pelo usuário
++
+Ao especificar o par nome-valor para metadados definidos pelo usuário, use este formato geral:
+
++
+[listing]
+----
+x-amz-meta-_name_: `value`
+----
++
+Se você quiser usar a opção *tempo de criação definido pelo usuário* como tempo de referência para uma regra ILM, você deve usar `creation-time` como o nome dos metadados que Registram quando o objeto foi criado. Por exemplo:
+
++
+[listing]
+----
+x-amz-meta-creation-time: 1443399726
+----
++
+O valor para `creation-time` é avaliado em segundos desde 1 de janeiro de 1970.
+
++
+
+NOTE: A adição `creation-time` de metadados definidos pelo usuário não é permitida se você estiver adicionando um objeto a um bucket que tenha a conformidade legada habilitada. Um erro será retornado.
+
+* S3 cabeçalhos de solicitação de bloqueio de objetos:
++
+** `x-amz-object-lock-mode`
+** `x-amz-object-lock-retain-until-date`
+** `x-amz-object-lock-legal-hold`
++
+Se uma solicitação for feita sem esses cabeçalhos, as configurações de retenção padrão do intervalo serão usadas para calcular a versão do objeto retida até a data.
+
++
+link:../s3/use-s3-api-for-s3-object-lock.html["Use a API REST do S3 para configurar o bloqueio de objetos do S3"]
+
+
+
+* Cabeçalhos de pedido SSE:
++
+** `x-amz-server-side-encryption`
+** `x-amz-server-side-encryption-customer-key-MD5`
+** `x-amz-server-side-encryption-customer-key`
+** `x-amz-server-side-encryption-customer-algorithm`
++
+<<Cabeçalhos de solicitação para criptografia do lado do servidor>>
+
+
+
++
+
+NOTE: Para obter informações sobre como o StorageGRID lida com carateres UTF-8, link:put-object.html["PutObject"]consulte .
+
+
+
+
+
+== Cabeçalhos de solicitação para criptografia do lado do servidor
+
+Você pode usar os cabeçalhos de solicitação a seguir para criptografar um objeto multiparte com criptografia do lado do servidor. As opções SSE e SSE-C são mutuamente exclusivas.
+
+* *SSE*: Use o seguinte cabeçalho na solicitação CreateMultipartUpload se quiser criptografar o objeto com uma chave exclusiva gerenciada pelo StorageGRID. Não especifique este cabeçalho em nenhuma das solicitações UploadPart.
++
+** `x-amz-server-side-encryption`
+
+
+* *SSE-C*: Use todos esses três cabeçalhos na solicitação CreateMultipartUpload (e em cada solicitação UploadPart subsequente) se você quiser criptografar o objeto com uma chave exclusiva que você fornece e gerencia.
++
+** `x-amz-server-side-encryption-customer-algorithm`: Especificar `AES256`.
+** `x-amz-server-side-encryption-customer-key`: Especifique sua chave de criptografia para o novo objeto.
+** `x-amz-server-side-encryption-customer-key-MD5`: Especifique o resumo MD5 da chave de criptografia do novo objeto.
+
+
+
+
+
+CAUTION: As chaves de criptografia que você fornece nunca são armazenadas. Se você perder uma chave de criptografia, perderá o objeto correspondente. Antes de usar chaves fornecidas pelo cliente para proteger os dados do objeto, revise as considerações para link:using-server-side-encryption.html["usando criptografia do lado do servidor"].
+
+
+
+== Cabeçalhos de solicitação não suportados
+
+O seguinte cabeçalho de solicitação não é suportado:
+
+* `x-amz-website-redirect-location`
++
+O `x-amz-website-redirect-location` cabeçalho retorna `XNotImplemented`.
+
+
+
+
+
+== Controle de versão
+
+O upload de várias partes consiste em operações separadas para iniciar o upload, listar uploads, carregar peças, montar as peças carregadas e concluir o upload. Os objetos são criados (e versionados, se aplicável) quando a operação CompleteMultipartUpload é executada.

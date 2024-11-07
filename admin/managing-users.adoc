@@ -1,0 +1,201 @@
+---
+permalink: admin/managing-users.html 
+sidebar: sidebar 
+keywords: how to manage local users 
+summary: Você pode exibir usuários locais e federados. Você também pode criar usuários locais e atribuí-los a grupos de administração locais para determinar quais recursos do Gerenciador de Grade esses usuários podem acessar. 
+---
+= Gerenciar usuários
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode exibir usuários locais e federados. Você também pode criar usuários locais e atribuí-los a grupos de administração locais para determinar quais recursos do Gerenciador de Grade esses usuários podem acessar.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você link:admin-group-permissions.html["permissões de acesso específicas"]tem .
+
+
+
+
+== Crie um usuário local
+
+Você pode criar um ou mais usuários locais e atribuir cada usuário a um ou mais grupos locais. As permissões do grupo controlam quais recursos do Gerenciador de Grade e da API de Gerenciamento de Grade o usuário pode acessar.
+
+Você pode criar somente usuários locais. Use a fonte de identidade externa para gerenciar usuários e grupos federados.
+
+O Gerenciador de Grade inclui um usuário local predefinido, chamado "root". Não é possível remover o usuário raiz.
+
+
+NOTE: Se o logon único (SSO) estiver ativado, os usuários locais não poderão fazer login no StorageGRID.
+
+
+
+=== Acesse o assistente
+
+.Passos
+. Selecione *CONFIGURATION* > *Access Control* > *Admin Users*.
+. Selecione *criar usuário*.
+
+
+
+
+=== Introduza as credenciais do utilizador
+
+.Passos
+. Introduza o nome completo do utilizador, um nome de utilizador exclusivo e uma palavra-passe.
+. Opcionalmente, selecione *Sim* se esse usuário não tiver acesso ao Gerenciador de Grade ou à API de Gerenciamento de Grade.
+. Selecione *continuar*.
+
+
+
+
+=== Atribuir a grupos
+
+.Passos
+. Opcionalmente, atribua o usuário a um ou mais grupos para determinar as permissões do usuário.
++
+Se ainda não tiver criado grupos, pode guardar o utilizador sem selecionar grupos. Você pode adicionar esse usuário a um grupo na página grupos.
+
++
+Se um usuário pertencer a vários grupos, as permissões serão cumulativas. link:managing-admin-groups.html["Gerenciar grupos de administradores"]Consulte para obter detalhes.
+
+. Selecione *Create user* e selecione *Finish*.
+
+
+
+
+== Ver e editar utilizadores locais
+
+Você pode exibir detalhes de usuários locais e federados existentes. Você pode modificar um usuário local para alterar o nome completo, a senha ou a associação de grupo do usuário. Você também pode impedir temporariamente que um usuário acesse o Gerenciador de Grade e a API de Gerenciamento de Grade.
+
+Só pode editar utilizadores locais. Use a fonte de identidade externa para gerenciar usuários federados.
+
+* Para exibir informações básicas para todos os usuários locais e federados, revise a tabela na página usuários.
+* Para visualizar todos os detalhes de um usuário específico, editar um usuário local ou alterar a senha de um usuário local, use o menu *ações* ou a página de detalhes.
++
+Todas as edições são aplicadas na próxima vez que o usuário sair e, em seguida, voltar a entrar no Gerenciador de Grade.
+
++
+
+NOTE: Os usuários locais podem alterar suas próprias senhas usando a opção *alterar senha* no banner do Gerenciador de Grade.
+
++
+[cols="1a,2a,2a"]
+|===
+| Tarefa | Menu ações | Página de detalhes 
+
+
+ a| 
+Ver detalhes do utilizador
+ a| 
+.. Selecione a caixa de verificação para o utilizador.
+.. Selecione *ações* > *Exibir detalhes do usuário*.
+
+ a| 
+Selecione o nome do usuário na tabela.
+
+
+
+ a| 
+Editar nome completo (somente usuários locais)
+ a| 
+.. Selecione a caixa de verificação para o utilizador.
+.. Selecione *ações* > *Editar nome completo*.
+.. Introduza o novo nome.
+.. Selecione *Salvar alterações*.
+
+ a| 
+.. Selecione o nome do usuário para exibir os detalhes.
+.. Selecione o ícone de edição image:../media/icon_edit_tm.png["Ícone de edição"].
+.. Introduza o novo nome.
+.. Selecione *Salvar alterações*.
+
+
+
+
+ a| 
+Negar ou permitir acesso à StorageGRID
+ a| 
+.. Selecione a caixa de verificação para o utilizador.
+.. Selecione *ações* > *Exibir detalhes do usuário*.
+.. Selecione a guia Acesso.
+.. Selecione *Sim* para impedir que o usuário faça login no Gerenciador de Grade ou na API de Gerenciamento de Grade, ou selecione *não* para permitir que o usuário faça login.
+.. Selecione *Salvar alterações*.
+
+ a| 
+.. Selecione o nome do usuário para exibir os detalhes.
+.. Selecione a guia Acesso.
+.. Selecione *Sim* para impedir que o usuário faça login no Gerenciador de Grade ou na API de Gerenciamento de Grade, ou selecione *não* para permitir que o usuário faça login.
+.. Selecione *Salvar alterações*.
+
+
+
+
+ a| 
+Alterar palavra-passe (apenas utilizadores locais)
+ a| 
+.. Selecione a caixa de verificação para o utilizador.
+.. Selecione *ações* > *Exibir detalhes do usuário*.
+.. Selecione a guia Senha.
+.. Introduza uma nova palavra-passe.
+.. Selecione *alterar palavra-passe*.
+
+ a| 
+.. Selecione o nome do usuário para exibir os detalhes.
+.. Selecione a guia Senha.
+.. Introduza uma nova palavra-passe.
+.. Selecione *alterar palavra-passe*.
+
+
+
+
+ a| 
+Alterar grupos (somente usuários locais)
+ a| 
+.. Selecione a caixa de verificação para o utilizador.
+.. Selecione *ações* > *Exibir detalhes do usuário*.
+.. Selecione a guia grupos.
+.. Opcionalmente, selecione o link após um nome de grupo para exibir os detalhes do grupo em uma nova guia do navegador.
+.. Selecione *Editar grupos* para selecionar grupos diferentes.
+.. Selecione *Salvar alterações*.
+
+ a| 
+.. Selecione o nome do usuário para exibir os detalhes.
+.. Selecione a guia grupos.
+.. Opcionalmente, selecione o link após um nome de grupo para exibir os detalhes do grupo em uma nova guia do navegador.
+.. Selecione *Editar grupos* para selecionar grupos diferentes.
+.. Selecione *Salvar alterações*.
+
+
+|===
+
+
+
+
+== Duplicar um usuário
+
+Você pode duplicar um usuário existente para criar um novo usuário com as mesmas permissões.
+
+.Passos
+. Selecione a caixa de verificação para o utilizador.
+. Selecione *ações* > *usuário duplicado*.
+. Conclua o assistente de usuário duplicado.
+
+
+
+
+== Eliminar um utilizador
+
+Você pode excluir um usuário local para remover permanentemente esse usuário do sistema.
+
+
+NOTE: Não é possível excluir o usuário raiz.
+
+.Passos
+. Na página usuários, marque a caixa de seleção para cada usuário que deseja remover.
+. Selecione *ações* > *Excluir usuário*.
+. Selecione *Eliminar utilizador*.
+

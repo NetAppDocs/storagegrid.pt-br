@@ -1,0 +1,282 @@
+---
+permalink: admin/grid-federation-manage-connection.html 
+sidebar: sidebar 
+keywords: grid federation, edit connection, remove connection, rotate certificates 
+summary: O gerenciamento de conexões de federação de grade entre sistemas StorageGRID inclui edição de detalhes de conexão, rotação de certificados, remoção de permissões de locatário e remoção de conexões não utilizadas. 
+---
+= Gerenciar conexões de federação de grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O gerenciamento de conexões de federação de grade entre sistemas StorageGRID inclui edição de detalhes de conexão, rotação de certificados, remoção de permissões de locatário e remoção de conexões não utilizadas.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade em qualquer grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:admin-group-permissions.html["Permissão de acesso à raiz"] para a grade na qual você está conetado.
+
+
+
+
+== [[edit_grid_FED_Connection]]Editar uma conexão de federação de grade
+
+Você pode editar uma conexão de federação de grade entrando no nó de administração principal em qualquer grade da conexão. Depois de fazer alterações na primeira grade, você deve baixar um novo arquivo de verificação e enviá-lo para a outra grade.
+
+
+NOTE: Enquanto a conexão está sendo editada, as solicitações de replicação entre redes ou clone de conta continuarão a usar as configurações de conexão existentes. Todas as edições feitas na primeira grade são salvas localmente, mas não são usadas até que tenham sido carregadas na segunda grade, salvas e testadas.
+
+
+
+=== Comece a editar a ligação
+
+.Passos
+. Faça login no Gerenciador de Grade a partir do nó Admin primário em qualquer grade.
+. Selecione *NÓS* e confirme se todos os outros nós de administrador do sistema estão online.
++
+
+NOTE: Quando você edita uma conexão de federação de grade, o StorageGRID tenta salvar um arquivo de "configuração de candidato" em todos os nós de administração na primeira grade. Se esse arquivo não puder ser salvo em todos os nós de administração, uma mensagem de aviso será exibida quando você selecionar *Salvar e testar*.
+
+. Selecione *CONFIGURATION* > *System* > *Grid Federation*.
+. Edite os detalhes da conexão usando o menu *ações* na página de federação de Grade ou a página de detalhes de uma conexão específica. Consulte link:grid-federation-create-connection.html["Crie conexões de federação de grade"] para saber o que introduzir.
++
+[role="tabbed-block"]
+====
+.Menu ações
+--
+.. Selecionar o botão do rádio para a ligação.
+.. Selecione *ações* > *Editar*.
+.. Introduza as novas informações.
+
+
+--
+.Página de detalhes
+--
+.. Selecione um nome de ligação para apresentar os respetivos detalhes.
+.. Selecione *Editar*.
+.. Introduza as novas informações.
+
+
+--
+====
+. Insira a senha de provisionamento para a grade à qual você está conetado.
+. Selecione *Salvar e continuar*.
++
+Os novos valores são salvos, mas eles não serão aplicados à conexão até que você tenha carregado o novo arquivo de verificação na outra grade.
+
+. Selecione *Transferir ficheiro de verificação*.
++
+Para transferir este ficheiro posteriormente, aceda à página de detalhes da ligação.
+
+. Localize o arquivo baixado (`_connection-name_.grid-federation`) e salve-o em um local seguro.
++
+
+CAUTION: O arquivo de verificação contém segredos e deve ser armazenado e transmitido com segurança.
+
+. Selecione *Fechar* para retornar à página de federação de Grade.
+. Confirme se o *Status da conexão* é *Pending edit*.
++
+
+NOTE: Se o status da conexão for diferente de *conectado* quando você começou a editar a conexão, ela não mudará para *Pending edit*.
+
+. Forneça o `_connection-name_.grid-federation` arquivo ao administrador de grade para a outra grade.
+
+
+
+
+=== Termine a edição da conexão
+
+Termine a edição da conexão carregando o arquivo de verificação na outra grade.
+
+.Passos
+. Inicie sessão no Grid Manager a partir do nó de administração principal.
+. Selecione *CONFIGURATION* > *System* > *Grid Federation*.
+. Selecione *carregar ficheiro de verificação* para aceder à página de carregamento.
+. Selecione *carregar ficheiro de verificação*. Em seguida, procure e selecione o arquivo que foi baixado da primeira grade.
+. Insira a senha de provisionamento para a grade à qual você está conetado no momento.
+. Selecione *Salvar e testar*.
++
+Se a conexão puder ser estabelecida usando os valores editados, uma mensagem de sucesso será exibida. Caso contrário, é apresentada uma mensagem de erro. Revise a mensagem e solucione quaisquer problemas.
+
+. Feche o assistente para retornar à página de federação de Grade.
+. Confirme se o *Estado da ligação* é *ligado*.
+. Vá para a página de federação de Grade na primeira grade e atualize o navegador. Confirme se o *Estado da ligação* é agora *ligado*.
+. Depois que a conexão for estabelecida, exclua com segurança todas as cópias do arquivo de verificação.
+
+
+
+
+== [[test_grid_FED_Connection]]Teste uma conexão de federação de grade
+
+.Passos
+. Inicie sessão no Grid Manager a partir do nó de administração principal.
+. Selecione *CONFIGURATION* > *System* > *Grid Federation*.
+. Teste a conexão usando o menu *ações* na página de federação de Grade ou a página de detalhes para uma conexão específica.
++
+[role="tabbed-block"]
+====
+.Menu ações
+--
+.. Selecionar o botão do rádio para a ligação.
+.. Selecione *ações* > *Teste*.
+
+
+--
+.Página de detalhes
+--
+.. Selecione um nome de ligação para apresentar os respetivos detalhes.
+.. Selecione *Test Connection*.
+
+
+--
+====
+. Reveja o estado da ligação:
++
+[cols="1a,2a"]
+|===
+| Estado da ligação | Descrição 
+
+
+ a| 
+Ligado
+ a| 
+Ambas as grades estão conetadas e se comunicando normalmente.
+
+
+
+ a| 
+Erro
+ a| 
+A conexão está em um estado de erro. Por exemplo, um certificado expirou ou um valor de configuração não é mais válido.
+
+
+
+ a| 
+Edição pendente
+ a| 
+Você editou a conexão nesta grade, mas a conexão ainda está usando a configuração existente. Para concluir a edição, carregue o novo arquivo de verificação para a outra grade.
+
+
+
+ a| 
+A aguardar ligação
+ a| 
+Você configurou a conexão nesta grade, mas a conexão não foi concluída na outra grade. Baixe o arquivo de verificação desta grade e faça o upload para a outra grade.
+
+
+
+ a| 
+Desconhecido
+ a| 
+A conexão está em um estado desconhecido, possivelmente por causa de um problema de rede ou um nó off-line.
+
+|===
+. Se o status da conexão for *Error*, resolva quaisquer problemas. Em seguida, selecione *Test Connection* novamente para confirmar que o problema foi corrigido.
+
+
+
+
+== [[Rotate_grid_FED_Certificates]]gire certificados de conexão
+
+Cada conexão de federação de grade usa quatro certificados SSL gerados automaticamente para proteger a conexão. Quando os dois certificados de cada grade estiverem próximos da data de expiração, o alerta *Expiration of Grid Federation certificate* lembra que você deve girar os certificados.
+
+
+CAUTION: Se os certificados em qualquer uma das extremidades da conexão expirarem, a conexão parará de funcionar e as replicações ficarão pendentes até que os certificados sejam atualizados.
+
+.Passos
+. Faça login no Gerenciador de Grade a partir do nó Admin primário em qualquer grade.
+. Selecione *CONFIGURATION* > *System* > *Grid Federation*.
+. Em qualquer guia da página de federação de Grade, selecione o nome da conexão para exibir seus detalhes.
+. Selecione a guia *certificados*.
+. Selecione *Rotate certificates* (rodar certificados).
+. Especifique quantos dias os novos certificados devem ser válidos.
+. Insira a senha de provisionamento para a grade à qual você está conetado.
+. Selecione *Rotate certificates* (rodar certificados).
+. Conforme necessário, repita estas etapas na outra grade na conexão.
++
+Em geral, use o mesmo número de dias para os certificados em ambos os lados da conexão.
+
+
+
+
+
+== [[remove_grid_FED_Connection]]Remova uma conexão de federação de grade
+
+Você pode remover uma conexão de federação de grade de qualquer grade na conexão. Como mostrado na figura, você deve executar etapas de pré-requisito em ambas as grades para confirmar que a conexão não está sendo usada por nenhum locatário em qualquer grade.
+
+image::../media/grid-federation-remove-connection.png[etapas para remover a conexão de federação de grade]
+
+Antes de remover uma conexão, observe o seguinte:
+
+* A remoção de uma conexão não exclui nenhum item que já tenha sido copiado entre grades. Por exemplo, usuários de locatários, grupos e objetos que existem em ambas as grades não são excluídos de qualquer grade quando a permissão do locatário é removida. Se você quiser excluir esses itens, você deve excluí-los manualmente de ambas as grades.
+* Quando você remove uma conexão, quaisquer objetos que estejam pendentes de replicação (ingeridos mas ainda não replicados para a outra grade) terão sua replicação permanentemente falhada.
+
+
+
+
+=== Desative a replicação para todos os buckets do locatário
+
+.Passos
+. A partir de qualquer grade, entre no Gerenciador de Grade a partir do nó Admin primário.
+. Selecione *CONFIGURATION* > *System* > *Grid Federation*.
+. Selecione o nome da ligação para apresentar os respetivos detalhes.
+. Na guia *allowed tenants* (inquilinos permitidos), determine se a conexão está sendo usada por quaisquer inquilinos.
+. Se algum inquilino estiver listado, instrua todos os inquilinos para que link:../tenant/grid-federation-manage-cross-grid-replication.html["desative a replicação entre redes"]todos os seus buckets em ambas as grades na conexão.
++
+
+TIP: Não é possível remover a permissão *usar conexão de federação de grade* se qualquer bucket de locatário tiver replicação entre grade ativada. Cada conta de locatário deve desativar a replicação entre grade para seus buckets em ambas as grades.
+
+
+
+
+
+=== Remova a permissão para cada locatário
+
+Depois que a replicação entre grades for desativada para todos os buckets do locatário, remova a permissão *Use Grid Federation* de todos os locatários em ambas as grades.
+
+.Passos
+. Selecione *CONFIGURATION* > *System* > *Grid Federation*.
+. Selecione o nome da ligação para apresentar os respetivos detalhes.
+. Para cada locatário na guia *inquilinos permitidos*, remova a permissão *usar conexão de federação de grade* de cada locatário. link:grid-federation-manage-tenants.html["Gerenciar locatários permitidos"]Consulte .
+. Repita estes passos para os inquilinos permitidos na outra grelha.
+
+
+
+
+=== Remova a conexão
+
+.Passos
+. Quando nenhum inquilino em qualquer grade estiver usando a conexão, selecione *Remover*.
+. Reveja a mensagem de confirmação e selecione *Remover*.
++
+** Se a conexão puder ser removida, uma mensagem de sucesso será exibida. A conexão de federação de grade agora é removida de ambas as grades.
+** Se a conexão não puder ser removida (por exemplo, ela ainda está em uso ou há um erro de conexão), uma mensagem de erro será exibida. Você pode fazer um dos seguintes procedimentos:
++
+*** Resolva o erro (recomendado). link:grid-federation-troubleshoot.html["Solucionar erros de federação de grade"]Consulte .
+*** Retire a ligação à força. Consulte a próxima seção.
+
+
+
+
+
+
+
+
+== [[force-remove_grid_FED_Connection]]Remova uma conexão de federação de grade pela força
+
+Se necessário, você pode forçar a remoção de uma conexão que não tenha o status *conectado*.
+
+A remoção forçada apenas elimina a ligação da grelha local. Para remover completamente a conexão, execute as mesmas etapas em ambas as grades.
+
+.Passos
+. Na caixa de diálogo de confirmação, selecione *forçar a remoção*.
++
+É apresentada uma mensagem de sucesso. Essa conexão de federação de grade não pode mais ser usada. No entanto, os buckets do locatário ainda podem ter a replicação entre grade ativada e algumas cópias de objeto podem já ter sido replicadas entre as grades na conexão.
+
+. A partir da outra grade na conexão, entre no Gerenciador de Grade do nó Admin principal.
+. Selecione *CONFIGURATION* > *System* > *Grid Federation*.
+. Selecione o nome da ligação para apresentar os respetivos detalhes.
+. Selecione *Remover* e *Sim*.
+. Selecione *forçar a remoção* para remover a conexão desta grade.
+

@@ -1,0 +1,169 @@
+---
+permalink: fabricpool/creating-load-balancer-endpoint-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, load balancer, endpoint, load balancing, create, creating, certificate 
+summary: O StorageGRID usa um balanceador de carga para gerenciar a carga de trabalho de aplicativos clientes, como o FabricPool. O balanceamento de carga maximiza a velocidade e a capacidade de conexão em vários nós de storage. 
+---
+= Crie um ponto de extremidade do balanceador de carga para o FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O StorageGRID usa um balanceador de carga para gerenciar a carga de trabalho de aplicativos clientes, como o FabricPool. O balanceamento de carga maximiza a velocidade e a capacidade de conexão em vários nós de storage.
+
+Ao configurar o StorageGRID para uso com o FabricPool, você deve configurar um ponto de extremidade do balanceador de carga e fazer upload ou gerar um certificado de ponto de extremidade do balanceador de carga, que é usado para proteger a conexão entre o ONTAP e o StorageGRID.
+
+Para usar o assistente de configuração do FabricPool para concluir esta tarefa, vá para link:use-fabricpool-setup-wizard-steps.html["Acesse e conclua o assistente de configuração do FabricPool"].
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:../admin/admin-group-permissions.html["Permissão de acesso à raiz"].
+* Você revisou o gerallink:../admin/managing-load-balancing.html["considerações para balanceamento de carga"], bem como o link:best-practices-for-load-balancing.html["Práticas recomendadas para balanceamento de carga para FabricPool"].
+
+
+.Passos
+. Selecione *CONFIGURATION* > *Network* > *Load balancer endpoints*.
+. Selecione *criar*.
+. Para a etapa *Digite os detalhes do endpoint*, preencha os campos a seguir.
++
+[cols="1a,2a"]
+|===
+| Campo | Descrição 
+
+
+ a| 
+Nome
+ a| 
+Um nome descritivo para o endpoint.
+
+
+
+ a| 
+Porta
+ a| 
+A porta StorageGRID que você deseja usar para balanceamento de carga. Este campo é padrão para 10433 para o primeiro endpoint que você criar, mas você pode inserir qualquer porta externa não utilizada. Se você digitar 80 ou 443, o endpoint será configurado somente em nós do Gateway. Essas portas são reservadas em nós de administração.
+
+*Observação:* as portas usadas por outros serviços de grade não são permitidas. Consulte link:../network/internal-grid-node-communications.html["Referência da porta de rede"].
+
+Você fornecerá esse número ao ONTAP ao anexar o StorageGRID como uma categoria de nuvem do FabricPool.
+
+
+
+ a| 
+Tipo de cliente
+ a| 
+Selecione *S3*.
+
+
+
+ a| 
+Protocolo de rede
+ a| 
+Selecione *HTTPS*.
+
+*Nota*: A comunicação com o StorageGRID sem criptografia TLS é suportada, mas não é recomendada.
+
+|===
+. Para a etapa *Select Binding mode* (Selecionar modo de encadernação), especifique o modo de encadernação. O modo de vinculação controla como o endpoint é acessado usando qualquer endereço IP ou usando endereços IP específicos e interfaces de rede.
++
+[cols="1a,3a"]
+|===
+| Modo | Descrição 
+
+
+ a| 
+Global (predefinição)
+ a| 
+Os clientes podem acessar o endpoint usando o endereço IP de qualquer nó de gateway ou nó de administrador, o endereço IP virtual (VIP) de qualquer grupo de HA em qualquer rede ou um FQDN correspondente.
+
+Use a configuração *Global* (padrão), a menos que você precise restringir a acessibilidade deste endpoint.
+
+
+
+ a| 
+IPs virtuais de grupos de HA
+ a| 
+Os clientes devem usar um endereço IP virtual (ou FQDN correspondente) de um grupo de HA para acessar esse endpoint.
+
+Os endpoints com esse modo de encadernação podem usar o mesmo número de porta, desde que os grupos de HA selecionados para os endpoints não se sobreponham.
+
+
+
+ a| 
+Interfaces de nós
+ a| 
+Os clientes devem usar os endereços IP (ou FQDNs correspondentes) das interfaces de nó selecionadas para acessar esse endpoint.
+
+
+
+ a| 
+Tipo de nó
+ a| 
+Com base no tipo de nó selecionado, os clientes devem usar o endereço IP (ou FQDN correspondente) de qualquer nó Admin ou o endereço IP (ou FQDN correspondente) de qualquer nó Gateway para acessar esse ponto final.
+
+|===
+. Para a etapa *Acesso ao locatário*, selecione uma das seguintes opções:
++
+[cols="1a,2a"]
+|===
+| Campo | Descrição 
+
+
+ a| 
+Permitir todos os locatários (padrão)
+ a| 
+Todas as contas de inquilino podem usar esse endpoint para acessar seus buckets.
+
+*Permitir todos os inquilinos* é quase sempre a opção apropriada para o ponto de extremidade do balanceador de carga usado para o FabricPool.
+
+Você deve selecionar essa opção se ainda não tiver criado nenhuma conta de locatário.
+
+
+
+ a| 
+Permitir inquilinos selecionados
+ a| 
+Somente as contas de locatário selecionadas podem usar esse endpoint para acessar seus buckets.
+
+
+
+ a| 
+Bloquear locatários selecionados
+ a| 
+As contas de locatário selecionadas não podem usar esse endpoint para acessar seus buckets. Todos os outros inquilinos podem usar este endpoint.
+
+|===
+. Para a etapa *Anexar certificado*, selecione uma das seguintes opções:
++
+[cols="1a,2a"]
+|===
+| Campo | Descrição 
+
+
+ a| 
+Carregar certificado (recomendado)
+ a| 
+Use essa opção para carregar um certificado de servidor assinado pela CA, uma chave privada de certificado e um pacote de CA opcional.
+
+
+
+ a| 
+Gerar certificado
+ a| 
+Use esta opção para gerar um certificado autoassinado. Consulte link:../admin/configuring-load-balancer-endpoints.html["Configurar pontos de extremidade do balanceador de carga"] para obter detalhes sobre o que introduzir.
+
+
+
+ a| 
+Use o certificado StorageGRID S3
+ a| 
+Esta opção só está disponível se você já tiver carregado ou gerado uma versão personalizada do certificado global StorageGRID. link:../admin/configuring-custom-server-certificate-for-storage-node.html["Configure os certificados API do S3"]Consulte para obter detalhes.
+
+|===
+. Selecione *criar*.
+
+
+
+NOTE: As alterações a um certificado de endpoint podem levar até 15 minutos para serem aplicadas a todos os nós.

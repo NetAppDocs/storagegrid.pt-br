@@ -1,0 +1,43 @@
+---
+permalink: ilm/view-cloud-storage-pool-details.html 
+sidebar: sidebar 
+keywords: view cloud storage pool 
+summary: Você pode exibir os detalhes de um pool de storage de nuvem para determinar onde ele é usado e ver quais nós e categorias de storage estão incluídos. 
+---
+= Veja os detalhes do Cloud Storage Pool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode exibir os detalhes de um pool de storage de nuvem para determinar onde ele é usado e ver quais nós e categorias de storage estão incluídos.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
+
+
+.Passos
+. Selecione *ILM* > *Storage Pools* > *Cloud Storage Pools*.
++
+A tabela Cloud Storage Pools inclui as seguintes informações para cada pool de storage de nuvem que inclui nós de storage:
+
++
+** *Nome*: O nome de exibição exclusivo da piscina.
+** * URI*: O identificador de recurso uniforme do pool de armazenamento em nuvem.
+** *Tipo de provedor*: Qual provedor de nuvem é usado para este pool de armazenamento em nuvem.
+** *Container*: O nome do bucket usado para o Cloud Storage Pool.
+** *Uso de ILM*: Como o pool está sendo usado atualmente. Um pool de storage em nuvem pode não ser usado ou pode ser usado em uma ou mais regras de ILM, perfis de codificação de apagamento ou ambos.
+** *Último erro*: O último erro detetado durante uma verificação de integridade deste Cloud Storage Pool.
+
+
+. Para exibir detalhes de um pool de armazenamento em nuvem específico, selecione seu nome.
++
+A página de detalhes do pool é exibida.
+
+. Exiba a guia *Autenticação* para saber mais sobre o tipo de autenticação deste pool de armazenamento em nuvem e editar os detalhes de autenticação.
+. Veja a guia *Verificação do servidor* para saber mais sobre detalhes de verificação, editar verificação, baixar um novo certificado ou copiar o PEM do certificado.
+. Exiba a guia *uso de ILM* para determinar se o Cloud Storage Pool está sendo usado atualmente em quaisquer regras de ILM ou perfis de codificação de apagamento.
+. Opcionalmente, vá para a página *regras ILM* para link:working-with-ilm-rules-and-ilm-policies.html["saiba mais e gerencie quaisquer regras"]usar o Cloud Storage Pool.
+

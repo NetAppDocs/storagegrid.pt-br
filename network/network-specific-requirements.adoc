@@ -1,0 +1,82 @@
+---
+permalink: network/network-specific-requirements.html 
+sidebar: sidebar 
+keywords: network-specific requirements, network specific requirements, network requirements 
+summary: Siga os requisitos para cada tipo de rede StorageGRID. 
+---
+= Requisitos específicos da rede
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga os requisitos para cada tipo de rede StorageGRID.
+
+
+
+== Gateways de rede e roteadores
+
+* Se definido, o gateway para uma determinada rede deve estar dentro da sub-rede da rede específica.
+* Se você configurar uma interface usando endereçamento estático, você deve especificar um endereço de gateway diferente de 0,0.0,0.
+* Se você não tiver um gateway, a prática recomendada é definir o endereço de gateway para ser o endereço IP da interface de rede.
+
+
+
+
+== Sub-redes
+
+
+NOTE: Cada rede deve estar conetada à sua própria sub-rede que não se sobreponha a nenhuma outra rede no nó.
+
+As seguintes restrições são impostas pelo Gerenciador de Grade durante a implantação. Eles são fornecidos aqui para ajudar no Planejamento de rede pré-implantação.
+
+* A máscara de sub-rede para qualquer endereço IP de rede não pode ser 255.255.255.254 ou 255.255.255.255 (/31 ou /32 em notação CIDR).
+* A sub-rede definida por um endereço IP de interface de rede e uma máscara de sub-rede (CIDR) não pode sobrepor a sub-rede de qualquer outra interface configurada no mesmo nó.
+* A sub-rede da rede de Grade para cada nó deve ser incluída no GNSL.
+* A sub-rede Admin Network não pode sobrepor a sub-rede Grid Network, a sub-rede Client Network ou qualquer sub-rede no GNSL.
+* As sub-redes no AESL não podem se sobrepor com nenhuma sub-rede no GNSL.
+* A sub-rede da rede do cliente não pode sobrepor a sub-rede da rede da grade, a sub-rede da rede do administrador, qualquer sub-rede no GNSL ou qualquer sub-rede no AESL.
+
+
+
+
+== Rede de rede
+
+* No momento da implantação, cada nó de grade deve ser conetado à rede de Grade e deve ser capaz de se comunicar com o nó Admin principal usando a configuração de rede especificada ao implantar o nó.
+* Durante as operações normais da grade, cada nó da grade deve ser capaz de se comunicar com todos os outros nós da grade pela rede da grade.
++
+
+NOTE: A rede de Grade deve ser roteável diretamente entre cada nó. A conversão de endereços de rede (NAT) entre nós não é suportada.
+
+* Se a rede de Grade consistir em várias sub-redes, adicione-as à Lista de sub-redes de rede de Grade (GNSL). As rotas estáticas são criadas em todos os nós para cada sub-rede no GNSL.
+* Se a interface de rede de Grade estiver configurada como um tronco para suportar interfaces VLAN, a VLAN nativa do tronco deve ser a VLAN usada para o tráfego de rede de Grade. Todos os nós de grade devem estar acessíveis através da VLAN nativa do tronco.
+
+
+
+
+== Rede de administração
+
+A rede de administração é opcional. Se você planeja configurar uma rede de administração, siga estes requisitos e diretrizes.
+
+Os usos típicos da rede de administração incluem conexões de gerenciamento, AutoSupport, KMS e conexões com servidores críticos, como NTP, DNS e LDAP, se essas conexões não forem fornecidas pela rede de grade ou rede de cliente.
+
+
+NOTE: A rede Admin e AESL podem ser exclusivas para cada nó, desde que os serviços de rede e clientes desejados sejam acessíveis.
+
+
+NOTE: Você deve definir pelo menos uma sub-rede na rede Admin para habilitar conexões de entrada de sub-redes externas. As rotas estáticas são geradas automaticamente em cada nó para cada sub-rede no AESL.
+
+
+
+== Rede de clientes
+
+A rede do cliente é opcional. Se você planeja configurar uma rede de cliente, observe as seguintes considerações.
+
+* A rede de clientes foi projetada para suportar o tráfego de clientes S3. Se configurado, o gateway de rede do cliente se torna o gateway padrão do nó.
+* Se você usar uma rede cliente, você pode ajudar a proteger o StorageGRID contra ataques hostis aceitando tráfego de cliente de entrada apenas em pontos de extremidade do balanceador de carga configurados explicitamente. link:../admin/configuring-load-balancer-endpoints.html["Configurar pontos de extremidade do balanceador de carga"]Consulte .
+* Se a interface de rede do cliente estiver configurada como um tronco para suportar interfaces VLAN, considere se a configuração da interface de rede do cliente (eth2) é necessária. Se configurado, o tráfego de rede do cliente fluirá sobre a VLAN nativa do tronco, conforme configurado no switch.
+
+
+.Informações relacionadas
+link:../maintain/changing-nodes-network-configuration.html["Alterar a configuração da rede do nó"]

@@ -1,0 +1,62 @@
+---
+permalink: ilm/advantages-disadvantages-and-requirements-for-ec.html 
+sidebar: sidebar 
+keywords: erasure coding advantages, disadvantages, EC requirements 
+summary: Antes de decidir se deve usar a replicação ou a codificação de apagamento para proteger os dados do objeto contra perda, você deve entender as vantagens, desvantagens e os requisitos para codificação de apagamento. 
+---
+= Vantagens, desvantagens e requisitos para codificação de apagamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de decidir se deve usar a replicação ou a codificação de apagamento para proteger os dados do objeto contra perda, você deve entender as vantagens, desvantagens e os requisitos para codificação de apagamento.
+
+
+
+== Vantagens da codificação de apagamento
+
+Em comparação com a replicação, a codificação de apagamento oferece maior confiabilidade, disponibilidade e eficiência de storage.
+
+* *Confiabilidade*: A confiabilidade é medida em termos de tolerância a falhas - ou seja, o número de falhas simultâneas que podem ser sustentadas sem perda de dados. Com a replicação, várias cópias idênticas são armazenadas em nós diferentes e em locais diferentes. Com a codificação de apagamento, um objeto é codificado em dados e fragmentos de paridade e distribuído em muitos nós e sites. Essa dispersão fornece proteção contra falha de local e nó. Em comparação com a replicação, a codificação de apagamento oferece maior confiabilidade a custos de storage comparáveis.
+* *Disponibilidade*: A disponibilidade pode ser definida como a capacidade de recuperar objetos se os nós de armazenamento falharem ou ficarem inacessíveis. Em comparação com a replicação, a codificação de apagamento oferece maior disponibilidade a custos de storage comparáveis.
+* *Eficiência de storage*: Para níveis semelhantes de disponibilidade e confiabilidade, os objetos protegidos por meio da codificação de apagamento consomem menos espaço em disco do que os mesmos objetos se protegidos por meio da replicação. Por exemplo, um objeto de 10 MB replicado para dois locais consome 20 MB de espaço em disco (duas cópias), enquanto um objeto codificado por apagamento em três locais com um esquema de codificação de apagamento 6-3 consome apenas 15 MB de espaço em disco.
++
+
+NOTE: O espaço em disco para objetos codificados por apagamento é calculado como o tamanho do objeto, além da sobrecarga de storage. A porcentagem de sobrecarga de storage é o número de fragmentos de paridade divididos pelo número de fragmentos de dados.
+
+
+
+
+
+== Desvantagens da codificação de apagamento
+
+Quando comparada à replicação, a codificação de apagamento tem as seguintes desvantagens:
+
+* Recomenda-se um número maior de nós e sites de storage, dependendo do esquema de codificação de apagamento. Em contraste, se você replicar dados de objeto, precisará de apenas um nó de storage para cada cópia. link:what-erasure-coding-schemes-are.html#erasure-coding-schemes-for-storage-pools-containing-three-or-more-sites["Esquemas de codificação de apagamento para pools de storage que contêm três ou mais locais"]Consulte e link:what-erasure-coding-schemes-are.html#erasure-coding-schemes-for-one-site-storage-pools["Esquemas de codificação de apagamento para pools de storage de um local"].
+* Aumento do custo e complexidade das expansões de armazenamento. Para expandir uma implantação que usa replicação, você adiciona capacidade de storage em todos os locais onde são feitas cópias de objetos. Para expandir uma implantação que usa codificação de apagamento, você deve considerar tanto o esquema de codificação de apagamento em uso quanto o número total de nós de storage existentes. Por exemplo, se você esperar até que os nós existentes estejam 100% cheios, será necessário adicionar pelo menos `k+m` nós de storage. No entanto, se você expandir quando os nós existentes estiverem 70% cheios, poderá adicionar dois nós por local e ainda maximizar a capacidade de storage utilizável. Para obter mais informações, link:../expand/adding-storage-capacity-for-erasure-coded-objects.html["Adicionar capacidade de storage para objetos codificados por apagamento"]consulte .
+* Há maiores latências de recuperação quando você usa codificação de apagamento em sites distribuídos geograficamente. Os fragmentos de objeto para um objeto que é codificado por apagamento e distribuído entre locais remotos levam mais tempo para recuperar conexões WAN do que um objeto que é replicado e disponível localmente (o mesmo local ao qual o cliente se coneta).
+* Quando você usa codificação de apagamento em sites distribuídos geograficamente, há maior uso de tráfego de rede WAN para recuperações e reparos, especialmente para objetos recuperados com frequência ou para reparos de objetos em conexões de rede WAN.
+* Quando você usa codificação de apagamento em todos os sites, a taxa de transferência máxima de objetos diminui drasticamente à medida que a latência de rede entre sites aumenta. Esta diminuição deve-se à diminuição correspondente da taxa de transferência da rede TCP, que afeta a rapidez com que o sistema StorageGRID pode armazenar e recuperar fragmentos de objeto.
+* Maior uso de recursos de computação.
+
+
+
+
+== Quando usar codificação de apagamento
+
+A codificação de apagamento é mais adequada para os seguintes requisitos:
+
+* Objetos com mais de 1 MB de tamanho.
++
+
+NOTE: A codificação de apagamento é mais adequada para objetos com mais de 1 MB. Não use a codificação de apagamento para objetos com menos de 200 KB para evitar a sobrecarga de gerenciamento de fragmentos codificados de apagamento muito pequenos.
+
+* Armazenamento a longo prazo ou a frio para conteúdo pouco recuperado.
+* Alta disponibilidade e confiabilidade de dados.
+* Proteção contra falhas completas no local e no nó.
+* Eficiência de storage.
+* Implantações de um único local que exigem proteção de dados eficiente com apenas uma cópia codificada de apagamento em vez de várias cópias replicadas.
+* Implantações de vários locais em que a latência entre locais é inferior a 100 ms.
+

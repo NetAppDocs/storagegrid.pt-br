@@ -1,0 +1,171 @@
+---
+permalink: maintain/considerations-for-removing-site.html 
+sidebar: sidebar 
+keywords: how to remove site 
+summary: Antes de usar o procedimento de desativação do site para remover um site, você deve revisar as considerações. 
+---
+= Considerações para remover um site
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de usar o procedimento de desativação do site para remover um site, você deve revisar as considerações.
+
+
+
+== O que acontece quando você desativa um site
+
+Ao desativar um site, o StorageGRID remove permanentemente todos os nós do site e do próprio site do sistema StorageGRID.
+
+Quando o procedimento de desativação do local estiver concluído:
+
+* Você não pode mais usar o StorageGRID para visualizar ou acessar o site ou qualquer um dos nós no site.
+* Você não pode mais usar pools de storage ou perfis de codificação de apagamento que se referem ao site. Quando o StorageGRID descompacta um site, ele remove automaticamente esses pools de armazenamento e desativa esses perfis de codificação de apagamento.
+
+
+
+
+== Diferenças entre os procedimentos de desativação do local conetado e do local desconetado
+
+Você pode usar o procedimento de desativação do site para remover um site no qual todos os nós estão conetados ao StorageGRID (chamado de desativação do site conetado) ou para remover um site no qual todos os nós são desconetados do StorageGRID (chamado de desativação do site desconetado). Antes de começar, você deve entender as diferenças entre esses procedimentos.
+
+
+NOTE: Se um site contiver uma mistura de nós conetados (image:../media/icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]) e desconetados (image:../media/icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"] ou image:../media/icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"]), você deverá colocar todos os nós offline novamente online.
+
+* Uma desativação do site conetado permite remover um site operacional do sistema StorageGRID. Por exemplo, você pode executar uma desativação do site conetado para remover um site funcional, mas não mais necessário.
+* Quando o StorageGRID remove um site conetado, ele usa o ILM para gerenciar os dados do objeto no site. Antes de poder iniciar uma desativação do site ligado, tem de remover o site de todas as regras ILM e ativar uma nova política ILM. Os processos de ILM para migrar dados de objeto e os processos internos para remover um local podem ocorrer ao mesmo tempo, mas a prática recomendada é permitir que as etapas de ILM sejam concluídas antes de iniciar o procedimento de desativação real.
+* Uma desativação de site desconetada permite remover um site com falha do sistema StorageGRID. Por exemplo, você pode executar uma desativação do local desconetada para remover um local que foi destruído por um incêndio ou inundação.
++
+Quando o StorageGRID remove um local desconetado, ele considera todos os nós irrecuperáveis e não tenta preservar os dados. No entanto, antes de poder iniciar uma desativação do site desligada, tem de remover o site de todas as regras ILM e ativar uma nova política ILM.
+
++
+
+CAUTION: Antes de executar um procedimento de desativação do local desconetado, você deve entrar em Contato com seu representante da conta do NetApp. O NetApp revisará seus requisitos antes de ativar todas as etapas no assistente do site de desintegração. Você não deve tentar uma desativação de site desconetada se você acredita que pode ser possível recuperar o site ou recuperar dados de objeto do site.
+
+
+
+
+
+== Requisitos gerais para remover um local conetado ou desconetado
+
+Antes de remover um local conetado ou desconetado, você deve estar ciente dos seguintes requisitos:
+
+* Não é possível desativar um site que inclua o nó Admin principal.
+* Não é possível desativar um site se algum dos nós tiver uma interface que pertence a um grupo de alta disponibilidade (HA). Você deve editar o grupo de HA para remover a interface do nó ou remover todo o grupo de HA.
+* Não é possível desativar um site se ele contiver uma mistura deimage:../media/icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"] nós conetados (image:../media/icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]) e desconetados (image:../media/icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"] ou ).
+* Não é possível desativar um site se qualquer nó em qualquer outro local estiver desconetado (image:../media/icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"] ou image:../media/icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"]).
+* Não é possível iniciar o procedimento de desativação do local se uma operação de reparo ec-node estiver em andamento. link:checking-data-repair-jobs.html["Verifique os trabalhos de reparação de dados"]Consulte para rastrear reparos de dados codificados por apagamento.
+* Enquanto o procedimento de desativação do site está em execução:
++
+** Não é possível criar regras ILM que se referem ao site que está sendo desativado. Você também não pode editar uma regra ILM existente para se referir ao site.
+** Não é possível executar outros procedimentos de manutenção, como expansão ou atualização.
++
+
+NOTE: Se precisar executar outro procedimento de manutenção durante a desativação de um site conetado, você pode link:pausing-and-resuming-decommission-process-for-storage-nodes.html["Interrompa o procedimento enquanto os nós de storage estão sendo removidos"]. O botão *Pausa* é ativado somente quando os estágios de avaliação ILM ou desativação de dados codificados por apagamento forem alcançados; no entanto, a avaliação ILM (migração de dados) continuará a ser executada em segundo plano. Depois de concluído o segundo procedimento de manutenção, pode retomar a desativação.
+
+** Se você precisar recuperar qualquer nó depois de iniciar o procedimento de desativação do site, entre em Contato com o suporte.
+
+
+* Você não pode desativar mais de um local de cada vez.
+* Se o site incluir um ou mais nós de administração e o logon único (SSO) estiver ativado para o seu sistema StorageGRID, você deverá remover todos os confianças de partes confiáveis para o site dos Serviços de Federação do ative Directory (AD FS).
+
+
+
+
+== Requisitos para o gerenciamento do ciclo de vida das informações (ILM)
+
+Como parte da remoção de um site, você deve atualizar sua configuração ILM. O assistente do Decommission Site orienta você por várias etapas de pré-requisitos para garantir o seguinte:
+
+* O site não é referido por nenhuma política ILM. Se estiver, você deve editar as políticas ou criar e ativar políticas com novas regras ILM.
+* Nenhuma regra ILM se refere ao site, mesmo que essas regras não sejam usadas em nenhuma política. Você deve excluir ou editar todas as regras que se referem ao site.
+
+
+Quando o StorageGRID descompacta o site, ele desativará automaticamente quaisquer perfis de codificação de apagamento não utilizados que se referem ao site e excluirá automaticamente todos os pools de armazenamento não utilizados que se referem ao site. Se o pool de storage de todos os nós de storage existir (StorageGRID 11,6 e anterior), ele será removido porque usará todos os sites.
+
+
+CAUTION: Antes de remover um site, talvez seja necessário criar novas regras ILM e ativar uma nova política ILM. Essas instruções assumem que você tem um bom entendimento de como o ILM funciona e que você está familiarizado com a criação de pools de armazenamento, perfis de codificação de apagamento, regras ILM e a simulação e ativação de uma política ILM. link:../ilm/index.html["Gerenciar objetos com ILM"]Consulte .
+
+
+
+== Considerações para os dados do objeto em um local conetado
+
+Se você estiver executando uma desativação do site conetado, você deve decidir o que fazer com os dados de objeto existentes no site quando criar novas regras ILM e uma nova política ILM. Você pode fazer um ou ambos os seguintes procedimentos:
+
+* Mova os dados de objetos do site selecionado para um ou mais sites na grade.
++
+*Exemplo para mover dados*: Suponha que você queira desativar um site em Raleigh porque adicionou um novo site em Sunnyvale. Neste exemplo, você deseja mover todos os dados de objeto do site antigo para o novo site. Antes de atualizar suas regras de ILM e políticas de ILM, você deve revisar a capacidade em ambos os locais. Você precisa garantir que o local de Sunnyvale tenha capacidade suficiente para acomodar os dados de objeto do local de Raleigh e que a capacidade adequada permaneça em Sunnyvale para crescimento futuro.
+
++
+
+NOTE: Para garantir que a capacidade adequada esteja disponível, talvez seja necessário link:../expand/index.html["expanda uma grade"]adicionar volumes de storage ou nós de storage a um local existente ou adicionar um novo local antes de executar este procedimento.
+
+* Excluir cópias de objetos do site selecionado.
++
+*Exemplo para excluir dados*: Suponha que você use atualmente uma regra ILM de 3 cópias para replicar dados de objetos em três sites. Antes de desativar um site, você pode criar uma regra ILM equivalente a 2 cópias para armazenar dados em apenas dois sites. Quando você ativa uma nova política de ILM que usa a regra de 2 cópias, o StorageGRID exclui as cópias do terceiro site porque elas não atendem mais aos requisitos de ILM. No entanto, os dados do objeto ainda serão protegidos e a capacidade dos dois locais restantes permanecerá a mesma.
+
++
+
+CAUTION: Nunca crie uma regra ILM de cópia única para acomodar a remoção de um site. Uma regra de ILM que cria apenas uma cópia replicada para qualquer período de tempo coloca os dados em risco de perda permanente. Se houver apenas uma cópia replicada de um objeto, esse objeto será perdido se um nó de armazenamento falhar ou tiver um erro significativo. Você também perde temporariamente o acesso ao objeto durante procedimentos de manutenção, como atualizações.
+
+
+
+
+
+== Requisitos adicionais para uma desativação do local conetado
+
+Antes que o StorageGRID possa remover um site conetado, você deve garantir o seguinte:
+
+* Todos os nós do seu sistema StorageGRID devem ter um estado de conexão *conectado* (image:../media/icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]); no entanto, os nós podem ter alertas ativos.
++
+
+NOTE: Você pode concluir as etapas 1-4 do assistente Decommission Site se um ou mais nós forem desconetados. No entanto, não é possível concluir a Etapa 5 do assistente, que inicia o processo de desativação, a menos que todos os nós estejam conetados.
+
+* Se o site que você pretende remover contiver um nó de gateway ou um nó de administrador que seja usado para balanceamento de carga, talvez seja necessário link:../expand/index.html["expanda uma grade"]adicionar um nó novo equivalente em outro local. Certifique-se de que os clientes podem se conetar ao nó de substituição antes de iniciar o procedimento de desativação do site.
+* Se o site que você pretende remover contiver qualquer nó de gateway ou nós de administrador que estejam em um grupo de alta disponibilidade (HA), você poderá concluir as etapas 1-4 do assistente Decommission Site. No entanto, não é possível concluir a Etapa 5 do assistente, que inicia o processo de desativação, até remover esses nós de todos os grupos de HA. Se os clientes existentes se conetarem a um grupo de HA que inclua nós do site, você deverá garantir que eles possam continuar se conetando ao StorageGRID após a remoção do site.
+* Se os clientes se conetarem diretamente aos nós de storage no local que você está planejando remover, você deverá garantir que eles possam se conetar aos nós de storage em outros locais antes de iniciar o procedimento de desativação do site.
+* Você deve fornecer espaço suficiente nos locais restantes para acomodar quaisquer dados de objeto que serão movidos devido a alterações em qualquer política de ILM ativa. Em alguns casos, talvez seja necessário link:../expand/index.html["expanda uma grade"]adicionar nós de storage, volumes de storage ou novos locais antes de concluir a desativação de um site conectado.
+* Você deve permitir tempo adequado para que o procedimento de desativação seja concluído. Os processos de ILM da StorageGRID podem levar dias, semanas ou até meses para mover ou excluir dados de objetos do site antes que o site possa ser desativado.
++
+
+NOTE: A migração ou exclusão de dados de objetos de um local pode levar dias, semanas ou até meses, dependendo da quantidade de dados no local, da carga no sistema, das latências de rede e da natureza das mudanças necessárias no ILM.
+
+* Sempre que possível, você deve completar os passos 1-4 do assistente Decommission Site o mais cedo possível. O procedimento de desativação será concluído mais rapidamente e com menos interrupções e impactos no desempenho se você permitir que os dados sejam movidos do site antes de iniciar o procedimento de desativação real (selecionando *Start Decommission* no passo 5 do assistente).
+
+
+
+
+== Requisitos adicionais para uma desativação do local desconetado
+
+Antes que o StorageGRID possa remover um site desconetado, você deve garantir o seguinte:
+
+* Contactou o seu representante da conta NetApp. O NetApp revisará seus requisitos antes de ativar todas as etapas no assistente do site de desintegração.
++
+
+CAUTION: Você não deve tentar uma desativação de site desconetada se você acredita que pode ser possível recuperar o site ou recuperar quaisquer dados de objeto do site. link:how-site-recovery-is-performed-by-technical-support.html["Como o suporte técnico recupera um site"]Consulte .
+
+* Todos os nós no local devem ter um estado de conexão de um dos seguintes:
++
+** *Desconhecido* (image:../media/icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"]): Por um motivo desconhecido, um nó é desconetado ou os serviços no nó estão inalterados inesperadamente. Por exemplo, um serviço no nó pode ser interrompido ou o nó pode ter perdido sua conexão de rede devido a uma falha de energia ou interrupção inesperada.
+** *Administrativamente para baixo* (image:../media/icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"]): O nó não está conetado à grade por um motivo esperado. Por exemplo, o nó ou os serviços no nó foram desligados graciosamente.
+
+
+* Todos os nós em todos os outros locais devem ter um estado de conexão de *conectado* (image:../media/icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]); no entanto, esses outros nós podem ter alertas ativos.
+* Você deve entender que você não poderá mais usar o StorageGRID para visualizar ou recuperar quaisquer dados de objeto que foram armazenados no site. Quando o StorageGRID executa esse procedimento, ele não tenta preservar nenhum dado do local desconetado.
++
+
+NOTE: Se suas regras e políticas de ILM foram projetadas para proteger contra a perda de um único site, cópias de seus objetos ainda existem nos sites restantes.
+
+* Você deve entender que se o site continha a única cópia de um objeto, o objeto é perdido e não pode ser recuperado.
+
+
+
+
+== Considerações sobre consistência quando você remove um site
+
+A consistência de um bucket do S3 determina se o StorageGRID replica totalmente os metadados de objetos a todos os nós e sites antes de informar ao cliente que a ingestão de objetos foi bem-sucedida. A consistência fornece um equilíbrio entre a disponibilidade dos objetos e a consistência desses objetos em diferentes nós de storage e locais.
+
+Quando o StorageGRID remove um site, ele precisa garantir que nenhum dado seja gravado no site que está sendo removido. Como resultado, ele substitui temporariamente a consistência de cada balde ou recipiente. Depois de iniciar o processo de desativação do site, o StorageGRID usa temporariamente a consistência forte do site para impedir que os metadados de objetos sejam gravados no site sejam removidos.
+
+Como resultado dessa substituição temporária, esteja ciente de que qualquer operação de gravação, atualização e exclusão do cliente que ocorrer durante a desativação de um site pode falhar se vários nós ficarem indisponíveis nos locais restantes.

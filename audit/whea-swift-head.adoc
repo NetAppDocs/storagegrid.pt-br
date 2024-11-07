@@ -1,0 +1,131 @@
+---
+permalink: audit/whea-swift-head.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, WHEA, Swift HEAD 
+summary: Quando um cliente Swift emite uma TRANSAÇÃO PRINCIPAL, uma solicitação é feita para verificar a existência de uma conta, contentor ou objeto e recuperar quaisquer metadados relevantes. Esta mensagem é emitida pelo servidor se a transação for bem-sucedida. 
+---
+= WHEA: CABEÇA rápida
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando um cliente Swift emite uma TRANSAÇÃO PRINCIPAL, uma solicitação é feita para verificar a existência de uma conta, contentor ou objeto e recuperar quaisquer metadados relevantes. Esta mensagem é emitida pelo servidor se a transação for bem-sucedida.
+
+[cols="1a,1a,4a"]
+|===
+| Código | Campo | Descrição 
+
+
+ a| 
+CBID
+ a| 
+Identificador do bloco de conteúdo
+ a| 
+O identificador exclusivo do bloco de conteúdo solicitado. Se o CBID for desconhecido, este campo é definido como 0. As operações em contas e containers não incluem esse campo.
+
+
+
+ a| 
+CSIZ
+ a| 
+Tamanho do conteúdo
+ a| 
+O tamanho do objeto recuperado em bytes. As operações em contas e containers não incluem esse campo.
+
+
+
+ a| 
+HTRH
+ a| 
+Cabeçalho de solicitação HTTP
+ a| 
+Lista de nomes e valores de cabeçalho de solicitação HTTP registrados, conforme selecionado durante a configuração.
+
+ `X-Forwarded-For` É incluído automaticamente se estiver presente na solicitação e se o `X-Forwarded-For` valor for diferente do endereço IP do remetente da solicitação (campo de auditoria SAIP).
+
+
+
+ a| 
+RSLT
+ a| 
+Código do resultado
+ a| 
+Resultado da TRANSAÇÃO PRINCIPAL. O resultado é sempre:
+
+SUCS: Bem-sucedido
+
+
+
+ a| 
+SAIP
+ a| 
+Endereço IP do cliente solicitante
+ a| 
+O endereço IP do aplicativo cliente que fez a solicitação.
+
+
+
+ a| 
+TEMPO
+ a| 
+Tempo
+ a| 
+Tempo total de processamento da solicitação em microssegundos.
+
+
+
+ a| 
+TLIP
+ a| 
+Endereço IP do balanceador de carga confiável
+ a| 
+Se a solicitação foi roteada por um balanceador de carga confiável da camada 7, o endereço IP do balanceador de carga.
+
+
+
+ a| 
+UUID
+ a| 
+Identificador universal único
+ a| 
+O identificador do objeto dentro do sistema StorageGRID.
+
+
+
+ a| 
+WACC
+ a| 
+ID da conta Swift
+ a| 
+O ID exclusivo da conta, conforme especificado pelo sistema StorageGRID.
+
+
+
+ a| 
+WCON
+ a| 
+Contentor Swift
+ a| 
+O nome do contentor Swift. As operações em contas não incluem este campo.
+
+
+
+ a| 
+WOBJ
+ a| 
+Objeto Swift
+ a| 
+O identificador de objeto Swift. As operações em contas e containers não incluem esse campo.
+
+
+
+ a| 
+WUSR
+ a| 
+Usuário da conta Swift
+ a| 
+O nome de usuário da conta Swift que identifica exclusivamente o cliente que realiza a transação.
+
+|===

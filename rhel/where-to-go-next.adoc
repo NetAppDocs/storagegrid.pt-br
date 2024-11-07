@@ -1,0 +1,47 @@
+---
+permalink: rhel/where-to-go-next.html 
+sidebar: sidebar 
+keywords: what to do after red hat linux installation 
+summary: Depois de concluir uma instalação, execute as tarefas de integração e configuração necessárias. Você pode executar as tarefas opcionais conforme necessário. 
+---
+= Onde ir a seguir
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois de concluir uma instalação, execute as tarefas de integração e configuração necessárias. Você pode executar as tarefas opcionais conforme necessário.
+
+
+
+== Tarefas necessárias
+
+* link:../admin/managing-tenants.html["Crie uma conta de locatário"] Para o protocolo cliente S3 que será utilizado para armazenar objetos no seu sistema StorageGRID.
+* link:../admin/controlling-storagegrid-access.html["Controle o acesso ao sistema"] configurando grupos e contas de usuário. Opcionalmente, você pode link:../admin/using-identity-federation.html["configure uma fonte de identidade federada"] (como ative Directory ou OpenLDAP), para que você possa importar grupos de administração e usuários. Ou, você pode link:../admin/managing-users.html#create-a-local-user["crie grupos locais e usuários"].
+* Integre e teste os link:../s3/configuring-tenant-accounts-and-connections.html["S3 API"] aplicativos cliente que você usará para carregar objetos para seu sistema StorageGRID.
+* link:../ilm/index.html["Configure as regras de gerenciamento do ciclo de vida das informações (ILM) e a política ILM"] você deseja usar para proteger os dados do objeto.
+* Se a instalação incluir nós de storage do dispositivo, use o SANtricity os para concluir as seguintes tarefas:
++
+** Ligue a cada dispositivo StorageGRID.
+** Verifique a receção dos dados do AutoSupport.
++
+ https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-hardware.html["Configure o hardware"^]Consulte .
+
+
+
+* Analise e siga o link:../harden/index.html["Diretrizes de fortalecimento do sistema StorageGRID"] para eliminar os riscos de segurança.
+* link:../monitor/email-alert-notifications.html["Configurar notificações por e-mail para alertas do sistema"].
+
+
+
+
+== Tarefas opcionais
+
+* link:../maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["Atualize os endereços IP do nó da grade"] Se eles foram alterados desde que você planejou sua implantação e gerou o Pacote de recuperação.
+* link:../admin/changing-network-options-object-encryption.html["Configurar a criptografia de armazenamento"], se necessário.
+* link:../admin/configuring-stored-object-compression.html["Configurar a compressão de armazenamento"] para reduzir o tamanho dos objetos armazenados, se necessário.
+* link:../admin/configure-vlan-interfaces.html["Configurar interfaces VLAN"] para isolar e particionar o tráfego de rede, se necessário.
+* link:../admin/configure-high-availability-group.html["Configurar grupos de alta disponibilidade"] Para melhorar a disponibilidade de conexão para os clientes Grid Manager, Tenant Manager e S3, se necessário.
+* link:../admin/configuring-load-balancer-endpoints.html["Configurar pontos de extremidade do balanceador de carga"] Para conetividade de cliente S3, se necessário.
+

@@ -1,0 +1,31 @@
+---
+permalink: ilm/what-replication-is.html 
+sidebar: sidebar 
+keywords: replication, object copies 
+summary: A replicação é um dos dois métodos que o StorageGRID usa para armazenar dados de objetos. Quando os objetos correspondem a uma regra de ILM que usa replicação, o sistema cria cópias exatas de dados de objetos e armazena as cópias em nós de storage. 
+---
+= O que é replicação?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A replicação é um dos dois métodos usados pelo StorageGRID para armazenar dados de objetos (a codificação de apagamento é o outro método). Quando os objetos correspondem a uma regra de ILM que usa replicação, o sistema cria cópias exatas de dados de objetos e armazena as cópias em nós de storage.
+
+Quando você configura uma regra ILM para criar cópias replicadas, você especifica quantas cópias devem ser criadas, onde essas cópias devem ser colocadas e por quanto tempo as cópias devem ser armazenadas em cada local.
+
+No exemplo a seguir, a regra ILM especifica que duas cópias replicadas de cada objeto serão colocadas em um pool de storage que contém três nós de storage.
+
+image::../media/ilm_replication_make_2_copies.png[Regra de fazer 2 cópias]
+
+Quando o StorageGRID faz a correspondência de objetos a essa regra, ele cria duas cópias do objeto, colocando cada cópia em um nó de storage diferente no pool de storage. As duas cópias podem ser colocadas em qualquer um dos três nós de storage disponíveis. Nesse caso, a regra colocou cópias de objeto nos nós de storage 2 e 3. Como há duas cópias, o objeto pode ser recuperado se algum dos nós no pool de storage falhar.
+
+
+NOTE: O StorageGRID pode armazenar apenas uma cópia replicada de um objeto em qualquer nó de storage. Se sua grade incluir três nós de storage e você criar uma regra de ILM de 4 cópias, apenas três cópias serão feitas - uma cópia para cada nó de storage. O alerta *ILM Placement Unachievable* é acionado para indicar que a regra ILM não pôde ser completamente aplicada.
+
+.Informações relacionadas
+* link:what-erasure-coding-is.html["O que é codificação de apagamento"]
+* link:what-storage-pool-is.html["O que é um pool de armazenamento"]
+* link:using-multiple-storage-pools-for-cross-site-replication.html["Habilite a proteção contra perda de site usando replicação e codificação de apagamento"]
+

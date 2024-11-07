@@ -1,0 +1,107 @@
+---
+permalink: maintain/step-1-select-site.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, select site 
+summary: Para determinar se um site pode ser desativado, comece acessando o assistente Decommission Site. 
+---
+= Passo 1: Selecione Site
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para determinar se um site pode ser desativado, comece acessando o assistente Decommission Site.
+
+.Antes de começar
+* Você obteve todos os materiais necessários.
+* Você revisou as considerações para remover um site.
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:../admin/admin-group-permissions.html["Permissão de acesso root ou as permissões Manutenção e ILM"].
+
+
+.Passos
+. Selecione *MAINTENANCE* > *Tasks* > *Decommission*.
+. Selecione *Decommission Site*.
++
+O passo 1 (Selecionar local) do assistente Decommission Site aparece. Esta etapa inclui uma lista alfabética dos sites no seu sistema StorageGRID.
+
++
+image::../media/decommission_site_step_select_site.png[Etapa 1 Selecione o local]
+
+. Visualize os valores na coluna *capacidade de armazenamento usada* para determinar quanto armazenamento está sendo usado atualmente para dados de objeto em cada local.
++
+A capacidade de armazenamento utilizada é uma estimativa. Se os nós estiverem offline, a capacidade de armazenamento usada será o último valor conhecido para o site.
+
++
+** Para uma desativação de um site conetado, esse valor representa a quantidade de dados de objetos que precisarão ser movidos para outros sites ou excluídos pelo ILM antes de poder desativar este site com segurança.
+** Para uma desativação de um site desconetado, esse valor representa quanto do armazenamento de dados do seu sistema ficará inacessível quando você desativar este site.
++
+
+NOTE: Se sua política de ILM foi projetada para proteger contra a perda de um único site, cópias de seus dados de objeto ainda devem existir nos sites restantes.
+
+
+
+. Reveja as razões na coluna *Decommission possible* para determinar quais sites podem ser desativados atualmente.
++
+
+NOTE: Se houver mais de um motivo pelo qual um site não pode ser desativado, o motivo mais crítico é mostrado.
+
++
+[cols="1a,1a,1a"]
+|===
+| Desativar possível motivo | Descrição | Próximo passo 
+
+
+ a| 
+Marca de verificação verde (image:../media/icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"])
+ a| 
+Você pode desativar este site.
+ a| 
+Vá para <<decommission_possible,o próximo passo>>.
+
+
+
+ a| 
+Não. Este site contém o nó de administração principal.
+ a| 
+Não é possível desativar um site que contenha o nó de administração principal.
+ a| 
+Nenhum. Não é possível executar este procedimento.
+
+
+
+ a| 
+Não. Este site contém um ou mais nós de arquivo.
+ a| 
+Não é possível desativar um site que contém um nó de arquivo.
+ a| 
+Nenhum. Não é possível executar este procedimento.
+
+
+
+ a| 
+Não. Todos os nós neste local estão desconetados. Contacte o representante da sua conta NetApp.
+ a| 
+Não é possível executar uma desativação do site conetado a menos que cada nó no site esteja conetado (image:../media/icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]).
+ a| 
+Se você quiser executar uma desativação do site desconetada, entre em Contato com seu representante da conta do NetApp, que revisará seus requisitos e ativará o restante do assistente do site de desintegração.
+
+*IMPORTANTE*: Nunca coloque os nós online offline para que você possa remover um site. Você perderá dados.
+
+|===
++
+O exemplo mostra um sistema StorageGRID com três locais. A marca de seleção verde (image:../media/icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]) para os sites Raleigh e Sunnyvale indica que você pode desativar esses sites. No entanto, você não pode desativar o site de Vancouver porque ele contém o nó de administração principal.
+
+
+
+[[decommission_possible]]
+. Se for possível desativar, selecione o botão de opção do site.
++
+O botão *Next* está ativado.
+
+. Selecione *seguinte*.
++
+A etapa 2 (Exibir detalhes) é exibida.
+
+

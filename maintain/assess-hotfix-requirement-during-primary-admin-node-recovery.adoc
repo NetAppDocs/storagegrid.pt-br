@@ -1,0 +1,31 @@
+---
+permalink: maintain/assess-hotfix-requirement-during-primary-admin-node-recovery.html 
+sidebar: sidebar 
+keywords: storagegrid, primary admin node, hotfix 
+summary: Depois de recuperar um nó de administrador principal, determine se você precisa aplicar um hotfix. 
+---
+= Determine o requisito de hotfix para o nó de administração principal
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois de recuperar um nó de administrador principal, determine se você precisa aplicar um hotfix.
+
+.Antes de começar
+A recuperação do nó de administrador principal está concluída.
+
+.Passos
+. Faça login no Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+. Selecione *NODES*.
+. Na lista à esquerda, selecione o nó de administração principal.
+. Na guia Visão geral, observe a versão exibida no campo *versão do software*.
+. Selecione qualquer outro nó de grade.
+. Na guia Visão geral, observe a versão exibida no campo *versão do software*.
++
+** Se as versões exibidas nos campos *versão do software* forem as mesmas, não será necessário aplicar um hotfix.
+** Se as versões exibidas nos campos *versão do software* forem diferentes, você deverá link:storagegrid-hotfix-procedure.html["aplique um hotfix"]atualizar o nó de administração principal recuperado para a mesma versão.
+
+
+

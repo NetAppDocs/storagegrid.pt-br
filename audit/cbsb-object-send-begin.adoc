@@ -1,0 +1,98 @@
+---
+permalink: audit/cbsb-object-send-begin.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, CBSB, Object Send Begin 
+summary: Durante as operações normais do sistema, os blocos de conteúdo são continuamente transferidos entre nós diferentes à medida que os dados são acessados, replicados e retidos. Quando a transferência de um bloco de conteúdo de um nó para outro é iniciada, essa mensagem é emitida pela entidade de origem. 
+---
+= CBSB: Início do envio de objetos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Durante as operações normais do sistema, os blocos de conteúdo são continuamente transferidos entre nós diferentes à medida que os dados são acessados, replicados e retidos. Quando a transferência de um bloco de conteúdo de um nó para outro é iniciada, essa mensagem é emitida pela entidade de origem.
+
+[cols="1a,1a,4a"]
+|===
+| Código | Campo | Descrição 
+
+
+ a| 
+CNID
+ a| 
+Identificador de ligação
+ a| 
+O identificador exclusivo da sessão/conexão nó a nó.
+
+
+
+ a| 
+CBID
+ a| 
+Identificador do bloco de conteúdo
+ a| 
+O identificador exclusivo do bloco de conteúdo que está sendo transferido.
+
+
+
+ a| 
+CTDR
+ a| 
+Direção de transferência
+ a| 
+Indica se a transferência CBID foi iniciada por push ou iniciada por pull:
+
+PUSH: A operação de transferência foi solicitada pela entidade emissora.
+
+PULL: A operação de transferência foi solicitada pela entidade recetora.
+
+
+
+ a| 
+CTSR
+ a| 
+Entidade de origem
+ a| 
+O ID do nó da origem (remetente) da transferência CBID.
+
+
+
+ a| 
+CTDS
+ a| 
+Entidade de destino
+ a| 
+O ID do nó do destino (recetor) da transferência CBID.
+
+
+
+ a| 
+CTSS
+ a| 
+Iniciar contagem de sequência
+ a| 
+Indica a primeira contagem de sequência solicitada. Se for bem-sucedida, a transferência começa a partir desta contagem de sequência.
+
+
+
+ a| 
+CTES
+ a| 
+Contagem sequência fim esperado
+ a| 
+Indica a última contagem de sequência solicitada. Se for bem-sucedida, a transferência é considerada concluída quando esta contagem de sequência tiver sido recebida.
+
+
+
+ a| 
+RSLT
+ a| 
+Estado Início transferência
+ a| 
+Estado no momento em que a transferência foi iniciada:
+
+SUCS: Transferência iniciada com sucesso.
+
+|===
+Essa mensagem de auditoria significa que uma operação de transferência de dados de nó para nó foi iniciada em um único conteúdo, conforme identificado por seu Identificador de bloco de conteúdo. A operação solicita dados de "Start Sequence Count" (contagem de sequência de início) para "expected End Sequence Count" (contagem de sequência de fim esperado) Os nós de envio e recebimento são identificados por suas IDs de nó. Essas informações podem ser usadas para rastrear o fluxo de dados do sistema e, quando combinadas com mensagens de auditoria de armazenamento, para verificar contagens de réplicas.

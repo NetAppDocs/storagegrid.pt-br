@@ -1,0 +1,29 @@
+---
+permalink: ilm/why-you-should-not-use-single-copy-replication.html 
+sidebar: sidebar 
+keywords: dual commit, single commit, number of copies for replication 
+summary: Ao criar uma regra ILM para criar cópias replicadas, você deve sempre especificar pelo menos duas cópias para qualquer período de tempo nas instruções de colocação. 
+---
+= Por que você não deve usar replicação de cópia única
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ao criar uma regra ILM para criar cópias replicadas, você deve sempre especificar pelo menos duas cópias para qualquer período de tempo nas instruções de colocação.
+
+
+NOTE: Não use uma regra ILM que crie apenas uma cópia replicada para qualquer período de tempo. Se houver apenas uma cópia replicada de um objeto, esse objeto será perdido se um nó de armazenamento falhar ou tiver um erro significativo. Você também perde temporariamente o acesso ao objeto durante procedimentos de manutenção, como atualizações.
+
+No exemplo a seguir, a regra Make 1 Copy ILM especifica que uma cópia replicada de um objeto seja colocada em um pool de storage que contém três nós de storage. Quando um objeto é ingerido que corresponde a essa regra, o StorageGRID coloca uma única cópia em apenas um nó de storage.
+
+image::../media/ilm_replication_make_1_copy.png[ILM replicação fazer cópia 1]
+
+Quando uma regra ILM cria apenas uma cópia replicada de um objeto, o objeto fica inacessível quando o nó de armazenamento não está disponível. Neste exemplo, você perderá temporariamente o acesso ao objeto AAA sempre que o nó de armazenamento 2 estiver offline, como durante uma atualização ou outro procedimento de manutenção. Você perderá o objeto AAA inteiramente se o nó de storage 2 falhar.
+
+image::../media/ilm_replication_make_1_copy_sn_fails.png[ILM Replication Make 1 Copy SN falha]
+
+Para evitar a perda de dados de objetos, você sempre deve fazer pelo menos duas cópias de todos os objetos que deseja proteger com a replicação. Se existirem duas ou mais cópias, ainda poderá aceder ao objeto se um nó de armazenamento falhar ou ficar offline.
+
+image::../media/ilm_replication_make_2_copies_sn_fails.png[Replicação ILM Faça 2 cópias SN falha]

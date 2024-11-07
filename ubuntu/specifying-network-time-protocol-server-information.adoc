@@ -1,0 +1,45 @@
+---
+permalink: ubuntu/specifying-network-time-protocol-server-information.html 
+sidebar: sidebar 
+keywords: how to specify Network Time Protocol server information 
+summary: 'Você deve especificar as informações de configuração do protocolo de tempo de rede (NTP) para o sistema StorageGRID, para que as operações executadas em servidores separados possam ser mantidas sincronizadas.' 
+---
+= Especifique as informações do servidor Network Time Protocol
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve especificar as informações de configuração do protocolo de tempo de rede (NTP) para o sistema StorageGRID, para que as operações executadas em servidores separados possam ser mantidas sincronizadas.
+
+.Sobre esta tarefa
+Você deve especificar endereços IPv4 para os servidores NTP.
+
+Tem de especificar servidores NTP externos. Os servidores NTP especificados devem usar o protocolo NTP.
+
+Você deve especificar quatro referências de servidor NTP do estrato 3 ou melhor para evitar problemas com a deriva de tempo.
+
+[NOTE]
+====
+Ao especificar a fonte NTP externa para uma instalação do StorageGRID em nível de produção, não use o serviço Windows Time (W32Time) em uma versão do Windows anterior ao Windows Server 2016. O serviço de tempo em versões anteriores do Windows não é suficientemente preciso e não é suportado pela Microsoft para uso em ambientes de alta precisão, como o StorageGRID.
+
+https://support.microsoft.com/en-us/help/939322/support-boundary-to-configure-the-windows-time-service-for-high-accura["Limite de suporte para configurar o serviço de tempo do Windows para ambientes de alta precisão"^]
+
+====
+Os servidores NTP externos são usados pelos nós aos quais você atribuiu funções primárias NTP anteriormente.
+
+
+CAUTION: Certifique-se de que pelo menos dois nós em cada local possam acessar pelo menos quatro fontes NTP externas. Se apenas um nó em um local puder alcançar as fontes NTP, problemas de tempo ocorrerão se esse nó cair. Além disso, a designação de dois nós por local como fontes primárias de NTP garante um tempo preciso se um local for isolado do resto da grade.
+
+.Passos
+. Especifique os endereços IPv4 para pelo menos quatro servidores NTP nas caixas de texto *Server 1* para *Server 4*.
+. Se necessário, selecione o sinal de adição ao lado da última entrada para adicionar entradas adicionais do servidor.
++
+image::../media/8_gmi_installer_ntp_page.gif[Esta imagem é explicada pelo texto circundante.]
+
+. Selecione *seguinte*.
+
+
+.Informações relacionadas
+link:../network/index.html["Diretrizes de rede"]

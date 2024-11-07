@@ -1,0 +1,43 @@
+---
+indexpage:
+  title: Recuperar ou substituir nós
+  summary: Se um nó de grade falhar, você poderá recuperá-lo substituindo o servidor
+    físico ou virtual com falha, reinstalando o software StorageGRID e restaurando
+    dados recuperáveis.
+  keywords: recover node, replace node
+  lead: Se um nó de grade falhar, você poderá recuperá-lo substituindo o servidor
+    físico ou virtual com falha, reinstalando o software StorageGRID e restaurando
+    dados recuperáveis.
+  tiles:
+  - title: Comece agora
+    links:
+    - title: Avisos e considerações
+      url: "../maintain/warnings-and-considerations-for-grid-node-recovery.html"
+    - title: Reúna os materiais necessários
+      url: "../maintain/gathering-required-materials-for-grid-node-recovery.html"
+  - title: Recuperar nós com falha
+    links:
+    - title: Avisos e considerações
+      url: "../maintain/warnings-and-considerations-for-grid-node-recovery.html"
+    - title: Nós de storage
+      url: "../maintain/recovering-from-storage-node-failures.html"
+    - title: Nós de administração
+      url: "../maintain/recovering-from-admin-node-failures.html"
+    - title: Nós de gateway
+      url: "../maintain/replacing-gateway-node.html"
+    - title: Nós de arquivamento
+      url: "../maintain/recovering-from-archive-node-failures.html"
+  - title: Substitua o nó
+    links:
+    - title: Substitua o nó Linux
+      url: "../maintain/all-node-types-replacing-linux-node.html"
+    - title: Substitua o nó VMware
+      url: "../maintain/all-node-types-replacing-vmware-node.html"
+    - title: Substitua o nó Linux ou VMware pelo dispositivo de serviços
+      url: "../maintain/installing-services-appliance-platform-change-only.html"
+    - title: Nó do dispositivo clone
+      url: https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/how-appliance-node-cloning-works.html
+  - title: Recuperar um site
+    links:
+    - title: Como o suporte técnico recupera um site
+      url: "../maintain/how-site-recovery-is-performed-by-technical-support.html"

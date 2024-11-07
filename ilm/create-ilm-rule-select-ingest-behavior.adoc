@@ -1,0 +1,43 @@
+---
+permalink: ilm/create-ilm-rule-select-ingest-behavior.html 
+sidebar: sidebar 
+keywords: ilm rule step 3, define ingest behavior 
+summary: O passo 3 do assistente Create ILM Rule permite que você escolha como os objetos filtrados por esta regra são protegidos à medida que são ingeridos. 
+---
+= Passo 3 de 3: Selecione comportamento de ingestão
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A etapa *Selecionar comportamento de ingestão* do assistente criar regra ILM permite escolher como os objetos filtrados por essa regra são protegidos à medida que são ingeridos.
+
+.Sobre esta tarefa
+O StorageGRID pode fazer cópias provisórias e enfileirar os objetos para avaliação do ILM mais tarde, ou pode fazer cópias para cumprir as instruções de colocação da regra imediatamente.
+
+.Passos
+. Selecione a link:data-protection-options-for-ingest.html["comportamento de ingestão"] para utilizar.
++
+Para obter mais informações, link:advantages-disadvantages-of-ingest-options.html["Vantagens, desvantagens e limitações das opções de ingestão"]consulte .
+
++
+[NOTE]
+====
+Você não pode usar a opção equilibrada ou rigorosa se a regra usar um desses posicionamentos:
+
+** Um pool de armazenamento em nuvem no dia 0
+** Um pool de armazenamento em nuvem quando a regra usa um tempo de criação definido pelo usuário como um tempo de referência
+
+
+link:example-5-ilm-rules-and-policy-for-strict-ingest-behavior.html["Exemplo 5: Regras de ILM e política para comportamento de ingestão rigorosa"]Consulte .
+
+====
+. Selecione *criar*.
++
+A regra ILM é criada. A regra não se torna ativa até que seja adicionada a uma link:creating-ilm-policy.html["Política de ILM"] e essa política seja ativada.
+
++
+Para exibir os detalhes da regra, selecione o nome da regra na página regras do ILM.
+
+

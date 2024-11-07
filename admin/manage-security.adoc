@@ -1,0 +1,47 @@
+---
+permalink: admin/manage-security.html 
+sidebar: sidebar 
+keywords: how to manage security 
+summary: Você pode configurar várias configurações de segurança do Gerenciador de Grade para ajudar a proteger seu sistema StorageGRID. 
+---
+= Gerenciar a segurança
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode configurar várias configurações de segurança do Gerenciador de Grade para ajudar a proteger seu sistema StorageGRID.
+
+
+
+== Gerenciar a criptografia
+
+O StorageGRID oferece várias opções para criptografar dados. Você deve link:reviewing-storagegrid-encryption-methods.html["reveja os métodos de encriptação disponíveis"]determinar quais atendem aos requisitos de proteção de dados.
+
+
+
+== Gerenciar certificados
+
+Você pode link:using-storagegrid-security-certificates.html["configure e gerencie os certificados do servidor"] usar para conexões HTTP ou os certificados de cliente usados para autenticar uma identidade de cliente ou usuário no servidor.
+
+
+
+== Configurar servidores de gerenciamento de chaves
+
+O uso de um link:kms-configuring.html["servidor de gerenciamento de chaves"] permite proteger os dados do StorageGRID mesmo que um dispositivo seja removido do data center. Depois que os volumes do dispositivo são criptografados, você não pode acessar nenhum dado no dispositivo, a menos que o nó possa se comunicar com o KMS.
+
+
+NOTE: Para usar o gerenciamento de chaves de criptografia, você deve habilitar a configuração *criptografia de nó* para cada dispositivo durante a instalação, antes que o dispositivo seja adicionado à grade.
+
+
+
+== Gerenciar configurações de proxy
+
+Se você estiver usando serviços de plataforma S3 ou pools de storage em nuvem, poderá configurar um link:configuring-storage-proxy-settings.html["servidor proxy de storage"] entre nós de storage e os pontos de extremidade externos do S3. Se você enviar pacotes do AutoSupport usando HTTPS ou HTTP, poderá configurar um link:configuring-admin-proxy-settings.html["servidor proxy admin"] entre nós de administração e suporte técnico.
+
+
+
+== Controle firewalls
+
+Para melhorar a segurança do sistema, você pode controlar o acesso aos nós de administração do StorageGRID abrindo ou fechando portas específicas no link:controlling-access-through-firewalls.html["firewall externo"]. Você também pode controlar o acesso à rede a cada nó configurando o respetivo link:manage-firewall-controls.html["firewall interno"]. Você pode impedir o acesso em todas as portas, exceto as necessárias para sua implantação.

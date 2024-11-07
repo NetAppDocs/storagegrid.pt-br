@@ -1,0 +1,31 @@
+---
+permalink: admin/viewing-ip-addresses.html 
+sidebar: sidebar 
+keywords: ip address, view ip addresses for nodes, what is node ip address 
+summary: Você pode exibir o endereço IP de cada nó de grade em seu sistema StorageGRID. Em seguida, você pode usar esse endereço IP para fazer login no nó da grade na linha de comando e executar vários procedimentos de manutenção. 
+---
+= Ver endereços IP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode exibir o endereço IP de cada nó de grade em seu sistema StorageGRID. Em seguida, você pode usar esse endereço IP para fazer login no nó da grade na linha de comando e executar vários procedimentos de manutenção.
+
+.Antes de começar
+Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+
+.Sobre esta tarefa
+Para obter informações sobre como alterar endereços IP, link:../maintain/configuring-ip-addresses.html["Configurar endereços IP"]consulte .
+
+.Passos
+. Selecione *NODES* > *_grid node_* > *Visão geral*.
+. Selecione *Mostrar mais* à direita do título dos endereços IP.
++
+Os endereços IP desse nó de grade são listados em uma tabela.
+
++
+image::../media/nodes_page_overview_tab_extended.png[Endereços IP da página de nós]
+
+

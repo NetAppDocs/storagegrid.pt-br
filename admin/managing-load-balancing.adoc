@@ -1,0 +1,170 @@
+---
+permalink: admin/managing-load-balancing.html 
+sidebar: sidebar 
+keywords: manage load balancing, balance workload, client ingest, client retrieval, distribute connection 
+summary: Você pode usar o balanceamento de carga para lidar com cargas de trabalho de ingestão e recuperação de clientes do S3. 
+---
+= Considerações para balanceamento de carga
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o balanceamento de carga para lidar com cargas de trabalho de ingestão e recuperação de clientes do S3.
+
+
+
+== O que é balanceamento de carga?
+
+Quando um aplicativo cliente salva ou recupera dados de um sistema StorageGRID, o StorageGRID usa um balanceador de carga para gerenciar a carga de trabalho de obtenção e recuperação. O balanceamento de carga maximiza a velocidade e a capacidade de conexão distribuindo a carga de trabalho em vários nós de storage.
+
+O serviço StorageGRID Load Balancer é instalado em todos os nós de administração e em todos os nós de gateway e fornece balanceamento de carga de camada 7. Ele executa o encerramento do TLS (Transport Layer Security) das solicitações do cliente, inspeciona as solicitações e estabelece novas conexões seguras aos nós de storage.
+
+O serviço Load Balancer em cada nó opera de forma independente ao encaminhar o tráfego do cliente para os nós de storage. Por meio de um processo de ponderação, o serviço Load Balancer encaminha mais solicitações para nós de storage com maior disponibilidade de CPU.
+
+
+NOTE: Embora o serviço de balanceamento de carga StorageGRID seja o mecanismo de balanceamento de carga recomendado, você pode querer integrar um balanceador de carga de terceiros. Para obter informações, contacte o representante da sua conta NetApp ou https://fieldportal.netapp.com/content/2666394["TR-4626: Balanceadores de carga globais e de terceiros da StorageGRID"^] consulte .
+
+
+
+== Quantos nós de balanceamento de carga eu preciso?
+
+Como prática recomendada geral, cada local no seu sistema StorageGRID deve incluir dois ou mais nós com o serviço de balanceador de carga. Por exemplo, um site pode incluir dois nós de Gateway ou um nó de administrador e um nó de gateway. Certifique-se de que há uma infraestrutura adequada de rede, hardware ou virtualização para cada nó de balanceamento de carga, esteja você usando dispositivos de serviços, nós bare metal ou nós baseados em máquina virtual (VM).
+
+
+
+== O que é um ponto de extremidade do balanceador de carga?
+
+Um ponto de extremidade do balanceador de carga define a porta e o protocolo de rede (HTTPS ou HTTP) que as solicitações de aplicativos de cliente de entrada e saída usarão para acessar os nós que contêm o serviço Load Balancer. O endpoint também define o tipo de cliente (S3), o modo de encadernação e, opcionalmente, uma lista de inquilinos permitidos ou bloqueados.
+
+Para criar um ponto de extremidade do balanceador de carga, selecione *CONFIGURATION* > *Network* > *Load balancer endpoints* ou conclua o assistente de configuração do FabricPool e do S3. Para obter instruções:
+
+* link:configuring-load-balancer-endpoints.html["Configurar pontos de extremidade do balanceador de carga"]
+* link:use-s3-setup-wizard-steps.html["Utilize o assistente de configuração S3"]
+* link:../fabricpool/use-fabricpool-setup-wizard-steps.html["Utilize o assistente de configuração do FabricPool"]
+
+
+
+
+=== Considerações para a porta
+
+A porta de um ponto de extremidade do balanceador de carga é padrão para 10433 para o primeiro ponto de extremidade criado, mas você pode especificar qualquer porta externa não utilizada entre 1 e 65535. Se você usar a porta 80 ou 443, o endpoint usará o serviço Load Balancer somente nos nós do Gateway. Essas portas são reservadas em nós de administração. Se você usar a mesma porta para mais de um endpoint, você deve especificar um modo de encadernação diferente para cada endpoint.
+
+As portas usadas por outros serviços de grade não são permitidas. Consulte link:../network/network-port-reference.html["Referência da porta de rede"].
+
+
+
+=== Considerações para o protocolo de rede
+
+Na maioria dos casos, as conexões entre aplicativos cliente e StorageGRID devem usar criptografia TLS (Transport Layer Security). A conexão com o StorageGRID sem criptografia TLS é suportada, mas não é recomendada, especialmente em ambientes de produção. Ao selecionar o protocolo de rede para o ponto de extremidade do balanceador de carga do StorageGRID, deve selecionar *HTTPS*.
+
+
+
+=== Considerações para certificados de endpoint do balanceador de carga
+
+Se selecionar *HTTPS* como protocolo de rede para o ponto de extremidade do balanceador de carga, tem de fornecer um certificado de segurança. Você pode usar qualquer uma dessas três opções ao criar o ponto de extremidade do balanceador de carga:
+
+* *Carregue um certificado assinado (recomendado)*. Este certificado pode ser assinado por uma autoridade de certificação pública ou privada (CA). Usar um certificado de servidor CA publicamente confiável para proteger a conexão é a melhor prática. Em contraste com os certificados gerados, os certificados assinados por uma CA podem ser girados sem interrupções, o que pode ajudar a evitar problemas de expiração.
++
+Você deve obter os seguintes arquivos antes de criar o ponto de extremidade do balanceador de carga:
+
++
+** O arquivo de certificado do servidor personalizado.
+** O arquivo de chave privada de certificado de servidor personalizado.
+** Opcionalmente, um pacote de CA dos certificados de cada autoridade de certificação de emissão intermediária.
+
+
+* *Gerar um certificado autoassinado*.
+* *Use o certificado global StorageGRID S3*. Você deve carregar ou gerar uma versão personalizada deste certificado antes de selecioná-lo para o ponto de extremidade do balanceador de carga. link:../admin/configuring-custom-server-certificate-for-storage-node.html["Configure os certificados API do S3"]Consulte .
+
+
+
+
+==== Quais valores eu preciso?
+
+Para criar o certificado, você deve saber todos os nomes de domínio e endereços IP que os aplicativos cliente S3 usarão para acessar o endpoint.
+
+A entrada *Assunto DN* (Nome distinto) do certificado deve incluir o nome de domínio totalmente qualificado que o aplicativo cliente usará para o StorageGRID. Por exemplo:
+
+[listing]
+----
+Subject DN: /C=Country/ST=State/O=Company,Inc./CN=s3.storagegrid.example.com
+----
+Conforme necessário, o certificado pode usar curingas para representar os nomes de domínio totalmente qualificados de todos os nós de administração e nós de gateway que executam o serviço Load Balancer. Por exemplo, `*.storagegrid._example_.com` usa o caractere curinga * para representar `adm1.storagegrid._example_.com` e `gn1.storagegrid._example_.com`.
+
+Se você planeja usar S3 solicitações virtuais de estilo hospedado, o certificado também deve incluir uma entrada *Nome alternativo* para cada link:../admin/configuring-s3-api-endpoint-domain-names.html["Nome de domínio do endpoint S3"] um que você configurou, incluindo nomes curinga. Por exemplo:
+
+[listing]
+----
+Alternative Name: DNS:*.s3.storagegrid.example.com
+----
+
+NOTE: Se você usar curingas para nomes de domínio, revise o link:../harden/hardening-guideline-for-server-certificates.html["Diretrizes de fortalecimento para certificados de servidor"].
+
+Você também deve definir uma entrada DNS para cada nome no certificado de segurança.
+
+
+
+==== Como faço para gerenciar certificados expirados?
+
+
+CAUTION: Se o certificado usado para proteger a conexão entre o aplicativo S3 e o StorageGRID expirar, o aplicativo poderá perder temporariamente o acesso ao StorageGRID.
+
+Para evitar problemas de expiração de certificado, siga estas práticas recomendadas:
+
+* Monitore cuidadosamente quaisquer alertas que avisem sobre datas de expiração de certificado que estejam se aproximando, como *validade do certificado de endpoint do balanceador de carga* e *expiração do certificado de servidor global para alertas da API S3*.
+* Mantenha sempre as versões do certificado do StorageGRID e do aplicativo S3 sincronizadas. Se você substituir ou renovar o certificado usado para um ponto de extremidade do balanceador de carga, você deve substituir ou renovar o certificado equivalente usado pelo aplicativo S3.
+* Use um certificado de CA assinado publicamente. Se você usar um certificado assinado por uma CA, poderá substituir certificados que expirarão em breve sem interrupções.
+* Se você gerou um certificado StorageGRID auto-assinado e esse certificado está prestes a expirar, você deve substituir manualmente o certificado no StorageGRID e no aplicativo S3 antes que o certificado existente expire.
+
+
+
+
+=== Considerações para o modo de encadernação
+
+O modo de encadernação permite controlar quais endereços IP podem ser usados para acessar um ponto de extremidade do balanceador de carga. Se um endpoint usar um modo de encadernação, os aplicativos cliente só poderão acessar o endpoint se usarem um endereço IP permitido ou seu nome de domínio totalmente qualificado (FQDN) correspondente. Os aplicativos clientes que usam qualquer outro endereço IP ou FQDN não podem acessar o endpoint.
+
+Você pode especificar qualquer um dos seguintes modos de encadernação:
+
+* *Global* (padrão): Os aplicativos cliente podem acessar o endpoint usando o endereço IP de qualquer nó de gateway ou nó de administrador, o endereço IP virtual (VIP) de qualquer grupo de HA em qualquer rede ou um FQDN correspondente. Use esta configuração a menos que você precise restringir a acessibilidade de um endpoint.
+* *IPs virtuais de grupos HA*. Os aplicativos cliente devem usar um endereço IP virtual (ou FQDN correspondente) de um grupo HA.
+* * Interfaces de nó*. Os clientes devem usar os endereços IP (ou FQDNs correspondentes) das interfaces de nó selecionadas.
+* *Tipo de nó*. Com base no tipo de nó selecionado, os clientes devem usar o endereço IP (ou FQDN correspondente) de qualquer nó Admin ou o endereço IP (ou FQDN correspondente) de qualquer nó Gateway.
+
+
+
+
+=== Considerações para acesso ao locatário
+
+O acesso ao locatário é um recurso de segurança opcional que permite controlar quais contas de locatário do StorageGRID podem usar um endpoint do balanceador de carga para acessar seus buckets. Você pode permitir que todos os locatários acessem um endpoint (padrão) ou especificar uma lista dos locatários permitidos ou bloqueados para cada endpoint.
+
+Você pode usar esse recurso para fornecer um melhor isolamento de segurança entre os locatários e seus endpoints. Por exemplo, você pode usar esse recurso para garantir que os materiais mais secretos ou altamente classificados de propriedade de um locatário permaneçam completamente inacessíveis para outros inquilinos.
+
+
+NOTE: Para fins de controle de acesso, o locatário é determinado a partir das chaves de acesso usadas na solicitação do cliente, se nenhuma chave de acesso for fornecida como parte da solicitação (como com acesso anônimo) o proprietário do bucket é usado para determinar o locatário.
+
+
+
+==== Exemplo de acesso ao locatário
+
+Para entender como esse recurso de segurança funciona, considere o seguinte exemplo:
+
+. Você criou dois pontos de extremidade do balanceador de carga, como segue:
++
+** *Public* endpoint: Usa a porta 10443 e permite o acesso a todos os inquilinos.
+** * Ponto final Top SECRET*: Usa a porta 10444 e permite o acesso apenas ao locatário *Top SECRET*. Todos os outros inquilinos estão bloqueados para acessar este endpoint.
+
+
+. O `top-secret.pdf` está em um balde de propriedade do *Top SECRET* inquilino.
+
+
+Para acessar o `top-secret.pdf`, um usuário no locatário *Top SECRET* pode emitir uma SOLICITAÇÃO GET para `\https://w.x.y.z:10444/top-secret.pdf`. Como esse locatário tem permissão para usar o endpoint 10444, o usuário pode acessar o objeto. No entanto, se um usuário pertencente a qualquer outro locatário emitir a mesma solicitação para o mesmo URL, ele receberá uma mensagem de acesso negado imediata. O acesso é negado mesmo que as credenciais e a assinatura sejam válidas.
+
+
+
+== Disponibilidade da CPU
+
+O serviço Load Balancer em cada nó de administração e nó de gateway opera de forma independente ao encaminhar o tráfego S3 para os nós de storage. Por meio de um processo de ponderação, o serviço Load Balancer encaminha mais solicitações para nós de storage com maior disponibilidade de CPU. As informações de carga da CPU do nó são atualizadas a cada poucos minutos, mas a ponderação pode ser atualizada com mais frequência. Todos os nós de storage recebem um valor mínimo de peso básico, mesmo que um nó informe a utilização de 100% ou não consiga relatar sua utilização.
+
+Em alguns casos, as informações sobre a disponibilidade da CPU estão limitadas ao local onde o serviço Load Balancer está localizado.

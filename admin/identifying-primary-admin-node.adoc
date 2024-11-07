@@ -1,0 +1,29 @@
+---
+permalink: admin/identifying-primary-admin-node.html 
+sidebar: sidebar 
+keywords: primary admin node, configuration management node 
+summary: O nó de administração principal fornece mais funcionalidade do que os nós de administração não primários. Por exemplo, alguns procedimentos de manutenção devem ser executados usando o nó de administração principal. 
+---
+= Identifique o nó de administração principal
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O nó de administração principal fornece mais funcionalidade do que os nós de administração não primários. Por exemplo, alguns procedimentos de manutenção devem ser executados usando o nó de administração principal.
+
+Para obter mais informações sobre nós de administração, link:../primer/what-admin-node-is.html["O que é um nó Admin"]consulte .
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você link:admin-group-permissions.html["permissões de acesso específicas"]tem .
+
+
+.Passos
+. Selecione *NODES*.
+. Digite *Primary* na caixa de pesquisa.
++
+Nos resultados da pesquisa, identifique o nó com "nó Admin principal" exibido na coluna tipo. Um nó de administração principal deve ser listado.
+
+

@@ -1,0 +1,80 @@
+---
+permalink: s3/put-bucket-consistency-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, PUT bucket consistency request 
+summary: A solicitação de consistência do PUT Bucket permite especificar a consistência a ser aplicada às operações realizadas em um bucket. 
+---
+= COLOQUE a consistência do balde
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A solicitação de consistência do PUT Bucket permite especificar a consistência a ser aplicada às operações realizadas em um bucket.
+
+A consistência padrão é definida para garantir leitura após gravação para objetos recém-criados.
+
+.Antes de começar
+Você deve ter a permissão S3:PutBucketConsistency, ou ser raiz da conta, para concluir esta operação.
+
+
+
+== Pedido
+
+O `x-ntap-sg-consistency` parâmetro deve conter um dos seguintes valores:
+
+[cols="1a,2a"]
+|===
+| Consistência | Descrição 
+
+
+ a| 
+tudo
+ a| 
+Todos os nós recebem os dados imediatamente, ou a solicitação falhará.
+
+
+
+ a| 
+forte-global
+ a| 
+Garante consistência de leitura após gravação para todas as solicitações de clientes em todos os sites.
+
+
+
+ a| 
+forte local
+ a| 
+Garante consistência de leitura após gravação para todas as solicitações de clientes dentro de um site.
+
+
+
+ a| 
+leitura-após-nova-gravação
+ a| 
+(Padrão) fornece consistência de leitura após gravação para novos objetos e eventual consistência para atualizações de objetos. Oferece alta disponibilidade e garantias de proteção de dados. Recomendado para a maioria dos casos.
+
+
+
+ a| 
+disponível
+ a| 
+Fornece consistência eventual para novos objetos e atualizações de objetos. Para buckets do S3, use somente conforme necessário (por exemplo, para um bucket que contém valores de log raramente lidos, ou para operações HEAD ou GET em chaves que não existem). Não compatível com buckets do FabricPool S3.
+
+|===
+*Nota:* em geral, você deve usar a consistência "Read-after-new-write". Se as solicitações não estiverem funcionando corretamente, altere o comportamento do cliente do aplicativo, se possível. Ou configure o cliente para especificar a consistência para cada solicitação de API. Defina a consistência no nível do balde apenas como último recurso.
+
+
+
+== Exemplo de solicitação
+
+[listing, subs="specialcharacters,quotes"]
+----
+PUT /bucket?x-ntap-sg-consistency=strong-global HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+.Informações relacionadas
+link:consistency-controls.html["Valores de consistência"]

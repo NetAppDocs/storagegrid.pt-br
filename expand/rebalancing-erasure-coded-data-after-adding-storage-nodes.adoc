@@ -1,0 +1,150 @@
+---
+permalink: expand/rebalancing-erasure-coded-data-after-adding-storage-nodes.html 
+sidebar: sidebar 
+keywords: erasure coding, EC, rebalancing, site rebalance procedure 
+summary: Depois de adicionar nós de storage, use o procedimento de rebalancear a codificação de apagamento para redistribuir fragmentos codificados por apagamento entre os nós de storage atuais e novos. 
+---
+= Rebalancear os dados codificados por apagamento após adicionar nós de storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois de adicionar nós de storage, use o procedimento de rebalancear a codificação de apagamento (EC) para redistribuir fragmentos codificados por apagamento entre os nós de storage atuais e novos.
+
+.Antes de começar
+* Você concluiu as etapas de expansão para adicionar os novos nós de storage.
+* Você revisou o link:considerations-for-rebalancing-erasure-coded-data.html["considerações para rebalanceamento de dados codificados por apagamento"].
+* Você entende que os dados de objeto replicados não serão movidos por este procedimento e que o procedimento de rebalancear EC não considera o uso de dados replicados em cada nó de storage ao determinar onde mover dados codificados por apagamento.
+* Você tem o `Passwords.txt` arquivo.
+
+
+.O que acontece quando este procedimento é executado
+Antes de iniciar o procedimento, tome nota do seguinte:
+
+* O procedimento de reequilíbrio EC não será iniciado se um ou mais volumes estiverem offline (desmontados) ou se estiverem online (montados), mas em estado de erro.
+* O procedimento de reequilíbrio CE reserva temporariamente uma grande quantidade de armazenamento. Os alertas de storage podem ser acionados, mas serão resolvidos quando o rebalancear for concluído. Se não houver armazenamento suficiente para a reserva, o procedimento de reequilíbrio CE falhará. As reservas de armazenamento são liberadas quando o procedimento de reequilíbrio CE for concluído, independentemente de o procedimento ter falhado ou ter êxito.
+* Se um volume ficar offline enquanto o procedimento de reequilíbrio CE estiver em andamento, o procedimento de reequilíbrio será encerrado. Quaisquer fragmentos de dados que já foram movidos permanecerão em seus novos locais e nenhum dado será perdido.
++
+Você pode executar novamente o procedimento depois que todos os volumes estiverem novamente online.
+
+* Quando o procedimento de rebalanceamento EC estiver em execução, o desempenho das operações ILM e das operações do cliente S3 podem ser afetados.
++
+
+NOTE: As operações de API S3D para fazer upload de objetos (ou partes de objetos) podem falhar durante o procedimento de rebalanceamento EC se precisarem de mais de 24 horas para serem concluídas. As OPERAÇÕES PUT de longa duração falharão se a regra ILM aplicável usar um posicionamento equilibrado ou rigoroso na ingestão. O seguinte erro será comunicado: `500 Internal Server Error`.
+
+* Durante esse procedimento, todos os nós têm um limite de capacidade de storage de 80%. Os nós que excedem esse limite, mas ainda armazenam abaixo da partição de dados de destino, são excluídos de:
++
+** O valor de desequilíbrio do local
+** Quaisquer condições de conclusão do trabalho
++
+
+NOTE: A partição de dados de destino é calculada dividindo o total de dados de um site pelo número de nós.
+
+
+
+* *Condições de conclusão de trabalho*. O procedimento de reequilíbrio CE é considerado completo quando qualquer uma das seguintes situações for verdadeira:
++
+** Ele não pode mover mais dados codificados por apagamento.
+** Os dados em todos os nós estão dentro de um desvio de 5% da partição de dados de destino.
+** O procedimento está em execução há 30 dias.
+
+
+
+
+.Passos
+. [[Review_object_storage]]Revise os detalhes de armazenamento de objetos atuais para o site que você planeja reequilibrar.
++
+.. Selecione *NODES*.
+.. Selecione o primeiro nó de storage no local.
+.. Selecione a guia *armazenamento*.
+.. Posicione o cursor sobre o gráfico Storage Used - Object Data (armazenamento usado - dados de objetos) para ver a quantidade atual de dados replicados e dados codificados por apagamento no Storage Node.
+.. Repita estas etapas para exibir os outros nós de storage no local.
+
+
+. Faça login no nó de administração principal:
++
+.. Introduza o seguinte comando: `ssh admin@_primary_Admin_Node_IP_`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+
+
+. Inicie o procedimento:
++
+'rebalance-data start --site "_site-name_"
+
++
+Para "_site-name_", especifique o primeiro local onde você adicionou novo nó de storage ou nós. Inclua `site-name` em citações.
+
++
+O procedimento de reequilíbrio EC é iniciado e um ID de tarefa é retornado.
+
+. Copie a ID do trabalho.
+. [[view-status]]monitore o status do procedimento de rebalanceamento EC.
++
+** Para visualizar o estado de um procedimento único de reequilíbrio CE:
++
+`rebalance-data status --job-id _job-id_`
+
++
+Para `_job-id_`, especifique o ID que foi retornado quando você iniciou o procedimento.
+
+** Para visualizar o estado do atual procedimento de reequilíbrio CE e de quaisquer procedimentos concluídos anteriormente:
++
+`rebalance-data status`
+
++
+[NOTE]
+====
+Para obter ajuda sobre o comando rebalanceamento-data:
+
+`rebalance-data --help`
+
+====
+
+
+. Execute etapas adicionais, com base no status retornado:
++
+** Se `State` for `In progress`, a operação de reequilíbrio CE ainda está em execução. Você deve monitorar periodicamente o procedimento até que ele seja concluído.
++
+Use o `Site Imbalance` valor para avaliar o quão desequilibrado é o uso de dados de código de apagamento nos nós de storage no local. Esse valor pode variar de 1,0 a 0, com o 0 indicando que o uso de dados com codificação de apagamento é totalmente equilibrado em todos os nós de storage no local.
+
++
+O trabalho EC reequilíbrio é considerado concluído e será interrompido quando os dados em todos os nós estiverem dentro de um desvio de 5% da partição de dados de destino.
+
+** Se `State` for `Success`, opcionalmente <<review_object_storage,revise o armazenamento de objetos>> para ver os detalhes atualizados do site.
++
+Agora, os dados codificados por apagamento devem ser mais equilibrados entre os nós de storage no local.
+
+**  `State`Se for `Failure`:
++
+... Confirme se todos os nós de storage no local estão conetados à grade.
+... Verifique e resolva quaisquer alertas que possam estar afetando esses nós de storage.
+... Reiniciar o procedimento EC Rebalanceance
++
+`rebalance-data start –-job-id _job-id_`
+
+... <<view-status,Ver o estado>> do novo procedimento. Se `State` ainda estiver `Failure` , contacte o suporte técnico.
+
+
+
+
+. Se o procedimento de reequilíbrio EC estiver gerando muita carga (por exemplo, as operações de ingestão são afetadas), interrompa o procedimento.
++
+`rebalance-data pause --job-id _job-id_`
+
+. Se você precisar encerrar o procedimento de rebalanceamento EC (por exemplo, para que você possa executar uma atualização de software StorageGRID), digite o seguinte:
++
+`rebalance-data terminate --job-id _job-id_`
+
++
+
+NOTE: Quando você encerrar um procedimento de rebalanceamento do EC, todos os fragmentos de dados que já foram movidos permanecem em seus novos locais. Os dados não são movidos de volta para o local original.
+
+. Se você estiver usando codificação de apagamento em mais de um site, execute este procedimento para todos os outros sites afetados.
+

@@ -1,0 +1,109 @@
+---
+permalink: tenant/deleting-s3-bucket-objects.html 
+sidebar: sidebar 
+keywords: how to delete bucket objects, empty bucket 
+summary: Você pode usar o Gerenciador do locatário para excluir os objetos em um ou mais buckets. 
+---
+= Excluir objetos no bucket
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o Gerenciador do locatário para excluir os objetos em um ou mais buckets.
+
+.Considerações e requisitos
+Antes de executar estas etapas, observe o seguinte:
+
+* Quando você exclui os objetos em um bucket, o StorageGRID remove permanentemente todos os objetos e todas as versões de objetos em cada bucket selecionado de todos os nós e sites do seu sistema StorageGRID. O StorageGRID também remove quaisquer metadados de objetos relacionados. Você não será capaz de recuperar essas informações.
+* A exclusão de todos os objetos em um bucket pode levar minutos, dias ou até semanas, com base no número de objetos, cópias de objetos e operações simultâneas.
+* Se um bucket tiver link:using-s3-object-lock.html["S3 bloqueio de objetos ativado"], ele poderá permanecer no estado *Deletando objetos: Somente leitura* por _anos_.
++
+
+TIP: Um bucket que usa o bloqueio de objeto S3 permanecerá no estado *excluindo objetos: Somente leitura* até que a data de retenção seja alcançada para todos os objetos e quaisquer retenções legais sejam removidas.
+
+* Enquanto os objetos estão sendo excluídos, o estado do bucket é *excluindo objetos: Somente leitura*. Neste estado, não é possível adicionar novos objetos ao intervalo.
+* Quando todos os objetos tiverem sido excluídos, o bucket permanece no estado somente leitura. Você pode fazer um dos seguintes procedimentos:
++
+** Retorne o bucket ao modo de gravação e reutilize-o para novos objetos
+** Elimine o balde
+** Mantenha o intervalo no modo somente leitura para reservar seu nome para uso futuro
+
+
+* Se um bucket tiver o controle de versão de objetos ativado, excluir marcadores criados no StorageGRID 11,8 ou posterior poderá ser removido usando o recurso Excluir objetos em operações de bucket.
+* Se um bucket tiver o controle de versão de objeto ativado, a operação excluir objetos não removerá marcadores de exclusão criados no StorageGRID 11,7 ou anterior. Consulte informações sobre como excluir objetos em um bucket no link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["Como objetos com versão S3 são excluídos"].
+* Se utilizar link:grid-federation-manage-cross-grid-replication.html["replicação entre grade"]o , tenha em atenção o seguinte:
++
+** Usar essa opção não exclui nenhum objeto do bucket na outra grade.
+** Se você selecionar essa opção para o intervalo de origem, o alerta *Falha na replicação entre grades* será acionado se você adicionar objetos ao intervalo de destino na outra grade. Se você não puder garantir que ninguém adicionará objetos ao bucket na outra grade, link:../tenant/grid-federation-manage-cross-grid-replication.html["desative a replicação entre redes"] para esse bucket antes de excluir todos os objetos do bucket.
+
+
+
+
+.Antes de começar
+* Você está conetado ao Gerenciador do Locatário usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você pertence a um grupo de usuários que tem o link:tenant-management-permissions.html["Permissão de acesso à raiz"]. Essa permissão substitui as configurações de permissões em políticas de grupo ou bucket.
+
+
+.Passos
+. Selecione *View buckets* no painel ou selecione *STORAGE (S3)* > *Buckets*.
++
+A página baldes é exibida e mostra todos os baldes S3 existentes.
+
+. Use o menu *ações* ou a página de detalhes de um intervalo específico.
++
+[role="tabbed-block"]
+====
+.Menu ações
+--
+.. Marque a caixa de seleção para cada bucket do qual você deseja excluir objetos.
+.. Selecione *ações* > *Excluir objetos no bucket*.
+
+
+--
+.Página de detalhes
+--
+.. Selecione um nome de bucket para exibir seus detalhes.
+.. Selecione *Excluir objetos no bucket*.
+
+
+--
+====
+. Quando a caixa de diálogo de confirmação for exibida, revise os detalhes, digite *Sim* e selecione *OK*.
+. Aguarde o início da operação de eliminação.
++
+Após alguns minutos:
+
++
+** É apresentado um banner de estado amarelo na página de detalhes do balde. A barra de progresso representa a porcentagem de objetos que foram excluídos.
+** *(somente leitura)* aparece após o nome do bucket na página de detalhes do bucket.
+** *(excluindo objetos: Somente leitura)* aparece ao lado do nome do bucket na página Buckets.
+
+
++
+image::../media/delete-bucket-objects-in-progress.png[captura de tela mostrando objetos de bucket sendo excluídos]
+
+. Conforme necessário enquanto a operação estiver em execução, selecione *Parar de excluir objetos* para interromper o processo. Em seguida, opcionalmente, selecione *Excluir objetos no bucket* para retomar o processo.
++
+Quando você seleciona *Parar de excluir objetos*, o bucket é retornado ao modo de gravação; no entanto, você não pode acessar ou restaurar quaisquer objetos que tenham sido excluídos.
+
+. Aguarde até que a operação seja concluída.
++
+Quando o intervalo está vazio, o banner de status é atualizado, mas o intervalo permanece somente leitura.
+
++
+image::../media/delete-bucket-objects-complete.png[captura de tela mostrando todos os objetos bucket excluídos]
+
+. Execute um dos seguintes procedimentos:
++
+** Saia da página para manter o balde no modo só de leitura. Por exemplo, você pode manter um bucket vazio no modo somente leitura para reservar o nome do bucket para uso futuro.
+** Elimine o balde. Você pode selecionar *Excluir bucket* para excluir um único bucket ou retornar a página Buckets e selecionar *Actions* > *Delete* buckets para remover mais de um bucket.
++
+
+NOTE: Se você não conseguir excluir um bucket versionado depois que todos os objetos foram excluídos, os marcadores de exclusão podem permanecer. Para eliminar o intervalo, tem de remover todos os marcadores de eliminação restantes.
+
+** Retorne o bucket ao modo de gravação e, opcionalmente, reutilize-o para novos objetos. Você pode selecionar *Parar de excluir objetos* para um único bucket ou retornar à página Buckets e selecionar *Ação* > *Parar de excluir objetos* para mais de um bucket.
+
+
+

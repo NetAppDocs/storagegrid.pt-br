@@ -1,0 +1,28 @@
+---
+permalink: harden/index.html 
+sidebar: sidebar 
+keywords: Hardening guidelines, system, security 
+summary: O fortalecimento do sistema é o processo de eliminar o maior número possível de riscos de segurança a partir de um sistema StorageGRID. 
+---
+= Considerações gerais para o endurecimento do sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O fortalecimento do sistema é o processo de eliminar o maior número possível de riscos de segurança a partir de um sistema StorageGRID.
+
+À medida que você instala e configura o StorageGRID, use estas diretrizes para ajudá-lo a cumprir quaisquer objetivos de segurança prescritos quanto a confidencialidade, integridade e disponibilidade.
+
+Você já deve estar usando as melhores práticas padrão do setor para o fortalecimento do sistema. Por exemplo, você usa senhas fortes para StorageGRID, usa HTTPS em vez de HTTP e ativa autenticação baseada em certificado quando disponível.
+
+StorageGRID segue o https://security.netapp.com/policy/["Política de tratamento de vulnerabilidades do NetApp"^]. Vulnerabilidades relatadas são verificadas e resolvidas de acordo com o processo de resposta a incidentes de segurança do produto.
+
+Ao endurecer um sistema StorageGRID, considere o seguinte:
+
+* *Qual das três redes StorageGRID* você implementou. Todos os sistemas StorageGRID devem usar a rede de grade, mas você também pode estar usando a rede de administrador, a rede de cliente ou ambos. Cada rede tem diferentes considerações de segurança.
+* *O tipo de plataformas* que você usa para os nós individuais em seu sistema StorageGRID. Os nós do StorageGRID podem ser implantados em máquinas virtuais VMware, dentro de um mecanismo de contêiner em hosts Linux ou como dispositivos de hardware dedicados. Cada tipo de plataforma tem seu próprio conjunto de melhores práticas de endurecimento.
+* *Como as contas de inquilino são confiáveis*. Se você for um provedor de serviços com contas de inquilino não confiáveis, terá preocupações de segurança diferentes do que se você usar apenas locatários internos confiáveis.
+* *Que requisitos e convenções de segurança* sua organização segue. Talvez seja necessário cumprir requisitos específicos de regulamentação ou de empresas.
+

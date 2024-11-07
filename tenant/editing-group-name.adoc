@@ -1,0 +1,39 @@
+---
+permalink: tenant/editing-group-name.html 
+sidebar: sidebar 
+keywords: how to edit tenant group name 
+summary: Pode editar o nome de apresentação de um grupo. Não é possível editar o nome exclusivo de um grupo. 
+---
+= Editar nome do grupo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pode editar o nome de apresentação de um grupo. Não é possível editar o nome exclusivo de um grupo.
+
+.Antes de começar
+* Você está conetado ao Gerenciador do Locatário usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você pertence a um grupo de usuários que tem a permissão de acesso root. link:tenant-management-permissions.html["Permissões de gerenciamento do locatário"]Consulte .
+
+
+.Passos
+. Selecione *GERENCIAMENTO DE ACESSO* > *grupos*.
+. Selecione a caixa de verificação para o grupo cujo nome de apresentação pretende editar.
+. Selecione *ações* > *Editar nome do grupo*.
++
+A caixa de diálogo Editar nome do grupo é exibida.
+
++
+image::../media/edit_group_name.png[Editar nome do grupo]
+
+. Se estiver editando um grupo local, atualize o nome de exibição conforme necessário.
++
+Não é possível alterar o nome exclusivo de um grupo. Não é possível editar o nome de exibição de um grupo federado.
+
+. Selecione *Salvar alterações*.
++
+Uma mensagem de confirmação aparece no canto superior direito da página.
+
+

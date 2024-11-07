@@ -1,0 +1,223 @@
+---
+permalink: primer/what-admin-node-is.html 
+sidebar: sidebar 
+keywords: admin nodes 
+summary: Os nós de administração fornecem serviços de gerenciamento, como configuração, monitoramento e log do sistema. Os nós de administração também podem ser usados para equilibrar o tráfego de clientes S3. Cada grade deve ter um nó de administração principal e pode ter qualquer número de nós de administração não primários para redundância. 
+---
+= O que é um nó de administração?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os nós de administração fornecem serviços de gerenciamento, como configuração, monitoramento e log do sistema. Os nós de administração também podem ser usados para equilibrar o tráfego de clientes S3. Cada grade deve ter um nó de administração principal e pode ter qualquer número de nós de administração não primários para redundância.
+
+
+
+== Diferenças entre nós de administração primários e não primários
+
+Quando você entra no Gerenciador de Grade ou no Gerenciador de Tenant, você está se conetando a um nó Admin. Você pode se conetar a qualquer nó de administrador e cada nó de administrador exibe uma exibição semelhante do sistema StorageGRID. No entanto, o nó de administração principal fornece mais funcionalidade do que os nós de administração não primários. Por exemplo, a maioria dos procedimentos de manutenção deve ser realizada a partir dos nós de administração primários.
+
+A tabela resume os recursos dos nós de administração primários e não primários.
+
+[cols="2a,1a,1a"]
+|===
+| Recursos | Nó de administração principal | Nó de administração não primário 
+
+
+ a| 
+Inclui o <<ams,AMS>> serviço
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Inclui o <<cmn,CMN>> serviço
+ a| 
+Sim
+ a| 
+Não
+
+
+
+ a| 
+Inclui o <<nms,NMS>> serviço
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Inclui o <<prometheus,Prometheus>> serviço
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Inclui o <<ssm,SSM>> serviço
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Inclui os <<load-balancer,Balanceador de carga>> serviços e<<high-availability,Alta disponibilidade>>
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Suporta o <<mgmt-api,Interface do Programa de aplicação de Gestão>> (mgmt-api)
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Pode ser usado para todas as tarefas de manutenção relacionadas à rede, por exemplo, alteração de endereço IP e atualização de servidores NTP
+ a| 
+Sim
+ a| 
+Não
+
+
+
+ a| 
+Pode executar o rebalanceamento de EC após a expansão do nó de storage
+ a| 
+Sim
+ a| 
+Não
+
+
+
+ a| 
+Pode ser usado para o procedimento de restauração de volume
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Pode coletar arquivos de log e dados do sistema de um ou mais nós
+ a| 
+Sim
+ a| 
+Não
+
+
+
+ a| 
+Envia notificações de alerta, pacotes AutoSupport e traps SNMP e informa
+ a| 
+Sim. Atua como o <<preferred-sender,remetente preferido>>.
+ a| 
+Sim. Atua como um remetente em espera.
+
+|===
+
+
+== [[Preferred-sender]]nó Admin do remetente preferido
+
+Se sua implantação do StorageGRID incluir vários nós de administração, o nó de administração principal é o remetente preferido para notificações de alerta, pacotes AutoSupport e traps SNMP e informa.
+
+Em operações normais do sistema, apenas o remetente preferido envia notificações. No entanto, todos os outros nós de administração monitoram o remetente preferido. Se um problema for detetado, outros nós de administração agem como _remetentes de reserva_.
+
+Várias notificações podem ser enviadas nesses casos:
+
+* Se os nós de administração ficarem "isaterizados" uns dos outros, tanto o remetente preferido como os remetentes de reserva tentarão enviar notificações, e várias cópias de notificações podem ser recebidas.
+* Se o remetente em espera detetar problemas com o remetente preferido e começar a enviar notificações, o remetente preferido pode recuperar sua capacidade de enviar notificações. Se isso ocorrer, notificações duplicadas podem ser enviadas. O remetente em espera deixará de enviar notificações quando não detetar mais erros no remetente preferido.
++
+
+NOTE: Quando você testa pacotes do AutoSupport, todos os nós de administração enviam o teste. Ao testar notificações de alerta, você deve entrar em cada nó de administração para verificar a conetividade.
+
+
+
+
+
+== Serviços primários para nós de administração
+
+A tabela a seguir mostra os serviços primários para nós de administração; no entanto, essa tabela não lista todos os serviços de nó.
+
+[cols="1a,2a"]
+|===
+| Serviço | Função de chave 
+
+
+ a| 
+[[AMS]]sistema de Gestão de Auditoria (AMS)
+ a| 
+Monitoriza a atividade e os eventos do sistema.
+
+
+
+ a| 
+[[cmn]]nó de gerenciamento de configuração (CMN)
+ a| 
+Gerencia a configuração em todo o sistema.
+
+
+
+ a| 
+[[high-availability]]alta disponibilidade
+ a| 
+Gerencia endereços IP virtuais de alta disponibilidade para grupos de nós de administração e nós de gateway.
+
+*Nota:* este serviço também é encontrado em nós de Gateway.
+
+
+
+ a| 
+[[load-balancer]]balanceador de carga
+ a| 
+Fornece balanceamento de carga de tráfego S3 de clientes para nós de storage.
+
+*Nota:* este serviço também é encontrado em nós de Gateway.
+
+
+
+ a| 
+[[mgmt-API]]Interface de Programa de aplicação de Gestão (mgmt-api)
+ a| 
+Processa solicitações da API de gerenciamento de grade e da API de gerenciamento do locatário.
+
+
+
+ a| 
+[[nms]]sistema de Gestão de rede (NMS)
+ a| 
+Fornece funcionalidade para o Gerenciador de Grade.
+
+
+
+ a| 
+prometheus
+ a| 
+Coleta e armazena métricas de séries temporais dos serviços em todos os nós.
+
+
+
+ a| 
+[[ssm]]Monitor de status do servidor (SSM)
+ a| 
+Monitora o sistema operacional e o hardware subjacente.
+
+|===

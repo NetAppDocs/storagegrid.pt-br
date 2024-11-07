@@ -1,0 +1,65 @@
+---
+permalink: expand/guidelines-for-adding-object-capacity.html 
+sidebar: sidebar 
+keywords: adding storage capacity, guidelines, storage volumes, expansion 
+summary: Você pode expandir a capacidade de storage de objetos do seu sistema StorageGRID adicionando volumes de storage a nós de storage existentes ou adicionando novos nós de storage a locais existentes. Você deve adicionar capacidade de armazenamento de uma forma que atenda aos requisitos da política de gerenciamento do ciclo de vida das informações. 
+---
+= Diretrizes para adicionar capacidade de objeto
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode expandir a capacidade de storage de objetos do seu sistema StorageGRID adicionando volumes de storage a nós de storage existentes ou adicionando novos nós de storage a locais existentes. Você precisa adicionar capacidade de storage de forma que atenda aos requisitos da política de gerenciamento do ciclo de vida das informações (ILM).
+
+
+
+== Diretrizes para adicionar volumes de armazenamento
+
+Antes de adicionar volumes de storage a nós de storage existentes, consulte as diretrizes e limitações a seguir:
+
+* Você deve examinar as regras atuais do ILM para determinar onde e quando link:../expand/adding-storage-volumes-to-storage-nodes.html["adicione volumes de armazenamento"]aumentar o armazenamento disponível para link:../ilm/what-replication-is.html["objetos replicados"] ou link:../ilm/what-erasure-coding-schemes-are.html["objetos com codificação de apagamento"].
+* Não é possível aumentar a capacidade de metadados do sistema adicionando volumes de armazenamento porque os metadados de objetos são armazenados apenas no volume 0.
+* Cada nó de storage baseado em software pode dar suporte a um máximo de 16 volumes de storage. Se você precisar adicionar capacidade além disso, precisará adicionar novos nós de storage.
+* Você pode adicionar uma ou duas gavetas de expansão a cada dispositivo SG6060. Cada compartimento de expansão adiciona 16 volumes de storage. Com ambas as gavetas de expansão instaladas, o SG6060 dá suporte a um total de 48 volumes de storage.
+* Você pode adicionar uma ou duas gavetas de expansão a cada dispositivo SG6160. Cada compartimento de expansão adiciona 60 volumes de storage. Com ambas as gavetas de expansão instaladas, o SG6160 dá suporte a um total de 180 volumes de storage.
+* Não é possível adicionar volumes de armazenamento a qualquer outro dispositivo de armazenamento.
+* Não é possível aumentar o tamanho de um volume de armazenamento existente.
+* Não é possível adicionar volumes de armazenamento a um nó de armazenamento ao mesmo tempo em que você está executando uma atualização do sistema, operação de recuperação ou outra expansão.
+
+
+Depois de decidir adicionar volumes de storage e determinar quais nós de storage você deve expandir para atender à política de ILM, siga as instruções para seu tipo de nó de storage:
+
+* Para adicionar uma ou duas gavetas de expansão a um dispositivo de storage SG6060, vá para https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/adding-expansion-shelf-to-deployed-sg6060.html["Adicione o compartimento de expansão ao SG6060 implantado"^].
+* Para adicionar uma ou duas gavetas de expansão a um dispositivo de storage SG6160, vá para https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/adding-expansion-shelf-to-deployed-sg6160.html["Adicione o compartimento de expansão ao SG6160 implantado"^]
+* Para um nó baseado em software, siga as instruções para link:adding-storage-volumes-to-storage-nodes.html["Adição de volumes de storage aos nós de storage"].
+
+
+
+
+== Diretrizes para a adição de nós de storage
+
+Antes de adicionar nós de storage a sites existentes, consulte as diretrizes e limitações a seguir:
+
+* Você deve examinar as regras atuais do ILM para determinar onde e quando adicionar nós de storage para aumentar o storage disponível para link:../ilm/what-replication-is.html["objetos replicados"] ou link:../ilm/what-erasure-coding-schemes-are.html["objetos com codificação de apagamento"].
+* Você não deve adicionar mais de 10 nós de storage em um único procedimento de expansão.
+* Você pode adicionar nós de storage a mais de um local em um único procedimento de expansão.
+* Você pode adicionar nós de storage e outros tipos de nós em um único procedimento de expansão.
+* Antes de iniciar o procedimento de expansão, deve confirmar se todas as operações de reparação de dados efetuadas como parte de uma recuperação estão concluídas. link:../maintain/checking-data-repair-jobs.html["Verifique os trabalhos de reparação de dados"]Consulte .
+* Se você precisar remover nós de storage antes ou depois de executar uma expansão, não deverá desativar mais de 10 nós de storage em um único procedimento de nó de compactação.
+
+
+
+
+== Diretrizes para o serviço ADC em nós de storage
+
+Ao configurar a expansão, você deve escolher se deseja incluir o serviço controlador de domínio administrativo (ADC) em cada novo nó de armazenamento. O serviço ADC mantém o controle da localização e disponibilidade dos serviços da grade.
+
+* O sistema StorageGRID requer que a link:../maintain/understanding-adc-service-quorum.html["Quórum de serviços ADC"]esteja disponível em cada local e em todos os momentos.
+* Pelo menos três nós de storage em cada local devem incluir o serviço ADC.
+* Adicionar o serviço ADC a cada nó de armazenamento não é recomendado. Incluir muitos serviços ADC pode causar lentidão devido ao aumento da quantidade de comunicação entre nós.
+* Uma única grade não deve ter mais de 48 nós de storage com o serviço ADC. Isso equivale a 16 sites com três serviços ADC em cada local.
+* Em geral, quando você seleciona a configuração *ADC Service* para um novo nó, você deve selecionar *Automatic*. Selecione *Sim* somente se o novo nó substituir outro nó de armazenamento que inclua o serviço ADC. Como você não pode desativar um nó de armazenamento se houver poucos serviços ADC, isso garante que um novo serviço ADC esteja disponível antes que o serviço antigo seja removido.
+* Não é possível adicionar o serviço ADC a um nó depois que ele é implantado.
+

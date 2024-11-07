@@ -1,0 +1,74 @@
+---
+permalink: primer/how-storagegrid-manages-data.html 
+sidebar: sidebar 
+keywords: how storagegrid manages data, what an object is, how object data is protected 
+summary: Com o armazenamento de objetos, a unidade de armazenamento é um objeto, em vez de um arquivo ou um bloco. Ao contrário da hierarquia semelhante a uma árvore de um sistema de arquivos ou armazenamento em bloco, o armazenamento de objetos organiza os dados em um layout plano e não estruturado. 
+---
+= O que é um objeto
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Com o armazenamento de objetos, a unidade de armazenamento é um objeto, em vez de um arquivo ou um bloco. Ao contrário da hierarquia semelhante a uma árvore de um sistema de arquivos ou armazenamento em bloco, o armazenamento de objetos organiza os dados em um layout plano e não estruturado.
+
+O armazenamento de objetos separa a localização física dos dados do método usado para armazenar e recuperar esses dados.
+
+Cada objeto em um sistema de storage baseado em objeto tem duas partes: Dados de objeto e metadados de objeto.
+
+image::../media/object_conceptual_drawing.png[Objeto]
+
+
+
+== O que são dados de objeto?
+
+Os dados do objeto podem ser qualquer coisa; por exemplo, uma fotografia, um filme ou um Registro médico.
+
+
+
+== O que é metadados de objetos?
+
+Metadados de objetos são qualquer informação que descreva um objeto. O StorageGRID usa metadados de objetos para rastrear os locais de todos os objetos na grade e gerenciar o ciclo de vida de cada objeto ao longo do tempo.
+
+Os metadados de objeto incluem informações como as seguintes:
+
+* Metadados do sistema, incluindo um ID exclusivo para cada objeto (UUID), o nome do objeto, o nome do bucket do S3 ou do contentor Swift, o nome ou ID da conta do locatário, o tamanho lógico do objeto, a data e hora em que o objeto foi criado pela primeira vez e a data e hora em que o objeto foi modificado pela última vez.
+* O local de storage atual de cada cópia de objeto ou fragmento codificado de apagamento.
+* Quaisquer metadados de usuário associados ao objeto.
+
+
+Os metadados de objetos são personalizáveis e expansíveis, tornando-os flexíveis para uso dos aplicativos.
+
+Para obter informações detalhadas sobre como e onde o StorageGRID armazena metadados de objetos, vá para link:../admin/managing-object-metadata-storage.html["Gerenciar o storage de metadados de objetos"].
+
+
+
+== Como os dados do objeto são protegidos?
+
+O sistema StorageGRID fornece dois mecanismos para proteger os dados de objetos contra perda: Replicação e codificação de apagamento.
+
+
+
+=== Replicação
+
+Quando o StorageGRID faz a correspondência de objetos a uma regra de gerenciamento do ciclo de vida das informações (ILM) configurada para criar cópias replicadas, o sistema cria cópias exatas de dados de objetos e os armazena em nós de storage ou pools de storage de nuvem. As regras do ILM determinam o número de cópias feitas, onde essas cópias são armazenadas e por quanto tempo elas são mantidas pelo sistema. Se uma cópia for perdida, por exemplo, como resultado da perda de um nó de armazenamento, o objeto ainda estará disponível se uma cópia dele existir em outro lugar do sistema StorageGRID.
+
+No exemplo a seguir, a regra fazer 2 cópias especifica que duas cópias replicadas de cada objeto serão colocadas em um pool de storage que contém três nós de storage.
+
+image::../media/ilm_replication_make_2_copies.png[Regra de fazer 2 cópias]
+
+
+
+=== Codificação de apagamento
+
+Quando o StorageGRID faz a correspondência de objetos a uma regra ILM configurada para criar cópias codificadas por apagamento, ele corta dados de objetos em fragmentos de dados, calcula fragmentos de paridade adicionais e armazena cada fragmento em um nó de storage diferente. Quando um objeto é acessado, ele é remontado usando os fragmentos armazenados. Se um dado ou um fragmento de paridade ficar corrompido ou perdido, o algoritmo de codificação de apagamento pode recriar esse fragmento usando um subconjunto dos dados restantes e fragmentos de paridade. As regras do ILM e os perfis de codificação de apagamento determinam o esquema de codificação de apagamento usado.
+
+O exemplo a seguir ilustra o uso da codificação de apagamento nos dados de um objeto. Neste exemplo, a regra ILM usa um esquema de codificação de apagamento 4-2. Cada objeto é dividido em quatro fragmentos de dados iguais, e dois fragmentos de paridade são computados a partir dos dados do objeto. Cada um dos seis fragmentos é armazenado em um nó de storage diferente em três data centers para fornecer proteção de dados para falhas de nós ou perda do local.
+
+image::../media/ec_three_sites_4_plus_2.png[Codificar para apagamento três locais 4 Plus 2]
+
+.Informações relacionadas
+* link:../ilm/index.html["Gerenciar objetos com ILM"]
+* link:using-information-lifecycle-management.html["Use o gerenciamento do ciclo de vida das informações"]
+

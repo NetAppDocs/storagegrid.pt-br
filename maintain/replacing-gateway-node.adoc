@@ -1,0 +1,49 @@
+---
+permalink: maintain/replacing-gateway-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, replace gateway node, replacing gateway node 
+summary: Você pode substituir um nó de gateway com falha por um nó de gateway executado no mesmo hardware físico ou virtual, ou pode substituir um nó de gateway em execução em VMware ou em um host Linux por um nó de gateway hospedado em um dispositivo de serviços. 
+---
+= Substitua o nó de gateway
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode substituir um nó de gateway com falha por um nó de gateway executado no mesmo hardware físico ou virtual, ou pode substituir um nó de gateway em execução em VMware ou em um host Linux por um nó de gateway hospedado em um dispositivo de serviços.
+
+O procedimento de substituição do nó que você deve seguir depende de qual plataforma será usada pelo nó de substituição. Depois de concluir o procedimento de substituição do nó (que é adequado para todos os tipos de nó), esse procedimento irá direcioná-lo para a próxima etapa para a recuperação do nó de gateway.
+
+[cols="1a,2a"]
+|===
+| Plataforma de substituição | Procedimento 
+
+
+ a| 
+VMware
+ a| 
+link:all-node-types-replacing-vmware-node.html["Substitua um nó VMware"]
+
+
+
+ a| 
+Linux
+ a| 
+link:all-node-types-replacing-linux-node.html["Substitua um nó Linux"]
+
+
+
+ a| 
+Aparelhos de serviços
+ a| 
+link:replacing-failed-node-with-services-appliance.html["Substitua um dispositivo de serviços"]
+
+
+
+ a| 
+OpenStack
+ a| 
+Os arquivos e scripts de disco de máquina virtual fornecidos pela NetApp para OpenStack não são mais compatíveis com operações de recuperação. Se você precisar recuperar um nó em execução em uma implantação OpenStack, baixe os arquivos para seu sistema operacional Linux. Em seguida, siga o procedimento para link:all-node-types-replacing-linux-node.html["Substituindo um nó Linux"].
+
+|===

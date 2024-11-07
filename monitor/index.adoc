@@ -1,0 +1,46 @@
+---
+permalink: monitor/index.html 
+sidebar: sidebar 
+keywords: monitor StorageGRID 
+summary: Monitore seu sistema StorageGRID regularmente para garantir que ele esteja funcionando conforme esperado. 
+---
+= Monitorar um sistema StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Monitore seu sistema StorageGRID regularmente para garantir que ele esteja funcionando conforme esperado.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
+
+
+
+NOTE: Para alterar unidades para os valores de armazenamento exibidos no Gerenciador de Grade, selecione o usuário suspenso no canto superior direito do Gerenciador de Grade e selecione *Preferências do usuário*.
+
+.Sobre esta tarefa
+Estas instruções descrevem como:
+
+* link:viewing-dashboard.html["Visualizar e gerenciar o painel"]
+* link:viewing-nodes-page.html["Exibir a página nós"]
+* link:information-you-should-monitor-regularly.html["Monitorize estes aspetos do sistema regularmente:"]
++
+** link:monitoring-system-health.html["Integridade do sistema"]
+** link:monitoring-storage-capacity.html["Capacidade de storage"]
+** link:monitoring-information-lifecycle-management.html["Gerenciamento do ciclo de vida das informações"]
+** link:monitoring-network-connections-and-performance.html["Recursos de rede e sistema"]
+** link:monitoring-tenant-activity.html["Atividade do locatário"]
+** link:monitoring-load-balancing-operations.html["Operações de balanceamento de carga"]
+** link:grid-federation-monitor-connections.html["Conexões de federação de grade"]
+
+
+* link:managing-alerts.html["Gerenciar alertas"]
+* link:logs-files-reference.html["Ver ficheiros de registo"]
+* link:configure-audit-messages.html["Configurar mensagens de auditoria e destinos de log"]
+* link:considerations-for-external-syslog-server.html["Use um servidor syslog externo"] para coletar informações de auditoria
+* link:using-snmp-monitoring.html["Utilize SNMP para monitorização"]
+* link:using-charts-and-reports.html["Obter dados StorageGRID adicionais"], incluindo métricas e diagnósticos
+

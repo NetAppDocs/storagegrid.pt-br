@@ -1,0 +1,115 @@
+---
+permalink: monitor/viewing-dashboard.html 
+sidebar: sidebar 
+keywords: how to view dashboard, how to configure dashboard 
+summary: Você pode usar o painel para monitorar rapidamente as atividades do sistema. Você pode criar painéis personalizados para monitorar a implementação do StorageGRID. 
+---
+= Visualizar e gerenciar o painel
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o painel para monitorar rapidamente as atividades do sistema. Você pode criar painéis personalizados para monitorar a implementação do StorageGRID.
+
+
+TIP: Para alterar unidades para os valores de armazenamento exibidos no Gerenciador de Grade, selecione o usuário suspenso no canto superior direito do Gerenciador de Grade e selecione *Preferências do usuário*.
+
+Seu painel pode ser diferente com base na configuração do sistema.
+
+image::../media/grid_manager_dashboard.png[Painel do Grid Manager]
+
+
+
+== Visualizar o painel de instrumentos
+
+O painel é composto por separadores que contêm informações específicas sobre o sistema StorageGRID. Cada guia contém categorias de informações exibidas nos cartões.
+
+Você pode usar o painel fornecido pelo sistema como está. Além disso, você pode criar painéis personalizados que contêm apenas as guias e cartões relevantes para o monitoramento da implementação do StorageGRID.
+
+As guias de painel fornecidas pelo sistema contêm cartões com os seguintes tipos de informações:
+
+[cols="1a,3a"]
+|===
+| Separador no painel de instrumentos fornecido pelo sistema | Contém 
+
+
+ a| 
+Visão geral
+ a| 
+Informações gerais sobre a grade, como alertas ativos, uso de espaço e objetos totais na grade.
+
+
+
+ a| 
+Desempenho
+ a| 
+Uso de espaço, armazenamento usado ao longo do tempo, S3 operações, duração da solicitação, taxa de erro.
+
+
+
+ a| 
+Armazenamento
+ a| 
+Uso da cota de locatário e uso do espaço lógico. Previsões de uso de espaço para dados de usuário e metadados.
+
+
+
+ a| 
+ILM
+ a| 
+Fila de gerenciamento do ciclo de vida das informações e taxa de avaliação.
+
+
+
+ a| 
+Nós
+ a| 
+Uso de CPU, dados e memória por nó. S3 operações por nó. Distribuição nó a local.
+
+|===
+Alguns dos cartões podem ser maximizados para facilitar a visualização. Selecione o ícone maximizar image:../media/icon_dashboard_card_maximize.png["Ícone maximizar"]no canto superior direito do cartão. Para fechar um cartão maximizado, selecione o ícone minimizar image:../media/icon_dashboard_card_minimize.png["Ícone minimizar"]ou selecione *Fechar*.
+
+
+
+== Gerenciar painéis
+
+Se você tiver acesso root (link:../admin/admin-group-permissions.html["Permissões do grupo de administração"]consulte ), poderá executar as seguintes tarefas de gerenciamento para painéis:
+
+* Crie um painel personalizado do zero. Você pode usar painéis personalizados para controlar quais informações do StorageGRID são exibidas e como essas informações são organizadas.
+* Clonar um painel para criar painéis personalizados.
+* Defina um painel ativo para um usuário. O painel ativo pode ser o painel fornecido pelo sistema ou um painel personalizado.
+* Defina um painel padrão, que é o que todos os usuários veem, a menos que ativem seu próprio painel.
+* Edite um nome de painel.
+* Edite um painel para adicionar ou remover guias e cartões. Você pode ter um mínimo de 1 e um máximo de 20 guias.
+* Retire um painel de bordo.
+
+
+
+NOTE: Se você tiver qualquer outra permissão além do acesso root, você só poderá definir um painel ativo.
+
+Para gerenciar painéis, selecione *ações* > *Gerenciar painéis*.
+
+image::../media/dashboard_manage.png[Gerenciar painéis]
+
+
+
+== Configurar painéis
+
+Para criar um novo painel clonando o painel ativo, selecione *ações* > *Clonar painel ativo*.
+
+Para editar ou clonar um painel existente, selecione *ações* > *Gerenciar painéis*.
+
+
+NOTE: O painel fornecido pelo sistema não pode ser editado ou removido.
+
+Ao configurar um dashboard, você pode:
+
+* Adicionar ou remover separadores
+* Renomeie as guias e dê nomes exclusivos às novas guias
+* Adicione, remova ou reorganize (arraste) cartões para cada guia
+* Selecione o tamanho para cartões individuais selecionando *S*, *M*, *L* ou *XL* na parte superior do cartão
+
+
+image::../media/dashboard_configure.png[Configure o painel de instrumentos]

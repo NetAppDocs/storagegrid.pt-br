@@ -1,0 +1,40 @@
+---
+permalink: audit/scmt-object-store-commit.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, SCMT, Object Store Commit 
+summary: 'O conteúdo da grade não é disponibilizado ou reconhecido como armazenado até que ele tenha sido comprometido (ou seja, ele foi armazenado persistentemente). O conteúdo armazenado persistentemente foi completamente gravado no disco e passou por verificações de integridade relacionadas. Essa mensagem é emitida quando um bloco de conteúdo é comprometido com o armazenamento.' 
+---
+= SCMT: Confirmação de armazenamento de objetos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O conteúdo da grade não é disponibilizado ou reconhecido como armazenado até que ele tenha sido comprometido (ou seja, ele foi armazenado persistentemente). O conteúdo armazenado persistentemente foi completamente gravado no disco e passou por verificações de integridade relacionadas. Essa mensagem é emitida quando um bloco de conteúdo é comprometido com o armazenamento.
+
+[cols="1a,1a,4a"]
+|===
+| Código | Campo | Descrição 
+
+
+ a| 
+CBID
+ a| 
+Identificador do bloco de conteúdo
+ a| 
+O identificador exclusivo do bloco de conteúdo comprometido com o armazenamento permanente.
+
+
+
+ a| 
+RSLT
+ a| 
+Código do resultado
+ a| 
+Status no momento em que o objeto foi armazenado no disco:
+
+SUCS: Objeto armazenado com sucesso.
+
+|===
+Esta mensagem significa que um determinado bloco de conteúdo foi completamente armazenado e verificado e agora pode ser solicitado. Ele pode ser usado para rastrear o fluxo de dados dentro do sistema.

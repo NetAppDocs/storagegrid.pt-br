@@ -1,0 +1,120 @@
+---
+permalink: monitor/grid-federation-monitor-connections.html 
+sidebar: sidebar 
+keywords: grid federation, monitor connection, cross grid replication metrics 
+summary: Você pode monitorar informações básicas sobre todas as conexões de federação de grade, informações detalhadas sobre uma conexão específica ou métricas Prometheus sobre operações de replicação entre grade. Você pode monitorar uma conexão de qualquer grade. 
+---
+= Monitorar conexões de federação de grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode monitorar informações básicas sobre todas link:../admin/grid-federation-overview.html["conexões de federação de grade"], informações detalhadas sobre uma conexão específica ou métricas do Prometheus sobre operações de replicação entre grades. Você pode monitorar uma conexão de qualquer grade.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade em qualquer grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:../admin/admin-group-permissions.html["Permissão de acesso à raiz"] para a grade na qual você está conetado.
+
+
+
+
+== Ver todas as ligações
+
+A página de federação de grade mostra informações básicas sobre todas as conexões de federação de grade e sobre todas as contas de locatário que têm permissão para usar conexões de federação de grade.
+
+.Passos
+. Selecione *CONFIGURATION* > *System* > *Grid Federation*.
++
+A página de federação de grade é exibida.
+
+. Para ver as informações básicas de todas as conexões nesta grade, selecione a guia *conexões*.
++
+Nesta guia, você pode:
+
++
+** link:../admin/grid-federation-create-connection.html["Crie uma nova conexão"].
+** Selecione uma conexão existente com link:../admin/grid-federation-manage-connection.html["editar ou testar"]o .
+
+
++
+image::../media/grid-federation-connections-tab.png[Separador ligações de federação de grelha]
+
+. Para ver as informações básicas de todas as contas de inquilino nesta grade que têm a permissão *Use Grid Federation Connection*, selecione a guia *allowed tenants*.
++
+Nesta guia, você pode:
+
++
+** link:../monitor/monitoring-tenant-activity.html["Veja a página de detalhes de cada locatário permitido"].
+** Veja a página de detalhes de cada conexão. <<view-specific-connection,Ver uma ligação específica>>Consulte .
+** Selecione um locatário permitido e link:../admin/grid-federation-manage-tenants.html["remova a permissão"].
+** Verifique se há erros de replicação entre grades e limpe o último erro, se houver. link:../admin/grid-federation-troubleshoot.html["Solucionar erros de federação de grade"]Consulte .
++
+image::../media/grid-federation-permitted-tenants-tab.png[Guia locatários permitidos da federação de grade]
+
+
+
+
+
+
+
+== [[view-specific-Connection]]Veja uma conexão específica
+
+Você pode exibir detalhes de uma conexão de federação de grade específica.
+
+.Passos
+. Selecione qualquer guia na página de federação de Grade e selecione o nome da conexão na tabela.
++
+Na página de detalhes da conexão, você pode:
+
++
+** Consulte informações básicas de status sobre a conexão, incluindo nomes de host locais e remotos, porta e status da conexão.
+** Selecione uma ligação ao link:../admin/grid-federation-manage-connection.html["edite, teste ou remova"].
+
+
+. Ao visualizar uma conexão específica, selecione a guia *allowed tenants* (inquilinos permitidos) para exibir detalhes sobre os locatários permitidos para a conexão.
++
+Nesta guia, você pode:
+
++
+** link:../monitor/monitoring-tenant-activity.html["Veja a página de detalhes de cada locatário permitido"].
+** link:../admin/grid-federation-manage-tenants.html["Remova a permissão de um locatário"] para utilizar a ligação.
+** Verifique se há erros de replicação entre redes e limpe o último erro. link:../admin/grid-federation-troubleshoot.html["Solucionar erros de federação de grade"]Consulte .
++
+image::../media/grid-federation-permitted-tenants-tab-for-connection.png[grid-federação-permitida-tenants-tab-for-connection]
+
+
+
+. Ao exibir uma conexão específica, selecione a guia *certificados* para exibir os certificados de servidor e cliente gerados pelo sistema para essa conexão.
++
+Nesta guia, você pode:
+
++
+** link:../admin/grid-federation-manage-connection.html["Rode os certificados de ligação"].
+** Selecione *Server* ou *Client* para visualizar ou baixar o certificado associado ou copiar o PEM do certificado.
++
+image::../media/grid-federation-certificates-tab.png[grid-federation-certificates-tab]
+
+
+
+
+
+
+
+== Analise as métricas de replicação entre grades
+
+Você pode usar o painel replicação entre grades no Grafana para exibir as métricas do Prometheus sobre operações de replicação entre grades na grade.
+
+.Passos
+. No Gerenciador de Grade, selecione *support* > *Tools* > *Metrics*.
++
+
+NOTE: As ferramentas disponíveis na página Metrics destinam-se a ser utilizadas pelo suporte técnico. Alguns recursos e itens de menu dentro dessas ferramentas são intencionalmente não funcionais e estão sujeitos a alterações. Consulte a lista link:../monitor/commonly-used-prometheus-metrics.html["Métricas de Prometheus comumente usadas"]de .
+
+. Na seção Grafana da página, selecione *Cross Grid Replication*.
++
+Para obter instruções detalhadas, link:../monitor/reviewing-support-metrics.html["Analise as métricas de suporte"]consulte .
+
+. Para repetir a replicação de objetos que não conseguiram replicar, link:../admin/grid-federation-retry-failed-replication.html["Identificar e tentar novamente operações de replicação com falha"]consulte .
+

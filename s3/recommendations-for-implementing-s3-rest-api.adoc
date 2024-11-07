@@ -1,0 +1,61 @@
+---
+permalink: s3/recommendations-for-implementing-s3-rest-api.html 
+sidebar: sidebar 
+keywords: implement s3 rest api 
+summary: Você deve seguir estas recomendações ao implementar a API REST do S3 para uso com o StorageGRID. 
+---
+= Recomendações para a implementação da API REST do S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve seguir estas recomendações ao implementar a API REST do S3 para uso com o StorageGRID.
+
+
+
+== Recomendações para heads to non-existent objects
+
+Se o aplicativo verificar rotineiramente se um objeto existe em um caminho onde você não espera que o objeto realmente exista, você deve usar o "disponível" link:consistency-controls.html["consistência"]. Por exemplo, você deve usar a consistência "disponível" se seu aplicativo dirigir um local antes DE COLOCÁ-lo.
+
+Caso contrário, se a operação PRINCIPAL não encontrar o objeto, poderá receber um número elevado de erros de servidor interno 500 se dois ou mais nós de armazenamento no mesmo local não estiverem disponíveis ou se um local remoto não estiver acessível.
+
+Você pode definir a consistência "disponível" para cada bucket usando a link:put-bucket-consistency-request.html["COLOQUE a consistência do balde"] solicitação ou especificar a consistência no cabeçalho da solicitação para uma operação de API individual.
+
+
+
+== Recomendações para chaves de objeto
+
+Siga estas recomendações para nomes de chave de objeto, com base em quando o intervalo foi criado pela primeira vez.
+
+.Buckets criados no StorageGRID 11,4 ou anterior
+* Não use valores aleatórios como os primeiros quatro carateres de chaves de objeto. Isso contrasta com a antiga recomendação da AWS para prefixos-chave. Em vez disso, use prefixos não aleatórios e não exclusivos, como `image` .
+* Se você seguir a antiga recomendação da AWS para usar carateres aleatórios e exclusivos em prefixos de chave, prefix as chaves de objeto com um nome de diretório. Ou seja, use este formato:
++
+`mybucket/mydir/f8e3-image3132.jpg`
+
++
+Em vez deste formato:
+
++
+`mybucket/f8e3-image3132.jpg`
+
+
+
+.Buckets criados no StorageGRID 11,4 ou posterior
+Não é necessário restringir nomes de chaves de objeto para atender às práticas recomendadas de desempenho. Na maioria dos casos, você pode usar valores aleatórios para os primeiros quatro carateres de nomes de chave de objeto.
+
+
+TIP: Uma exceção a isso é uma carga de trabalho S3 que remove continuamente todos os objetos após um curto período de tempo. Para minimizar o impacto no desempenho desse caso de uso, varie uma parte principal do nome da chave a cada milhares de objetos com algo como a data. Por exemplo, suponha que um cliente S3 normalmente grava 2.000 objetos/segundo e que a política de ciclo de vida ILM ou bucket remove todos os objetos após três dias. Para minimizar o impactos no desempenho, você pode nomear chaves usando um padrão como este: `/mybucket/mydir/_yyyymmddhhmmss_-_random_UUID_.jpg`
+
+
+
+== Recomendações para "leituras de intervalo"
+
+Se o link:../admin/configuring-stored-object-compression.html["opção global para comprimir objetos armazenados"] estiver ativado, os aplicativos cliente S3 devem evitar executar operações GetObject que especificam um intervalo de bytes que sejam retornados. Essas operações de "leitura de intervalo" são ineficientes porque o StorageGRID deve descompactar efetivamente os objetos para acessar os bytes solicitados. As operações GetObject que solicitam um pequeno intervalo de bytes de um objeto muito grande são especialmente ineficientes; por exemplo, é ineficiente ler um intervalo de 10 MB de um objeto compactado de 50 GB.
+
+Se os intervalos forem lidos a partir de objetos compatados, as solicitações do cliente podem expirar.
+
+
+NOTE: Se você precisar compactar objetos e seu aplicativo cliente precisar usar leituras de intervalo, aumente o tempo limite de leitura para o aplicativo.

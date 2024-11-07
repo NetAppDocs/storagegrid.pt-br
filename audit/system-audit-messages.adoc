@@ -1,0 +1,172 @@
+---
+permalink: audit/system-audit-messages.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, messages, system, ECOC, ETAF, GNRG, GNUR, GTED, GTST, GTSU, LLST, OLST, SADD, SADE, SVRF, SVRU, SYSD, SYST, SYSU, VLST 
+summary: 'As mensagens de auditoria pertencentes à categoria de auditoria do sistema são usadas para eventos relacionados ao próprio sistema de auditoria, estados de nó de grade, atividade de tarefas em todo o sistema (tarefas de grade) e operações de backup de serviço.' 
+---
+= Mensagens de auditoria do sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+As mensagens de auditoria pertencentes à categoria de auditoria do sistema são usadas para eventos relacionados ao próprio sistema de auditoria, estados de nó de grade, atividade de tarefas em todo o sistema (tarefas de grade) e operações de backup de serviço.
+
+[cols="1a,2a,1a"]
+|===
+| Código | Título e descrição da mensagem | Consulte 
+
+
+ a| 
+ECMC
+ a| 
+Fragmento de dados com codificação de apagamento em falta: Indica que um fragmento de dados com codificação de apagamento em falta foi detetado.
+ a| 
+link:ecmc-missing-erasure-coded-data-fragment.html["ECMC: Fragmento de dados codificado de apagamento em falta"]
+
+
+
+ a| 
+ECOC
+ a| 
+Fragmento de dados codificado por apagamento corrompido: Indica que um fragmento de dados codificado por apagamento corrompido foi detetado.
+ a| 
+link:ecoc-corrupt-erasure-coded-data-fragment.html["ECOC: Fragmento de dados codificado por apagamento corrompido"]
+
+
+
+ a| 
+ETAF
+ a| 
+Falha na autenticação de segurança: Uma tentativa de conexão usando TLS (Transport Layer Security) falhou.
+ a| 
+link:etaf-security-authentication-failed.html["ETAF: Falha na autenticação de segurança"]
+
+
+
+ a| 
+GNRG
+ a| 
+Registro GNDS: Um serviço atualizado ou registrado informações sobre si mesmo no sistema StorageGRID.
+ a| 
+link:gnrg-gnds-registration.html["GNRG: Registro GNDS"]
+
+
+
+ a| 
+GNUR
+ a| 
+GNDS Unregistration: Um serviço não se registrou a partir do sistema StorageGRID.
+ a| 
+link:gnur-gnds-unregistration.html["GNUR: GNDS Unregistration"]
+
+
+
+ a| 
+GTED
+ a| 
+Tarefa de grelha terminada: O serviço CMN terminou de processar a tarefa de grelha.
+ a| 
+link:gted-grid-task-ended.html["GTED: Tarefa de grelha terminada"]
+
+
+
+ a| 
+GTST
+ a| 
+Tarefa de grade iniciada: O serviço CMN começou a processar a tarefa de grade.
+ a| 
+link:gtst-grid-task-started.html["GTST: Tarefa de grade iniciada"]
+
+
+
+ a| 
+GTSU
+ a| 
+Tarefa de grelha enviada: Uma tarefa de grelha foi enviada para o serviço CMN.
+ a| 
+link:gtsu-grid-task-submitted.html["GTSU: Tarefa de grelha enviada"]
+
+
+
+ a| 
+LLST
+ a| 
+Localização perdida: Esta mensagem de auditoria é gerada quando um local é perdido.
+ a| 
+link:llst-location-lost.html["LLST: Localização perdida"]
+
+
+
+ a| 
+OLST
+ a| 
+Objeto perdido: Um objeto solicitado não pode ser localizado dentro do sistema StorageGRID.
+ a| 
+link:olst-system-detected-lost-object.html["OLST: O sistema detetou Objeto perdido"]
+
+
+
+ a| 
+ADICIONAR
+ a| 
+Desativação da auditoria de segurança: O registo de mensagens de auditoria foi desativado.
+ a| 
+link:sadd-security-audit-disable.html["ADICIONAR: Desativação da auditoria de segurança"]
+
+
+
+ a| 
+SADE
+ a| 
+Ativação da auditoria de segurança: O registo de mensagens de auditoria foi restaurado.
+ a| 
+link:sade-security-audit-enable.html["SADE: Ativação da auditoria de segurança"]
+
+
+
+ a| 
+SVRF
+ a| 
+Falha na verificação do armazenamento de objetos: Um bloco de conteúdo falhou verificações.
+ a| 
+link:svrf-object-store-verify-fail.html["SVRF: Falha na verificação do armazenamento de objetos"]
+
+
+
+ a| 
+SVRU
+ a| 
+Verificação desconhecido: Dados de objeto inesperados detetados no armazenamento de objetos.
+ a| 
+link:svru-object-store-verify-unknown.html["SVRU: Verificação do armazenamento de objetos desconhecido"]
+
+
+
+ a| 
+SYSD
+ a| 
+Paragem nó: Foi solicitado um encerramento.
+ a| 
+link:sysd-node-stop.html["SYSD: Parada do nó"]
+
+
+
+ a| 
+SIST
+ a| 
+Parada do nó: Um serviço iniciou uma parada graciosa.
+ a| 
+link:syst-node-stopping.html["SIST: Paragem do nó"]
+
+
+
+ a| 
+SYSU
+ a| 
+Início do nó: Um serviço foi iniciado; a natureza do desligamento anterior é indicada na mensagem.
+ a| 
+link:sysu-node-start.html["SYSU: Início do nó"]
+
+|===

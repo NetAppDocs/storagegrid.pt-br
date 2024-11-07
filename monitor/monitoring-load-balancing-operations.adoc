@@ -1,0 +1,54 @@
+---
+permalink: monitor/monitoring-load-balancing-operations.html 
+sidebar: sidebar 
+keywords: load balancing, monitoring 
+summary: Se você estiver usando um balanceador de carga para gerenciar conexões de cliente com o StorageGRID, monitore as operações de balanceamento de carga após configurar o sistema inicialmente e depois de fazer alterações de configuração ou executar uma expansão. 
+---
+= Monitorar operações de balanceamento de carga
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você estiver usando um balanceador de carga para gerenciar conexões de cliente com o StorageGRID, monitore as operações de balanceamento de carga após configurar o sistema inicialmente e depois de fazer alterações de configuração ou executar uma expansão.
+
+.Sobre esta tarefa
+Você pode usar o serviço Load Balancer em nós de administração ou nós de gateway ou um balanceador de carga externo de terceiros para distribuir solicitações de clientes entre vários nós de storage.
+
+Depois de configurar o balanceamento de carga, você deve confirmar que as operações de obtenção e recuperação de objetos estão sendo distribuídas uniformemente pelos nós de storage. As solicitações distribuídas uniformemente garantem que o StorageGRID permaneça responsivo às solicitações do cliente sob carga e possa ajudar a manter o desempenho do cliente.
+
+Se você configurou um grupo de alta disponibilidade (HA) de nós de Gateway ou nós de administrador no modo de backup ativo, apenas um nó no grupo distribui ativamente as solicitações de cliente.
+
+Para obter mais informações, link:../admin/configuring-client-connections.html["Configurar conexões de cliente S3"]consulte .
+
+.Passos
+. Se os clientes S3 se conetarem usando o serviço Load Balancer, verifique se os nós de administrador ou os nós de gateway estão distribuindo ativamente o tráfego como você espera:
++
+.. Selecione *NODES*.
+.. Selecione um nó de gateway ou nó de administrador.
+.. Na guia *Visão geral*, verifique se uma interface de nó está em um grupo de HA e se a interface de nó tem a função de primária.
++
+Os nós com a função de primário e nós que não estão em um grupo de HA devem estar distribuindo ativamente solicitações aos clientes.
+
+.. Para cada nó que deve estar distribuindo ativamente solicitações de cliente, selecione o link:viewing-load-balancer-tab.html["Separador Load Balancer (carregar balanceador)"].
+.. Revise o gráfico de tráfego de solicitação do Load Balancer para a última semana para garantir que o nó esteja distribuindo solicitações ativamente.
++
+Os nós de um grupo de HA de backup ativo podem assumir a função de backup de tempos em tempos. Durante esse tempo, os nós não distribuem solicitações de cliente.
+
+.. Revise o gráfico da taxa de solicitação de entrada do Load Balancer da última semana para analisar a taxa de transferência de objetos do nó.
+.. Repita estas etapas para cada nó de administrador ou nó de gateway no sistema StorageGRID.
+.. Opcionalmente, use políticas de classificação de tráfego para visualizar uma análise mais detalhada do tráfego que está sendo servido pelo serviço Load Balancer.
+
+
+. Verifique se essas solicitações estão sendo distribuídas uniformemente para os nós de storage.
++
+.. Selecione *_Storage Node_* > *LDR* > *HTTP*.
+.. Reveja o número de *sessões de entrada atualmente estabelecidas*.
+.. Repita para cada nó de armazenamento na grade.
++
+O número de sessões deve ser aproximadamente igual em todos os nós de storage.
+
+
+
+

@@ -1,0 +1,72 @@
+---
+permalink: monitor/collecting-log-files-and-system-data.html 
+sidebar: sidebar 
+keywords: how to collect system data, how to collect logs 
+summary: 'Você pode usar o Gerenciador de Grade para recuperar arquivos de log e dados do sistema (incluindo dados de configuração) para o seu sistema StorageGRID.' 
+---
+= Colete arquivos de log e dados do sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o Gerenciador de Grade para recuperar arquivos de log e dados do sistema (incluindo dados de configuração) para seu sistema StorageGRID.
+
+.Antes de começar
+* Você deve estar conetado ao Gerenciador de Grade no nó Admin principal usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
+* Você deve ter a senha de provisionamento.
+
+
+.Sobre esta tarefa
+Você pode usar o Gerenciador de Grade para coletar link:logs-files-reference.html["ficheiros de registo"], dados do sistema e dados de configuração de qualquer nó de grade para o período de tempo selecionado. Os dados são coletados e arquivados em um arquivo .tar.gz que você pode baixar para seu computador local.
+
+Opcionalmente, você pode alterar o destino dos logs de auditoria e enviar informações de auditoria para um servidor syslog externo. Os logs locais dos Registros de auditoria continuam a ser gerados e armazenados quando um servidor syslog externo é configurado. link:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria e destinos de log"]Consulte .
+
+.Passos
+. Selecione *SUPPORT* > *Tools* > *Logs*.
++
+image::../media/support_logs_select_nodes.png[Captura de tela da IU da coleção de logs]
+
+. Selecione os nós de grade para os quais você deseja coletar arquivos de log.
++
+Conforme necessário, você pode coletar arquivos de log para toda a grade ou para todo o site do data center.
+
+. Selecione *hora de início* e *hora de término* para definir o intervalo de tempo dos dados a serem incluídos nos arquivos de log.
++
+Se você selecionar um período de tempo muito longo ou coletar logs de todos os nós em uma grade grande, o arquivo de log pode se tornar muito grande para ser armazenado em um nó ou muito grande para ser coletado para o nó de administração principal para download. Se isso ocorrer, você deve reiniciar a coleta de logs com um conjunto menor de dados.
+
+. Selecione os tipos de registos que pretende recolher.
++
+** *Logs de aplicativos*: Logs específicos de aplicativos que o suporte técnico utiliza com mais frequência para solução de problemas. Os registos recolhidos são um subconjunto dos registos de aplicações disponíveis.
+** *Logs de auditoria*: Logs contendo as mensagens de auditoria geradas durante a operação normal do sistema.
+** *Rastreamento de rede*: Logs usados para depuração de rede.
+** *Prometheus Database*: Métricas de séries temporais dos serviços em todos os nós.
+
+
+. Opcionalmente, insira notas sobre os arquivos de log que você está reunindo na caixa de texto * Notas*.
++
+Você pode usar essas notas para fornecer informações de suporte técnico sobre o problema que o levou a coletar os arquivos de log. Suas anotações são adicionadas a um arquivo `info.txt` chamado , juntamente com outras informações sobre a coleção de arquivos de log. O `info.txt` ficheiro é guardado no pacote de arquivo de registo.
+
+. Introduza a frase-passe de aprovisionamento do seu sistema StorageGRID na caixa de texto *frase-passe de aprovisionamento*.
+. Selecione *Collect Logs*.
++
+Quando você envia uma nova solicitação, a coleção anterior de arquivos de log é excluída.
+
++
+Você pode usar a página Logs para monitorar o progresso da coleção de arquivos de log para cada nó de grade.
+
++
+Se você receber uma mensagem de erro sobre o tamanho do log, tente coletar logs por um período de tempo menor ou por menos nós.
+
+. Selecione *Download* quando a coleção de arquivos de log estiver concluída.
++
+O arquivo _.tar.gz_ contém todos os arquivos de log de todos os nós de grade onde a coleta de log foi bem-sucedida. Dentro do arquivo combinado _.tar.gz_, há um arquivo de log para cada nó de grade.
+
+
+
+.Depois de terminar
+Você pode baixar novamente o pacote de arquivo de log mais tarde, se precisar.
+
+Opcionalmente, você pode selecionar *Excluir* para remover o pacote de arquivo de log e liberar espaço em disco. O pacote de arquivo de log atual é removido automaticamente da próxima vez que você coletar arquivos de log.

@@ -1,0 +1,109 @@
+---
+permalink: maintain/identifying-and-unmounting-failed-storage-volumes.html 
+sidebar: sidebar 
+keywords: storagegrid, storage volume, failed storage volume, unmount failed volume 
+summary: Ao recuperar um nó de storage com volumes de storage com falha, você deve identificar e desmontar os volumes com falha. Você deve verificar se apenas os volumes de armazenamento com falha são reformatados como parte do procedimento de recuperação. 
+---
+= Identificar e desmontar volumes de storage com falha
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ao recuperar um nó de storage com volumes de storage com falha, você deve identificar e desmontar os volumes com falha. Você deve verificar se apenas os volumes de armazenamento com falha são reformatados como parte do procedimento de recuperação.
+
+.Antes de começar
+Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+
+.Sobre esta tarefa
+Você deve recuperar volumes de armazenamento com falha o mais rápido possível.
+
+A primeira etapa do processo de recuperação é detetar volumes que se desprenderam, precisam ser desmontados ou têm erros de e/S. Se os volumes com falha ainda estiverem anexados, mas tiverem um sistema de arquivos corrompido aleatoriamente, o sistema poderá não detetar qualquer corrupção em partes não utilizadas ou não alocadas do disco.
+
+
+NOTE: Você deve concluir este procedimento antes de executar etapas manuais para recuperar os volumes, como adicionar ou reanexar os discos, parar o nó, iniciar o nó ou reinicializar. Caso contrário, quando você executa `reformat_storage_block_devices.rb` o script, você pode encontrar um erro de sistema de arquivos que faz com que o script pendure ou falhe.
+
+
+NOTE: Repare o hardware e conete corretamente os discos antes de executar o `reboot` comando.
+
+
+CAUTION: Identifique cuidadosamente os volumes de armazenamento com falha. Você usará essas informações para verificar quais volumes devem ser reformatados. Depois de um volume ter sido reformatado, os dados no volume não podem ser recuperados.
+
+Para recuperar corretamente volumes de armazenamento com falha, você precisa saber os nomes dos dispositivos dos volumes de armazenamento com falha e suas IDs de volume.
+
+Na instalação, cada dispositivo de armazenamento recebe um identificador exclusivo universal (UUID) do sistema de arquivos e é montado em um diretório rangedb no nó de armazenamento usando esse UUID do sistema de arquivos atribuído. O sistema de arquivos UUUID e o diretório rangedb são listados no `/etc/fstab` arquivo. O nome do dispositivo, o diretório rangedb e o tamanho do volume montado são exibidos no Gerenciador de Grade.
+
+No exemplo a seguir, o dispositivo `/dev/sdc` tem um tamanho de volume de 4 TB, é montado no `/var/local/rangedb/0`, usando o nome do dispositivo `/dev/disk/by-uuid/822b0547-3b2b-472e-ad5e-e1cf1809faba` no /`etc/fstab` arquivo:
+
+image::../media/mounting_storage_devices.gif[Exemplo de tamanho do volume]
+
+.Passos
+. Execute as etapas a seguir para gravar os volumes de armazenamento com falha e os nomes de seus dispositivos:
++
+.. Selecione *SUPPORT* > *Tools* > *Grid topology*.
+.. Selecione *site* > *nó de armazenamento com falha* > *LDR* > *armazenamento* > *Visão geral* > *Principal* e procure armazenamentos de objetos com alarmes.
++
+image::../media/ldr_storage_object_stores.gif[Seção armazenamentos de objetos]
+
+.. Selecione *site* > *nó de armazenamento com falha* > *SSM* > *recursos* > *Visão geral* > *Principal*. Determine o ponto de montagem e o tamanho do volume de cada volume de armazenamento com falha identificado na etapa anterior.
++
+Os armazenamentos de objetos são numerados em notação hexadecimal. Por exemplo, 0000 é o primeiro volume e 000F é o décimo sexto volume. No exemplo, o armazenamento de objetos com uma ID de 0000 corresponde `/var/local/rangedb/0` com o nome do dispositivo sdc e um tamanho de 107 GB.
+
++
+image::../media/ssm_storage_volumes.gif[exemplo mostrando armazenamentos de objetos e pontos de montagem]
+
+
+
+. Faça login no nó de storage com falha:
++
+.. Introduza o seguinte comando: `ssh admin@_grid_node_IP_`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+
+
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+. Execute o seguinte script para desmontar um volume de armazenamento com falha:
++
+`sn-unmount-volume object_store_ID`
+
++
+O `object_store_ID` é a ID do volume de armazenamento com falha. Por exemplo, especifique `0` no comando para um armazenamento de objetos com ID 0000.
+
+. Se solicitado, pressione *y* para interromper o serviço Cassandra dependendo do volume de armazenamento 0.
++
+
+NOTE: Se o serviço Cassandra já estiver parado, você não será solicitado. O serviço Cassandra é interrompido apenas para o volume 0.
+
++
+[listing]
+----
+root@Storage-180:~/var/local/tmp/storage~ # sn-unmount-volume 0
+Services depending on storage volume 0 (cassandra) aren't down.
+Services depending on storage volume 0 must be stopped before running this script.
+Stop services that require storage volume 0 [y/N]? y
+Shutting down services that require storage volume 0.
+Services requiring storage volume 0 stopped.
+Unmounting /var/local/rangedb/0
+/var/local/rangedb/0 is unmounted.
+----
++
+Em alguns segundos, o volume é desmontado. As mensagens são exibidas indicando cada etapa do processo. A mensagem final indica que o volume está desmontado.
+
+. Se a desmontagem falhar porque o volume está ocupado, você pode forçar uma desmontagem usando a `--use-umountof` opção:
++
+
+NOTE: Forçar uma desmontagem usando a `--use-umountof` opção pode fazer com que processos ou serviços que usam o volume se comportem inesperadamente ou travem.
+
++
+[listing]
+----
+root@Storage-180:~ # sn-unmount-volume --use-umountof /var/local/rangedb/2
+Unmounting /var/local/rangedb/2 using umountof
+/var/local/rangedb/2 is unmounted.
+Informing LDR service of changes to storage volumes
+----
+

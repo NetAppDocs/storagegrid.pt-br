@@ -1,0 +1,26 @@
+---
+permalink: admin/configuring-network-settings.html 
+sidebar: sidebar 
+keywords: network settings, vlan interface, traffic classification 
+summary: Você pode configurar várias configurações de rede do Gerenciador de Grade para ajustar a operação do sistema StorageGRID. 
+---
+= Configure as definições de rede
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode configurar várias configurações de rede do Gerenciador de Grade para ajustar a operação do sistema StorageGRID.
+
+
+
+== Configurar interfaces VLAN
+
+Você pode link:configure-vlan-interfaces.html["Crie interfaces de LAN virtual (VLAN)"]isolar e particionar o tráfego para segurança, flexibilidade e desempenho. Cada interface VLAN está associada a uma ou mais interfaces pai em nós de administração e nós de gateway. Você pode usar interfaces VLAN em grupos de HA e em endpoints do balanceador de carga para segregar o tráfego de cliente ou administrador por aplicativo ou locatário.
+
+
+
+== Políticas de classificação de tráfego
+
+Você pode usar link:managing-traffic-classification-policies.html["políticas de classificação de tráfego"] para identificar e gerenciar diferentes tipos de tráfego de rede, incluindo tráfego relacionado a buckets específicos, locatários, sub-redes de clientes ou pontos de extremidade do balanceador de carga. Essas políticas podem ajudar na limitação e monitoramento de tráfego.

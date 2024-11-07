@@ -1,0 +1,66 @@
+---
+indexpage:
+  title: Use locatários e clientes do StorageGRID
+  summary: Após a conclusão da configuração inicial, as contas de locatário do StorageGRID
+    podem criar buckets e usar aplicativos cliente S3 para obter, recuperar e excluir
+    objetos.
+  keywords: use tenant, manage tenant group, manage tenant user, manage s3 access
+    key, manage s3 bucket, use tenant features, use s3 rest api
+  lead: Após a conclusão da configuração inicial, as contas de locatário do StorageGRID
+    podem criar buckets e usar aplicativos cliente S3 para obter, recuperar e excluir
+    objetos.
+  tiles:
+  - title: Saiba mais sobre inquilinos
+    links:
+    - title: O que é um inquilino?
+      url: "../tenant/index.html"
+    - title: Inicie sessão no Gestor do Locatário
+      url: "../tenant/signing-in-to-tenant-manager.html"
+    - title: Monitorar contas de locatários
+      url: "../tenant/understanding-tenant-manager-dashboard.html"
+    - title: Use a API de gerenciamento do locatário
+      url: "../tenant/understanding-tenant-management-api.html"
+  - title: Gerenciar grupos de locatários e usuários
+    links:
+    - title: Use a federação de identidade
+      url: "../tenant/using-identity-federation.html"
+    - title: Crie S3 grupos
+      url: "../tenant/creating-groups-for-s3-tenant.html"
+    - title: Permissões de gerenciamento do locatário
+      url: "../tenant/tenant-management-permissions.html"
+    - title: Gerenciar usuários locais
+      url: "../tenant/managing-local-users.html"
+  - title: Gerenciar chaves de acesso e buckets do S3
+    links:
+    - title: Gerenciar S3 chaves de acesso
+      url: "../tenant/managing-s3-access-keys.html"
+    - title: Crie buckets
+      url: "../tenant/creating-s3-bucket.html"
+    - title: Veja os detalhes do balde
+      url: "../tenant/viewing-s3-bucket-details.html"
+    - title: Eliminar o balde
+      url: "../tenant/deleting-s3-bucket.html"
+  - title: Use os recursos do locatário
+    links:
+    - title: Clone de conta
+      url: "../tenant/grid-federation-account-clone.html"
+    - title: Replicação entre grade
+      url: "../tenant/grid-federation-manage-cross-grid-replication.html"
+    - title: Serviços de plataforma
+      url: "../tenant/considerations-for-platform-services.html"
+    - title: S3 bloqueio de objetos
+      url: "../tenant/using-s3-object-lock.html"
+  - title: USE A API REST DO S3
+    links:
+    - title: 'Referência rápida: Solicitações de API S3 suportadas'
+      url: "../s3/quick-reference-support-for-aws-apis.html"
+    - title: Operações em baldes
+      url: "../s3/operations-on-buckets.html"
+    - title: Operações em objetos
+      url: "../s3/operations-on-objects.html"
+    - title: Políticas de acesso ao bucket e ao grupo
+      url: "../s3/bucket-and-group-access-policies.html"
+  - title: Usar Swift REST API (fim de vida útil)
+    links:
+    - title: Use Swift
+      url: "../swift/index.html"

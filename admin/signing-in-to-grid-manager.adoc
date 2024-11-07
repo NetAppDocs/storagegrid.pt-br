@@ -1,0 +1,140 @@
+---
+permalink: admin/signing-in-to-grid-manager.html 
+sidebar: sidebar 
+keywords: grid manager, sign in, log in 
+summary: 'Você acessa a página de login do Gerenciador de Grade inserindo o nome de domínio totalmente qualificado (FQDN) ou o endereço IP de um nó Admin na barra de endereços de um navegador da Web suportado.' 
+---
+= Faça login no Gerenciador de Grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você acessa a página de login do Gerenciador de Grade inserindo o nome de domínio totalmente qualificado (FQDN) ou o endereço IP de um nó Admin na barra de endereços de um navegador da Web compatível.
+
+Cada sistema StorageGRID inclui um nó de administração principal e qualquer número de nós de administração não primários. Você pode entrar no Gerenciador de Grade em qualquer nó de administrador para gerenciar o sistema StorageGRID. No entanto, alguns procedimentos de manutenção só podem ser executados a partir do nó de administração principal.
+
+
+
+=== Ligar ao grupo HA
+
+Se os nós de administração estiverem incluídos em um grupo de alta disponibilidade (HA), você se conetará usando o endereço IP virtual do grupo de HA ou um nome de domínio totalmente qualificado que mapeia para o endereço IP virtual. O nó de administração principal deve ser selecionado como a interface principal do grupo, de modo que, quando você acessa o Gerenciador de grade, você o acessa no nó de administração principal, a menos que o nó de administração principal não esteja disponível. link:managing-high-availability-groups.html["Gerenciar grupos de alta disponibilidade"]Consulte .
+
+
+
+=== Use SSO
+
+Os passos de início de sessão são ligeiramente diferentes se link:configuring-sso.html["Logon único (SSO) foi configurado"].
+
+
+
+== Inicie sessão no Grid Manager no primeiro nó de administração
+
+.Antes de começar
+* Você tem suas credenciais de login.
+* Você está usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Os cookies são ativados no seu navegador.
+* Você pertence a um grupo de usuários que tem pelo menos uma permissão.
+* Você tem o URL para o Gerenciador de Grade:
++
+`https://_FQDN_or_Admin_Node_IP_/`
+
++
+Você pode usar o nome de domínio totalmente qualificado, o endereço IP de um nó Admin ou o endereço IP virtual de um grupo de HA de nós Admin.
+
++
+Para acessar o Gerenciador de Grade em uma porta diferente da porta padrão para HTTPS (443), inclua o número da porta no URL:
+
++
+`https://_FQDN_or_Admin_Node_IP:port_/`
+
++
+
+NOTE: O SSO não está disponível na porta do Gerenciador de Grade restrito. Tem de utilizar a porta 443.
+
+
+
+.Passos
+. Inicie um navegador da Web compatível.
+. Na barra de endereços do navegador, insira o URL do Gerenciador de Grade.
+. Se for solicitado um alerta de segurança, instale o certificado usando o assistente de instalação do navegador. link:using-storagegrid-security-certificates.html["Gerenciar certificados de segurança"]Consulte .
+. Faça login no Gerenciador de Grade.
++
+O ecrã de início de sessão que aparece depende se o início de sessão único (SSO) foi configurado para o StorageGRID.
+
++
+[role="tabbed-block"]
+====
+.Não está a utilizar SSO
+--
+.. Insira seu nome de usuário e senha para o Gerenciador de Grade.
+.. Selecione *entrar*.
++
+image::../media/sign_in_grid_manager_no_sso.png[Iniciar sessão na página]
+
+
+
+--
+.Usando SSO
+--
+** Se o StorageGRID estiver usando SSO e esta é a primeira vez que você acessou o URL neste navegador:
++
+... Selecione *entrar*. Você pode deixar o 0 no campo conta.
++
+image::../media/sso_sign_in_first_time.png[Ecrã de início de sessão se o SSO estiver ativado e sem cookies]
+
+... Insira suas credenciais SSO padrão na página de login SSO da sua organização. Por exemplo:
++
+image::../media/sso_organization_page.gif[Exemplo de página de login da organização para SSO]
+
+
+
+** Se o StorageGRID estiver usando SSO e você tiver acessado anteriormente o Gerenciador de Grade ou uma conta de locatário:
++
+... Digite *0* (o ID da conta do Gerenciador de Grade) ou selecione *Gerenciador de Grade* se aparecer na lista de contas recentes.
++
+image::../media/sign_in_grid_manager_sso.png[Selecione Gerenciador de Grade na lista de contas recentes se o SSO estiver ativado]
+
+... Selecione *entrar*.
+... Inicie sessão com as suas credenciais SSO padrão na página de início de sessão SSO da sua organização.
+
+
+
+
+--
+====
+
+
+Quando você estiver conetado, a página inicial do Gerenciador de Grade será exibida, que inclui o painel. Para saber quais informações são fornecidas, link:../monitor/viewing-dashboard.html["Visualizar e gerenciar o painel"]consulte .
+
+image::../media/grid_manager_dashboard.png[painel de instrumentos]
+
+
+
+== Entre em outro nó de administração
+
+Siga estes passos para iniciar sessão noutro nó de administração.
+
+[role="tabbed-block"]
+====
+.Não está a utilizar SSO
+--
+.Passos
+. Na barra de endereços do navegador, insira o nome de domínio totalmente qualificado ou o endereço IP do outro nó de administração. Inclua o número da porta conforme necessário.
+. Insira seu nome de usuário e senha para o Gerenciador de Grade.
+. Selecione *entrar*.
+
+
+--
+.Usando SSO
+--
+Se o StorageGRID estiver usando SSO e você tiver feito login em um nó de administrador, você poderá acessar outros nós de administrador sem precisar fazer login novamente.
+
+.Passos
+. Introduza o nome de domínio totalmente qualificado ou o endereço IP do outro nó de administração na barra de endereços do browser.
+. Se sua sessão SSO expirou, insira suas credenciais novamente.
+
+
+--
+====

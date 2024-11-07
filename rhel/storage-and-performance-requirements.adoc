@@ -1,0 +1,311 @@
+---
+permalink: rhel/storage-and-performance-requirements.html 
+sidebar: sidebar 
+keywords: red hat linux storage requirements, performance requirements host storage, host volumes, netapp ontap, fabricpool 
+summary: Você precisa entender os requisitos de storage para nós do StorageGRID para que possa fornecer espaço suficiente para dar suporte à configuração inicial e à expansão de storage futura. 
+---
+= Requisitos de storage e desempenho
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você precisa entender os requisitos de storage para nós do StorageGRID para que possa fornecer espaço suficiente para dar suporte à configuração inicial e à expansão de storage futura.
+
+Os nós de StorageGRID exigem três categorias lógicas de storage:
+
+* *Pool de contentores* -- armazenamento de nível de desempenho (SAS ou SSD de 10K GB) para os contentores de nós, que serão atribuídos ao driver de armazenamento do mecanismo de contentor quando você instalar e configurar o mecanismo de contentor nos hosts que suportarão seus nós StorageGRID.
+* *Dados do sistema* -- armazenamento em camada de desempenho (SAS ou SSD de 10K GB) para armazenamento persistente por nó de dados do sistema e logs de transações, que os serviços de host do StorageGRID consumirão e mapearão em nós individuais.
+* *Dados de objeto* -- armazenamento em camada de desempenho (SAS ou SSD de 10K TB) e armazenamento em massa de camada de capacidade (NL-SAS/SATA) para armazenamento persistente de dados de objetos e metadados de objetos.
+
+
+Você deve usar dispositivos de bloco compatíveis com RAID para todas as categorias de armazenamento. Discos não redundantes, SSDs ou JBODs não são suportados. Você pode usar o armazenamento RAID compartilhado ou local para qualquer uma das categorias de armazenamento. No entanto, se quiser usar a funcionalidade de migração de nós no StorageGRID, você deve armazenar dados do sistema e dados de objetos no armazenamento compartilhado. Para obter mais informações, link:node-container-migration-requirements.html["Requisitos de migração de contêiner de nós"]consulte .
+
+
+
+== Requisitos de desempenho
+
+A performance dos volumes usados para o pool de contêineres, dados do sistema e metadados de objetos afeta significativamente o desempenho geral do sistema. Você deve usar o storage de camada de desempenho (SAS ou SSD de 10K GB) para esses volumes, a fim de garantir um desempenho de disco adequado em termos de latência, IOPS/operações de entrada/saída por segundo (IOPS) e taxa de transferência. Você pode usar o storage de camada de capacidade (NL-SAS/SATA) para o storage persistente de dados de objetos.
+
+Os volumes usados para o pool de contêineres, dados do sistema e dados de objetos precisam ter o armazenamento em cache de gravação habilitado. O cache deve estar em uma Mídia protegida ou persistente.
+
+
+
+== Requisitos para hosts que usam storage NetApp ONTAP
+
+Se o nó StorageGRID usar o storage atribuído a partir de um sistema NetApp ONTAP, confirme se o volume não tem uma política de disposição em camadas do FabricPool habilitada. A desativação da disposição em camadas do FabricPool para volumes usados com nós do StorageGRID simplifica a solução de problemas e as operações de storage.
+
+
+NOTE: Nunca use o FabricPool para categorizar dados relacionados ao StorageGRID de volta ao próprio StorageGRID. A disposição em camadas de dados do StorageGRID de volta para o StorageGRID aumenta a complexidade operacional e a solução de problemas.
+
+
+
+== Número de hosts necessários
+
+Cada local do StorageGRID requer um mínimo de três nós de storage.
+
+
+NOTE: Em uma implantação de produção, não execute mais de um nó de storage em um único host físico ou virtual. O uso de um host dedicado para cada nó de storage fornece um domínio de falha isolado.
+
+Outros tipos de nós, como nós de administração ou nós de gateway, podem ser implantados nos mesmos hosts ou podem ser implantados em seus próprios hosts dedicados, conforme necessário.
+
+
+
+== Número de volumes de storage para cada host
+
+A tabela a seguir mostra o número de volumes de storage (LUNs) necessários para cada host e o tamanho mínimo necessário para cada LUN, com base em quais nós serão implantados nesse host.
+
+O tamanho máximo de LUN testado é de 39 TB.
+
+
+NOTE: Esses números são para cada host, não para toda a grade.
+
+|===
+| Finalidade do LUN | Categoria de armazenamento | Número de LUNs | Tamanho mínimo/LUN 
+
+
+ a| 
+Pool de armazenamento do mecanismo de contêiner
+ a| 
+Pool de contêineres
+ a| 
+1
+ a| 
+Número total de nós x 100 GB
+
+
+
+ a| 
+`/var/local` volume
+ a| 
+Dados do sistema
+ a| 
+1 para cada nó neste host
+ a| 
+90 GB
+
+
+
+ a| 
+Nó de storage
+ a| 
+Dados de objeto
+ a| 
+3 para cada nó de storage nesse host
+
+*Nota:* Um nó de armazenamento baseado em software pode ter 1 a 16 volumes de armazenamento; pelo menos 3 volumes de armazenamento são recomendados.
+ a| 
+12 TB (4 TB/LUN) consulte <<storage_req_SN,Requisitos de storage para nós de storage>> para obter mais informações.
+
+
+
+ a| 
+Nó de storage (somente metadados)
+ a| 
+Metadados de objetos
+ a| 
+1
+ a| 
+4 TB consulte <<storage_req_SN,Requisitos de storage para nós de storage>> para obter mais informações.
+
+*Nota*: Somente um rangedb é necessário para nós de storage somente metadados.
+
+
+
+ a| 
+Logs de auditoria do nó de administração
+ a| 
+Dados do sistema
+ a| 
+1 para cada nó de administração neste host
+ a| 
+200 GB
+
+
+
+ a| 
+Tabelas Admin Node
+ a| 
+Dados do sistema
+ a| 
+1 para cada nó de administração neste host
+ a| 
+200 GB
+
+|===
+
+NOTE: Dependendo do nível de auditoria configurado, do tamanho das entradas do usuário, como o nome da chave do objeto S3 e da quantidade de dados de log de auditoria que você precisa preservar, talvez seja necessário aumentar o tamanho do LUN de log de auditoria em cada nó Admin. Geralmente, uma grade gera aproximadamente 1 KB de dados de auditoria por operação S3, o que significaria que um LUN de 200 GB suportaria 70 milhões de operações por dia ou 800 operações por segundo por dois a três dias.
+
+
+
+== Espaço de armazenamento mínimo para um host
+
+A tabela a seguir mostra o espaço de armazenamento mínimo necessário para cada tipo de nó. Você pode usar essa tabela para determinar a quantidade mínima de storage que deve fornecer ao host em cada categoria de storage, com base nos nós que serão implantados nesse host.
+
+
+NOTE: Snapshots de disco não podem ser usados para restaurar nós de grade. Em vez disso, consulte link:../maintain/warnings-and-considerations-for-grid-node-recovery.html["recuperação do nó de grade"]os procedimentos para cada tipo de nó.
+
+|===
+| Tipo de nó | Pool de contêineres | Dados do sistema | Dados de objeto 
+
+
+| Nó de storage  a| 
+100 GB
+ a| 
+90 GB
+ a| 
+4.000 GB
+
+
+
+ a| 
+Nó de administração
+ a| 
+100 GB
+ a| 
+490 GB (3 LUNs)
+ a| 
+_não aplicável_
+
+
+
+ a| 
+Nó de gateway
+ a| 
+100 GB
+ a| 
+90 GB
+ a| 
+_não aplicável_
+
+|===
+
+
+== Exemplo: Calculando os requisitos de armazenamento de um host
+
+Suponha que você Planeje implantar três nós no mesmo host: Um nó de storage, um nó de administrador e um nó de gateway. Forneça no mínimo nove volumes de storage ao host. Você precisará de um mínimo de 300 GB de storage em camadas de desempenho para os contêineres de nós, 670 GB de storage em camadas de desempenho para dados do sistema e logs de transações e 12 TB de storage em camadas de capacidade para dados de objetos.
+
+|===
+| Tipo de nó | Finalidade do LUN | Número de LUNs | Tamanho da LUN 
+
+
+| Nó de storage  a| 
+Pool de armazenamento do mecanismo de contêiner
+ a| 
+1
+ a| 
+300 GB (100 GB/nó)
+
+
+
+ a| 
+Nó de storage
+ a| 
+`/var/local` volume
+ a| 
+1
+ a| 
+90 GB
+
+
+
+| Nó de storage  a| 
+Dados de objeto
+ a| 
+3
+ a| 
+12 TB (4 TB/LUN)
+
+
+
+ a| 
+Nó de administração
+ a| 
+`/var/local` volume
+ a| 
+1
+ a| 
+90 GB
+
+
+
+| Nó de administração  a| 
+Logs de auditoria do nó de administração
+ a| 
+1
+ a| 
+200 GB
+
+
+
+| Nó de administração  a| 
+Tabelas Admin Node
+ a| 
+1
+ a| 
+200 GB
+
+
+
+ a| 
+Nó de gateway
+ a| 
+`/var/local` volume
+ a| 
+1
+ a| 
+90 GB
+
+
+
+ a| 
+*Total*
+ a| 
+ a| 
+*9*
+ a| 
+* Conjunto de contentores: * 300 GB
+
+*Dados do sistema:* 670 GB
+
+*Dados do objeto:* 12.000 GB
+
+|===
+
+
+== Requisitos de storage para nós de storage
+
+Um nó de storage baseado em software pode ter 1 a 16 volumes de armazenamento--3 ou mais volumes de armazenamento são recomendados. Cada volume de armazenamento deve ser de 4 TB ou maior.
+
+
+NOTE: Um nó de storage de dispositivo pode ter até 48 volumes de storage.
+
+Como mostrado na figura, o StorageGRID reserva espaço para metadados de objetos no volume de storage 0 de cada nó de storage. Qualquer espaço restante no volume de armazenamento 0 e quaisquer outros volumes de armazenamento no nó de armazenamento são usados exclusivamente para dados de objeto.
+
+image::../media/metadata_space_storage_node.png[Nó de armazenamento de espaço de metadados]
+
+Para fornecer redundância e proteger os metadados de objetos contra perda, o StorageGRID armazena três cópias dos metadados de todos os objetos no sistema em cada local. As três cópias dos metadados de objetos são distribuídas uniformemente por todos os nós de storage em cada local.
+
+Ao instalar uma grade com nós de storage somente de metadados, a grade também deve conter um número mínimo de nós para storage de objetos. Consulte link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nós de storage"] para obter mais informações sobre nós de storage somente de metadados.
+
+* Para uma grade de um único local, pelo menos dois nós de storage são configurados para objetos e metadados.
+* Para uma grade de vários locais, pelo menos um nó de storage por local é configurado para objetos e metadados.
+
+
+Ao atribuir espaço ao volume 0 de um novo nó de storage, você deve garantir que haja espaço adequado para a parte desse nó de todos os metadados de objetos.
+
+* No mínimo, você deve atribuir pelo menos 4 TB ao volume 0.
++
+
+NOTE: Se você usar apenas um volume de armazenamento para um nó de armazenamento e atribuir 4 TB ou menos ao volume, o nó de armazenamento poderá entrar no estado somente leitura de armazenamento na inicialização e armazenar somente metadados de objetos.
+
++
+
+NOTE: Se você atribuir menos de 500 GB ao volume 0 (somente uso não-produção), 10% da capacidade do volume de armazenamento será reservada para metadados.
+
+* Se você estiver instalando um novo sistema (StorageGRID 11,6 ou superior) e cada nó de armazenamento tiver 128 GB ou mais de RAM, atribua 8 TB ou mais ao volume 0. O uso de um valor maior para o volume 0 pode aumentar o espaço permitido para metadados em cada nó de storage.
+* Ao configurar diferentes nós de storage para um local, use a mesma configuração para o volume 0, se possível. Se um local contiver nós de storage de tamanhos diferentes, o nó de storage com o menor volume 0 determinará a capacidade de metadados desse local.
+
+
+Para obter mais detalhes, link:../admin/managing-object-metadata-storage.html["Gerenciar o storage de metadados de objetos"]visite .

@@ -1,0 +1,98 @@
+= 
+:allow-uri-read: 
+
+
+[cols="1a,1a"]
+|===
+| Caminho e nome do arquivo | Descrição 
+
+
+| ./vSphere/README  a| 
+Um arquivo de texto que descreve todos os arquivos contidos no arquivo de download do StorageGRID.
+
+
+
+| ./vSphere/NLF000000.txt  a| 
+Uma licença gratuita que não fornece qualquer direito de suporte para o produto.
+
+
+
+| ./vsphere/NetApp-SG-version-SHA.vmdk  a| 
+O arquivo de disco da máquina virtual que é usado como um modelo para criar máquinas virtuais de nó de grade.
+
+
+
+| ./vsphere/vsphere-primary-admin.ovf ./vsphere/vsphere-primary-admin.mf  a| 
+O arquivo de modelo Open Virtualization Format (`.ovf`) e o arquivo de manifesto (`.mf`) para implantar o nó de administração principal.
+
+
+
+| ./vsphere/vsphere-non-primary-admin.ovf ./vsphere/vsphere-non-primary-admin.mf  a| 
+O arquivo de (`.ovf`modelo ) e o arquivo de manifesto (`.mf`) para implantar nós de administração não primários.
+
+
+
+| ./vsphere/vsphere-gateway.ovf ./vsphere/vsphere-gateway.mf  a| 
+O arquivo de (`.ovf`modelo ) e o arquivo de manifesto (`.mf`) para implantar nós do Gateway.
+
+
+
+| ./vsphere/vsphere-storage.ovf ./vsphere/vsphere-storage.mf  a| 
+O arquivo de (`.ovf`modelo ) e o arquivo de manifesto (`.mf`) para implantar nós de storage baseados em máquina virtual.
+
+
+
+| Ferramenta de script de implantação | Descrição 
+
+
+| ./vsphere/deploy-vsphere-ovftool.sh  a| 
+Um script de shell Bash usado para automatizar a implantação de nós de grade virtual.
+
+
+
+| ./vsphere/deploy-vsphere-ovftool-sample.ini  a| 
+Um exemplo de arquivo de configuração para uso com o `deploy-vsphere-ovftool.sh` script.
+
+
+
+| ./vsphere/configure-StorageGRID.py  a| 
+Um script Python usado para automatizar a configuração de um sistema StorageGRID.
+
+
+
+| ./vsphere/configure-sga.py  a| 
+Um script Python usado para automatizar a configuração de dispositivos StorageGRID.
+
+
+
+| ./vsphere/StorageGRID-ssoauth.py  a| 
+Um exemplo de script Python que você pode usar para entrar na API de Gerenciamento de Grade quando o logon único (SSO) está ativado. Você também pode usar este script para integração Ping federate.
+
+
+
+| ./vsphere/configure-StorageGRID.sample.json  a| 
+Um exemplo de arquivo de configuração para uso com o `configure-storagegrid.py` script.
+
+
+
+| ./vsphere/configure-StorageGRID.blank.json  a| 
+Um arquivo de configuração em branco para uso com o `configure-storagegrid.py` script.
+
+
+
+| ./vsphere/StorageGRID-ssoauth-azure.py  a| 
+Um exemplo de script Python que você pode usar para fazer login na API de Gerenciamento de Grade quando o logon único (SSO) está habilitado usando o ative Directory ou Ping federate.
+
+
+
+| ./vsphere/StorageGRID-ssoauth-azure.js  a| 
+Um script auxiliar chamado pelo script Python complementar `storagegrid-ssoauth-azure.py` para executar interações SSO com o Azure.
+
+
+
+| ./vsphere/extras/api-schemas  a| 
+Esquemas de API para StorageGRID.
+
+*Nota*: Antes de executar uma atualização, você pode usar esses esquemas para confirmar que qualquer código que você tenha escrito para usar APIs de gerenciamento do StorageGRID será compatível com a nova versão do StorageGRID se você não tiver um ambiente StorageGRID que não seja de produção para teste de compatibilidade de atualização.
+
+|===

@@ -1,0 +1,182 @@
+---
+permalink: s3/select-object-content.html 
+sidebar: sidebar 
+keywords: SelectObjectContent, filter object content 
+summary: Você pode usar a solicitação SelectObjectContent S3 para filtrar o conteúdo de um objeto S3 com base em uma instrução SQL simples. 
+---
+= Selecione ObjectContent
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar a solicitação SelectObjectContent S3 para filtrar o conteúdo de um objeto S3 com base em uma instrução SQL simples.
+
+Para obter mais informações, https://docs.aws.amazon.com/AmazonS3/latest/API/API_SelectObjectContent.html["Referência da API do Amazon Simple Storage Service: SelectObjectContent"^]consulte .
+
+.Antes de começar
+* A conta de locatário tem a permissão S3 Select (Selecionar).
+* Você tem `s3:GetObject` permissão para o objeto que deseja consultar.
+* O objeto que você deseja consultar deve estar em um dos seguintes formatos:
++
+** *CSV*. Pode ser usado como está ou comprimido em arquivos GZIP ou bzip2.
+** *Parquet*. Requisitos adicionais para objetos em Parquet:
++
+*** S3 Select suporta apenas compactação colunar usando GZIP ou Snappy. S3 Select não suporta compactação de objetos inteiros para objetos Parquet.
+*** S3 a seleção não suporta saída em Parquet. Você deve especificar o formato de saída como CSV ou JSON.
+*** O tamanho máximo do grupo de linhas não comprimidas é de 512 MB.
+*** Você deve usar os tipos de dados especificados no esquema do objeto.
+*** Você não pode usar os tipos lógicos INTERVALO, JSON, LISTA, HORA ou UUID.
+
+
+
+
+* Sua expressão SQL tem um comprimento máximo de 256 KB.
+* Qualquer Registro na entrada ou resultados tem um comprimento máximo de 1 MIB.
+
+
+
+
+== Exemplo de sintaxe de solicitação CSV
+
+[source, asciidoc]
+----
+POST /{Key+}?select&select-type=2 HTTP/1.1
+Host: Bucket.s3.abc-company.com
+x-amz-expected-bucket-owner: ExpectedBucketOwner
+<?xml version="1.0" encoding="UTF-8"?>
+<SelectObjectContentRequest xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+   <Expression>string</Expression>
+   <ExpressionType>string</ExpressionType>
+   <RequestProgress>
+      <Enabled>boolean</Enabled>
+   </RequestProgress>
+   <InputSerialization>
+      <CompressionType>GZIP</CompressionType>
+      <CSV>
+         <AllowQuotedRecordDelimiter>boolean</AllowQuotedRecordDelimiter>
+         <Comments>#</Comments>
+         <FieldDelimiter>\t</FieldDelimiter>
+         <FileHeaderInfo>USE</FileHeaderInfo>
+         <QuoteCharacter>'</QuoteCharacter>
+         <QuoteEscapeCharacter>\\</QuoteEscapeCharacter>
+         <RecordDelimiter>\n</RecordDelimiter>
+      </CSV>
+   </InputSerialization>
+   <OutputSerialization>
+      <CSV>
+         <FieldDelimiter>string</FieldDelimiter>
+         <QuoteCharacter>string</QuoteCharacter>
+         <QuoteEscapeCharacter>string</QuoteEscapeCharacter>
+         <QuoteFields>string</QuoteFields>
+         <RecordDelimiter>string</RecordDelimiter>
+      </CSV>
+   </OutputSerialization>
+   <ScanRange>
+      <End>long</End>
+      <Start>long</Start>
+   </ScanRange>
+</SelectObjectContentRequest>
+----
+
+
+== Exemplo de sintaxe de solicitação de Parquet
+
+[source, asciidoc]
+----
+POST /{Key+}?select&select-type=2 HTTP/1.1
+Host: Bucket.s3.abc-company.com
+x-amz-expected-bucket-owner: ExpectedBucketOwner
+<?xml version="1.0" encoding="UTF-8"?>
+<SelectObjectContentRequest xmlns=http://s3.amazonaws.com/doc/2006-03-01/>
+   <Expression>string</Expression>
+   <ExpressionType>string</ExpressionType>
+   <RequestProgress>
+      <Enabled>boolean</Enabled>
+   </RequestProgress>
+   <InputSerialization>
+      <CompressionType>GZIP</CompressionType>
+      <PARQUET>
+      </PARQUET>
+   </InputSerialization>
+   <OutputSerialization>
+      <CSV>
+         <FieldDelimiter>string</FieldDelimiter>
+         <QuoteCharacter>string</QuoteCharacter>
+         <QuoteEscapeCharacter>string</QuoteEscapeCharacter>
+         <QuoteFields>string</QuoteFields>
+         <RecordDelimiter>string</RecordDelimiter>
+      </CSV>
+   </OutputSerialization>
+   <ScanRange>
+      <End>long</End>
+      <Start>long</Start>
+   </ScanRange>
+</SelectObjectContentRequest>
+----
+
+
+== Exemplo de consulta SQL
+
+Esta consulta obtém o nome do estado, 2010 populações, 2015 populações estimadas e a porcentagem de mudança dos dados do censo americano. Registros no arquivo que não são estados são ignorados.
+
+[listing]
+----
+SELECT STNAME, CENSUS2010POP, POPESTIMATE2015, CAST((POPESTIMATE2015 - CENSUS2010POP) AS DECIMAL) / CENSUS2010POP * 100.0 FROM S3Object WHERE NAME = STNAME
+----
+As primeiras linhas do arquivo a serem consultadas, `SUB-EST2020_ALL.csv`, são assim:
+
+[listing]
+----
+SUMLEV,STATE,COUNTY,PLACE,COUSUB,CONCIT,PRIMGEO_FLAG,FUNCSTAT,NAME,STNAME,CENSUS2010POP,
+ESTIMATESBASE2010,POPESTIMATE2010,POPESTIMATE2011,POPESTIMATE2012,POPESTIMATE2013,POPESTIMATE2014,
+POPESTIMATE2015,POPESTIMATE2016,POPESTIMATE2017,POPESTIMATE2018,POPESTIMATE2019,POPESTIMATE042020,
+POPESTIMATE2020
+040,01,000,00000,00000,00000,0,A,Alabama,Alabama,4779736,4780118,4785514,4799642,4816632,4831586,
+4843737,4854803,4866824,4877989,4891628,4907965,4920706,4921532
+162,01,000,00124,00000,00000,0,A,Abbeville city,Alabama,2688,2705,2699,2694,2645,2629,2610,2602,
+2587,2578,2565,2555,2555,2553
+162,01,000,00460,00000,00000,0,A,Adamsville city,Alabama,4522,4487,4481,4474,4453,4430,4399,4371,
+4335,4304,4285,4254,4224,4211
+162,01,000,00484,00000,00000,0,A,Addison town,Alabama,758,754,751,750,745,744,742,734,734,728,
+725,723,719,717
+----
+
+
+== Exemplo de uso da AWS-CLI (CSV)
+
+[listing]
+----
+aws s3api select-object-content --endpoint-url https://10.224.7.44:10443 --no-verify-ssl  --bucket 619c0755-9e38-42e0-a614-05064f74126d --key SUB-EST2020_ALL.csv --expression-type SQL --input-serialization '{"CSV": {"FileHeaderInfo": "USE", "Comments": "#", "QuoteEscapeCharacter": "\"", "RecordDelimiter": "\n", "FieldDelimiter": ",", "QuoteCharacter": "\"", "AllowQuotedRecordDelimiter": false}, "CompressionType": "NONE"}' --output-serialization '{"CSV": {"QuoteFields": "ASNEEDED", "QuoteEscapeCharacter": "#", "RecordDelimiter": "\n", "FieldDelimiter": ",", "QuoteCharacter": "\""}}' --expression "SELECT STNAME, CENSUS2010POP, POPESTIMATE2015, CAST((POPESTIMATE2015 - CENSUS2010POP) AS DECIMAL) / CENSUS2010POP * 100.0 FROM S3Object WHERE NAME = STNAME" changes.csv
+----
+As primeiras linhas do arquivo de saída, `changes.csv`, são assim:
+
+[listing]
+----
+Alabama,4779736,4854803,1.5705260708959658022953568983726297854
+Alaska,710231,738430,3.9703983633493891424057806544631253775
+Arizona,6392017,6832810,6.8959922978928247531256565807005832431
+Arkansas,2915918,2979732,2.1884703204959810255295244928012378949
+California,37253956,38904296,4.4299724839960620557988526104449148971
+Colorado,5029196,5454328,8.4532796097030221132761578590295546246
+----
+
+
+== Exemplo de uso da AWS-CLI (Parquet)
+
+[listing]
+----
+aws s3api select-object-content  -endpoint-url https://10.224.7.44:10443 --bucket 619c0755-9e38-42e0-a614-05064f74126d --key SUB-EST2020_ALL.parquet --expression "SELECT STNAME, CENSUS2010POP, POPESTIMATE2015, CAST((POPESTIMATE2015 - CENSUS2010POP) AS DECIMAL) / CENSUS2010POP * 100.0 FROM S3Object WHERE NAME = STNAME" --expression-type 'SQL' --input-serialization '{"Parquet":{}}'  --output-serialization '{"CSV": {}}' changes.csv
+----
+As primeiras linhas do arquivo de saída, Changes.csv, são assim:
+
+[listing]
+----
+Alabama,4779736,4854803,1.5705260708959658022953568983726297854
+Alaska,710231,738430,3.9703983633493891424057806544631253775
+Arizona,6392017,6832810,6.8959922978928247531256565807005832431
+Arkansas,2915918,2979732,2.1884703204959810255295244928012378949
+California,37253956,38904296,4.4299724839960620557988526104449148971
+Colorado,5029196,5454328,8.4532796097030221132761578590295546246
+----

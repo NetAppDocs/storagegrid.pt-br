@@ -1,0 +1,30 @@
+---
+permalink: admin/using-multiple-admin-nodes.html 
+sidebar: sidebar 
+keywords: admin nodes, more than one admin node, multiple admin nodes 
+summary: Um sistema StorageGRID pode incluir vários nós de administração para permitir que você monitore e configure continuamente seu sistema StorageGRID, mesmo se um nó de administração falhar. 
+---
+= Use vários nós de administração
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um sistema StorageGRID pode incluir vários nós de administração para permitir que você monitore e configure continuamente seu sistema StorageGRID, mesmo se um nó de administração falhar.
+
+Se um nó Admin ficar indisponível, o processamento de atributos continua, os alertas ainda são acionados e as notificações por e-mail e os pacotes AutoSupport ainda são enviados. No entanto, ter vários nós de administração não fornece proteção contra failover, exceto notificações e pacotes de AutoSupport.
+
+image::../media/admin_node_redundancy.png[Diagrama de redundância do Admin Node]
+
+Existem duas opções para continuar a visualizar e configurar o sistema StorageGRID se um nó de administrador falhar:
+
+* Os clientes da Web podem se reconetar a qualquer outro nó de administração disponível.
+* Se um administrador do sistema tiver configurado um grupo de nós de administração de alta disponibilidade, os clientes da Web poderão continuar a aceder ao Gestor de grelha ou ao Gestor de inquilinos utilizando o endereço IP virtual do grupo HA. link:managing-high-availability-groups.html["Gerenciar grupos de alta disponibilidade"]Consulte .
++
+
+NOTE: Ao usar um grupo de HA, o acesso é interrompido se o nó Admin ativo falhar. Os usuários devem fazer login novamente após o failover do endereço IP virtual do grupo HA para outro nó Admin no grupo.
+
+
+
+Algumas tarefas de manutenção só podem ser executadas usando o nó de administração principal. Se o nó de administração principal falhar, ele deve ser recuperado antes que o sistema StorageGRID esteja totalmente funcional novamente.

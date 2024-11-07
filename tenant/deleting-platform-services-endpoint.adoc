@@ -1,0 +1,36 @@
+---
+permalink: tenant/deleting-platform-services-endpoint.html 
+sidebar: sidebar 
+keywords: how to delete tenant platform services endpoint 
+summary: Você pode excluir um endpoint se não quiser mais usar o serviço de plataforma associado. 
+---
+= Excluir endpoint de serviços de plataforma
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode excluir um endpoint se não quiser mais usar o serviço de plataforma associado.
+
+.Antes de começar
+* Você está conetado ao Gerenciador do Locatário usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você pertence a um grupo de usuários que tem o link:tenant-management-permissions.html["Gerencie endpoints ou permissão de acesso root"].
+
+
+.Passos
+. Selecione *STORAGE (S3)* > *endpoints de serviços de plataforma*.
++
+A página de endpoints de serviços da plataforma é exibida e mostra a lista de endpoints de serviços da plataforma que já foram configurados.
+
+. Selecione a caixa de verificação para cada ponto de extremidade que pretende eliminar.
++
+
+NOTE: Se você excluir um endpoint de serviços de plataforma que está em uso, o serviço de plataforma associado será desativado para quaisquer buckets que usam o endpoint. Quaisquer solicitações que ainda não foram concluídas serão descartadas. Todas as novas solicitações continuarão sendo geradas até que você altere a configuração do bucket para não fazer mais referência à URNA excluída. O StorageGRID reportará essas solicitações como erros irrecuperáveis.
+
+. Selecione *ações* > *Excluir endpoint*.
++
+É apresentada uma mensagem de confirmação.
+
+. Selecione *Excluir endpoint*.
+

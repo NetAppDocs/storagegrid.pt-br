@@ -1,0 +1,97 @@
+---
+permalink: monitor/monitoring-network-connections-and-performance.html 
+sidebar: sidebar 
+keywords: monitoring, monitoring network connections, network, network performance 
+summary: A integridade e a largura de banda da rede entre nós e locais, e o uso de recursos por nós de grade individuais, são essenciais para operações eficientes. 
+---
+= Monitorar recursos de rede e do sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A integridade e a largura de banda da rede entre nós e locais, e o uso de recursos por nós de grade individuais, são essenciais para operações eficientes.
+
+
+
+== Monitorar conexões de rede e desempenho
+
+A conetividade de rede e a largura de banda são especialmente importantes se a política de gerenciamento de ciclo de vida das informações (ILM) copiar objetos replicados entre sites ou armazenar objetos codificados por apagamento usando um esquema que fornece proteção contra perda de site. Se a rede entre sites não estiver disponível, a latência da rede for muito alta ou a largura de banda da rede for insuficiente, algumas regras do ILM podem não conseguir colocar objetos onde o esperado. Isso pode levar a falhas de ingestão (quando a opção de ingestão estrita é selecionada para regras de ILM) ou a um desempenho de ingestão ruim e backlogs de ILM.
+
+Use o Gerenciador de Grade para monitorar a conetividade e o desempenho da rede, para que você possa resolver quaisquer problemas imediatamente.
+
+Além disso, considere link:../admin/managing-traffic-classification-policies.html["criando políticas de classificação de tráfego de rede"] para que você possa monitorar o tráfego relacionado a locatários específicos, buckets, sub-redes ou pontos de extremidade do balanceador de carga. Você pode definir políticas de limitação de tráfego conforme necessário.
+
+.Passos
+. Selecione *NODES*.
++
+A página nós é exibida. Cada nó na grade é listado no formato de tabela.
+
++
+image::../media/nodes_menu.png[Menu nós]
+
+. Selecione o nome da grade, um site específico de data center ou um nó de grade e, em seguida, selecione a guia *rede*.
++
+O gráfico tráfego de rede fornece um resumo do tráfego de rede geral para a grade como um todo, o site do data center ou para o nó.
+
++
+image::../media/nodes_page_network_traffic_graph.png[Gráfico de tráfego de rede da página de nós]
+
++
+.. Se você selecionou um nó de grade, role para baixo para revisar a seção *interfaces de rede* da página.
++
+image::../media/nodes_page_network_interfaces.png[Interfaces de rede da página de nós]
+
+.. Para nós de grade, role para baixo para rever a seção *Comunicação de rede* da página.
++
+As tabelas de receção e transmissão mostram quantos bytes e pacotes foram recebidos e enviados através de cada rede, bem como outras métricas de receção e transmissão.
+
++
+image::../media/nodes_page_network_communication.png[Comunicação de rede de Página de nós]
+
+
+
+. Use as métricas associadas às suas políticas de classificação de tráfego para monitorar o tráfego de rede.
++
+.. Selecione *CONFIGURATION* > *Network* > *Traffic Classification*.
++
+A página políticas de classificação de tráfego é exibida e as políticas existentes são listadas na tabela.
+
++
+image::../media/traffic_classification_policies_main_screen_w_examples.png[Política de tráfego para exemplo de gráfico]
+
+.. Para exibir gráficos que mostram as métricas de rede associadas a uma política, selecione o botão de opção à esquerda da política e clique em *métricas*.
+.. Reveja os gráficos para compreender o tráfego de rede associado à política.
++
+Se uma política de classificação de tráfego for projetada para limitar o tráfego de rede, analise a frequência com que o tráfego é limitado e decida se a política continua atendendo às suas necessidades. De tempos em temposlink:../admin/managing-traffic-classification-policies.html["ajuste cada política de classificação de tráfego conforme necessário"], .
+
+
+
+
+
+.Informações relacionadas
+* link:viewing-network-tab.html["Veja a guia rede"]
+* link:monitoring-system-health.html#monitor-node-connection-states["Monitorar os estados de conexão do nó"]
+
+
+
+
+== Monitore os recursos no nível do nó
+
+Monitore nós de grade individuais para verificar seus níveis de uso de recursos. Se os nós estiverem sobrecarregados consistentemente, mais nós poderão ser necessários para operações eficientes.
+
+.Passos
+. Na página *NÓS*, selecione o nó.
+. Selecione a guia *hardware* para exibir gráficos de utilização da CPU e uso da memória.
++
+image::../media/nodes_page_hardware_tab_graphs.png[Guia hardware da página de nós]
+
+. Para exibir um intervalo de tempo diferente, selecione um dos controles acima do gráfico ou gráfico. Você pode exibir as informações disponíveis para intervalos de 1 hora, 1 dia, 1 semana ou 1 mês. Você também pode definir um intervalo personalizado, que permite especificar intervalos de data e hora.
+. Se o nó estiver hospedado em um dispositivo de armazenamento ou em um dispositivo de serviços, role para baixo para exibir as tabelas de componentes. O estado de todos os componentes deve ser "nominal". Investigue componentes que tenham qualquer outro estado.
+
+
+.Informações relacionadas
+* link:viewing-hardware-tab.html#view-information-about-appliance-storage-nodes["Exibir informações sobre os nós de storage do dispositivo"]
+* link:viewing-hardware-tab.html#view-information-about-appliance-admin-nodes-and-gateway-nodes["Exibir informações sobre os nós de administração do dispositivo e os nós de gateway"]
+

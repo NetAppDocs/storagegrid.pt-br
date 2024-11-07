@@ -1,0 +1,50 @@
+---
+permalink: maintain/viewing-server-manager-status-and-version.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, server manager, status, version 
+summary: Para cada nó de grade, você pode exibir o status atual e a versão do Server Manager em execução nesse nó de grade. Você também pode obter o status atual de todos os serviços executados nesse nó de grade. 
+---
+= Exibir o status e a versão do Server Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para cada nó de grade, você pode exibir o status atual e a versão do Server Manager em execução nesse nó de grade. Você também pode obter o status atual de todos os serviços executados nesse nó de grade.
+
+.Antes de começar
+Você tem o `Passwords.txt` arquivo.
+
+.Passos
+. Faça login no nó da grade:
++
+.. Introduza o seguinte comando: `ssh admin@_grid_node_IP_`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+
+
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+. Veja o status atual do Server Manager em execução no nó da grade: `*service servermanager status*`
++
+O status atual do Server Manager em execução no nó da grade é relatado (em execução ou não). Se o status do Gerenciador de servidor for `running`, a hora em que ele foi executado desde a última vez em que foi iniciado é listada. Por exemplo:
+
++
+[listing]
+----
+servermanager running for 1d, 13h, 0m, 30s
+----
+. Veja a versão atual do Server Manager em execução em um nó de grade: `*service servermanager version*`
++
+A versão atual é listada. Por exemplo:
+
++
+[listing]
+----
+11.1.0-20180425.1905.39c9493
+----
+. Faça logout do shell de comando: `*exit*`
+

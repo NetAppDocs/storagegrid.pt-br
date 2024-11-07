@@ -1,0 +1,47 @@
+---
+permalink: expand/updating-subnets-for-grid-network.html 
+sidebar: sidebar 
+keywords: expand, expansion, add subnets, Grid Network 
+summary: Quando você adiciona nós de grade ou um novo site em uma expansão, talvez seja necessário atualizar ou adicionar sub-redes à rede de Grade. 
+---
+= Atualizar sub-redes para rede de Grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando você adiciona nós de grade ou um novo site em uma expansão, talvez seja necessário atualizar ou adicionar sub-redes à rede de Grade.
+
+O StorageGRID mantém uma lista das sub-redes de rede usadas para se comunicar entre nós de grade na rede de grade (eth0). Essas entradas incluem as sub-redes usadas para a rede de Grade por cada site em seu sistema StorageGRID, bem como quaisquer sub-redes usadas para NTP, DNS, LDAP ou outros servidores externos acessados através do gateway rede de Grade.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:../admin/admin-group-permissions.html["Permissão de manutenção ou acesso root"].
+* Você tem a senha de provisionamento.
+* Você tem os endereços de rede, na notação CIDR, das sub-redes que deseja configurar.
+
+
+.Sobre esta tarefa
+Se algum dos novos nós tiver um endereço IP de rede de Grade em uma sub-rede não usada anteriormente, você deve adicionar a nova sub-rede à lista de sub-rede de Grade antes de iniciar a expansão. Caso contrário, você terá que cancelar a expansão, adicionar a nova sub-rede e iniciar o procedimento novamente.
+
+.Passos
+. Selecione *MAINTENANCE* > *Network* > *Grid Network*.
+. Selecione *Adicionar outra sub-rede* para adicionar uma nova sub-rede na notação CIDR.
++
+Por exemplo, introduza `10.96.104.0/22`.
+
+. Insira a senha de provisionamento e selecione *Salvar*.
+. Aguarde até que as alterações sejam aplicadas e, em seguida, faça o download de um novo pacote de recuperação.
++
+.. Selecione *MAINTENANCE* > *System* > *Recovery package*.
+.. Introduza a *frase-passe de aprovisionamento*.
++
+
+CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID. Ele também é usado para recuperar o nó de administração principal.
+
+
+
+
+
+As sub-redes especificadas são configuradas automaticamente para o sistema StorageGRID.

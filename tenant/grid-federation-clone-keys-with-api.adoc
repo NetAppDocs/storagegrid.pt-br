@@ -1,0 +1,94 @@
+---
+permalink: tenant/grid-federation-clone-keys-with-api.html 
+sidebar: sidebar 
+keywords: s3 access key, secret key id, account clone, tenant manager api 
+summary: Se sua conta de locatário tiver a permissão usar conexão de federação de grade, você poderá usar a API de gerenciamento de locatário para clonar manualmente as chaves de acesso S3 do locatário na grade de origem para o locatário na grade de destino. 
+---
+= Clonar chaves de acesso S3 usando a API
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se a sua conta de locatário tiver a permissão *Use Grid Federation Connection*, você poderá usar a API de Gerenciamento do locatário para clonar manualmente as chaves de acesso S3 do locatário na grade de origem para o locatário na grade de destino.
+
+.Antes de começar
+* A conta de locatário tem a permissão *Use Grid Federation Connection*.
+* A conexão de federação de grade tem um *status de conexão* de *conectado*.
+* Você está conetado ao Gerenciador do Locatário na grade de origem do locatário usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você pertence a um grupo de usuários que tem o link:tenant-management-permissions.html["Gerencie suas próprias credenciais S3 ou permissão de acesso root"].
+* Se você estiver clonando chaves de acesso para um usuário local, o usuário já existe em ambas as grades.
++
+
+NOTE: Quando você clonar chaves de acesso S3 para um usuário federado, tanto o usuário quanto as chaves de acesso S3 são adicionadas ao locatário de destino.
+
+
+
+
+
+== Clone suas próprias chaves de acesso
+
+Você pode clonar suas próprias chaves de acesso se precisar acessar os mesmos buckets em ambas as grades.
+
+.Passos
+. Usando o Gerenciador do Tenant na grade de origem e link:creating-your-own-s3-access-keys.html["crie suas próprias chaves de acesso"]baixe o `.csv` arquivo.
+. Na parte superior do Gerenciador do Locatário, selecione o ícone de ajuda e selecione *Documentação da API*.
+. Na seção *S3*, selecione o seguinte ponto final:
++
+`POST /org/users/current-user/replicate-s3-access-key`
+
++
+image::../media/grid-federation-post-current-user-replicate.png[POST endpoint para replicar a própria chave de acesso]
+
+. Selecione *Experimente*.
+. Na caixa de texto *body*, substitua as entradas de exemplo para *accessKey* e *secretAccessKey* pelos valores do arquivo *.csv* que você baixou.
++
+Certifique-se de manter as aspas duplas em torno de cada string.
+
++
+image::../media/grid-federation-clone-access-key.png[API do Gerenciador de inquilinos inserindo valores para clonar a chave de acesso]
+
+. Se a chave expirar, substitua a entrada de exemplo para *Expires* pela data e hora de expiração como uma string no formato de data-hora ISO 8601 (por exemplo, `2024-02-28T22:46:33-08:00` ). Se a chave não expirar, digite *null* como o valor da entrada *expira* (ou remova a linha *expira* e a vírgula anterior).
+. Selecione *Executar*.
+. Confirme se o código de resposta do servidor é *204*, indicando que a chave foi clonada com sucesso para a grade de destino.
+
+
+
+
+== Clonar chaves de acesso de outro usuário
+
+Você pode clonar as chaves de acesso de outro usuário se ele precisar acessar os mesmos buckets em ambas as grades.
+
+.Passos
+. Usando o Gerenciador do Tenant na grade de origem e link:creating-another-users-s3-access-keys.html["Crie as chaves de acesso S3 do outro usuário"]baixe o `.csv` arquivo.
+. Na parte superior do Gerenciador do Locatário, selecione o ícone de ajuda e selecione *Documentação da API*.
+. Obtenha a ID do utilizador. Você precisará desse valor para clonar as chaves de acesso do outro usuário.
++
+.. Na seção *usuários*, selecione o seguinte ponto final:
++
+`GET /org/users`
+
+.. Selecione *Experimente*.
+.. Especifique quaisquer parâmetros que você deseja usar ao procurar usuários.
+.. Selecione *Executar*.
+.. Encontre o usuário cujas chaves você deseja clonar e copie o número no campo *id*.
+
+
+. Na seção *S3*, selecione o seguinte ponto final:
++
+`POST /org/users/{userId}/replicate-s3-access-key`
+
++
+image::../media/grid-federation-post-other-user.png[POST endpoint para replicar a chave de acesso de outro usuário]
+
+. Selecione *Experimente*.
+. Na caixa de texto *UserId*, cole o ID de usuário que você copiou.
+. Na caixa de texto *body*, substitua as entradas de exemplo para *example access key* e *secret access key* pelos valores do arquivo *.csv* para esse usuário.
++
+Certifique-se de manter as aspas duplas ao redor da string.
+
+. Se a chave expirar, substitua a entrada de exemplo para *Expires* pela data e hora de expiração como uma string no formato de data-hora ISO 8601 (por exemplo, `2023-02-28T22:46:33-08:00` ). Se a chave não expirar, digite *null* como o valor da entrada *expira* (ou remova a linha *expira* e a vírgula anterior).
+. Selecione *Executar*.
+. Confirme se o código de resposta do servidor é *204*, indicando que a chave foi clonada com sucesso para a grade de destino.
+

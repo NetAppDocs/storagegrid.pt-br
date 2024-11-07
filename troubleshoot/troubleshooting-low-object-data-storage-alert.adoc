@@ -1,0 +1,84 @@
+---
+permalink: troubleshoot/troubleshooting-low-object-data-storage-alert.html 
+sidebar: sidebar 
+keywords: how to troubleshoot the Low object data storage alert 
+summary: O alerta *armazenamento de dados de objeto baixo* monitora quanto espaço está disponível para armazenar dados de objeto em cada nó de armazenamento. 
+---
+= Solucionar problemas do alerta de armazenamento de dados de objetos baixos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O alerta *armazenamento de dados de objeto baixo* monitora quanto espaço está disponível para armazenar dados de objeto em cada nó de armazenamento.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
+
+
+.Sobre esta tarefa
+O alerta *armazenamento de dados de objeto baixo* é acionado quando a quantidade total de dados de objeto replicados e codificados por apagamento em um nó de armazenamento atende a uma das condições configuradas na regra de alerta.
+
+Por padrão, um alerta principal é acionado quando essa condição é avaliada como verdadeira:
+
+[listing]
+----
+(storagegrid_storage_utilization_data_bytes/
+(storagegrid_storage_utilization_data_bytes + storagegrid_storage_utilization_usable_space_bytes)) >=0.90
+----
+Nesta condição:
+
+* `storagegrid_storage_utilization_data_bytes` É uma estimativa do tamanho total de dados de objetos replicados e codificados por apagamento para um nó de storage.
+* `storagegrid_storage_utilization_usable_space_bytes` É a quantidade total de espaço de storage de objetos restante para um nó de storage.
+
+
+Se um alerta maior ou menor *armazenamento de dados de objeto baixo* for acionado, você deve executar um procedimento de expansão o mais rápido possível.
+
+.Passos
+. Selecione *ALERTAS* > *atual*.
++
+A página Alertas é exibida.
+
+. Na tabela de alertas, expanda o grupo de alertas *armazenamento de dados de objeto baixo*, se necessário, e selecione o alerta que deseja exibir.
++
+
+NOTE: Selecione o alerta e não o cabeçalho de um grupo de alertas.
+
+. Revise os detalhes na caixa de diálogo e observe o seguinte:
++
+** Tempo acionado
+** O nome do site e do nó
+** Os valores atuais das métricas para este alerta
+
+
+. Selecione *NÓS* > *_Storage Node ou Site_* > *Storage*.
+. Posicione o cursor sobre o gráfico armazenamento usado - dados do objeto.
++
+São apresentados os seguintes valores:
+
++
+** *Usado (%)*: A porcentagem do espaço utilizável total que foi usado para dados do objeto.
+** *Usado*: A quantidade de espaço utilizável total que foi usado para dados de objeto.
+** *Dados replicados*: Uma estimativa da quantidade de dados de objetos replicados neste nó, site ou grade.
+** *Dados codificados por apagamento*: Uma estimativa da quantidade de dados de objetos codificados por apagamento neste nó, site ou grade.
+** *Total*: A quantidade total de espaço utilizável neste nó, site ou grade. O valor usado é a `storagegrid_storage_utilization_data_bytes` métrica.
+
+
++
+image::../media/nodes_page_storage_used_object_data.png[Dados de objetos usados no storage de páginas de nós]
+
+. Selecione os controles de tempo acima do gráfico para exibir o uso do armazenamento em diferentes períodos de tempo.
++
+Analisar o uso do armazenamento ao longo do tempo pode ajudá-lo a entender quanto armazenamento foi usado antes e depois do alerta ser acionado e pode ajudá-lo a estimar quanto tempo pode levar para que o espaço restante do nó fique cheio.
+
+. Assim que possível, link:../expand/guidelines-for-adding-object-capacity.html["adicionar capacidade de armazenamento"] para a sua grade.
++
+Você pode adicionar volumes de storage (LUNs) aos nós de storage existentes ou adicionar novos nós de storage.
+
++
+
+NOTE: Para obter mais informações, link:../admin/managing-full-storage-nodes.html["Gerencie nós de storage completos"]consulte .
+
+

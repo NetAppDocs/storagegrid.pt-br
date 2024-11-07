@@ -1,0 +1,124 @@
+---
+permalink: ilm/example-3-ilm-rules-and-policy-for-better-protection-for-image-files.html 
+sidebar: sidebar 
+keywords: example ILM rule, information lifecycle rule examples 
+summary: Você pode usar as regras e a política de exemplo a seguir para garantir que imagens maiores que 1 MB sejam codificadas por apagamento e que duas cópias sejam feitas de imagens menores. 
+---
+= Exemplo 3: Regras e política de ILM para melhor proteção para arquivos de imagem
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar as regras e a política de exemplo a seguir para garantir que imagens maiores que 1 MB sejam codificadas por apagamento e que duas cópias sejam feitas de imagens menores.
+
+
+CAUTION: As seguintes regras e políticas do ILM são apenas exemplos. Existem muitas maneiras de configurar regras ILM. Antes de ativar uma nova política, simule-a para confirmar que ela funcionará da forma pretendida para proteger o conteúdo da perda.
+
+
+
+== Regra ILM 1 por exemplo 3: Use EC para arquivos de imagem maiores que 1 MB
+
+Este exemplo de regra ILM usa filtragem avançada para codificar todos os arquivos de imagem com mais de 1 MB.
+
+
+NOTE: A codificação de apagamento é mais adequada para objetos com mais de 1 MB. Não use a codificação de apagamento para objetos com menos de 200 KB para evitar a sobrecarga de gerenciamento de fragmentos codificados de apagamento muito pequenos.
+
+[cols="1a,2a"]
+|===
+| Definição de regra | Exemplo de valor 
+
+
+ a| 
+Nome da regra
+ a| 
+Ficheiros de imagem EC > 1 MB
+
+
+
+ a| 
+Tempo de referência
+ a| 
+Tempo de ingestão
+
+
+
+ a| 
+Filtro avançado para tamanho do objeto
+ a| 
+Tamanho do objeto superior a 1 MB
+
+
+
+ a| 
+Filtros avançados para Key
+ a| 
+* Termina com .jpg
+* Termina com .png
+
+
+
+
+ a| 
+Colocações
+ a| 
+Crie uma cópia codificada por apagamento 2-1 usando três sites
+
+|===
+image::../media/policy_3_rule_1_ec_images_adv_filtering.png[Regra ILM 1 por exemplo 3: Use EC para arquivos de imagem maiores que 1 MB]
+
+Como essa regra é configurada como a primeira regra na política, a instrução de colocação de codificação de apagamento só se aplica a arquivos .jpg e .png maiores que 1 MB.
+
+
+
+== Regra ILM 2 por exemplo 3: Crie 2 cópias replicadas para todos os arquivos de imagem restantes
+
+Este exemplo de regra ILM usa filtragem avançada para especificar que arquivos de imagem menores sejam replicados. Como a primeira regra na política já corresponde a arquivos de imagem maiores que 1 MB, essa regra se aplica a arquivos de imagem com 1 MB ou menores.
+
+[cols="1a,2a"]
+|===
+| Definição de regra | Exemplo de valor 
+
+
+ a| 
+Nome da regra
+ a| 
+2 cópias para ficheiros de imagem
+
+
+
+ a| 
+Tempo de referência
+ a| 
+Tempo de ingestão
+
+
+
+ a| 
+Filtros avançados para Key
+ a| 
+* Termina com .jpg
+* Termina com .png
+
+
+
+
+ a| 
+Colocações
+ a| 
+Criar 2 cópias replicadas em dois pools de storage
+
+|===
+
+
+== Política ILM, por exemplo, 3: Melhor proteção para arquivos de imagem
+
+Este exemplo de política ILM inclui três regras:
+
+* A primeira regra de apagamento codifica todos os arquivos de imagem com mais de 1 MB.
+* A segunda regra cria duas cópias de quaisquer arquivos de imagem restantes (ou seja, imagens com 1 MB ou menos).
+* A regra padrão se aplica a todos os objetos restantes (ou seja, quaisquer arquivos que não sejam de imagem).
+
+
+image::../media/policy_3_configured_policy.png[Política ILM, por exemplo, 3: Melhor proteção para arquivos de imagem]

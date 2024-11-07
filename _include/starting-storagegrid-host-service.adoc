@@ -1,0 +1,31 @@
+= 
+:allow-uri-read: 
+
+
+.Passos
+. Execute os seguintes comandos em cada host:
++
+[listing]
+----
+sudo systemctl enable storagegrid
+sudo systemctl start storagegrid
+----
+. Execute o seguinte comando para garantir que a implantação está em andamento:
++
+[listing]
+----
+sudo storagegrid node status node-name
+----
+. Se qualquer nó retornar um status de "não está em execução" ou "parado", execute o seguinte comando:
++
+[listing]
+----
+sudo storagegrid node start node-name
+----
+. Se você já ativou e iniciou o serviço de host StorageGRID (ou se não tiver certeza se o serviço foi ativado e iniciado), execute também o seguinte comando:
++
+[listing]
+----
+sudo systemctl reload-or-restart storagegrid
+----
+

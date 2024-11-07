@@ -1,0 +1,27 @@
+---
+permalink: network/client-network-topology.html 
+sidebar: sidebar 
+keywords: client network topology 
+summary: 'Ter uma rede de clientes é opcional. O uso de uma rede de cliente permite que o tráfego de rede de cliente (por exemplo, S3) seja separado do tráfego interno de grade, o que permite que a rede de grade seja mais segura. O tráfego administrativo pode ser Tratado pelo Cliente ou rede de Grade quando a rede Admin não estiver configurada.' 
+---
+= Topologia de rede do cliente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ter uma rede de clientes é opcional. O uso de uma rede de cliente permite que o tráfego de rede do cliente (por exemplo, S3) seja separado do tráfego interno da grade, o que permite que a rede de grade seja mais segura. O tráfego administrativo pode ser Tratado pelo Cliente ou rede de Grade quando a rede Admin não estiver configurada.
+
+Ao configurar a rede do cliente, você estabelece o endereço IP do host, a máscara de sub-rede e o endereço IP do gateway para a interface eth2 para o nó configurado. A rede Cliente de cada nó pode ser independente da rede Cliente em qualquer outro nó.
+
+Se você configurar uma rede de cliente para um nó durante a instalação, o gateway padrão do nó mudará do gateway de rede de grade para o gateway de rede de cliente quando a instalação estiver concluída. Se uma rede de cliente for adicionada mais tarde, o gateway padrão do nó será alternado da mesma forma.
+
+Neste exemplo, a rede de clientes é usada para solicitações de clientes S3 e para funções administrativas, enquanto a rede de Grade é dedicada a operações internas de gerenciamento de objetos.
+
+image::../media/grid_client_networks.png[Redes de clientes Grid]
+
+image::../media/grid_client_networks_ips.png[IPs redes Cliente Grid]
+
+.Informações relacionadas
+link:../maintain/changing-nodes-network-configuration.html["Alterar a configuração da rede do nó"]

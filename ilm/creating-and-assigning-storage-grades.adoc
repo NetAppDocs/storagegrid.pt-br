@@ -1,0 +1,65 @@
+---
+permalink: ilm/creating-and-assigning-storage-grades.html 
+sidebar: sidebar 
+keywords: what is a storage grade, create storage grade 
+summary: Os graus de armazenamento identificam o tipo de armazenamento usado por um nó de armazenamento. Você pode criar classes de storage se quiser que as regras do ILM coloquem determinados objetos em determinados nós de storage. 
+---
+= Criar e atribuir notas de armazenamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os graus de armazenamento identificam o tipo de armazenamento usado por um nó de armazenamento. Você pode criar classes de storage se quiser que as regras do ILM coloquem determinados objetos em determinados nós de storage.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
+
+
+.Sobre esta tarefa
+Quando você instala o StorageGRID pela primeira vez, o nível de armazenamento *padrão* é atribuído automaticamente a cada nó de armazenamento no sistema. Conforme necessário, você pode, opcionalmente, definir categorias de storage personalizadas e atribuí-las a diferentes nós de storage.
+
+O uso de classes de armazenamento personalizadas permite criar pools de armazenamento ILM que contêm apenas um tipo específico de nó de armazenamento. Por exemplo, você pode querer que certos objetos sejam armazenados em seus nós de storage mais rápidos, como dispositivos de storage all-flash StorageGRID.
+
+
+NOTE: Os nós de storage podem ser configurados durante a instalação para conter apenas metadados de objetos e não dados de objetos. Os nós de storage somente de metadados não podem ser atribuídos a um nível de storage. Para obter mais informações, link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nós de storage"]consulte .
+
+Se o grau de armazenamento não for um problema (por exemplo, todos os nós de armazenamento são idênticos), você pode ignorar este procedimento e usar a seleção *inclui todas as classes de armazenamento* para o grau de armazenamento quando link:creating-storage-pool.html["crie pools de armazenamento"]você . O uso dessa seleção garante que o pool de armazenamento incluirá todos os nós de armazenamento no local, independentemente de seu nível de armazenamento.
+
+
+NOTE: Não crie mais notas de armazenamento do que o necessário. Por exemplo, não crie um nível de armazenamento para cada nó de armazenamento. Em vez disso, atribua cada nível de storage a dois ou mais nós. Os graus de armazenamento atribuídos a apenas um nó podem causar backlogs de ILM se esse nó ficar indisponível.
+
+.Passos
+. Selecione *ILM* > *classes de armazenamento*.
+. Definir graus de armazenamento personalizados:
++
+.. Para cada grau de armazenamento personalizado que você deseja adicionar, selecione *Inserir* image:../media/icon_nms_insert.gif["insira o ícone"] para adicionar uma linha.
+.. Introduza uma etiqueta descritiva.
++
+image::../media/editing_storage_grades.gif[Página de classes de armazenamento]
+
+.. Selecione *aplicar alterações*.
+.. Opcionalmente, se você precisar modificar um rótulo salvo, selecione *Editar* image:../media/icon_nms_edit.gif["ícone de edição"] e selecione *aplicar alterações*.
++
+
+NOTE: Não é possível excluir graus de armazenamento.
+
+
+
+. Atribuir novos graus de storage aos nós de storage:
++
+.. Localize o nó de armazenamento na lista LDR e selecione o ícone *Editar* image:../media/icon_nms_edit.gif["ícone de edição"].
+.. Selecione o grau de armazenamento adequado na lista.
++
+image::../media/assigning_storage_grades_to_storage_nodes.gif[Página de classes de armazenamento]
+
++
+
+NOTE: Atribua um nível de storage a um determinado nó de storage somente uma vez. Um nó de armazenamento recuperado de falha mantém o grau de armazenamento atribuído anteriormente. Não altere esta atribuição depois de a política ILM estar ativada. Se a atribuição for alterada, os dados serão armazenados com base no novo nível de armazenamento.
+
+.. Selecione *aplicar alterações*.
+
+
+

@@ -1,0 +1,134 @@
+---
+permalink: audit/mgau-management-audit-message.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, MGAU, Management audit message 
+summary: A categoria Gerenciamento Registra as solicitações do usuário para a API de gerenciamento. Cada solicitação que não é uma solicitação GET ou HEAD para a API Registra uma resposta com o nome de usuário, IP e tipo de solicitação para a API. 
+---
+= MGAU: Mensagem de auditoria de gestão
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A categoria Gerenciamento Registra as solicitações do usuário para a API de gerenciamento. Cada solicitação HTTP que não é uma solicitação GET ou HEAD para um URI de API válido Registra uma resposta contendo o nome de usuário, IP e tipo de solicitação para a API. URIs API inválidas (como /api/v3-autorize) e solicitações inválidas para URIs API válidas não são registradas.
+
+[cols="1a,1a,4a"]
+|===
+| Código | Campo | Descrição 
+
+
+ a| 
+MDIP
+ a| 
+Endereço IP de destino
+ a| 
+O endereço IP do servidor (destino).
+
+
+
+ a| 
+MDNA
+ a| 
+Nome de domínio
+ a| 
+O nome de domínio do host.
+
+
+
+ a| 
+MPAT
+ a| 
+PATH da solicitação
+ a| 
+O caminho da solicitação.
+
+
+
+ a| 
+MPQP
+ a| 
+Parâmetros de consulta de solicitação
+ a| 
+Os parâmetros de consulta para a solicitação.
+
+
+
+ a| 
+MRBD
+ a| 
+Corpo do pedido
+ a| 
+O conteúdo do corpo do pedido. Enquanto o corpo da resposta é registrado por padrão, o corpo da solicitação é registrado em certos casos quando o corpo da resposta está vazio. Como as seguintes informações não estão disponíveis no corpo de resposta, elas são retiradas do corpo de solicitação para os seguintes métodos POST:
+
+* Nome de usuário e ID de conta em *POST autorize*
+* Nova configuração de sub-redes em *POST /grid/grid-networks/update*
+* Novos servidores NTP em *POST /Grid/ntp-server/update*
+* IDs de servidor desativadas em *POST /Grid/Servers/Deactivation*
+
+
+*Nota:* as informações confidenciais são excluídas (por exemplo, uma chave de acesso S3) ou mascaradas com asteriscos (por exemplo, uma senha).
+
+
+
+ a| 
+MRMD
+ a| 
+Método de solicitação
+ a| 
+O método de solicitação HTTP:
+
+* POST
+* COLOQUE
+* ELIMINAR
+* PATCH
+
+
+
+
+ a| 
+MRSC
+ a| 
+Código de resposta
+ a| 
+O código de resposta.
+
+
+
+ a| 
+MRSP
+ a| 
+Corpo de resposta
+ a| 
+O conteúdo da resposta (o corpo da resposta) é registrado por padrão.
+
+*Nota:* as informações confidenciais são excluídas (por exemplo, uma chave de acesso S3) ou mascaradas com asteriscos (por exemplo, uma senha).
+
+
+
+ a| 
+MSIP
+ a| 
+Endereço IP de origem
+ a| 
+O endereço IP do cliente (origem).
+
+
+
+ a| 
+MUUN
+ a| 
+URN de utilizador
+ a| 
+A URNA (nome uniforme do recurso) do usuário que enviou a solicitação.
+
+
+
+ a| 
+RSLT
+ a| 
+Resultado
+ a| 
+Retorna bem-sucedido (SUCS) ou o erro relatado pelo back-end.
+
+|===

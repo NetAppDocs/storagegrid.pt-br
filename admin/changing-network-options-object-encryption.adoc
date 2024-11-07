@@ -1,0 +1,74 @@
+---
+permalink: admin/changing-network-options-object-encryption.html 
+sidebar: sidebar 
+keywords: enable http, storage node connections 
+summary: Você pode configurar a segurança de rede e de objetos para criptografar objetos armazenados, para impedir determinadas solicitações S3 ou para permitir que conexões de cliente aos nós de armazenamento usem HTTP em vez de HTTPS. 
+---
+= Configurar a segurança de rede e de objetos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode configurar a segurança de rede e de objetos para criptografar objetos armazenados, para impedir determinadas solicitações S3 ou para permitir que conexões de cliente aos nós de armazenamento usem HTTP em vez de HTTPS.
+
+
+
+== Criptografia de objeto armazenado
+
+A criptografia de objeto armazenado permite a criptografia de todos os dados de objeto à medida que são ingeridos através do S3. Por padrão, os objetos armazenados não são criptografados, mas você pode optar por criptografar objetos usando o algoritmo de criptografia AES-128 ou AES-256. Quando você ativa a configuração, todos os objetos recém-ingeridos são criptografados, mas nenhuma alteração é feita aos objetos armazenados existentes. Se desativar a encriptação, os objetos atualmente encriptados permanecem encriptados, mas os objetos recentemente ingeridos não são encriptados.
+
+A configuração de criptografia de objeto armazenado se aplica somente a objetos S3 que não tenham sido criptografados por criptografia no nível do bucket ou no nível do objeto.
+
+Para obter mais detalhes sobre os métodos de criptografia StorageGRID, link:../admin/reviewing-storagegrid-encryption-methods.html["Reveja os métodos de encriptação StorageGRID"]consulte .
+
+
+
+== Impedir a modificação do cliente
+
+Impedir a modificação do cliente é uma configuração de todo o sistema. Quando a opção *Prevent client modification* é selecionada, as seguintes solicitações são negadas.
+
+
+
+=== S3 API REST
+
+* DeleteBucket Requests
+* Quaisquer solicitações para modificar os dados de um objeto existente, metadados definidos pelo usuário ou marcação de objeto S3
+
+
+
+
+== Ative HTTP para conexões de nó de armazenamento
+
+Por padrão, os aplicativos clientes usam o protocolo de rede HTTPS para quaisquer conexões diretas aos nós de storage. Opcionalmente, você pode ativar o HTTP para essas conexões, por exemplo, ao testar uma grade que não seja de produção.
+
+Use HTTP para conexões de nó de armazenamento somente se os clientes S3 precisarem fazer conexões HTTP diretamente aos nós de armazenamento. Não é necessário usar essa opção para clientes que usam somente conexões HTTPS ou para clientes que se conetam ao serviço Load Balancer (porque você pode link:../admin/configuring-load-balancer-endpoints.html["configure cada ponto de extremidade do balanceador de carga"]usar HTTP ou HTTPS).
+
+link:summary-ip-addresses-and-ports-for-client-connections.html["Resumo: Endereços IP e portas para conexões de clientes"]Consulte para saber quais portas os clientes S3 usam ao se conetar a nós de armazenamento usando HTTP ou HTTPS.
+
+
+
+== Selecione as opções
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem permissão de acesso root.
+
+
+.Passos
+. Selecione *CONFIGURATION* > *Security* > *Security settings*.
+. Selecione a guia *rede e objetos*.
+. Para criptografia de objetos armazenados, use a configuração *nenhum* (padrão) se você não quiser que objetos armazenados sejam criptografados ou selecione *AES-128* ou *AES-256* para criptografar objetos armazenados.
+. Opcionalmente, selecione *impedir modificação do cliente* se você quiser impedir que clientes S3 façam solicitações específicas.
++
+
+NOTE: Se alterar esta definição, demora cerca de um minuto para a nova definição ser aplicada. O valor configurado é armazenado em cache para desempenho e dimensionamento.
+
+. Opcionalmente, selecione *Ativar HTTP para conexões de nó de armazenamento* se os clientes se conetarem diretamente aos nós de armazenamento e você quiser usar conexões HTTP.
++
+
+NOTE: Tenha cuidado ao ativar o HTTP para uma grade de produção porque as solicitações serão enviadas sem criptografia.
+
+. Selecione *Guardar*.
+

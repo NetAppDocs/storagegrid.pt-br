@@ -1,0 +1,205 @@
+---
+permalink: monitor/monitoring-storage-capacity.html 
+sidebar: sidebar 
+keywords: how to monitor storage capacity 
+summary: Monitore o espaço utilizável total disponível para garantir que o sistema StorageGRID não fique sem espaço de storage para objetos ou metadados de objetos. 
+---
+= Monitorar a capacidade de armazenamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Monitore o espaço utilizável total disponível para garantir que o sistema StorageGRID não fique sem espaço de storage para objetos ou metadados de objetos.
+
+O StorageGRID armazena os dados de objeto e os metadados de objeto separadamente e reserva uma quantidade específica de espaço para um banco de dados Cassandra distribuído que contém metadados de objeto. Monitore a quantidade total de espaço consumida para objetos e metadados de objetos, bem como tendências na quantidade de espaço consumida para cada um. Isso permitirá que você se Planeje com antecedência para a adição de nós e evite interrupções de serviço.
+
+Você pode link:viewing-storage-tab.html["ver informações sobre a capacidade de armazenamento"] fazer toda a grade, para cada local e para cada nó de storage em seu sistema StorageGRID.
+
+
+
+== Monitore a capacidade de armazenamento de toda a grade
+
+Monitore a capacidade geral de storage da grade para garantir que haja espaço livre adequado para os dados de objetos e metadados de objetos. Entender como a capacidade de storage muda ao longo do tempo pode ajudar você a Planejar adicionar nós de storage ou volumes de storage antes que a capacidade de storage utilizável da grade seja consumida.
+
+O painel do Grid Manager permite avaliar rapidamente a quantidade de armazenamento disponível para toda a grade e para cada data center. A página nós fornece valores mais detalhados para dados de objetos e metadados de objetos.
+
+.Passos
+. Avalie a quantidade de storage disponível para toda a grade e para cada data center.
++
+.. Selecione *Painel > Visão geral*.
+.. Observe os valores na divisão de uso de espaço de dados e nos cartões de divisão de uso de espaço de metadados permitidos. Cada cartão lista uma porcentagem do uso do armazenamento, a capacidade do espaço usado e o espaço total disponível ou permitido pelo local.
++
+
+NOTE: O resumo não inclui Mídia de arquivamento.
+
++
+image::../media/dashboard_data_and_metadata_space_usage_breakdown.png[Divisão de utilização de espaço de dados e metadados]
+
+.. Observe o gráfico no cartão armazenamento ao longo do tempo. Use a lista suspensa período de tempo para ajudá-lo a determinar a rapidez com que o armazenamento é consumido.
++
+image::../media/dashboard_storage_over_time.png[Gráfico de armazenamento ao longo do tempo]
+
+
+
+. Use a página nós para obter detalhes adicionais sobre quanto storage foi usado e quanto storage permanece disponível na grade para dados de objetos e metadados de objetos.
++
+.. Selecione *NODES*.
+.. Selecione *_Grid_* > *Storage*.
++
+image::../media/nodes_deployment_storage_tab.png[Guia de storage de implantação de nós]
+
+.. Posicione o cursor sobre os gráficos *armazenamento usado - dados de objetos* e *armazenamento usado - metadados de objetos* para ver quanto armazenamento de objetos e metadados de objetos estão disponíveis para toda a grade e quanto tem sido usado ao longo do tempo.
++
+
+NOTE: Os valores totais de um site ou da grade não incluem nós que não relataram métricas por pelo menos cinco minutos, como nós off-line.
+
+
+
+. Planeje realizar uma expansão para adicionar nós de storage ou volumes de storage antes que a capacidade de storage utilizável da grade seja consumida.
++
+Ao Planejar o momento de uma expansão, considere quanto tempo levará para adquirir e instalar armazenamento adicional.
+
++
+
+NOTE: Se sua política de ILM usa codificação de apagamento, talvez você prefira expandir quando os nós de storage existentes estiverem aproximadamente 70% cheios para reduzir o número de nós que precisam ser adicionados.
+
++
+Para obter mais informações sobre como Planejar uma expansão de armazenamento, consulte o link:../expand/index.html["Instruções para expandir StorageGRID"].
+
+
+
+
+
+== Monitore a capacidade de storage para cada nó de storage
+
+Monitore o espaço utilizável total para cada nó de storage para garantir que o nó tenha espaço suficiente para novos dados de objeto.
+
+.Sobre esta tarefa
+Espaço utilizável é a quantidade de espaço de armazenamento disponível para armazenar objetos. O espaço utilizável total para um nó de storage é calculado adicionando o espaço disponível em todos os armazenamentos de objetos dentro do nó.
+
+image::../media/calculating_watermarks.gif[Desenho conceitual para espaço total utilizável]
+
+.Passos
+. Selecione *NÓS* > *_Storage Node_* > *Storage*.
++
+Os gráficos e tabelas para o nó aparecem.
+
+. Posicione o cursor sobre o gráfico armazenamento usado - dados do objeto.
++
+São apresentados os seguintes valores:
+
++
+** *Usado (%)*: A porcentagem do espaço utilizável total que foi usado para dados do objeto.
+** *Usado*: A quantidade de espaço utilizável total que foi usado para dados de objeto.
+** *Dados replicados*: Uma estimativa da quantidade de dados de objetos replicados neste nó, site ou grade.
+** *Dados codificados por apagamento*: Uma estimativa da quantidade de dados de objetos codificados por apagamento neste nó, site ou grade.
+** *Total*: A quantidade total de espaço utilizável neste nó, site ou grade. O valor usado é a `storagegrid_storage_utilization_data_bytes` métrica.
++
+image::../media/nodes_page_storage_used_object_data.png[Dados de objetos usados no storage de páginas de nós]
+
+
+
+. Reveja os valores disponíveis nas tabelas volumes e objetos armazenados, abaixo dos gráficos.
++
+
+NOTE: Para visualizar gráficos destes valores, clique nos ícones de gráfico image:../media/icon_chart_new_for_11_5.png["Ícone de carta"]nas colunas disponíveis.
+
++
+image::../media/nodes_page_storage_tables.png[Objeto armazena tabelas]
+
+. Monitore os valores ao longo do tempo para estimar a taxa na qual o espaço de armazenamento utilizável está sendo consumido.
+. Para manter as operações normais do sistema, adicione nós de storage, adicione volumes de storage ou arquive dados de objetos antes que o espaço utilizável seja consumido.
++
+Ao Planejar o momento de uma expansão, considere quanto tempo levará para adquirir e instalar armazenamento adicional.
+
++
+
+NOTE: Se sua política de ILM usa codificação de apagamento, talvez você prefira expandir quando os nós de storage existentes estiverem aproximadamente 70% cheios para reduzir o número de nós que precisam ser adicionados.
+
++
+Para obter mais informações sobre como Planejar uma expansão de armazenamento, consulte o link:../expand/index.html["Instruções para expandir StorageGRID"].
+
++
+link:../troubleshoot/troubleshooting-low-object-data-storage-alert.html["Baixo armazenamento de dados de objetos"]O alerta é acionado quando o espaço insuficiente permanece para armazenar dados de objetos em um nó de armazenamento.
+
+
+
+
+
+== Monitore a capacidade dos metadados de objetos para cada nó de storage
+
+Monitore o uso de metadados para cada nó de storage para garantir que o espaço adequado permaneça disponível para operações essenciais do banco de dados. É necessário adicionar novos nós de storage em cada local antes que os metadados do objeto excedam 100% do espaço permitido dos metadados.
+
+.Sobre esta tarefa
+O StorageGRID mantém três cópias de metadados de objetos em cada local para fornecer redundância e proteger os metadados de objetos da perda. As três cópias são distribuídas uniformemente por todos os nós de storage em cada local, usando o espaço reservado para metadados no volume de storage 0 de cada nó de storage.
+
+Em alguns casos, a capacidade de metadados de objetos da grade pode ser consumida mais rápido do que sua capacidade de armazenamento de objetos. Por exemplo, se você costuma ingerir um grande número de objetos pequenos, talvez seja necessário adicionar nós de storage para aumentar a capacidade dos metadados, mesmo que haja capacidade suficiente de storage de objetos.
+
+Alguns dos fatores que podem aumentar o uso de metadados incluem o tamanho e a quantidade de metadados e tags do usuário, o número total de peças em um upload de várias partes e a frequência de alterações nos locais de armazenamento de ILM.
+
+.Passos
+. Selecione *NÓS* > *_Storage Node_* > *Storage*.
+. Posicione o cursor sobre o gráfico armazenamento usado - metadados de objetos para ver os valores de um tempo específico.
++
+image::../media/storage_used_object_metadata.png[Armazenamento usado - metadados Objeto]
+
++
+Usado (%):: A porcentagem do espaço de metadados permitido que foi usado neste nó de storage.
++
+--
+Métricas de Prometheus: `storagegrid_storage_utilization_metadata_bytes` E `storagegrid_storage_utilization_metadata_allowed_bytes`
+
+--
+Usado:: Os bytes do espaço de metadados permitido que foram usados neste nó de armazenamento.
++
+--
+Métrica Prometheus: `storagegrid_storage_utilization_metadata_bytes`
+
+--
+Permitido:: O espaço permitido para metadados de objetos neste nó de storage. Para saber como esse valor é determinado para cada nó de armazenamento, consulte link:../admin/managing-object-metadata-storage.html#allowed-metadata-space["Descrição completa do espaço de metadados permitido"].
++
+--
+Métrica Prometheus: `storagegrid_storage_utilization_metadata_allowed_bytes`
+
+--
+Real reservado:: O espaço real reservado para metadados neste nó de storage. Inclui o espaço permitido e o espaço necessário para operações essenciais de metadados. Para saber como esse valor é calculado para cada nó de armazenamento, consulte link:../admin/managing-object-metadata-storage.html#actual-reserved-space-for-metadata["Descrição completa do espaço reservado real para metadados"].
++
+--
+_Prometheus métrica será adicionada em uma versão futura._
+
+--
+
+
++
+
+NOTE: Os valores totais de um site ou da grade não incluem nós que não relataram métricas por pelo menos cinco minutos, como nós off-line.
+
+. Se o valor *usado (%)* for 70% ou mais, expanda o sistema StorageGRID adicionando nós de storage a cada local.
++
+
+CAUTION: O alerta *armazenamento de metadados baixo* é acionado quando o valor *usado (%)* atinge determinados limites. Resultados indesejáveis podem ocorrer se os metadados de objetos usarem mais de 100% do espaço permitido.
+
++
+Quando você adiciona os novos nós, o sistema reequilibra automaticamente os metadados de objetos em todos os nós de storage no local. Consulte link:../expand/index.html["Instruções para expandir um sistema StorageGRID"].
+
+
+
+
+
+== Monitorar previsões de uso de espaço
+
+Monitore as previsões de uso de espaço para dados e metadados do usuário para estimar quando será link:../expand/index.html["expanda uma grade"]necessário .
+
+Se você notar que a taxa de consumo muda ao longo do tempo, selecione um intervalo mais curto a partir da lista suspensa *Average over* (média) para refletir apenas os padrões de ingestão mais recentes. Se notar padrões sazonais, selecione um intervalo mais longo.
+
+Se você tiver uma nova instalação do StorageGRID, permita que dados e metadados se acumulem antes de avaliar as previsões de uso do espaço.
+
+.Passos
+. No painel de instrumentos, selecione *armazenamento*.
+. Visualize as placas do painel, a previsão do uso de dados por pool de armazenamento e a previsão do uso de metadados por local.
+. Use esses valores para estimar quando será necessário adicionar novos nós de storage para storage de dados e metadados.
+
+
+image::../media/forecast-metadata-usage.png[Previsão do uso de metadados por local]

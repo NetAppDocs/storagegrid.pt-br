@@ -1,0 +1,59 @@
+---
+permalink: ilm/data-protection-options-for-ingest.html 
+sidebar: sidebar 
+keywords: ingest options, balanced ingest, strict ingest, dual-commit ingest 
+summary: 'Ao criar uma regra ILM, você especifica uma das três opções para proteger objetos na ingestão: Commit duplo, estrito ou balanceado.' 
+---
+= Opções de ingestão
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ao criar uma regra ILM, você especifica uma das três opções para proteger objetos na ingestão: Commit duplo, estrito ou balanceado.
+
+Dependendo de sua escolha, o StorageGRID faz cópias provisórias e coloca os objetos em fila para avaliação do ILM mais tarde, ou usa o posicionamento síncrono e faz cópias imediatamente para atender aos requisitos do ILM.
+
+
+
+== Fluxograma das opções de ingestão
+
+O fluxograma mostra o que acontece quando os objetos são combinados por uma regra ILM que usa cada uma das três opções de ingestão.
+
+image::../media/ingest_object_lifecycle.png[Diagrama mostrando como ocorre a ingestão de objetos para cada opção de ingestão]
+
+
+
+== Commit duplo
+
+Quando você seleciona a opção de confirmação dupla, o StorageGRID imediatamente faz cópias provisórias de objetos em dois nós de armazenamento diferentes e retorna uma mensagem de "ingestão bem-sucedida" ao cliente. O objeto é colocado em fila para avaliação ILM e cópias que atendem às instruções de colocação da regra são feitas posteriormente. Se a política de ILM não puder ser processada imediatamente após a confirmação dupla, a proteção contra perda de site pode levar algum tempo para ser alcançada.
+
+Use a opção de confirmação dupla em qualquer um desses casos:
+
+* Você está usando regras de ILM de vários sites e a latência de ingestão de clientes é sua principal consideração. Ao usar o Dual Commit, você deve garantir que sua grade possa executar o trabalho adicional de criar e remover as cópias de duplo commit se elas não satisfizerem o ILM. Especificamente:
++
+** A carga na grade deve ser baixa o suficiente para evitar um backlog ILM.
+** A grade deve ter recursos de hardware em excesso (IOPS, CPU, memória, largura de banda da rede, etc.).
+
+
+* Você está usando regras ILM de vários sites e a conexão WAN entre os sites geralmente tem alta latência ou largura de banda limitada. Nesse cenário, usar a opção de confirmação dupla pode ajudar a evitar tempos limite do cliente. Antes de escolher a opção Dual Commit, você deve testar o aplicativo cliente com cargas de trabalho realistas.
+
+
+
+
+== Equilibrado (padrão)
+
+Quando você seleciona a opção equilibrada, o StorageGRID também usa o posicionamento síncrono na ingestão e faz imediatamente todas as cópias especificadas nas instruções de posicionamento da regra. Em contraste com a opção estrita, se o StorageGRID não puder fazer imediatamente todas as cópias, ele usará o Dual Commit. Se a política de ILM usar colocações em vários sites e a proteção imediata contra perda de sites não puder ser alcançada, o alerta *posicionamento ILM inalcançável* é acionado.
+
+Use a opção equilibrada para obter a melhor combinação de proteção de dados, desempenho de grade e sucesso de ingestão. Balanced é a opção padrão no assistente criar regra ILM.
+
+
+
+== Rigoroso
+
+Quando você seleciona a opção estrita, o StorageGRID usa o posicionamento síncrono na ingestão e faz imediatamente todas as cópias de objetos especificadas nas instruções de posicionamento da regra. A ingestão falha se o StorageGRID não puder criar todas as cópias, por exemplo, porque um local de armazenamento necessário está temporariamente indisponível. O cliente deve tentar novamente a operação.
+
+Use a opção estrita se você tiver um requisito operacional ou regulamentar para armazenar imediatamente objetos apenas nos locais descritos na regra ILM. Por exemplo, para atender a um requisito regulatório, talvez seja necessário usar a opção estrita e um filtro avançado de restrição de localização para garantir que os objetos nunca sejam armazenados em determinados data centers.
+
+link:example-5-ilm-rules-and-policy-for-strict-ingest-behavior.html["Exemplo 5: Regras de ILM e política para comportamento de ingestão rigorosa"]Consulte .

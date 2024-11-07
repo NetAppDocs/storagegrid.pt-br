@@ -1,0 +1,53 @@
+---
+permalink: ilm/verifying-ilm-policy-with-object-metadata-lookup.html 
+sidebar: sidebar 
+keywords: verify ilm policy, object metadata lookup 
+summary: Depois de ativar uma política ILM, ingira objetos de teste representativos no sistema StorageGRID e, em seguida, execute uma pesquisa de metadados de objetos para confirmar que as cópias estão sendo feitas conforme o pretendido e colocadas nos locais corretos. 
+---
+= Verifique uma política ILM com pesquisa de metadados de objeto
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois de ativar uma política ILM, ingira objetos de teste representativos no sistema StorageGRID e, em seguida, execute uma pesquisa de metadados de objetos para confirmar que as cópias estão sendo feitas conforme o pretendido e colocadas nos locais corretos.
+
+.Antes de começar
+Você tem um identificador de objeto, que pode ser um dos seguintes: * * * UUID*: O Identificador universalmente exclusivo do objeto. * *CBID*: O identificador exclusivo do objeto dentro do StorageGRID. Você pode obter o CBID de um objeto a partir do log de auditoria. Introduza o CBID em todas as maiúsculas. * * Bucket *S3 e chave de objeto*: Quando um objeto é ingerido através da interface S3, o aplicativo cliente usa uma combinação de bucket e chave de objeto para armazenar e identificar o objeto. Se o bucket S3 estiver versionado e você quiser procurar uma versão específica de um objeto S3 usando o bucket e a chave do objeto, você tem o *version ID*.
+
+.Passos
+. Ingira o objeto.
+. Selecione *ILM* > *Object metadata lookup*.
+. Digite o identificador do objeto no campo *Identificador*. Você pode inserir um UUID, CBID ou uma chave de objeto/bucket do S3.
+. Opcionalmente, insira um ID de versão para o objeto (apenas S3).
+. Selecione *Procurar*.
++
+Os resultados da pesquisa de metadados de objeto aparecem. Esta página lista os seguintes tipos de informações:
+
++
+** Metadados do sistema, como ID de objeto (UUID), tipo de resultado (objeto, marcador de exclusão, bucket S3) e tamanho lógico do objeto. Consulte o exemplo de captura de tela abaixo para obter mais detalhes.
+** Quaisquer pares de valor-chave de metadados de usuário personalizados associados ao objeto.
+** Para objetos S3D, qualquer par de chave-valor de marca de objeto associado ao objeto.
+** Para cópias de objetos replicadas, o local de storage atual de cada cópia.
+** Para cópias de objetos com codificação de apagamento, o local de storage atual de cada fragmento.
+** Para cópias de objetos em um Cloud Storage Pool, o local do objeto, incluindo o nome do bucket externo e o identificador exclusivo do objeto.
+** Para objetos segmentados e objetos de várias partes, uma lista de segmentos, incluindo identificadores de segmento e tamanhos de dados. Para objetos com mais de 100 segmentos, apenas os primeiros 100 segmentos são mostrados.
+** Todos os metadados de objetos no formato de armazenamento interno não processado. Esses metadados brutos incluem metadados internos do sistema que não são garantidos para persistir de liberação para liberação.
+
+
+. Confirme se o objeto está armazenado no local ou locais corretos e se é o tipo correto de cópia.
++
+Se a opção Auditoria estiver ativada, você também poderá monitorar o log de auditoria para a mensagem regras de objeto ORLM atendidas. A mensagem de auditoria ORLM pode fornecer mais informações sobre o status do processo de avaliação ILM, mas não pode fornecer informações sobre a correção do posicionamento dos dados do objeto ou a integridade da política ILM. Você deve avaliar isso sozinho. Para obter detalhes, link:../audit/index.html["Rever registos de auditoria"]consulte .
+
+
+
+O exemplo a seguir mostra os resultados da pesquisa de metadados de objeto para um objeto de teste S3 que é armazenado como duas cópias replicadas.
+
+
+NOTE: A captura de tela a seguir é um exemplo. Seus resultados variam de acordo com a versão do StorageGRID.
+
+image::../media/object_lookup_results.png[Resultados da Pesquisa de objetos]
+
+.Informações relacionadas
+link:../s3/index.html["USE A API REST DO S3"]

@@ -1,0 +1,107 @@
+---
+permalink: troubleshoot/troubleshoot-s3-put-object-size-too-large-alert.html 
+sidebar: sidebar 
+keywords: how to troubleshoot S3 PUT Object size too large alert, S3 PutObject size 
+summary: 'O alerta S3 PUT Object Size too large (tamanho do objeto de COLOCAÇÃO muito grande) é acionado se um locatário tentar uma operação PutObject não multiparte que exceda o limite de tamanho S3 de 5 GiB.' 
+---
+= Resolução de problemas S3 COLOQUE o alerta tamanho do objeto demasiado grande
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O alerta S3 PUT Object Size too large (tamanho do objeto de COLOCAÇÃO muito grande) é acionado se um locatário tentar uma operação PutObject não multiparte que exceda o limite de tamanho S3 de 5 GiB.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
+
+
+Determine quais locatários usam objetos maiores que 5 GiB, para que você possa notificá-los.
+
+.Passos
+. Aceda a *CONFIGURATION* > *Monitoring* > *Audit and syslog Server*.
+. Se as gravações do cliente forem normais, acesse o log de auditoria:
++
+.. Introduza `ssh admin@_primary_Admin_Node_IP_`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+.. Introduza `cd /var/local/log`
++
+[NOTE]
+====
+link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Saiba mais sobre os destinos para informações de auditoria"].
+
+====
+.. Identifique quais locatários estão usando objetos maiores que 5 GiB.
++
+... Introduza `zgrep SPUT * | egrep "CSIZ\(UI64\):([5-9]|[1-9][0-9]+)[0-9]{9}"`
+... Para cada mensagem de auditoria nos resultados, observe `S3AI` o campo para determinar o ID da conta do locatário. Use os outros campos da mensagem para determinar qual endereço IP foi usado pelo cliente, pelo bucket e pelo objeto:
++
+[cols="1a,2a"]
+|===
+| Código | Descrição 
+
+
+| SAIP  a| 
+IP de origem
+
+
+
+| S3AI  a| 
+ID do inquilino
+
+
+
+| S3BK  a| 
+Balde
+
+
+
+| S3KY  a| 
+Objeto
+
+
+
+| CSIZ  a| 
+Tamanho (bytes)
+
+|===
++
+*Exemplo de resultados de log de auditoria*
+
++
+[listing]
+----
+audit.log:2023-01-05T18:47:05.525999 [AUDT:[RSLT(FC32):SUCS][CNID(UI64):1672943621106262][TIME(UI64):804317333][SAIP(IPAD):"10.96.99.127"][S3AI(CSTR):"93390849266154004343"][SACC(CSTR):"bhavna"][S3AK(CSTR):"06OX85M40Q90Y280B7YT"][SUSR(CSTR):"urn:sgws:identity::93390849266154004343:root"][SBAI(CSTR):"93390849266154004343"][SBAC(CSTR):"bhavna"][S3BK(CSTR):"test"][S3KY(CSTR):"large-object"][CBID(UI64):0x077EA25F3B36C69A][UUID(CSTR):"A80219A2-CD1E-466F-9094-B9C0FDE2FFA3"][CSIZ(UI64):6040000000][MTME(UI64):1672943621338958][AVER(UI32):10][ATIM(UI64):1672944425525999][ATYP(FC32):SPUT][ANID(UI32):12220829][AMID(FC32):S3RQ][ATID(UI64):4333283179807659119]]
+----
+
+
+
+
+. Se as gravações do cliente não forem normais, use o ID do locatário do alerta para identificar o locatário:
++
+.. Aceda a *SUPPORT* > *Tools* > *Logs*. Colete logs de aplicativos para o nó de armazenamento no alerta. Especifique 15 minutos antes e depois do alerta.
+.. Extraia o arquivo e vá `bycast.log` para :
++
+`/GID<grid_id>_<time_stamp>/<site_node>/<time_stamp>/grid/bycast.log`
+
+.. PESQUISE o log `method=PUT` e identifique o cliente no `clientIP` campo.
++
+*Exemplo bycast.log*
+
++
+[listing]
+----
+Jan  5 18:33:41 BHAVNAJ-DC1-S1-2-65 ADE: |12220829 1870864574 S3RQ %CEA 2023-01-05T18:33:41.208790| NOTICE   1404 af23cb66b7e3efa5 S3RQ: EVENT_PROCESS_CREATE - connection=1672943621106262 method=PUT name=</test/4MiB-0> auth=<V4> clientIP=<10.96.99.127>
+----
+
+
+. Informe aos locatários que o tamanho máximo do PutObject é de 5 GiB e para usar uploads de várias partes para objetos maiores que 5 GiB.
+. Ignore o alerta por uma semana se o aplicativo tiver sido alterado.
+

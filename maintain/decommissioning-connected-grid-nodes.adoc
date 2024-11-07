@@ -1,0 +1,132 @@
+---
+permalink: maintain/decommissioning-connected-grid-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission, connected nodes, decommission node 
+summary: Você pode desativar e remover permanentemente nós que estão conetados à grade. 
+---
+= Desativar os nós de grade conetados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode desativar e remover permanentemente nós que estão conetados à grade.
+
+.Antes de começar
+* Compreende as considerações relativas à link:considerations-for-decommissioning-admin-or-gateway-nodes.html["Nós de administrador e gateway"]desativação e as considerações relativas à desativação link:considerations-for-decommissioning-storage-nodes.html["Nós de storage"].
+* Você reuniu todos os materiais necessários.
+* Você garantiu que nenhum trabalho de reparo de dados está ativo.
+* Você confirmou que a recuperação do nó de storage não está em andamento em nenhum lugar da grade. Se estiver, aguarde até que qualquer reconstrução do Cassandra executada como parte da recuperação esteja concluída. Você pode então prosseguir com a desativação.
+* Você garantiu que outros procedimentos de manutenção não serão executados enquanto o procedimento de desativação do nó estiver em execução, a menos que o procedimento de desativação do nó esteja pausado.
+* Você tem a senha de provisionamento.
+* Os nós de grade estão conetados.
+* A coluna *Decommission possible* para o nó ou nós que você deseja desativar inclui uma marca de seleção verde.
++
+
+NOTE: A desativação não será iniciada se um ou mais volumes estiverem offline (desmontados) ou se estiverem online (montados), mas em estado de erro.
+
++
+
+NOTE: Se um ou mais volumes ficarem offline enquanto uma desativação estiver em andamento, o processo de desativação será concluído depois que esses volumes voltarem a estar online.
+
+* Todos os nós da grade têm a saúde normal (verde) image:../media/icon_alert_green_checkmark.png["ícone de marca de verificação verde"]. Se você vir um desses ícones na coluna *Saúde*, tente resolver o problema:
++
+[cols="1a,1a,3a"]
+|===
+| Ícone | Cor | Gravidade 
+
+
+ a| 
+image:../media/icon_alarm_yellow_notice.gif["ícone quadrado amarelo"]
+ a| 
+Amarelo
+ a| 
+Aviso
+
+
+
+ a| 
+image:../media/icon_alert_yellow_minor.png["ícone de diamante laranja claro"]
+ a| 
+Laranja claro
+ a| 
+Menor
+
+
+
+ a| 
+image:../media/icon_alert_orange_major.png["ícone de diamante laranja escuro"]
+ a| 
+Laranja escuro
+ a| 
+Maior
+
+
+
+ a| 
+image:../media/icon_alert_red_critical.png["ícone vermelho x"]
+ a| 
+Vermelho
+ a| 
+Crítico
+
+|===
+* Se você desativou anteriormente um nó de storage desconetado, todos os trabalhos de reparo de dados foram concluídos com êxito. link:checking-data-repair-jobs.html["Verifique os trabalhos de reparação de dados"]Consulte .
+
+
+
+CAUTION: Não remova a máquina virtual de um nó de grade ou outros recursos até que seja instruído a fazê-lo neste procedimento.
+
+
+CAUTION: Tenha cuidado ao desativar os nós de storage em uma grade que contém nós somente metadados baseados em software. Se você desativar todos os nós configurados para armazenar _tanto_ objetos quanto metadados, a capacidade de armazenar objetos será removida da grade. Consulte link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nós de storage"] para obter mais informações sobre nós de storage somente de metadados.
+
+.Sobre esta tarefa
+Quando um nó é desativado, seus serviços são desativados e o nó é desligado automaticamente.
+
+.Passos
+. Na página Decommission Nodes, marque a caixa de seleção para cada nó de grade que você deseja desativar.
+. Introduza a frase-passe de aprovisionamento.
++
+O botão *Start Decommission* está ativado.
+
+. Selecione *Start Decommission*.
+. Reveja a lista de nós na caixa de diálogo de confirmação e selecione *OK*.
++
+O procedimento de desativação do nó é iniciado e o progresso é exibido para cada nó.
+
++
+
+CAUTION: Não coloque um nó de armazenamento offline após o início do procedimento de desativação. Alterar o estado pode resultar em algum conteúdo não ser copiado para outros locais.
+
+. Assim que o novo Pacote de recuperação estiver disponível, selecione o link Pacote de recuperação no banner ou selecione *MANUTENÇÃO* > *sistema* > *Pacote de recuperação* para acessar a página Pacote de recuperação. Em seguida, baixe o `.zip` arquivo.
++
+link:downloading-recovery-package.html["Transferir o pacote de recuperação"]Consulte .
+
++
+
+NOTE: Baixe o pacote de recuperação o mais rápido possível para garantir que você possa recuperar sua grade se algo der errado durante o procedimento de desativação.
+
+. Monitore periodicamente a página Decommission Nodes para garantir que todos os nós selecionados sejam desativados com êxito.
++
+
+TIP: Os nós de storage podem levar dias ou semanas para serem desativados.
+
++
+Quando todas as tarefas estiverem concluídas, a lista de seleção de nós é reexibida com uma mensagem de sucesso.
+
+
+
+.Depois de terminar
+Siga estas etapas depois de concluir o procedimento de desativação do nó:
+
+. Siga o passo apropriado para a sua plataforma. Por exemplo:
++
+** * Linux*: Você pode querer desanexar os volumes e excluir os arquivos de configuração de nó criados durante a instalação. link:../rhel/index.html["Instale o StorageGRID no Red Hat Enterprise Linux"]Consulte e link:../ubuntu/index.html["Instale o StorageGRID no Ubuntu ou Debian"].
+** *VMware*: Você pode querer usar a opção "Excluir do disco" do vCenter para excluir a máquina virtual. Você também pode precisar excluir quaisquer discos de dados que sejam independentes da máquina virtual.
+** *StorageGRID Appliance*: O nó appliance reverte automaticamente para um estado não implantado, onde você pode acessar o Instalador de dispositivos StorageGRID. Pode desligar o aparelho ou adicioná-lo a outro sistema StorageGRID.
+
+
+. Certifique-se de que as unidades do nó de grade desativado estão limpas. Utilize uma ferramenta ou serviço de limpeza de dados disponíveis no mercado para remover dados das unidades de forma permanente e segura.
+. Se você desativou um nó de dispositivo e os dados no dispositivo foram protegidos usando criptografia de nó, use o Instalador de dispositivos StorageGRID para limpar a configuração do servidor de gerenciamento de chaves (limpar KMS). Você deve limpar a configuração do KMS se quiser adicionar o dispositivo a outra grade. Para obter instruções, https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/monitoring-node-encryption-in-maintenance-mode.html["Monitore a criptografia do nó no modo de manutenção"^] consulte .
+

@@ -1,0 +1,80 @@
+---
+permalink: maintain/modifying-dns-configuration-for-single-grid-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, dns, modify dns 
+summary: Em vez de configurar o DNS globalmente para toda a implantação, você pode executar um script para configurar o DNS de forma diferente para cada nó de grade. 
+---
+= Modifique a configuração DNS para um nó de grade único
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Em vez de configurar o DNS globalmente para toda a implantação, você pode executar um script para configurar o DNS de forma diferente para cada nó de grade.
+
+Em geral, você deve usar a opção *MAINTENANCE* > *Network* > *DNS Servers* no Grid Manager para configurar servidores DNS. Use o script a seguir somente se você precisar usar servidores DNS diferentes para diferentes nós de grade.
+
+.Passos
+. Faça login no nó de administração principal:
++
+.. Introduza o seguinte comando: `ssh admin@_primary_Admin_Node_IP_`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+.. Adicione a chave privada SSH ao agente SSH. Introduza: `ssh-add`
+.. Insira a senha de acesso SSH listada no `Passwords.txt` arquivo.
+
+
+. [[log_in_to_node]]Faça login no nó que deseja atualizar com uma configuração DNS personalizada: `ssh _node_IP_address_`
+. Execute o script de configuração DNS: `setup_resolv.rb.`
++
+O script responde com a lista de comandos suportados.
+
++
+[listing]
+----
+Tool to modify external name servers
+
+available commands:
+  add search <domain>
+               add a specified domain to search list
+               e.g.> add search netapp.com
+  remove search <domain>
+               remove a specified domain from list
+               e.g.> remove search netapp.com
+  add nameserver <ip>
+               add a specified IP address to the name server list
+               e.g.> add nameserver 192.0.2.65
+  remove nameserver <ip>
+               remove a specified IP address from list
+               e.g.> remove nameserver 192.0.2.65
+  remove nameserver all
+               remove all nameservers from list
+  save         write configuration to disk and quit
+  abort        quit without saving changes
+  help         display this help message
+
+
+Current list of name servers:
+    192.0.2.64
+Name servers inherited from global DNS configuration:
+    192.0.2.126
+    192.0.2.127
+Current list of search entries:
+    netapp.com
+
+Enter command [`add search <domain>|remove search <domain>|add nameserver <ip>`]
+              [`remove nameserver <ip>|remove nameserver all|save|abort|help`]
+----
+. Adicione o endereço IPv4 de um servidor que fornece serviço de nome de domínio para sua rede: `add <nameserver IP_address>`
+. Repita o `add nameserver` comando para adicionar servidores de nomes.
+. Siga as instruções conforme solicitado para outros comandos.
+. Salve suas alterações e saia do aplicativo: `save`
+. [[close_cmd_shell]]feche o shell de comando no servidor: `exit`
+. Para cada nó de grade, repita as etapas de <<log_in_to_node,iniciar sessão no nó>> até <<close_cmd_shell,fechando o shell de comando>>.
+. Quando você não precisar mais de acesso sem senha a outros servidores, remova a chave privada do agente SSH. Introduza: `ssh-add -D`
+

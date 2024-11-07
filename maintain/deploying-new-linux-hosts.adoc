@@ -1,0 +1,44 @@
+---
+permalink: maintain/deploying-new-linux-hosts.html 
+sidebar: sidebar 
+keywords: storagegrid, deploy linux host, new host, new linux host 
+summary: Com algumas exceções, você prepara os novos hosts como fez durante o processo de instalação inicial. 
+---
+= Implante novos hosts Linux
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Com algumas exceções, você prepara os novos hosts como fez durante o processo de instalação inicial.
+
+Para implantar hosts Linux novos ou reinstalados físicos ou virtuais, siga o procedimento para preparar os hosts nas instruções de instalação do StorageGRID para o seu sistema operacional Linux:
+
+* link:../rhel/installing-linux.html["Instalar o Linux (Red Hat Enterprise Linux)"]
+* link:../ubuntu/installing-linux.html["Instalar Linux (Ubuntu ou Debian)"]
+
+
+Este procedimento inclui etapas para realizar as seguintes tarefas:
+
+. Instale o Linux.
+. Configure a rede host.
+. Configurar o armazenamento do host.
+. Instale o motor do recipiente.
+. Instale o serviço de host do StorageGRID.
++
+
+CAUTION: Pare depois de concluir a tarefa "Instalar o serviço anfitrião StorageGRID" nas instruções de instalação. Não inicie a tarefa "implantando nós de grade".
+
+
+
+Ao executar estas etapas, observe as seguintes diretrizes importantes:
+
+* Certifique-se de usar os mesmos nomes de interface de host usados no host original.
+* Se você usar o storage compartilhado para oferecer suporte aos nós do StorageGRID ou tiver movido algumas ou todas as unidades ou SSDs dos nós com falha para os nós de substituição, será necessário restabelecer os mesmos mapeamentos de storage que estavam presentes no host original. Por exemplo, se você usou WWIDs e aliases `/etc/multipath.conf` como recomendado nas instruções de instalação, certifique-se de usar os mesmos pares alias/WWID no `/etc/multipath.conf` host de substituição.
+* Se o nó StorageGRID usar o storage atribuído a partir de um sistema NetApp ONTAP, confirme se o volume não tem uma política de disposição em camadas do FabricPool habilitada. A desativação da disposição em camadas do FabricPool para volumes usados com nós do StorageGRID simplifica a solução de problemas e as operações de storage.
++
+
+CAUTION: Nunca use o FabricPool para categorizar dados relacionados ao StorageGRID de volta ao próprio StorageGRID. A disposição em camadas de dados do StorageGRID de volta para o StorageGRID aumenta a complexidade operacional e a solução de problemas.
+
+

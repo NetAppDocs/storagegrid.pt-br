@@ -1,0 +1,24 @@
+---
+permalink: network/admin-network-topology.html 
+sidebar: sidebar 
+keywords: admin network topology, using admin network 
+summary: Ter uma rede de administração é opcional. Uma maneira de usar uma rede Admin e uma rede de Grade é configurar uma rede de Grade roteável e uma rede Admin limitada para cada nó. 
+---
+= Topologia de rede de administração
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ter uma rede de administração é opcional. Uma maneira de usar uma rede Admin e uma rede de Grade é configurar uma rede de Grade roteável e uma rede Admin limitada para cada nó.
+
+Ao configurar a rede Admin, você estabelece o endereço IP do host, a máscara de sub-rede e o endereço IP do gateway para a interface eth1 para cada nó de grade.
+
+A rede Admin pode ser exclusiva para cada nó e pode consistir em várias sub-redes. Cada nó pode ser configurado com uma Lista de sub-rede externa Admin (AESL). O AESL lista as sub-redes acessíveis pela rede Admin para cada nó. O AESL também deve incluir as sub-redes de quaisquer serviços que a grade acessará pela rede Admin, como NTP, DNS, KMS e LDAP. As rotas estáticas são aplicadas para cada sub-rede no AESL.
+
+Neste exemplo, a rede de Grade é usada para tráfego relacionado a solicitações de clientes S3 e gerenciamento de objetos. Enquanto a rede de administração é usada para funções administrativas.
+
+image::../media/grid_admin_networks.png[Redes de administração da grade]
+
+image::../media/grid_admin_networks_ips.png[IPs de redes de administrador de grade]

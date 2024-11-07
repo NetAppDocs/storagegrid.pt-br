@@ -1,0 +1,96 @@
+---
+permalink: audit/lkdm-leaked-object-cleanup.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, LKDM, Leaked Object Cleanup 
+summary:  
+---
+= LKDM: Limpeza de objetos vazados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta mensagem é gerada quando um pedaço vazado foi limpo ou excluído. Um bloco pode fazer parte de um objeto replicado ou de um objeto codificado por apagamento.
+
+[cols="1a,1a,4a"]
+|===
+| Código | Campo | Descrição 
+
+
+ a| 
+CLOC
+ a| 
+Localização de chunk
+ a| 
+O caminho do arquivo da parte vazada que foi excluída.
+
+
+
+ a| 
+CTYP
+ a| 
+Tipo de bloco
+ a| 
+Tipo de pedaço:
+
+`ec: Erasure-coded object chunk`
+
+`repl: Replicated object chunk`
+
+
+
+ a| 
+LTYP
+ a| 
+Tipo de fuga
+ a| 
+Os cinco tipos de fugas que podem ser detetadas:
+
+`object_leaked: Object doesn’t exist in the grid`
+
+`location_leaked: Object exists in the grid, but found location doesn’t belong to object`
+
+`mup_seg_leaked: Multipart upload was stopped or not completed, and the segment/part was left out`
+
+`segment_leaked: Parent UUID/CBID (associated container object) is valid but doesn't contain this segment`
+
+`no_parent: Container object is deleted, but object segment was left out and not deleted`
+
+
+
+ a| 
+CTIM
+ a| 
+Chunk criar tempo
+ a| 
+Tempo em que o pedaço vazado foi criado.
+
+
+
+ a| 
+UUID
+ a| 
+Identificador universal único
+ a| 
+O identificador do objeto ao qual o bloco pertence.
+
+
+
+ a| 
+CBID
+ a| 
+Identificador do bloco de conteúdo
+ a| 
+CBID do objeto ao qual o pedaço vazado pertence.
+
+
+
+ a| 
+CSIZ
+ a| 
+Tamanho do conteúdo
+ a| 
+O tamanho do bloco em bytes.
+
+|===

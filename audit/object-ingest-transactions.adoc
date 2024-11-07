@@ -1,0 +1,132 @@
+---
+permalink: audit/object-ingest-transactions.html 
+sidebar: sidebar 
+keywords: object ingest transaction, S3 ingest, SPUT, ORLM, WPUT 
+summary: Você pode identificar transações de ingestão de clientes no log de auditoria localizando mensagens de auditoria específicas da API do S3. 
+---
+= Transações de ingestão de objetos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode identificar transações de ingestão de clientes no log de auditoria localizando mensagens de auditoria específicas da API do S3.
+
+Nem todas as mensagens de auditoria geradas durante uma transação de ingestão são listadas nas tabelas a seguir. Apenas as mensagens necessárias para rastrear a transação de ingestão são incluídas.
+
+
+
+== S3 ingira mensagens de auditoria
+
+[cols="1a,1a,2a,1a,2a"]
+|===
+| Código | Nome | Descrição | Traçado | Consulte 
+
+
+ a| 
+SPUT
+ a| 
+S3 COLOQUE a transação
+ a| 
+Uma transação de ingestão de S3 PUT foi concluída com sucesso.
+ a| 
+CBID, S3BK, S3KY
+ a| 
+link:sput-s3-put.html["SPUT: S3 PUT"]
+
+
+
+ a| 
+ORLM
+ a| 
+Regras Objeto cumpridas
+ a| 
+A política ILM foi satisfeita para este objeto.
+ a| 
+CBID
+ a| 
+link:orlm-object-rules-met.html["ORLM: Regras Objeto cumpridas"]
+
+|===
+
+
+== Mensagens de auditoria de ingestão rápida
+
+[cols="1a,1a,2a,1a,2a"]
+|===
+| Código | Nome | Descrição | Traçado | Consulte 
+
+
+ a| 
+WPUT
+ a| 
+Transação de COLOCAÇÃO rápida
+ a| 
+Uma transação de ingestão Swift PUT foi concluída com sucesso.
+ a| 
+CBID, WCON, WOBJ
+ a| 
+link:wput-swift-put.html["WPUT: Swift PUT"]
+
+
+
+ a| 
+ORLM
+ a| 
+Regras Objeto cumpridas
+ a| 
+A política ILM foi satisfeita para este objeto.
+ a| 
+CBID
+ a| 
+link:orlm-object-rules-met.html["ORLM: Regras Objeto cumpridas"]
+
+|===
+
+
+== Exemplo: Ingestão de objeto S3
+
+A série de mensagens de auditoria abaixo é um exemplo das mensagens de auditoria geradas e salvas no log de auditoria quando um cliente S3 ingere um objeto em um nó de armazenamento (serviço LDR).
+
+Neste exemplo, a política ILM ativa inclui a regra fazer 2 cópias ILM.
+
+
+NOTE: Nem todas as mensagens de auditoria geradas durante uma transação são listadas no exemplo abaixo. Apenas os relacionados à transação de ingestão S3 (SPUT) estão listados.
+
+Este exemplo assume que um bucket do S3 foi criado anteriormente.
+
+
+
+=== SPUT: S3 PUT
+
+A mensagem SPUT é gerada para indicar que uma transação S3 PUT foi emitida para criar um objeto em um intervalo específico.
+
+[listing, subs="specialcharacters,quotes"]
+----
+2017-07-17T21:17:58.959669[AUDT:[RSLT(FC32):SUCS][TIME(UI64):25771][SAIP(IPAD):"10.96.112.29"][S3AI(CSTR):"70899244468554783528"][SACC(CSTR):"test"][S3AK(CSTR):"SGKHyalRU_5cLflqajtaFmxJn946lAWRJfBF33gAOg=="][SUSR(CSTR):"urn:sgws:identity::70899244468554783528:root"][SBAI(CSTR):"70899244468554783528"][SBAC(CSTR):"test"][S3BK(CSTR):"example"][S3KY(CSTR):"testobject-0-3"][CBID\(UI64\):0x8EF52DF8025E63A8][CSIZ(UI64):30720][AVER(UI32):10][ATIM(UI64):150032627859669][ATYP\(FC32\):SPUT][ANID(UI32):12086324][AMID(FC32):S3RQ][ATID(UI64):14399932238768197038]]
+----
+
+
+=== ORLM: Regras Objeto cumpridas
+
+A mensagem ORLM indica que a política ILM foi satisfeita para este objeto. A mensagem inclui o CBID do objeto e o nome da regra ILM aplicada.
+
+Para objetos replicados, o campo LOCS inclui o ID do nó LDR e o ID do volume das localizações do objeto.
+
+[listing, subs="specialcharacters,quotes"]
+----
+2019-07-17T21:18:31.230669[AUDT:[CBID\(UI64\):0x50C4F7AC2BC8EDF7][RULE(CSTR):"Make 2 Copies"][STAT(FC32):DONE][CSIZ(UI64):0][UUID(CSTR):"0B344E18-98ED-4F22-A6C8-A93ED68F8D3F"][LOCS(CSTR):"CLDI 12828634 2148730112, CLDI 12745543 2147552014"][RSLT(FC32):SUCS][AVER(UI32):10][ATYP\(FC32\):ORLM][ATIM(UI64):1563398230669][ATID(UI64):15494889725796157557][ANID(UI32):13100453][AMID(FC32):BCMS]]
+----
+Para objetos codificados por apagamento, o campo LOCS inclui o ID do perfil de codificação de apagamento e o ID do grupo de codificação de apagamento
+
+[listing, subs="specialcharacters,quotes"]
+----
+2019-02-23T01:52:54.647537 [AUDT:[CBID(UI64):0xFA8ABE5B5001F7E2][RULE(CSTR):"EC_2_plus_1"][STAT(FC32):DONE][CSIZ(UI64):10000][UUID(CSTR):"E291E456-D11A-4701-8F51-D2F7CC9AFECA"][LOCS(CSTR):"CLEC 1 A471E45D-A400-47C7-86AC-12E77F229831"][RSLT(FC32):SUCS][AVER(UI32):10][ATIM(UI64):1550929974537]\[ATYP\(FC32\):ORLM\][ANID(UI32):12355278][AMID(FC32):ILMX][ATID(UI64):4168559046473725560]]
+----
+O campo PATH inclui informações de bucket e chave do S3 ou informações de contentor e objeto do Swift, dependendo de qual API foi usada.
+
+[listing]
+----
+2019-09-15.txt:2018-01-24T13:52:54.131559 [AUDT:[CBID(UI64):0x82704DFA4C9674F4][RULE(CSTR):"Make 2 Copies"][STAT(FC32):DONE][CSIZ(UI64):3145729][UUID(CSTR):"8C1C9CAC-22BB-4880-9115-CE604F8CE687"][PATH(CSTR):"frisbee_Bucket1/GridDataTests151683676324774_1_1vf9d"][LOCS(CSTR):"CLDI 12525468, CLDI 12222978"][RSLT(FC32):SUCS][AVER(UI32):10][ATIM(UI64):1568555574559][ATYP(FC32):ORLM][ANID(UI32):12525468][AMID(FC32):OBDI][ATID(UI64):344833886538369336]]
+----

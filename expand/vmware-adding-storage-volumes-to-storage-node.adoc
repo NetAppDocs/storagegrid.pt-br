@@ -1,0 +1,112 @@
+---
+permalink: expand/vmware-adding-storage-volumes-to-storage-node.html 
+sidebar: sidebar 
+keywords: expand, expansion, storage node, add storage volumes, VMware 
+summary: Se um nó de storage incluir menos de 16 volumes de storage, você poderá aumentar sua capacidade usando o VMware vSphere para adicionar volumes. 
+---
+= VMware: Adicione volumes de storage ao nó de storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se um nó de storage incluir menos de 16 volumes de storage, você poderá aumentar sua capacidade usando o VMware vSphere para adicionar volumes.
+
+.Antes de começar
+* Você tem acesso às instruções para instalar implantações do StorageGRID para VMware.
++
+** link:../vmware/index.html["Instale o StorageGRID no VMware"]
+
+
+* Você tem o `Passwords.txt` arquivo.
+* Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
+
+
+
+CAUTION: Não tente adicionar volumes de armazenamento a um nó de armazenamento enquanto uma atualização de software, procedimento de recuperação ou outro procedimento de expansão estiver ativo.
+
+.Sobre esta tarefa
+O nó de armazenamento não está disponível por um breve período de tempo quando você adiciona volumes de armazenamento. Você deve executar este procedimento em um nó de storage de cada vez para evitar afetar os serviços de grade voltados para o cliente.
+
+.Passos
+. Se necessário, instale um novo hardware de armazenamento e crie novos armazenamentos de dados VMware.
+. Adicione um ou mais discos rígidos à máquina virtual para uso como armazenamento (armazenamentos de objetos).
++
+.. Abra o VMware vSphere Client.
+.. Edite as configurações da máquina virtual para adicionar um ou mais discos rígidos adicionais.
+
+
++
+Os discos rígidos são normalmente configurados como discos de máquina virtual (VMDKs). Os VMDKs são mais comumente usados e são mais fáceis de gerenciar, enquanto os RDMs podem fornecer melhor desempenho para cargas de trabalho que usam tamanhos de objetos maiores (por exemplo, mais de 100 MB). Para obter mais informações sobre como adicionar discos rígidos a máquinas virtuais, consulte a documentação do VMware vSphere.
+
+. Reinicie a máquina virtual usando a opção *Restart Guest os* no VMware vSphere Client ou inserindo o seguinte comando em uma sessão ssh na máquina virtual:``sudo reboot``
++
+
+NOTE: Não use *Desligar* ou *Redefinir* para reiniciar a máquina virtual.
+
+. Configure o novo armazenamento para uso pelo nó de armazenamento:
++
+.. Faça login no nó da grade:
++
+... Introduza o seguinte comando: `ssh admin@_grid_node_IP_`
+... Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+... Digite o seguinte comando para mudar para root: `su -`
+... Introduza a palavra-passe listada no `Passwords.txt` ficheiro. Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+
+.. Configure os novos volumes de armazenamento:
++
+`sudo add_rangedbs.rb`
+
++
+Este script encontra quaisquer novos volumes de armazenamento e solicita que você os formate.
+
+.. Digite *y* para aceitar a formatação.
+.. Se algum dos volumes tiver sido formatado anteriormente, decida se deseja reformatá-los.
++
+*** Introduza *y* para reformatar.
+*** Digite *n* para ignorar a reformatação.
+
+
+
+
++
+O `setup_rangedbs.sh` script é executado automaticamente.
+
+. Verifique se os serviços começam corretamente:
++
+.. Veja uma lista do status de todos os serviços no servidor:
++
+`sudo storagegrid-status`
+
++
+O estado é atualizado automaticamente.
+
+.. Aguarde até que todos os serviços estejam em execução ou verificados.
+.. Saia do ecrã de estado:
++
+`Ctrl+C`
+
+
+
+. Verifique se o nó de storage está on-line:
++
+.. Faça login no Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+.. Selecione *SUPPORT* > *Tools* > *Grid topology*.
+.. Selecione *_site_* > *_Storage Node_* > *LDR* > *Storage*.
+.. Selecione a guia *Configuração* e a guia *Principal*.
+.. Se a lista suspensa *Estado de armazenamento - desejado* estiver definida como somente leitura ou Offline, selecione *Online*.
+.. Selecione *aplicar alterações*.
+
+
+. Para ver os novos armazenamentos de objetos:
++
+.. Selecione *NÓS* > *_site_* > *_Storage Node_* > *Storage*.
+.. Veja os detalhes na tabela *Object Stores*.
+
+
+
+
+.Resultado
+Você pode usar a capacidade expandida dos nós de storage para salvar dados de objetos.

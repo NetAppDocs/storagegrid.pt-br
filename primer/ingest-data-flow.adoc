@@ -1,0 +1,31 @@
+---
+permalink: primer/ingest-data-flow.html 
+sidebar: sidebar 
+keywords: object data, ingest 
+summary: Uma operação de ingestão ou salvamento consiste em um fluxo de dados definido entre o cliente e o sistema StorageGRID. 
+---
+= Ingira o fluxo de dados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Uma operação de ingestão ou salvamento consiste em um fluxo de dados definido entre o cliente e o sistema StorageGRID.
+
+
+
+== Fluxo de dados
+
+Quando um cliente ingere um objeto ao sistema StorageGRID, o serviço LDR em nós de armazenamento processa a solicitação e armazena os metadados e dados no disco.
+
+image::../media/ingest_data_flow.png[Ingerir com posicionamento síncrono]
+
+. O aplicativo cliente cria o objeto e o envia para o sistema StorageGRID por meio de uma solicitação HTTP PUT.
+. O objeto é avaliado em relação à política ILM do sistema.
+. O serviço LDR salva os dados do objeto como uma cópia replicada ou como uma cópia codificada por apagamento. (O diagrama mostra uma versão simplificada de armazenar uma cópia replicada no disco.)
+. O serviço LDR envia os metadados do objeto para o armazenamento de metadados.
+. O armazenamento de metadados salva os metadados do objeto no disco.
+. O armazenamento de metadados propaga cópias de metadados de objetos para outros nós de storage. Essas cópias também são salvas no disco.
+. O serviço LDR retorna uma resposta HTTP 200 OK ao cliente para reconhecer que o objeto foi ingerido.
+

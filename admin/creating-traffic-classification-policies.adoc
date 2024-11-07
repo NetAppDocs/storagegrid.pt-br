@@ -1,0 +1,135 @@
+---
+permalink: admin/creating-traffic-classification-policies.html 
+sidebar: sidebar 
+keywords: traffic classification, network traffic, traffic limits, policy 
+summary: Você cria políticas de classificação de tráfego se quiser monitorar e, opcionalmente, limitar o tráfego de rede por intervalo, locatário, sub-rede IP ou ponto de extremidade do balanceador de carga. Opcionalmente, você pode definir limites para uma política com base na largura de banda, no número de solicitações simultâneas ou na taxa de solicitações. 
+---
+= Crie políticas de classificação de tráfego
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode criar políticas de classificação de tráfego se quiser monitorar e, opcionalmente, limitar o tráfego de rede por bucket, regex de bucket, CIDR, endpoint do balanceador de carga ou locatário. Opcionalmente, você pode definir limites para uma política com base na largura de banda, no número de solicitações simultâneas ou na taxa de solicitações.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:admin-group-permissions.html["Permissão de acesso à raiz"].
+* Você criou todos os pontos de extremidade do balanceador de carga que deseja corresponder.
+* Você criou quaisquer inquilinos que você deseja combinar.
+
+
+.Passos
+. Selecione *CONFIGURATION* > *Network* > *Traffic Classification*.
+. Selecione *criar*.
+. Introduza um nome e uma descrição (opcional) para a política e selecione *continuar*.
++
+Por exemplo, descreva ao que esta política de classificação de tráfego se aplica e ao que ela limitará.
+
+. Selecione *Adicionar regra* e especifique os seguintes detalhes para criar uma ou mais regras correspondentes para a política. Qualquer política que você criar deve ter pelo menos uma regra correspondente. Selecione *continuar*.
++
+[cols="1a,3a"]
+|===
+| Campo | Descrição 
+
+
+ a| 
+Tipo
+ a| 
+Selecione os tipos de tráfego aos quais a regra correspondente se aplica. Os tipos de tráfego são bucket, bucket regex, CIDR, terminal balanceador de carga e locatário.
+
+
+
+ a| 
+Corresponder valor
+ a| 
+Introduza o valor que corresponde ao tipo selecionado.
+
+** Balde: Introduza um ou mais nomes de intervalo.
+** Regex do bucket: Insira uma ou mais expressões regulares usadas para corresponder a um conjunto de nomes de bucket.
++
+A expressão regular não está ancorada. Use a âncora para coincidir no início do nome do bucket e use a âncora para coincidir no final do nome. A correspondência regular de expressões suporta um subconjunto da sintaxe PCRE (Perl compatible regular expression).
+
+** CIDR: Insira uma ou mais sub-redes IPv4, na notação CIDR, que corresponda à sub-rede desejada.
+** Ponto de extremidade do balanceador de carga: Selecione um nome de ponto de extremidade. Estes são os pontos de extremidade do balanceador de carga definidos no link:../admin/configuring-load-balancer-endpoints.html["Configurar pontos de extremidade do balanceador de carga"].
+** Inquilino: A correspondência de inquilino usa o ID da chave de acesso. Se a solicitação não contiver um ID de chave de acesso (por exemplo, acesso anônimo), a propriedade do intervalo acessado será usada para determinar o locatário.
+
+
+
+
+ a| 
+Correspondência inversa
+ a| 
+Se você quiser corresponder todo tráfego de rede _exceto_ tráfego consistente com o valor tipo e correspondência definido, marque a caixa de seleção *correspondência inversa*. Caso contrário, deixe a caixa de seleção marcada.
+
+Por exemplo, se você quiser que essa política se aplique a todos os pontos finais do balanceador de carga, especifique o ponto final do balanceador de carga a ser excluído e selecione *correspondência inversa*.
+
+Para uma política que contenha vários matchers em que pelo menos um é um matcher inverso, tenha cuidado para não criar uma política que corresponda a todas as solicitações.
+
+|===
+. Opcionalmente, selecione *Adicionar um limite* e selecione os seguintes detalhes para adicionar um ou mais limites para controlar o tráfego de rede correspondido por uma regra.
++
+
+NOTE: O StorageGRID coleta métricas mesmo que você não adicione limites, para que você possa entender as tendências de tráfego.
+
++
+[cols="1a,3a"]
+|===
+| Campo | Descrição 
+
+
+ a| 
+Tipo
+ a| 
+O tipo de limite que você deseja aplicar ao tráfego de rede correspondente à regra. Por exemplo, você pode limitar a largura de banda ou a taxa de solicitação.
+
+*Nota*: Você pode criar políticas para limitar a largura de banda agregada ou para limitar a largura de banda por solicitação. No entanto, o StorageGRID não pode limitar ambos os tipos de largura de banda ao mesmo tempo. Quando a largura de banda agregada está em uso, a largura de banda por solicitação não está disponível. Por outro lado, quando a largura de banda por solicitação está em uso, a largura de banda agregada não está disponível. Os limites de largura de banda agregada podem impor um impactos menor no desempenho adicional no tráfego não limitado.
+
+Para limites de largura de banda, o StorageGRID aplica a política que melhor corresponde ao tipo de limite definido. Por exemplo, se você tem uma política que limita o tráfego em apenas uma direção, então o tráfego na direção oposta será ilimitado, mesmo que haja tráfego que corresponda a políticas adicionais que tenham limites de largura de banda. O StorageGRID implementa as correspondências "melhores" para limites de largura de banda na seguinte ordem:
+
+** Endereço IP exato (/máscara 32)
+** Nome exato do balde
+** Regex do balde
+** Locatário
+** Endpoint
+** Correspondências CIDR não exatas (não /32)
+** Correspondências inversas
+
+
+
+
+ a| 
+Aplica-se a
+ a| 
+Se esse limite se aplica a solicitações de leitura do cliente (GET ou HEAD) ou solicitações de gravação (PUT, POST ou DELETE).
+
+
+
+ a| 
+Valor
+ a| 
+O valor ao qual o tráfego de rede será limitado, com base na unidade selecionada. Por exemplo, digite 10 e selecione MIB/s para evitar que o tráfego de rede combinado por esta regra exceda 10 MIB/s.
+
+*Nota*: Dependendo da configuração de unidades, as unidades disponíveis serão binárias (por exemplo, GiB) ou decimais (por exemplo, GB). Para alterar a configuração unidades, selecione a lista suspensa usuário no canto superior direito do Gerenciador de Grade e selecione *Preferências do usuário*.
+
+
+
+ a| 
+Unidade
+ a| 
+A unidade que descreve o valor introduzido.
+
+|===
++
+Por exemplo, se você quiser criar um limite de largura de banda de 40 GB/s para um nível SLA, crie dois limites de largura de banda agregados: GET/HEAD a 40 GB/s e PUT/POST/DELETE a 40 GB/s.
+
+. Selecione *continuar*.
+. Leia e reveja a política de classificação de tráfego. Use o botão *anterior* para voltar e fazer alterações conforme necessário. Quando estiver satisfeito com a política, selecione *Salvar e continuar*.
++
+O tráfego do cliente S3 é agora Tratado de acordo com a política de classificação de tráfego.
+
+
+
+.Depois de terminar
+link:viewing-network-traffic-metrics.html["Exibir métricas de tráfego de rede"] para verificar se as políticas estão aplicando os limites de tráfego que você espera.

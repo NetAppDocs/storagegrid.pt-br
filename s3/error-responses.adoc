@@ -1,0 +1,378 @@
+---
+permalink: s3/error-responses.html 
+sidebar: sidebar 
+keywords: error, error responses 
+summary: O sistema StorageGRID suporta todas as respostas de erro padrão da API REST S3 que se aplicam. Além disso, a implementação do StorageGRID adiciona várias respostas personalizadas. 
+---
+= Respostas de erro
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O sistema StorageGRID suporta todas as respostas de erro padrão da API REST S3 que se aplicam. Além disso, a implementação do StorageGRID adiciona várias respostas personalizadas.
+
+
+
+== Códigos de erro S3 API suportados
+
+[cols="1a,1a"]
+|===
+| Nome | Status HTTP 
+
+
+ a| 
+AccessDenied
+ a| 
+403 proibido
+
+
+
+ a| 
+BadDigest
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+BucketAlreadyExists
+ a| 
+409 conflito
+
+
+
+ a| 
+BucketNotEmpty
+ a| 
+409 conflito
+
+
+
+ a| 
+IncompleteBody
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+InternalError (erro internacional)
+ a| 
+500 erro interno do servidor
+
+
+
+ a| 
+InvalidAccessKeyId
+ a| 
+403 proibido
+
+
+
+ a| 
+InvalidArgument
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+InvalidBucketName
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+InvalidBucketState
+ a| 
+409 conflito
+
+
+
+ a| 
+InvalidDigest
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+InvalidEncryptionAlgorithmError
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+InvalidPart
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+InvalidPartOrder
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+Intervalo Invalidável
+ a| 
+416 intervalo solicitado não satisfatório
+
+
+
+ a| 
+InvalidRequest
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+InvalidStorageClass
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+InvalidTag
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+InvalidURI
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+KeyTooLong
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+MalformedXML
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+MetadataTooLarge
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+MetodNotAlloved
+ a| 
+Método 405 não permitido
+
+
+
+ a| 
+MissingContentLength
+ a| 
+411 comprimento necessário
+
+
+
+ a| 
+MissingRequestBodyError
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+MissingSecurityHeader
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+NoSuchBucket
+ a| 
+404 não encontrado
+
+
+
+ a| 
+NoSuchKey
+ a| 
+404 não encontrado
+
+
+
+ a| 
+NoSuchUpload
+ a| 
+404 não encontrado
+
+
+
+ a| 
+Sem Implementado
+ a| 
+501 não implementado
+
+
+
+ a| 
+NoSuchBucketPolicy
+ a| 
+404 não encontrado
+
+
+
+ a| 
+ObjectLockConfigurationNotFounError
+ a| 
+404 não encontrado
+
+
+
+ a| 
+Pré-condiçãoFailed
+ a| 
+412 Pré-condição falhou
+
+
+
+ a| 
+RequestTimeTooSwed
+ a| 
+403 proibido
+
+
+
+ a| 
+Serviço indisponível
+ a| 
+503 Serviço indisponível
+
+
+
+ a| 
+SignatureDoesNotMatch
+ a| 
+403 proibido
+
+
+
+ a| 
+TooManyBuckets
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+UserKeyMustBeSpecified
+ a| 
+400 pedido incorreto
+
+|===
+
+
+== Códigos de erro personalizados do StorageGRID
+
+[cols="2a,2a,1a"]
+|===
+| Nome | Descrição | Status HTTP 
+
+
+ a| 
+XBucketLifecycleNotAllowed
+ a| 
+A configuração do ciclo de vida do bucket não é permitida em um bucket compatível com legado
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+XBucketPolicyParseException
+ a| 
+Falha ao analisar JSON da política de bucket recebida.
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+XComplianceConflict
+ a| 
+Operação negada devido às configurações de conformidade legadas.
+ a| 
+403 proibido
+
+
+
+ a| 
+XComplianceReducedRedundancyForbidden
+ a| 
+Redundância reduzida não é permitida no bucket em conformidade com o legado
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+XMaxBucketPolicyLengthExceeded
+ a| 
+Sua política excede o comprimento máximo permitido da política de intervalo.
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+XMissingInternalRequestHeader
+ a| 
+Falta um cabeçalho de uma solicitação interna.
+ a| 
+400 pedido incorreto
+
+
+
+ a| 
+XNoSuchBucketCompliance
+ a| 
+O bucket especificado não tem conformidade legada habilitada.
+ a| 
+404 não encontrado
+
+
+
+ a| 
+XNotAcceptable
+ a| 
+A solicitação contém um ou mais cabeçalhos de aceitação que não puderam ser satisfeitos.
+ a| 
+406 não aceitável
+
+
+
+ a| 
+XNotImplementado
+ a| 
+A solicitação que você forneceu implica funcionalidade que não é implementada.
+ a| 
+501 não implementado
+
+|===

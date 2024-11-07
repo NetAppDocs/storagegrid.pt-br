@@ -1,0 +1,101 @@
+---
+permalink: tenant/configuring-cloudmirror-replication.html 
+sidebar: sidebar 
+keywords: how to configure CloudMirror replication, replication xml 
+summary: Você ativa a replicação do CloudMirror para um bucket criando o XML de configuração de replicação de bucket e usando o Gerenciador do locatário para aplicar o XML ao bucket. 
+---
+= Configurar a replicação do CloudMirror
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para ativar a replicação do CloudMirror para um bucket, você cria e aplica um XML de configuração de replicação de bucket válido.
+
+.Antes de começar
+* Os serviços de plataforma foram ativados para sua conta de locatário por um administrador do StorageGRID.
+* Você já criou um bucket para agir como a origem de replicação.
+* O endpoint que você pretende usar como destino para a replicação do CloudMirror já existe e você tem sua URN.
+* Você pertence a um grupo de usuários que tem o link:tenant-management-permissions.html["Gerencie todos os buckets ou permissão de acesso root"]. Essas permissões substituem as configurações de permissão nas políticas de grupo ou bucket ao configurar o bucket usando o Gerenciador do locatário.
+
+
+.Sobre esta tarefa
+A replicação do CloudMirror copia objetos de um bucket de origem para um bucket de destino especificado em um endpoint.
+
+Para obter informações gerais sobre replicação de bucket e como configurá-la, https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html["Documentação do Amazon Simple Storage Service (S3): Replicação de objetos"^] consulte . Para obter informações sobre como o StorageGRID implementa o GetBucketReplication, DeleteBucketReplication e o PutBucketReplication, consulte o link:../s3/operations-on-buckets.html["Operações em baldes"].
+
+
+NOTE: A replicação do CloudMirror tem semelhanças e diferenças importantes com o recurso de replicação entre grades. Para saber mais, link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["Compare a replicação entre redes e a replicação do CloudMirror"]consulte .
+
+Observe os seguintes requisitos e caraterísticas ao configurar a replicação do CloudMirror:
+
+* Quando você cria e aplica um XML de configuração de replicação de bucket válido, ele deve usar a URN de um endpoint de bucket S3 para cada destino.
+* A replicação não é suportada para buckets de origem ou destino com o bloqueio de objetos S3 ativado.
+* Se você habilitar a replicação do CloudMirror em um bucket que contém objetos, novos objetos adicionados ao bucket serão replicados, mas os objetos existentes no bucket não serão replicados. Você deve atualizar objetos existentes para acionar a replicação.
+* Se você especificar uma classe de armazenamento no XML de configuração de replicação, o StorageGRID usará essa classe ao executar operações no endpoint S3 de destino. O endpoint de destino também deve suportar a classe de armazenamento especificada. Certifique-se de seguir quaisquer recomendações fornecidas pelo fornecedor do sistema de destino.
+
+
+.Passos
+. Habilite a replicação para o bucket de origem:
++
+** Use um editor de texto para criar a configuração de replicação XML necessária para habilitar a replicação, conforme especificado na API de replicação S3.
+** Ao configurar o XML:
++
+*** Observe que o StorageGRID só suporta V1 da configuração de replicação. Isso significa que o StorageGRID não suporta o uso do `Filter` elemento para regras e segue convenções V1 para exclusão de versões de objetos. Consulte a documentação da Amazon sobre configuração de replicação para obter detalhes.
+*** Use a URNA de um endpoint de bucket S3 como o destino.
+*** Opcionalmente, adicione o `<StorageClass>` elemento e especifique uma das seguintes opções:
++
+****  `STANDARD`: A classe de armazenamento padrão. Se você não especificar uma classe de armazenamento ao carregar um objeto, a `STANDARD` classe de armazenamento será usada.
+**** `STANDARD_IA`: (Standard - Acesso não frequente.) Use essa classe de storage para dados acessados com menos frequência, mas que ainda exigem acesso rápido quando necessário.
+**** `REDUCED_REDUNDANCY`: Use esta classe de armazenamento para dados não críticos e reprodutíveis que podem ser armazenados com menos redundância do que a `STANDARD` classe de armazenamento.
+
+
+*** Se você especificar um `Role` no XML de configuração, ele será ignorado. Este valor não é utilizado pelo StorageGRID.
++
+[listing]
+----
+<ReplicationConfiguration>
+    <Role></Role>
+    <Rule>
+        <Status>Enabled</Status>
+        <Prefix>2020</Prefix>
+        <Destination>
+           <Bucket>urn:sgws:s3:::2017-records</Bucket>
+           <StorageClass>STANDARD</StorageClass>
+         </Destination>
+     </Rule>
+</ReplicationConfiguration>
+----
+
+
+
+
+. Selecione *View buckets* no painel ou selecione *STORAGE (S3)* > *Buckets*.
+. Selecione o nome do intervalo de origem.
++
+É apresentada a página de detalhes do balde.
+
+. Selecione *Serviços de plataforma* > *replicação*.
+. Marque a caixa de seleção *Ativar replicação*.
+. Cole o XML de configuração de replicação na caixa de texto e selecione *Salvar alterações*.
++
+
+NOTE: Os serviços de plataforma devem estar habilitados para cada conta de locatário por um administrador do StorageGRID usando o Gerenciador de Grade ou a API de Gerenciamento de Grade. Contacte o administrador do StorageGRID se ocorrer um erro ao guardar o XML de configuração.
+
+. Verifique se a replicação está configurada corretamente:
++
+.. Adicione um objeto ao bucket de origem que atenda aos requisitos de replicação, conforme especificado na configuração de replicação.
++
+No exemplo mostrado anteriormente, os objetos que correspondem ao prefixo "2020" são replicados.
+
+.. Confirme se o objeto foi replicado para o intervalo de destino.
++
+Para objetos pequenos, a replicação acontece rapidamente.
+
+
+
+
+
+.Informações relacionadas
+link:creating-platform-services-endpoint.html["Criar endpoint de serviços de plataforma"]

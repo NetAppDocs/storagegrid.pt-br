@@ -1,0 +1,51 @@
+---
+permalink: maintain/replacing-non-primary-admin-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, replace non-primary admin node, replacing non-primary admin node, non-primary admin node 
+summary: Para recuperar um nó de administração não primário, primeiro você deve substituir o hardware físico ou virtual. 
+---
+= Substitua o nó de administração não primário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para recuperar um nó de administração não primário, primeiro você deve substituir o hardware físico ou virtual.
+
+Você pode substituir um nó de administrador não primário com falha por um nó de administrador não primário executado na mesma plataforma ou substituir um nó de administrador não primário em execução em VMware ou em um host Linux por um nó de administrador não primário hospedado em um dispositivo de serviços.
+
+Use o procedimento que corresponde à plataforma de substituição selecionada para o nó. Depois de concluir o procedimento de substituição do nó (que é adequado para todos os tipos de nó), esse procedimento irá direcioná-lo para a próxima etapa para a recuperação do nó de administração não primário.
+
+[cols="1a,2a"]
+|===
+| Plataforma de substituição | Procedimento 
+
+
+ a| 
+VMware
+ a| 
+link:all-node-types-replacing-vmware-node.html["Substitua um nó VMware"]
+
+
+
+ a| 
+Linux
+ a| 
+link:all-node-types-replacing-linux-node.html["Substitua um nó Linux"]
+
+
+
+ a| 
+Aparelhos de serviços
+ a| 
+link:replacing-failed-node-with-services-appliance.html["Substitua um dispositivo de serviços"]
+
+
+
+ a| 
+OpenStack
+ a| 
+Os arquivos e scripts de disco de máquina virtual fornecidos pela NetApp para OpenStack não são mais compatíveis com operações de recuperação. Se você precisar recuperar um nó em execução em uma implantação OpenStack, baixe os arquivos para seu sistema operacional Linux. Em seguida, siga o procedimento para link:all-node-types-replacing-linux-node.html["Substituindo um nó Linux"].
+
+|===

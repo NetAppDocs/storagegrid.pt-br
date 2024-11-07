@@ -1,0 +1,135 @@
+---
+permalink: admin/manage-tls-ssh-policy.html 
+sidebar: sidebar 
+keywords: TLS and SSH policy, secure connection, FIPS, Common Criteria 
+summary: A política TLS e SSH determina quais protocolos e cifras são usados para estabelecer conexões TLS seguras com aplicativos cliente e conexões SSH seguras com serviços StorageGRID internos. 
+---
+= Gerencie a política TLS e SSH
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A política TLS e SSH determina quais protocolos e cifras são usados para estabelecer conexões TLS seguras com aplicativos cliente e conexões SSH seguras com serviços StorageGRID internos.
+
+A política de segurança controla como TLS e SSH criptografam dados em movimento. Em geral, use a política de compatibilidade moderna (padrão), a menos que seu sistema precise ser compatível com critérios comuns ou que você precise usar outras cifras.
+
+
+NOTE: Alguns serviços do StorageGRID não foram atualizados para usar as cifras nessas políticas.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:admin-group-permissions.html["Permissão de acesso à raiz"].
+
+
+
+
+== Selecione uma política de segurança
+
+.Passos
+. Selecione *CONFIGURATION* > *Security* > *Security settings*.
++
+A guia *TLS e políticas SSH* mostra as políticas disponíveis. A política atualmente ativa é anotada por uma marca de seleção verde no bloco de política.
+
++
+image::../media/securitysettings_tls_ssh_policies_current.png[Políticas TLS e SSH]
+
+. Revise os blocos para saber mais sobre as políticas disponíveis.
++
+[cols="1a,2a"]
+|===
+| Política | Descrição 
+
+
+ a| 
+Compatibilidade moderna (padrão)
+ a| 
+Use a política padrão se você precisar de criptografia forte e a menos que você tenha requisitos especiais. Esta política é compatível com a maioria dos clientes TLS e SSH.
+
+
+
+ a| 
+Compatibilidade legada
+ a| 
+Use esta política se precisar de opções de compatibilidade adicionais para clientes mais antigos. As opções adicionais desta política podem torná-la menos segura do que a política de compatibilidade moderna.
+
+
+
+ a| 
+Critérios comuns
+ a| 
+Use esta política se você precisar da certificação Common Criteria.
+
+
+
+ a| 
+FIPS rigoroso
+ a| 
+Use esta política se você precisar de certificação Common Criteria e precisar usar o módulo de segurança criptográfica NetApp 3.0.8 para conexões de clientes externos para terminais de balanceador de carga, Gerenciador de locatário e Gerenciador de Grade. O uso desta política pode reduzir o desempenho.
+
+*Nota*: Depois de selecionar esta política, todos os nós devem link:../maintain/rolling-reboot-procedure.html["reinicializado de uma forma rolling"]ativar o módulo de segurança criptográfica do NetApp. Utilize *Maintenance* > *Rolling Reboot* para iniciar e monitorizar reinicializações.
+
+
+
+ a| 
+Personalizado
+ a| 
+Crie uma política personalizada se você precisar aplicar seus próprios cifras.
+
+|===
+. Para ver detalhes sobre as cifras, protocolos e algoritmos de cada política, selecione *Exibir detalhes*.
+. Para alterar a política atual, selecione *Use policy*.
++
+Uma marca de seleção verde aparece ao lado de *política atual* no bloco de política.
+
+
+
+
+
+== Crie uma política de segurança personalizada
+
+Você pode criar uma política personalizada se precisar aplicar suas próprias cifras.
+
+.Passos
+. No bloco da política que é o mais semelhante à política personalizada que você deseja criar, selecione *Exibir detalhes*.
+. Selecione *Copiar para a área de transferência* e, em seguida, selecione *Cancelar*.
++
+image::../media/securitysettings-custom-security-policy-copy.png[copiar uma política existente para criar uma política personalizada]
+
+. No bloco *Política personalizada*, selecione *Configurar e usar*.
+. Cole o JSON que você copiou e faça as alterações necessárias.
+. Selecione *Use policy*.
++
+Uma marca de seleção verde aparece ao lado de *Current policy* no mosaico Custom policy (Política personalizada).
+
+. Opcionalmente, selecione *Editar configuração* para fazer mais alterações na nova política personalizada.
+
+
+
+
+== Reverter temporariamente para a política de segurança padrão
+
+Se você tiver configurado uma política de segurança personalizada, talvez não consiga entrar no Gerenciador de Grade se a diretiva TLS configurada for incompatível com o link:global-certificate-types.html["certificado de servidor configurado"].
+
+Você pode reverter temporariamente para a política de segurança padrão.
+
+.Passos
+. Faça login em um nó Admin:
++
+.. Introduza o seguinte comando: `ssh admin@_Admin_Node_IP_`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+
+
+. Execute o seguinte comando:
++
+`restore-default-cipher-configurations`
+
+. Em um navegador da Web, acesse o Gerenciador de Grade no mesmo nó Admin.
+. Siga as etapas em <<select-a-security-policy,Selecione uma política de segurança>> para configurar a política novamente.
+

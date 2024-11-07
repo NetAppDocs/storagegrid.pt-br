@@ -1,0 +1,105 @@
+---
+permalink: ilm/comparing-cloud-storage-pools-to-cloudmirror-replication.html 
+sidebar: sidebar 
+keywords: cloud storage pools, cloudmirror replication 
+summary: À medida que você começa a usar o Cloud Storage Pools, pode ser útil entender as semelhanças e diferenças entre o Cloud Storage Pools e o serviço de replicação do StorageGRID CloudMirror. 
+---
+= Compare os pools do Cloud Storage e a replicação do CloudMirror
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+À medida que você começa a usar o Cloud Storage Pools, pode ser útil entender as semelhanças e diferenças entre o Cloud Storage Pools e o serviço de replicação do StorageGRID CloudMirror.
+
+[cols="1a,3a,3a"]
+|===
+|  | Cloud Storage Pool | Serviço de replicação do CloudMirror 
+
+
+ a| 
+Qual é o objetivo principal?
+ a| 
+Atua como um destino de arquivo. A cópia de objeto no Cloud Storage Pool pode ser a única cópia do objeto ou pode ser uma cópia adicional. Ou seja, em vez de manter duas cópias no local, você pode manter uma cópia no StorageGRID e enviar uma cópia para o pool de storage de nuvem.
+ a| 
+Permite que um locatário replique automaticamente objetos de um bucket no StorageGRID (origem) para um bucket externo do S3 (destino). Cria uma cópia independente de um objeto em uma infraestrutura S3 independente.
+
+
+
+ a| 
+Como é configurado?
+ a| 
+Definido da mesma forma que os pools de armazenamento, usando o Gerenciador de Grade ou a API de Gerenciamento de Grade. Pode ser selecionado como o local de colocação em uma regra ILM. Enquanto um pool de storage consiste em um grupo de nós de storage, um pool de armazenamento em nuvem é definido usando um endpoint remoto S3 ou Azure (endereço IP, credenciais etc.).
+ a| 
+Um usuário de locatário link:../tenant/configuring-cloudmirror-replication.html["Configura a replicação do CloudMirror"]definindo um endpoint do CloudMirror (endereço IP, credenciais, etc.) usando o Gerenciador do locatário ou a API do S3. Depois que o endpoint do CloudMirror for configurado, qualquer bucket de propriedade dessa conta de locatário poderá ser configurado para apontar para o endpoint do CloudMirror.
+
+
+
+ a| 
+Quem é responsável por montá-lo?
+ a| 
+Normalmente, um administrador de grade
+ a| 
+Normalmente, um usuário locatário
+
+
+
+ a| 
+Qual é o destino?
+ a| 
+* Qualquer infraestrutura S3 compatível (incluindo Amazon S3)
+* Camada de arquivamento de Blob do Azure
+* Google Cloud Platform (GCP)
+
+ a| 
+* Qualquer infraestrutura S3 compatível (incluindo Amazon S3)
+* Google Cloud Platform (GCP)
+
+
+
+
+ a| 
+O que faz com que os objetos sejam movidos para o destino?
+ a| 
+Uma ou mais regras ILM nas políticas ILM ativas. As regras do ILM definem quais objetos o StorageGRID move para o pool de armazenamento em nuvem e quando os objetos são movidos.
+ a| 
+O ato de inserir um novo objeto em um bucket de origem que foi configurado com um endpoint do CloudMirror. Os objetos que existiam no bucket de origem antes do bucket ser configurado com o endpoint do CloudMirror não são replicados, a menos que sejam modificados.
+
+
+
+ a| 
+Como os objetos são recuperados?
+ a| 
+Os aplicativos devem fazer solicitações ao StorageGRID para recuperar objetos que foram movidos para um pool de armazenamento em nuvem. Se a única cópia de um objeto tiver sido transferida para armazenamento de arquivo, o StorageGRID gerencia o processo de restauração do objeto para que ele possa ser recuperado.
+ a| 
+Como a cópia espelhada no intervalo de destino é uma cópia independente, os aplicativos podem recuperar o objeto fazendo solicitações para o StorageGRID ou para o destino S3. Por exemplo, suponha que você use a replicação do CloudMirror para espelhar objetos em uma organização parceira. O parceiro pode usar seus próprios aplicativos para ler ou atualizar objetos diretamente do destino S3. Não é necessário utilizar o StorageGRID.
+
+
+
+ a| 
+Você pode ler diretamente do destino?
+ a| 
+Não. Os objetos movidos para um pool de storage de nuvem são gerenciados pelo StorageGRID. As solicitações de leitura devem ser direcionadas ao StorageGRID (e o StorageGRID será responsável pela recuperação do pool de armazenamento em nuvem).
+ a| 
+Sim, porque a cópia espelhada é uma cópia independente.
+
+
+
+ a| 
+O que acontece se um objeto for excluído da origem?
+ a| 
+O objeto também é excluído do Cloud Storage Pool.
+ a| 
+A ação de exclusão não é replicada. Um objeto excluído não existe mais no bucket do StorageGRID, mas continua a existir no bucket de destino. Da mesma forma, os objetos no intervalo de destino podem ser excluídos sem afetar a origem.
+
+
+
+ a| 
+Como você acessa objetos após um desastre (sistema StorageGRID não operacional)?
+ a| 
+Os nós de StorageGRID com falha devem ser recuperados. Durante esse processo, cópias de objetos replicados podem ser restauradas usando as cópias no Cloud Storage Pool.
+ a| 
+As cópias de objeto no destino do CloudMirror são independentes do StorageGRID, portanto, podem ser acessadas diretamente antes que os nós do StorageGRID sejam recuperados.
+
+|===

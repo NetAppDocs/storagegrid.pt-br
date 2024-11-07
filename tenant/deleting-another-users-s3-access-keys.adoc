@@ -1,0 +1,33 @@
+---
+permalink: tenant/deleting-another-users-s3-access-keys.html 
+sidebar: sidebar 
+keywords: how to delete access key for other user 
+summary: Se você estiver usando um locatário S3 e tiver permissões apropriadas, você poderá excluir as chaves de acesso S3 de outro usuário. Depois que uma chave de acesso for excluída, ela não poderá mais ser usada para acessar os objetos e buckets na conta do locatário. 
+---
+= Exclua as S3 chaves de acesso de outro usuário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você estiver usando um locatário S3 e tiver permissões apropriadas, você poderá excluir as chaves de acesso S3 de outro usuário. Depois que uma chave de acesso for excluída, ela não poderá mais ser usada para acessar os objetos e buckets na conta do locatário.
+
+.Antes de começar
+* Você está conetado ao Gerenciador do Locatário usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:tenant-management-permissions.html["Permissão de acesso à raiz"].
+
+
+
+CAUTION: Os buckets e objetos do S3 pertencentes a um usuário podem ser acessados usando o ID da chave de acesso e a chave de acesso secreta exibidos para esse usuário no Gerenciador do locatário. Por esse motivo, proteja as chaves de acesso como faria com uma senha. Gire as chaves de acesso regularmente, remova quaisquer chaves não utilizadas da conta e nunca as compartilhe com outros usuários.
+
+.Passos
+. Selecione *GERENCIAMENTO DE ACESSO* > *usuários*.
+. Na página usuários, selecione o usuário cujas chaves de acesso S3 você deseja gerenciar.
+. Na página Detalhes do usuário, selecione *teclas de acesso* e, em seguida, marque a caixa de seleção para cada chave de acesso que deseja excluir.
+. Selecione *ações* > *Excluir tecla selecionada*.
+. Na caixa de diálogo de confirmação, selecione *Delete key*.
++
+Uma mensagem de confirmação aparece no canto superior direito da página.
+
+

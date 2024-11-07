@@ -1,0 +1,60 @@
+---
+permalink: maintain/configuring-replacement-primary-admin-node.html 
+sidebar: sidebar 
+keywords: storagegrid, primary admin node, replace primary admin node, replacing primary admin node 
+summary: O nó de substituição deve ser configurado como nó de administração principal para o seu sistema StorageGRID. 
+---
+= Configure o nó de administração principal de substituição
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O nó de substituição deve ser configurado como nó de administração principal para o seu sistema StorageGRID.
+
+.Antes de começar
+* Para nós de administração primários hospedados em máquinas virtuais, a máquina virtual foi implantada, ativada e inicializada.
+* Para nós de administração primários hospedados em um dispositivo de serviços, você substituiu o dispositivo e instalou o software. Consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["instruções de instalação para o seu aparelho"^] .
+* Tem a cópia de segurança mais recente do ficheiro do pacote de recuperação (`sgws-recovery-package-_id-revision_.zip`).
+* Você tem a senha de provisionamento.
+
+
+.Passos
+. Abra o navegador da Web e navegue até `\https://primary_admin_node_ip`.
+. Gerencie uma senha temporária do instalador conforme necessário:
++
+** Se já tiver sido definida uma palavra-passe utilizando um destes métodos, introduza a palavra-passe para prosseguir.
++
+*** Um usuário define a senha ao acessar o instalador anteriormente
+*** Para sistemas bare metal, a senha foi importada automaticamente do arquivo de configuração do nó em `/etc/storagegrid/nodes/_<node_name>_.conf`
+*** Para VMs, a senha SSH/console foi importada automaticamente das propriedades OVF
+
+
+** Se não tiver sido definida uma palavra-passe, defina opcionalmente uma palavra-passe para proteger o instalador do StorageGRID.
+
+
+. Clique em *Recover a failed Primary Admin Node* (recuperar um nó de administrador principal principal)
++
+image::../media/install_or_recover_primary_admin_node.png[Instale ou recupere o nó de administração principal]
+
+. Carregue o backup mais recente do pacote de recuperação:
++
+.. Clique em *Procurar*.
+.. Localize o arquivo mais recente do Pacote de recuperação para o seu sistema StorageGRID e clique em *Open*.
+
+
+. Introduza a frase-passe de aprovisionamento.
+. Clique em *Iniciar recuperação*.
++
+O processo de recuperação começa. O Gerenciador de Grade pode ficar indisponível por alguns minutos à medida que os serviços necessários forem iniciados. Quando a recuperação estiver concluída, a página de início de sessão é apresentada.
+
+. Se o logon único (SSO) estiver ativado para o seu sistema StorageGRID e a confiança da parte confiável para o nó Admin que você recuperou foi configurada para usar o certificado de interface de gerenciamento padrão, atualizar (ou excluir e recriar) a confiança da parte confiável do nó nos Serviços de Federação do ative Directory (AD FS). Use o novo certificado de servidor padrão que foi gerado durante o processo de recuperação do Admin Node.
++
+
+NOTE: Para configurar uma confiança de parte confiável, link:../admin/configuring-sso.html["Configurar o logon único"]consulte . Para acessar o certificado padrão do servidor, faça login no shell de comando do nó Admin. Vá para `/var/local/mgmt-api` o diretório e selecione o `server.crt` arquivo.
+
+
+
+
+CAUTION: Depois de recuperar um nó de administrador principal, link:assess-hotfix-requirement-during-primary-admin-node-recovery.html["determine se você precisa aplicar um hotfix"].

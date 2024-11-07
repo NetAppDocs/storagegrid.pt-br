@@ -1,0 +1,36 @@
+---
+permalink: maintain/starting-server-manager-and-all-services.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, server manager, start server manager, start services, start all services 
+summary: Talvez seja necessário iniciar o Server Manager, que também inicia todos os serviços no nó de grade. 
+---
+= Inicie o Server Manager e todos os serviços
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Talvez seja necessário iniciar o Server Manager, que também inicia todos os serviços no nó de grade.
+
+.Antes de começar
+Você tem o `Passwords.txt` arquivo.
+
+.Sobre esta tarefa
+Iniciar o Server Manager em um nó de grade onde ele já está sendo executado resulta em uma reinicialização do Server Manager e de todos os serviços no nó de grade.
+
+.Passos
+. Faça login no nó da grade:
++
+.. Introduza o seguinte comando: `ssh admin@_grid_node_IP_`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+
+
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+. Iniciar o Gestor de servidor: `service servermanager start`
+. Faça logout do shell de comando: `exit`
+

@@ -1,0 +1,16 @@
+---
+permalink: release-notes/index.html 
+sidebar: sidebar 
+keywords: release notes 
+summary: Obtenha informações específicas sobre problemas corrigidos e problemas conhecidos. 
+---
+= Notas de lançamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Obtenha informações específicas sobre problemas corrigidos e problemas conhecidos.
+
+Faça login no site de suporte da NetApp para https://library.netapp.com/ecm/ecm_download_file/ECMLP3330064["Ver ou transferir um ficheiro PDF"^] conter as notas de versão do StorageGRID 11,9.

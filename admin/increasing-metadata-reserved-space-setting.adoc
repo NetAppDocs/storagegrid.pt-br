@@ -1,0 +1,94 @@
+---
+permalink: admin/increasing-metadata-reserved-space-setting.html 
+sidebar: sidebar 
+keywords: increase metadata reserved space setting 
+summary: Você pode aumentar a configuração do sistema Metadata Reserved Space se seus nós de armazenamento atenderem a requisitos específicos de RAM e espaço disponível. 
+---
+= Aumentar a configuração espaço reservado metadados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode aumentar a configuração do sistema Metadata Reserved Space se seus nós de armazenamento atenderem a requisitos específicos de RAM e espaço disponível.
+
+.O que você vai precisar
+* Você está conetado ao Gerenciador de Grade usando um link:web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:admin-group-permissions.html["Permissão de acesso root ou a Configuração da Página de topologia de Grade e outras permissões de Configuração de Grade"].
+
+
+
+NOTE: A página de topologia de Grade foi obsoleta e será removida em uma versão futura.
+
+.Sobre esta tarefa
+Você pode aumentar manualmente a configuração de espaço reservado de metadados em todo o sistema até 8 TB.
+
+Você só pode aumentar o valor da configuração espaço reservado de metadados em todo o sistema se ambas as instruções forem verdadeiras:
+
+* Os nós de storage em qualquer local do seu sistema têm 128 GB ou mais de RAM.
+* Cada um dos nós de storage em qualquer local do sistema tem espaço disponível suficiente no volume de storage 0.
+
+
+Esteja ciente de que, se você aumentar essa configuração, reduzirá simultaneamente o espaço disponível para storage de objetos no volume de storage 0 de todos os nós de storage. Por esse motivo, você pode preferir definir o espaço reservado de metadados para um valor menor que 8 TB, com base nos requisitos esperados de metadados de objeto.
+
+
+NOTE: Em geral, é melhor usar um valor mais alto em vez de um valor mais baixo. Se a configuração espaço reservado de metadados for muito grande, você poderá diminuí-la mais tarde. Em contraste, se você aumentar o valor mais tarde, o sistema pode precisar mover dados de objeto para liberar espaço.
+
+Para obter uma explicação detalhada de como a configuração espaço reservado metadados afeta o espaço permitido para armazenamento de metadados de objetos em um nó de armazenamento específico, link:managing-object-metadata-storage.html["Gerenciar o storage de metadados de objetos"]consulte .
+
+.Passos
+. Determine a configuração atual espaço reservado de metadados.
++
+.. Selecione *CONFIGURATION* > *System* > *Storage options*.
+.. Na seção Storage watermarks (marcas d'água de armazenamento), observe o valor de *Metadata Reserved Space* (espaço reservado de metadados).
+
+
+. Certifique-se de que tem espaço disponível suficiente no volume de armazenamento 0 de cada nó de armazenamento para aumentar este valor.
++
+.. Selecione *NODES*.
+.. Selecione o primeiro nó de armazenamento na grade.
+.. Selecione a guia armazenamento .
+.. Na seção volumes, localize a entrada */var/local/rangedb/0*.
+.. Confirme se o valor disponível é igual ou superior à diferença entre o novo valor que pretende utilizar e o valor de espaço reservado de metadados atual.
++
+Por exemplo, se a configuração espaço reservado de metadados for atualmente de 4 TB e você quiser aumentá-la para 6 TB, o valor disponível deverá ser de 2 TB ou superior.
+
+.. Repita estas etapas para todos os nós de storage.
++
+*** Se um ou mais nós de armazenamento não tiverem espaço disponível suficiente, o valor espaço reservado de metadados não poderá ser aumentado. Não prossiga com este procedimento.
+*** Se cada nó de armazenamento tiver espaço disponível suficiente no volume 0, vá para a próxima etapa.
+
+
+
+
+. Certifique-se de que tem pelo menos 128 GB de RAM em cada nó de armazenamento.
++
+.. Selecione *NODES*.
+.. Selecione o primeiro nó de armazenamento na grade.
+.. Selecione a guia *hardware*.
+.. Passe o cursor sobre o gráfico de uso da memória. Certifique-se de que *Total Memory* é de pelo menos 128 GB.
+.. Repita estas etapas para todos os nós de storage.
++
+*** Se um ou mais nós de armazenamento não tiverem memória total disponível suficiente, o valor de espaço reservado de metadados não poderá ser aumentado. Não prossiga com este procedimento.
+*** Se cada nó de armazenamento tiver pelo menos 128 GB de memória total, vá para a próxima etapa.
+
+
+
+
+. Atualize a configuração espaço reservado metadados.
++
+.. Selecione *CONFIGURATION* > *System* > *Storage options*.
+.. Selecione o separador Configuration (Configuração).
+.. Na seção Storage watermarks (marcas d'água de armazenamento), selecione *Metadata Reserved Space* (espaço reservado de metadados).
+.. Introduza o novo valor.
++
+Por exemplo, para introduzir 8 TB, que é o valor máximo suportado, introduza *8000000000000* (8, seguido de 12 zeros)
+
++
+image::../media/metadata_reserved_space.png[Espaço reservado para metadados]
+
+.. Selecione *aplicar alterações*.
+
+
+

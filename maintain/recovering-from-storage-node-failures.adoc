@@ -1,0 +1,77 @@
+---
+permalink: maintain/recovering-from-storage-node-failures.html 
+sidebar: sidebar 
+keywords: recover, storage node failure, Reaper 
+summary: O procedimento para recuperar um nó de storage com falha depende do tipo de falha e do tipo de nó de storage que falhou. 
+---
+= Recuperar de falhas no nó de storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O procedimento para recuperar um nó de storage com falha depende do tipo de falha e do tipo de nó de storage que falhou.
+
+Use esta tabela para selecionar o procedimento de recuperação para um nó de armazenamento com falha.
+
+[cols="1a,1a,1a"]
+|===
+| Problema | Ação | Notas 
+
+
+ a| 
+* Mais de um nó de storage falhou.
+* Um segundo nó de storage falhou menos de 15 dias após uma falha ou recuperação do nó de storage.
++
+Isso inclui o caso em que um nó de storage falha enquanto a recuperação de outro nó de storage ainda está em andamento.
+
+
+ a| 
+Entre em Contato com o suporte técnico.
+ a| 
+A recuperação de mais de um nó de storage (ou mais de um nó de storage em 15 dias) pode afetar a integridade do banco de dados Cassandra, o que pode causar perda de dados.
+
+O suporte técnico pode determinar quando é seguro iniciar a recuperação de um segundo nó de armazenamento.
+
+*Nota*: Se mais de um nó de armazenamento que contém o serviço ADC falhar em um site, você perderá quaisquer solicitações de serviço de plataforma pendentes para esse site.
+
+
+
+ a| 
+Mais de um nó de storage em um local falhou ou um local inteiro falhou.
+ a| 
+Entre em Contato com o suporte técnico. Pode ser necessário executar um procedimento de recuperação do local.
+ a| 
+O suporte técnico avaliará sua situação e desenvolverá um plano de recuperação. link:how-site-recovery-is-performed-by-technical-support.html["Como o suporte técnico recupera um site"]Consulte .
+
+
+
+ a| 
+Um nó de storage de dispositivo falhou.
+ a| 
+link:recovering-storagegrid-appliance-storage-node.html["Recupere o nó de storage do dispositivo"]
+ a| 
+O procedimento de recuperação para nós de storage do dispositivo é o mesmo para todas as falhas.
+
+
+
+ a| 
+Um ou mais volumes de armazenamento falharam, mas a unidade do sistema está intacta
+ a| 
+link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["Recuperar de uma falha no volume de armazenamento em que a unidade do sistema está intacta"]
+ a| 
+Este procedimento é usado para nós de storage baseados em software.
+
+
+
+ a| 
+A unidade do sistema falhou.
+ a| 
+link:reviewing-warnings-for-system-drive-recovery.html["Recuperar de falha na unidade do sistema"]
+ a| 
+O procedimento de substituição do nó depende da plataforma de implantação e se algum volume de storage também falhou.
+
+|===
+
+NOTE: Alguns procedimentos de recuperação do StorageGRID usam o Reaper para lidar com reparos do Cassandra. As reparações ocorrem automaticamente assim que os serviços relacionados ou necessários tiverem sido iniciados. Você pode notar saída de script que menciona "Reaper" ou "Cassandra repair". Se aparecer uma mensagem de erro indicando que a reparação falhou, execute o comando indicado na mensagem de erro.

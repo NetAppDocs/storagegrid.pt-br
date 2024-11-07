@@ -1,0 +1,78 @@
+---
+permalink: audit/object-delete-transactions.html 
+sidebar: sidebar 
+keywords: object delete transaction, S3 delete, SDEL, WDEL 
+summary: Você pode identificar transações de exclusão de objetos no log de auditoria localizando mensagens de auditoria específicas da API do S3. 
+---
+= Eliminar transações
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode identificar transações de exclusão de objetos no log de auditoria localizando mensagens de auditoria específicas da API do S3.
+
+Nem todas as mensagens de auditoria geradas durante uma transação de exclusão são listadas nas tabelas a seguir. Apenas as mensagens necessárias para rastrear a transação de exclusão são incluídas.
+
+
+
+== S3 exclua mensagens de auditoria
+
+[cols="1a,1a,2a,1a,2a"]
+|===
+| Código | Nome | Descrição | Traçado | Consulte 
+
+
+ a| 
+SDEL
+ a| 
+S3 Eliminar
+ a| 
+Solicitação feita para excluir o objeto de um intervalo.
+ a| 
+CBID, S3KY
+ a| 
+link:sdel-s3-delete.html["SDEL: S3 DELETE"]
+
+|===
+
+
+== Swift delete mensagens de auditoria
+
+[cols="1a,1a,2a,1a,2a"]
+|===
+| Código | Nome | Descrição | Traçado | Consulte 
+
+
+ a| 
+WDEL
+ a| 
+Eliminação rápida
+ a| 
+Solicitação feita para excluir o objeto de um recipiente ou do recipiente.
+ a| 
+CBID, WOBJ
+ a| 
+link:wdel-swift-delete.html["WDEL: Swift DELETE"]
+
+|===
+
+
+== Exemplo: Exclusão de objeto S3
+
+Quando um cliente S3 exclui um objeto de um nó de armazenamento (serviço LDR), uma mensagem de auditoria é gerada e salva no log de auditoria.
+
+
+NOTE: Nem todas as mensagens de auditoria geradas durante uma transação de exclusão são listadas no exemplo abaixo. Apenas os relacionados com a transação de exclusão S3 (SDEL) são listados.
+
+
+
+=== SDEL: S3 Excluir
+
+A exclusão de objeto começa quando o cliente envia uma solicitação DeleteObject a um serviço LDR. A mensagem contém o intervalo do qual excluir o objeto e a chave S3 do objeto, que é usada para identificar o objeto.
+
+[listing, subs="specialcharacters,quotes"]
+----
+2017-07-17T21:17:58.959669[AUDT:[RSLT(FC32):SUCS][TIME(UI64):14316][SAIP(IPAD):"10.96.112.29"][S3AI(CSTR):"70899244468554783528"][SACC(CSTR):"test"][S3AK(CSTR):"SGKHyalRU_5cLflqajtaFmxJn946lAWRJfBF33gAOg=="][SUSR(CSTR):"urn:sgws:identity::70899244468554783528:root"][SBAI(CSTR):"70899244468554783528"][SBAC(CSTR):"test"]\[S3BK\(CSTR\):"example"\]\[S3KY\(CSTR\):"testobject-0-7"\][CBID\(UI64\):0x339F21C5A6964D89][CSIZ(UI64):30720][AVER(UI32):10][ATIM(UI64):150032627859669][ATYP\(FC32\):SDEL][ANID(UI32):12086324][AMID(FC32):S3RQ][ATID(UI64):4727861330952970593]]
+----

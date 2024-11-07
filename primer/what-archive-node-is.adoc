@@ -1,0 +1,16 @@
+---
+permalink: primer/what-archive-node-is.html 
+sidebar: sidebar 
+keywords: archive node 
+summary: O suporte para nós de arquivamento foi removido. 
+---
+= O que é um nó de arquivo?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O suporte para nós de arquivamento foi removido.
+
+Para obter informações sobre nós de arquivo, https://docs.netapp.com/us-en/storagegrid-118/primer/what-archive-node-is.html["O que é um nó de arquivo (StorageGRID 11,8 doc site)"^]consulte .

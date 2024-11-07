@@ -1,0 +1,49 @@
+---
+permalink: maintain/configuring-ip-addresses.html 
+sidebar: sidebar 
+keywords: configure ip address, change IP tool, ethernet, dhcp, ha group 
+summary: Você pode executar a configuração de rede configurando endereços IP para nós de grade usando a ferramenta alterar IP. 
+---
+= Diretrizes de endereço IP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode executar a configuração de rede configurando endereços IP para nós de grade usando a ferramenta alterar IP.
+
+Você deve usar a ferramenta alterar IP para fazer a maioria das alterações na configuração de rede que foi inicialmente definida durante a implantação de grade. As alterações manuais usando comandos e arquivos de rede padrão do Linux podem não se propagar para todos os serviços do StorageGRID e podem não persistir em atualizações, reinicializações ou procedimentos de recuperação de nós.
+
+
+NOTE: O procedimento de mudança de IP pode ser um procedimento disruptivo. Partes da grade podem estar indisponíveis até que a nova configuração seja aplicada.
+
+
+NOTE: Se você estiver fazendo alterações somente na Lista de sub-redes de rede de Grade, use o Gerenciador de Grade para adicionar ou alterar a configuração da rede. Caso contrário, use a ferramenta alterar IP se o Gerenciador de Grade estiver inacessível devido a um problema de configuração de rede, ou você estiver executando uma alteração de roteamento de rede de Grade e outras alterações de rede ao mesmo tempo.
+
+
+TIP: Se pretender alterar o endereço IP da rede de grelha para todos os nós da grelha, utilize o link:changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["procedimento especial para mudanças em toda a grade"].
+
+
+
+== Interfaces Ethernet
+
+O endereço IP atribuído a eth0 é sempre o endereço IP da rede de Grade do nó da grade. O endereço IP atribuído ao eth1 é sempre o endereço IP da rede Admin do nó da grade. O endereço IP atribuído ao eth2 é sempre o endereço IP da rede do cliente do nó da grade.
+
+Observe que em algumas plataformas, como dispositivos StorageGRID, eth0, eth1 e eth2, podem ser interfaces agregadas compostas por bridges subordinadas ou ligações de interfaces físicas ou VLAN. Nessas plataformas, a guia *SSM* > *recursos* pode mostrar o endereço IP de rede, administrador e rede cliente atribuído a outras interfaces além de eth0, eth1 ou eth2.
+
+
+
+== DHCP
+
+Só pode configurar o DHCP durante a fase de implementação. Não é possível configurar o DHCP durante a configuração. Você deve usar os procedimentos de alteração de endereço IP se quiser alterar endereços IP, máscaras de sub-rede e gateways padrão para um nó de grade. O uso da ferramenta Change IP fará com que os endereços DHCP fiquem estáticos.
+
+
+
+== Grupos de alta disponibilidade (HA)
+
+* Se uma interface de rede de cliente estiver contida em um grupo HA, você não poderá alterar o endereço IP da rede de cliente dessa interface para um endereço que esteja fora da sub-rede configurada para o grupo HA.
+* Não é possível alterar o endereço IP da rede do cliente para o valor de um endereço IP virtual existente atribuído a um grupo HA configurado na interface rede do cliente.
+* Se uma interface de rede Grid estiver contida em um grupo HA, você não poderá alterar o endereço IP da rede Grid dessa interface para um endereço fora da sub-rede configurada para o grupo HA.
+* Não é possível alterar o endereço IP da rede de Grade para o valor de um endereço IP virtual existente atribuído a um grupo HA configurado na interface rede de Grade.
+

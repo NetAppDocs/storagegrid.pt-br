@@ -1,0 +1,79 @@
+---
+permalink: ilm/using-multiple-storage-pools-for-cross-site-replication.html 
+sidebar: sidebar 
+keywords: site-loss protection, cross-site replication, storage pools 
+summary: Se a implantação do StorageGRID incluir mais de um local, você poderá usar a replicação e a codificação de apagamento com pools de storage configurados adequadamente para habilitar a proteção contra perda de site. 
+---
+= Ativar a proteção contra perda de local
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se a implantação do StorageGRID incluir mais de um local, você poderá usar a replicação e a codificação de apagamento com pools de storage configurados adequadamente para habilitar a proteção contra perda de site.
+
+A replicação e a codificação de apagamento exigem configurações diferentes de pool de storage:
+
+* Para usar a replicação para proteção contra perda de site, use os pools de storage específicos do local que são criados automaticamente durante a instalação do StorageGRID. Em seguida, crie regras ILM com link:create-ilm-rule-define-placements.html["instruções de colocação"] que especificam vários pools de armazenamento de modo que uma cópia de cada objeto seja colocada em cada local.
+* Para usar a codificação de apagamento para proteção contra perda de sitelink:guidelines-for-creating-storage-pools.html#guidelines-for-storage-pools-used-for-erasure-coded-copies["crie pools de armazenamento que consistem em vários locais"], . Em seguida, crie regras ILM que usam um pool de armazenamento que consiste em vários sites e qualquer esquema de codificação de apagamento disponível.
+
+
+
+CAUTION: Ao configurar a implantação do StorageGRID para proteção contra perda de site, você também deve levar em conta os efeitos do link:data-protection-options-for-ingest.html["opções de ingestão"] e link:../s3/consistency-controls.html["consistência"]do .
+
+
+
+== Exemplo de replicação
+
+Por padrão, um pool de armazenamento é criado para cada local durante a instalação do StorageGRID. Ter pools de storage que consistem em apenas um local permite configurar regras de ILM que usam replicação para proteção contra perda de site. Neste exemplo:
+
+* O pool de armazenamento 1 contém o local 1
+* O pool de armazenamento 2 contém o local 2
+* A regra ILM contém dois posicionamentos:
++
+** Armazene objetos replicando cópia 1 no local 1
+** Armazene objetos replicando cópia 1 no local 2
+
+
+
+
+Colocações de regra ILM:
+
+image::../media/ilm_replication_at_2_sites.png[Replicando 1 cópias cada em 2 locais]
+
+image::../media/ilm_replication_make_2_copies_2_pools_2_sites.png[Faça uma cópia 1 em cada um dos 2 locais - conjunto de armazenamento específico do local]
+
+Se um site for perdido, cópias dos objetos estarão disponíveis no outro site.
+
+
+
+== Exemplo de codificação de apagamento
+
+Ter pools de storage compostos por mais de um local por pool de storage permite configurar regras de ILM que usam codificação de apagamento para proteção contra perda de site. Neste exemplo:
+
+* O pool de armazenamento 1 contém os locais 1 a 3
+* A regra ILM contém um posicionamento: Armazenar objetos por codificação de apagamento usando um esquema EC 4-2 no pool de armazenamento 1, que contém três locais
+
+
+Colocações de regra ILM:
+
+image::../media/ilm_erasure_coding_site_loss_protection_4+2.png[Pool de storage do EC 1 9 nós de storage 3 locais]
+
+Neste exemplo:
+
+* A regra ILM usa um esquema de codificação de apagamento 4-2.
+* Cada objeto é dividido em quatro fragmentos de dados iguais, e dois fragmentos de paridade são computados a partir dos dados do objeto.
+* Cada um dos seis fragmentos é armazenado em um nó diferente em três locais de data center para fornecer proteção de dados para falhas de nós ou perda de local.
+
+
+
+NOTE: A codificação de apagamento é permitida em pools de armazenamento contendo qualquer número de sites _exceto_ dois sites.
+
+Regra ILM usando o esquema de codificação de apagamento 4-2:
+
+image::../media/ec_three_sites_4_plus_2_site_loss_example_template.png[Armazene objetos por codificação de apagamento usando um esquema EC 4-2 em 3 sites]
+
+Se um site for perdido, os dados ainda podem ser recuperados:
+
+image::../media/ec_three_sites_4_plus_2_site_loss_example.png[Codificação de apagamento 4-2, esquema EC 1 site perdido]

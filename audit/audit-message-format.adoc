@@ -1,0 +1,47 @@
+---
+permalink: audit/audit-message-format.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message formats, message format 
+summary: As mensagens de auditoria trocadas no sistema StorageGRID incluem informações padrão comuns a todas as mensagens e conteúdo específico que descreve o evento ou a atividade que está sendo relatada. 
+---
+= Formato da mensagem de auditoria
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+As mensagens de auditoria trocadas no sistema StorageGRID incluem informações padrão comuns a todas as mensagens e conteúdo específico que descreve o evento ou a atividade que está sendo relatada.
+
+Se as informações resumidas fornecidas pelas link:using-audit-explain-tool.html["auditoria-explicar"]ferramentas e link:using-audit-sum-tool.html["soma de auditoria"]forem insuficientes, consulte esta secção para compreender o formato geral de todas as mensagens de auditoria.
+
+A seguir está um exemplo de mensagem de auditoria como ela pode aparecer no arquivo de log de auditoria:
+
+[listing]
+----
+2014-07-17T03:50:47.484627
+[AUDT:[RSLT(FC32):VRGN][AVER(UI32):10][ATIM(UI64):1405569047484627][ATYP(FC32):SYSU][ANID(UI32):11627225][AMID(FC32):ARNI][ATID(UI64):9445736326500603516]]
+----
+Cada mensagem de auditoria contém uma cadeia de elementos de atributo. Toda a cadeia de carateres está entre colchetes (`[ ]`), e cada elemento de atributo na cadeia de carateres tem as seguintes caraterísticas:
+
+* Entre os suportes `[ ]`
+* Introduzido pela cadeia de carateres `AUDT`, que indica uma mensagem de auditoria
+* Sem delimitadores (sem vírgulas ou espaços) antes ou depois
+* Terminado por um caractere de alimentação de linha `\n`
+
+
+Cada elemento inclui um código de atributo, um tipo de dados e um valor que são relatados neste formato:
+
+[listing]
+----
+[ATTR(type):value][ATTR(type):value]...
+[ATTR(type):value]\n
+----
+O número de elementos de atributo na mensagem depende do tipo de evento da mensagem. Os elementos de atributo não são listados em nenhuma ordem específica.
+
+A lista a seguir descreve os elementos do atributo:
+
+* `ATTR` é um código de quatro carateres para o atributo que está sendo relatado. Existem alguns atributos que são comuns a todas as mensagens de auditoria e outros que são específicos para eventos.
+* `type` É um identificador de quatro carateres do tipo de dados de programação do valor, como UI64, FC32 e assim por diante. O tipo está entre parênteses `( )`.
+* `value` é o conteúdo do atributo, normalmente um valor numérico ou de texto. Os valores seguem sempre dois pontos (`:`). Os valores do tipo de dados CSTR são cercados por aspas duplas " ".
+

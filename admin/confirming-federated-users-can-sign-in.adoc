@@ -1,0 +1,68 @@
+---
+permalink: admin/confirming-federated-users-can-sign-in.html 
+sidebar: sidebar 
+keywords: sso configuration 
+summary: 'Antes de ativar o início de sessão único (SSO), tem de confirmar que pelo menos um utilizador federado pode iniciar sessão no Gestor de grelha e entrar no Gestor de inquilinos para quaisquer contas de inquilinos existentes.' 
+---
+= Confirme se os usuários federados podem entrar
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de ativar o logon único (SSO), você deve confirmar que pelo menos um usuário federado pode entrar no Gerenciador de Grade e entrar no Gerenciador de locatários para quaisquer contas de locatário existentes.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você link:admin-group-permissions.html["permissões de acesso específicas"]tem .
+* Você já configurou a federação de identidade.
+
+
+.Passos
+. Se houver contas de inquilino existentes, confirme que nenhum dos inquilinos está usando sua própria fonte de identidade.
++
+
+TIP: Quando você ativa o SSO, uma fonte de identidade configurada no Gerenciador de locatário é substituída pela origem de identidade configurada no Gerenciador de Grade. Os usuários pertencentes à fonte de identidade do locatário não poderão mais entrar a menos que tenham uma conta com a fonte de identidade do Gerenciador de Grade.
+
++
+.. Inicie sessão no Gestor do Locatário para cada conta de inquilino.
+.. Selecione *GERENCIAMENTO DE ACESSO* > *federação de identidade*.
+.. Confirme se a caixa de verificação *Ativar federação de identidade* não está selecionada.
+.. Se estiver, confirme se os grupos federados que possam estar em uso para essa conta de locatário não são mais necessários, desmarque a caixa de seleção e selecione *Salvar*.
+
+
+. Confirme se um usuário federado pode acessar o Gerenciador de Grade:
++
+.. No Gerenciador de Grade, selecione *CONFIGURATION* > *Access Control* > *Admin Groups*.
+.. Certifique-se de que pelo menos um grupo federado tenha sido importado da origem de identidade do ative Directory e de que tenha sido atribuída a permissão de acesso raiz.
+.. Terminar sessão.
+.. Confirme que você pode fazer login novamente no Gerenciador de Grade como um usuário no grupo federado.
+
+
+. Se houver contas de locatário existentes, confirme se um usuário federado que tenha permissão de acesso root pode entrar:
++
+.. No Gerenciador de Grade, selecione *TENANTS*.
+.. Selecione a conta de locatário e selecione *ações* > *Editar*.
+.. Na guia Inserir detalhes, selecione *continuar*.
+.. Se a caixa de seleção *Use own Identity source* estiver selecionada, desmarque a caixa e selecione *Save*.
++
+image::../media/sso_uses_own_identity_source_for_tenant.png[Editar conta de locatário > utilizar a caixa de verificação origem de identidade própria não selecionada]
+
++
+É apresentada a página do locatário.
+
+.. Selecione a conta de locatário, selecione *entrar* e faça login na conta de locatário como usuário raiz local.
+.. No Gerenciador do Locatário, selecione *GERENCIAMENTO DE ACESSO* > *grupos*.
+.. Certifique-se de que pelo menos um grupo federado do Gerenciador de Grade recebeu a permissão de acesso raiz para esse locatário.
+.. Terminar sessão.
+.. Confirme que você pode fazer login novamente no locatário como um usuário no grupo federado.
+
+
+
+
+.Informações relacionadas
+* link:requirements-for-sso.html["Requisitos e considerações para logon único"]
+* link:managing-admin-groups.html["Gerenciar grupos de administradores"]
+* link:../tenant/index.html["Use uma conta de locatário"]
+

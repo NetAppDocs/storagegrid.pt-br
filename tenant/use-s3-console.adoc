@@ -1,0 +1,57 @@
+---
+permalink: tenant/use-s3-console.html 
+sidebar: sidebar 
+keywords: how to use s3 console 
+summary: Você pode usar o Console S3 para exibir e gerenciar os objetos em um bucket do S3. 
+---
+= Use o Console S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o Console S3 para exibir e gerenciar os objetos em um bucket do S3.
+
+S3 Console permite que você:
+
+* Carregar, transferir, mudar o nome, copiar, mover e eliminar objetos
+* Exibir, reverter, baixar e excluir versões de objetos
+* Pesquisar objetos por prefixo
+* Gerenciar tags de objeto
+* Exibir metadados de objetos
+* Exibir, criar, renomear, copiar, mover e excluir pastas
+
+
+[NOTE]
+====
+O console S3 oferece uma experiência de usuário aprimorada para os casos mais comuns. Ele não foi projetado para substituir as operações CLI ou API em todas as situações.
+
+Se o uso do Console S3 resulta em operações demoradas demais (por exemplo, minutos ou horas), considere:
+
+* Reduzindo o número de objetos selecionados
+* Usando métodos não gráficos (API ou CLI) para acessar seus dados
+
+
+====
+.Antes de começar
+* Você está conetado ao Gerenciador do Locatário usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Se você quiser gerenciar objetos, você pertence a um grupo de usuários que tem a permissão de acesso root. Como alternativa, você pertence a um grupo de usuários que tem a permissão usar a guia Console S3 e a permissão Exibir todos os buckets ou Gerenciar todos os buckets. link:tenant-management-permissions.html["Permissões de gerenciamento do locatário"]Consulte .
+* Uma política de grupo S3 ou balde foi configurada para o utilizador. link:../s3/bucket-and-group-access-policies.html["Use políticas de acesso de grupo e bucket"]Consulte .
+* Você sabe o ID da chave de acesso do usuário e a chave de acesso secreta. Opcionalmente, você tem um `.csv` arquivo contendo essas informações. Consulte link:creating-your-own-s3-access-keys.html["instruções para criar chaves de acesso"].
+
+
+.Passos
+. Selecione *STORAGE* > *Buckets* > *_bucket name_*.
+. Selecione a guia Console do S3.
+. Cole o ID da chave de acesso e a chave de acesso secreta nos campos. Caso contrário, selecione *carregar chaves de acesso* e selecione o seu `.csv` ficheiro.
+. Selecione *entrar*.
+. É apresentada a tabela de objetos de balde. Você pode gerenciar objetos conforme necessário.
+
+
+.Informações adicionais
+* *Busca por prefixo*: O recurso de pesquisa de prefixo procura apenas objetos que começam com uma palavra específica relativa à pasta atual. A pesquisa não inclui objetos que contenham a palavra em outro lugar. Esta regra também se aplica a objetos dentro de pastas. Por exemplo, uma pesquisa `folder1/folder2/somefile-` retornaria objetos que estão dentro da `folder1/folder2/` pasta e começaria com a palavra `somefile-`.
+* * Arrastar e soltar*: Você pode arrastar e soltar arquivos do gerenciador de arquivos do computador para o console S3. No entanto, não é possível carregar pastas.
+* *Operações em pastas*: Quando você move, copia ou renomeia uma pasta, todos os objetos na pasta são atualizados um de cada vez, o que pode levar tempo.
+* *Exclusão permanente quando o controle de versão do bucket está desativado*: Quando você substitui ou exclui um objeto em um bucket com o controle de versão desativado, a operação é permanente. link:changing-bucket-versioning.html["Alterar o controle de versão de objetos para um bucket"]Consulte .
+

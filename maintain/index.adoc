@@ -1,0 +1,33 @@
+---
+permalink: maintain/index.html 
+sidebar: sidebar 
+keywords: maintain overview, maintenance overview, about maintain, about maintenance 
+summary: As tarefas de manutenção de grade incluem a desativação de um nó ou local, renomeando uma grade, nó ou local e mantendo a rede. Você também pode executar procedimentos de host e middleware e procedimentos de nó de grade. 
+---
+= Manutenção da grelha
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+As tarefas de manutenção de grade incluem a desativação de um nó ou site, renomeando uma grade, nó ou site e manutenção de redes. Você também pode executar procedimentos de host e middleware e procedimentos de nó de grade.
+
+
+NOTE: Nestas instruções, "Linux" refere-se a uma implementação Red Hat Enterprise Linux, Ubuntu ou Debian. Para obter uma lista de versões suportadas, consulte o https://imt.netapp.com/matrix/#welcome["Ferramenta de Matriz de interoperabilidade do NetApp"^].
+
+
+
+== Antes de começar
+
+* Você tem uma ampla compreensão do sistema StorageGRID.
+* Você revisou a topologia do seu sistema StorageGRID e entende a configuração da grade.
+* Você entende que deve seguir todas as instruções exatamente e atender a todos os avisos.
+* Você entende que os procedimentos de manutenção não descritos não são suportados ou exigem um envolvimento dos serviços.
+
+
+
+
+== Procedimentos de manutenção para aparelhos
+
+Para obter os procedimentos de hardware, consulte https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/index.html["Instruções de manutenção para o seu aparelho StorageGRID"^] .

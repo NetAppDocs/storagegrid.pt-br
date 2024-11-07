@@ -1,0 +1,60 @@
+---
+permalink: admin/deactivate-features-from-api.html 
+sidebar: sidebar 
+keywords: deactivate features from api 
+summary: Você pode usar a API de gerenciamento de grade para desativar completamente certos recursos no sistema StorageGRID. Quando um recurso é desativado, ninguém pode receber permissões para executar as tarefas relacionadas a esse recurso. 
+---
+= Desative recursos com a API
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar a API de gerenciamento de grade para desativar completamente certos recursos no sistema StorageGRID. Quando um recurso é desativado, ninguém pode receber permissões para executar as tarefas relacionadas a esse recurso.
+
+.Sobre esta tarefa
+O sistema de funcionalidades desativadas permite-lhe impedir o acesso a determinadas funcionalidades no sistema StorageGRID. Desativar um recurso é a única maneira de impedir que o usuário root ou usuários que pertencem a grupos de administração com permissão *root Access* possam usar esse recurso.
+
+Para entender como essa funcionalidade pode ser útil, considere o seguinte cenário:
+
+_A empresa A é um provedor de serviços que aluga a capacidade de armazenamento de seu sistema StorageGRID criando contas de inquilino. Para proteger a segurança dos objetos de seus arrendatários, a empresa A quer garantir que seus próprios funcionários nunca possam acessar qualquer conta de locatário depois que a conta tiver sido implantada._
+
+_A empresa A pode atingir esse objetivo usando o sistema Deactivate Features na API Grid Management. Ao desativar completamente o recurso *alterar senha de root do locatário* no Gerenciador de Grade (tanto a UI quanto a API), a empresa A garante que os usuários Admin - incluindo o usuário raiz e os usuários pertencentes a grupos com a permissão *root Access* - não podem alterar a senha para o usuário root de qualquer conta de locatário._
+
+.Passos
+. Acesse a documentação do Swagger para a API de gerenciamento de grade. link:using-grid-management-api.html["Use a API de gerenciamento de grade"]Consulte .
+. Localize o endpoint Deactivate Features
+. Para desativar um recurso, como alterar a senha de root do locatário, envie um corpo para a API assim:
++
+`{ "grid": {"changeTenantRootPassword": true} }`
+
++
+Quando a solicitação estiver concluída, o recurso alterar senha raiz do locatário é desativado. A permissão de gerenciamento * alterar senha de root do locatário * não aparece mais na interface do usuário, e qualquer solicitação de API que tente alterar a senha de raiz de um locatário falhará com "403 Forbidden".
+
+
+
+
+
+== Reativar funcionalidades desativadas
+
+Por padrão, você pode usar a API de Gerenciamento de Grade para reativar um recurso que foi desativado. No entanto, se você quiser impedir que os recursos desativados sejam reativados, você pode desativar o próprio recurso *activateFeatures*.
+
+
+CAUTION: O recurso *activateFeatures* não pode ser reativado. Se você decidir desativar esse recurso, esteja ciente de que você perderá permanentemente a capacidade de reativar quaisquer outros recursos desativados. Você deve entrar em Contato com o suporte técnico para restaurar qualquer funcionalidade perdida.
+
+.Passos
+. Acesse a documentação do Swagger para a API de gerenciamento de grade.
+. Localize o endpoint Deactivate Features
+. Para reativar todos os recursos, envie um corpo para a API assim:
++
+`{ "grid": null }`
+
++
+Quando essa solicitação estiver concluída, todos os recursos, incluindo o recurso alterar senha de root do locatário, são reativados. A permissão de gerenciamento *alterar senha de root do locatário* agora aparece na interface do usuário, e qualquer solicitação de API que tente alterar a senha de root de um locatário terá êxito, assumindo que o usuário tenha a permissão de gerenciamento *acesso root* ou *alterar senha de root do locatário*.
+
+
+
+
+TIP: O exemplo anterior faz com que os recursos _All_ desativados sejam reativados. Se outros recursos tiverem sido desativados que devem permanecer desativados, você deverá especificá-los explicitamente na SOLICITAÇÃO PUT. Por exemplo, para reativar o recurso alterar senha de root do locatário e continuar a desativar a permissão de gerenciamento do storageAdmin, envie esta SOLICITAÇÃO DE COMPRA
+`{ "grid": {"storageAdmin": true} }`

@@ -1,0 +1,23 @@
+---
+permalink: maintain/recovering-from-admin-node-failures.html 
+sidebar: sidebar 
+keywords: recover, admin node failure, workflow 
+summary: O processo de recuperação para um nó Admin depende se é o nó Admin primário ou um nó Admin não primário. 
+---
+= Recuperação do nó de administração primário ou não primário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O processo de recuperação para um nó Admin depende se é o nó Admin primário ou um nó Admin não primário.
+
+As etapas de alto nível para recuperar um nó de administração primário ou não primário são as mesmas, embora os detalhes das etapas sejam diferentes.
+
+Siga sempre o procedimento de recuperação correto para o nó Admin que está a recuperar. Os procedimentos parecem os mesmos em um nível alto, mas diferem nos detalhes.
+
+.Opções
+* link:recovering-from-primary-admin-node-failures.html["Recuperação de falhas do nó de administração principal"]
+* link:recovering-from-non-primary-admin-node-failures.html["Recuperação de falhas não primárias no nó de administração"]
+

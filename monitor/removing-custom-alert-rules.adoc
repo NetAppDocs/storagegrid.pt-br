@@ -1,0 +1,38 @@
+---
+permalink: monitor/removing-custom-alert-rules.html 
+sidebar: sidebar 
+keywords: how to disable alert rules, how to remove a custom alert rule 
+summary: Você pode remover uma regra de alerta personalizada se não quiser mais usá-la. 
+---
+= Remover regras de alerta personalizadas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode remover uma regra de alerta personalizada se não quiser mais usá-la.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:../admin/admin-group-permissions.html["Gerencie alertas ou permissão de acesso root"].
+
+
+.Passos
+. Selecione *ALERTAS* > *regras*.
++
+A página regras de alerta é exibida.
+
+. Selecione o botão de opção para a regra de alerta personalizada que deseja remover.
++
+Não é possível remover uma regra de alerta padrão.
+
+. Selecione *Remover regra personalizada*.
++
+É apresentada uma caixa de diálogo de confirmação.
+
+. Selecione *OK* para remover a regra de alerta.
++
+Todas as instâncias ativas do alerta serão resolvidas dentro de 10 minutos.
+
+

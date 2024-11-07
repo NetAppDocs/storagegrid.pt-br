@@ -1,0 +1,129 @@
+---
+permalink: harden/hardening-guidelines-for-storagegrid-nodes.html 
+sidebar: sidebar 
+keywords: hardening guidelines, nodes, security 
+summary: Os nós do StorageGRID podem ser implantados em máquinas virtuais VMware, dentro de um mecanismo de contêiner em hosts Linux ou como dispositivos de hardware dedicados. Cada tipo de plataforma e cada tipo de nó tem seu próprio conjunto de práticas recomendadas de endurecimento. 
+---
+= Diretrizes de fortalecimento para nós de StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os nós do StorageGRID podem ser implantados em máquinas virtuais VMware, dentro de um mecanismo de contêiner em hosts Linux ou como dispositivos de hardware dedicados. Cada tipo de plataforma e cada tipo de nó tem seu próprio conjunto de práticas recomendadas de endurecimento.
+
+
+
+== Controle o acesso remoto IPMI ao BMC
+
+Você pode ativar ou desativar o acesso remoto IPMI para todos os dispositivos que contêm um BMC. A interface IPMI remota permite o acesso de hardware de baixo nível aos seus dispositivos StorageGRID por qualquer pessoa com uma conta e senha do BMC. Se você não precisar de acesso remoto IPMI ao BMC, desative esta opção.
+
+* Para controlar o acesso remoto IPMI ao BMC no Gerenciador de Grade, vá para *CONFIGURATION* > *Security* > *Security settings* > *Appliances*:
++
+** Desmarque a caixa de seleção *Enable Remote IPMI Access* (Ativar acesso remoto IPMI) para desativar o acesso IPMI ao BMC.
+** Marque a caixa de seleção *Enable Remote IPMI Access* (Ativar acesso remoto IPMI) para habilitar o acesso IPMI ao BMC.
+
+
+
+
+
+
+== Configuração da firewall
+
+Como parte do processo de fortalecimento do sistema, você deve revisar as configurações de firewall externo e modificá-las para que o tráfego seja aceito apenas a partir dos endereços IP e nas portas a partir das quais é estritamente necessário.
+
+O StorageGRID inclui um firewall interno em cada nó que aumenta a segurança da sua grade, permitindo que você controle o acesso da rede ao nó. Você deve link:../admin/manage-firewall-controls.html["gerenciar controles internos de firewall"]impedir o acesso à rede em todas as portas, exceto as necessárias para a implantação da grade específica. As alterações de configuração feitas na página de controle do Firewall são implantadas em cada nó.
+
+Especificamente, você pode gerenciar essas áreas:
+
+* *Endereços privilegiados*: Você pode permitir que endereços IP ou sub-redes selecionadas acessem portas fechadas por configurações na guia Gerenciar acesso externo.
+* *Gerenciar acesso externo*: Você pode fechar portas abertas por padrão ou reabrir portas previamente fechadas.
+* *Rede cliente não confiável*: Você pode especificar se um nó confia no tráfego de entrada da rede cliente, bem como as portas adicionais que deseja abrir quando a rede cliente não confiável está configurada.
+
+
+Embora esse firewall interno forneça uma camada adicional de proteção contra algumas ameaças comuns, ele não remove a necessidade de um firewall externo.
+
+Para obter uma lista de todas as portas internas e externas usadas pelo StorageGRID, link:../network/network-port-reference.html["Referência da porta de rede"]consulte .
+
+
+
+== Desativar serviços não utilizados
+
+Para todos os nós do StorageGRID, você deve desativar ou bloquear o acesso a serviços não utilizados. Por exemplo, se você não estiver planejando usar DHCP, use o Gerenciador de Grade para fechar a porta 68. Selecione *CONFIGURATION* > *Firewall control* > *Manage external access*. Em seguida, altere a opção Status para a porta 68 de *Open* para *Closed*.
+
+
+
+== Virtualização, contêineres e hardware compartilhado
+
+Para todos os nós do StorageGRID, evite executar o StorageGRID no mesmo hardware físico que o software não confiável. Não assuma que as proteções do hipervisor irão impedir que o malware acesse dados protegidos pela StorageGRID se o StorageGRID e o malware existirem no mesmo hardware físico. Por exemplo, os ataques Meltdown e Spectre exploram vulnerabilidades críticas em processadores modernos e permitem que programas roubem dados na memória no mesmo computador.
+
+
+
+== Proteja os nós durante a instalação
+
+Não permita que usuários não confiáveis acessem nós do StorageGRID pela rede quando os nós estiverem sendo instalados. Os nós não são totalmente seguros até que eles se juntem à grade.
+
+
+
+== Diretrizes para nós de administração
+
+Os nós de administração fornecem serviços de gerenciamento, como configuração, monitoramento e log do sistema. Quando você entra no Gerenciador de Grade ou no Gerenciador de Tenant, você está se conetando a um nó Admin.
+
+Siga estas diretrizes para proteger os nós de administração no seu sistema StorageGRID:
+
+* Proteja todos os nós de administração de clientes não confiáveis, como aqueles na Internet aberta. Certifique-se de que nenhum cliente não confiável possa acessar qualquer nó Admin na rede de Grade, na rede Admin ou na rede Cliente.
+* Os grupos StorageGRID controlam o acesso aos recursos do Gerenciador de Grade e do Gerenciador de Locatário. Conceda a cada grupo de usuários as permissões mínimas necessárias para sua função e use o modo de acesso somente leitura para impedir que os usuários alterem a configuração.
+* Ao usar pontos de extremidade do balanceador de carga do StorageGRID, use nós de gateway em vez de nós de administrador para obter tráfego de cliente não confiável.
+* Se você tiver locatários não confiáveis, não permita que eles tenham acesso direto ao Gerenciador do Locatário ou à API de Gerenciamento do Locatário. Em vez disso, peça a qualquer inquilino não confiável que use um portal de locatário ou um sistema de gerenciamento de inquilino externo, que interage com a API de gerenciamento do locatário.
+* Opcionalmente, use um proxy de administrador para obter mais controle sobre a comunicação do AutoSupport de nós de administração para o suporte do NetApp. Consulte os passos para link:../admin/configuring-admin-proxy-settings.html["criando um proxy de administrador"].
+* Opcionalmente, use as portas 8443 e 9443 restritas para separar as comunicações do Grid Manager e do Tenant Manager. Bloqueie a porta compartilhada 443 e limite as solicitações do locatário à porta 9443 para proteção adicional.
+* Opcionalmente, use nós de administração separados para administradores de grade e usuários de locatário.
+
+
+Para obter mais informações, consulte as instruções para link:../admin/index.html["Administrando o StorageGRID"].
+
+
+
+== Diretrizes para nós de storage
+
+Os nós de storage gerenciam e armazenam dados e metadados de objetos. Siga estas diretrizes para proteger os nós de storage em seu sistema StorageGRID.
+
+* Não permita que clientes não confiáveis se conetem diretamente aos nós de storage. Use um ponto de extremidade do balanceador de carga servido por um nó de gateway ou um balanceador de carga de terceiros.
+* Não ative serviços de saída para locatários não confiáveis. Por exemplo, ao criar a conta para um locatário não confiável, não permita que o locatário use sua própria fonte de identidade e não permita o uso de serviços de plataforma. Consulte os passos para link:../admin/creating-tenant-account.html["criando uma conta de locatário"].
+* Use um balanceador de carga de terceiros para tráfego de clientes não confiável. O balanceamento de carga de terceiros oferece mais controle e camadas adicionais de proteção contra ataques.
+* Como opção, use um proxy de storage para obter mais controle sobre a comunicação de pools de storage em nuvem e serviços de plataforma dos nós de storage para serviços externos. Consulte os passos para link:../admin/configuring-storage-proxy-settings.html["criando um proxy de armazenamento"].
+* Opcionalmente, conete-se a serviços externos usando a rede do cliente. Em seguida, selecione *CONFIGURATION* > *Security* > *Firewall control* > *UnTrusted Client Networks* e indique que a rede do cliente no nó de armazenamento não é confiável. O nó de armazenamento não aceita mais nenhum tráfego de entrada na rede do cliente, mas continua a permitir solicitações de saída para Serviços de plataforma.
+
+
+
+
+== Diretrizes para nós de gateway
+
+Os nós de gateway fornecem uma interface de balanceamento de carga opcional que os aplicativos clientes podem usar para se conetar ao StorageGRID. Siga estas diretrizes para proteger quaisquer nós de gateway no seu sistema StorageGRID:
+
+* Configure e use pontos de extremidade do balanceador de carga. link:../admin/managing-load-balancing.html["Considerações para balanceamento de carga"]Consulte .
+* Use um balanceador de carga de terceiros entre o cliente e o nó de gateway ou nós de storage para obter tráfego de cliente não confiável. O balanceamento de carga de terceiros oferece mais controle e camadas adicionais de proteção contra ataques. Se você usar um balanceador de carga de terceiros, o tráfego de rede ainda poderá ser configurado opcionalmente para passar por um ponto de extremidade do balanceador de carga interno ou ser enviado diretamente para nós de storage.
+* Se você estiver usando pontos de extremidade do balanceador de carga, opcionalmente, faça com que os clientes se conetem pela rede do cliente. Em seguida, selecione *CONFIGURATION* > *Security* > *Firewall control* > *UnTrusted Client Networks* e indique que a rede Client no Gateway Node não é confiável. O Gateway Node aceita apenas tráfego de entrada nas portas explicitamente configuradas como pontos de extremidade do balanceador de carga.
+
+
+
+
+== Diretrizes para nós de dispositivos de hardware
+
+Os aparelhos de hardware StorageGRID são especialmente projetados para uso em um sistema StorageGRID. Alguns dispositivos podem ser usados como nós de storage. Outros dispositivos podem ser usados como nós de administrador ou nós de gateway. Você pode combinar nós de dispositivo com nós baseados em software ou implantar grades totalmente projetadas para todos os dispositivos.
+
+Siga estas diretrizes para proteger todos os nós de dispositivos de hardware no seu sistema StorageGRID:
+
+* Se o dispositivo usar o Gerenciador de sistema do SANtricity para o gerenciamento do controlador de storage, evite que clientes não confiáveis acessem o Gerenciador de sistema do SANtricity pela rede.
+* Se o dispositivo tiver um controlador de gerenciamento de placa base (BMC), esteja ciente de que a porta de gerenciamento BMC permite acesso a hardware de baixo nível. Conete a porta de gerenciamento BMC somente a uma rede de gerenciamento interna segura, confiável. Se nenhuma rede estiver disponível, deixe a porta de gerenciamento do BMC desconetada ou bloqueada, a menos que uma conexão BMC seja solicitada pelo suporte técnico.
+* Se o dispositivo suportar o gerenciamento remoto do hardware do controlador via Ethernet usando o padrão IPMI (Intelligent Platform Management Interface), bloqueie o tráfego não confiável na porta 623.
+
+
+
+NOTE: Você pode ativar ou desativar o acesso remoto IPMI para todos os dispositivos que contêm um BMC. A interface IPMI remota permite o acesso de hardware de baixo nível aos seus dispositivos StorageGRID por qualquer pessoa com uma conta e senha do BMC. Se você não precisar de acesso remoto IPMI ao BMC, desative esta opção usando um dos seguintes métodos: No Gerenciador de Grade, vá para *CONFIGURATION* > *Security* > *Security* > *Security settings* > *Appliances* e desmarque a caixa de seleção *Enable Remote IPMI Access*. Na API de gerenciamento de grade, use o endpoint privado: `PUT /private/bmc`.
+
+* Para modelos de dispositivo que contêm unidades SED, FDE ou FIPS NL-SAS que você gerencia com o SANtricity System Manager, https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/accessing-and-configuring-santricity-system-manager.html["Ative e configure a Segurança da Unidade SANtricity"^].
+* Para modelos de dispositivo que contêm SSDs NVMe FIPS ou SED que você gerencia usando o instalador de dispositivos StorageGRID e o Gerenciador de Grade, https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-enabling-node-encryption.html["Ativar e configurar a encriptação da unidade StorageGRID"^].
+* Para dispositivos sem unidades SED, FDE ou FIPS, habilite e configure a criptografia de nó de software do StorageGRID https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-enabling-node-encryption.html#enable-node-encryption["Usando um servidor de gerenciamento de chaves (KMS)"^] .
+

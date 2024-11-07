@@ -1,0 +1,49 @@
+---
+permalink: admin/deleting-traffic-classification-policy.html 
+sidebar: sidebar 
+keywords: delete traffic classification policy 
+summary: Se você não precisar mais de uma política de classificação de tráfego, você pode excluí-la. 
+---
+= Eliminar uma política de classificação de tráfego
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode excluir uma política de classificação de tráfego se não precisar mais dela. Certifique-se de excluir a política certa porque uma política não pode ser recuperada quando excluída.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:admin-group-permissions.html["Permissão de acesso à raiz"].
+
+
+.Passos
+. Selecione *CONFIGURATION* > *Network* > *Traffic Classification*.
++
+A página políticas de classificação de tráfego é exibida com as políticas existentes listadas em uma tabela.
+
+. Exclua a política usando o menu ações ou a página de detalhes.
++
+[role="tabbed-block"]
+====
+.Menu ações
+--
+.. Selecione a caixa de verificação da política.
+.. Selecione *ações* > *Remover*.
+
+
+--
+.Página de detalhes da política
+--
+.. Selecione o nome da política.
+.. Selecione o botão *Remover* ao lado do nome da política.
+
+
+--
+====
+. Selecione *Sim* para confirmar que deseja excluir a política.
++
+A política é eliminada.
+
+

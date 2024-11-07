@@ -1,0 +1,37 @@
+---
+permalink: maintain/rebooting-grid-node-from-command-shell.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, reboot node, command shell reboot 
+summary: Se você precisar monitorar a operação de reinicialização mais de perto ou se não conseguir acessar o Gerenciador de Grade, você pode fazer login no nó de grade e executar o comando de reinicialização do Gerenciador de servidor a partir do shell de comando. 
+---
+= Reinicie o nó de grade a partir do shell de comando
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você precisar monitorar a operação de reinicialização mais de perto ou se não conseguir acessar o Gerenciador de Grade, você pode fazer login no nó de grade e executar o comando de reinicialização do Gerenciador de servidor a partir do shell de comando.
+
+.Antes de começar
+Você tem o `Passwords.txt` arquivo.
+
+.Passos
+. Faça login no nó da grade:
++
+.. Introduza o seguinte comando: `ssh admin@_grid_node_IP_`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+
+
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+. Opcionalmente, pare os serviços: `service servermanager stop`
++
+Parar serviços é um passo opcional, mas recomendado. Os serviços podem levar até 15 minutos para serem encerrados, e você pode querer fazer login no sistema remotamente para monitorar o processo de desligamento antes de reiniciar o nó na próxima etapa.
+
+. Reinicie o nó da grade: `reboot`
+. Faça logout do shell de comando: `exit`
+

@@ -1,0 +1,14 @@
+---
+permalink: harden/system-hardening-guidelines.html 
+sidebar: sidebar 
+keywords: security,system hardening 
+summary: À medida que você instala e configura o StorageGRID, você pode usar essas diretrizes para ajudá-lo a cumprir quaisquer objetivos de segurança prescritos para confidencialidade, integridade e disponibilidade do sistema de informações. 
+---
+= Diretrizes de endurecimento do sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+À medida que você instala e configura o StorageGRID, você pode usar essas diretrizes para ajudá-lo a cumprir quaisquer objetivos de segurança prescritos para confidencialidade, integridade e disponibilidade do sistema de informações.

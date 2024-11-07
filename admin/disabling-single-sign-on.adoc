@@ -1,0 +1,35 @@
+---
+permalink: admin/disabling-single-sign-on.html 
+sidebar: sidebar 
+keywords: disable sso, disable single sign on 
+summary: Você pode desativar o logon único se não quiser mais usar essa funcionalidade. Você deve desativar o logon único antes de desativar a federação de identidade. 
+---
+= Desative o logon único
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode desativar o logon único (SSO) se não quiser mais usar essa funcionalidade. Você deve desativar o logon único antes de desativar a federação de identidade.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você link:admin-group-permissions.html["permissões de acesso específicas"]tem .
+
+
+.Passos
+. Selecione *CONFIGURATION* > *access control* > *Single sign-on*.
++
+É apresentada a página Single Sign-on (Início de sessão único).
+
+. Selecione a opção *Disabled* (Desativado).
+. Selecione *Guardar*.
++
+É apresentada uma mensagem de aviso indicando que os utilizadores locais poderão iniciar sessão.
+
+. Selecione *OK*.
++
+Na próxima vez que você entrar no StorageGRID, a página de login do StorageGRID será exibida e você deverá inserir o nome de usuário e a senha de um usuário do StorageGRID local ou federado.
+
+

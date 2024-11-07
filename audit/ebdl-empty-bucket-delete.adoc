@@ -1,0 +1,64 @@
+---
+permalink: audit/ebdl-empty-bucket-delete.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, EBDL, Empty Bucket Delete 
+summary: 'O scanner ILM excluiu um objeto em um bucket que está excluindo todos os objetos (executando uma operação de bucket vazia).' 
+---
+= EBDL: Apagar balde vazio
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O scanner ILM excluiu um objeto em um bucket que está excluindo todos os objetos (executando uma operação de bucket vazia).
+
+[cols="1a,1a,4a"]
+|===
+| Código | Campo | Descrição 
+
+
+ a| 
+CSIZ
+ a| 
+Tamanho do objeto
+ a| 
+O tamanho do objeto em bytes.
+
+
+
+ a| 
+CAMINHO
+ a| 
+S3 balde/chave
+ a| 
+O nome do bucket S3 e o nome da chave S3.
+
+
+
+ a| 
+SEGC
+ a| 
+UUID do recipiente
+ a| 
+UUID do recipiente para o objeto segmentado. Este valor só está disponível se o objeto estiver segmentado.
+
+
+
+ a| 
+UUID
+ a| 
+Identificador universal único
+ a| 
+O identificador do objeto dentro do sistema StorageGRID.
+
+
+
+ a| 
+RSLT
+ a| 
+Resultado da operação de eliminação
+ a| 
+O resultado de evento, processo ou transação. Se não for relevante para uma mensagem, NENHUM será usado em vez DE SUCS para que a mensagem não seja filtrada acidentalmente.
+
+|===

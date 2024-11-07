@@ -1,0 +1,67 @@
+---
+permalink: fabricpool/creating-traffic-classification-policy-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, traffic classification, traffic policy, QoS, quality of service 
+summary: Você pode, opcionalmente, projetar uma política de classificação de tráfego StorageGRID para otimizar a qualidade do serviço para o workload do FabricPool. 
+---
+= Crie uma política de classificação de tráfego para o FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode, opcionalmente, projetar uma política de classificação de tráfego StorageGRID para otimizar a qualidade do serviço para o workload do FabricPool.
+
+Para obter detalhes sobre esta tarefa, link:../admin/managing-traffic-classification-policies.html["Gerenciar políticas de classificação de tráfego"]consulte . Para usar o assistente de configuração do FabricPool para concluir esta tarefa, vá para link:use-fabricpool-setup-wizard-steps.html["Acesse e conclua o assistente de configuração do FabricPool"].
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:../admin/admin-group-permissions.html["Permissão de acesso à raiz"].
+
+
+.Sobre esta tarefa
+As práticas recomendadas para criar uma política de classificação de tráfego para FabricPool dependem da carga de trabalho, como segue:
+
+* Se você planeja categorizar os dados do workload primário do FabricPool para o StorageGRID, certifique-se de que o workload do FabricPool tenha a maior parte da largura de banda. Você pode criar uma política de classificação de tráfego para limitar todas as outras cargas de trabalho.
++
+
+NOTE: Em geral, as operações de leitura do FabricPool são mais importantes para priorizar do que as operações de gravação.
+
++
+Por exemplo, se outros clientes S3 usarem esse sistema StorageGRID, você deve criar uma política de classificação de tráfego. Você pode limitar o tráfego de rede para outros buckets, locatários, sub-redes IP ou pontos de extremidade do balanceador de carga.
+
+* Em geral, você não deve impor limites de qualidade de serviço a qualquer workload do FabricPool; limitar apenas os outros workloads.
+* Os limites colocados em outras cargas de trabalho devem levar em conta o comportamento dessas cargas de trabalho. Os limites impostos também variam de acordo com o dimensionamento e as capacidades da sua grade e qual é a quantidade esperada de utilização.
+
+
+.Passos
+. Selecione *CONFIGURATION* > *Network* > *Traffic Classification*.
+. Selecione *criar*.
+. Introduza um nome e uma descrição (opcional) para a política e selecione *continuar*.
+. Para a etapa Adicionar regras de correspondência, adicione pelo menos uma regra.
++
+.. Selecione *Adicionar regra*
+.. Para tipo, selecione *ponto final do balanceador de carga* e selecione o ponto final do balanceador de carga criado para o FabricPool.
++
+Você também pode selecionar a conta de locatário ou o intervalo do FabricPool.
+
+.. Se você quiser que essa política de tráfego limite o tráfego para os outros endpoints, selecione *correspondência inversa*.
+
+
+. Opcionalmente, adicione um ou mais limites para controlar o tráfego de rede correspondente à regra.
++
+
+NOTE: O StorageGRID coleta métricas mesmo que você não adicione limites, para que você possa entender as tendências de tráfego.
+
++
+.. Selecione *Adicionar um limite*.
+.. Selecione o tipo de tráfego que pretende limitar e o limite a aplicar.
+
+
+. Selecione *continuar*.
+. Leia e reveja a política de classificação de tráfego. Use o botão *anterior* para voltar e fazer alterações conforme necessário. Quando estiver satisfeito com a política, selecione *Salvar e continuar*.
+
+
+.Depois de terminar
+link:../admin/viewing-network-traffic-metrics.html["Exibir métricas de tráfego de rede"] para verificar se as políticas estão aplicando os limites de tráfego que você espera.

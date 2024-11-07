@@ -1,0 +1,65 @@
+---
+permalink: admin/managing-tenants.html 
+sidebar: sidebar 
+keywords: manage tenants, tenant account, what is a tenant 
+summary: 'Uma conta de locatário permite que você use a API REST do serviço de armazenamento simples (S3) para armazenar e recuperar objetos em um sistema StorageGRID.' 
+---
+= O que são contas de inquilino?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Uma conta de locatário permite que você use a API REST do Simple Storage Service (S3) para armazenar e recuperar objetos em um sistema StorageGRID.
+
+
+TIP: Os detalhes do Swift foram removidos desta versão do site do doc.  https://docs.netapp.com/us-en/storagegrid-118/admin/managing-tenants.html["StorageGRID 11,8: Gerenciar locatários"^]Consulte .
+
+Como administrador de grade, você cria e gerencia as contas de locatário que os clientes S3 usam para armazenar e recuperar objetos.
+
+Cada conta de locatário tem grupos federados ou locais, usuários, buckets do S3 e objetos.
+
+As contas de inquilino podem ser usadas para segregar objetos armazenados por diferentes entidades. Por exemplo, várias contas de inquilino podem ser usadas para qualquer um desses casos de uso:
+
+* * Caso de uso corporativo:* se você estiver administrando um sistema StorageGRID em um aplicativo corporativo, talvez queira separar o armazenamento de objetos da grade pelos diferentes departamentos da sua organização. Nesse caso, você pode criar contas de inquilino para o departamento de marketing, o departamento de suporte ao cliente, o departamento de recursos humanos e assim por diante.
++
+
+NOTE: Se você usar o protocolo cliente S3, poderá usar buckets e políticas de bucket do S3 para segregar objetos entre os departamentos de uma empresa. Você não precisa usar contas de locatário. Consulte as instruções de implementação link:../s3/bucket-and-group-access-policies.html["Buckets e políticas de buckets do S3"] para obter mais informações.
+
+* * Caso de uso do provedor de serviços:* se você estiver administrando um sistema StorageGRID como provedor de serviços, você pode segregar o armazenamento de objetos da grade pelas diferentes entidades que alugarão o armazenamento em sua grade. Neste caso, você criaria contas de inquilino para a empresa A, empresa B, empresa C e assim por diante.
+
+
+Para obter mais informações, link:../tenant/index.html["Use uma conta de locatário"]consulte .
+
+
+
+== Como faço para criar uma conta de locatário?
+
+Use o Gerenciador de Grade para criar uma conta de locatário. Ao criar uma conta de locatário, você especifica as seguintes informações:
+
+* Informações básicas, incluindo o nome do locatário, o tipo de cliente (S3) e a cota de armazenamento opcional.
+* Permissões para a conta de locatário, como se a conta de locatário pode usar os serviços da plataforma S3, configurar sua própria origem de identidade, usar S3 Select ou usar uma conexão de federação de grade.
+* O acesso raiz inicial para o locatário, com base se o sistema StorageGRID usa grupos e usuários locais, federação de identidade ou logon único (SSO).
+
+
+Além disso, você pode ativar a configuração bloqueio de objeto S3 para o sistema StorageGRID se as contas de locatário do S3 precisarem cumprir os requisitos regulamentares. Quando o bloqueio de objeto S3 está ativado, todas as contas de locatário do S3 podem criar e gerenciar buckets compatíveis.
+
+
+
+== Para que é utilizado o Tenant Manager?
+
+Depois de criar a conta de locatário, os usuários do locatário podem entrar no Gerenciador do locatário para executar tarefas como as seguintes:
+
+* Configurar federação de identidade (a menos que a origem de identidade seja compartilhada com a grade)
+* Gerenciar grupos e usuários
+* Use a federação de grade para clone de conta e replicação entre grade
+* Gerenciar S3 chaves de acesso
+* Crie e gerencie buckets do S3
+* Use os serviços da plataforma S3
+* Utilize S3 Select (Selecionar)
+* Monitorar o uso do storage
+
+
+
+TIP: Embora os usuários de locatários do S3 possam criar e gerenciar chaves de acesso do S3 e buckets com o Gerenciador de locatários, eles precisam usar um aplicativo cliente do S3 para obter e gerenciar objetos. link:../s3/index.html["USE A API REST DO S3"]Consulte para obter detalhes.

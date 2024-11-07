@@ -1,0 +1,55 @@
+---
+permalink: expand/adding-metadata-capacity.html 
+sidebar: sidebar 
+keywords: metadata capacity, add, adding, expand, expansion, guidelines, Storage Nodes, metadata storage 
+summary: Para garantir que o espaço adequado esteja disponível para metadados de objetos, talvez seja necessário executar um procedimento de expansão para adicionar novos nós de storage em cada local. 
+---
+= Adicionar capacidade de metadados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para garantir que o espaço adequado esteja disponível para metadados de objetos, talvez seja necessário executar um procedimento de expansão para adicionar novos nós de storage em cada local.
+
+O StorageGRID reserva espaço para metadados de objetos no volume 0 de cada nó de storage. Três cópias de todos os metadados de objetos são mantidas em cada local, distribuídas uniformemente por todos os nós de storage.
+
+Você pode usar o Grid Manager para monitorar a capacidade dos metadados dos nós de storage e estimar a rapidez com que a capacidade dos metadados está sendo consumida. Além disso, o alerta *armazenamento de metadados baixo* é acionado para um nó de armazenamento quando o espaço de metadados usado atinge determinados limites.
+
+Observe que a capacidade de metadados de objetos de uma grade pode ser consumida mais rápido do que sua capacidade de armazenamento de objetos, dependendo de como você usa a grade. Por exemplo, se você costuma ingerir grandes quantidades de pequenos objetos ou adicionar grandes quantidades de metadados ou tags de usuários a objetos, talvez seja necessário adicionar nós de storage para aumentar a capacidade dos metadados, mesmo que haja capacidade suficiente de storage de objetos.
+
+Para obter mais informações, consulte o seguinte:
+
+* link:../admin/managing-object-metadata-storage.html["Gerenciar o storage de metadados de objetos"]
+* link:../monitor/monitoring-storage-capacity.html#monitor-object-metadata-capacity-for-each-storage-node["Monitore a capacidade dos metadados de objetos para cada nó de storage"]
+
+
+
+
+== Diretrizes para aumentar a capacidade dos metadados
+
+Antes de adicionar nós de storage para aumentar a capacidade dos metadados, leia as diretrizes e limitações a seguir:
+
+* Supondo que haja capacidade suficiente de storage de objetos disponível, ter mais espaço disponível para metadados de objetos aumenta o número de objetos que você pode armazenar no sistema StorageGRID.
+* Você pode aumentar a capacidade de metadados de uma grade adicionando um ou mais nós de storage a cada local.
+* O espaço real reservado para metadados de objetos em qualquer nó de armazenamento depende da opção de armazenamento de espaço reservado de metadados (configuração de todo o sistema), da quantidade de RAM alocada ao nó e do tamanho do volume do nó 0.
+* Não é possível aumentar a capacidade dos metadados adicionando volumes de storage aos nós de storage existentes, porque os metadados são armazenados apenas no volume 0.
+* Não é possível aumentar a capacidade dos metadados adicionando um novo site.
+* O StorageGRID mantém três cópias de todos os metadados de objetos em todos os locais. Por esse motivo, a capacidade de metadados do sistema é limitada pela capacidade de metadados do seu menor local.
+* Ao adicionar capacidade de metadados, você deve adicionar o mesmo número de nós de storage a cada local.
+
+
+Consulte link:../admin/managing-object-metadata-storage.html["Descrição do que é Metadata Reserved Space"].
+
+
+
+== Como os metadados são redistribuídos quando você adiciona nós de storage
+
+Quando você adiciona nós de storage a uma expansão, o StorageGRID redistribui os metadados de objetos existentes aos novos nós em cada local, o que aumenta a capacidade geral dos metadados da grade. Nenhuma ação do usuário é necessária.
+
+A figura a seguir mostra como o StorageGRID redistribui os metadados de objetos quando você adiciona nós de storage em uma expansão. O lado esquerdo da figura representa o volume 0 de três nós de storage antes de uma expansão. Os metadados estão consumindo uma parte relativamente grande do espaço de metadados disponível de cada nó, e o alerta *armazenamento de metadados baixo* foi acionado.
+
+O lado direito da figura mostra como os metadados existentes são redistribuídos depois que dois nós de storage são adicionados ao local. A quantidade de metadados em cada nó diminuiu, o alerta *armazenamento de metadados baixo* não é mais acionado e o espaço disponível para metadados aumentou.
+
+image::../media/metadata_space_after_expansion.png[Diagrama dos metadados redistribuídos após dois nós de storage adicionados]

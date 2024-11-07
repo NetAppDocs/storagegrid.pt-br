@@ -1,0 +1,65 @@
+---
+permalink: expand/configuring-expanded-storagegrid-system.html 
+sidebar: sidebar 
+keywords: expansion, configuration 
+summary: Depois de concluir uma expansão, você deve executar etapas adicionais de integração e configuração. 
+---
+= Etapas de configuração após a expansão
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois de concluir uma expansão, você deve executar etapas adicionais de integração e configuração.
+
+.Sobre esta tarefa
+Você deve concluir as tarefas de configuração listadas abaixo para os nós de grade ou sites que você está adicionando em sua expansão. Algumas tarefas podem ser opcionais, dependendo das opções selecionadas durante a instalação e administração do sistema, e como você deseja configurar os nós e sites adicionados durante a expansão.
+
+.Passos
+. Se você adicionou um site:
++
+** link:../ilm/creating-storage-pool.html["Crie um pool de armazenamento"] Para o local e cada nível de storage selecionado para os novos nós de storage.
+** Confirme se a política ILM atende aos novos requisitos. Se forem necessárias alterações de regralink:../ilm/access-create-ilm-rule-wizard.html["crie novas regras"], e link:../ilm/creating-ilm-policy.html["Atualize a política ILM"]. Se as regras já estiverem corretas, link:../ilm/creating-ilm-policy.html#activate-ilm-policy["ative uma nova política"]sem alterações de regra para garantir que o StorageGRID use os novos nós.
+** Confirme se os servidores NTP (Network Time Protocol) estão acessíveis a partir desse site. link:../maintain/configuring-ntp-servers.html["Gerenciar servidores NTP"]Consulte .
++
+
+CAUTION: Certifique-se de que pelo menos dois nós em cada local possam acessar pelo menos quatro fontes NTP externas. Se apenas um nó em um local puder alcançar as fontes NTP, problemas de tempo ocorrerão se esse nó cair. Além disso, a designação de dois nós por local como fontes primárias de NTP garante um tempo preciso se um local for isolado do resto da grade.
+
+
+
+. Se você adicionou um ou mais nós de storage a um local existente:
++
+** link:../ilm/viewing-storage-pool-details.html["Veja os detalhes do pool de armazenamento"] Para confirmar que cada nó adicionado está incluído nos pools de storage esperados e usado nas regras de ILM esperadas.
+** Confirme se a política ILM atende aos novos requisitos. Se forem necessárias alterações de regralink:../ilm/access-create-ilm-rule-wizard.html["crie novas regras"], e link:../ilm/creating-ilm-policy.html["Atualize a política ILM"]. Se as regras já estiverem corretas, link:../ilm/creating-ilm-policy.html#activate-ilm-policy["ative uma nova política"]sem alterações de regra para garantir que o StorageGRID use os novos nós.
+** link:verifying-storage-node-is-active.html["Verifique se o nó de storage está ativo"] e capaz de ingerir objetos.
+** Se você não conseguir adicionar o número recomendado de nós de storage, rebalanceamento dos dados codificados por apagamento. link:rebalancing-erasure-coded-data-after-adding-storage-nodes.html["Rebalancear os dados codificados por apagamento após adicionar nós de storage"]Consulte .
+
+
+. Se você adicionou um nó de gateway:
++
+** Se os grupos de alta disponibilidade (HA) forem usados para conexões de cliente, adicione opcionalmente o nó de gateway a um grupo de HA. Selecione *CONFIGURATION* > *Network* > *High Availability Groups* para rever a lista de grupos de HA existentes e adicionar o novo nó. link:../admin/configure-high-availability-group.html["Configurar grupos de alta disponibilidade"]Consulte .
+
+
+. Se você adicionou um nó Admin:
++
+.. Se o logon único (SSO) estiver ativado para o seu sistema StorageGRID, crie uma confiança de parte confiável para o novo nó de administração. Você não pode entrar no nó até criar essa confiança de parte confiável. link:../admin/configuring-sso.html["Configurar o logon único"]Consulte .
+.. Se você planeja usar o serviço Load Balancer em nós de administração, adicione opcionalmente o novo nó de administração a um grupo de HA. Selecione *CONFIGURATION* > *Network* > *High Availability Groups* para rever a lista de grupos de HA existentes e adicionar o novo nó. link:../admin/configure-high-availability-group.html["Configurar grupos de alta disponibilidade"]Consulte .
+.. Opcionalmente, copie o banco de dados do nó Admin do nó Admin principal para o nó Admin de expansão se quiser manter as informações de atributo e auditoria consistentes em cada nó Admin. link:copying-admin-node-database.html["Copie o banco de dados Admin Node"]Consulte .
+.. Opcionalmente, copie o banco de dados Prometheus do nó Admin primário para o nó Admin de expansão se quiser manter as métricas históricas consistentes em cada nó Admin. link:copying-prometheus-metrics.html["Copiar métricas Prometheus"]Consulte .
+.. Opcionalmente, copie os logs de auditoria existentes do nó de administração principal para o nó de administração de expansão se quiser manter as informações de log histórico consistentes em cada nó de administração. link:copying-audit-logs.html["Copiar registos de auditoria"]Consulte .
+
+
+. Para verificar se os nós de expansão foram adicionados com uma rede cliente não confiável ou para alterar se a rede cliente de um nó não é confiável ou confiável, vá para *CONFIGURATION* > *Security* > *Firewall control*.
++
+Se a rede do cliente no nó de expansão não for confiável, as conexões com o nó na rede do cliente devem ser feitas usando um ponto de extremidade do balanceador de carga. link:../admin/configuring-load-balancer-endpoints.html["Configurar pontos de extremidade do balanceador de carga"]Consulte e link:../admin/manage-firewall-controls.html["Gerenciar controles de firewall"].
+
+. Configure o DNS.
++
+Se você tiver especificado as configurações de DNS separadamente para cada nó de grade, você deve adicionar configurações de DNS personalizadas por nó para os novos nós. link:../maintain/modifying-dns-configuration-for-single-grid-node.html["Modifique a configuração DNS para um nó de grade único"]Consulte .
+
+
+
+Para garantir o funcionamento correto, especifique dois ou três servidores DNS. Se você especificar mais de três, é possível que apenas três serão usados por causa das limitações conhecidas do sistema operacional em algumas plataformas. Se você tiver restrições de roteamento em seu ambiente, pode link:../maintain/modifying-dns-configuration-for-single-grid-node.html["Personalize a lista de servidores DNS"]usar um conjunto diferente de até três servidores DNS para nós individuais (normalmente todos os nós em um site).
+
+Se possível, use servidores DNS que cada site pode acessar localmente para garantir que um site islanded possa resolver os FQDNs para destinos externos.

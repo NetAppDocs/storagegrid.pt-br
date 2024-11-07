@@ -1,0 +1,37 @@
+---
+permalink: admin/deleting-tenant-account.html 
+sidebar: sidebar 
+keywords: tenant, delete, remove tenant 
+summary: Você pode excluir uma conta de locatário se quiser remover permanentemente o acesso do locatário ao sistema. 
+---
+= Eliminar conta de inquilino
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode excluir uma conta de locatário se quiser remover permanentemente o acesso do locatário ao sistema.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você link:admin-group-permissions.html["permissões de acesso específicas"]tem .
+* Você removeu todos os buckets e objetos do S3 associados à conta de locatário.
+* Se o locatário tiver permissão para usar uma conexão de federação de grade, você revisou as considerações para link:grid-federation-manage-tenants.html["Excluindo um locatário com a permissão usar conexão de federação de grade"].
+
+
+.Passos
+. Selecione *TENANTS*.
+. Localize a conta de locatário ou contas que você deseja excluir.
++
+Use a caixa de pesquisa para procurar um locatário por nome ou ID de locatário.
+
+. Para excluir vários locatários, marque as caixas de seleção e selecione *ações* > *Excluir*.
+. Para excluir um único locatário, faça um dos seguintes procedimentos:
++
+** Marque a caixa de seleção e selecione *ações* > *Excluir*.
+** Selecione o nome do locatário para exibir a página de detalhes e selecione *ações* > *Excluir*.
+
+
+. Selecione *Sim*.
+

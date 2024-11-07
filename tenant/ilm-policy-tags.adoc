@@ -1,0 +1,59 @@
+---
+permalink: tenant/ilm-policy-tags.html 
+sidebar: sidebar 
+keywords: how to assign ilm policy tag to bucket 
+summary: Escolha uma tag de política ILM para atribuir a um bucket com base nos requisitos de armazenamento de objetos. 
+---
+= Aplique uma etiqueta de política ILM a um bucket
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Escolha uma etiqueta de política ILM para aplicar a um bucket com base nos requisitos de armazenamento de objetos.
+
+A política ILM controla onde os dados do objeto são armazenados e se eles são excluídos após um determinado período de tempo. O administrador da grade cria políticas ILM e as atribui a tags de política ILM ao usar várias políticas ativas.
+
+
+NOTE: Evite reatribuir frequentemente a etiqueta de política de um bucket. Caso contrário, podem ocorrer problemas de desempenho.
+
+.Antes de começar
+* Você está conetado ao Gerenciador do Locatário usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você pertence a um grupo de usuários que tem o link:tenant-management-permissions.html["Acesso root, Gerenciar todos os buckets ou permissão Ver todos os buckets"]. Essas permissões substituem as configurações de permissão nas políticas de grupo ou bucket.
+
+
+.Passos
+. Selecione *View buckets* no painel ou selecione *STORAGE (S3)* > *Buckets*.
++
+A página baldes é exibida. Conforme necessário, você pode classificar as informações por qualquer coluna, ou pode encaminhar e voltar a página através da lista.
+
+. Selecione o nome do intervalo ao qual deseja atribuir uma etiqueta de política ILM.
++
+Você também pode alterar a atribuição de tag de política ILM para um bucket que já tenha uma tag atribuída.
+
++
+
+NOTE: Os valores contagem de objetos e espaço utilizados apresentados são estimativas. Essas estimativas são afetadas pelo timing de inests, conetividade de rede e status de nó. Se os buckets tiverem o controle de versão habilitado, as versões de objetos excluídos serão incluídas na contagem de objetos.
+
+. Na guia Opções de balde, expanda o acordeão da etiqueta de política ILM. Esse acordeão só aparece se o administrador da grade tiver habilitado o uso de tags de política personalizadas.
+. Leia a descrição de cada tag de política para determinar qual tag deve ser aplicada ao bucket.
++
+
+CAUTION: Alterar a etiqueta de política ILM para um bucket acionará a reavaliação ILM de todos os objetos no bucket. Se a nova política reter objetos por um tempo limitado, os objetos mais antigos serão excluídos.
+
+. Selecione o botão de opção para a etiqueta que pretende atribuir ao balde.
+. Selecione *Salvar alterações*. Uma nova tag de bucket S3 será definida no bucket com a chave `NTAP-SG-ILM-BUCKET-TAG` e o valor do nome da tag de política ILM.
++
+
+CAUTION: Certifique-se de que as aplicações do S3 não anulam acidentalmente ou excluem a nova etiqueta de bucket. Se essa tag for omitida ao aplicar um novo TagSet ao bucket, os objetos no bucket reverterão para serem avaliados em relação à política padrão do ILM.
+
++
+
+CAUTION: Defina e modifique as tags de política ILM usando apenas o Gerenciador do locatário ou a API do Gerenciador do locatário onde a tag de política ILM é validada. Não modifique a `NTAP-SG-ILM-BUCKET-TAG` tag de política ILM usando a API PutBucketTagging S3 ou a API DeleteBucketTagging S3.
+
++
+
+NOTE: A alteração da etiqueta de política atribuída a um bucket tem um impactos temporário no desempenho enquanto os objetos estão sendo reavaliados usando a nova política ILM.
+
+

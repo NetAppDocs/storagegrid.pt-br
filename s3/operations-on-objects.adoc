@@ -1,0 +1,191 @@
+---
+permalink: s3/operations-on-objects.html 
+sidebar: sidebar 
+keywords: bucket, buckets, operations on buckets 
+summary: Esta seção descreve como o sistema StorageGRID implementa S3 operações de API REST para objetos. 
+---
+= Operações em objetos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta seção descreve como o sistema StorageGRID implementa S3 operações de API REST para objetos.
+
+As seguintes condições se aplicam a todas as operações de objetos:
+
+* Os StorageGRID link:consistency-controls.html["valores de consistência"]são suportados por todas as operações em objetos, com exceção dos seguintes:
++
+** GetObjectAcl
+** `OPTIONS /`
+** PutObjectLegalHod
+** Retenção PutObjectRetention
+** Selecione ObjectContent
+
+
+* As solicitações de cliente conflitantes, como dois clientes escrevendo para a mesma chave, são resolvidas com base em "vitórias mais recentes". O tempo para a avaliação "últimos ganhos" é baseado em quando o sistema StorageGRID completa uma determinada solicitação e não em quando os clientes S3 começam uma operação.
+* Todos os objetos em um bucket do StorageGRID são de propriedade do proprietário do bucket, incluindo objetos criados por um usuário anônimo ou por outra conta.
+* Os objetos de dados ingeridos para o sistema StorageGRID através do Swift não podem ser acedidos através do S3.
+
+
+A tabela a seguir descreve como o StorageGRID implementa operações de objetos API REST do S3.
+
+[cols="1a,2a"]
+|===
+| Operação | Implementação 
+
+
+ a| 
+DeleteObject
+ a| 
+Autenticação multifator (MFA) e o cabeçalho de resposta `x-amz-mfa` não são suportados.
+
+Ao processar uma solicitação de DeleteObject, o StorageGRID tenta remover imediatamente todas as cópias do objeto de todos os locais armazenados. Se for bem-sucedido, o StorageGRID retornará uma resposta ao cliente imediatamente. Se todas as cópias não puderem ser removidas dentro de 30 segundos (por exemplo, porque um local está temporariamente indisponível), o StorageGRID coloca as cópias em fila para remoção e, em seguida, indica sucesso para o cliente.
+
+Controle de versão:: Para remover uma versão específica, o solicitante deve ser o proprietário do bucket e usar o `versionId` subrecurso. O uso deste subrecurso exclui permanentemente a versão. Se o `versionId` corresponder a um marcador de exclusão, o cabeçalho de resposta `x-amz-delete-marker` será retornado como `true`.
++
+--
+* Se um objeto for excluído sem o `versionId` subrecurso em um bucket com o controle de versão ativado, isso resultará na geração de um marcador de exclusão. O `versionId` para o marcador de exclusão é retornado usando o `x-amz-version-id` cabeçalho de resposta e o `x-amz-delete-marker` cabeçalho de resposta é retornado como `true`.
+* Se um objeto for excluído sem o `versionId` sub-recurso em um bucket com controle de versão suspenso, ele resultará em uma exclusão permanente de uma versão 'null' já existente ou um marcador 'null' delete, e a geração de um novo marcador 'null' delete. O `x-amz-delete-marker` cabeçalho de resposta é retornado definido como `true`.
++
+*Nota*: Em certos casos, vários marcadores de exclusão podem existir para um objeto.
+
+
+
+--
+
+
+link:../s3/use-s3-api-for-s3-object-lock.html["Use a API REST do S3 para configurar o bloqueio de objetos do S3"]Consulte para saber como excluir versões de objetos no MODO DE GOVERNANÇA.
+
+
+
+ a| 
+DeleteObjects
+
+(Anteriormente CHAMADO EXCLUIR vários objetos)
+ a| 
+Autenticação multifator (MFA) e o cabeçalho de resposta `x-amz-mfa` não são suportados.
+
+Vários objetos podem ser excluídos na mesma mensagem de solicitação.
+
+link:../s3/use-s3-api-for-s3-object-lock.html["Use a API REST do S3 para configurar o bloqueio de objetos do S3"]Consulte para saber como excluir versões de objetos no MODO DE GOVERNANÇA.
+
+
+
+ a| 
+DeleteObjectTagging
+ a| 
+Usa o `tagging` subrecurso para remover todas as tags de um objeto.
+
+Controle de versão:: Se o `versionId` parâmetro de consulta não for especificado na solicitação, a operação excluirá todas as tags da versão mais recente do objeto em um bucket com versão. Se a versão atual do objeto for um marcador de exclusão, um status "MethodNotAllowed" é retornado com o `x-amz-delete-marker` cabeçalho de resposta definido como `true`.
+
+
+
+
+ a| 
+GetObject
+ a| 
+link:get-object.html["GetObject"]
+
+
+
+ a| 
+GetObjectAcl
+ a| 
+Se as credenciais de acesso necessárias forem fornecidas para a conta, a operação retornará uma resposta positiva e a ID, DisplayName e permissão do proprietário do objeto, indicando que o proprietário tem acesso total ao objeto.
+
+
+
+ a| 
+GetObjectLegalHod
+ a| 
+link:../s3/use-s3-api-for-s3-object-lock.html["Use a API REST do S3 para configurar o bloqueio de objetos do S3"]
+
+
+
+ a| 
+GetObjectRetention
+ a| 
+link:../s3/use-s3-api-for-s3-object-lock.html["Use a API REST do S3 para configurar o bloqueio de objetos do S3"]
+
+
+
+ a| 
+GetObjectTagging
+ a| 
+Usa o `tagging` subrecurso para retornar todas as tags para um objeto.
+
+Controle de versão:: Se o `versionId` parâmetro de consulta não for especificado na solicitação, a operação retornará todas as tags da versão mais recente do objeto em um bucket versionado. Se a versão atual do objeto for um marcador de exclusão, um status "MethodNotAllowed" é retornado com o `x-amz-delete-marker` cabeçalho de resposta definido como `true`.
+
+
+
+
+ a| 
+HeadObject
+ a| 
+link:head-object.html["HeadObject"]
+
+
+
+ a| 
+RestoreObject
+ a| 
+link:post-object-restore.html["RestoreObject"]
+
+
+
+ a| 
+PutObject
+ a| 
+link:put-object.html["PutObject"]
+
+
+
+ a| 
+CopyObject
+
+(Anteriormente chamado PUT Object - Copy)
+ a| 
+link:put-object-copy.html["CopyObject"]
+
+
+
+ a| 
+PutObjectLegalHod
+ a| 
+link:../s3/use-s3-api-for-s3-object-lock.html["Use a API REST do S3 para configurar o bloqueio de objetos do S3"]
+
+
+
+ a| 
+Retenção PutObjectRetention
+ a| 
+link:../s3/use-s3-api-for-s3-object-lock.html["Use a API REST do S3 para configurar o bloqueio de objetos do S3"]
+
+
+
+ a| 
+Marcação de objetos
+ a| 
+Usa o `tagging` subrecurso para adicionar um conjunto de tags a um objeto existente.
+
+Limites da etiqueta do objeto:: Você pode adicionar tags a novos objetos ao enviá-los ou adicioná-los a objetos existentes. O StorageGRID e o Amazon S3 suportam até 10 tags para cada objeto. Tags associadas a um objeto devem ter chaves de tag exclusivas. Uma chave de tag pode ter até 128 carateres Unicode de comprimento e os valores de tag podem ter até 256 carateres Unicode de comprimento. Chave e valores são sensíveis a maiúsculas e minúsculas.
+Tag atualizações e comportamento de ingestão:: Quando você usa PutObjectTagging para atualizar as tags de um objeto, o StorageGRID não reingere o objeto. Isso significa que a opção de comportamento de ingestão especificada na regra ILM correspondente não é usada. Quaisquer alterações no posicionamento de objetos que são acionadas pela atualização são feitas quando o ILM é reavaliado por processos normais de ILM em segundo plano.
++
+--
+Isso significa que se a regra ILM usar a opção estrita para o comportamento de ingestão, nenhuma ação será tomada se os posicionamentos de objeto necessários não puderem ser feitos (por exemplo, porque um local recém-exigido não está disponível). O objeto atualizado mantém seu posicionamento atual até que o posicionamento necessário seja possível.
+
+--
+Resolução de conflitos:: As solicitações de cliente conflitantes, como dois clientes escrevendo para a mesma chave, são resolvidas com base em "vitórias mais recentes". O tempo para a avaliação "últimos ganhos" é baseado em quando o sistema StorageGRID completa uma determinada solicitação e não em quando os clientes S3 começam uma operação.
+Controle de versão:: Se o `versionId` parâmetro de consulta não for especificado na solicitação, a operação adicionará tags à versão mais recente do objeto em um bucket com versão. Se a versão atual do objeto for um marcador de exclusão, um status "MethodNotAllowed" é retornado com o `x-amz-delete-marker` cabeçalho de resposta definido como `true`.
+
+
+
+
+ a| 
+Selecione ObjectContent
+ a| 
+link:select-object-content.html["Selecione ObjectContent"]
+
+|===

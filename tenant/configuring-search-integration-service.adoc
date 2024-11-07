@@ -1,0 +1,306 @@
+---
+permalink: tenant/configuring-search-integration-service.html 
+sidebar: sidebar 
+keywords: how to configure search integration service 
+summary: Você ativa a integração de pesquisa para um bucket criando XML de configuração de integração de pesquisa e usando o Gerenciador de inquilinos para aplicar o XML a um bucket. 
+---
+= Configure o serviço de integração de pesquisa
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você ativa a integração de pesquisa para um bucket criando XML de integração de pesquisa e usando o Gerenciador de inquilinos para aplicar o XML ao bucket.
+
+.Antes de começar
+* Os serviços de plataforma foram ativados para sua conta de locatário por um administrador do StorageGRID.
+* Você já criou um bucket do S3 cujo conteúdo você deseja indexar.
+* O endpoint que você pretende usar como destino para o serviço de integração de pesquisa já existe, e você tem sua URNA.
+* Você pertence a um grupo de usuários que tem o link:tenant-management-permissions.html["Gerencie todos os buckets ou permissão de acesso root"]. Essas permissões substituem as configurações de permissão nas políticas de grupo ou bucket ao configurar o bucket usando o Gerenciador do locatário.
+
+
+.Sobre esta tarefa
+Depois de configurar o serviço de integração de pesquisa para um bucket de origem, criar um objeto ou atualizar metadados ou tags de um objeto aciona metadados de objeto para serem enviados para o endpoint de destino.
+
+Se você ativar o serviço de integração de pesquisa para um bucket que já contém objetos, as notificações de metadados não serão enviadas automaticamente para objetos existentes. Atualize esses objetos existentes para garantir que seus metadados sejam adicionados ao índice de pesquisa de destino.
+
+.Passos
+. Ativar a integração de pesquisa para um bucket:
++
+** Use um editor de texto para criar o XML de notificação de metadados necessário para habilitar a integração de pesquisa.
+** Ao configurar o XML, use a URNA de um endpoint de integração de pesquisa como o destino.
++
+Os objetos podem ser filtrados no prefixo do nome do objeto. Por exemplo, você pode enviar metadados para objetos com o prefixo `images` para um destino e metadados para objetos com o prefixo `videos` para outro. As configurações que têm prefixos sobrepostos não são válidas e são rejeitadas quando são enviadas. Por exemplo, uma configuração que inclua uma regra para objetos com o prefixo `test` e uma segunda regra para objetos com o prefixo `test2` não é permitida.
+
++
+Conforme necessário, consulte <<example-notification-config,Exemplos para a configuração de metadados XML>>a .
+
++
+[listing]
+----
+<MetadataNotificationConfiguration>
+ <Rule>
+    <Status>Enabled</Status>
+    <Prefix></Prefix>
+    <Destination>
+       <Urn>/Urn>
+       </Destination>
+ </Rule>
+</MetadataNotificationConfiguration>
+----
++
+Elementos no XML de configuração de notificação de metadados:
+
++
+[cols="1a,3a,1a"]
+|===
+| Nome | Descrição | Obrigatório 
+
+
+ a| 
+MetadataNotificationConfiguration
+ a| 
+Tag de contentor para regras usadas para especificar os objetos e o destino para notificações de metadados.
+
+Contém um ou mais elementos de regra.
+ a| 
+Sim
+
+
+
+ a| 
+Regra
+ a| 
+Tag container para uma regra que identifica os objetos cujos metadados devem ser adicionados a um índice especificado.
+
+Regras com prefixos sobrepostos são rejeitadas.
+
+Incluído no elemento MetadataNotificationConfiguration.
+ a| 
+Sim
+
+
+
+ a| 
+ID
+ a| 
+Identificador exclusivo para a regra.
+
+Incluído no elemento regra.
+ a| 
+Não
+
+
+
+ a| 
+Estado
+ a| 
+O estado pode ser "ativado" ou "Desativado". Nenhuma ação é tomada para regras que são desativadas.
+
+Incluído no elemento regra.
+ a| 
+Sim
+
+
+
+ a| 
+Prefixo
+ a| 
+Os objetos que correspondem ao prefixo são afetados pela regra e seus metadados são enviados para o destino especificado.
+
+Para corresponder a todos os objetos, especifique um prefixo vazio.
+
+Incluído no elemento regra.
+ a| 
+Sim
+
+
+
+ a| 
+Destino
+ a| 
+Etiqueta de contentor para o destino de uma regra.
+
+Incluído no elemento regra.
+ a| 
+Sim
+
+
+
+ a| 
+Urna
+ a| 
+URNA do destino onde os metadados do objeto são enviados. Deve ser a URNA de um endpoint StorageGRID com as seguintes propriedades:
+
+*** `es` deve ser o terceiro elemento.
+*** A URNA deve terminar com o índice e digitar onde os metadados são armazenados, no formulário `domain-name/myindex/mytype`.
+
+
+Os endpoints são configurados usando o Gerenciador do Locatário ou a API de Gerenciamento do Locatário. Eles assumem a seguinte forma:
+
+*** `arn:aws:es:region:account-ID:domain/mydomain/myindex/mytype`
+*** `urn:mysite:es:::mydomain/myindex/mytype`
+
+
+O endpoint deve ser configurado antes que o XML de configuração seja enviado, ou a configuração falhará com um erro 404.
+
+URNA está incluído no elemento destino.
+ a| 
+Sim
+
+|===
+
+
+. No Gerenciador do Locatário, selecione *STORAGE (S3)* > *Buckets*.
+. Selecione o nome do intervalo de origem.
++
+É apresentada a página de detalhes do balde.
+
+. Selecione *Platform services* > *Search integration*
+. Marque a caixa de seleção *Ativar integração de pesquisa*.
+. Cole a configuração de notificação de metadados na caixa de texto e selecione *Salvar alterações*.
++
+
+NOTE: Os serviços de plataforma devem estar habilitados para cada conta de locatário por um administrador do StorageGRID usando o Gerenciador de Grade ou a API de gerenciamento. Contacte o administrador do StorageGRID se ocorrer um erro ao guardar o XML de configuração.
+
+. Verifique se o serviço de integração de pesquisa está configurado corretamente:
++
+.. Adicione um objeto ao bucket de origem que atenda aos requisitos para acionar uma notificação de metadados conforme especificado no XML de configuração.
++
+No exemplo mostrado anteriormente, todos os objetos adicionados ao bucket acionam uma notificação de metadados.
+
+.. Confirme se um documento JSON que contém metadados e tags do objeto foi adicionado ao índice de pesquisa especificado no endpoint.
+
+
+
+
+.Depois de terminar
+Conforme necessário, você pode desativar a integração de pesquisa para um bucket usando um dos seguintes métodos:
+
+* Selecione *STORAGE (S3)* > *Buckets* e desmarque a caixa de seleção *Enable search integration* (Ativar integração de pesquisa).
+* Se você estiver usando a API do S3 diretamente, use uma solicitação de notificação de metadados de DELETE Bucket. Consulte as instruções para a implementação de aplicativos cliente S3.
+
+
+
+
+== [[example-notification-config]]exemplo: Configuração de notificação de metadados que se aplica a todos os objetos
+
+Neste exemplo, metadados de objetos para todos os objetos são enviados para o mesmo destino.
+
+[listing]
+----
+<MetadataNotificationConfiguration>
+    <Rule>
+        <ID>Rule-1</ID>
+        <Status>Enabled</Status>
+        <Prefix></Prefix>
+        <Destination>
+           <Urn>urn:myes:es:::sgws-notifications/test1/all</Urn>
+        </Destination>
+    </Rule>
+</MetadataNotificationConfiguration>
+----
+
+
+== Exemplo: Configuração de notificação de metadados com duas regras
+
+Neste exemplo, metadados de objetos para objetos que correspondem ao prefixo `/images` são enviados para um destino, enquanto metadados de objetos para objetos que correspondem ao prefixo `/videos` são enviados para um segundo destino.
+
+[listing]
+----
+
+<MetadataNotificationConfiguration>
+    <Rule>
+        <ID>Images-rule</ID>
+        <Status>Enabled</Status>
+        <Prefix>/images</Prefix>
+        <Destination>
+           <Urn>arn:aws:es:us-east-1:3333333:domain/es-domain/graphics/imagetype</Urn>
+        </Destination>
+    </Rule>
+    <Rule>
+        <ID>Videos-rule</ID>
+        <Status>Enabled</Status>
+        <Prefix>/videos</Prefix>
+        <Destination>
+           <Urn>arn:aws:es:us-west-1:22222222:domain/es-domain/graphics/videotype</Urn>
+        </Destination>
+    </Rule>
+</MetadataNotificationConfiguration>
+----
+
+
+== Formato de notificação de metadados
+
+Quando você ativa o serviço de integração de pesquisa para um bucket, um documento JSON é gerado e enviado para o endpoint de destino cada vez que metadados ou tags de objeto são adicionados, atualizados ou excluídos.
+
+Este exemplo mostra um exemplo do JSON que pode ser gerado quando um objeto com a chave `SGWS/Tagging.txt` é criado em um intervalo `test` chamado . O `test` bucket não está versionado, então a `versionId` tag está vazia.
+
+[listing]
+----
+{
+  "bucket": "test",
+  "key": "SGWS/Tagging.txt",
+  "versionId": "",
+  "accountId": "86928401983529626822",
+  "size": 38,
+  "md5": "3d6c7634a85436eee06d43415012855",
+  "region":"us-east-1",
+  "metadata": {
+    "age": "25"
+  },
+  "tags": {
+    "color": "yellow"
+  }
+}
+----
+
+
+=== Campos incluídos no documento JSON
+
+O nome do documento inclui o nome do intervalo, o nome do objeto e a ID da versão, se presente.
+
+Informações sobre o balde e o objeto::
++
+--
+`bucket`: Nome do balde
+
+`key`: Nome da chave do objeto
+
+`versionID`: Versão do objeto, para objetos em buckets versionados
+
+`region`: Região do balde, por exemplo `us-east-1`
+
+--
+Metadados do sistema::
++
+--
+`size`: Tamanho do objeto (em bytes) como visível para um cliente HTTP
+
+`md5`: Hash de objeto
+
+--
+Metadados do usuário::
++
+--
+`metadata`: Todos os metadados de usuário para o objeto, como pares de chave-valor
+
+`key:value`
+
+--
+Tags::
++
+--
+`tags`: Todas as tags de objeto definidas para o objeto, como pares chave-valor
+
+`key:value`
+
+--
+
+
+
+
+=== Como ver os resultados em Elasticsearch
+
+Para tags e metadados de usuários, o StorageGRID passa datas e números para o Elasticsearch como strings ou como notificações de eventos do S3. Para configurar o Elasticsearch para interpretar essas strings como datas ou números, siga as instruções do Elasticsearch para mapeamento de campos dinâmicos e para os formatos de data de mapeamento. Ative os mapeamentos de campos dinâmicos no índice antes de configurar o serviço de integração de pesquisa. Depois que um documento é indexado, você não pode editar os tipos de campo do documento no índice.

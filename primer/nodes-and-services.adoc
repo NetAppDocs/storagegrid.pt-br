@@ -1,0 +1,302 @@
+---
+permalink: primer/nodes-and-services.html 
+sidebar: sidebar 
+keywords: services, grid nodes, primary admin, storage, gateway 
+summary: O componente básico básico de um sistema StorageGRID é o nó de grade. Os nós contêm serviços, que são módulos de software que fornecem um conjunto de recursos para um nó de grade. 
+---
+= Nós e serviços de grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O componente básico básico de um sistema StorageGRID é o nó de grade. Os nós contêm serviços, que são módulos de software que fornecem um conjunto de recursos para um nó de grade.
+
+
+
+== Tipos de nós de grade
+
+O sistema StorageGRID usa quatro tipos de nós de grade:
+
+Nós de administração:: Fornecer serviços de gerenciamento, como configuração do sistema, monitoramento e logs. Quando você entra no Gerenciador de Grade, você está se conetando a um nó Admin. Cada grade deve ter um nó de administração principal e pode ter nós de administração não primários adicionais para redundância. Você pode se conetar a qualquer nó de administrador e cada nó de administrador exibe uma exibição semelhante do sistema StorageGRID. No entanto, os procedimentos de manutenção devem ser executados usando o nó de administração principal.
++
+--
+Os nós de administração também podem ser usados para equilibrar o tráfego de clientes S3.
+
+Consulte link:what-admin-node-is.html["O que é um nó de administração?"]
+
+--
+Nós de storage:: Gerenciar e armazenar dados e metadados de objetos. Cada local do seu sistema StorageGRID precisa ter pelo menos três nós de storage.
++
+--
+Consulte link:what-storage-node-is.html["O que é um nó de storage?"]
+
+--
+Nós de gateway (opcional):: Fornecer uma interface de balanceamento de carga que os aplicativos clientes podem usar para se conetar ao StorageGRID. Um balanceador de carga direciona os clientes de forma otimizada para um nó de storage ideal, de modo que a falha de nós ou até mesmo um local inteiro seja transparente.
++
+--
+Consulte link:what-gateway-node-is.html["O que é um nó de gateway?"]
+
+--
+
+
+
+
+== Nós de hardware e software
+
+Os nós do StorageGRID podem ser implantados como nós de dispositivos StorageGRID ou como nós baseados em software.
+
+
+
+=== Nós de dispositivos StorageGRID
+
+Os aparelhos de hardware StorageGRID são especialmente projetados para uso em um sistema StorageGRID. Alguns dispositivos podem ser usados como nós de storage. Outros dispositivos podem ser usados como nós de administrador ou nós de gateway. Você pode combinar nós de dispositivo com nós baseados em software ou implantar grades totalmente projetadas e totalmente compatíveis com dispositivos que não têm dependências de hipervisores externos, storage ou hardware de computação.
+
+Consulte o seguinte para saber mais sobre os aparelhos disponíveis:
+
+* https://docs.netapp.com/us-en/storagegrid-appliances/["Documentação do StorageGRID Appliance"^]
+* https://hwu.netapp.com["NetApp Hardware Universe"^]
+
+
+
+
+=== Nós baseados em software
+
+Os nós de grade baseados em software podem ser implantados como máquinas virtuais VMware ou dentro dos mecanismos de contentor em um host Linux.
+
+* Máquina virtual (VM) no VMware vSphere: link:../vmware/index.html["Instale o StorageGRID no VMware"]Consulte .
+* Dentro de um mecanismo de contentor no Red Hat Enterprise Linux: link:../rhel/index.html["Instale o StorageGRID no Red Hat Enterprise Linux"]Consulte .
+* Dentro de um motor de container no Ubuntu ou Debian: Veja link:../ubuntu/index.html["Instale o StorageGRID no Ubuntu ou Debian"].
+
+
+Utilize o https://imt.netapp.com/matrix/#welcome["Ferramenta de Matriz de interoperabilidade NetApp (IMT)"^] para determinar as versões suportadas.
+
+Durante a instalação inicial de um novo nó de storage baseado em software, você pode especificar que ele só será usado link:../primer/what-storage-node-is.html#types-of-storage-nodes["armazenar metadados"]no .
+
+
+
+== Serviços da StorageGRID
+
+A seguir está uma lista completa de serviços do StorageGRID.
+
+[cols="2a,3a,2a"]
+|===
+| Serviço | Descrição | Localização 
+
+
+ a| 
+Serviço de conta Forwarder
+ a| 
+Fornece uma interface para o serviço Load Balancer para consultar o Serviço de conta em hosts remotos e fornece notificações de alterações de configuração do Load Balancer Endpoint no serviço Load Balancer.
+ a| 
+Serviço de balanceamento de carga em nós de administração e nós de gateway
+
+
+
+ a| 
+ADC (controlador de domínio administrativo)
+ a| 
+Mantém informações de topologia, fornece serviços de autenticação e responde a consultas dos serviços LDR e CMN.
+ a| 
+Pelo menos três nós de storage que contêm o serviço ADC em cada local
+
+
+
+ a| 
+AMS (sistema de Gestão de Auditoria)
+ a| 
+Monitora e Registra todos os eventos e transações do sistema auditados em um arquivo de log de texto.
+ a| 
+Nós de administração
+
+
+
+ a| 
+Cassandra Reaper
+ a| 
+Executa reparos automáticos de metadados de objetos.
+ a| 
+Nós de storage
+
+
+
+ a| 
+Serviço de chunk
+ a| 
+Gerencia dados codificados por apagamento e fragmentos de paridade.
+ a| 
+Nós de storage
+
+
+
+ a| 
+CMN (nó de gerenciamento de configuração)
+ a| 
+Gerencia configurações e tarefas de grade em todo o sistema. Cada grade tem um serviço CMN.
+ a| 
+Nó de administração principal
+
+
+
+ a| 
+DDS (armazenamento de dados distribuídos)
+ a| 
+Interfaces com o banco de dados Cassandra para gerenciar metadados de objetos.
+ a| 
+Nós de storage
+
+
+
+ a| 
+DMV (transferência de dados)
+ a| 
+Move dados para pontos de extremidade da nuvem.
+ a| 
+Nós de storage
+
+
+
+ a| 
+IP dinâmico (dynip)
+ a| 
+Monitora a grade para alterações dinâmicas de IP e atualiza configurações locais.
+ a| 
+Todos os nós
+
+
+
+ a| 
+Grafana
+ a| 
+Usado para visualização de métricas no Gerenciador de Grade.
+ a| 
+Nós de administração
+
+
+
+ a| 
+Alta disponibilidade
+ a| 
+Gerencia IPs virtuais de alta disponibilidade em nós configurados na página grupos de alta disponibilidade. Este serviço também é conhecido como o serviço keepalived.
+ a| 
+Nós de administrador e gateway
+
+
+
+ a| 
+Identidade (idnt)
+ a| 
+Federa identidades de usuários do LDAP e do ative Directory.
+ a| 
+Nós de storage que usam o serviço ADC
+
+
+
+ a| 
+Árbitro lambda
+ a| 
+Gerencia S3 Selecione SelectObjectContent Requests.
+ a| 
+Todos os nós
+
+
+
+ a| 
+Balanceador de carga (nginx-gw)
+ a| 
+Fornece balanceamento de carga de tráfego S3 de clientes para nós de storage. O serviço Load Balancer pode ser configurado através da página de configuração Load Balancer Endpoints. Este serviço também é conhecido como o serviço nginx-gw.
+ a| 
+Nós de administrador e gateway
+
+
+
+ a| 
+LDR (router de distribuição local)
+ a| 
+Gerencia o armazenamento e a transferência de conteúdo dentro da grade.
+ a| 
+Nós de storage
+
+
+
+ a| 
+MISCd Information Service Control Daemon
+ a| 
+Fornece uma interface para consultar e gerenciar serviços em outros nós e para gerenciar configurações ambientais no nó, como consultar o estado dos serviços em execução em outros nós.
+ a| 
+Todos os nós
+
+
+
+ a| 
+nginx
+ a| 
+Atua como um mecanismo de autenticação e comunicação segura para vários serviços de grade (como Prometheus e Dynamic IP) para poder falar com serviços em outros nós através de APIs HTTPS.
+ a| 
+Todos os nós
+
+
+
+ a| 
+nginx-gw
+ a| 
+Alimenta o serviço Load Balancer.
+ a| 
+Nós de administrador e gateway
+
+
+
+ a| 
+NMS (sistema de gerenciamento de rede)
+ a| 
+Alimenta as opções de monitoramento, relatórios e configuração que são exibidas pelo Gerenciador de Grade.
+ a| 
+Nós de administração
+
+
+
+ a| 
+Persistência
+ a| 
+Gerencia arquivos no disco raiz que precisam persistir ao longo de uma reinicialização.
+ a| 
+Todos os nós
+
+
+
+ a| 
+Prometheus
+ a| 
+Coleta métricas de séries temporais de serviços em todos os nós.
+ a| 
+Nós de administração
+
+
+
+ a| 
+RSM (máquina de estado replicado)
+ a| 
+Garante que as solicitações de serviço da plataforma sejam enviadas para seus respetivos endpoints.
+ a| 
+Nós de storage que usam o serviço ADC
+
+
+
+ a| 
+SSM (Monitor de status do servidor)
+ a| 
+Monitora as condições de hardware e os relatórios para o serviço NMS.
+ a| 
+Uma instância está presente em cada nó de grade
+
+
+
+ a| 
+Trace Collector
+ a| 
+Executa a coleta de rastreamento para coletar informações para uso pelo suporte técnico. O serviço de coletor de rastreamento usa software Jaeger de código aberto.
+ a| 
+Nós de administração
+
+|===

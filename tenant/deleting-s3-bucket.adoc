@@ -1,0 +1,58 @@
+---
+permalink: tenant/deleting-s3-bucket.html 
+sidebar: sidebar 
+keywords: how to delete S3 bucket 
+summary: Você pode usar o Gerenciador do Locatário para excluir um bucket do S3 vazio. 
+---
+= Eliminar o balde S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o Gerenciador do Locatário para excluir um ou mais buckets do S3 vazios.
+
+.Antes de começar
+* Você está conetado ao Gerenciador do Locatário usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você pertence a um grupo de usuários que tem o link:tenant-management-permissions.html["Gerencie todos os buckets ou permissão de acesso root"]. Essas permissões substituem as configurações de permissões em políticas de grupo ou bucket.
+* Os intervalos que você deseja excluir estão vazios. Se os intervalos que você deseja excluir estiverem _não_ vazios, link:../tenant/deleting-s3-bucket-objects.html["eliminar objetos do intervalo"].
+
+
+.Sobre esta tarefa
+Estas instruções descrevem como excluir um bucket do S3 usando o Gerenciador do locatário. Também é possível excluir buckets do S3 usando o link:understanding-tenant-management-api.html["API de gerenciamento do locatário"] ou o link:../s3/operations-on-buckets.html["S3 API REST"].
+
+Não é possível excluir um bucket do S3 se ele contiver objetos, versões de objetos não atuais ou marcadores de exclusão. Para obter informações sobre como os objetos com versão S3 são excluídos, link:../ilm/how-objects-are-deleted.html["Como os objetos são excluídos"]consulte .
+
+.Passos
+. Selecione *View buckets* no painel ou selecione *STORAGE (S3)* > *Buckets*.
++
+A página baldes é exibida e mostra todos os baldes S3 existentes.
+
+. Use o menu *ações* ou a página de detalhes de um intervalo específico.
++
+[role="tabbed-block"]
+====
+.Menu ações
+--
+.. Selecione a caixa de verificação para cada intervalo que pretende eliminar.
+.. Selecione *ações* > *Excluir buckets*.
+
+
+--
+.Página de detalhes
+--
+.. Selecione um nome de bucket para exibir seus detalhes.
+.. Selecione *Eliminar balde*.
+
+
+--
+====
+. Quando a caixa de diálogo de confirmação for exibida, selecione *Sim*.
++
+O StorageGRID confirma que cada bucket está vazio e, em seguida, exclui cada bucket. Esta operação pode demorar alguns minutos.
+
++
+Se um balde não estiver vazio, é apresentada uma mensagem de erro. Você deve link:../tenant/deleting-s3-bucket-objects.html["exclua todos os objetos e quaisquer marcadores de exclusão no bucket"] antes de poder excluir o bucket.
+
+

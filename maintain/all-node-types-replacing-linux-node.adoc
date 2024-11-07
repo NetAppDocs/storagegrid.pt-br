@@ -1,0 +1,20 @@
+---
+permalink: maintain/all-node-types-replacing-linux-node.html 
+sidebar: sidebar 
+keywords: replace linux node 
+summary: Se uma falha exigir que você implante um ou mais novos hosts físicos ou virtuais ou reinstale o Linux em um host existente, implante e configure o host de substituição antes que você possa recuperar o nó da grade. Este procedimento é uma etapa do processo de recuperação do nó de grade para todos os tipos de nós de grade. 
+---
+= Substitua o nó Linux
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se uma falha exigir que você implante um ou mais novos hosts físicos ou virtuais ou reinstale o Linux em um host existente, implante e configure o host de substituição antes que você possa recuperar o nó da grade. Este procedimento é uma etapa do processo de recuperação do nó de grade para todos os tipos de nós de grade.
+
+"Linux" refere-se a uma implantação Red Hat Enterprise Linux, Ubuntu ou Debian. Para obter uma lista de versões suportadas, consulte o https://imt.netapp.com/matrix/#welcome["Ferramenta de Matriz de interoperabilidade NetApp (IMT)"^].
+
+Este procedimento só é executado como uma etapa no processo de recuperação de nós de storage baseados em software, nós de administração primários ou não primários ou nós de gateway. As etapas são idênticas independentemente do tipo de nó de grade que você está recuperando.
+
+Se mais de um nó de grade estiver hospedado em um host Linux físico ou virtual, você poderá recuperar os nós de grade em qualquer ordem. No entanto, a recuperação de um nó Admin primário primeiro, se presente, impede que a recuperação de outros nós de grade pare, pois eles tentam entrar em Contato com o nó Admin primário para se Registrar para recuperação.

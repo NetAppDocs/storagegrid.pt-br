@@ -1,0 +1,57 @@
+---
+permalink: maintain/warnings-and-considerations-for-grid-node-recovery.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, warning 
+summary: Se um nó de grade falhar, você deve recuperá-lo o mais rápido possível. Você deve rever todos os avisos e considerações sobre a recuperação do nó antes de começar. 
+---
+= Avisos e considerações para a recuperação do nó da grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se um nó de grade falhar, você deve recuperá-lo o mais rápido possível. Você deve rever todos os avisos e considerações sobre a recuperação do nó antes de começar.
+
+
+CAUTION: O StorageGRID é um sistema distribuído composto por vários nós que trabalham uns com os outros. Não use snapshots de disco para restaurar nós de grade. Em vez disso, consulte os procedimentos de recuperação e manutenção para cada tipo de nó.
+
+
+NOTE: Se um site StorageGRID inteiro falhar, entre em Contato com o suporte técnico. O suporte técnico trabalhará com você para desenvolver e executar um plano de recuperação de local que maximiza a quantidade de dados recuperados e atende aos seus objetivos de negócios. link:how-site-recovery-is-performed-by-technical-support.html["Como o suporte técnico recupera um site"]Consulte .
+
+Alguns dos motivos para recuperar um nó de grade com falha o mais rápido possível incluem o seguinte:
+
+* Um nó de grade com falha pode reduzir a redundância de dados do sistema e do objeto, deixando você vulnerável ao risco de perda permanente de dados se outro nó falhar.
+* Um nó de grade com falha pode afetar a eficiência das operações diárias.
+* Um nó de grade com falha pode reduzir sua capacidade de monitorar as operações do sistema.
+* Um nó de grade com falha pode causar um erro de servidor interno do 500 se regras rígidas de ILM estiverem em vigor.
+* Se um nó de grade não for recuperado prontamente, os tempos de recuperação podem aumentar. Por exemplo, podem ocorrer filas que precisam ser limpas antes da conclusão da recuperação.
+
+
+Siga sempre o procedimento de recuperação para o tipo específico de nó de grade que você está recuperando. Os procedimentos de recuperação variam para nós de administração primários ou não primários, nós de gateway, nós de dispositivo e nós de storage.
+
+
+
+== Pré-condições para a recuperação de nós de grade
+
+Todas as condições a seguir são assumidas ao recuperar nós de grade:
+
+* O hardware físico ou virtual com falha foi substituído e configurado.
+* A versão do Instalador de dispositivos StorageGRID no dispositivo de substituição corresponde à versão de software do seu sistema StorageGRID, conforme descrito em https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/verifying-and-upgrading-storagegrid-appliance-installer-version.html["Verifique e atualize a versão do instalador do StorageGRID Appliance"^].
+* Se você estiver recuperando um nó de grade diferente do nó Admin principal, há conetividade entre o nó de grade sendo recuperado e o nó Admin principal.
+* Se você estiver recuperando um nó de armazenamento de dispositivo, especifique o mesmo tipo de armazenamento que o dispositivo original (combinado, somente metadados ou somente dados) durante a instalação do dispositivo. Se especificar um tipo de armazenamento diferente, a recuperação falhará e exigirá a reinstalação do dispositivo com o tipo de armazenamento correto especificado.
+
+
+
+
+== Ordem de recuperação de nó se um servidor que hospeda mais de um nó de grade falhar
+
+Se um servidor que hospeda mais de um nó de grade falhar, você poderá recuperar os nós em qualquer ordem. No entanto, se o servidor com falha estiver hospedando o nó Admin principal, você deve recuperar esse nó primeiro. A recuperação do nó de administração principal primeiro impede que outras recuperações de nós parem à medida que esperam para entrar em Contato com o nó de administração principal.
+
+
+
+== Endereços IP para nós recuperados
+
+Não tente recuperar um nó usando um endereço IP que está atualmente atribuído a qualquer outro nó. Quando você implantar o novo nó, use o endereço IP atual do nó com falha ou um endereço IP não utilizado.
+
+Se você usar um novo endereço IP para implantar o novo nó e, em seguida, recuperar o nó, o novo endereço IP continuará a ser usado para o nó recuperado. Se você quiser reverter para o endereço IP original, use a ferramenta alterar IP após a conclusão da recuperação.

@@ -1,0 +1,71 @@
+---
+permalink: s3/s3-rest-api-supported-operations-and-limitations.html 
+sidebar: sidebar 
+keywords: s3 rest api supported operations, s3 rest api limitations 
+summary: 'O sistema StorageGRID implementa a API de serviço de armazenamento simples (API versão 2006-03-01) com suporte para a maioria das operações e com algumas limitações. Você precisa entender os detalhes da implementação quando você está integrando aplicativos clientes REST API do S3.' 
+---
+= Detalhes da implementação da API REST do S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O sistema StorageGRID implementa a API de serviço de armazenamento simples (API versão 2006-03-01) com suporte para a maioria das operações e com algumas limitações. Você precisa entender os detalhes da implementação quando você está integrando aplicativos clientes REST API do S3.
+
+O sistema StorageGRID oferece suporte a solicitações virtuais de estilo hospedado e a solicitações de estilo de caminho.
+
+
+
+== Tratamento da data
+
+A implementação do StorageGRID da API REST S3 suporta apenas formatos de data HTTP válidos.
+
+O sistema StorageGRID suporta apenas formatos de data HTTP válidos para qualquer cabeçalho que aceite valores de data. A parte da hora da data pode ser especificada no formato Greenwich Mean Time (GMT) ou no formato Universal Coordinated Time (UTC) sem deslocamento de fuso horário (o 0000 deve ser especificado). Se você incluir o `x-amz-date` cabeçalho em sua solicitação, ele substituirá qualquer valor especificado no cabeçalho da solicitação de data. Ao usar o AWS Signature versão 4, o `x-amz-date` cabeçalho deve estar presente na solicitação assinada porque o cabeçalho de data não é suportado.
+
+
+
+== Cabeçalhos de solicitação comuns
+
+O sistema StorageGRID suporta os cabeçalhos de solicitação comuns definidos pelo https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html["Referência da API do Amazon Simple Storage Service: Cabeçalhos de solicitação comuns"^], com uma exceção.
+
+[cols="1a,2a"]
+|===
+| Cabeçalho da solicitação | Implementação 
+
+
+ a| 
+Autorização
+ a| 
+Suporte completo para AWS Signature versão 2
+
+Suporte para AWS Signature versão 4, com as seguintes exceções:
+
+* Quando você fornece o valor real da soma de verificação da carga útil no `x-amz-content-sha256`, o valor é aceito sem validação, como se o valor `UNSIGNED-PAYLOAD` tivesse sido fornecido para o cabeçalho. Quando você fornece um `x-amz-content-sha256` valor de cabeçalho que implica `aws-chunked` streaming (por exemplo, STREAMING-AWS4-HMAC-SHA256-PAYLOAD), as assinaturas de bloco não são verificadas em relação aos dados de bloco.
+
+
+
+
+ a| 
+x-amz-security-token
+ a| 
+Não implementado. Retorna `XNotImplemented`.
+
+|===
+
+
+== Cabeçalhos de resposta comuns
+
+O sistema StorageGRID suporta todos os cabeçalhos de resposta comuns definidos pela _Simple Storage Service API Reference_, com uma exceção.
+
+[cols="1a,2a"]
+|===
+| Cabeçalho de resposta | Implementação 
+
+
+ a| 
+x-amz-id-2
+ a| 
+Não utilizado
+
+|===

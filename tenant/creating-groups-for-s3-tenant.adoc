@@ -1,0 +1,161 @@
+---
+permalink: tenant/creating-groups-for-s3-tenant.html 
+sidebar: sidebar 
+keywords: how to create S3 tenant groups, federated group, local group 
+summary: Você pode gerenciar permissões para S3 grupos de usuários importando grupos federados ou criando grupos locais. 
+---
+= Crie grupos para um locatário do S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode gerenciar permissões para S3 grupos de usuários importando grupos federados ou criando grupos locais.
+
+.Antes de começar
+* Você está conetado ao Gerenciador do Locatário usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você pertence a um grupo de usuários que tem o link:tenant-management-permissions.html["Permissão de acesso à raiz"].
+* Se você pretende importar um grupo federado, o link:using-identity-federation.html["federação de identidade configurada"], e o grupo federado já existe na origem de identidade configurada.
+* Se sua conta de locatário tiver a permissão *usar conexão de federação de grade*, você revisou o fluxo de trabalho e as considerações para link:grid-federation-account-clone.html["clonar grupos de locatários e usuários"], e você estará conetado à grade de origem do locatário.
+
+
+
+
+== Acesse o assistente criar grupo
+
+Como primeira etapa, acesse o assistente criar grupo.
+
+.Passos
+. Selecione *GERENCIAMENTO DE ACESSO* > *grupos*.
+. Se sua conta de locatário tiver a permissão *Use Grid Federation Connection*, confirme se um banner azul aparece, indicando que novos grupos criados nessa grade serão clonados para o mesmo locatário na outra grade na conexão. Se este banner não aparecer, você pode estar conetado à grade de destino do locatário.
++
+image::../media/grid-federation-tenant-group-banner.png[Imagem do banner azul na página de grupos da grade de origem do locatário]
+
+. Selecione *criar grupo*.
+
+
+
+
+== Escolha um tipo de grupo
+
+Você pode criar um grupo local ou importar um grupo federado.
+
+.Passos
+. Selecione a guia *local group* para criar um grupo local ou selecione a guia *Federated group* para importar um grupo da origem de identidade configurada anteriormente.
++
+Se o logon único (SSO) estiver habilitado para o sistema StorageGRID, os usuários pertencentes a grupos locais não poderão fazer login no Gerenciador de locatários, embora possam usar aplicativos clientes para gerenciar os recursos do locatário, com base nas permissões de grupo.
+
+. Introduza o nome do grupo.
++
+** *Local group*: Insira um nome de exibição e um nome exclusivo. Pode editar o nome de apresentação mais tarde.
++
+
+NOTE: Se sua conta de locatário tiver a permissão *Use Grid Federation Connection*, ocorrerá um erro de clonagem se o mesmo *nome exclusivo* já existir para o locatário na grade de destino.
+
+** *Federated group*: Insira o nome exclusivo. Para o ative Directory, o nome exclusivo é o nome associado ao `sAMAccountName` atributo. Para OpenLDAP, o nome exclusivo é o nome associado ao `uid` atributo.
+
+
+. Selecione *continuar*.
+
+
+
+
+== Gerenciar permissões de grupo
+
+As permissões de grupo controlam quais tarefas os usuários podem executar no Gerenciador de inquilinos e na API de gerenciamento de inquilinos.
+
+.Passos
+. Para *modo de acesso*, selecione uma das seguintes opções:
++
+** *Leitura-escrita* (padrão): Os usuários podem fazer login no Gerenciador do locatário e gerenciar a configuração do locatário.
+** *Somente leitura*: Os usuários só podem visualizar configurações e recursos. Eles não podem fazer alterações ou executar nenhuma operação no Gerenciador do Locatário ou na API de Gerenciamento do Locatário. Os usuários locais só de leitura podem alterar suas próprias senhas.
++
+
+NOTE: Se um usuário pertencer a vários grupos e qualquer grupo estiver definido como somente leitura, o usuário terá acesso somente leitura a todas as configurações e recursos selecionados.
+
+
+
+. Selecione uma ou mais permissões para este grupo.
++
+link:../tenant/tenant-management-permissions.html["Permissões de gerenciamento do locatário"]Consulte .
+
+. Selecione *continuar*.
+
+
+
+
+== Defina a política de grupo S3
+
+A política de grupo determina quais permissões de acesso S3 os usuários terão.
+
+.Passos
+. Selecione a política que pretende utilizar para este grupo.
++
+[cols="1a,2a"]
+|===
+| Política de grupo | Descrição 
+
+
+ a| 
+Sem acesso S3
+ a| 
+Padrão. Os usuários deste grupo não têm acesso a recursos do S3, a menos que o acesso seja concedido com uma política de bucket. Se você selecionar essa opção, somente o usuário root terá acesso aos recursos do S3 por padrão.
+
+
+
+ a| 
+Acesso somente leitura
+ a| 
+Os usuários deste grupo têm acesso somente leitura a recursos do S3. Por exemplo, os usuários desse grupo podem listar objetos e ler dados, metadados e tags de objetos. Quando você seleciona essa opção, a cadeia de carateres JSON para uma política de grupo somente leitura aparece na caixa de texto. Não é possível editar esta cadeia de carateres.
+
+
+
+ a| 
+Acesso total
+ a| 
+Os usuários deste grupo têm acesso total aos recursos do S3, incluindo buckets. Quando você seleciona essa opção, a cadeia de carateres JSON para uma política de grupo de acesso total aparece na caixa de texto. Não é possível editar esta cadeia de carateres.
+
+
+
+ a| 
+Mitigação de ransomware
+ a| 
+Esta política de exemplo se aplica a todos os buckets deste locatário. Os usuários deste grupo podem executar ações comuns, mas não podem excluir permanentemente objetos de buckets que têm o controle de versão de objeto habilitado.
+
+Os usuários do Gerenciador de locatários que têm a permissão *Gerenciar todos os buckets* podem substituir essa política de grupo. Limite a permissão Gerenciar todos os buckets a usuários confiáveis e use a Autenticação multifator (MFA), onde disponível.
+
+
+
+ a| 
+Personalizado
+ a| 
+Os usuários do grupo recebem as permissões especificadas na caixa de texto.
+
+|===
+. Se você selecionou *Personalizado*, digite a política de grupo. Cada política de grupo tem um limite de tamanho de 5.120 bytes. Você deve inserir uma string formatada JSON válida.
++
+Para obter informações detalhadas sobre políticas de grupo, incluindo sintaxe de idioma e exemplos, link:../s3/example-group-policies.html["Exemplo de políticas de grupo"]consulte .
+
+. Se estiver criando um grupo local, selecione *continuar*. Se você estiver criando um grupo federado, selecione *criar grupo* e *concluir*.
+
+
+
+
+== Adicionar utilizadores (apenas grupos locais)
+
+Você pode salvar o grupo sem adicionar usuários ou, opcionalmente, adicionar usuários locais que já existem.
+
+
+NOTE: Se sua conta de locatário tiver a permissão *usar conexão de federação de grade*, os usuários selecionados ao criar um grupo local na grade de origem não serão incluídos quando o grupo for clonado para a grade de destino. Por esse motivo, não selecione usuários quando você criar o grupo. Em vez disso, selecione o grupo quando você criar os usuários.
+
+.Passos
+. Opcionalmente, selecione um ou mais usuários locais para este grupo.
+. Selecione *criar grupo* e *concluir*.
++
+O grupo criado aparece na lista de grupos.
+
++
+Se sua conta de locatário tiver a permissão *usar conexão de federação de grade* e você estiver na grade de origem do locatário, o novo grupo será clonado para a grade de destino do locatário. *Success* aparece como *status de clonagem* na seção Visão geral da página de detalhes do grupo.
+
+

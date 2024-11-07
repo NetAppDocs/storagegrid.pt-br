@@ -1,0 +1,306 @@
+---
+permalink: audit/sput-s3-put.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, SPUT, S3 PUT 
+summary: Quando um cliente S3 emite uma transação PUT, uma solicitação é feita para criar um novo objeto ou bucket. Esta mensagem é emitida pelo servidor se a transação for bem-sucedida. 
+---
+= SPUT: S3 PUT
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando um cliente S3 emite uma transação PUT, uma solicitação é feita para criar um novo objeto ou bucket, ou para remover um subrecurso bucket/objeto. Esta mensagem é emitida pelo servidor se a transação for bem-sucedida.
+
+[cols="1a,1a,4a"]
+|===
+| Código | Campo | Descrição 
+
+
+ a| 
+CBID
+ a| 
+Identificador do bloco de conteúdo
+ a| 
+O identificador exclusivo do bloco de conteúdo solicitado. Se o CBID for desconhecido, este campo é definido como 0. As operações em baldes não incluem este campo.
+
+
+
+ a| 
+CMPS
+ a| 
+Definições de conformidade
+ a| 
+As configurações de conformidade usadas ao criar o bucket, se estiverem presentes na solicitação (truncadas para os primeiros 1024 carateres).
+
+
+
+ a| 
+CNCH
+ a| 
+Cabeçalho de Controle de consistência
+ a| 
+O valor do cabeçalho de solicitação HTTP Consistency-Control, se estiver presente na solicitação.
+
+
+
+ a| 
+CNID
+ a| 
+Identificador de ligação
+ a| 
+O identificador de sistema exclusivo para a conexão TCP/IP.
+
+
+
+ a| 
+CSIZ
+ a| 
+Tamanho do conteúdo
+ a| 
+O tamanho do objeto recuperado em bytes. As operações em baldes não incluem este campo.
+
+
+
+ a| 
+GFID
+ a| 
+ID ligação Federação grelha
+ a| 
+O ID de conexão da conexão de federação de grade associada a uma solicitação PUT DE replicação entre grade. Incluído apenas nos registos de auditoria na grelha de destino.
+
+
+
+ a| 
+GFSA
+ a| 
+Código conta origem Federação grelha
+ a| 
+O ID da conta do locatário na grade de origem para uma solicitação DE COLOCAÇÃO DE replicação entre grade. Incluído apenas nos registos de auditoria na grelha de destino.
+
+
+
+ a| 
+HTRH
+ a| 
+Cabeçalho de solicitação HTTP
+ a| 
+Lista de nomes e valores de cabeçalho de solicitação HTTP registrados, conforme selecionado durante a configuração.
+
+ `X-Forwarded-For` É incluído automaticamente se estiver presente na solicitação e se o `X-Forwarded-For` valor for diferente do endereço IP do remetente da solicitação (campo de auditoria SAIP).
+
+`x-amz-bypass-governance-retention` é incluído automaticamente se estiver presente na solicitação.
+
+
+
+ a| 
+LKEN
+ a| 
+Bloqueio Objeto ativado
+ a| 
+Valor do cabeçalho da solicitação `x-amz-bucket-object-lock-enabled` , se presente na solicitação.
+
+
+
+ a| 
+LKLH
+ a| 
+Bloqueio Objeto retenção legal
+ a| 
+Valor do cabeçalho da solicitação `x-amz-object-lock-legal-hold` , se estiver presente na solicitação PutObject.
+
+
+
+ a| 
+LKMD
+ a| 
+Modo de retenção de bloqueio de objetos
+ a| 
+Valor do cabeçalho da solicitação `x-amz-object-lock-mode` , se estiver presente na solicitação PutObject.
+
+
+
+ a| 
+LKRU
+ a| 
+Reter Data até bloqueio Objeto
+ a| 
+Valor do cabeçalho da solicitação `x-amz-object-lock-retain-until-date` , se estiver presente na solicitação PutObject. Os valores são limitados a 100 anos a partir da data em que o objeto foi ingerido.
+
+
+
+ a| 
+MTME
+ a| 
+Hora da última modificação
+ a| 
+O timestamp Unix, em microssegundos, indicando quando o objeto foi modificado pela última vez.
+
+
+
+ a| 
+RSLT
+ a| 
+Código do resultado
+ a| 
+Resultado da transação PUT. O resultado é sempre:
+
+SUCS: Bem-sucedido
+
+
+
+ a| 
+S3AI
+ a| 
+S3 ID da conta do locatário (remetente da solicitação)
+ a| 
+O ID da conta do locatário do usuário que enviou a solicitação. Um valor vazio indica acesso anônimo.
+
+
+
+ a| 
+S3AK
+ a| 
+S3 ID da chave de acesso (remetente do pedido)
+ a| 
+O código de chave de acesso S3 hash para o usuário que enviou a solicitação. Um valor vazio indica acesso anônimo.
+
+
+
+ a| 
+S3BK
+ a| 
+S3 balde
+ a| 
+O nome do bucket S3.
+
+
+
+ a| 
+S3KY
+ a| 
+Tecla S3
+ a| 
+O nome da chave S3, não incluindo o nome do intervalo. As operações em baldes não incluem este campo.
+
+
+
+ a| 
+S3SR
+ a| 
+S3 Subrecurso
+ a| 
+O bucket ou o subrecurso do objeto em que está sendo operado, se aplicável.
+
+
+
+ a| 
+SACC
+ a| 
+S3 Nome da conta do locatário (remetente da solicitação)
+ a| 
+O nome da conta de locatário para o usuário que enviou a solicitação. Vazio para pedidos anónimos.
+
+
+
+ a| 
+SAIP
+ a| 
+Endereço IP (remetente do pedido)
+ a| 
+O endereço IP do aplicativo cliente que fez a solicitação.
+
+
+
+ a| 
+SBAC
+ a| 
+S3 Nome da conta do locatário (proprietário do balde)
+ a| 
+O nome da conta do locatário para o proprietário do bucket. Usado para identificar acesso entre contas ou anônimo.
+
+
+
+ a| 
+SBAI
+ a| 
+S3 ID da conta do locatário (proprietário do balde)
+ a| 
+O ID da conta do locatário do proprietário do bucket alvo. Usado para identificar acesso entre contas ou anônimo.
+
+
+
+ a| 
+SRCF
+ a| 
+Configuração de sub-recurso
+ a| 
+A nova configuração de subrecursos (truncada para os primeiros 1024 carateres).
+
+
+
+ a| 
+SUSR
+ a| 
+S3 URNA do usuário (solicitar remetente)
+ a| 
+O ID da conta do locatário e o nome de usuário do usuário que faz a solicitação. O utilizador pode ser um utilizador local ou um utilizador LDAP. Por exemplo: `urn:sgws:identity::03393893651506583485:root`
+
+Vazio para pedidos anónimos.
+
+
+
+ a| 
+TEMPO
+ a| 
+Tempo
+ a| 
+Tempo total de processamento da solicitação em microssegundos.
+
+
+
+ a| 
+TLIP
+ a| 
+Endereço IP do balanceador de carga confiável
+ a| 
+Se a solicitação foi roteada por um balanceador de carga confiável da camada 7, o endereço IP do balanceador de carga.
+
+
+
+ a| 
+UID
+ a| 
+ID de carregamento
+ a| 
+Incluído apenas nas mensagens SPUT para operações CompleteMultipartUpload. Indica que todas as peças foram carregadas e montadas.
+
+
+
+ a| 
+UUID
+ a| 
+Identificador universal único
+ a| 
+O identificador do objeto dentro do sistema StorageGRID.
+
+
+
+ a| 
+VSID
+ a| 
+ID da versão
+ a| 
+A ID da versão de um novo objeto criado em um bucket versionado. Operações em buckets e objetos em buckets não versionados não incluem este campo.
+
+
+
+ a| 
+VSST
+ a| 
+Estado de controle de versão
+ a| 
+O novo estado de controle de versão de um bucket. Dois estados são usados: "Habilitado" ou "suspenso". As operações em objetos não incluem este campo.
+
+|===

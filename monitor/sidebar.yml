@@ -1,0 +1,136 @@
+---
+section: monitor
+title: Monitore o sistema StorageGRID
+entries:
+- title: Tarefas de monitorização
+  pdf-filename: Monitore o sistema StorageGRID
+  url: "/monitor/index.html"
+- title: Visualizar e gerenciar painel
+  url: "/monitor/viewing-dashboard.html"
+- title: Exibir a página nós
+  entries:
+  - title: Conteúdo da página de nós
+    pdf-filename: Exibir a página nós
+    url: "/monitor/viewing-nodes-page.html"
+  - title: Veja a guia Visão geral
+    url: "/monitor/viewing-overview-tab.html"
+  - title: Exibir a guia hardware
+    url: "/monitor/viewing-hardware-tab.html"
+  - title: Veja a guia rede
+    url: "/monitor/viewing-network-tab.html"
+  - title: Exibir a guia armazenamento
+    url: "/monitor/viewing-storage-tab.html"
+  - title: Exibir a guia objetos
+    url: "/monitor/viewing-objects-tab.html"
+  - title: Veja a guia ILM
+    url: "/monitor/viewing-ilm-tab.html"
+  - title: Use a guia tarefas
+    url: "/monitor/using-task-tab-to-reboot-grid-node.html"
+  - title: Veja a guia balanceador de carga
+    url: "/monitor/viewing-load-balancer-tab.html"
+  - title: Veja a guia Serviços da Plataforma
+    url: "/monitor/viewing-platform-services-tab.html"
+  - title: Veja a guia Gerenciar unidades
+    url: "/monitor/viewing-manage-drives-tab.html"
+  - title: Exibir a guia SANtricity (somente Série e)
+    url: "/monitor/viewing-santricity-system-manager-tab.html"
+- title: Informações para monitorar regularmente
+  entries:
+  - title: O que e quando monitorar
+    url: "/monitor/information-you-should-monitor-regularly.html"
+  - title: Monitorar a integridade do sistema
+    url: "/monitor/monitoring-system-health.html"
+  - title: Monitorar a capacidade de armazenamento
+    url: "/monitor/monitoring-storage-capacity.html"
+  - title: Monitorar o gerenciamento do ciclo de vida das informações
+    url: "/monitor/monitoring-information-lifecycle-management.html"
+  - title: Monitorar recursos de rede e do sistema
+    url: "/monitor/monitoring-network-connections-and-performance.html"
+  - title: Monitorar a atividade do locatário
+    url: "/monitor/monitoring-tenant-activity.html"
+  - title: Monitorar S3 operações do cliente
+    url: "/monitor/monitoring-object-ingest-and-retrieval-rates.html"
+  - title: Monitorar operações de balanceamento de carga
+    url: "/monitor/monitoring-load-balancing-operations.html"
+  - title: Monitorar conexões de federação de grade
+    url: "/monitor/grid-federation-monitor-connections.html"
+- title: Gerenciar alertas
+  entries:
+  - title: Sistema de alerta
+    url: "/monitor/managing-alerts.html"
+  - title: Ver regras de alerta
+    url: "/monitor/view-alert-rules.html"
+  - title: Crie regras de alerta personalizadas
+    url: "/monitor/creating-custom-alert-rules.html"
+  - title: Editar regras de alerta
+    url: "/monitor/editing-alert-rules.html"
+  - title: Desativar regras de alerta
+    url: "/monitor/disabling-alert-rules.html"
+  - title: Remover regras de alerta personalizadas
+    url: "/monitor/removing-custom-alert-rules.html"
+  - title: Gerenciar notificações de alerta
+    entries:
+    - title: Configurar notificações SNMP
+      url: "/monitor/snmp-alert-notifications.html"
+    - title: Configurar notificações por e-mail
+      url: "/monitor/email-alert-notifications.html"
+    - title: Silenciar notificações de alerta
+      url: "/monitor/silencing-alert-notifications.html"
+  - title: Referência de alertas
+    url: "/monitor/alerts-reference.html"
+  - title: Métricas de Prometheus comumente usadas
+    url: "/monitor/commonly-used-prometheus-metrics.html"
+- title: Referência de ficheiros de registo
+  entries:
+  - title: Aceder aos ficheiros de registo
+    pdf-filename: Referência de ficheiros de registo
+    url: "/monitor/logs-files-reference.html"
+  - title: Registos do software StorageGRID
+    url: "/monitor/storagegrid-software-logs.html"
+  - title: Logs de implantação e manutenção
+    url: "/monitor/deployment-and-maintenance-logs.html"
+  - title: Sobre o bycast.log
+    url: "/monitor/about-bycast-log.html"
+- title: Configurar destinos de mensagens de auditoria e de log
+  entries:
+  - title: Considerações para servidor syslog externo
+    url: "/monitor/considerations-for-external-syslog-server.html"
+  - title: Configurar mensagens de auditoria e servidor syslog externo
+    url: "/monitor/configure-audit-messages.html"
+- title: Utilize a monitorização SNMP
+  entries:
+  - title: Monitoramento SNMP
+    pdf-filename: Utilize a monitorização SNMP
+    url: "/monitor/using-snmp-monitoring.html"
+  - title: Configure o agente SNMP
+    url: "/monitor/configuring-snmp-agent.html"
+  - title: Atualize o agente SNMP
+    url: "/monitor/updating-snmp-agent.html"
+  - title: Acesse arquivos MIB
+    url: "/monitor/access-snmp-mib.html"
+- title: Colete dados adicionais do StorageGRID
+  entries:
+  - title: Use gráficos e gráficos
+    url: "/monitor/using-charts-and-reports.html"
+  - title: Use relatórios de texto
+    url: "/monitor/types-of-text-reports.html"
+  - title: Monitore O PUT e obtenha desempenho
+    url: "/monitor/monitoring-put-and-get-performance.html"
+  - title: Monitorar operações de verificação de objetos
+    url: "/monitor/monitoring-object-verification-operations.html"
+  - title: Monitorar eventos
+    url: "/monitor/monitoring-events.html"
+  - title: Rever mensagens de auditoria
+    url: "/monitor/reviewing-audit-messages.html"
+  - title: Colete arquivos de log e dados do sistema
+    url: "/monitor/collecting-log-files-and-system-data.html"
+  - title: Acione manualmente um pacote AutoSupport
+    url: "/monitor/manually-triggering-autosupport-message.html"
+  - title: Veja a árvore de topologia de Grade
+    url: "/monitor/viewing-grid-topology-tree.html"
+  - title: Analise as métricas de suporte
+    url: "/monitor/reviewing-support-metrics.html"
+  - title: Execute o diagnóstico
+    url: "/monitor/running-diagnostics.html"
+  - title: Crie aplicativos de monitoramento personalizados
+    url: "/monitor/creating-custom-monitoring-applications.html"

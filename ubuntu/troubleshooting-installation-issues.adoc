@@ -1,0 +1,31 @@
+---
+permalink: ubuntu/troubleshooting-installation-issues.html 
+sidebar: sidebar 
+keywords: how to troubleshoot ubuntu or debian installation 
+summary: Se ocorrerem problemas durante a instalação do sistema StorageGRID, pode aceder aos ficheiros de registo de instalação. O suporte técnico também pode precisar usar os arquivos de log de instalação para resolver problemas. 
+---
+= Solucionar problemas de instalação
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se ocorrerem problemas durante a instalação do sistema StorageGRID, pode aceder aos ficheiros de registo de instalação. O suporte técnico também pode precisar usar os arquivos de log de instalação para resolver problemas.
+
+Os seguintes arquivos de log de instalação estão disponíveis no contentor que está executando cada nó:
+
+* `/var/local/log/install.log` (encontrado em todos os nós da grade)
+* `/var/local/log/gdu-server.log` (Encontrado no nó de administração principal)
+
+
+Os seguintes arquivos de log de instalação estão disponíveis no host:
+
+* `/var/log/storagegrid/daemon.log`
+* `/var/log/storagegrid/nodes/<node-name>.log`
+
+
+Para saber como acessar os arquivos de log, link:../monitor/collecting-log-files-and-system-data.html["Colete arquivos de log e dados do sistema"]consulte .
+
+.Informações relacionadas
+link:../troubleshoot/index.html["Solucionar problemas de um sistema StorageGRID"]

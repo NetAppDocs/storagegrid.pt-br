@@ -1,0 +1,144 @@
+---
+permalink: upgrade/estimating-time-to-complete-upgrade.html 
+sidebar: sidebar 
+keywords: upgrade, time estimate, duration, cassandra upgrade 
+summary: Considere quando atualizar, com base em quanto tempo a atualização pode demorar. Esteja ciente de quais operações você pode e não pode executar durante cada etapa da atualização. 
+---
+= Estime o tempo para concluir uma atualização
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Considere quando atualizar, com base em quanto tempo a atualização pode demorar. Esteja ciente de quais operações você pode e não pode executar durante cada etapa da atualização.
+
+.Sobre esta tarefa
+O tempo necessário para concluir uma atualização do StorageGRID depende de uma variedade de fatores, como carga do cliente e desempenho do hardware.
+
+A tabela resume as principais tarefas de atualização e lista o tempo aproximado necessário para cada tarefa. As etapas após a tabela fornecem instruções que você pode usar para estimar o tempo de atualização para o seu sistema.
+
+[cols="1a,2a,2a,4a"]
+|===
+| Tarefa de atualização | Descrição | Tempo aproximado necessário | Durante esta tarefa 
+
+
+ a| 
+Execute pré-verificações e atualize o nó de administração principal
+ a| 
+As pré-verificações de atualização são executadas e o nó Admin principal é interrompido, atualizado e reiniciado.
+ a| 
+de 30 minutos a 1 hora, com os nós do dispositivo de serviços que exigem mais tempo.
+
+Os erros de pré-verificação não resolvidos aumentarão este tempo.
+ a| 
+Não é possível acessar o nó de administração principal. Erros de conexão podem ser relatados, o que você pode ignorar.
+
+Executar as pré-verificações de atualização antes de iniciar a atualização permite resolver quaisquer erros antes da janela de manutenção de atualização agendada.
+
+
+
+ a| 
+Inicie o serviço de atualização
+ a| 
+O arquivo de software é distribuído e o serviço de atualização é iniciado.
+ a| 
+3 minutos por nó de grade
+ a| 
+
+
+
+ a| 
+Atualizar outros nós de grade
+ a| 
+O software em todos os outros nós de grade é atualizado, na ordem em que você aprova os nós. Cada nó em seu sistema será derrubado um de cada vez.
+ a| 
+de 15 minutos a 1 hora por nó, com os nós do dispositivo que exigem mais tempo
+
+*Nota*: Para nós de appliance, o Instalador de appliance StorageGRID é atualizado automaticamente para a versão mais recente.
+ a| 
+* Não altere a configuração da grade.
+* Não altere a configuração do nível de auditoria.
+* Não atualize a configuração do ILM.
+* Você está impedido de executar outros procedimentos de manutenção, como hotfix, desativação ou expansão.
+
+
+*Nota*: Se você precisar executar uma recuperação, entre em Contato com o suporte técnico.
+
+
+
+ a| 
+Ativar funcionalidades
+ a| 
+As novas funcionalidades para a nova versão estão ativadas.
+ a| 
+Menos de 5 minutos
+ a| 
+* Não altere a configuração da grade.
+* Não altere a configuração do nível de auditoria.
+* Não atualize a configuração do ILM.
+* Não é possível executar outro procedimento de manutenção.
+
+
+
+
+ a| 
+Atualizar banco de dados
+ a| 
+O processo de atualização verifica cada nó para verificar se o banco de dados Cassandra não precisa ser atualizado.
+ a| 
+10 segundos por nó ou alguns minutos para toda a grade
+ a| 
+A atualização do StorageGRID 11,8 para o 11,9 não requer uma atualização do banco de dados Cassandra; no entanto, o serviço Cassandra será interrompido e reiniciado em cada nó de armazenamento.
+
+Para futuras versões de recursos do StorageGRID, a etapa de atualização do banco de dados do Cassandra pode levar vários dias para ser concluída.
+
+
+
+ a| 
+Etapas finais da atualização
+ a| 
+Os arquivos temporários são removidos e a atualização para a nova versão é concluída.
+ a| 
+5 minutos
+ a| 
+Quando a tarefa *etapas finais de atualização* for concluída, você poderá executar todos os procedimentos de manutenção.
+
+|===
+.Passos
+. Estime o tempo necessário para atualizar todos os nós de grade.
++
+.. Multiplique o número de nós em seu sistema StorageGRID por 1 hora/nó.
++
+Como regra geral, os nós de dispositivo demoram mais tempo a atualizar do que os nós baseados em software.
+
+.. Adicione 1 hora a esta hora para ter em conta o tempo necessário para baixar o `.upgrade` arquivo, executar validações de pré-verificação e concluir as etapas finais de atualização.
+
+
+. Se você tiver nós do Linux, adicione 15 minutos para cada nó para ter em conta o tempo necessário para baixar e instalar o pacote RPM ou DEB.
+. Calcule o tempo total estimado para a atualização adicionando os resultados das etapas 1 e 2.
+
+
+
+
+== Exemplo: Tempo estimado para atualizar para o StorageGRID 11,9
+
+Suponha que seu sistema tenha 14 nós de grade, dos quais 8 são nós de Linux.
+
+. Multiplique 14 por 1 hora/nó.
+. Adicione 1 hora para ter em conta as etapas de download, pré-verificação e final.
++
+O tempo estimado para atualizar todos os nós é de 15 horas.
+
+. Multiplique 8 por 15 minutos/nó para contabilizar o tempo de instalação do pacote RPM ou DEB nos nós Linux.
++
+O tempo estimado para este passo é de 2 horas.
+
+. Adicione os valores juntos.
++
+Você deve permitir até 17 horas para concluir a atualização do seu sistema para o StorageGRID 11,9.0.
+
+
+
+
+NOTE: Conforme necessário, você pode dividir a janela de manutenção em janelas menores aprovando subconjuntos de nós de grade para atualizar em várias sessões. Por exemplo, você pode preferir atualizar os nós no local A em uma sessão e, em seguida, atualizar os nós no local B em uma sessão posterior. Se você optar por realizar a atualização em mais de uma sessão, esteja ciente de que você não pode começar a usar os novos recursos até que todos os nós tenham sido atualizados.

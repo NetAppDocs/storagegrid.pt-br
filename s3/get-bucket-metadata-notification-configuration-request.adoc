@@ -1,0 +1,182 @@
+---
+permalink: s3/get-bucket-metadata-notification-configuration-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, GET bucket metadata notification configuration 
+summary: A solicitação de configuração de notificação de metadados do GET Bucket permite recuperar o XML de configuração usado para configurar a integração de pesquisa para buckets individuais. 
+---
+= OBTER configuração de notificação de metadados do bucket
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A solicitação de configuração de notificação de metadados do GET Bucket permite recuperar o XML de configuração usado para configurar a integração de pesquisa para buckets individuais.
+
+Você deve ter a permissão S3:GetBucketMetadataNotification, ou ser raiz da conta, para concluir esta operação.
+
+
+
+== Exemplo de solicitação
+
+Essa solicitação recupera a configuração de notificação de metadados para o bucket chamado `bucket`.
+
+[listing, subs="specialcharacters,quotes"]
+----
+GET /bucket?x-ntap-sg-metadata-notification HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+
+
+== Resposta
+
+O corpo da resposta inclui a configuração de notificação de metadados para o bucket. A configuração de notificação de metadados permite determinar como o intervalo é configurado para integração de pesquisa. Ou seja, ele permite determinar quais objetos são indexados e quais endpoints seus metadados de objeto estão sendo enviados.
+
+[listing]
+----
+<MetadataNotificationConfiguration>
+    <Rule>
+        <ID>Rule-1</ID>
+        <Status>rule-status</Status>
+        <Prefix>key-prefix</Prefix>
+        <Destination>
+           <Urn>arn:aws:es:_region:account-ID_:domain/_mydomain/myindex/mytype_</Urn>
+        </Destination>
+    </Rule>
+    <Rule>
+        <ID>Rule-2</ID>
+         ...
+    </Rule>
+     ...
+</MetadataNotificationConfiguration>
+----
+Cada configuração de notificação de metadados inclui uma ou mais regras. Cada regra especifica os objetos aos quais se aplica e o destino onde o StorageGRID deve enviar metadados de objeto. Os destinos devem ser especificados usando a URNA de um endpoint StorageGRID.
+
+[cols="1a,2a,1a"]
+|===
+| Nome | Descrição | Obrigatório 
+
+
+ a| 
+MetadataNotificationConfiguration
+ a| 
+Tag de contentor para regras usadas para especificar os objetos e o destino para notificações de metadados.
+
+Contém um ou mais elementos de regra.
+ a| 
+Sim
+
+
+
+ a| 
+Regra
+ a| 
+Tag container para uma regra que identifica os objetos cujos metadados devem ser adicionados a um índice especificado.
+
+Regras com prefixos sobrepostos são rejeitadas.
+
+Incluído no elemento MetadataNotificationConfiguration.
+ a| 
+Sim
+
+
+
+ a| 
+ID
+ a| 
+Identificador exclusivo para a regra.
+
+Incluído no elemento regra.
+ a| 
+Não
+
+
+
+ a| 
+Estado
+ a| 
+O estado pode ser "ativado" ou "Desativado". Nenhuma ação é tomada para regras que são desativadas.
+
+Incluído no elemento regra.
+ a| 
+Sim
+
+
+
+ a| 
+Prefixo
+ a| 
+Os objetos que correspondem ao prefixo são afetados pela regra e seus metadados são enviados para o destino especificado.
+
+Para corresponder a todos os objetos, especifique um prefixo vazio.
+
+Incluído no elemento regra.
+ a| 
+Sim
+
+
+
+ a| 
+Destino
+ a| 
+Etiqueta de contentor para o destino de uma regra.
+
+Incluído no elemento regra.
+ a| 
+Sim
+
+
+
+ a| 
+Urna
+ a| 
+URNA do destino onde os metadados do objeto são enviados. Deve ser a URNA de um endpoint StorageGRID com as seguintes propriedades:
+
+* `es` deve ser o terceiro elemento.
+* A URNA deve terminar com o índice e digitar onde os metadados são armazenados, no formulário `domain-name/myindex/mytype`.
+
+
+Os endpoints são configurados usando o Gerenciador do Locatário ou a API de Gerenciamento do Locatário. Eles assumem a seguinte forma:
+
+* `arn:aws:es:_region:account-ID_:domain/mydomain/myindex/mytype`
+* `urn:mysite:es:::mydomain/myindex/mytype`
+
+
+O endpoint deve ser configurado antes que o XML de configuração seja enviado, ou a configuração falhará com um erro 404.
+
+Urna está incluído no elemento destino.
+ a| 
+Sim
+
+|===
+
+
+== Exemplo de resposta
+
+O XML incluído entre as  `<MetadataNotificationConfiguration></MetadataNotificationConfiguration>` tags mostra como a integração com um endpoint de integração de pesquisa é configurada para o bucket. Neste exemplo, metadados de objeto estão sendo enviados para um índice Elasticsearch nomeado `current` e tipo nomeado `2017` que está hospedado em um domínio da AWS `records` chamado .
+
+[listing]
+----
+HTTP/1.1 200 OK
+Date: Thu, 20 Jul 2017 18:24:05 GMT
+Connection: KEEP-ALIVE
+Server: StorageGRID/11.0.0
+x-amz-request-id: 3832973499
+Content-Length: 264
+Content-Type: application/xml
+
+<MetadataNotificationConfiguration>
+    <Rule>
+        <ID>Rule-1</ID>
+        <Status>Enabled</Status>
+        <Prefix>2017</Prefix>
+        <Destination>
+           <Urn>arn:aws:es:us-east-1:3333333:domain/records/current/2017</Urn>
+        </Destination>
+    </Rule>
+</MetadataNotificationConfiguration>
+----
+.Informações relacionadas
+link:../tenant/index.html["Use uma conta de locatário"]

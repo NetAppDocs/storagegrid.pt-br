@@ -1,0 +1,312 @@
+---
+permalink: vmware/deploying-storagegrid-node-as-virtual-machine.html 
+sidebar: sidebar 
+keywords: how to deploy grid nodes in vsphere or vsphere web client, port, remap, port remap 
+summary: Você usa o VMware vSphere Web Client para implantar cada nó de grade como uma máquina virtual. Durante a implantação, cada nó de grade é criado e conetado a uma ou mais redes StorageGRID. 
+---
+= Implante um nó StorageGRID como uma máquina virtual
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você usa o VMware vSphere Web Client para implantar cada nó de grade como uma máquina virtual. Durante a implantação, cada nó de grade é criado e conetado a uma ou mais redes StorageGRID.
+
+Se precisar implantar qualquer nó de storage do dispositivo StorageGRID, https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/deploying-appliance-storage-node.html["Implante o nó de storage do dispositivo"^] consulte .
+
+Opcionalmente, você pode remapear portas de nós ou aumentar as configurações de CPU ou memória para o nó antes de ligá-lo.
+
+.Antes de começar
+* Você analisou como link:index.html["planeje e prepare-se para a instalação"]e compreende os requisitos de software, CPU e RAM, armazenamento e desempenho.
+* Você está familiarizado com o VMware vSphere Hypervisor e tem experiência na implantação de máquinas virtuais nesse ambiente.
++
+
+NOTE: O `open-vm-tools` pacote, uma implementação de código aberto semelhante ao VMware Tools, está incluído na máquina virtual StorageGRID. Você não precisa instalar o VMware Tools manualmente.
+
+* Você baixou e extraiu a versão correta do arquivo de instalação do StorageGRID para VMware.
++
+
+CAUTION: Se você estiver implantando o novo nó como parte de uma operação de expansão ou recuperação, use a versão do StorageGRID que está sendo executada atualmente na grade.
+
+* Você tem o (`.vmdk`arquivo StorageGRID Virtual Machine Disk ):
+
+
+[listing, subs="specialcharacters,quotes"]
+----
+NetApp-_SG-version_-SHA.vmdk
+----
+* Você tem os `.ovf` arquivos e `.mf` para cada tipo de nó de grade que está implantando:
++
+[cols="1a,1a"]
+|===
+| Nome do ficheiro | Descrição 
+
+
+| vsphere-primary-admin.ovf vsphere-primary-admin.mf  a| 
+O arquivo de modelo e o arquivo de manifesto para o nó de administração principal.
+
+
+
+| vsphere-non-primary-admin.ovf vsphere-non-primary-admin.mf  a| 
+O arquivo de modelo e o arquivo de manifesto para um nó de administração não primário.
+
+
+
+| vsphere-storage.ovf vsphere-storage.mf  a| 
+O arquivo de modelo e o arquivo de manifesto para um nó de armazenamento.
+
+
+
+| vsphere-gateway.ovf vsphere-gateway.mf  a| 
+O arquivo de modelo e o arquivo de manifesto para um Gateway Node.
+
+|===
+* Os `.vdmk` ficheiros , `.ovf`, e `.mf` estão todos no mesmo diretório.
+* Você tem um plano para minimizar domínios de falha. Por exemplo, você não deve implantar todos os nós do Gateway em um único host do vSphere ESXi.
++
+
+CAUTION: Em uma implantação de produção, não execute mais de um nó de armazenamento em uma única máquina virtual. Não execute várias máquinas virtuais no mesmo host ESXi se isso criar um problema inaceitável de domínio de falha.
+
+* Se você estiver implantando um nó como parte de uma operação de expansão ou recuperação, terá o link:../expand/index.html["Instruções para expandir um sistema StorageGRID"] ou o link:../maintain/index.html["instruções de recuperação e manutenção"].
+* Se você estiver implantando um nó StorageGRID como uma máquina virtual com armazenamento atribuído a partir de um sistema NetApp ONTAP, você confirmou que o volume não tem uma política de disposição em camadas do FabricPool ativada. Por exemplo, se um nó do StorageGRID estiver sendo executado como uma máquina virtual em um host VMware, verifique se o volume que faz o backup do datastore para o nó não tem uma política de disposição em camadas do FabricPool habilitada. A desativação da disposição em camadas do FabricPool para volumes usados com nós do StorageGRID simplifica a solução de problemas e as operações de storage.
++
+
+NOTE: Nunca use o FabricPool para categorizar dados relacionados ao StorageGRID de volta ao próprio StorageGRID. A disposição em camadas de dados do StorageGRID de volta para o StorageGRID aumenta a complexidade operacional e a solução de problemas.
+
+
+
+.Sobre esta tarefa
+Siga estas instruções para implantar inicialmente nós VMware, adicionar um novo nó VMware em uma expansão ou substituir um nó VMware como parte de uma operação de recuperação. Exceto conforme observado nas etapas, o procedimento de implantação do nó é o mesmo para todos os tipos de nó, incluindo nós de administração, nós de storage e nós de gateway.
+
+Se estiver a instalar um novo sistema StorageGRID:
+
+* Você pode implantar nós em qualquer ordem.
+* Você deve garantir que cada máquina virtual possa se conetar ao nó de administração principal pela rede de grade.
+* Você deve implantar todos os nós de grade antes de configurar a grade.
+
+
+Se você estiver executando uma operação de expansão ou recuperação:
+
+* Você deve garantir que a nova máquina virtual possa se conetar a todos os outros nós pela rede de Grade.
+
+
+Se você precisar remapear qualquer uma das portas do nó, não ligue o novo nó até que a configuração de remapeamento de porta esteja concluída.
+
+.Passos
+. Usando o vCenter, implante um modelo OVF.
++
+Se especificar um URL, aponte para uma pasta que contenha os seguintes ficheiros. Caso contrário, selecione cada um desses arquivos em um diretório local.
+
++
+[listing, subs="specialcharacters,quotes"]
+----
+NetApp-_SG-version_-SHA.vmdk
+vsphere-_node_.ovf
+vsphere-_node_.mf
+----
++
+Por exemplo, se este for o primeiro nó que você está implantando, use esses arquivos para implantar o nó de administrador principal do seu sistema StorageGRID:
+
++
+[listing, subs="specialcharacters,quotes"]
+----
+NetApp-_SG-version_-SHA.vmdk
+vsphere-primary-admin.ovf
+vsphere-primary-admin.mf
+----
+. Forneça um nome para a máquina virtual.
++
+A prática padrão é usar o mesmo nome para a máquina virtual e o nó de grade.
+
+. Coloque a máquina virtual no vApp ou pool de recursos apropriado.
+. Se você estiver implantando o nó Admin principal, leia e aceite o Contrato de Licença de Usuário final.
++
+Dependendo da sua versão do vCenter, a ordem das etapas variará para aceitar o Contrato de Licença de Usuário final, especificando o nome da máquina virtual e selecionando um datastore.
+
+. Selecione armazenamento para a máquina virtual.
++
+Se você estiver implantando um nó como parte da operação de recuperação, execute as instruções no <<step_recovery_storage,etapa de recuperação de armazenamento>> para adicionar novos discos virtuais, reconete discos rígidos virtuais do nó de grade com falha ou ambos.
+
++
+Ao implantar um nó de armazenamento, use 3 ou mais volumes de armazenamento, com cada volume de armazenamento de 4 TB ou maior. Tem de atribuir pelo menos 4 TB ao volume 0.
+
++
+
+NOTE: O arquivo .ovf do nó de storage define vários VMDKs para armazenamento. A menos que esses VMDKs atendam aos requisitos de storage, você deve removê-los e atribuir VMDKs ou RDMs apropriados para armazenamento antes de ligar o nó. Os VMDKs são mais comumente usados em ambientes VMware e são mais fáceis de gerenciar, enquanto os RDMs podem fornecer melhor desempenho para cargas de trabalho que usam tamanhos de objetos maiores (por exemplo, mais de 100 MB).
+
++
+
+NOTE: Algumas instalações do StorageGRID podem usar volumes de storage maiores e mais ativos do que os workloads virtualizados típicos. Talvez seja necessário ajustar alguns parâmetros do hipervisor, como `MaxAddressableSpaceTB`, para obter o desempenho ideal. Se você encontrar desempenho insatisfatório, entre em Contato com seu recurso de suporte de virtualização para determinar se o ambiente pode se beneficiar do ajuste de configuração específico do workload.
+
+. Selecione redes.
++
+Determine quais redes StorageGRID o nó usará selecionando uma rede de destino para cada rede de origem.
+
++
+** A rede de Grade é necessária. Você deve selecionar uma rede de destino no ambiente vSphere. A rede de grade é usada para todo o tráfego interno do StorageGRID. Ele fornece conetividade entre todos os nós na grade, em todos os sites e sub-redes. Todos os nós na rede de Grade devem ser capazes de se comunicar com todos os outros nós.
+** Se você usar a rede Admin, selecione uma rede de destino diferente no ambiente vSphere. Se não utilizar a rede Admin, selecione o mesmo destino que selecionou para a rede de grelha.
+** Se você usar a rede do cliente, selecione uma rede de destino diferente no ambiente vSphere. Se você não usar a rede do cliente, selecione o mesmo destino que você selecionou para a rede de grade.
+** Se você usar uma rede Admin ou Client, os nós não precisam estar nas mesmas redes Admin ou Client.
+
+
+. Para *Personalizar modelo*, configure as propriedades de nó StorageGRID necessárias.
++
+.. Introduza o *Nome do nó*.
++
+
+NOTE: Se você estiver recuperando um nó de grade, insira o nome do nó que está recuperando.
+
+.. Use a lista suspensa *senha de instalação temporária* para especificar uma senha de instalação temporária, de modo que você possa acessar o console da VM ou a API de instalação do StorageGRID, ou usar SSH, antes que o novo nó se una à grade.
++
+
+NOTE: A senha de instalação temporária só é usada durante a instalação do nó. Depois que um nó for adicionado à grade, você poderá acessá-lo usando o link:../admin/change-node-console-password.html["senha do console do nó"], que está listado no `Passwords.txt` arquivo no Pacote de recuperação.
+
++
+*** *Use node name*: O valor fornecido para o campo *Node name* é usado como a senha de instalação temporária.
+*** *Use a senha personalizada*: Uma senha personalizada é usada como a senha de instalação temporária.
+*** *Desativar senha*: Nenhuma senha de instalação temporária será usada. Se precisar acessar a VM para depurar problemas de instalação, link:troubleshooting-installation-issues.html["Solucionar problemas de instalação"]consulte .
+
+
+.. Se você selecionou *usar senha personalizada*, especifique a senha de instalação temporária que deseja usar no campo *Senha personalizada*.
+.. Na seção *Grid Network (eth0)*, selecione STATIC (ESTÁTICO) ou DHCP (DHCP) para a *Grid network IP Configuration (Configuração IP da rede de grade)*.
++
+*** Se você SELECIONAR ESTÁTICO, digite *Grid network IP*, *Grid network mask*, *Grid network gateway* e *Grid network MTU*.
+*** Se você selecionar DHCP, *Grid network IP*, *Grid network mask* e *Grid network gateway* serão atribuídos automaticamente.
+
+
+.. No campo *Primary Admin IP* (IP de administrador principal), introduza o endereço IP do nó de administração principal para a rede de grelha.
++
+
+NOTE: Esta etapa não se aplica se o nó que você está implantando for o nó Admin principal.
+
++
+Se você omitir o endereço IP do nó de administrador principal, o endereço IP será automaticamente descoberto se o nó de administrador principal, ou pelo menos um outro nó de grade com ADMIN_IP configurado, estiver presente na mesma sub-rede. No entanto, recomenda-se definir aqui o endereço IP do nó de administração principal.
+
+.. Na seção *Admin Network (eth1)*, selecione ESTÁTICO, DHCP ou DESATIVADO para a *Admin network IP Configuration*.
++
+*** Se não pretender utilizar a rede de administração, selecione DISABLED (DESATIVADA) e introduza *0,0.0,0* para o IP da rede de administração. Você pode deixar os outros campos em branco.
+*** Se você SELECIONAR ESTÁTICO, digite *Admin network IP*, *Admin network mask*, *Admin network gateway* e *Admin network MTU*.
+*** Se selecionar ESTÁTICO, introduza a lista de sub-redes externas * da rede de administração. Você também deve configurar um gateway.
+*** Se você selecionar DHCP, *Admin network IP*, *Admin network mask* e *Admin network gateway* serão atribuídos automaticamente.
+
+
+.. Na seção *rede do cliente (eth2)*, selecione ESTÁTICO, DHCP ou DESATIVADO para a *Configuração IP da rede do cliente*.
++
+*** Se não pretender utilizar a rede do cliente, selecione DISABLED (DESATIVADA) e introduza *0,0.0,0* para o IP da rede do cliente. Você pode deixar os outros campos em branco.
+*** Se SELECIONAR ESTÁTICO, introduza *IP de rede do cliente*, *Máscara de rede do cliente*, *gateway de rede do cliente* e *MTU de rede do cliente*.
+*** Se você selecionar DHCP, *IP de rede do cliente*, *máscara de rede do cliente* e *gateway de rede do cliente* serão atribuídos automaticamente.
+
+
+
+
+. Revise a configuração da máquina virtual e faça as alterações necessárias.
+. Quando estiver pronto para concluir, selecione *Finish* para iniciar o upload da máquina virtual.
+. [[step_recovery_storage]]se você implantou este nó como parte da operação de recuperação e esta não é uma recuperação de nó completo, execute estas etapas após a conclusão da implantação:
++
+.. Clique com o botão direito do rato na máquina virtual e selecione *Editar definições*.
+.. Selecione cada disco rígido virtual padrão designado para armazenamento e selecione *Remover*.
+.. Dependendo das circunstâncias de recuperação de dados, adicione novos discos virtuais de acordo com seus requisitos de armazenamento, reconete quaisquer discos rígidos virtuais preservados do nó de grade com falha removido anteriormente ou ambos.
++
+Observe as seguintes diretrizes importantes:
+
++
+*** Se você estiver adicionando novos discos, use o mesmo tipo de dispositivo de armazenamento que estava em uso antes da recuperação do nó.
+*** O arquivo .ovf do nó de storage define vários VMDKs para armazenamento. A menos que esses VMDKs atendam aos requisitos de storage, você deve removê-los e atribuir VMDKs ou RDMs apropriados para armazenamento antes de ligar o nó. Os VMDKs são mais comumente usados em ambientes VMware e são mais fáceis de gerenciar, enquanto os RDMs podem fornecer melhor desempenho para cargas de trabalho que usam tamanhos de objetos maiores (por exemplo, mais de 100 MB).
+
+
+
+
+. [[VMware-remap-ports]]se você precisar remapear as portas usadas por esse nó, siga estas etapas.
++
+Talvez seja necessário remapear uma porta se as políticas de rede corporativa restringirem o acesso a uma ou mais portas usadas pelo StorageGRID. Consulte link:../network/index.html["diretrizes de rede"]para obter informações sobre as portas usadas pelo StorageGRID.
+
++
+
+NOTE: Não remapegue as portas usadas nos pontos de extremidade do balanceador de carga.
+
++
+.. Selecione a nova VM.
+.. Na guia Configurar, selecione *Configurações* > *Opções do vApp*. A localização do *vApp Options* depende da versão do vCenter.
+.. Na tabela *Properties*, localize PORT_REMAP_INBOUND e port_REMAP.
+.. Para mapear simetricamente as comunicações de entrada e saída para uma porta, selecione *port_REMAP*.
++
+
+NOTE: Se apenas Port_REMAP estiver definido, o mapeamento que você especificar se aplica às comunicações de entrada e saída. Se Port_REMAP_INBOUND também for especificado, PORT_REMAP se aplica apenas às comunicações de saída.
+
++
+... Selecione *Definir valor*.
+... Introduza o mapeamento de portas:
++
+`<network type>/<protocol>/<default port used by grid node>/<new port>`
+
++
+`<network type>` é grid, admin ou client, e `<protocol>` é tcp ou udp.
+
++
+Por exemplo, para remapear o tráfego ssh da porta 22 para a porta 3022, digite:
+
++
+`client/tcp/22/3022`
+
++
+Você pode remapear várias portas usando uma lista separada por vírgulas.
+
++
+Por exemplo:
+
++
+`client/tcp/18082/443, client/tcp/18083/80`
+
+... Selecione *OK*.
+
+
+.. Para especificar a porta usada para comunicações de entrada para o nó, selecione *PORT_REMAP_INBOUND*.
++
+
+NOTE: Se você especificar PORT_REMAP_INBOUND e não especificar um valor para PORT_REMAP, as comunicações de saída para a porta não serão alteradas.
+
++
+... Selecione *Definir valor*.
+... Introduza o mapeamento de portas:
++
+`<network type>/<protocol>/<remapped inbound port>/<default inbound port used by grid node>`
+
++
+`<network type>` é grid, admin ou client, e `<protocol>` é tcp ou udp.
+
++
+Por exemplo, para remapear o tráfego SSH de entrada que é enviado para a porta 3022 para que seja recebido na porta 22 pelo nó da grade, digite o seguinte:
+
++
+`client/tcp/3022/22`
+
++
+Você pode remapear várias portas de entrada usando uma lista separada por vírgulas.
+
++
+Por exemplo:
+
++
+`grid/tcp/3022/22, admin/tcp/3022/22`
+
+... Selecione *OK*
+
+
+
+
+. Se você quiser aumentar a CPU ou a memória do nó a partir das configurações padrão:
++
+.. Clique com o botão direito do rato na máquina virtual e selecione *Editar definições*.
+.. Altere o número de CPUs ou a quantidade de memória, conforme necessário.
++
+Defina a *reserva de memória* para o mesmo tamanho que a *memória* alocada à máquina virtual.
+
+.. Selecione *OK*.
+
+
+. Ligue a máquina virtual.
+
+
+.Depois de terminar
+Se você implantou esse nó como parte de um procedimento de expansão ou recuperação, retorne a essas instruções para concluir o procedimento.

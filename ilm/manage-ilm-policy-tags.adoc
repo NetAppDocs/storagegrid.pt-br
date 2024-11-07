@@ -1,0 +1,65 @@
+---
+permalink: ilm/manage-ilm-policy-tags.html 
+sidebar: sidebar 
+keywords: ILM policy tag 
+summary: Você pode exibir detalhes da tag de política ILM, editar uma tag ou remover uma tag. 
+---
+= Gerenciar tags de política ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode exibir detalhes da tag de política ILM, editar uma tag ou remover uma tag.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:../admin/admin-group-permissions.html["permissões de acesso necessárias"].
+
+
+
+
+== Ver detalhes da etiqueta de política ILM
+
+Para ver os detalhes de uma tag:
+
+. Selecione *ILM* > *Policy tags*.
+. Selecione o nome da política na tabela. A página de detalhes da tag é exibida.
+. Na página de detalhes, veja o histórico anterior das políticas atribuídas.
+. Visualize uma política selecionando-a.
+
+
+
+
+== Editar etiqueta de política ILM
+
+
+NOTE: Os nomes e as descrições das etiquetas são visíveis para os inquilinos. Escolha valores que ajudarão os locatários a tomar uma decisão informada ao selecionar as tags de política a serem atribuídas a seus buckets. Por exemplo, se a política atribuída excluir objetos após um período de tempo, você pode comunicar isso na descrição. Não inclua informações confidenciais nesses campos.
+
+Para editar a descrição de uma tag existente:
+
+. Selecione *ILM* > *Policy tags*.
+. Marque a caixa de seleção para a tag e selecione *Editar*.
++
+Em alternativa, selecione o nome da etiqueta. A página de detalhes da tag é exibida e você pode selecionar *Editar* nessa página.
+
+. Altere a descrição da tag conforme necessário
+. Selecione *Guardar*.
+
+
+
+
+== Remova a etiqueta de política ILM
+
+Quando você remove uma tag de política, todos os buckets atribuídos a essa tag terão a política padrão aplicada.
+
+Para remover uma etiqueta:
+
+. Selecione *ILM* > *Policy tags*.
+. Marque a caixa de seleção para a tag e selecione *Remover*. É apresentada uma caixa de diálogo de confirmação.
++
+Em alternativa, selecione o nome da etiqueta. A página de detalhes da tag é exibida e você pode selecionar *Remover* nessa página.
+
+. Selecione *Sim* para excluir a tag.
+

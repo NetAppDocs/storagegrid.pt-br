@@ -1,0 +1,53 @@
+---
+permalink: harden/hardening-guideline-for-server-certificates.html 
+sidebar: sidebar 
+keywords: Hardening guidelines, certificates 
+summary: Você deve substituir os certificados padrão criados durante a instalação e selecionar a diretiva de segurança apropriada para conexões TLS e SSH. 
+---
+= Diretrizes de fortalecimento para TLS e SSH
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve substituir os certificados padrão criados durante a instalação e selecionar a diretiva de segurança apropriada para conexões TLS e SSH.
+
+
+
+== Diretrizes de endurecimento para certificados
+
+Você deve substituir os certificados padrão criados durante a instalação por seus próprios certificados personalizados.
+
+Para muitas organizações, o certificado digital autoassinado para o acesso à Web StorageGRID não é compatível com suas políticas de segurança de informações. Em sistemas de produção, você deve instalar um certificado digital assinado pela CA para uso na autenticação do StorageGRID.
+
+Especificamente, você deve usar certificados de servidor personalizados em vez desses certificados padrão:
+
+* *Certificado de interface de gerenciamento*: Usado para proteger o acesso ao Gerenciador de Grade, ao Gerenciador de locatário, à API de gerenciamento de grade e à API de gerenciamento do locatário.
+* *S3 API certificate*: Usado para proteger o acesso aos nós de armazenamento e nós de Gateway, que os aplicativos clientes S3 usam para carregar e baixar dados de objetos.
+
+
+link:../admin/using-storagegrid-security-certificates.html["Gerenciar certificados de segurança"]Consulte para obter detalhes e instruções.
+
+
+NOTE: O StorageGRID gerencia os certificados usados para pontos de extremidade do balanceador de carga separadamente. Para configurar os certificados do balanceador de carga, link:../admin/configuring-load-balancer-endpoints.html["Configurar pontos de extremidade do balanceador de carga"]consulte .
+
+Ao usar certificados de servidor personalizados, siga estas diretrizes:
+
+* Os certificados devem ter um `_subjectAltName_` que corresponda às entradas de DNS para StorageGRID. Para obter detalhes, consulte a seção 4,2.1,6, "Nome alternativo do assunto", em https://tools.ietf.org/html/rfc5280#section-4.2.1.6["RFC 5280: Certificado PKIX e perfil CRL"^].
+* Quando possível, evite o uso de certificados curinga. Uma exceção a essa diretriz é o certificado para um endpoint de estilo hospedado virtual S3, que requer o uso de um curinga se os nomes de bucket não forem conhecidos antecipadamente.
+* Quando você deve usar curingas em certificados, você deve tomar medidas adicionais para reduzir os riscos. Use um padrão curinga como `*.s3.example.com` , e não use o `s3.example.com` sufixo para outros aplicativos. Esse padrão também funciona com acesso S3D de estilo caminho, como `dc1-s1.s3.example.com/mybucket` .
+* Defina os tempos de expiração do certificado como curtos (por exemplo, 2 meses) e use a API Grid Management para automatizar a rotação do certificado. Isso é especialmente importante para certificados curinga.
+
+
+Além disso, os clientes devem usar uma verificação rigorosa do nome de host ao se comunicar com o StorageGRID.
+
+
+
+== Diretrizes de fortalecimento para a política TLS e SSH
+
+Você pode selecionar uma política de segurança para determinar quais protocolos e cifras são usados para estabelecer conexões TLS seguras com aplicativos cliente e conexões SSH seguras com serviços StorageGRID internos.
+
+A política de segurança controla como TLS e SSH criptografam dados em movimento. Como prática recomendada, você deve desativar as opções de criptografia que não são necessárias para a compatibilidade de aplicativos. Use a política moderna padrão, a menos que seu sistema precise ser compatível com critérios comuns ou que você precise usar outras cifras.
+
+link:../admin/manage-tls-ssh-policy.html["Gerencie a política TLS e SSH"]Consulte para obter detalhes e instruções.

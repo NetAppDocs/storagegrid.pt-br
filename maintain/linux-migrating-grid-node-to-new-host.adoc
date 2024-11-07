@@ -1,0 +1,167 @@
+---
+permalink: maintain/linux-migrating-grid-node-to-new-host.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, linux, migrate node, migrating node, new host for node 
+summary: Você pode migrar um ou mais nós do StorageGRID de um host Linux para outro host Linux para executar a manutenção do host sem afetar a funcionalidade ou a disponibilidade da grade. 
+---
+= Linux: Migrar o nó de grade para o novo host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode migrar um ou mais nós de StorageGRID de um host Linux (o _host de origem_) para outro host Linux (o _host de destino_) para executar a manutenção do host sem afetar a funcionalidade ou a disponibilidade da sua grade.
+
+Por exemplo, você pode querer migrar um nó para executar patches de SO e reinicializar.
+
+.Antes de começar
+* Você planejou a implantação do StorageGRID para incluir suporte à migração.
++
+** link:../rhel/node-container-migration-requirements.html["Requisitos de migração de contêineres de nós para o Red Hat Enterprise Linux"]
+** link:../ubuntu/node-container-migration-requirements.html["Requisitos de migração de contentor de nó para Ubuntu ou Debian"]
+
+
+* O host de destino já está preparado para uso no StorageGRID.
+* O storage compartilhado é usado para todos os volumes de storage por nó
+* As interfaces de rede têm nomes consistentes entre os hosts.
+
+
+[NOTE]
+====
+Em uma implantação de produção, não execute mais de um nó de storage em um único host. O uso de um host dedicado para cada nó de storage fornece um domínio de falha isolado.
+
+Outros tipos de nós, como nós de administração ou nós de gateway, podem ser implantados no mesmo host. No entanto, se você tiver vários nós do mesmo tipo (dois nós de Gateway, por exemplo), não instale todas as instâncias no mesmo host.
+
+====
+
+
+== Exportar nó do host de origem
+
+Como primeira etapa, encerre o nó de grade e exporte-o do host Linux de origem.
+
+Execute os seguintes comandos no _source host_.
+
+.Passos
+. Obtenha o status de todos os nós atualmente em execução no host de origem.
++
+`sudo storagegrid node status all`
+
++
+Exemplo de saída:
+
++
+[listing]
+----
+Name Config-State Run-State
+DC1-ADM1 Configured Running
+DC1-ARC1 Configured Running
+DC1-GW1 Configured Running
+DC1-S1 Configured Running
+DC1-S2 Configured Running
+DC1-S3 Configured Running
+----
+. Identifique o nome do nó que deseja migrar e pare-o se o estado de execução estiver em execução.
++
+`sudo storagegrid node stop DC1-S3`
+
++
+Exemplo de saída:
+
++
+[listing]
+----
+Stopping node DC1-S3
+Waiting up to 630 seconds for node shutdown
+----
+. Exporte o nó do host de origem.
++
+`sudo storagegrid node export DC1-S3`
+
++
+Exemplo de saída:
+
++
+[listing]
+----
+Finished exporting node DC1-S3 to /dev/mapper/sgws-dc1-s3-var-local.
+Use 'storagegrid node import /dev/mapper/sgws-dc1-s3-var-local' if you
+want to import it again.
+----
+. Anote o `import` comando sugerido na saída.
++
+Você executará esse comando no host de destino na próxima etapa.
+
+
+
+
+
+== Importar nó no host de destino
+
+Depois de exportar o nó do host de origem, importe e valide o nó no host de destino. A validação confirma que o nó tem acesso aos mesmos dispositivos de interface de rede e armazenamento de bloco que tinha no host de origem.
+
+Execute os seguintes comandos no _host de destino_.
+
+.Passos
+. Importe o nó no host de destino.
++
+`sudo storagegrid node import /dev/mapper/sgws-dc1-s3-var-local`
+
++
+Exemplo de saída:
+
++
+[listing]
+----
+Finished importing node DC1-S3 from /dev/mapper/sgws-dc1-s3-var-local.
+You should run 'storagegrid node validate DC1-S3'
+----
+. Valide a configuração do nó no novo host.
++
+`sudo storagegrid node validate DC1-S3`
+
++
+Exemplo de saída:
+
++
+[listing]
+----
+Confirming existence of node DC1-S3... PASSED
+Checking configuration file /etc/storagegrid/nodes/DC1-S3.conf for node DC1-S3... PASSED
+Checking for duplication of unique values... PASSED
+----
+. Se ocorrerem erros de validação, solucione-os antes de iniciar o nó migrado.
++
+Para obter informações sobre solução de problemas, consulte as instruções de instalação do StorageGRID para seu sistema operacional Linux.
+
++
+** link:../rhel/index.html["Instale o StorageGRID no Red Hat Enterprise Linux"]
+** link:../ubuntu/index.html["Instale o StorageGRID no Ubuntu ou Debian"]
+
+
+
+
+
+
+== Inicie o nó migrado
+
+Depois de validar o nó migrado, você inicia o nó executando um comando no _host de destino_.
+
+.Passos
+. Inicie o nó no novo host.
++
+`sudo storagegrid node start DC1-S3`
+
+. Faça login no Gerenciador de Grade e verifique se o status do nó está verde sem alerta.
++
+
+CAUTION: Verificar se o status do nó está verde garante que o nó migrado tenha reiniciado e se juntado novamente à grade. Se o status não estiver verde, não migre nenhum nó adicional para que você não tenha mais de um nó fora de serviço.
+
+. Se você não conseguir acessar o Gerenciador de Grade, aguarde 10 minutos e execute o seguinte comando:
++
+`sudo storagegrid node status _node-name`
+
++
+Confirme se o nó migrado tem um estado de execução.
+
+

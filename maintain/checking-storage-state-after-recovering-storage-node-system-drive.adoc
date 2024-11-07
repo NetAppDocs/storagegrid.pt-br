@@ -1,0 +1,35 @@
+---
+permalink: maintain/checking-storage-state-after-recovering-storage-node-system-drive.html 
+sidebar: sidebar 
+keywords: storagegrid, storage node recovery, system drive, storage state 
+summary: Depois de recuperar a unidade do sistema para um nó de armazenamento, você deve verificar se o estado desejado do nó de armazenamento está definido como on-line e garantir que o estado estará on-line por padrão sempre que o servidor nó de armazenamento for reiniciado. 
+---
+= Verifique o estado de armazenamento depois de recuperar a unidade de sistema Storage Node
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois de recuperar a unidade do sistema para um nó de armazenamento, você deve verificar se o estado desejado do nó de armazenamento está definido como on-line e garantir que o estado estará on-line por padrão sempre que o servidor nó de armazenamento for reiniciado.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* O nó de armazenamento foi recuperado e a recuperação de dados está concluída.
+
+
+.Passos
+. Selecione *SUPPORT* > *Tools* > *Grid topology*.
+. Verifique os valores de *nó de armazenamento recuperado* > *LDR* > *armazenamento* > *Estado de armazenamento -- desejado* e *Estado de armazenamento -- atual*.
++
+O valor de ambos os atributos deve ser Online.
+
+. Se o estado de armazenamento - desejado estiver definido como somente leitura, execute as seguintes etapas:
++
+.. Clique na guia *Configuração*.
+.. Na lista suspensa *Estado de armazenamento - desejado*, selecione *Online*.
+.. Clique em *aplicar alterações*.
+.. Clique na guia *Visão geral* e confirme se os valores de *Estado de armazenamento -- desejado* e *Estado de armazenamento -- atual* são atualizados para Online.
+
+
+

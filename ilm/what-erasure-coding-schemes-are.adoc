@@ -1,0 +1,349 @@
+---
+permalink: ilm/what-erasure-coding-schemes-are.html 
+sidebar: sidebar 
+keywords: erasure-coding scheme 
+summary: Os esquemas de codificação de apagamento controlam quantos fragmentos de dados e quantos fragmentos de paridade são criados para cada objeto. 
+---
+= O que são esquemas de codificação de apagamento?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os esquemas de codificação de apagamento controlam quantos fragmentos de dados e quantos fragmentos de paridade são criados para cada objeto.
+
+Ao criar ou editar uma regra ILM, você seleciona um esquema de codificação de apagamento disponível. O StorageGRID cria automaticamente esquemas de codificação de apagamento com base em quantos nós e sites de storage compõem o pool de storage que você planeja usar.
+
+
+
+== Proteção de dados
+
+O sistema StorageGRID usa o algoritmo de codificação de apagamento de Reed-Solomon. O algoritmo corta um objeto em `k` fragmentos de dados e calcula `m` fragmentos de paridade.
+
+ `k + m = n`Os fragmentos são espalhados pelos `n` nós de storage para fornecer proteção de dados da seguinte forma:
+
+* Para recuperar ou reparar um objeto, `k` fragmentos são necessários.
+* Um objeto pode sustentar até `m` fragmentos perdidos ou corrompidos. Quanto maior o valor de `m`, maior a tolerância à falha.
+
+
+A melhor proteção de dados é fornecida pelo esquema de codificação de apagamento com a maior tolerância a falhas de volume ou nó em um pool de storage.
+
+
+
+== Sobrecarga de storage
+
+A sobrecarga de armazenamento de um esquema de codificação de apagamento é calculada dividindo o número de fragmentos de paridade (`m`) pelo número de fragmentos de (`k`dados ). Você pode usar a sobrecarga de storage para calcular quanto espaço em disco cada objeto com codificação de apagamento requer:
+
+`_disk space_ = _object size_ + (_object size_ * _storage overhead_)`
+
+Por exemplo, se você armazenar um objeto de 10 MB usando o esquema 4-2 (que tem 50% de sobrecarga de armazenamento), o objeto consome 15 MB de armazenamento em grade. Se você armazenar o mesmo objeto de 10 MB usando o esquema 6-2 (que tem 33% de sobrecarga de armazenamento), o objeto consome aproximadamente 13,3 MB.
+
+Selecione o esquema de codificação de apagamento com o menor valor total `k+m` que atenda às suas necessidades. Esquemas de codificação de apagamento com um número menor de fragmentos são mais eficientes computacionalmente porque:
+
+* Menos fragmentos são criados e distribuídos (ou recuperados) por objeto
+* Eles mostram melhor desempenho porque o tamanho do fragmento é maior
+* Eles podem exigir que menos nós sejam adicionados em um link:../expand/index.html["expansão quando mais armazenamento é necessário"]
+
+
+
+
+== Diretrizes para pools de armazenamento
+
+Ao selecionar o pool de armazenamento a ser usado para uma regra que criará uma cópia codificada por apagamento, use as seguintes diretrizes para pools de armazenamento:
+
+* O pool de storage deve incluir três ou mais locais, ou exatamente um local.
++
+
+NOTE: Não é possível usar a codificação de apagamento se o pool de armazenamento incluir dois sites.
+
++
+** <<Esquemas de codificação de apagamento para pools de storage que contêm três ou mais locais,Esquemas de codificação de apagamento para pools de storage que contêm três ou mais locais>>
+** <<Esquemas de codificação de apagamento para pools de storage de um local,Esquemas de codificação de apagamento para pools de storage de um local>>
+
+
+* Não use um pool de armazenamento que inclua o site todos os sites.
+* O pool de storage deve incluir pelo menos `_k+m_ +1` nós de storage que podem armazenar dados de objetos.
++
+
+NOTE: Os nós de storage podem ser configurados durante a instalação para conter apenas metadados de objetos e não dados de objetos. Para obter mais informações, link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nós de storage"]consulte .
+
++
+O número mínimo de nós de storage necessário é `k+m`. No entanto, ter pelo menos um nó de armazenamento adicional pode ajudar a evitar falhas de ingestão ou backlogs de ILM se um nó de armazenamento necessário estiver temporariamente indisponível.
+
+
+
+
+
+== Esquemas de codificação de apagamento para pools de storage que contêm três ou mais locais
+
+A tabela a seguir descreve os esquemas de codificação de apagamento atualmente compatíveis com o StorageGRID para pools de storage que incluem três ou mais locais. Todos esses esquemas fornecem proteção contra perda de sites. Um site pode ser perdido, e o objeto ainda estará acessível.
+
+Para esquemas de codificação de apagamento que fornecem proteção contra perda de local, o número recomendado de nós de storage no pool de storage excede `_k+m_ +1` porque cada local requer um mínimo de três nós de storage.
+
+[cols="1a,1a,1a,1a,1a,1a"]
+|===
+| Esquema de codificação de apagamento (_k_) | Número mínimo de locais implantados | Número recomendado de nós de storage em cada local | Número total recomendado de nós de storage | Proteção contra perda de site? | Sobrecarga de storage 
+
+
+ a| 
+4-2
+ a| 
+3
+ a| 
+3
+ a| 
+9
+ a| 
+Sim
+ a| 
+50%
+
+
+
+ a| 
+6-2
+ a| 
+4
+ a| 
+3
+ a| 
+12
+ a| 
+Sim
+ a| 
+33%
+
+
+
+ a| 
+8-2
+ a| 
+5
+ a| 
+3
+ a| 
+15
+ a| 
+Sim
+ a| 
+25%
+
+
+
+ a| 
+6-+3
+ a| 
+3
+ a| 
+4
+ a| 
+12
+ a| 
+Sim
+ a| 
+50%
+
+
+
+ a| 
+9-+3
+ a| 
+4
+ a| 
+4
+ a| 
+16
+ a| 
+Sim
+ a| 
+33%
+
+
+
+ a| 
+2-+1
+ a| 
+3
+ a| 
+3
+ a| 
+9
+ a| 
+Sim
+ a| 
+50%
+
+
+
+ a| 
+4-+1
+ a| 
+5
+ a| 
+3
+ a| 
+15
+ a| 
+Sim
+ a| 
+25%
+
+
+
+ a| 
+6-+1
+ a| 
+7
+ a| 
+3
+ a| 
+21
+ a| 
+Sim
+ a| 
+17%
+
+
+
+ a| 
+7-+5
+ a| 
+3
+ a| 
+5
+ a| 
+15
+ a| 
+Sim
+ a| 
+71%
+
+|===
+
+NOTE: O StorageGRID requer um mínimo de três nós de storage por local. Para usar o esquema 7-5, cada local requer um mínimo de quatro nós de storage. Recomenda-se o uso de cinco nós de storage por local.
+
+Ao selecionar um esquema de codificação de apagamento que forneça proteção do site, equilibre a importância relativa dos seguintes fatores:
+
+* *Número de fragmentos*: Desempenho e flexibilidade de expansão são geralmente melhores quando o número total de fragmentos é menor.
+* *Tolerância a falhas*: A tolerância a falhas é aumentada por ter mais segmentos de paridade (ou seja, `m` quando tem um valor mais alto).
+* *Tráfego de rede*: Ao recuperar de falhas, usar um esquema com mais fragmentos (ou seja, um total maior para `k+m`) cria mais tráfego de rede.
+* * Sobrecarga de armazenamento*: Esquemas com maior sobrecarga requerem mais espaço de armazenamento por objeto.
+
+
+Por exemplo, ao decidir entre um esquema 4-2 e um esquema 6-3 (que ambos têm uma sobrecarga de armazenamento de 50%), selecione o esquema 6-3 se for necessária uma tolerância de falha adicional. Selecione o esquema 4-2 se os recursos de rede forem restritos. Se todos os outros fatores forem iguais, selecione 4-2 porque ele tem um número total menor de fragmentos.
+
+
+NOTE: Se você não tiver certeza de qual esquema usar, selecione 4 3 ou 2 ou 6 ou entre em Contato com o suporte técnico.
+
+
+
+== Esquemas de codificação de apagamento para pools de storage de um local
+
+Um pool de storage de um local dá suporte a todos os esquemas de codificação de apagamento definidos para três ou mais locais, desde que o local tenha nós de storage suficientes.
+
+O número mínimo de nós de storage necessário é `k+m`, mas é recomendável usar um pool de storage com `k+m +1` nós de storage. Por exemplo, o esquema de codificação de apagamento 2 mais de 1 requer um pool de storage com no mínimo três nós de storage, mas quatro nós de storage são recomendados.
+
+[cols="1a,1a,1a,1a"]
+|===
+| Esquema de codificação de apagamento (_k_) | Número mínimo de nós de storage | Número recomendado de nós de storage | Sobrecarga de storage 
+
+
+ a| 
+4-2
+ a| 
+6
+ a| 
+7
+ a| 
+50%
+
+
+
+ a| 
+6-2
+ a| 
+8
+ a| 
+9
+ a| 
+33%
+
+
+
+ a| 
+8-2
+ a| 
+10
+ a| 
+11
+ a| 
+25%
+
+
+
+ a| 
+6-+3
+ a| 
+9
+ a| 
+10
+ a| 
+50%
+
+
+
+ a| 
+9-+3
+ a| 
+12
+ a| 
+13
+ a| 
+33%
+
+
+
+ a| 
+2-+1
+ a| 
+3
+ a| 
+4
+ a| 
+50%
+
+
+
+ a| 
+4-+1
+ a| 
+5
+ a| 
+6
+ a| 
+25%
+
+
+
+ a| 
+6-+1
+ a| 
+7
+ a| 
+8
+ a| 
+17%
+
+
+
+ a| 
+7-+5
+ a| 
+12
+ a| 
+13
+ a| 
+71%
+
+|===

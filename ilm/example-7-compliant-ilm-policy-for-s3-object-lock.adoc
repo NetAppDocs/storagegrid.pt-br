@@ -1,0 +1,300 @@
+---
+permalink: ilm/example-7-compliant-ilm-policy-for-s3-object-lock.html 
+sidebar: sidebar 
+keywords: ILM policy,S3 Object Lock 
+summary: Você pode usar o bucket S3, as regras ILM e a política ILM neste exemplo como ponto de partida ao definir uma política ILM para atender aos requisitos de proteção e retenção de objetos em buckets com o bloqueio de objetos S3 ativado. 
+---
+= Exemplo 7: Política de ILM compatível para bloqueio de objetos S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o bucket S3, as regras ILM e a política ILM neste exemplo como ponto de partida ao definir uma política ILM para atender aos requisitos de proteção e retenção de objetos em buckets com o bloqueio de objetos S3 ativado.
+
+
+NOTE: Se você usou o recurso de conformidade legada em versões anteriores do StorageGRID, também poderá usar este exemplo para ajudar a gerenciar quaisquer buckets existentes que tenham o recurso de conformidade legada habilitado.
+
+
+CAUTION: As seguintes regras e políticas do ILM são apenas exemplos. Existem muitas maneiras de configurar regras ILM. Antes de ativar uma nova política, simule-a para confirmar que ela funcionará da forma pretendida para proteger o conteúdo da perda.
+
+.Informações relacionadas
+* link:managing-objects-with-s3-object-lock.html["Gerencie objetos com o S3 Object Lock"]
+* link:creating-ilm-policy.html["Crie uma política ILM"]
+
+
+
+
+== Bucket e objetos para o exemplo de bloqueio de objetos do S3
+
+Neste exemplo, uma conta de locatário do S3 chamada Bank of ABC usou o Gerenciador do Locatário para criar um bucket com o bloqueio de objeto do S3 habilitado para armazenar Registros bancários críticos.
+
+[cols="2a,2a"]
+|===
+| Definição do balde | Exemplo de valor 
+
+
+ a| 
+Nome da conta do locatário
+ a| 
+Banco do ABC
+
+
+
+ a| 
+Nome do balde
+ a| 
+registos bancários
+
+
+
+ a| 
+Região do balde
+ a| 
+us-east-1 (predefinição)
+
+|===
+Cada versão de objeto e objeto adicionada ao bucket de Registros bancários usará os seguintes valores para `retain-until-date` as configurações e `legal hold`.
+
+[cols="1a,2a"]
+|===
+| Definição para cada objeto | Exemplo de valor 
+
+
+ a| 
+`retain-until-date`
+ a| 
+"2030-12-30T23:59:59Z" (30 de dezembro de 2030)
+
+Cada versão de objeto tem sua `retain-until-date` própria configuração. Esta definição pode ser aumentada, mas não diminuída.
+
+
+
+ a| 
+`legal hold`
+ a| 
+"DESLIGADO" (não em vigor)
+
+Uma retenção legal pode ser colocada ou levantada em qualquer versão do objeto a qualquer momento durante o período de retenção. Se um objeto estiver sob uma retenção legal, o objeto não poderá ser excluído mesmo que o `retain-until-date` tenha sido alcançado.
+
+|===
+
+
+== Regra 1 do ILM para o S3 Object Lock exemplo: Perfil de codificação de apagamento com correspondência de intervalo
+
+Este exemplo de regra ILM aplica-se apenas à conta de locatário S3 chamada Bank of ABC. Ele corresponde a qualquer objeto no `bank-records` bucket e, em seguida, usa a codificação de apagamento para armazenar o objeto em nós de storage em três locais de data center usando um perfil de codificação de apagamento de mais de 6 horas por dia, 3 dias por semana. Essa regra atende aos requisitos dos buckets com o bloqueio de objetos S3 ativado: Uma cópia é mantida nos nós de storage do dia 0 para sempre, usando o tempo de ingestão como o tempo de referência.
+
+[cols="1a,2a"]
+|===
+| Definição de regra | Exemplo de valor 
+
+
+ a| 
+Nome da regra
+ a| 
+Regra compatível: Objetos EC no bucket de Registros bancários - Banco do ABC
+
+
+
+ a| 
+Conta de locatário
+ a| 
+Banco do ABC
+
+
+
+ a| 
+Nome do balde
+ a| 
+`bank-records`
+
+
+
+ a| 
+Filtro avançado
+ a| 
+Tamanho do objeto (MB) maior que 1
+
+*Nota:* este filtro garante que a codificação de apagamento não seja usada para objetos de 1 MB ou menores.
+
+|===
+[cols="1a,2a"]
+|===
+| Definição de regra | Exemplo de valor 
+
+
+ a| 
+Tempo de referência
+ a| 
+Tempo de ingestão
+
+
+
+ a| 
+Colocações
+ a| 
+Desde o dia 0 loja para sempre
+
+
+
+ a| 
+Perfil de codificação de apagamento
+ a| 
+* Crie uma cópia codificada por apagamento em nós de storage em três locais de data center
+* Usa o esquema de codificação de apagamento 6-3
+
+
+|===
+
+
+== Regra ILM 2 para o exemplo de bloqueio de objetos S3: Regra não compatível
+
+Este exemplo de regra de ILM armazena inicialmente duas cópias de objeto replicadas em nós de storage. Após um ano, ele armazena uma cópia em um pool de storage de nuvem para sempre. Como essa regra usa um pool de armazenamento em nuvem, ela não é compatível e não se aplica aos objetos em buckets com o bloqueio de objetos do S3 ativado.
+
+[cols="1a,2a"]
+|===
+| Definição de regra | Exemplo de valor 
+
+
+ a| 
+Nome da regra
+ a| 
+Regra não compatível: Use o Cloud Storage Pool
+
+
+
+ a| 
+Contas de inquilino
+ a| 
+Não especificado
+
+
+
+ a| 
+Nome do intervalo
+ a| 
+Não especificado, mas só se aplicará a buckets que não tenham o bloqueio de objeto S3 (ou o recurso de conformidade legado) habilitado.
+
+
+
+ a| 
+Filtro avançado
+ a| 
+Não especificado
+
+|===
+[cols="1a,2a"]
+|===
+| Definição de regra | Exemplo de valor 
+
+
+ a| 
+Tempo de referência
+ a| 
+Tempo de ingestão
+
+
+
+ a| 
+Colocações
+ a| 
+* No dia 0, mantenha duas cópias replicadas nos nós de storage no data center 1 e no data center 2 por 365 dias
+* Após 1 ano, mantenha uma cópia replicada em um pool de storage de nuvem para sempre
+
+
+|===
+
+
+== Regra ILM 3 para o exemplo de bloqueio de objetos S3: Regra padrão
+
+Este exemplo de regra de ILM copia dados de objetos para pools de storage em dois data centers. Esta regra compatível foi projetada para ser a regra padrão na política ILM. Ele não inclui nenhum filtro, não usa o tempo de referência não atual e satisfaz os requisitos de buckets com o bloqueio de objeto S3 ativado: Duas cópias de objeto são mantidas em nós de armazenamento do dia 0 para sempre, usando a ingestão como o tempo de referência.
+
+[cols="1a,2a"]
+|===
+| Definição de regra | Exemplo de valor 
+
+
+ a| 
+Nome da regra
+ a| 
+Regra de conformidade padrão: Duas cópias dois Data Centers
+
+
+
+ a| 
+Conta de locatário
+ a| 
+Não especificado
+
+
+
+ a| 
+Nome do intervalo
+ a| 
+Não especificado
+
+
+
+ a| 
+Filtro avançado
+ a| 
+Não especificado
+
+|===
+[cols="1a,2a"]
+|===
+| Definição de regra | Exemplo de valor 
+
+
+ a| 
+Tempo de referência
+ a| 
+Tempo de ingestão
+
+
+
+ a| 
+Colocações
+ a| 
+Do dia 0 até sempre, mantenha duas cópias replicadas: Uma em nós de storage no data center 1 e uma em nós de storage no data center 2.
+
+|===
+
+
+== Política ILM compatível para o exemplo de bloqueio de objetos S3
+
+Para criar uma política de ILM que proteja efetivamente todos os objetos em seu sistema, incluindo aqueles em buckets com o bloqueio de objetos S3 ativado, você deve selecionar regras de ILM que atendam aos requisitos de armazenamento de todos os objetos. Em seguida, você deve simular e ativar a política.
+
+
+
+=== Adicione regras à política
+
+Neste exemplo, a política ILM inclui três regras ILM, na seguinte ordem:
+
+. Uma regra compatível que usa codificação de apagamento para proteger objetos com mais de 1 MB em um bucket específico com o bloqueio de objetos S3 ativado. Os objetos são armazenados nos nós de storage do dia 0 para sempre.
+. Regra não compatível que cria duas cópias de objetos replicadas em nós de storage por um ano e move uma cópia de objeto para um pool de storage de nuvem para sempre. Esta regra não se aplica a buckets com o bloqueio de objetos do S3 ativado porque usa um pool de armazenamento em nuvem.
+. A regra em conformidade padrão que cria duas cópias de objetos replicadas nos nós de storage do dia 0 para sempre.
+
+
+
+
+=== Simule a política
+
+Depois de adicionar regras à política, escolher uma regra compatível padrão e organizar as outras regras, você deve simular a política testando objetos do bucket com o bloqueio de objetos S3 ativado e de outros buckets. Por exemplo, quando você simula a política de exemplo, espera-se que os objetos de teste sejam avaliados da seguinte forma:
+
+* A primeira regra só corresponderá a objetos de teste maiores que 1 MB nos Registros de banco de buckets para o locatário do Bank of ABC.
+* A segunda regra corresponderá a todos os objetos em todos os buckets não compatíveis para todas as outras contas de inquilino.
+* A regra padrão corresponderá a estes objetos:
++
+** Objetos 1 MB ou mais pequenos nos Registros de banco de buckets para o inquilino do Banco do ABC.
+** Objetos em qualquer outro bucket que tenha o bloqueio de objeto S3 ativado para todas as outras contas de locatário.
+
+
+
+
+
+
+=== Ative a política
+
+Quando você estiver completamente satisfeito que a nova política protege os dados de objetos conforme esperado, você pode ativá-los.

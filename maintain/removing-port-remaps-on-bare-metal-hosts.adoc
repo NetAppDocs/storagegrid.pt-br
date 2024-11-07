@@ -1,0 +1,92 @@
+---
+permalink: maintain/removing-port-remaps-on-bare-metal-hosts.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, linux, linux host, bare metal host, baremetal host, remove port remap, removing port remap, port remap 
+summary: Se você quiser configurar um ponto de extremidade para o serviço Load Balancer e quiser usar uma porta que já tenha sido configurada como a porta mapeada de um remapeamento de porta, primeiro remova o remapeamento de porta existente ou o ponto de extremidade não será efetivo. 
+---
+= Remova os remapas de portas em hosts bare metal
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você quiser configurar um ponto de extremidade para o serviço Load Balancer e quiser usar uma porta que já tenha sido configurada como a porta mapeada de um remapeamento de porta, primeiro remova o remapeamento de porta existente ou o ponto de extremidade não será efetivo.
+
+.Sobre esta tarefa
+Se você estiver executando o StorageGRID em hosts bare metal, siga este procedimento em vez do procedimento geral para remover os remapas de portas. Você deve editar o arquivo de configuração de nó para cada nó Admin e nó Gateway que tenha portas remapeadas conflitantes para remover todos os remapas de portas do nó e reiniciar o nó.
+
+
+CAUTION: Este procedimento remove todos os remapas de portas. Se você precisar manter alguns dos remapas, entre em Contato com o suporte técnico.
+
+Para obter informações sobre como configurar pontos de extremidade do balanceador de carga, consulte as instruções para administrar o StorageGRID.
+
+
+NOTE: Este procedimento pode resultar em perda temporária de serviço à medida que os nós são reiniciados.
+
+.Passos
+. Faça login no host que suporta o nó. Faça login como root ou com uma conta que tenha permissão sudo.
+. Execute o seguinte comando para desativar temporariamente o nó: `sudo storagegrid node stop _node-name_`
+. Usando um editor de texto como vim ou pico, edite o arquivo de configuração do nó para o nó.
++
+O arquivo de configuração do nó pode ser encontrado em `/etc/storagegrid/nodes/_node-name_.conf`.
+
+. Localize a seção do arquivo de configuração do nó que contém os remapas de portas.
++
+Veja as duas últimas linhas no exemplo a seguir.
+
++
+[listing, subs="specialcharacters,quotes"]
+----
+ADMIN_NETWORK_CONFIG = STATIC
+ADMIN_NETWORK_ESL = 10.0.0.0/8, 172.19.0.0/16, 172.21.0.0/16
+ADMIN_NETWORK_GATEWAY = 10.224.0.1
+ADMIN_NETWORK_IP = 10.224.5.140
+ADMIN_NETWORK_MASK = 255.255.248.0
+ADMIN_NETWORK_MTU = 1400
+ADMIN_NETWORK_TARGET = eth1
+ADMIN_NETWORK_TARGET_TYPE = Interface
+BLOCK_DEVICE_VAR_LOCAL = /dev/sda2
+CLIENT_NETWORK_CONFIG = STATIC
+CLIENT_NETWORK_GATEWAY = 47.47.0.1
+CLIENT_NETWORK_IP = 47.47.5.140
+CLIENT_NETWORK_MASK = 255.255.248.0
+CLIENT_NETWORK_MTU = 1400
+CLIENT_NETWORK_TARGET = eth2
+CLIENT_NETWORK_TARGET_TYPE = Interface
+GRID_NETWORK_CONFIG = STATIC
+GRID_NETWORK_GATEWAY = 192.168.0.1
+GRID_NETWORK_IP = 192.168.5.140
+GRID_NETWORK_MASK = 255.255.248.0
+GRID_NETWORK_MTU = 1400
+GRID_NETWORK_TARGET = eth0
+GRID_NETWORK_TARGET_TYPE = Interface
+NODE_TYPE = VM_API_Gateway
+*PORT_REMAP = client/tcp/8082/443*
+*PORT_REMAP_INBOUND = client/tcp/8082/443*
+----
+. Edite as entradas port_REMAP e port_REMAP_INBOUND para remover os remapas de portas.
++
+[listing]
+----
+PORT_REMAP =
+PORT_REMAP_INBOUND =
+----
+. Execute o seguinte comando para validar suas alterações no arquivo de configuração do nó para o nó: ``sudo storagegrid node validate _node-name_``
++
+Solucione quaisquer erros ou avisos antes de prosseguir para a próxima etapa.
+
+. Execute o seguinte comando para reiniciar o nó sem remapas de portas: `sudo storagegrid node start _node-name_`
+. Faça login no nó como administrador usando a senha listada no `Passwords.txt` arquivo.
+. Verifique se os serviços começam corretamente.
++
+.. Veja uma lista dos status de todos os serviços no servidor:``sudo storagegrid-status``
++
+O estado é atualizado automaticamente.
+
+.. Aguarde até que todos os serviços tenham um status de execução ou verificado.
+.. Saia do ecrã de estado:``Ctrl+C``
+
+
+. Repita estas etapas em cada nó de administração e nó de gateway que tenha portas remapeadas conflitantes.
+

@@ -1,0 +1,23 @@
+---
+permalink: network/grid-network-requirements.html 
+sidebar: sidebar 
+keywords: grid network requirements 
+summary: Siga estes requisitos e diretrizes para a rede de Grade. 
+---
+= Requisitos de rede de rede
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga estes requisitos e diretrizes para a rede de Grade.
+
+* No momento da implantação, cada nó de grade deve ser conetado à rede de Grade e deve ser capaz de se comunicar com o nó Admin principal usando a configuração de rede especificada ao implantar o nó.
+* Durante as operações normais da grade, cada nó da grade deve ser capaz de se comunicar com todos os outros nós da grade pela rede da grade.
++
+
+NOTE: A rede de Grade deve ser roteável diretamente entre cada nó. A conversão de endereços de rede (NAT) entre nós não é suportada.
+
+* Se a rede de Grade consistir em várias sub-redes, adicione-as à Lista de sub-redes de rede de Grade (GNSL). As rotas estáticas são criadas em todos os nós para cada sub-rede no GNSL.
+

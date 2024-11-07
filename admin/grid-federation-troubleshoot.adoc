@@ -1,0 +1,224 @@
+---
+permalink: admin/grid-federation-troubleshoot.html 
+sidebar: sidebar 
+keywords: troubleshoot, grid federation connection, account clone, cross-grid replication, alerts, errors 
+summary: Talvez você precise solucionar alertas e erros relacionados a conexões de federação de grade, clone de conta e replicação entre grade. 
+---
+= Solucionar erros de federação de grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Talvez você precise solucionar alertas e erros relacionados a conexões de federação de grade, clone de conta e replicação entre grade.
+
+
+
+== [[Grid-Federation-errors]]alertas e erros de conexão de federação de grade
+
+Você pode receber alertas ou ter erros com suas conexões de federação de grade.
+
+Depois de fazer quaisquer alterações para resolver um problema de conexão, teste a conexão para garantir que o status da conexão retorne a *conectado*. Para obter instruções, link:grid-federation-manage-connection.html["Gerenciar conexões de federação de grade"]consulte .
+
+
+
+=== Alerta de falha de conexão de federação de grade
+
+.Problema
+O alerta *Falha na conexão da federação de grade* foi acionado.
+
+.Detalhes
+Este alerta indica que a conexão de federação de grade entre as grades não está funcionando.
+
+.Ações recomendadas
+. Revise as configurações na página de Federação de Grade para ambas as grades. Confirme se todos os valores estão corretos. link:grid-federation-manage-connection.html["Gerenciar conexões de federação de grade"]Consulte .
+. Reveja os certificados utilizados para a ligação. Certifique-se de que não existem alertas para certificados de federação de grade expirados e de que os detalhes de cada certificado são válidos. Consulte as instruções para obter os certificados de conexão rotativos em link:grid-federation-manage-connection.html["Gerenciar conexões de federação de grade"].
+. Confirme se todos os nós Admin e Gateway em ambas as grades estão online e disponíveis. Resolva quaisquer alertas que possam estar afetando esses nós e tente novamente.
+. Se você forneceu um nome de domínio totalmente qualificado (FQDN) para a grade local ou remota, confirme se o servidor DNS está on-line e disponível. Consulte link:grid-federation-overview.html["O que é a federação de grade?"] para obter informações sobre os requisitos de rede, endereço IP e DNS.
+
+
+
+
+=== Expiração do alerta de certificado de federação de grade
+
+.Problema
+O alerta *Expiration of Grid Federation certificate* foi acionado.
+
+.Detalhes
+Este alerta indica que um ou mais certificados de federação de grade estão prestes a expirar.
+
+.Ações recomendadas
+Consulte as instruções para obter os certificados de conexão rotativos em link:grid-federation-manage-connection.html["Gerenciar conexões de federação de grade"].
+
+
+
+=== Erro ao editar uma conexão de federação de grade
+
+.Problema
+Ao editar uma conexão de federação de grade, você verá a seguinte mensagem de aviso ao selecionar *Salvar e testar*: "Falha ao criar um arquivo de configuração de candidato em um ou mais nós."
+
+.Detalhes
+Quando você edita uma conexão de federação de grade, o StorageGRID tenta salvar um arquivo de "configuração de candidato" em todos os nós de administração na primeira grade. Uma mensagem de aviso será exibida se esse arquivo não puder ser salvo em todos os nós de administração, por exemplo, porque um nó de administração está offline.
+
+.Ações recomendadas
+. Na grade que você está usando para editar a conexão, selecione *NÓS*.
+. Confirme se todos os nós de administração dessa grade estão online.
+. Se algum nó estiver offline, coloque-o novamente online e tente editar a conexão novamente.
+
+
+
+
+== Erros de clone de conta
+
+
+
+=== Não é possível entrar em uma conta de locatário clonada
+
+.Problema
+Você não pode entrar em uma conta de locatário clonada. A mensagem de erro na página de início de sessão do Gestor do Locatário é "as suas credenciais para esta conta eram inválidas. Tente novamente."
+
+.Detalhes
+Por motivos de segurança, quando uma conta de locatário é clonada da grade de origem do locatário para a grade de destino do locatário, a senha definida para o usuário raiz local do locatário não é clonada. Da mesma forma, quando um locatário cria usuários locais em sua grade de origem, as senhas de usuário local não são clonadas para a grade de destino.
+
+.Ações recomendadas
+Antes que o usuário raiz possa fazer login na grade de destino do locatário, um administrador de grade deve primeiro link:changing-password-for-tenant-local-root-user.html["altere a senha do usuário raiz local"] na grade de destino.
+
+Antes que um usuário local clonado possa entrar na grade de destino do locatário, o usuário raiz do locatário clonado deve adicionar uma senha para o usuário na grade de destino. Para obter instruções, consulte link:../tenant/managing-local-users.html["Gerenciar usuários locais"] as instruções para usar o Gerenciador do Locatário.
+
+
+
+=== Locatário criado sem um clone
+
+.Problema
+Você verá a mensagem "Tenant created without a clone" após criar um novo locatário com a permissão *Use Grid Federation Connection*.
+
+.Detalhes
+Esse problema pode ocorrer se as atualizações do status da conexão forem atrasadas, o que pode fazer com que uma conexão não-saudável seja listada como *conectado*.
+
+.Ações recomendadas
+. Revise o motivo listado na mensagem de erro e resolva quaisquer problemas de rede ou outros que possam estar impedindo que a conexão funcione. <<grid-federation-errors,Alertas e erros de conexão de federação de grade>>Consulte .
+. Siga as instruções para testar uma conexão de federação de grade em link:grid-federation-manage-connection.html["Gerenciar conexões de federação de grade"]para confirmar que o problema foi corrigido.
+. Na grade de origem do locatário, selecione *TENANTS*.
+. Localize a conta de locatário que não foi clonada.
+. Selecione o nome do locatário para exibir a página de detalhes.
+. Selecione *Repetir clone de conta*.
++
+image::../media/grid-federation-retry-account-clone.png[Captura de tela mostrando uma mensagem de erro e o botão Repetir conta clone]
+
++
+Se o erro tiver sido resolvido, a conta de locatário será clonada para a outra grade.
+
+
+
+
+
+== Alertas e erros de replicação entre redes
+
+
+
+=== Último erro mostrado para conexão ou locatário
+
+.Problema
+Quando link:../monitor/grid-federation-monitor-connections.html["exibindo uma conexão de federação de grade"] (ou link:grid-federation-manage-tenants.html["gerir os inquilinos permitidos"]quando para uma conexão), você percebe um erro na coluna *último erro* na página de detalhes da conexão. Por exemplo:
+
+image::../media/grid-federation-last-error.png[Captura de tela mostrando uma mensagem na coluna último erro de uma conexão de federação de grade]
+
+.Detalhes
+Para cada conexão de federação de grade, a coluna *último erro* mostra o erro mais recente a ocorrer, se houver, quando os dados de um locatário estavam sendo replicados para a outra grade. Esta coluna mostra apenas o último erro de replicação entre grelha a ocorrer; os erros anteriores que possam ter ocorrido não serão apresentados. Um erro nesta coluna pode ocorrer por um destes motivos:
+
+* A versão do objeto fonte não foi encontrada.
+* O balde de origem não foi encontrado.
+* O intervalo de destino foi eliminado.
+* O intervalo de destino foi recriado por uma conta diferente.
+* O bucket de destino tem controle de versão suspenso.
+* O intervalo de destino foi recriado pela mesma conta, mas agora não foi versionado.
+
+
+.Ações recomendadas
+Se aparecer uma mensagem de erro na coluna *último erro*, siga estes passos:
+
+. Reveja o texto da mensagem.
+. Execute quaisquer ações recomendadas. Por exemplo, se o controle de versão foi suspenso no bucket de destino para replicação entre grades, reative o controle de versão desse bucket.
+. Selecione a conta de conexão ou locatário na tabela.
+. Selecione *Clear error*.
+. Selecione *Sim* para limpar a mensagem e atualizar o estado do sistema.
+. Aguarde 5-6 minutos e, em seguida, insira um novo objeto no balde. Confirme se a mensagem de erro não reaparece.
++
+
+NOTE: Para garantir que a mensagem de erro seja limpa, aguarde pelo menos 5 minutos após o carimbo de data/hora na mensagem antes de inserir um novo objeto.
+
++
+
+TIP: Depois de limpar o erro, um novo *último erro* pode aparecer se os objetos forem ingeridos em um intervalo diferente que também tenha um erro.
+
+. Para determinar se algum objeto não pôde ser replicado devido ao erro de bucket, link:../admin/grid-federation-retry-failed-replication.html["Identificar e tentar novamente operações de replicação com falha"]consulte .
+
+
+
+
+=== Alerta de falha permanente de replicação entre redes
+
+.Problema
+O alerta *Falha permanente de replicação entre redes* foi acionado.
+
+.Detalhes
+Esse alerta indica que os objetos de locatário não podem ser replicados entre os buckets em duas grades por um motivo que requer a intervenção do usuário para serem resolvidos. Este alerta é normalmente causado por uma alteração na origem ou no intervalo de destino.
+
+.Ações recomendadas
+. Inicie sessão na grelha onde o alerta foi acionado.
+. Aceda a *CONFIGURATION* > *System* > *Grid Federation* e localize o nome da ligação listado no alerta.
+. Na guia inquilinos permitidos, observe a coluna *último erro* para determinar quais contas de locatário têm erros.
+. Para saber mais sobre a falha, consulte as instruções em link:../monitor/grid-federation-monitor-connections.html["Monitorar conexões de federação de grade"] para analisar as métricas de replicação entre grades.
+. Para cada conta de locatário afetada:
++
+.. Consulte as instruções em link:../monitor/monitoring-tenant-activity.html["Monitorar a atividade do locatário"] para confirmar que o locatário não excedeu sua cota na grade de destino para replicação entre grades.
+.. Conforme necessário, aumente a cota do locatário na grade de destino para permitir que novos objetos sejam salvos.
+
+
+. Para cada locatário afetado, faça login no Tenant Manager em ambas as grades, para que você possa comparar a lista de buckets.
+. Para cada bucket com replicação entre grades ativada, confirme o seguinte:
++
+** Há um intervalo correspondente para o mesmo inquilino na outra grade (deve usar o nome exato).
+** Ambos os buckets têm o controle de versão de objetos ativado (o controle de versão não pode ser suspenso em nenhuma grade).
+** Ambos os buckets têm o bloqueio de objeto S3 desativado.
+** Nenhum dos buckets está no estado *Deletando objetos: Somente leitura*.
+
+
+. Para confirmar que o problema foi resolvido, consulte as instruções em link:../monitor/grid-federation-monitor-connections.html["Monitorar conexões de federação de grade"] para rever as métricas de replicação entre redes ou execute estas etapas:
++
+.. Volte para a página de federação de Grade.
+.. Selecione o locatário afetado e selecione *Limpar erro* na coluna *último erro*.
+.. Selecione *Sim* para limpar a mensagem e atualizar o estado do sistema.
+.. Aguarde 5-6 minutos e, em seguida, insira um novo objeto no balde. Confirme se a mensagem de erro não reaparece.
++
+
+NOTE: Para garantir que a mensagem de erro seja limpa, aguarde pelo menos 5 minutos após o carimbo de data/hora na mensagem antes de inserir um novo objeto.
+
++
+
+NOTE: Pode levar até um dia para que o alerta seja apagado depois que ele for resolvido.
+
+.. Aceda a link:grid-federation-retry-failed-replication.html["Identificar e tentar novamente operações de replicação com falha"] para identificar quaisquer objetos ou eliminar marcadores que não foram replicados para a outra grelha e para tentar novamente a replicação conforme necessário.
+
+
+
+
+
+
+=== Alerta de recurso de replicação entre redes indisponível
+
+.Problema
+O alerta *recurso de replicação entre redes indisponível* foi acionado.
+
+.Detalhes
+Esse alerta indica que as solicitações de replicação entre grade estão pendentes porque um recurso não está disponível. Por exemplo, pode haver um erro de rede.
+
+.Ações recomendadas
+. Monitore o alerta para ver se o problema resolve sozinho.
+. Se o problema persistir, determine se qualquer grade tem um alerta *Falha na conexão de federação de grade* para a mesma conexão ou um alerta *não é possível se comunicar com nó* para um nó. Esse alerta pode ser resolvido quando você resolve esses alertas.
+. Para saber mais sobre a falha, consulte as instruções em link:../monitor/grid-federation-monitor-connections.html["Monitorar conexões de federação de grade"] para analisar as métricas de replicação entre grades.
+. Se você não conseguir resolver o alerta, entre em Contato com o suporte técnico.
+
+
+A replicação entre redes continuará normalmente após o problema ser resolvido.

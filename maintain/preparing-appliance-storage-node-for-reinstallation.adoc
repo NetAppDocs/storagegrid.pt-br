@@ -1,0 +1,43 @@
+---
+permalink: maintain/preparing-appliance-storage-node-for-reinstallation.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, appliance, reinstallation appliance, reinstall appliance 
+summary: Ao recuperar um nó de storage do dispositivo, primeiro você deve preparar o dispositivo para a reinstalação do software StorageGRID. 
+---
+= Prepare o nó de storage do dispositivo para reinstalação
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ao recuperar um nó de storage do dispositivo, primeiro você deve preparar o dispositivo para a reinstalação do software StorageGRID.
+
+.Passos
+. Faça login no nó de storage com falha:
++
+.. Introduza o seguinte comando: `ssh admin@_grid_node_IP_`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+
+
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+. Prepare o nó de storage do dispositivo para a instalação do software StorageGRID. `sgareinstall`
+. Quando solicitado a continuar, digite: `y`
++
+O aparelho reinicializa e sua sessão SSH termina. Normalmente, demora cerca de 5 minutos para que o Instalador de dispositivos StorageGRID fique disponível, embora em alguns casos você possa precisar esperar até 30 minutos.
+
++
+
+CAUTION: Não tente acelerar a reinicialização desligando a alimentação ou reiniciando o aparelho. Você pode interromper atualizações automáticas de BIOS, BMC ou outras atualizações de firmware.
+
++
+O nó de armazenamento do dispositivo StorageGRID é redefinido e os dados no nó de armazenamento não estão mais acessíveis. Os endereços IP configurados durante o processo de instalação original devem permanecer intactos; no entanto, é recomendável que você confirme isso quando o procedimento for concluído.
+
++
+Depois de executar o `sgareinstall` comando, todas as contas, senhas e chaves SSH provisionadas pelo StorageGRID são removidas e novas chaves de host são geradas.
+
+

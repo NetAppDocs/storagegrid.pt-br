@@ -1,0 +1,71 @@
+---
+permalink: tenant/understanding-notifications-for-buckets.html 
+sidebar: sidebar 
+keywords: s3 bucket event notification, sequencer key 
+summary: Você pode ativar a notificação de eventos para um bucket do S3 se quiser que o StorageGRID envie notificações sobre eventos especificados para um cluster do Kafka de destino ou para o Amazon Simple Notification Service. 
+---
+= Entenda as notificações para buckets
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode ativar a notificação de eventos para um bucket do S3 se quiser que o StorageGRID envie notificações sobre eventos especificados para um cluster do Kafka de destino ou para o Amazon Simple Notification Service.
+
+Por exemplo, você pode configurar alertas para serem enviados aos administradores sobre cada objeto adicionado a um bucket, onde os objetos representam arquivos de log associados a um evento crítico do sistema.
+
+As notificações de eventos são criadas no intervalo de origem conforme especificado na configuração de notificação e são entregues ao destino. Se um evento associado a um objeto for bem-sucedido, uma notificação sobre esse evento será criada e colocada em fila para entrega.
+
+A singularidade e a ordem das notificações não são garantidas. Mais de uma notificação de um evento pode ser entregue ao destino como resultado de operações tomadas para garantir o sucesso da entrega. E como a entrega é assíncrona, o tempo de ordenação das notificações no destino não é garantido para corresponder à ordenação de eventos no intervalo de origem, particularmente para operações originadas de diferentes sites da StorageGRID. Você pode usar a `sequencer` chave na mensagem de evento para determinar a ordem dos eventos para um determinado objeto, conforme descrito na documentação do Amazon S3.
+
+As notificações de eventos do StorageGRID seguem a API do Amazon S3 com algumas limitações.
+
+* Os seguintes tipos de evento são suportados:
++
+** S3:ObjectCreated:
+** S3:ObjectCreated:put
+** S3:ObjectCreated:Post
+** S3:ObjectCreated:Copy
+** S3:ObjectCreated:CompleteMultipartUpload
+** S3:ObjectRemovado:
+** S3:ObjectRemovado:Excluir
+** S3:ObjectRemoved:DeleteMarkerCreated
+** S3:ObjectRestore:Post
+
+
+* As notificações de eventos enviadas pelo StorageGRID usam o formato JSON padrão, mas não incluem algumas chaves e usam valores específicos para outras, como mostrado na tabela:
+
+
+[cols="1a,2a"]
+|===
+| Nome da chave | Valor StorageGRID 
+
+
+ a| 
+EventSource
+ a| 
+`sgws:s3`
+
+
+
+ a| 
+AwsRegion
+ a| 
+_não incluído_
+
+
+
+ a| 
+x-amz-id-2
+ a| 
+_não incluído_
+
+
+
+ a| 
+arn
+ a| 
+`urn:sgws:s3:::bucket_name`
+
+|===

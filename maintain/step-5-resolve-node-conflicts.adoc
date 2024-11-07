@@ -1,0 +1,111 @@
+---
+permalink: maintain/step-5-resolve-node-conflicts.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, resolve node conflict 
+summary: 'A partir da Etapa 5 (resolver conflitos de nó) do assistente do local de desativação, você pode determinar se algum nó no sistema StorageGRID está desconetado ou se algum nó no local selecionado pertence a um grupo de alta disponibilidade. Depois que qualquer conflito de nó for resolvido, você inicia o procedimento de desativação nesta página.' 
+---
+= Etapa 5: Resolver conflitos de nó (e iniciar a desativação)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Na Etapa 5 (resolver conflitos de nós) do assistente do local de desativação, você pode determinar se algum nó no sistema StorageGRID está desconetado ou se algum nó no local selecionado pertence a um grupo de alta disponibilidade (HA). Depois que qualquer conflito de nó for resolvido, você inicia o procedimento de desativação nesta página.
+
+.Antes de começar
+Você deve garantir que todos os nós do sistema StorageGRID estejam no estado correto, como a seguir:
+
+* Todos os nós do sistema StorageGRID devem estar conetados (image:../media/icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"] ).
++
+
+NOTE: Se você estiver executando uma desativação do local desconetado, todos os nós do local que você está removendo devem ser desconetados e todos os nós de todos os outros locais devem estar conetados.
+
++
+
+NOTE: A desativação não será iniciada se um ou mais volumes estiverem offline (desmontados) ou se estiverem online (montados), mas em estado de erro.
+
++
+
+NOTE: Se um ou mais volumes ficarem offline enquanto uma desativação estiver em andamento, o processo de desativação será concluído depois que esses volumes voltarem a estar online.
+
+* Nenhum nó no local que você está removendo pode ter uma interface que pertence a um grupo de alta disponibilidade (HA).
+
+
+.Sobre esta tarefa
+Se algum nó estiver listado para a Etapa 5 (resolver conflitos de nó), você deve corrigir o problema antes de iniciar a desativação.
+
+Antes de iniciar o procedimento de desativação do site a partir desta página, reveja as seguintes considerações:
+
+* Você deve permitir tempo adequado para que o procedimento de desativação seja concluído.
++
+
+NOTE: A migração ou exclusão de dados de objetos de um local pode levar dias, semanas ou até meses, dependendo da quantidade de dados no local, da carga no sistema, das latências de rede e da natureza das mudanças necessárias no ILM.
+
+* Enquanto o procedimento de desativação do site está em execução:
++
+** Não é possível criar regras ILM que se referem ao site que está sendo desativado. Você também não pode editar uma regra ILM existente para se referir ao site.
+** Não é possível executar outros procedimentos de manutenção, como expansão ou atualização.
++
+
+NOTE: Se você precisar executar outro procedimento de manutenção durante a desativação de um site conetado, poderá pausar o procedimento enquanto os nós de storage estiverem sendo removidos. O botão *Pausa* é ativado durante o estágio "Descomissionamento replicados e dados codificados por apagamento".
+
+** Se você precisar recuperar qualquer nó depois de iniciar o procedimento de desativação do site, entre em Contato com o suporte.
+
+
+
+
+.Passos
+. Consulte a seção nós desconetados da Etapa 5 (resolver conflitos de nó) para determinar se algum nó no sistema StorageGRID tem um estado de conexão desconhecido (image:../media/icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"] ) ou administrativamente inativo ( )image:../media/icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"].
++
+image::../media/decommission_site_step_5_disconnected_nodes.png[Etapa 5 resolver conflitos de nó]
+
+. Se algum nó estiver desconetado, coloque-o novamente on-line.
++
+Consulte link:../maintain/grid-node-procedures.html["Procedimentos do nó"]. Entre em Contato com o suporte técnico se precisar de assistência.
+
+. Quando todos os nós desconetados forem colocados novamente on-line, consulte a seção grupos de HA da Etapa 5 (resolver conflitos de nó).
++
+Esta tabela lista todos os nós do local selecionado que pertencem a um grupo de alta disponibilidade (HA).
+
++
+image::../media/decommission_site_step_5_ha_groups.png[Desativar os grupos de HA do passo 5 do local]
+
+. Se algum dos nós estiver listado, faça um dos seguintes procedimentos:
++
+** Edite cada grupo de HA afetado para remover a interface do nó.
+** Remover um grupo de HA que inclua somente nós deste local. Consulte as instruções para administrar o StorageGRID.
+
+
++
+Se todos os nós estiverem conetados e nenhum nó no local selecionado for usado em um grupo de HA, o campo *frase-passe de provisionamento* será ativado.
+
+. Introduza a frase-passe de aprovisionamento.
++
+O botão *Start Decommission* fica ativado.
+
++
+image::../media/decommission_site_step_5_provision_passphrase.png[Desativar a frase-passe de provisão do passo 5 do local]
+
+. Se você estiver pronto para iniciar o procedimento de desativação do site, selecione *Start Decommission*.
++
+Um aviso lista o local e os nós que serão removidos. Você é lembrado que pode levar dias, semanas ou até meses para remover completamente o site.
+
++
+image::../media/decommission_site_step_5_warning.png[Aviso de desativação do local passo 5]
+
+. Reveja o aviso. Se estiver pronto para começar, selecione *OK*.
++
+Uma mensagem aparece quando a nova configuração de grade é gerada. Esse processo pode levar algum tempo, dependendo do tipo e do número de nós de grade desativados.
+
++
+image::../media/decommission_site_step_5_grid_configuration.png[Desativar a Configuração da grelha do passo 5 do local]
+
++
+Quando a nova configuração da grade for gerada, o passo 6 (Monitor Decommission) será exibido.
+
++
+
+NOTE: O botão *anterior* permanece desativado até que a desativação esteja concluída.
+
+

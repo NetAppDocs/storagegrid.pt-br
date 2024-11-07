@@ -1,0 +1,87 @@
+---
+permalink: admin/manage-link-costs.html 
+sidebar: sidebar 
+keywords: link cost, site latency, manage link costs, prioritize sites 
+summary: Os custos de link permitem que você priorize qual local do data center fornece um serviço solicitado quando existem dois ou mais locais de data center. Você pode ajustar os custos de link para refletir a latência entre sites. 
+---
+= Gerenciar custos de link
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os custos de link permitem que você priorize qual local do data center fornece um serviço solicitado quando existem dois ou mais locais de data center. Você pode ajustar os custos de link para refletir a latência entre sites.
+
+
+
+== O que são custos de link?
+
+* Os custos de link são usados para priorizar qual cópia de objeto é usada para cumprir recuperações de objetos.
+* Os custos de link são usados pela API de gerenciamento de grade e pela API de gerenciamento de locatário para determinar quais serviços internos do StorageGRID devem ser usados.
+* Os custos de link são usados pelo serviço Load Balancer em nós de administração e nós de gateway para direcionar as conexões do cliente. link:../admin/managing-load-balancing.html["Considerações para balanceamento de carga"]Consulte .
+
+
+O diagrama mostra uma grade de três sites que tem custos de link configurados entre sites:
+
+image::../media/link_costs.gif[Diagrama conceitual para custos de ligação entre data centers]
+
+* O serviço Load Balancer em nós de administração e nós de gateway distribui igualmente as conexões de clientes para todos os nós de storage no mesmo local do data center e para qualquer local do data center com um custo de link de 0.
++
+No exemplo, um nó de gateway no local do data center 1 (DC1) distribui igualmente as conexões de cliente para nós de storage em DC1 e para nós de storage em DC2. Um nó de gateway em DC3 envia conexões de cliente somente para nós de storage em DC3.
+
+* Ao recuperar um objeto que existe como várias cópias replicadas, o StorageGRID recupera a cópia no data center que tem o menor custo de link.
++
+No exemplo, se um aplicativo cliente em DC2 recupera um objeto que é armazenado em DC1 e DC3, o objeto é recuperado de DC1, porque o custo do link de DC1 para DC2 é 0, o que é menor do que o custo do link de DC3 para DC2 (25).
+
+
+
+Os custos de ligação são números relativos arbitrários sem unidade de medida específica. Por exemplo, um custo de link de 50 é usado menos preferencialmente do que um custo de link de 25. A tabela mostra os custos de link comumente usados.
+
+[cols="1a,1a,2a"]
+|===
+| Link | Custo da ligação | Notas 
+
+
+ a| 
+Entre locais de data center físico
+ a| 
+25 (predefinição)
+ a| 
+Data centers conectados por um link WAN.
+
+
+
+ a| 
+Entre locais lógicos de data center no mesmo local físico
+ a| 
+0
+ a| 
+Data centers lógicos no mesmo prédio físico ou campus conetados por uma LAN.
+
+|===
+
+
+== Atualizar custos de link
+
+Você pode atualizar os custos de link entre sites de data center para refletir a latência entre sites.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:admin-group-permissions.html["Permissão de configuração de página de topologia de grade"].
+
+
+.Passos
+. Selecione *SUPPORT* > *Other* > *Link Cost*.
++
+image::../media/configuring_link_costs.png[Custo da ligação]
+
+. Selecione um site em *Link Source* e insira um valor de custo entre 0 e 100 em *Link Destination*.
++
+Não é possível alterar o custo do link se a origem for a mesma do destino.
+
++
+Para cancelar as alterações, selecione image:../media/nms_revert.gif["anular ícone"]*Revert*.
+
+. Selecione *aplicar alterações*.
+

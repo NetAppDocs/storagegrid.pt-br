@@ -1,0 +1,66 @@
+---
+permalink: admin/controlling-access-through-firewalls.html 
+sidebar: sidebar 
+keywords: firewall access, firewall ports, external firewall 
+summary: Você pode abrir ou fechar portas específicas no firewall externo. 
+---
+= Controle o acesso no firewall externo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode abrir ou fechar portas específicas no firewall externo.
+
+Você pode controlar o acesso às interfaces de usuário e APIs nos nós de administração do StorageGRID abrindo ou fechando portas específicas no firewall externo. Por exemplo, você pode evitar que os locatários sejam capazes de se conetar ao Gerenciador de Grade no firewall, além de usar outros métodos para controlar o acesso ao sistema.
+
+Se quiser configurar o firewall interno do StorageGRID, link:../admin/configure-firewall-controls.html["Configurar firewall interno"]consulte .
+
+[cols="1a,1a,2a"]
+|===
+| Porta | Descrição | Se a porta estiver aberta... 
+
+
+ a| 
+443
+ a| 
+Porta HTTPS padrão para nós de administração
+ a| 
+Navegadores da Web e clientes de API de gerenciamento podem acessar o Gerenciador de Grade, a API de gerenciamento de grade, o Gerenciador de locatário e a API de gerenciamento do locatário.
+
+*Nota:* a porta 443 também é usada para algum tráfego interno.
+
+
+
+ a| 
+8443
+ a| 
+Porta restrita do Gerenciador de Grade em nós de administração
+ a| 
+* Navegadores da Web e clientes de API de gerenciamento podem acessar o Gerenciador de Grade e a API de Gerenciamento de Grade usando HTTPS.
+* Os navegadores da Web e os clientes de API de gerenciamento não podem acessar o Gerenciador do locatário ou a API de gerenciamento do locatário.
+* As solicitações de conteúdo interno serão rejeitadas.
+
+
+
+
+ a| 
+9443
+ a| 
+Porta restrita do Gerenciador de inquilinos em nós de administração
+ a| 
+* Navegadores da Web e clientes de API de gerenciamento podem acessar o Gerenciador do locatário e a API de gerenciamento do locatário usando HTTPS.
+* Navegadores da Web e clientes de API de gerenciamento não podem acessar o Gerenciador de Grade ou a API de Gerenciamento de Grade.
+* As solicitações de conteúdo interno serão rejeitadas.
+
+
+|===
+
+TIP: O logon único (SSO) não está disponível nas portas do Gerenciador de Grade restrito ou do Gerenciador de locatário. Você deve usar a porta HTTPS padrão (443) se quiser que os usuários se autentiquem com logon único.
+
+.Informações relacionadas
+* link:signing-in-to-grid-manager.html["Faça login no Gerenciador de Grade"]
+* link:creating-tenant-account.html["Crie uma conta de locatário"]
+* link:../network/external-communications.html["Comunicações externas"]
+

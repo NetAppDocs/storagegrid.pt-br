@@ -1,0 +1,246 @@
+---
+permalink: maintain/step-6-monitor-decommission.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, monitor decommission, decommission 
+summary: 'A partir do passo 6 (Monitor Decommission) do assistente de página do site Decommission, você pode monitorar o progresso à medida que o site é removido.' 
+---
+= Passo 6: Monitorar a desintegração
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A partir do passo 6 (Monitor Decommission) do assistente de página do site Decommission, você pode monitorar o progresso à medida que o site é removido.
+
+.Sobre esta tarefa
+Quando o StorageGRID remove um site conetado, ele remove nós nessa ordem:
+
+. Nós de gateway
+. Nós de administração
+. Nós de storage
+
+
+Quando o StorageGRID remove um site desconetado, ele remove nós nessa ordem:
+
+. Nós de gateway
+. Nós de storage
+. Nós de administração
+
+
+Cada nó de gateway ou nó de administrador pode exigir apenas alguns minutos ou uma hora para ser removido; no entanto, os nós de storage podem levar dias ou semanas.
+
+.Passos
+. Assim que um novo pacote de recuperação for gerado, baixe o arquivo.
++
+image::../media/decommission_site_step_6_recovery_package.png[Pacote de recuperação passo 6 da Decommission do site]
+
++
+
+NOTE: Baixe o pacote de recuperação o mais rápido possível para garantir que você possa recuperar sua grade se algo der errado durante o procedimento de desativação.
+
++
+.. Selecione o link na mensagem ou selecione *MAINTENANCE* > *System* > *Recovery package*.
+.. Transfira o `.zip` ficheiro.
++
+Consulte as instruções para link:downloading-recovery-package.html["Transferir o pacote de recuperação"].
+
+
+
++
+
+NOTE: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID.
+
+. Usando o gráfico de movimentação de dados, monitore a movimentação de dados de objetos deste site para outros sites.
++
+A movimentação de dados começou quando você ativou a nova política de ILM no passo 3 (revisar política de ILM). A movimentação de dados ocorrerá durante todo o procedimento de desativação.
+
++
+image::../media/decommission_site_step_6_data_movement.png[Etapa 6 movimento de dados do local]
+
+. Na seção progresso do nó da página, monitore o andamento do procedimento de desativação à medida que os nós são removidos.
++
+Quando um nó de armazenamento é removido, cada nó passa por uma série de estágios. Embora a maioria desses estágios ocorra rapidamente ou até mesmo impercetivelmente, talvez seja necessário esperar dias ou até semanas para que outros estágios sejam concluídos, com base na quantidade de dados que precisam ser movidos. É necessário tempo adicional para gerenciar dados codificados de apagamento e reavaliar o ILM.
+
++
+image::../media/decommission_site_step_6_storage_node.png[Desativar nó de storage passo 6 do local]
+
++
+Se você estiver monitorando o progresso de uma desativação de um site conetado, consulte esta tabela para entender os estágios de desativação de um nó de armazenamento:
+
++
+[cols="1a,2a"]
+|===
+| Fase | Duração estimada 
+
+
+ a| 
+Pendente
+ a| 
+Minuto ou menos
+
+
+
+ a| 
+Aguarde bloqueios
+ a| 
+Minutos
+
+
+
+ a| 
+Preparar tarefa
+ a| 
+Minuto ou menos
+
+
+
+ a| 
+Marcação LDR desativada
+ a| 
+Minutos
+
+
+
+ a| 
+Desativação de dados replicados e codificados por apagamento
+ a| 
+Horas, dias ou semanas com base na quantidade de dados
+
+*Nota*: Se você precisar executar outras atividades de manutenção, você pode pausar a desativação do site durante essa etapa.
+
+
+
+ a| 
+Estado definido LDR
+ a| 
+Minutos
+
+
+
+ a| 
+Lavar filas Auditoria
+ a| 
+Minutos a horas, com base no número de mensagens e na latência da rede.
+
+
+
+ a| 
+Concluído
+ a| 
+Minutos
+
+|===
++
+Se você estiver monitorando o andamento de uma desativação de um local desconetado, consulte esta tabela para entender os estágios de desativação de um nó de armazenamento:
+
++
+[cols="1a,1a"]
+|===
+| Fase | Duração estimada 
+
+
+ a| 
+Pendente
+ a| 
+Minuto ou menos
+
+
+
+ a| 
+Aguarde bloqueios
+ a| 
+Minutos
+
+
+
+ a| 
+Preparar tarefa
+ a| 
+Minuto ou menos
+
+
+
+ a| 
+Desativar Serviços Externos
+ a| 
+Minutos
+
+
+
+ a| 
+Revogação do certificado
+ a| 
+Minutos
+
+
+
+ a| 
+Anular registo nó
+ a| 
+Minutos
+
+
+
+ a| 
+Anular registo de grau de armazenamento
+ a| 
+Minutos
+
+
+
+ a| 
+Remoção do Grupo de armazenamento
+ a| 
+Minutos
+
+
+
+ a| 
+Remoção da entidade
+ a| 
+Minutos
+
+
+
+ a| 
+Concluído
+ a| 
+Minutos
+
+|===
+. Depois de todos os nós terem atingido a etapa completa, aguarde que as restantes operações de desativação do local sejam concluídas.
++
+** Durante a etapa *reparar Cassandra*, o StorageGRID faz todos os reparos necessários aos clusters do Cassandra que permanecem em sua grade. Esses reparos podem levar vários dias ou mais, dependendo de quantos nós de storage permanecem na grade.
++
+image::../media/decommission_site_step_6_repair_cassandra.png[Etapa 6 reparar Cassandra]
+
+** Durante a etapa *Deactivate EC Profiles & Delete Storage Pools*, as seguintes alterações de ILM são feitas:
++
+*** Todos os perfis de codificação de apagamento que se referem ao site são desativados.
+*** Todos os pools de armazenamento que se referem ao site são excluídos.
++
+
+NOTE: O pool de storage de todos os nós de storage (StorageGRID 11,6 e anterior) também é removido porque usa o site todos os sites.
+
+
+
+** Finalmente, durante a etapa *Remove Configuration*, quaisquer referências restantes ao site e seus nós são removidas do resto da grade.
++
+image::../media/decommission_site_step_6_remove_configuration.png[Etapa 6 Remover configuração do local de desativação]
+
+
+
+. Quando o procedimento de desativação for concluído, a página Decommission Site (local de desativação) mostra uma mensagem de sucesso e o local removido não é mais apresentado.
++
+image::../media/decommission_site_success_message.png[Desativar mensagem de sucesso do local]
+
+
+
+.Depois de terminar
+Conclua estas tarefas após concluir o procedimento de desativação do local:
+
+* Certifique-se de que as unidades de todos os nós de storage no local desativado sejam limpas. Utilize uma ferramenta ou serviço de limpeza de dados disponíveis no mercado para remover dados das unidades de forma permanente e segura.
+* Se o site incluiu um ou mais nós de administração e logon único (SSO) estiver ativado para o seu sistema StorageGRID, remova todas as confianças de parte que dependem do site dos Serviços de Federação do ative Directory (AD FS).
+* Depois que os nós tiverem sido desligados automaticamente como parte do procedimento de desativação do site conetado, remova as máquinas virtuais associadas.
+

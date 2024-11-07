@@ -1,0 +1,72 @@
+---
+permalink: maintain/restoring-admin-node-database-non-primary-admin-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, restore admin node database, restore database, non-primary admin node 
+summary: Se você quiser manter as informações históricas sobre atributos e alertas em um nó de administração não primário que falhou, você pode restaurar o banco de dados do nó de administração do nó principal. 
+---
+= Restaure o banco de dados Admin Node ao recuperar o nó Admin não primário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você quiser manter as informações históricas sobre atributos e alertas em um nó de administração não primário que falhou, você pode restaurar o banco de dados do nó de administração do nó principal.
+
+.Antes de começar
+* O Admin Node recuperado está instalado e em execução.
+* O sistema StorageGRID inclui pelo menos dois nós de administração.
+* Você tem o `Passwords.txt` arquivo.
+* Você tem a senha de provisionamento.
+
+
+.Sobre esta tarefa
+Se um nó Admin falhar, as informações históricas armazenadas em seu banco de dados Admin Node serão perdidas. Esta base de dados inclui as seguintes informações:
+
+* Histórico de alertas
+* Dados de atributos históricos, que são usados em gráficos de estilo legado na página de nós
+
+
+Quando você recupera um Admin Node, o processo de instalação do software cria um banco de dados Admin Node vazio no nó recuperado. No entanto, o novo banco de dados inclui apenas informações para servidores e serviços que atualmente fazem parte do sistema ou adicionados posteriormente.
+
+Se você restaurou um nó de administração não primário, você poderá restaurar as informações históricas copiando o banco de dados do nó de administração do nó principal (o _nó de administração de origem_) para o nó recuperado.
+
+
+NOTE: Copiar o banco de dados Admin Node pode levar várias horas. Alguns recursos do Gerenciador de Grade ficarão indisponíveis enquanto os serviços forem interrompidos no nó de origem.
+
+.Passos
+. Faça login no nó de administração de origem:
++
+.. Introduza o seguinte comando: `ssh admin@_grid_node_IP_`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+
+
+. Execute o seguinte comando a partir do Admin Node de origem. Em seguida, insira a senha de provisionamento, se solicitado. `recover-access-points`
+. No Admin Node de origem, pare o serviço MI: `service mi stop`
+. No Admin Node de origem, pare o serviço Management Application Program Interface (mgmt-api): `service mgmt-api stop`
+. Execute as seguintes etapas no nó de administração recuperado:
++
+.. Faça login no nó de administração recuperado:
++
+... Introduza o seguinte comando: `ssh admin@_grid_node_IP_`
+... Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+... Digite o seguinte comando para mudar para root: `su -`
+... Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+
+
+.. Parar o serviço MI: `service mi stop`
+.. Pare o serviço mgmt-api: `service mgmt-api stop`
+.. Adicione a chave privada SSH ao agente SSH. Introduza:``ssh-add``
+.. Insira a senha de acesso SSH listada no `Passwords.txt` arquivo.
+.. Copie o banco de dados do Admin Node de origem para o Admin Node recuperado: `/usr/local/mi/bin/mi-clone-db.sh Source_Admin_Node_IP`
+.. Quando solicitado, confirme se você deseja substituir o banco de dados MI no Admin Node recuperado.
++
+O banco de dados e seus dados históricos são copiados para o Admin Node recuperado. Quando a operação de cópia é concluída, o script inicia o nó Admin recuperado.
+
+.. Quando você não precisar mais de acesso sem senha a outros servidores, remova a chave privada do agente SSH. Introduza:``ssh-add -D``
+
+
+. Reinicie os serviços no Admin Node de origem: `service servermanager start`
+

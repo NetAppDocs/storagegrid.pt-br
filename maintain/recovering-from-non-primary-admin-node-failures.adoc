@@ -1,0 +1,24 @@
+---
+permalink: maintain/recovering-from-non-primary-admin-node-failures.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, non-primary admin node failure 
+summary: 'Você deve concluir as tarefas a seguir para se recuperar de uma falha não primária do Admin Node. Um nó de administração hospeda o serviço do nó de gerenciamento de configuração (CMN) e é conhecido como nó de administração principal. Embora você possa ter vários nós de administração, cada sistema StorageGRID inclui apenas um nó de administração principal. Todos os outros nós de administração são nós de administração não primários.' 
+---
+= Recuperação de falhas não primárias no nó de administração
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve concluir as tarefas a seguir para se recuperar de uma falha não primária do Admin Node. Um nó de administração hospeda o serviço CMN (Configuration Management Node) e é conhecido como nó de administração principal. Embora você possa ter vários nós de administração, cada sistema StorageGRID inclui apenas um nó de administração principal. Todos os outros nós de administração são nós de administração não primários.
+
+Siga estas etapas de alto nível para recuperar um nó de administração não primário:
+
+. link:copying-audit-logs-from-failed-non-primary-admin-node.html["Copiar registos de auditoria do nó de administração não primário com falha"]
+. link:replacing-non-primary-admin-node.html["Substitua o nó de administração não primário"]
+. link:selecting-start-recovery-to-configure-non-primary-admin-node.html["Selecione Iniciar recuperação para configurar o nó de administração não primário"]
+. link:restoring-audit-log-on-recovered-non-primary-admin-node.html["Restaure o log de auditoria em um nó de administração não primário recuperado"]
+. link:restoring-admin-node-database-non-primary-admin-node.html["Restaure o banco de dados Admin Node ao recuperar um Admin Node não primário"]
+. link:restoring-prometheus-metrics-non-primary-admin-node.html["Restaure as métricas do Prometheus ao recuperar um nó de administração não primário"]
+

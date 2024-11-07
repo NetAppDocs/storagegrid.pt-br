@@ -1,0 +1,32 @@
+---
+permalink: s3/authenticating-requests.html 
+sidebar: sidebar 
+keywords: authenticate requests, authenticating, requests 
+summary: O sistema StorageGRID suporta acesso autenticado e anônimo a objetos usando a API S3. 
+---
+= Autenticar solicitações
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O sistema StorageGRID suporta acesso autenticado e anônimo a objetos usando a API S3.
+
+A API S3 suporta a assinatura versão 2 e a assinatura versão 4 para autenticar solicitações de API S3.
+
+As solicitações autenticadas devem ser assinadas usando seu ID de chave de acesso e chave de acesso secreta.
+
+O sistema StorageGRID suporta dois métodos de autenticação: O cabeçalho HTTP `Authorization` e o uso de parâmetros de consulta.
+
+
+
+== Use o cabeçalho de autorização HTTP
+
+O cabeçalho HTTP `Authorization` é usado por todas as operações da API S3, exceto solicitações anônimas, onde permitido pela política de bucket. O `Authorization` cabeçalho contém todas as informações de assinatura necessárias para autenticar uma solicitação.
+
+
+
+== Use parâmetros de consulta
+
+Você pode usar parâmetros de consulta para adicionar informações de autenticação a um URL. Isso é conhecido como pré-assinar o URL, que pode ser usado para conceder acesso temporário a recursos específicos. Os usuários com o URL pré-assinado não precisam saber a chave de acesso secreto para acessar o recurso, o que permite que você forneça acesso restrito de terceiros a um recurso.

@@ -1,0 +1,284 @@
+---
+permalink: admin/configuring-custom-server-certificate-for-grid-manager-tenant-manager.html 
+sidebar: sidebar 
+keywords: custom certificates, grid manager, tenant manager, management interface certificate 
+summary: Você pode substituir o certificado de servidor StorageGRID padrão por um único certificado de servidor personalizado que permite aos usuários acessar o Gerenciador de Grade e o Gerenciador de locatário sem encontrar avisos de segurança. Você também pode reverter para o certificado de interface de gerenciamento padrão ou gerar um novo. 
+---
+= Configurar certificados de interface de gerenciamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode substituir o certificado de interface de gerenciamento padrão por um único certificado personalizado que permite que os usuários acessem o Gerenciador de Grade e o Gerenciador do locatário sem encontrar avisos de segurança. Você também pode reverter para o certificado de interface de gerenciamento padrão ou gerar um novo.
+
+.Sobre esta tarefa
+Por padrão, cada nó de administrador é emitido um certificado assinado pela CA de grade. Esses certificados assinados pela CA podem ser substituídos por um único certificado de interface de gerenciamento personalizado comum e uma chave privada correspondente.
+
+Como um único certificado de interface de gerenciamento personalizado é usado para todos os nós de administração, você deve especificar o certificado como um certificado curinga ou multi-domínio se os clientes precisarem verificar o nome do host ao se conetar ao Gerenciador de Grade e ao Gerenciador de locatário. Defina o certificado personalizado de modo que corresponda a todos os nós de administração na grade.
+
+Você precisa concluir a configuração no servidor e, dependendo da autoridade de certificação raiz (CA) que você está usando, os usuários também podem precisar instalar o certificado de CA de grade no navegador da Web que eles usarão para acessar o Gerenciador de Grade e o Gerenciador de locatário.
+
+
+NOTE: Para garantir que as operações não sejam interrompidas por um certificado de servidor com falha, o alerta *Expiration of Server certificate for Management Interface* é acionado quando este certificado de servidor está prestes a expirar. Conforme necessário, você pode ver quando o certificado atual expira selecionando *CONFIGURATION* > *Security* > *Certificates* e observando a data de validade do certificado da interface de gerenciamento na guia Global.
+
+[NOTE]
+====
+Se você estiver acessando o Gerenciador de Grade ou o Gerenciador de locatário usando um nome de domínio em vez de um endereço IP, o navegador mostrará um erro de certificado sem uma opção para ignorar se uma das seguintes situações ocorrer:
+
+* O certificado de interface de gerenciamento personalizado expira.
+* <<Restaure o certificado padrão da interface de gerenciamento,reverter de um certificado de interface de gerenciamento personalizado para o certificado de servidor padrão>>Você .
+
+
+====
+
+
+== Adicione um certificado de interface de gerenciamento personalizado
+
+Para adicionar um certificado de interface de gerenciamento personalizado, você pode fornecer seu próprio certificado ou gerar um usando o Gerenciador de Grade.
+
+.Passos
+. Selecione *CONFIGURATION* > *Security* > *Certificates*.
+. Na guia *Global*, selecione *certificado de interface de gerenciamento*.
+. Selecione *usar certificado personalizado*.
+. Carregue ou gere o certificado.
++
+[role="tabbed-block"]
+====
+.Carregar certificado
+--
+Carregue os ficheiros de certificado do servidor necessários.
+
+.. Selecione *carregar certificado*.
+.. Carregue os ficheiros de certificado do servidor necessários:
++
+*** *Certificado de servidor*: O arquivo de certificado de servidor personalizado (codificado PEM).
+*** *Chave privada de certificado*: O arquivo de chave privada de certificado de servidor personalizado (`.key`).
++
+
+NOTE: As chaves privadas EC devem ter 224 bits ou mais. As chaves privadas RSA devem ter 2048 bits ou mais.
+
+*** *Pacote CA*: Um único arquivo opcional contendo os certificados de cada autoridade de certificação de emissão intermediária (CA). O arquivo deve conter cada um dos arquivos de certificado CA codificados em PEM, concatenados em ordem de cadeia de certificados.
+
+
+.. Expanda *Detalhes do certificado* para ver os metadados de cada certificado que você carregou. Se você carregou um pacote opcional da CA, cada certificado será exibido em sua própria guia.
++
+*** Selecione *Baixar certificado* para salvar o arquivo de certificado ou selecione *Baixar pacote de CA* para salvar o pacote de certificado.
++
+Especifique o nome do arquivo de certificado e o local de download. Salve o arquivo com a extensão `.pem`.
+
++
+Por exemplo: `storagegrid_certificate.pem`
+
+*** Selecione *Copiar certificado PEM* ou *Copiar pacote de CA PEM* para copiar o conteúdo do certificado para colar em outro lugar.
+
+
+.. Selecione *Guardar*. O certificado de interface de gerenciamento personalizado é usado para todas as novas conexões subsequentes ao Gerenciador de Grade, Gerenciador de locatário, API do Gerenciador de Grade ou API do Gerenciador de Tenant.
+
+
+--
+.Gerar certificado
+--
+Gere os ficheiros de certificado do servidor.
+
+
+NOTE: A prática recomendada para um ambiente de produção é usar um certificado de interface de gerenciamento personalizado assinado por uma autoridade de certificação externa.
+
+.. Selecione *Generate certificate* (gerar certificado).
+.. Especifique as informações do certificado:
++
+[cols="1a,3a"]
+|===
+| Campo | Descrição 
+
+
+ a| 
+Nome de domínio
+ a| 
+Um ou mais nomes de domínio totalmente qualificados a incluir no certificado. Use um * como um curinga para representar vários nomes de domínio.
+
+
+
+ a| 
+IP
+ a| 
+Um ou mais endereços IP a incluir no certificado.
+
+
+
+ a| 
+Assunto (opcional)
+ a| 
+X,509 Assunto ou nome distinto (DN) do proprietário do certificado.
+
+Se nenhum valor for inserido neste campo, o certificado gerado usará o primeiro nome de domínio ou endereço IP como o nome comum do assunto (CN).
+
+
+
+ a| 
+Dias válidos
+ a| 
+Número de dias após a criação em que o certificado expira.
+
+
+
+ a| 
+Adicione extensões de uso de chave
+ a| 
+Se selecionado (padrão e recomendado), o uso de chave e extensões estendidas de uso de chave são adicionados ao certificado gerado.
+
+Essas extensões definem a finalidade da chave contida no certificado.
+
+*Nota*: Deixe esta caixa de seleção selecionada, a menos que você tenha problemas de conexão com clientes mais antigos quando os certificados incluem essas extensões.
+
+|===
+.. Selecione *Generate*.
+.. Selecione *Detalhes do certificado* para ver os metadados do certificado gerado.
++
+*** Selecione *Transferir certificado* para guardar o ficheiro de certificado.
++
+Especifique o nome do arquivo de certificado e o local de download. Salve o arquivo com a extensão `.pem`.
+
++
+Por exemplo: `storagegrid_certificate.pem`
+
+*** Selecione *Copy Certificate PEM* para copiar o conteúdo do certificado para colar em outro lugar.
+
+
+.. Selecione *Guardar*. O certificado de interface de gerenciamento personalizado é usado para todas as novas conexões subsequentes ao Gerenciador de Grade, Gerenciador de locatário, API do Gerenciador de Grade ou API do Gerenciador de Tenant.
+
+
+--
+====
+. Atualize a página para garantir que o navegador da Web seja atualizado.
++
+
+NOTE: Depois de carregar ou gerar um novo certificado, aguarde até um dia para que os alertas de expiração de certificado relacionados sejam apagados.
+
+. Depois de adicionar um certificado de interface de gerenciamento personalizado, a página de certificado de interface de gerenciamento exibe informações detalhadas de certificado para os certificados que estão em uso. Você pode baixar ou copiar o PEM do certificado conforme necessário.
+
+
+
+
+== Restaure o certificado padrão da interface de gerenciamento
+
+Você pode reverter para o uso do certificado de interface de gerenciamento padrão para conexões do Gerenciador de Grade e do Gerenciador de Tenant.
+
+.Passos
+. Selecione *CONFIGURATION* > *Security* > *Certificates*.
+. Na guia *Global*, selecione *certificado de interface de gerenciamento*.
+. Selecione *Use default certificate* (usar certificado padrão).
++
+Quando você restaura o certificado de interface de gerenciamento padrão, os arquivos de certificado de servidor personalizado configurados são excluídos e não podem ser recuperados do sistema. O certificado de interface de gerenciamento padrão é usado para todas as novas conexões de cliente subsequentes.
+
+. Atualize a página para garantir que o navegador da Web seja atualizado.
+
+
+
+
+== Use um script para gerar um novo certificado de interface de gerenciamento autoassinado
+
+Se for necessária uma validação estrita do nome do host, você pode usar um script para gerar o certificado da interface de gerenciamento.
+
+.Antes de começar
+* Você link:admin-group-permissions.html["permissões de acesso específicas"]tem .
+* Você tem o `Passwords.txt` arquivo.
+
+
+.Sobre esta tarefa
+A melhor prática para um ambiente de produção é usar um certificado assinado por uma autoridade de certificação externa.
+
+.Passos
+. Obtenha o nome de domínio totalmente qualificado (FQDN) de cada nó Admin.
+. Faça login no nó de administração principal:
++
+.. Introduza o seguinte comando: `ssh admin@primary_Admin_Node_IP`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+
+
+. Configure o StorageGRID com um novo certificado autoassinado.
++
+`$ sudo make-certificate --domains _wildcard-admin-node-fqdn_ --type management`
+
++
+** Para `--domains`, use curingas para representar os nomes de domínio totalmente qualificados de todos os nós de administração. Por exemplo, `*.ui.storagegrid.example.com` usa o caractere curinga * para representar `admin1.ui.storagegrid.example.com` e `admin2.ui.storagegrid.example.com`.
+** Defina `--type` como `management` para configurar o certificado da interface de gerenciamento, que é usado pelo Gerenciador de Grade e pelo Gerenciador de Locatário.
+** Por padrão, os certificados gerados são válidos por um ano (365 dias) e devem ser recriados antes de expirarem. Você pode usar o `--days` argumento para substituir o período de validade padrão.
++
+
+NOTE: O período de validade de um certificado começa quando `make-certificate` é executado. Você deve garantir que o cliente de gerenciamento esteja sincronizado com a mesma fonte de tempo que o StorageGRID; caso contrário, o cliente poderá rejeitar o certificado.
+
++
+ $ sudo make-certificate --domains *.ui.storagegrid.example.com --type management --days 720
++
+A saída resultante contém o certificado público necessário pelo cliente da API de gerenciamento.
+
+
+
+. Selecione e copie o certificado.
++
+Inclua as tags DE INÍCIO e FIM em sua seleção.
+
+. Faça logout do shell de comando. `$ exit`
+. Confirme se o certificado foi configurado:
++
+.. Acesse o Gerenciador de Grade.
+.. Selecione *CONFIGURATION* > *Security* > *Certificates*
+.. Na guia *Global*, selecione *certificado de interface de gerenciamento*.
+
+
+. Configure seu cliente de gerenciamento para usar o certificado público que você copiou. Inclua as tags DE INÍCIO e FIM.
+
+
+
+
+== Transfira ou copie o certificado da interface de gestão
+
+Você pode salvar ou copiar o conteúdo do certificado da interface de gerenciamento para uso em outro lugar.
+
+.Passos
+. Selecione *CONFIGURATION* > *Security* > *Certificates*.
+. Na guia *Global*, selecione *certificado de interface de gerenciamento*.
+. Selecione a guia *Server* ou *CA bundle* e, em seguida, baixe ou copie o certificado.
++
+[role="tabbed-block"]
+====
+.Transfira o ficheiro de certificado ou o pacote CA
+--
+Baixe o certificado ou o arquivo do pacote CA `.pem`. Se você estiver usando um pacote CA opcional, cada certificado no pacote será exibido em sua própria subguia.
+
+.. Selecione *Baixar certificado* ou *Baixar pacote CA*.
++
+Se você estiver baixando um pacote de CA, todos os certificados nas guias secundárias do pacote de CA serão baixados como um único arquivo.
+
+.. Especifique o nome do arquivo de certificado e o local de download. Salve o arquivo com a extensão `.pem`.
++
+Por exemplo: `storagegrid_certificate.pem`
+
+
+
+--
+.Copiar certificado ou pacote CA PEM
+--
+Copie o texto do certificado para colar em outro lugar. Se você estiver usando um pacote CA opcional, cada certificado no pacote será exibido em sua própria subguia.
+
+.. Selecione *Copiar certificado PEM* ou *Copiar pacote CA PEM*.
++
+Se você estiver copiando um pacote de CA, todos os certificados nas guias secundárias do pacote de CA serão copiados juntos.
+
+.. Cole o certificado copiado em um editor de texto.
+.. Salve o arquivo de texto com a extensão `.pem`.
++
+Por exemplo: `storagegrid_certificate.pem`
+
+
+
+--
+====
+

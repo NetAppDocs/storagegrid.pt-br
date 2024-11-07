@@ -1,0 +1,121 @@
+---
+permalink: monitor/editing-alert-rules.html 
+sidebar: sidebar 
+keywords: how to edit alert rules 
+summary: Você pode editar uma regra de alerta para alterar as condições do gatilho. Para uma regra de alerta personalizada, você também pode atualizar o nome da regra, a descrição e as ações recomendadas. 
+---
+= Editar regras de alerta
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode editar uma regra de alerta para alterar as condições do gatilho. Para uma regra de alerta personalizada, você também pode atualizar o nome da regra, a descrição e as ações recomendadas.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:../admin/admin-group-permissions.html["Gerencie alertas ou permissão de acesso root"].
+
+
+.Sobre esta tarefa
+Ao editar uma regra de alerta padrão, você pode alterar as condições para alertas menores, maiores e críticos e a duração. Ao editar uma regra de alerta personalizada, você também pode editar o nome, a descrição e as ações recomendadas da regra.
+
+
+CAUTION: Tenha cuidado ao decidir editar uma regra de alerta. Se você alterar os valores do gatilho, talvez não detete um problema subjacente até que ele impeça que uma operação crítica seja concluída.
+
+.Passos
+. Selecione *ALERTAS* > *regras*.
++
+A página regras de alerta é exibida.
+
+. Selecione o botão de opção para a regra de alerta que deseja editar.
+. Selecione *Editar regra*.
++
+A caixa de diálogo Editar regra é exibida. Este exemplo mostra uma regra de alerta padrão - os campos Nome exclusivo, Descrição e ações recomendadas estão desativados e não podem ser editados.
+
++
+image::../media/alert_rules_edit_rule.png[Alertas > Editar regra]
+
+. Marque ou desmarque a caixa de seleção *Enabled* para determinar se essa regra de alerta está ativada no momento.
++
+Se uma regra de alerta estiver desativada, suas expressões não serão avaliadas e nenhum alerta será acionado.
+
++
+
+NOTE: Se desativar a regra de alerta para um alerta atual, tem de aguardar alguns minutos para que o alerta deixe de aparecer como um alerta ativo.
+
++
+
+CAUTION: Em geral, desativar uma regra de alerta padrão não é recomendado. Se uma regra de alerta estiver desativada, talvez você não detete um problema subjacente até que ela impeça que uma operação crítica seja concluída.
+
+. Para regras de alerta personalizadas, atualize as seguintes informações conforme necessário.
++
+
+NOTE: Não é possível editar essas informações para regras de alerta padrão.
+
++
+[cols="1a,2a"]
+|===
+| Campo | Descrição 
+
+
+ a| 
+Nome único
+ a| 
+Um nome exclusivo para esta regra. O nome da regra de alerta é mostrado na página Alertas e também é o assunto das notificações por e-mail. Os nomes das regras de alerta podem ter entre 1 e 64 carateres.
+
+
+
+ a| 
+Descrição
+ a| 
+Uma descrição do problema que está ocorrendo. A descrição é a mensagem de alerta mostrada na página Alertas e nas notificações por e-mail. As descrições das regras de alerta podem ter entre 1 e 128 carateres.
+
+
+
+ a| 
+Ações recomendadas
+ a| 
+Opcionalmente, as ações recomendadas a serem tomadas quando esse alerta for acionado. Insira as ações recomendadas como texto simples (sem códigos de formatação). As ações recomendadas para regras de alerta podem ter entre 0 e 1.024 carateres.
+
+|===
+. Na seção condições, insira ou atualize a expressão Prometheus para um ou mais níveis de gravidade de alerta.
++
+
+NOTE: Se você quiser restaurar uma condição para uma regra de alerta padrão editada de volta ao seu valor original, selecione os três pontos à direita da condição modificada.
+
++
+image::../media/alert_rules_edit_revert_to_default.png[Regras de alerta: Revertendo uma condição editada para o valor padrão]
+
++
+
+NOTE: Se você atualizar as condições para um alerta atual, suas alterações podem não ser implementadas até que a condição anterior seja resolvida. Da próxima vez que uma das condições para a regra for atendida, o alerta refletirá os valores atualizados.
+
++
+Uma expressão básica é geralmente da forma:
+
++
+`[metric] [operator] [value]`
+
++
+As expressões podem ter qualquer comprimento, mas aparecem em uma única linha na interface do usuário. Pelo menos uma expressão é necessária.
+
++
+Esta expressão faz com que um alerta seja acionado se a quantidade de RAM instalada para um nó for inferior a 24.000.000.000 bytes (24 GB).
+
++
+`node_memory_MemTotal_bytes < 24000000000`
+
+. No campo *duração*, insira o período de tempo em que uma condição deve permanecer em vigor continuamente antes que o alerta seja acionado e selecione a unidade de tempo.
++
+Para acionar um alerta imediatamente quando uma condição se tornar verdadeira, digite *0*. Aumente esse valor para evitar que condições temporárias acionem alertas.
+
++
+O padrão é 5 minutos.
+
+. Selecione *Guardar*.
++
+Se você editou uma regra de alerta padrão, *padrão** aparecerá na coluna tipo. Se você desativou uma regra de alerta padrão ou personalizada, *Disabled* será exibido na coluna *Status*.
+
+

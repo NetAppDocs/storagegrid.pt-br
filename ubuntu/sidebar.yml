@@ -1,0 +1,85 @@
+---
+section: ubuntu
+title: Instale o StorageGRID no Ubuntu ou Debian
+entries:
+- title: Início rápido
+  pdf-filename: Instale o StorageGRID no Ubuntu ou Debian
+  url: "/ubuntu/index.html"
+- title: Planeje e prepare-se para instalação no Ubuntu ou Debian
+  entries:
+  - title: Informações e materiais necessários
+    url: "/ubuntu/required-materials.html"
+  - title: Baixe e extraia arquivos de instalação do StorageGRID
+    url: "/ubuntu/downloading-and-extracting-storagegrid-installation-files.html"
+  - title: Verifique manualmente os arquivos de instalação
+    url: "/ubuntu/download-files-verify.html"
+  - title: Requisitos de software
+    url: "/ubuntu/software-requirements.html"
+  - title: Requisitos de CPU e RAM
+    url: "/ubuntu/cpu-and-ram-requirements.html"
+  - title: Requisitos de storage e desempenho
+    url: "/ubuntu/storage-and-performance-requirements.html"
+  - title: Requisitos de migração de contêiner de nós
+    url: "/ubuntu/node-container-migration-requirements.html"
+  - title: Preparar os hosts (Ubuntu ou Debian)
+    entries:
+    - title: Como as configurações de todo o host mudam
+      url: "/ubuntu/how-host-wide-settings-change.html"
+    - title: Instale o Linux
+      url: "/ubuntu/installing-linux.html"
+    - title: Instalação do perfil AppArmor
+      url: "/ubuntu/understanding-apparmor-profile-installation.html"
+    - title: Configurar a rede host (Ubuntu ou Debian)
+      url: "/ubuntu/configuring-host-network.html"
+    - title: Configurar o armazenamento do host
+      url: "/ubuntu/configuring-host-storage.html"
+    - title: Configure o volume de armazenamento do Docker
+      url: "/ubuntu/configuring-docker-storage-volume.html"
+    - title: Instale o Docker
+      url: "/ubuntu/installing-docker.html"
+    - title: Instalar os serviços de host do StorageGRID
+      url: "/ubuntu/installing-storagegrid-webscale-host-services.html"
+- title: Automatize a instalação (Ubuntu ou Debian)
+  url: "/ubuntu/automating-installation.html"
+- title: Implantar nós de grade virtual (Ubuntu ou Debian)
+  entries:
+  - title: Crie arquivos de configuração de nó para implantações Ubuntu ou Debian
+    url: "/ubuntu/creating-node-configuration-files.html"
+  - title: Como os nós de grade descobrem o nó de administração principal
+    url: "/ubuntu/how-grid-nodes-discover-primary-admin-node.html"
+  - title: Exemplo de arquivos de configuração de nó
+    url: "/ubuntu/example-node-configuration-files.html"
+  - title: Valide a configuração do StorageGRID
+    url: "/ubuntu/validating-storagegrid-configuration.html"
+  - title: Inicie o serviço de host do StorageGRID
+    url: "/ubuntu/starting-storagegrid-host-service.html"
+- title: Configurar grade e instalação completa (Ubuntu ou Debian)
+  entries:
+  - title: Navegue até o Gerenciador de Grade
+    url: "/ubuntu/navigating-to-grid-manager.html"
+  - title: Especifique as informações da licença
+    url: "/ubuntu/specifying-storagegrid-license-information.html"
+  - title: Adicione sites
+    url: "/ubuntu/adding-sites.html"
+  - title: Especifique as sub-redes da rede de Grade
+    url: "/ubuntu/specifying-grid-network-subnets.html"
+  - title: Aprovar nós de grade pendentes
+    url: "/ubuntu/approving-pending-grid-nodes.html"
+  - title: Especifique as informações do servidor NTP
+    url: "/ubuntu/specifying-network-time-protocol-server-information.html"
+  - title: Especifique as informações do servidor DNS
+    url: "/ubuntu/specifying-domain-name-system-server-information.html"
+  - title: Especifique senhas do sistema
+    url: "/ubuntu/specifying-storagegrid-system-passwords.html"
+  - title: Revise a configuração e a instalação completa
+    url: "/ubuntu/reviewing-your-configuration-and-completing-installation.html"
+  - title: Diretrizes de pós-instalação
+    url: "/ubuntu/post-installation-guidelines.html"
+- title: API REST de instalação
+  url: "/ubuntu/overview-of-installation-rest-api.html"
+- title: Onde ir a seguir
+  url: "/ubuntu/where-to-go-next.html"
+- title: Solucionar problemas de instalação
+  url: "/ubuntu/troubleshooting-installation-issues.html"
+- title: Exemplo /etc/network/interfaces
+  url: "/ubuntu/example-etc-network-interfaces.html"

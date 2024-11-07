@@ -1,0 +1,79 @@
+---
+permalink: audit/gnrg-gnds-registration.html 
+sidebar: sidebar 
+keywords: storagegrid, audi, message, GNRG, GNDS Registration 
+summary: O serviço CMN gera essa mensagem de auditoria quando um serviço atualizou ou registrou informações sobre si mesmo no sistema StorageGRID. 
+---
+= GNRG: Registro GNDS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O serviço CMN gera essa mensagem de auditoria quando um serviço atualizou ou registrou informações sobre si mesmo no sistema StorageGRID.
+
+[cols="1a,1a,4a"]
+|===
+| Código | Campo | Descrição 
+
+
+ a| 
+RSLT
+ a| 
+Resultado
+ a| 
+O resultado da solicitação de atualização:
+
+* SUCS: Bem-sucedido
+* SUNV: Serviço indisponível
+* GERR: Outra falha
+
+
+
+
+ a| 
+GNID
+ a| 
+ID de nó
+ a| 
+O ID do nó do serviço que iniciou a solicitação de atualização.
+
+
+
+ a| 
+GNTP
+ a| 
+Tipo de dispositivo
+ a| 
+O tipo de dispositivo do nó de grade (por exemplo, BLDR para um serviço LDR).
+
+
+
+ a| 
+GNDV
+ a| 
+Versão do modelo do dispositivo
+ a| 
+A cadeia de carateres que identifica a versão do modelo do dispositivo do nó de grade no pacote DMDL.
+
+
+
+ a| 
+GNGP
+ a| 
+Grupo
+ a| 
+O grupo ao qual o nó da grade pertence (no contexto de custos de link e classificação de consulta de serviço).
+
+
+
+ a| 
+GNIA
+ a| 
+Endereço IP
+ a| 
+O endereço IP do nó da grade.
+
+|===
+Essa mensagem é gerada sempre que um nó de grade atualiza sua entrada no Grid Nodes Bundle.

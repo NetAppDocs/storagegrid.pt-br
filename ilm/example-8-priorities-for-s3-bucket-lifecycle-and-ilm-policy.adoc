@@ -1,0 +1,118 @@
+---
+permalink: ilm/example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html 
+sidebar: sidebar 
+keywords: retention priority, example S3 bucket lifecycle, example ILM policy 
+summary: Dependendo da configuração do ciclo de vida, os objetos seguem as configurações de retenção do ciclo de vida do bucket do S3 ou de uma política ILM. 
+---
+= Exemplo 8: Prioridades para o ciclo de vida do bucket do S3 e a política de ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dependendo da configuração do ciclo de vida, os objetos seguem as configurações de retenção do ciclo de vida do bucket do S3 ou de uma política ILM.
+
+
+
+== Exemplo de ciclo de vida do bucket tendo prioridade sobre a política de ILM
+
+Política de ILM::
++
+--
+* Regra baseada em referência não atual: No dia 0, mantenha X cópias por 20 dias
+* Regra baseada na referência de tempo de ingestão (padrão): No dia 0, mantenha X cópias por 50 dias
+
+
+--
+Ciclo de vida do bucket:: `"Filter": {"Prefix": "docs/"}, "Expiration": {"Days": 100}, "NoncurrentVersionExpiration": {"NoncurrentDays": 5}`
+Resultado::
++
+--
+* Um objeto chamado "docs/text" é ingerido. Ele corresponde ao filtro de ciclo de vida do bucket do prefixo "docs/".
++
+** Após 100 dias, um marcador de exclusão é criado e "docs/text" torna-se não atual.
+** Após 5 dias, um total de 105 dias desde a ingestão, "docs/text" é excluído.
+** Após 95 dias, um total de 200 dias desde a ingestão e 100 dias desde que o marcador de exclusão foi criado, o marcador de exclusão expirado é excluído.
+
+
+* Um objeto chamado "vídeo/filme" é ingerido. Ele não corresponde ao filtro e usa a política de retenção ILM.
++
+** Após 50 dias, um marcador de exclusão é criado e "vídeo/filme" torna-se não atual.
+** Após 20 dias, um total de 70 dias desde a ingestão, "vídeo/filme" é excluído.
+** Após 30 dias, um total de 100 dias desde a ingestão e 50 dias desde que o marcador de exclusão foi criado, o marcador de exclusão expirado é excluído.
+
+
+
+
+--
+
+
+
+
+== Exemplo de ciclo de vida do bucket implicitamente keeping-Forever
+
+Política de ILM::
++
+--
+* Regra baseada em referência não atual: No dia 0, mantenha X cópias por 20 dias
+* Regra baseada na referência de tempo de ingestão (padrão): No dia 0, mantenha X cópias por 50 dias
+
+
+--
+Ciclo de vida do bucket:: `"Filter": {"Prefix": "docs/"}, "Expiration": {"ExpiredObjectDeleteMarker": true}`
+Resultado::
++
+--
+* Um objeto chamado "docs/text" é ingerido. Ele corresponde ao filtro de ciclo de vida do bucket do prefixo "docs/".
++
+A `Expiration` ação aplica-se apenas aos marcadores de exclusão expirados, o que implica manter tudo o resto para sempre (começando com "docs/").
+
++
+Excluir marcadores que começam com "docs/" são removidos quando expiram.
+
+* Um objeto chamado "vídeo/filme" é ingerido. Ele não corresponde ao filtro e usa a política de retenção ILM.
++
+** Após 50 dias, um marcador de exclusão é criado e "vídeo/filme" torna-se não atual.
+** Após 20 dias, um total de 70 dias desde a ingestão, "vídeo/filme" é excluído.
+** Após 30 dias, um total de 100 dias desde a ingestão e 50 dias desde que o marcador de exclusão foi criado, o marcador de exclusão expirado é excluído.
+
+
+
+
+--
+
+
+
+
+== Exemplo de uso do ciclo de vida do bucket para duplicar o ILM e limpar marcadores de exclusão expirados
+
+Política de ILM::
++
+--
+* Regra baseada em referência não atual: No dia 0, mantenha X cópias por 20 dias
+* Regra baseada na referência de tempo de ingestão (padrão): No dia 0, mantenha X cópias para sempre
+
+
+--
+Ciclo de vida do bucket:: `"Filter": {}, "Expiration": {"ExpiredObjectDeleteMarker": true}, "NoncurrentVersionExpiration": {"NoncurrentDays": 20}`
+Resultado::
++
+--
+* A política de ILM é duplicada no ciclo de vida do bucket.
++
+** A regra Forever da política ILM foi projetada para remover objetos manualmente e limpar versões não atuais após 20 dias. Consequentemente, a regra de tempo de ingestão manterá marcadores de exclusão expirados para sempre.
+** O ciclo de vida do bucket duplica o comportamento da política ILM ao adicionar `"ExpiredObjectDeleteMarker": true`, que remove marcadores de exclusão depois que eles expirarem
+
+
+* Um objeto é ingerido. Nenhum filtro significa que o ciclo de vida do bucket se aplica a todos os objetos e substitui as configurações de retenção do ILM.
++
+** Quando um locatário emite uma solicitação de exclusão de objeto, um marcador de exclusão é criado e o objeto se torna não atual.
+** Após 20 dias, o objeto não atual é excluído e o marcador de exclusão fica expirado.
+** Pouco tempo depois, o marcador de exclusão expirado é excluído.
+
+
+
+
+--
+

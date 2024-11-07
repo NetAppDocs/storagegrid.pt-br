@@ -1,0 +1,51 @@
+---
+permalink: vmware/navigating-to-grid-manager.html 
+sidebar: sidebar 
+keywords: how to navigate to Grid Manager 
+summary: Use o Gerenciador de Grade para definir todas as informações necessárias para configurar o sistema StorageGRID. 
+---
+= Navegue até o Gerenciador de Grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Use o Gerenciador de Grade para definir todas as informações necessárias para configurar o sistema StorageGRID.
+
+.Antes de começar
+O nó Admin principal deve ser implantado e ter concluído a sequência inicial de inicialização.
+
+.Passos
+. Abra o navegador da Web e navegue até:
++
+`https://_primary_admin_node_ip_`
+
++
+Como alternativa, você pode acessar o Gerenciador de Grade na porta 8443:
+
++
+`https://_primary_admin_node_ip_:8443`
+
++
+Você pode usar o endereço IP do nó de administrador principal IP na rede de grade ou na rede de administração, conforme apropriado para a configuração da rede. Talvez seja necessário usar a opção de segurança/avançada no navegador para navegar para um certificado não confiável.
+
+. Gerencie uma senha temporária do instalador conforme necessário:
++
+** Se já tiver sido definida uma palavra-passe utilizando um destes métodos, introduza a palavra-passe para prosseguir.
++
+*** Um usuário define a senha ao acessar o instalador anteriormente
+*** A senha SSH/console foi importada automaticamente das propriedades OVF
+
+
+** Se não tiver sido definida uma palavra-passe, defina opcionalmente uma palavra-passe para proteger o instalador do StorageGRID.
+
+
+. Selecione *Instalar um sistema StorageGRID*.
++
+A página usada para configurar uma grade StorageGRID é exibida.
+
++
+image::../media/gmi_installer_first_screen.gif[Esta imagem é explicada pelo texto circundante.]
+
+

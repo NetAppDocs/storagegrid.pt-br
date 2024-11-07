@@ -1,0 +1,59 @@
+---
+permalink: rhel/index.html 
+sidebar: sidebar 
+keywords: red hat enterprise linux, rhel, quick start 
+summary: Siga estas etapas de alto nível para instalar um nó StorageGRID do Red Hat Enterprise Linux. 
+---
+= Início rápido para instalar o StorageGRID no Red Hat Enterprise Linux
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga estas etapas de alto nível para instalar um nó StorageGRID do Red Hat Enterprise Linux (RHEL).
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"] Preparação
+[role="quick-margin-list"]
+* Saiba mais link:../primer/storagegrid-architecture-and-network-topology.html["Topologia de rede e arquitetura StorageGRID"]sobre .
+* Saiba mais sobre as especificidades link:../network/index.html["Rede StorageGRID"]do .
+* Reúna e prepare o link:required-materials.html["Informações e materiais necessários"].
+* Prepare o link:cpu-and-ram-requirements.html["CPU e RAM"]necessário .
+* Fornecer para link:storage-and-performance-requirements.html["requisitos de storage e desempenho"].
+* link:how-host-wide-settings-change.html["Prepare os servidores Linux"] Isso hospedará seus nós do StorageGRID.
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"] Implantação
+[role="quick-margin-para"]
+Implante nós de grade. Quando você implementa nós de grade, eles são criados como parte do sistema StorageGRID e conetados a uma ou mais redes.
+
+[role="quick-margin-list"]
+* Para implantar nós de grade baseados em software nos hosts preparados na etapa 1, use a linha de comando do Linux e link:creating-node-configuration-files.html["arquivos de configuração do nó"]o .
+* Para implantar os nós de dispositivos StorageGRID, siga o https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["Início rápido para instalação de hardware"^].
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"] Configuração
+[role="quick-margin-para"]
+Quando todos os nós tiverem sido implantados, use o Gerenciador de Grade para link:navigating-to-grid-manager.html["configure a grade e conclua a instalação"].
+
+
+
+== Automatize a instalação
+
+Para economizar tempo e fornecer consistência, você pode automatizar a instalação do serviço de host StorageGRID e a configuração de nós de grade.
+
+* Use uma estrutura de orquestração padrão, como Ansible, Puppet ou Chef, para automatizar:
++
+** Instalação do RHEL
+** Configuração de rede e armazenamento
+** Instalação do mecanismo de contêiner e do serviço host do StorageGRID
+** Implantação de nós de grade virtual
+
+
++
+link:automating-installation.html#automate-the-installation-and-configuration-of-the-storagegrid-host-service["Automatize a instalação e a configuração do serviço de host StorageGRID"]Consulte .
+
+* Depois de implantar nós de grade, link:automating-installation.html#automate-the-configuration-of-storagegrid["Automatize a configuração do sistema StorageGRID"] usando o script de configuração Python fornecido no arquivo de instalação.
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/automating-appliance-installation-and-configuration.html["Automatize a instalação e a configuração dos nós de grade do dispositivo"^]
+* Se você é um desenvolvedor avançado de implantações do StorageGRID, automatize a instalação de nós de grade usando o link:overview-of-installation-rest-api.html["API REST de instalação"].
+

@@ -1,0 +1,76 @@
+---
+permalink: monitor/monitoring-information-lifecycle-management.html 
+sidebar: sidebar 
+keywords: lifecycle management, lifecycle, monitoring, ILM, information lifecycle management 
+summary: 'O sistema de gerenciamento do ciclo de vida das informações (ILM) fornece gerenciamento de dados para todos os objetos armazenados na grade. Você deve monitorar as operações de ILM para entender se a grade pode lidar com a carga atual ou se mais recursos são necessários.' 
+---
+= Monitorar o gerenciamento do ciclo de vida das informações
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O sistema de gerenciamento do ciclo de vida das informações (ILM) fornece gerenciamento de dados para todos os objetos armazenados na grade. Você deve monitorar as operações de ILM para entender se a grade pode lidar com a carga atual ou se mais recursos são necessários.
+
+.Sobre esta tarefa
+O sistema StorageGRID gerencia objetos aplicando as políticas ILM ativas. As políticas ILM e as regras ILM associadas determinam quantas cópias são feitas, o tipo de cópias que são criadas, onde as cópias são colocadas e o tempo de retenção de cada cópia.
+
+A ingestão de objetos e outras atividades relacionadas a objetos podem exceder a taxa na qual o StorageGRID pode avaliar o ILM, fazendo com que o sistema queue objetos cujas instruções de posicionamento do ILM não possam ser cumpridas em tempo quase real. Você deve monitorar se o StorageGRID está acompanhando as ações do cliente.
+
+
+
+== Use a guia Painel do Gerenciador de Grade
+
+.Passos
+Use a guia ILM no painel do Gerenciador de Grade para monitorar as operações do ILM:
+
+. Faça login no Gerenciador de Grade.
+. No painel, selecione a guia ILM e anote os valores no cartão de fila ILM (objetos) e no cartão de taxa de avaliação ILM.
++
+Picos temporários no cartão de fila ILM (objetos) no painel de instrumentos devem ser esperados. Mas se a fila continuar a aumentar e nunca diminuir, a grade precisa de mais recursos para operar com eficiência: Mais nós de storage ou, se a política ILM colocar objetos em locais remotos, mais largura de banda da rede.
+
+
+
+
+
+== Use a página NÓS
+
+.Passos
+Além disso, investigue filas de ILM usando a página *NODES*:
+
+
+NOTE: Os gráficos na página *NODES* serão substituídos pelas placas de painel correspondentes em uma versão futura do StorageGRID.
+
+. Selecione *NODES*.
+. Selecione *_grid name_* > *ILM*.
+. Posicione o cursor sobre o gráfico de fila ILM para ver o valor dos seguintes atributos em um determinado ponto no tempo:
++
+** *Objetos enfileirados (das operações do cliente)*: O número total de objetos aguardando avaliação ILM devido às operações do cliente (por exemplo, ingest).
+** *Objetos enfileirados (de todas as operações)*: O número total de objetos aguardando avaliação ILM.
+** *Taxa de digitalização (objetos/seg)*: A taxa na qual os objetos na grade são digitalizados e enfileirados para ILM.
+** *Taxa de avaliação (objetos/seg)*: A taxa atual na qual os objetos estão sendo avaliados em relação à política ILM na grade.
+
+
+. Na seção fila de ILM, observe os seguintes atributos.
++
+
+NOTE: A seção fila ILM está incluída apenas para a grade. Essas informações não são mostradas na guia ILM para um site ou nó de armazenamento.
+
++
+** *Período de digitalização - estimado*: O tempo estimado para concluir uma varredura ILM completa de todos os objetos.
++
+
+NOTE: Uma verificação completa não garante que o ILM tenha sido aplicado a todos os objetos.
+
+** *Tentativas de reparação*: O número total de operações de reparação de objetos para dados replicados que foram tentados. Essa contagem aumenta cada vez que um nó de storage tenta reparar um objeto de alto risco. As reparações ILM de alto risco são priorizadas se a grelha ficar ocupada.
++
+
+NOTE: O mesmo reparo de objeto pode aumentar novamente se a replicação falhar após o reparo.
+
+
+
++
+Esses atributos podem ser úteis quando você está monitorando o progresso da recuperação do volume do nó de armazenamento. Se o número de reparações tentadas tiver parado de aumentar e tiver sido concluído um exame completo, a reparação provavelmente foi concluída.
+
+

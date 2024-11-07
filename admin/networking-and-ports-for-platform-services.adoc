@@ -1,0 +1,44 @@
+---
+permalink: admin/networking-and-ports-for-platform-services.html 
+sidebar: sidebar 
+keywords: platform services, ports for platform services, 443, 80 
+summary: Se você permitir que um locatário do S3 use serviços de plataforma, você deve configurar a rede para a grade para garantir que as mensagens de serviços de plataforma possam ser entregues aos seus destinos. 
+---
+= Rede e portas para serviços de plataforma
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você permitir que um locatário do S3 use serviços de plataforma, você deve configurar a rede para a grade para garantir que as mensagens de serviços de plataforma possam ser entregues aos seus destinos.
+
+Você pode ativar os serviços de plataforma para uma conta de locatário do S3 ao criar ou atualizar a conta de locatário. Se os serviços de plataforma estiverem ativados, o locatário poderá criar endpoints que servem como destino para replicação do CloudMirror, notificações de eventos ou mensagens de integração de pesquisa a partir de seus buckets do S3. Essas mensagens de serviços de plataforma são enviadas de nós de storage que executam o serviço ADC para os endpoints de destino.
+
+Por exemplo, os locatários podem configurar os seguintes tipos de endpoints de destino:
+
+* Um cluster Elasticsearch hospedado localmente
+* Um aplicativo local compatível com o recebimento de mensagens do Amazon Simple Notification Service
+* Um cluster Kafka hospedado localmente
+* Um bucket do S3 hospedado localmente na mesma ou em outra instância do StorageGRID
+* Um endpoint externo, como um endpoint no Amazon Web Services.
+
+
+Para garantir que as mensagens dos serviços da plataforma possam ser entregues, você deve configurar a rede ou as redes que contêm os nós de armazenamento ADC. Você deve garantir que as portas a seguir possam ser usadas para enviar mensagens de serviços de plataforma para os endpoints de destino.
+
+Por padrão, as mensagens dos serviços da plataforma são enviadas nas seguintes portas:
+
+* *80*: Para URIs de endpoint que começam com http (a maioria dos endpoints)
+* *443*: Para URIs de endpoint que começam com https (a maioria dos endpoints)
+* *9092*: Para URIs de endpoint que começam com http ou https (somente endpoints Kafka)
+
+
+Os locatários podem especificar uma porta diferente quando criam ou editam um endpoint.
+
+
+NOTE: Se uma implantação do StorageGRID for usada como destino para a replicação do CloudMirror, as mensagens de replicação podem ser recebidas em uma porta diferente de 80 ou 443. Verifique se a porta que está sendo usada para S3 pela implantação do StorageGRID de destino está especificada no endpoint.
+
+Se você usar um servidor proxy não transparente, também deverá link:configuring-storage-proxy-settings.html["configure as configurações de proxy de armazenamento"]permitir que as mensagens sejam enviadas para endpoints externos, como um endpoint na Internet.
+
+.Informações relacionadas
+link:../tenant/index.html["Use uma conta de locatário"]

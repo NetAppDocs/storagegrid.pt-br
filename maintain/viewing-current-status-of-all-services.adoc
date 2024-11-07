@@ -1,0 +1,44 @@
+---
+permalink: maintain/viewing-current-status-of-all-services.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, service, status 
+summary: Você pode visualizar o status atual de todos os serviços executados em um nó de grade a qualquer momento. 
+---
+= Ver o estado atual de todos os serviços
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode visualizar o status atual de todos os serviços executados em um nó de grade a qualquer momento.
+
+.Antes de começar
+Você tem o `Passwords.txt` arquivo.
+
+.Passos
+. Faça login no nó da grade:
++
+.. Introduza o seguinte comando: `ssh admin@_grid_node_IP_`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+
+
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+. Veja o status de todos os serviços em execução no nó da grade: `storagegrid-status`
++
+Por exemplo, a saída para o nó de administração principal mostra o status atual dos serviços AMS, CMN e NMS como em execução. Essa saída é atualizada imediatamente se o status de um serviço mudar.
+
++
+image::../media/storagegrid_status_output.gif[captura de tela da saída de comando da grade de armazenamento]
+
+. Volte para a linha de comando, pressione *Ctrl* * C*.
+. Opcionalmente, exiba um relatório estático para todos os serviços executados no nó da grade: `/usr/local/servermanager/reader.rb`
++
+Este relatório inclui as mesmas informações que o relatório continuamente atualizado, mas não é atualizado se o status de um serviço for alterado.
+
+. Faça logout do shell de comando: `exit`
+

@@ -1,0 +1,25 @@
+---
+permalink: monitor/viewing-manage-drives-tab.html 
+sidebar: sidebar 
+keywords: Manage drives tab, hardware diagnostics, fail drive, logically replace drive 
+summary: A guia Gerenciar unidades permite acessar detalhes e executar tarefas de solução de problemas e manutenção em unidades nos dispositivos que suportam esse recurso. 
+---
+= Veja a guia Gerenciar unidades
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A guia Gerenciar unidades permite acessar detalhes e executar tarefas de solução de problemas e manutenção em unidades nos dispositivos que suportam esse recurso.
+
+Usando a guia Gerenciar unidades, você pode fazer o seguinte:
+
+* Exiba um layout das unidades de armazenamento de dados no dispositivo
+* Exiba uma tabela que lista cada local, tipo, status, versão do firmware e número de série da unidade
+* Execute as funções de solução de problemas e manutenção em cada unidade
+
+
+Para acessar a guia Gerenciar unidades, você deve ter o link:../admin/admin-group-permissions.html["Administrador do dispositivo de storage ou permissão de acesso à raiz"].
+
+Para obter informações sobre como usar a guia Gerenciar unidades, https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/manage-drives-tab.html["Use a guia Gerenciar unidades"^] consulte .

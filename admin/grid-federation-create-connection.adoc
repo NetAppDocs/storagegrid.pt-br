@@ -1,0 +1,157 @@
+---
+permalink: admin/grid-federation-create-connection.html 
+sidebar: sidebar 
+keywords: grid federation, create connection, configure connection 
+summary: Você pode criar uma conexão de federação de grade entre dois sistemas StorageGRID se quiser clonar detalhes do locatário e replicar dados de objeto. 
+---
+= Crie conexões de federação de grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode criar uma conexão de federação de grade entre dois sistemas StorageGRID se quiser clonar detalhes do locatário e replicar dados de objeto.
+
+Como mostrado na figura, a criação de uma conexão de federação de grade inclui etapas em ambas as grades. Você adiciona a conexão em uma grade e a completa na outra grade. Você pode começar a partir de qualquer grade.
+
+image::../media/grid-federation-create-connection.png[visão geral gráfica das etapas para criar uma conexão em duas grades]
+
+.Antes de começar
+* Você revisou o link:grid-federation-overview.html["considerações e requisitos"] para configurar conexões de federação de grade.
+* Se você planeja usar nomes de domínio totalmente qualificados (FQDNs) para cada grade em vez de endereços IP ou VIP, você sabe quais nomes usar e confirmou que o servidor DNS para cada grade tem as entradas apropriadas.
+* Você está usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem permissão de acesso raiz e a senha de provisionamento para ambas as grades.
+
+
+
+
+== Adicionar ligação
+
+Execute estas etapas em um dos dois sistemas StorageGRID.
+
+.Passos
+. Faça login no Gerenciador de Grade a partir do nó Admin primário em qualquer grade.
+. Selecione *CONFIGURATION* > *System* > *Grid Federation*.
+. Selecione *Adicionar conexão*.
+. Introduza os detalhes da ligação.
++
+[cols="1a,2a"]
+|===
+| Campo | Descrição 
+
+
+ a| 
+Nome da ligação
+ a| 
+Um nome exclusivo para ajudá-lo a reconhecer esta conexão, por exemplo, "Grid 1-Grid 2".
+
+
+
+ a| 
+FQDN ou IP para esta grade
+ a| 
+Uma das seguintes opções:
+
+** O FQDN da grade em que você está conetado atualmente
+** Um endereço VIP de um grupo HA nesta grelha
+** Um endereço IP de um nó de administrador ou nó de gateway nesta grade. O IP pode estar em qualquer rede que a grade de destino possa alcançar.
+
+
+
+
+ a| 
+Porta
+ a| 
+A porta que pretende utilizar para esta ligação. Pode introduzir qualquer número de porta não utilizado de 23000 a 23999.
+
+Ambas as grades nesta conexão usarão a mesma porta. Você deve garantir que nenhum nó em qualquer grade use essa porta para outras conexões.
+
+
+
+ a| 
+Certificado dias válidos para esta grade
+ a| 
+O número de dias que deseja que os certificados de segurança para essa grade na conexão sejam válidos. O valor padrão é de 730 dias (2 anos), mas você pode inserir qualquer valor de 1 a 762 dias.
+
+O StorageGRID gera automaticamente certificados de cliente e servidor para cada grade quando você salva a conexão.
+
+
+
+ a| 
+Frase-passe de aprovisionamento para esta grelha
+ a| 
+A senha de provisionamento para a grade à qual você está conetado.
+
+
+
+ a| 
+FQDN ou IP para a outra grade
+ a| 
+Uma das seguintes opções:
+
+** O FQDN da grade à qual você deseja se conetar
+** Um endereço VIP de um grupo HA na outra grade
+** Um endereço IP de um nó de administrador ou nó de gateway na outra grade. O IP pode estar em qualquer rede que a grade de origem possa alcançar.
+
+
+|===
+. Selecione *Salvar e continuar*.
+. Para a etapa Download do arquivo de verificação, selecione *Download do arquivo de verificação*.
++
+Depois que a conexão for concluída na outra grade, você não poderá mais baixar o arquivo de verificação de qualquer grade.
+
+. Localize o arquivo baixado (`_connection-name_.grid-federation`) e salve-o em um local seguro.
++
+
+CAUTION: Este arquivo contém segredos (mascarados como `***`) e outros detalhes sensíveis e deve ser armazenado e transmitido com segurança.
+
+. Selecione *Fechar* para retornar à página de federação de Grade.
+. Confirme se a nova ligação é apresentada e que o seu *Estado da ligação* é *a aguardar ligação*.
+. Forneça o `_connection-name_.grid-federation` arquivo ao administrador de grade para a outra grade.
+
+
+
+
+== Ligação completa
+
+Execute estas etapas no sistema StorageGRID ao qual você está se conetando (a outra grade).
+
+.Passos
+. Inicie sessão no Grid Manager a partir do nó de administração principal.
+. Selecione *CONFIGURATION* > *System* > *Grid Federation*.
+. Selecione *carregar ficheiro de verificação* para aceder à página carregar.
+. Selecione *carregar ficheiro de verificação*. Em seguida, procure e selecione o arquivo que foi baixado da primeira grade (`_connection-name_.grid-federation`).
++
+São apresentados os detalhes da ligação.
+
+. Opcionalmente, insira um número diferente de dias válidos para os certificados de segurança para esta grade. A entrada *Certificate Valid Days* (dias válidos do certificado*) é padrão para o valor inserido na primeira grade, mas cada grade pode usar datas de expiração diferentes.
++
+Em geral, use o mesmo número de dias para os certificados em ambos os lados da conexão.
+
++
+
+CAUTION: Se os certificados em qualquer uma das extremidades da conexão expirarem, a conexão parará de funcionar e as replicações ficarão pendentes até que os certificados sejam atualizados.
+
+. Insira a senha de provisionamento para a grade à qual você está conetado no momento.
+. Selecione *Salvar e testar*.
++
+Os certificados são gerados e a conexão é testada. Se a conexão for válida, uma mensagem de sucesso será exibida e a nova conexão será listada na página de federação de Grade. O *Estado da ligação* será *ligado*.
+
++
+Se uma mensagem de erro for exibida, solucione quaisquer problemas. link:grid-federation-troubleshoot.html["Solucionar erros de federação de grade"]Consulte .
+
+. Vá para a página de federação de Grade na primeira grade e atualize o navegador. Confirme se o *Estado da ligação* é agora *ligado*.
+. Depois que a conexão for estabelecida, exclua com segurança todas as cópias do arquivo de verificação.
++
+Se editar esta ligação, será criado um novo ficheiro de verificação. O arquivo original não pode ser reutilizado.
+
+
+
+.Depois de terminar
+* Reveja as considerações para link:grid-federation-manage-tenants.html["gerenciamento de inquilinos permitidos"].
+* link:creating-tenant-account.html["Crie uma ou mais novas contas de inquilino"], Atribua a permissão *Use Grid Federation Connection* e selecione a nova conexão.
+* link:grid-federation-manage-connection.html["Gerencie a conexão"] conforme necessário. Você pode editar valores de conexão, testar uma conexão, girar certificados de conexão ou remover uma conexão.
+* link:../monitor/grid-federation-monitor-connections.html["Monitorize a ligação"] Como parte de suas atividades normais de monitoramento do StorageGRID.
+* link:grid-federation-troubleshoot.html["Solucionar problemas da conexão"], incluindo a resolução de quaisquer alertas e erros relacionados ao clone de conta e replicação entre grades.
+

@@ -1,0 +1,49 @@
+---
+permalink: audit/gted-grid-task-ended.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, GTED, Grid Task Ended 
+summary: Esta mensagem de auditoria indica que o serviço CMN terminou de processar a tarefa de grade especificada e moveu a tarefa para a tabela Histórico. Se o resultado for SUCS, ABRT ou ROLF, haverá uma mensagem de auditoria Grid Task Started correspondente. Os outros resultados indicam que o processamento desta tarefa de grade nunca foi iniciado. 
+---
+= GTED: Tarefa de grelha terminada
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta mensagem de auditoria indica que o serviço CMN terminou de processar a tarefa de grade especificada e moveu a tarefa para a tabela Histórico. Se o resultado for SUCS, ABRT ou ROLF, haverá uma mensagem de auditoria Grid Task Started correspondente. Os outros resultados indicam que o processamento desta tarefa de grade nunca foi iniciado.
+
+[cols="1a,1a,4a"]
+|===
+| Código | Campo | Descrição 
+
+
+ a| 
+TSID
+ a| 
+Código tarefa
+ a| 
+Este campo identifica exclusivamente uma tarefa de grade gerada e permite que a tarefa de grade seja gerenciada ao longo de seu ciclo de vida.
+
+*Observação:* o ID da tarefa é atribuído no momento em que uma tarefa de grade é gerada, não no momento em que ela é enviada. É possível que uma determinada tarefa de grade seja enviada várias vezes e, neste caso, o campo ID da tarefa não é suficiente para vincular exclusivamente as mensagens de auditoria enviadas, iniciadas e encerradas.
+
+
+
+ a| 
+RSLT
+ a| 
+Resultado
+ a| 
+O resultado final do status da tarefa de grade:
+
+* SUCS: A tarefa de grade foi concluída com sucesso.
+* ABRT: A tarefa de grade foi encerrada sem um erro de reversão.
+* ROLF: A tarefa de grade foi encerrada e não foi possível concluir o processo de reversão.
+* CANC: A tarefa de grade foi cancelada pelo usuário antes de ser iniciada.
+* EXPR: A tarefa de grade expirou antes de ser iniciada.
+* IVLD: A tarefa de grade era inválida.
+* AUTH: A tarefa de grade não foi autorizada.
+* DUPL: A tarefa de grade foi rejeitada como uma duplicata.
+
+
+|===

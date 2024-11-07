@@ -1,0 +1,328 @@
+---
+permalink: admin/creating-tenant-account.html 
+sidebar: sidebar 
+keywords: create tenant, tenant account 
+summary: Você deve criar pelo menos uma conta de locatário para controlar o acesso ao storage no sistema StorageGRID. 
+---
+= Crie uma conta de locatário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve criar pelo menos uma conta de locatário para controlar o acesso ao storage no sistema StorageGRID.
+
+As etapas para criar uma conta de locatário variam de acordo com link:using-identity-federation.html["federação de identidade"]a configuração e link:configuring-sso.html["logon único"]se a conta do Gerenciador de Grade que você usa para criar a conta de locatário pertence a um grupo de administração com a permissão de acesso root.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:admin-group-permissions.html["Acesso root ou permissão de contas do locatário"].
+* Se a conta de locatário usar a origem de identidade configurada para o Gerenciador de Grade e você quiser conceder permissão de acesso raiz para a conta de locatário a um grupo federado, você importou esse grupo federado para o Gerenciador de Grade. Você não precisa atribuir nenhuma permissão do Gerenciador de Grade a esse grupo de administradores. link:managing-admin-groups.html["Gerenciar grupos de administradores"]Consulte .
+* Se você quiser permitir que um locatário do S3 clone dados de conta e replique objetos de bucket para outra grade usando uma conexão de federação de grade:
++
+** Você link:grid-federation-create-connection.html["configurada a conexão de federação de grade"]tem .
+** O estado da ligação é *ligado*.
+** Você tem permissão de acesso root.
+** Você revisou as considerações para link:grid-federation-manage-tenants.html["gerenciamento dos locatários permitidos para a federação da grade"].
+** Se a conta de locatário usar a origem de identidade configurada para o Gerenciador de Grade, você importou o mesmo grupo federado para o Gerenciador de Grade em ambas as grades.
++
+Ao criar o locatário, você selecionará esse grupo para ter a permissão de acesso raiz inicial para as contas de locatário de origem e destino.
+
++
+
+TIP: Se esse grupo de administração não existir em ambas as grades antes de criar o locatário, o locatário não será replicado para o destino.
+
+
+
+
+
+
+
+== Acesse o assistente
+
+.Passos
+. Selecione *TENANTS*.
+. Selecione *criar*.
+
+
+
+
+== Introduza os detalhes
+
+.Passos
+. Insira os detalhes para o locatário.
++
+[cols="1a,3a"]
+|===
+| Campo | Descrição 
+
+
+ a| 
+Nome
+ a| 
+Um nome para a conta de locatário. Os nomes de inquilinos não precisam ser únicos. Quando a conta de locatário é criada, ela recebe um ID de conta exclusivo de 20 dígitos.
+
+
+
+ a| 
+Descrição (opcional)
+ a| 
+Uma descrição para ajudar a identificar o inquilino.
+
+Se você estiver criando um locatário que usará uma conexão de federação de grade, opcionalmente, use este campo para ajudar a identificar qual é o locatário de origem e qual é o locatário de destino. Por exemplo, essa descrição para um locatário criado na Grade 1 também aparecerá para o locatário replicado para a Grade 2: "Este locatário foi criado na Grade 1."
+
+
+
+ a| 
+Tipo de cliente
+ a| 
+O tipo de protocolo de cliente que este locatário usará, seja *S3* ou *Swift*.
+
+*Nota*: O suporte para aplicativos cliente Swift foi obsoleto e será removido em uma versão futura.
+
+
+
+ a| 
+Cota de armazenamento (opcional)
+ a| 
+Se você quiser que esse locatário tenha uma cota de armazenamento, um valor numérico para a cota e as unidades.
+
+|===
+. Selecione *continuar*.
+
+
+
+
+== [[admin-tenant-select-permissions]]Selecione permissões
+
+.Passos
+. Opcionalmente, selecione as permissões básicas que você deseja que esse locatário tenha.
++
+
+NOTE: Algumas dessas permissões têm requisitos adicionais. Para obter detalhes, selecione o ícone de ajuda para cada permissão.
+
++
+[cols="1a,3a"]
+|===
+| Permissão | Se selecionado... 
+
+
+ a| 
+Permitir serviços de plataforma
+ a| 
+O locatário pode usar serviços de plataforma S3, como o CloudMirror. link:../admin/manage-platform-services-for-tenants.html["Gerencie os serviços de plataforma para contas de inquilino S3"]Consulte .
+
+
+
+ a| 
+Use a própria fonte de identidade
+ a| 
+O locatário pode configurar e gerenciar sua própria fonte de identidade para grupos federados e usuários. Esta opção é desativada se tiver link:../admin/configuring-sso.html["SSO configurado"] para o seu sistema StorageGRID.
+
+
+
+ a| 
+Permitir S3 Selecione
+ a| 
+O locatário pode emitir S3 solicitações de API SelectObjectContent para filtrar e recuperar dados de objeto. link:../admin/manage-s3-select-for-tenant-accounts.html["Gerenciar S3 Selecione para contas de inquilino"]Consulte .
+
+*Importante*: As solicitações SelectObjectContent podem diminuir o desempenho do balanceador de carga para todos os clientes S3 e todos os locatários. Ative esse recurso somente quando necessário e somente para locatários confiáveis.
+
+|===
+. Opcionalmente, selecione as permissões avançadas que você deseja que esse locatário tenha.
++
+[cols="1a,3a"]
+|===
+| Permissão | Se selecionado... 
+
+
+ a| 
+Conexão de federação de grade
+ a| 
+O locatário pode usar uma conexão de federação de grade, que:
+
+** Faz com que esse locatário e todos os grupos de locatários e usuários adicionados à conta sejam clonados dessa grade (a _grade de origem_) para a outra grade na conexão selecionada (a _grade de destino_).
+** Permite que esse locatário configure a replicação entre grade entre intervalos correspondentes em cada grade.
+
+
+link:../admin/grid-federation-manage-tenants.html["Gerenciar os locatários permitidos para a federação de grade"]Consulte .
+
+
+
+ a| 
+S3 bloqueio de objetos
+ a| 
+Permita que o locatário use recursos específicos do bloqueio de objetos S3:
+
+** *Definir período máximo de retenção* define quanto tempo novos objetos adicionados a este balde devem ser retidos, a partir do momento em que são ingeridos.
+** *Permitir o modo de conformidade* impede que os usuários substituam ou excluam versões de objetos protegidos durante o período de retenção.
+
+
+|===
+. Selecione *continuar*.
+
+
+
+
+== Defina o acesso root e crie o locatário
+
+.Passos
+. Defina o acesso root para a conta de locatário, com base se o seu sistema StorageGRID usa federação de identidade, logon único (SSO) ou ambos.
++
+[cols="1a,2a"]
+|===
+| Opção | Faça isso 
+
+
+ a| 
+Se a federação de identidade não estiver ativada
+ a| 
+Especifique a senha a ser usada ao fazer login no locatário como usuário raiz local.
+
+
+
+ a| 
+Se a federação de identidade estiver ativada
+ a| 
+.. Selecione um grupo federado existente para ter permissão de acesso root para o locatário.
+.. Opcionalmente, especifique a senha a ser usada ao fazer login no locatário como usuário raiz local.
+
+
+
+
+ a| 
+Se a federação de identidade e o logon único (SSO) estiverem ativados
+ a| 
+Selecione um grupo federado existente para ter permissão de acesso root para o locatário. Nenhum usuário local pode entrar.
+
+|===
+. Selecione *criar inquilino*.
++
+Uma mensagem de sucesso é exibida e o novo locatário é listado na página de locatários. Para saber como exibir detalhes do locatário e monitorar a atividade do locatário, link:../monitor/monitoring-tenant-activity.html["Monitorar a atividade do locatário"]consulte .
+
++
+
+NOTE: A aplicação de configurações de locatário na grade pode levar 15 minutos ou mais com base na conetividade de rede, no status do nó e nas operações do Cassandra.
+
+. Se você selecionou a permissão *usar conexão de federação de grade* para o locatário:
++
+.. Confirme se um locatário idêntico foi replicado para a outra grade na conexão. Os locatários em ambas as grades terão o mesmo ID de conta, nome, descrição, cota e permissões de 20 dígitos.
++
+
+NOTE: Se você vir a mensagem de erro "Tenant created without a clone", consulte as instruções em link:grid-federation-troubleshoot.html["Solucionar erros de federação de grade"].
+
+.. Se você forneceu uma senha de usuário raiz local ao definir o acesso root, link:changing-password-for-tenant-local-root-user.html["altere a senha do usuário raiz local"] para o locatário replicado.
++
+
+TIP: Um usuário raiz local não pode entrar no Gerenciador do locatário na grade de destino até que a senha seja alterada.
+
+
+
+
+
+
+
+== Iniciar sessão no locatário (opcional)
+
+Conforme necessário, você pode fazer login no novo locatário agora para concluir a configuração ou entrar no locatário mais tarde. As etapas de login dependem se você está conetado ao Gerenciador de Grade usando a porta padrão (443) ou uma porta restrita. link:controlling-access-through-firewalls.html["Controle o acesso no firewall externo"]Consulte .
+
+
+
+=== Inicie sessão agora
+
+[cols="1a,3a"]
+|===
+| Se você estiver usando... | Faça isso... 
+
+
+ a| 
+Porta 443 e você define uma senha para o usuário raiz local
+ a| 
+. Selecione *entrar como root*.
++
+Quando você faz login, os links são exibidos para configurar buckets, federação de identidade, grupos e usuários.
+
+. Selecione os links para configurar a conta de locatário.
++
+Cada link abre a página correspondente no Gerenciador do Locatário. Para concluir a página, consulte link:../tenant/index.html["instruções para o uso de contas de inquilino"].
+
+
+
+
+
+ a| 
+Porta 443 e você não definiu uma senha para o usuário raiz local
+ a| 
+Selecione *entrar* e insira as credenciais de um usuário no grupo federado de acesso raiz.
+
+
+
+ a| 
+Uma porta restrita
+ a| 
+. Selecione *Finish*
+. Selecione *Restricted* na tabela Tenant para saber mais sobre como acessar essa conta de locatário.
++
+O URL do Gerenciador do Locatário tem este formato:
+
++
+`https://_FQDN_or_Admin_Node_IP:port_/?accountId=_20-digit-account-id_/`
+
++
+** `_FQDN_or_Admin_Node_IP_` É um nome de domínio totalmente qualificado ou o endereço IP de um nó de administrador
+** `_port_` é a porta somente locatário
+** `_20-digit-account-id_` É o ID exclusivo da conta do locatário
+
+
+
+
+|===
+
+
+=== Inicie sessão mais tarde
+
+[cols="1a,3a"]
+|===
+| Se você estiver usando... | Faça um destes... 
+
+
+ a| 
+Porta 443
+ a| 
+* No Gerenciador de Grade, selecione *TENANTS* e *Sign in* à direita do nome do locatário.
+* Insira o URL do locatário em um navegador da Web:
++
+`https://_FQDN_or_Admin_Node_IP_/?accountId=_20-digit-account-id_/`
+
++
+** `_FQDN_or_Admin_Node_IP_` É um nome de domínio totalmente qualificado ou o endereço IP de um nó de administrador
+** `_20-digit-account-id_` É o ID exclusivo da conta do locatário
+
+
+
+
+
+
+ a| 
+Uma porta restrita
+ a| 
+* No Gerenciador de Grade, selecione *TENANTS* e *restricted*.
+* Insira o URL do locatário em um navegador da Web:
++
+`https://_FQDN_or_Admin_Node_IP:port_/?accountId=_20-digit-account-id_`
+
++
+** `_FQDN_or_Admin_Node_IP_` É um nome de domínio totalmente qualificado ou o endereço IP de um nó de administrador
+** `_port_` é a porta restrita somente para locatário
+** `_20-digit-account-id_` É o ID exclusivo da conta do locatário
+
+
+
+
+|===
+
+
+== Configure o locatário
+
+Siga as instruções em link:../tenant/index.html["Use uma conta de locatário"] para gerenciar grupos de locatários e usuários, chaves de acesso do S3, buckets, serviços de plataforma e replicação entre grades e clone de contas.

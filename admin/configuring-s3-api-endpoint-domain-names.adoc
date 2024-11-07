@@ -1,0 +1,102 @@
+---
+permalink: admin/configuring-s3-api-endpoint-domain-names.html 
+sidebar: sidebar 
+keywords: s3 endpoint domain names, virtual-hosted-style requests 
+summary: Para oferecer suporte a S3 solicitações de estilo hospedado virtual, você deve usar o Gerenciador de Grade para configurar a lista de S3 nomes de domínio de endpoint aos quais os clientes S3 se conetam. 
+---
+= Configurar nomes de domínio de endpoint S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para oferecer suporte a S3 solicitações de estilo hospedado virtual, você deve usar o Gerenciador de Grade para configurar a lista de S3 nomes de domínio de endpoint aos quais os clientes S3 se conetam.
+
+
+CAUTION: O uso de um endereço IP para um nome de domínio de endpoint não é suportado. Versões futuras impedirão essa configuração.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
+* Você confirmou que uma atualização de grade não está em andamento.
++
+
+CAUTION: Não faça alterações na configuração do nome de domínio quando uma atualização de grade estiver em andamento.
+
+
+
+.Sobre esta tarefa
+Para permitir que os clientes usem nomes de domínio de endpoint S3, você deve fazer todas as seguintes ações:
+
+* Use o Gerenciador de Grade para adicionar os nomes de domínio de endpoint S3 ao sistema StorageGRID.
+* Certifique-se de que o link:../admin/configuring-administrator-client-certificates.html["Certificado que o cliente usa para conexões HTTPS com o StorageGRID"] está assinado para todos os nomes de domínio que o cliente requer.
++
+Por exemplo, se o endpoint for `s3.company.com`, você deve garantir que o certificado usado para conexões HTTPS inclua o `s3.company.com` endpoint e o nome alternativo do assunto universal (SAN) do endpoint: `*.s3.company.com`.
+
+* Configure o servidor DNS usado pelo cliente. Inclua Registros DNS para os endereços IP que os clientes usam para fazer conexões e verifique se os Registros fazem referência a todos os nomes de domínio de endpoint S3 necessários, incluindo quaisquer nomes de curinga.
++
+
+NOTE: Os clientes podem se conetar ao StorageGRID usando o endereço IP de um nó de gateway, um nó de administrador ou um nó de armazenamento, ou conetando-se ao endereço IP virtual de um grupo de alta disponibilidade. Você deve entender como os aplicativos cliente se conetam à grade para incluir os endereços IP corretos nos Registros DNS.
+
+
+
+Os clientes que usam conexões HTTPS (recomendadas) para a grade podem usar qualquer um destes certificados:
+
+* Os clientes que se conetam a um ponto de extremidade do balanceador de carga podem usar um certificado personalizado para esse ponto de extremidade. Cada ponto de extremidade do balanceador de carga pode ser configurado para reconhecer diferentes nomes de domínio de endpoint S3.
+* Os clientes que se conetam a um ponto de extremidade do balanceador de carga ou diretamente a um nó de armazenamento podem personalizar o certificado global da API S3 para incluir todos os nomes de domínio de endpoint S3 necessários.
+
+
+
+NOTE: Se você não adicionar nomes de domínio de endpoint S3 e a lista estiver vazia, o suporte para solicitações de estilo hospedado virtual S3 será desativado.
+
+
+
+== Adicione um nome de domínio de endpoint S3
+
+.Passos
+. Selecione *CONFIGURATION* > *Network* > *S3 endpoint domain names*.
+. Introduza o nome de domínio no campo *Domain Name 1*. Selecione *Adicionar outro nome de domínio* para adicionar mais nomes de domínio.
+. Selecione *Guardar*.
+. Certifique-se de que os certificados de servidor que os clientes utilizam correspondem aos nomes de domínio de endpoint S3 necessários.
++
+** Se os clientes se conetarem a um ponto de extremidade do balanceador de carga que use seu próprio certificadolink:../admin/configuring-load-balancer-endpoints.html["atualize o certificado associado ao endpoint"], .
+** Se os clientes se conetarem a um ponto de extremidade do balanceador de carga que use o certificado global da API S3 ou diretamente aos nós de storage, link:../admin/use-s3-setup-wizard-steps.html["Atualize o certificado global da API S3"].
+
+
+. Adicione os Registros DNS necessários para garantir que as solicitações de nome de domínio de endpoint possam ser resolvidas.
+
+
+.Resultado
+Agora, quando os clientes usam o endpoint `_bucket.s3.company.com_`, o servidor DNS resolve para o endpoint correto e o certificado autentica o endpoint como esperado.
+
+
+
+== Renomeie um nome de domínio de endpoint S3
+
+Se você alterar um nome usado por aplicativos S3, as solicitações de estilo hospedado virtual falharão.
+
+.Passos
+. Selecione *CONFIGURATION* > *Network* > *S3 endpoint domain names*.
+. Selecione o campo de nome de domínio que deseja editar e faça as alterações necessárias.
+. Selecione *Guardar*.
+. Selecione *Sim* para confirmar a alteração.
+
+
+
+
+== Exclua um nome de domínio de endpoint S3
+
+Se você remover um nome usado por aplicativos S3, as solicitações de estilo hospedado virtual falharão.
+
+.Passos
+. Selecione *CONFIGURATION* > *Network* > *S3 endpoint domain names*.
+. Selecione o ícone de exclusão image:../media/icon-x-to-remove.png["eliminar ícone"]ao lado do nome de domínio.
+. Selecione *Sim* para confirmar a exclusão.
+
+
+.Informações relacionadas
+* link:../s3/index.html["USE A API REST DO S3"]
+* link:viewing-ip-addresses.html["Ver endereços IP"]
+* link:configure-high-availability-group.html["Configurar grupos de alta disponibilidade"]
+

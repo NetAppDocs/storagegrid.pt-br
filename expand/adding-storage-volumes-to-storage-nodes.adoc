@@ -1,0 +1,50 @@
+---
+permalink: expand/adding-storage-volumes-to-storage-nodes.html 
+sidebar: sidebar 
+keywords: storage volumes, expand, expansion, add, storage nodes, adding storage capacity 
+summary: Você pode expandir a capacidade de storage dos nós de storage que têm 16 ou menos volumes de storage adicionando volumes de storage adicionais. Talvez você precise adicionar volumes de storage a mais de um nó de storage para atender aos requisitos de ILM para cópias replicadas ou codificadas por apagamento. 
+---
+= Adicionar volumes de storage aos nós de storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode expandir a capacidade de storage dos nós de storage que têm 16 ou menos volumes de storage adicionando volumes de storage adicionais. Talvez você precise adicionar volumes de storage a mais de um nó de storage para atender aos requisitos de ILM para cópias replicadas ou codificadas por apagamento.
+
+.Antes de começar
+Antes de adicionar volumes de armazenamento, consulte o link:guidelines-for-adding-object-capacity.html["diretrizes para adicionar capacidade de objeto"] para garantir que você saiba onde adicionar volumes para atender aos requisitos da política de ILM.
+
+
+NOTE: Estas instruções se aplicam somente a nós de storage baseados em software.  https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/adding-expansion-shelf-to-deployed-sg6060.html["Adicione o compartimento de expansão ao SG6060 implantado"^]Consulte ou https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/adding-expansion-shelf-to-deployed-sg6160.html["Adicione o compartimento de expansão ao SG6160 implantado"^] para saber como adicionar volumes de armazenamento ao SG6060 ou SG6160 instalando os compartimentos de expansão. Não é possível expandir os nós de storage de outros dispositivos.
+
+.Sobre esta tarefa
+O storage subjacente de um nó de storage é dividido em volumes de storage. Os volumes de armazenamento são dispositivos de armazenamento baseados em blocos que são formatados pelo sistema StorageGRID e montados para armazenar objetos. Cada nó de armazenamento pode suportar até 16 volumes de armazenamento, que são chamados _armazenamentos de objetos_ no Gerenciador de Grade.
+
+
+NOTE: Os metadados de objetos são sempre armazenados no armazenamento de objetos 0.
+
+Cada armazenamento de objetos é montado em um volume que corresponde ao seu ID. Por exemplo, o armazenamento de objetos com uma ID de 0000 corresponde ao `/var/local/rangedb/0` ponto de montagem.
+
+Antes de adicionar novos volumes de armazenamento, use o Gerenciador de Grade para exibir os armazenamentos de objetos atuais para cada nó de armazenamento, bem como os pontos de montagem correspondentes. Você pode usar essas informações ao adicionar volumes de armazenamento.
+
+.Passos
+. Selecione *NÓS* > *_site_* > *_Storage Node_* > *Storage*.
+. Role para baixo para ver as quantidades de armazenamento disponível para cada volume e armazenamento de objetos.
++
+Para nós de storage de dispositivo, o Nome Mundial para cada disco corresponde ao identificador mundial de volume (WWID) que aparece quando você visualiza as propriedades de volume padrão no SANtricity os (o software de gerenciamento conetado ao controlador de storage do dispositivo).
+
++
+Para ajudá-lo a interpretar estatísticas de leitura e gravação de disco relacionadas aos pontos de montagem de volume, a primeira parte do nome mostrado na coluna *Nome* da tabela dispositivos de disco (ou seja, _sdc_, _sdd_, _sde_, etc.) corresponde ao valor mostrado na coluna *dispositivo* da tabela volumes.
+
++
+image::../media/nodes_page_storage_tables_vol_expansion.png[Tabelas de storage de páginas de nós]
+
+. Siga as instruções da sua plataforma para adicionar novos volumes de armazenamento ao nó de armazenamento.
++
+** link:vmware-adding-storage-volumes-to-storage-node.html["VMware: Adicione volumes de storage ao nó de storage"]
+** link:linux-adding-direct-attached-or-san-volumes-to-storage-node.html["Linux: Adicione volumes de SAN ou de conexão direta ao nó de storage"]
+
+
+

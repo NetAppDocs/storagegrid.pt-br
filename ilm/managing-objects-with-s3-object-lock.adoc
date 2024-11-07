@@ -1,0 +1,176 @@
+---
+permalink: ilm/managing-objects-with-s3-object-lock.html 
+sidebar: sidebar 
+keywords: s3 object lock, manage objects with object lock 
+summary: Como administrador de grade, você pode ativar o bloqueio de objeto S3 para seu sistema StorageGRID e implementar uma política ILM compatível para ajudar a garantir que os objetos em buckets S3 específicos não sejam excluídos ou substituídos por um período de tempo especificado. 
+---
+= Gerencie objetos com o S3 Object Lock
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Como administrador de grade, você pode ativar o bloqueio de objeto S3 para seu sistema StorageGRID e implementar uma política ILM compatível para ajudar a garantir que os objetos em buckets S3 específicos não sejam excluídos ou substituídos por um período de tempo especificado.
+
+
+
+== O que é S3 Object Lock?
+
+O recurso bloqueio de objetos do StorageGRID S3 é uma solução de proteção de objetos equivalente ao bloqueio de objetos do S3 no Amazon Simple Storage Service (Amazon S3).
+
+Quando a configuração de bloqueio de objeto S3 global está ativada para um sistema StorageGRID, uma conta de locatário S3 pode criar buckets com ou sem bloqueio de objeto S3 ativado. Se um bucket tiver o bloqueio de objetos S3 ativado, o controle de versão do bucket é necessário e é ativado automaticamente.
+
+*Um bucket sem S3 Object Lock* só pode ter objetos sem as configurações de retenção especificadas. Nenhum objeto ingerido terá configurações de retenção.
+
+* Um bucket com S3 Object Lock* pode ter objetos com e sem configurações de retenção especificadas por aplicativos clientes S3. Alguns objetos ingeridos terão definições de retenção.
+
+*Um bucket com o bloqueio de objeto S3 e a retenção padrão configurada* pode ter carregado objetos com configurações de retenção especificadas e novos objetos sem configurações de retenção. Os novos objetos usam a configuração padrão, porque a configuração de retenção não foi configurada no nível do objeto.
+
+Efetivamente, todos os objetos recém-ingeridos têm configurações de retenção quando a retenção padrão é configurada. Os objetos existentes sem configurações de retenção de objetos permanecem inalterados.
+
+
+
+=== Modos de retenção
+
+O recurso bloqueio de objetos do StorageGRID S3 suporta dois modos de retenção para aplicar diferentes níveis de proteção aos objetos. Esses modos são equivalentes aos modos de retenção do Amazon S3.
+
+* No modo de conformidade:
++
+** O objeto não pode ser excluído até que sua data de retenção seja alcançada.
+** O retent-until-date do objeto pode ser aumentado, mas não pode ser diminuído.
+** A data de retenção do objeto não pode ser removida até que essa data seja atingida.
+
+
+* No modo de governança:
++
+** Os usuários com permissão especial podem usar um cabeçalho de desvio em solicitações para modificar determinadas configurações de retenção.
+** Esses usuários podem excluir uma versão de objeto antes de sua data de retenção ser alcançada.
+** Esses usuários podem aumentar, diminuir ou remover a data de retenção até um objeto.
+
+
+
+
+
+
+=== Configurações de retenção para versões de objetos
+
+Se um bucket for criado com o bloqueio de objeto S3 ativado, os usuários poderão usar o aplicativo cliente S3 para especificar opcionalmente as seguintes configurações de retenção para cada objeto adicionado ao bucket:
+
+* *Modo de retenção*: Conformidade ou governança.
+* *Retent-until-date*: Se a data de retent-until de uma versão de objeto estiver no futuro, o objeto pode ser recuperado, mas não pode ser excluído.
+* *Retenção legal*: Aplicar uma retenção legal a uma versão de objeto bloqueia imediatamente esse objeto. Por exemplo, você pode precisar colocar uma retenção legal em um objeto relacionado a uma investigação ou disputa legal. Uma retenção legal não tem data de expiração, mas permanece em vigor até que seja explicitamente removida. As obrigações legais são independentes da retenção até à data.
++
+
+NOTE: Se um objeto estiver sob uma retenção legal, ninguém poderá excluir o objeto, independentemente de seu modo de retenção.
+
++
+Para obter detalhes sobre as configurações do objeto, link:../s3/use-s3-api-for-s3-object-lock.html["Use a API REST do S3 para configurar o bloqueio de objetos do S3"]consulte .
+
+
+
+
+
+=== Configuração de retenção padrão para buckets
+
+Se um bucket for criado com o bloqueio de objetos S3 ativado, os usuários podem especificar opcionalmente as seguintes configurações padrão para o bucket:
+
+* *Modo de retenção padrão*: Conformidade ou governança.
+* *Período de retenção padrão*: Quanto tempo as novas versões de objetos adicionadas a este intervalo devem ser mantidas, a partir do dia em que são adicionadas.
+
+
+As configurações padrão de bucket se aplicam somente a novos objetos que não têm suas próprias configurações de retenção. Os objetos de bucket existentes não são afetados quando você adiciona ou altera essas configurações padrão.
+
+link:../tenant/creating-s3-bucket.html["Crie um bucket do S3"]Consulte e link:../tenant/update-default-retention-settings.html["Atualização S3 retenção padrão bloqueio Objeto"].
+
+
+
+== Comparação do S3 Object Lock com a conformidade legada
+
+O bloqueio de objetos S3 substitui o recurso de conformidade que estava disponível em versões anteriores do StorageGRID. Como o recurso de bloqueio de objetos S3 está em conformidade com os requisitos do Amazon S3, ele deprecia o recurso proprietário de conformidade do StorageGRID, que agora é chamado de "conformidade legada".
+
+
+NOTE: A configuração de conformidade global está obsoleta. Se você ativou essa configuração usando uma versão anterior do StorageGRID, a configuração bloqueio de objeto S3 será ativada automaticamente. Você pode continuar usando o StorageGRID para gerenciar as configurações de buckets em conformidade existentes; no entanto, não é possível criar novos buckets em conformidade. Para obter detalhes, https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de Conhecimento da NetApp: Como gerenciar buckets em conformidade com o legado no StorageGRID 11,5"^] consulte .
+
+Se você usou o recurso de conformidade legado em uma versão anterior do StorageGRID, consulte a tabela a seguir para saber como ele se compara ao recurso bloqueio de objetos S3 no StorageGRID.
+
+[cols="1a,1a,1a"]
+|===
+|  | S3 bloqueio de objetos | Conformidade (legado) 
+
+
+ a| 
+Como o recurso é ativado globalmente?
+ a| 
+No Gerenciador de Grade, selecione *CONFIGURATION* > *System* > *S3 Object Lock*.
+ a| 
+Já não é suportado.
+
+
+
+ a| 
+Como o recurso está habilitado para um bucket?
+ a| 
+Os usuários devem habilitar o bloqueio de objeto S3 ao criar um novo bucket usando o Gerenciador de locatário, a API de gerenciamento de locatário ou a API REST S3.
+ a| 
+Já não é suportado.
+
+
+
+ a| 
+O controle de versão do bucket é suportado?
+ a| 
+Sim. O controle de versão do bucket é necessário e é ativado automaticamente quando o bloqueio de objetos S3 é ativado para o bucket.
+ a| 
+Não
+
+
+
+ a| 
+Como a retenção de objetos é definida?
+ a| 
+Os usuários podem definir uma data de retenção até cada versão do objeto ou definir um período de retenção padrão para cada bucket.
+ a| 
+Os usuários devem definir um período de retenção para todo o bucket. O período de retenção aplica-se a todos os objetos no balde.
+
+
+
+ a| 
+O período de retenção pode ser alterado?
+ a| 
+* No modo de conformidade, a data de retenção até uma versão de objeto pode ser aumentada, mas nunca diminuída.
+* No modo de governança, os usuários com permissões especiais podem diminuir ou até mesmo remover as configurações de retenção de um objeto.
+
+ a| 
+O período de retenção de um balde pode ser aumentado, mas nunca diminuído.
+
+
+
+ a| 
+Onde é controlada a guarda legal?
+ a| 
+Os usuários podem colocar uma retenção legal ou levantar uma retenção legal para qualquer versão de objeto no bucket.
+ a| 
+Uma retenção legal é colocada no balde e afeta todos os objetos no balde.
+
+
+
+ a| 
+Quando os objetos podem ser excluídos?
+ a| 
+* No modo de conformidade, uma versão de objeto pode ser excluída após a data de retenção ser alcançada, assumindo que o objeto não está sob retenção legal.
+* No modo de governança, os usuários com permissões especiais podem excluir um objeto antes de sua data de retenção ser alcançada, supondo que o objeto não esteja sob retenção legal.
+
+ a| 
+Um objeto pode ser excluído após o período de retenção expirar, supondo que o intervalo não esteja sob retenção legal. Os objetos podem ser excluídos automaticamente ou manualmente.
+
+
+
+ a| 
+A configuração do ciclo de vida do bucket é suportada?
+ a| 
+Sim
+ a| 
+Não
+
+|===

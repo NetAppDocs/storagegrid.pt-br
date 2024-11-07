@@ -1,0 +1,104 @@
+---
+permalink: tenant/signing-in-to-tenant-manager.html 
+sidebar: sidebar 
+keywords: how to sign in to tenant manager 
+summary: Você acessa o Gerenciador do Locatário inserindo o URL do locatário na barra de endereços de um navegador da Web compatível. 
+---
+= Inicie sessão no Tenant Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você acessa o Gerenciador do Locatário inserindo o URL do locatário na barra de endereços de um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+
+.Antes de começar
+* Você tem suas credenciais de login.
+* Você tem um URL para acessar o Gerenciador do Locatário, conforme fornecido pelo administrador da grade. O URL será parecido com um destes exemplos:
++
+`\https://FQDN_or_Admin_Node_IP/`
+
++
+`\https://FQDN_or_Admin_Node_IP:port/`
+
++
+`\https://FQDN_or_Admin_Node_IP/?accountId=20-digit-account-id`
+
++
+`\https://FQDN_or_Admin_Node_IP:port/?accountId=20-digit-account-id`
+
++
+O URL sempre inclui um nome de domínio totalmente qualificado (FQDN), o endereço IP de um nó de administração ou o endereço IP virtual de um grupo de HA de nós de administração. Ele também pode incluir um número de porta, o ID da conta de locatário de 20 dígitos ou ambos.
+
+* Se o URL não incluir o ID de conta de 20 dígitos do locatário, você terá esse ID de conta.
+* Você está usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Os cookies são ativados no seu navegador.
+* Você pertence a um grupo de usuários que link:tenant-management-permissions.html["permissões de acesso específicas"]tem .
+
+
+.Passos
+. Inicie um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+. Na barra de endereços do navegador, insira o URL para acessar o Gerenciador de locatários.
+. Se for solicitado um alerta de segurança, instale o certificado usando o assistente de instalação do navegador.
+. Inicie sessão no Gestor do Locatário.
++
+A tela de login exibida depende do URL digitado e se o SSO (logon único) foi configurado para o StorageGRID.
+
++
+[role="tabbed-block"]
+====
+.Não está a utilizar SSO
+--
+Se o StorageGRID não estiver usando SSO, uma das seguintes telas será exibida:
+
+** A página de login do Gerenciador de Grade. Selecione o link *Logon* do locatário.
++
+image::../media/tenant_login_link.png[Link de login do locatário na página de login do Grid Manager]
+
+** A página de início de sessão do Tenant Manager. O campo *Account* pode já estar concluído, como mostrado abaixo.
++
+image::../media/tenant_user_sign_in.png[Página de login do Gerenciador do locatário]
+
++
+... Se o ID da conta de 20 dígitos do locatário não for exibido, selecione o nome da conta do locatário se ele aparecer na lista de contas recentes ou insira o ID da conta.
+... Introduza o seu nome de utilizador e palavra-passe.
+... Selecione *entrar*.
++
+É apresentado o painel do Tenant Manager.
+
+... Se você recebeu uma senha inicial de outra pessoa, selecione *_username_* > *alterar senha* para proteger sua conta.
+
+
+
+
+--
+.Usando SSO
+--
+Se o StorageGRID estiver usando SSO, uma das seguintes telas será exibida:
+
+** Página SSO da sua organização. Por exemplo:
++
+image::../media/sso_organization_page.gif[Exemplo de organização Página de login para SSO]
+
++
+Insira suas credenciais SSO padrão e selecione *entrar*.
+
+** A página de login SSO do Tenant Manager.
++
+image::../media/sign_in_sso.png[Fazer login em uma conta de locatário se o SSO estiver habilitado]
+
++
+... Se o ID da conta de 20 dígitos do locatário não for exibido, selecione o nome da conta do locatário se ele aparecer na lista de contas recentes ou insira o ID da conta.
+... Selecione *entrar*.
+... Inicie sessão com as suas credenciais SSO padrão na página de início de sessão SSO da sua organização.
++
+É apresentado o painel do Tenant Manager.
+
+
+
+
+
+--
+====
+

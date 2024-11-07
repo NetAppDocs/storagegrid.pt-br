@@ -1,0 +1,208 @@
+---
+permalink: admin/grid-federation-manage-tenants.html 
+sidebar: sidebar 
+keywords: grid federation, manage tenant, use grid federation permission, remove permission, cross grid replication 
+summary: Você pode permitir que as contas de locatário do S3 usem uma conexão de federação de grade entre dois sistemas StorageGRID. Quando os locatários têm permissão para usar uma conexão, etapas especiais são necessárias para editar os detalhes do locatário ou para remover permanentemente a permissão do locatário para usar a conexão. 
+---
+= Gerenciar os locatários permitidos para a federação de grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode permitir que as contas de locatário do S3 usem uma conexão de federação de grade entre dois sistemas StorageGRID. Quando os locatários têm permissão para usar uma conexão, etapas especiais são necessárias para editar os detalhes do locatário ou para remover permanentemente a permissão do locatário para usar a conexão.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade em qualquer grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:admin-group-permissions.html["Permissão de acesso à raiz"] para a grade na qual você está conetado.
+* Você link:grid-federation-create-connection.html["criou uma conexão de federação de grade"] tem entre duas grades.
+* Analisou os fluxos de trabalho para link:grid-federation-what-is-account-clone.html["clone de conta"] e link:grid-federation-what-is-cross-grid-replication.html["replicação entre grade"].
+* Conforme necessário, você já configurou o logon único (SSO) ou identifica a federação para ambas as grades na conexão. link:grid-federation-what-is-account-clone.html["O que é o clone de conta"]Consulte .
+
+
+
+
+== Crie um locatário permitido
+
+Se você quiser permitir que uma conta de locatário nova ou existente use uma conexão de federação de grade para clone de conta e replicação entre grade, siga as instruções gerais para link:creating-tenant-account.html["Crie um novo locatário do S3"] ou link:editing-tenant-account.html["edite uma conta de locatário"] e observe o seguinte:
+
+* Você pode criar o locatário a partir de qualquer grade na conexão. A grade onde um locatário é criado é a grade de origem do _locatário_.
+* O estado da ligação tem de ser *ligado*.
+* Quando o locatário é criado ou editado para ativar a permissão *usar conexão de federação de grade* e, em seguida, salvo na primeira grade, um locatário idêntico é automaticamente replicado para a outra grade. A grade onde o locatário é replicado é a grade de destino do _locatário_.
+* Os locatários em ambas as grades terão o mesmo ID de conta, nome, descrição, cota e permissões de 20 dígitos. Opcionalmente, você pode usar o campo *Description* para ajudar a identificar qual é o locatário de origem e qual é o locatário de destino. Por exemplo, essa descrição para um locatário criado na Grade 1 também aparecerá para o locatário replicado para a Grade 2: "Este locatário foi criado na Grade 1."
+* Por motivos de segurança, a senha de um usuário raiz local não é copiada para a grade de destino.
++
+
+TIP: Antes que um usuário raiz local possa fazer login no locatário replicado na grade de destino, um administrador de grade para essa grade deve link:changing-password-for-tenant-local-root-user.html["altere a senha do usuário raiz local"].
+
+* Depois que o locatário novo ou editado estiver disponível em ambas as grades, os usuários do locatário podem executar estas operações:
++
+** Na grade de origem do locatário, crie grupos e usuários locais, que são clonados automaticamente para a grade de destino do locatário. link:../tenant/grid-federation-account-clone.html["Clonar grupos de locatários e usuários"]Consulte .
+** Crie novas chaves de acesso S3, que podem ser opcionalmente clonadas para a grade de destino do locatário. link:../tenant/grid-federation-clone-keys-with-api.html["Clonar chaves de acesso S3 usando a API"]Consulte .
+** Crie buckets idênticos em ambas as grades na conexão e habilite a replicação entre grades em uma direção ou em ambas as direções. link:../tenant/grid-federation-manage-cross-grid-replication.html["Gerenciar a replicação entre grades"]Consulte .
+
+
+
+
+
+
+== Ver um inquilino permitido
+
+Você pode ver detalhes de um locatário que tem permissão para usar uma conexão de federação de grade.
+
+.Passos
+. Selecione *TENANTS*.
+. Na página de locatários, selecione o nome do locatário para exibir a página de detalhes do locatário.
++
+Se essa for a grade de origem do locatário (ou seja, se o locatário foi criado nessa grade), um banner aparecerá para lembrá-lo de que o locatário foi clonado para outra grade. Se você editar ou excluir esse locatário, suas alterações não serão sincronizadas com a outra grade.
+
++
+image::../media/grid-federation-tenant-detail.png[Separador Grid Federation (federação de grelha) na página de detalhes do locatário]
+
+. Opcionalmente, selecione a guia *Grid Federation* para link:../monitor/grid-federation-monitor-connections.html["monitore a conexão de federação de grade"].
+
+
+
+
+== Editar um locatário permitido
+
+Se você precisar editar um locatário que tenha a permissão *Use Grid Federation Connection*, siga as instruções gerais para link:editing-tenant-account.html["editando uma conta de locatário"] e observe o seguinte:
+
+* Se um locatário tiver a permissão *usar conexão de federação de grade*, você poderá editar os detalhes do locatário de qualquer grade na conexão. No entanto, quaisquer alterações feitas não serão copiadas para a outra grade. Se você quiser manter os detalhes do locatário sincronizados entre grades, você deve fazer as mesmas edições em ambas as grades.
+* Você não pode limpar a permissão *usar conexão de federação de grade* quando estiver editando um locatário.
+* Você não pode selecionar uma conexão de federação de grade diferente quando estiver editando um locatário.
+
+
+
+
+== Excluir um locatário permitido
+
+Se você precisar remover um locatário que tenha a permissão *Use Grid Federation Connection*, siga as instruções gerais para link:deleting-tenant-account.html["excluindo uma conta de locatário"] e observe o seguinte:
+
+* Antes de remover o locatário original na grade de origem, você deve remover todos os buckets da conta na grade de origem.
+* Antes de remover o locatário clonado na grade de destino, você deve remover todos os buckets da conta na grade de destino.
+* Se você remover o locatário original ou clonado, a conta não poderá mais ser usada para replicação entre grade.
+* Se você estiver removendo o locatário original na grade de origem, todos os grupos de locatários, usuários ou chaves clonadas para a grade de destino não serão afetados. Você pode excluir o locatário clonado ou permitir que ele gerencie seus próprios grupos, usuários, chaves de acesso e buckets.
+* Se você estiver removendo o locatário clonado na grade de destino, erros de clone ocorrerão se novos grupos ou usuários forem adicionados ao locatário original.
++
+Para evitar esses erros, remova a permissão do locatário para usar a conexão de federação de grade antes de excluir o locatário dessa grade.
+
+
+
+
+
+== [[remove-grid-Federation-Connection-permission]]Remove Use grid Federation Connection permission
+
+Para impedir que um locatário use uma conexão de federação de grade, você deve remover a permissão *usar conexão de federação de grade*.
+
+image::../media/grid-federation-remove-permission.png[etapas para remover a conexão de federação de grade]
+
+Antes de remover a permissão de um locatário para usar uma conexão de federação de grade, observe o seguinte:
+
+* Não é possível remover a permissão *usar conexão de federação de grade* se qualquer um dos buckets do locatário tiver a replicação entre grade ativada. A conta de locatário deve desativar a replicação entre redes para todos os buckets primeiro.
+* A remoção da permissão *usar conexão de federação de grade* não exclui nenhum item que já tenha sido replicado entre grades. Por exemplo, os usuários, grupos e objetos de inquilino que existem em ambas as grades não são excluídos de qualquer grade quando a permissão do locatário é removida. Se você quiser excluir esses itens, você deve excluí-los manualmente de ambas as grades.
+* Se você quiser reativar essa permissão com a mesma conexão de federação de grade, exclua esse locatário na grade de destino primeiro; caso contrário, reativar essa permissão resultará em um erro.
+
+
+
+NOTE: Reativar a permissão *usar conexão de federação de grade* torna a grade local a grade de origem e aciona a clonagem para a grade remota especificada pela conexão de federação de grade selecionada. Se a conta de locatário já existir na grade remota, a clonagem resultará em um erro de conflito.
+
+.Antes de começar
+* Você está usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:admin-group-permissions.html["Permissão de acesso à raiz"] para ambas as grades.
+
+
+
+
+=== Desative a replicação para buckets do locatário
+
+Como primeira etapa, desative a replicação entre grade para todos os buckets do locatário.
+
+.Passos
+. A partir de qualquer grade, entre no Gerenciador de Grade a partir do nó Admin primário.
+. Selecione *CONFIGURATION* > *System* > *Grid Federation*.
+. Selecione o nome da ligação para apresentar os respetivos detalhes.
+. Na guia *allowed tenants* (inquilinos permitidos), determine se o locatário está usando a conexão.
+. Se o inquilino estiver listado, instrua-o para link:../tenant/grid-federation-manage-cross-grid-replication.html["desative a replicação entre redes"]todos os seus buckets em ambas as grades na conexão.
++
+
+TIP: Não é possível remover a permissão *usar conexão de federação de grade* se qualquer bucket de locatário tiver replicação entre grade ativada. O locatário deve desativar a replicação entre grade para seus buckets em ambas as grades.
+
+
+
+
+
+=== Remover permissão para locatário
+
+Depois que a replicação entre grades for desativada para buckets do locatário, você poderá remover a permissão do locatário para usar a conexão de federação de grade.
+
+.Passos
+. Inicie sessão no Grid Manager a partir do nó de administração principal.
+. Remova a permissão da página de federação de Grade ou da página de locatários.
++
+[role="tabbed-block"]
+====
+.Página de federação de grade
+--
+.. Selecione *CONFIGURATION* > *System* > *Grid Federation*.
+.. Selecione o nome da ligação para apresentar a respetiva página de detalhes.
+.. Na guia *allowed tenants* (inquilinos permitidos), selecione o botão de opção para o locatário.
+.. Selecione *Remover permissão*.
+
+
+--
+.Página de inquilinos
+--
+.. Selecione *TENANTS*.
+.. Selecione o nome do locatário para exibir a página de detalhes.
+.. No separador *Grid Federation* (federação de grelha), selecione o botão de opção para a ligação.
+.. Selecione *Remover permissão*.
+
+
+--
+====
+. Reveja os avisos na caixa de diálogo de confirmação e selecione *Remover*.
++
+** Se a permissão puder ser removida, você será retornado à página de detalhes e uma mensagem de sucesso será exibida. Esse locatário não pode mais usar a conexão de federação de grade.
+** Se um ou mais buckets de inquilinos ainda tiverem a replicação entre grades ativada, um erro será exibido.
++
+image::../media/grid-federation-remove-permission-error.png[mensagem de erro exibida se o locatário tiver cgr habilitado para um bucket]
+
++
+Você pode fazer um dos seguintes procedimentos:
+
++
+*** (Recomendado.) Faça login no Gerenciador do locatário e desative a replicação para cada um dos buckets do locatário. link:../tenant/grid-federation-manage-cross-grid-replication.html["Gerenciar a replicação entre grades"]Consulte . Em seguida, repita as etapas para remover a permissão *Use Grid Connection*.
+*** Remova a permissão pela força. Consulte a próxima seção.
+
+
+
+
+. Vá para a outra grade e repita estas etapas para remover a permissão para o mesmo locatário na outra grade.
+
+
+
+
+== [[force_remove_permission]]Remova a permissão pela força
+
+Se necessário, você pode forçar a remoção da permissão de um locatário a usar uma conexão de federação de grade, mesmo se os buckets do locatário tiverem a replicação entre grade ativada.
+
+Antes de remover a permissão de um inquilino por força, observe as considerações gerais<<remove-grid-federation-connection-permission,remover a permissão>>, bem como estas considerações adicionais:
+
+* Se você remover a permissão *usar conexão de federação de grade* por força, quaisquer objetos que estejam pendentes de replicação para a outra grade (ingeridos, mas ainda não replicados) continuarão a ser replicados. Para evitar que esses objetos em processo atinjam o intervalo de destino, você também deve remover a permissão do locatário na outra grade.
+* Quaisquer objetos ingeridos no intervalo de origem depois de remover a permissão *usar conexão de federação de grade* nunca serão replicados para o intervalo de destino.
+
+
+.Passos
+. Inicie sessão no Grid Manager a partir do nó de administração principal.
+. Selecione *CONFIGURATION* > *System* > *Grid Federation*.
+. Selecione o nome da ligação para apresentar a respetiva página de detalhes.
+. Na guia *allowed tenants* (inquilinos permitidos), selecione o botão de opção para o locatário.
+. Selecione *Remover permissão*.
+. Reveja os avisos na caixa de diálogo de confirmação e selecione *forçar a remoção*.
++
+É apresentada uma mensagem de sucesso. Esse locatário não pode mais usar a conexão de federação de grade.
+
+. Conforme necessário, vá para a outra grade e repita essas etapas para forçar a remoção da permissão para a mesma conta de locatário na outra grade. Por exemplo, você deve repetir essas etapas na outra grade para evitar que objetos em processo atinjam o intervalo de destino.
+

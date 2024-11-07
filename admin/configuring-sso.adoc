@@ -1,0 +1,139 @@
+---
+permalink: admin/configuring-sso.html 
+sidebar: sidebar 
+keywords: configure single sign on, sso, SAML 
+summary: 'Quando o logon único (SSO) está ativado, os usuários só podem acessar o Gerenciador de Grade, o Gerenciador de Locatário, a API de gerenciamento de grade ou a API de gerenciamento de locatário se suas credenciais forem autorizadas usando o processo de login SSO implementado pela sua organização. Os utilizadores locais não podem iniciar sessão no StorageGRID.' 
+---
+= Configurar o logon único
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando o logon único (SSO) está ativado, os usuários só podem acessar o Gerenciador de Grade, o Gerenciador de Locatário, a API de gerenciamento de grade ou a API de gerenciamento de locatário se suas credenciais forem autorizadas usando o processo de login SSO implementado pela sua organização. Os usuários locais não podem entrar no StorageGRID.
+
+
+
+== Como o single sign-on funciona
+
+O sistema StorageGRID suporta logon único (SSO) usando o padrão de linguagem de marcação de asserção de Segurança 2,0 (SAML 2,0).
+
+Antes de ativar o SSO (logon único), verifique como os processos de login e logout do StorageGRID são afetados quando o SSO está ativado.
+
+
+
+=== Inicie sessão quando o SSO estiver ativado
+
+Quando o SSO está ativado e você entra no StorageGRID, você é redirecionado para a página SSO da sua organização para validar suas credenciais.
+
+.Passos
+. Insira o nome de domínio totalmente qualificado ou o endereço IP de qualquer nó de administrador do StorageGRID em um navegador da Web.
++
+É apresentada a página de início de sessão do StorageGRID.
+
++
+** Se esta for a primeira vez que você acessou o URL neste navegador, será solicitado um ID de conta:
++
+image::../media/sso_sign_in_first_time.png[Inicie sessão com o primeiro acesso ativado por SSO]
+
+** Se você acessou anteriormente o Gerenciador de Grade ou o Gerente do Locatário, será solicitado que você selecione uma conta recente ou insira um ID de conta:
++
+image::../media/sign_in_sso.png[Página de login do StorageGRID se o SSO estiver ativado]
+
+
+
++
+
+NOTE: A página de login do StorageGRID não é exibida quando você insere o URL completo de uma conta de locatário (ou seja, um nome de domínio totalmente qualificado ou endereço IP seguido de `/?accountId=_20-digit-account-id_`). Em vez disso, você será imediatamente redirecionado para a página de login SSO da sua organização, onde você pode <<signin_sso,Inicie sessão com as suas credenciais SSO>>.
+
+. Indique se deseja acessar o Gerenciador de Grade ou o Gerenciador de Locatário:
++
+** Para acessar o Gerenciador de Grade, deixe o campo *ID de conta* em branco, digite *0* como ID de conta ou selecione *Gerenciador de Grade* se ele aparecer na lista de contas recentes.
+** Para acessar o Gerenciador do Locatário, insira o ID da conta do locatário de 20 dígitos ou selecione um locatário pelo nome se ele aparecer na lista de contas recentes.
+
+
+. Selecione *entrar*
++
+O StorageGRID redireciona você para a página de login SSO da sua organização. Por exemplo:
+
++
+image::../media/sso_organization_page.gif[Exemplo de página de login da organização para SSO]
+
+. [[signin_sso]]Faça login com suas credenciais SSO.
++
+Se suas credenciais SSO estiverem corretas:
+
++
+.. O provedor de identidade (IDP) fornece uma resposta de autenticação ao StorageGRID.
+.. O StorageGRID valida a resposta de autenticação.
+.. Se a resposta for válida e você pertencer a um grupo federado com permissões de acesso ao StorageGRID, você estará conetado ao Gerenciador de Grade ou ao Gerenciador de Locatário, dependendo da conta selecionada.
++
+
+NOTE: Se a conta de serviço estiver inacessível, você ainda poderá fazer login, contanto que você seja um usuário existente que pertença a um grupo federado com permissões de acesso ao StorageGRID.
+
+
+
+. Opcionalmente, acesse outros nós de administração ou acesse o Gerenciador de grade ou o Gerenciador de locatário, se você tiver permissões adequadas.
++
+Você não precisa reinserir suas credenciais SSO.
+
+
+
+
+
+=== Sair quando o SSO estiver ativado
+
+Quando o SSO está ativado para o StorageGRID, o que acontece quando você sai depende do que você está conetado e de onde você está se saindo.
+
+.Passos
+. Localize o link *Sair* no canto superior direito da interface do usuário.
+. Selecione *Sair*.
++
+É apresentada a página de início de sessão do StorageGRID. A lista suspensa *Recent Accounts* (Contas recentes) é atualizada para incluir o *Grid Manager* ou o nome do locatário, para que você possa acessar essas interfaces de usuário mais rapidamente no futuro.
+
++
+[cols="1a,1a,1a"]
+|===
+| Se você estiver conetado a... | E você sai de... | Você está logado fora de... 
+
+
+ a| 
+Grid Manager em um ou mais nós de administração
+ a| 
+Grid Manager em qualquer nó de administração
+ a| 
+Grid Manager em todos os nós de administração
+
+*Observação:* se você usar o Azure para SSO, pode levar alguns minutos para ser desconetado de todos os nós de administração.
+
+
+
+ a| 
+Gerenciador de locatários em um ou mais nós de administração
+ a| 
+Gerente de locatário em qualquer nó de administrador
+ a| 
+Gerenciador de locatários em todos os nós de administração
+
+
+
+ a| 
+Tanto o Grid Manager quanto o Tenant Manager
+ a| 
+Gerenciador de grade
+ a| 
+Apenas o Grid Manager. Você também deve sair do Gerenciador do Locatário para sair do SSO.
+
+
+
+ a| 
+Gerente do locatário
+ a| 
+Apenas o Gestor do Locatário. Você também deve sair do Gerenciador de Grade para sair do SSO.
+
+|===
+
+
+
+NOTE: A tabela resume o que acontece quando você sai se estiver usando uma única sessão do navegador. Se você estiver conetado ao StorageGRID em várias sessões do navegador, será necessário sair de todas as sessões do navegador separadamente.

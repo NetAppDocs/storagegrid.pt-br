@@ -1,0 +1,47 @@
+---
+permalink: audit/audit-messages-and-object-lifecycle.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, log, object lifecycle, ingest, retrieve, delete, s3, timing, ILM, Information lifecycle management 
+summary: As mensagens de auditoria são geradas sempre que um objeto é ingerido, recuperado ou excluído. Você pode identificar essas transações no log de auditoria localizando mensagens de auditoria específicas da API do S3. 
+---
+= Quando são geradas mensagens de auditoria?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+As mensagens de auditoria são geradas sempre que um objeto é ingerido, recuperado ou excluído. Você pode identificar essas transações no log de auditoria localizando mensagens de auditoria específicas da API do S3.
+
+As mensagens de auditoria são vinculadas por meio de identificadores específicos a cada protocolo.
+
+[cols="1a,1a"]
+|===
+| Protocolo | Código 
+
+
+ a| 
+Ligar S3 operações
+ a| 
+S3BK (balde), S3KY (chave) ou ambos
+
+
+
+ a| 
+Ligando as operações Swift
+ a| 
+WCON (container), WOBJ (objeto), ou ambos
+
+
+
+ a| 
+Vinculação de operações internas
+ a| 
+CBID (identificador interno do objeto)
+
+|===
+
+
+== Calendário das mensagens de auditoria
+
+Devido a fatores como diferenças de tempo entre nós de grade, tamanho do objeto e atrasos na rede, a ordem das mensagens de auditoria geradas pelos diferentes serviços pode variar da mostrada nos exemplos nesta seção.

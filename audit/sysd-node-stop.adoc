@@ -1,0 +1,31 @@
+---
+permalink: audit/sysd-node-stop.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, SYSD, Node Stop 
+summary: Quando um serviço é parado graciosamente, essa mensagem é gerada para indicar que o desligamento foi solicitado. Normalmente, esta mensagem é enviada apenas após um reinício subsequente, porque a fila de mensagens de auditoria não é eliminada antes do encerramento. Procure a mensagem DO SISTEMA, enviada no início da sequência de encerramento, se o serviço não tiver sido reiniciado. 
+---
+= SYSD: Parada do nó
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando um serviço é parado graciosamente, essa mensagem é gerada para indicar que o desligamento foi solicitado. Normalmente, esta mensagem é enviada apenas após um reinício subsequente, porque a fila de mensagens de auditoria não é eliminada antes do encerramento. Procure a mensagem DO SISTEMA, enviada no início da sequência de encerramento, se o serviço não tiver sido reiniciado.
+
+[cols="1a,1a,4a"]
+|===
+| Código | Campo | Descrição 
+
+
+ a| 
+RSLT
+ a| 
+Limpar encerramento
+ a| 
+A natureza do desligamento:
+
+SUCS: O sistema foi desligado de forma limpa.
+
+|===
+A mensagem não indica se o servidor host está sendo interrompido, apenas o serviço de relatórios. O RSLT de um SYSD não pode indicar um desligamento "sujo", porque a mensagem é gerada apenas por desligamentos "limpos".

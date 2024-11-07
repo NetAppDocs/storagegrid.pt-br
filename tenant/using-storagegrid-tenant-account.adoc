@@ -1,0 +1,66 @@
+---
+permalink: tenant/using-storagegrid-tenant-account.html 
+sidebar: sidebar 
+keywords: how to use tenant account 
+summary: 'Uma conta de locatário permite que você use a API REST do serviço de armazenamento simples (S3) para armazenar e recuperar objetos em um sistema StorageGRID.' 
+---
+= Use a conta de locatário do StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Uma conta de locatário permite que você use a API REST do Simple Storage Service (S3) para armazenar e recuperar objetos em um sistema StorageGRID.
+
+Cada conta de locatário tem seus próprios grupos federados ou locais, usuários, buckets do S3 e objetos.
+
+
+TIP: Os detalhes do Swift foram removidos desta versão do site do doc.  https://docs.netapp.com/us-en/storagegrid-118/tenant/using-storagegrid-tenant-account.html["StorageGRID 11,8: Use a conta de locatário do StorageGRID"^]Consulte .
+
+Opcionalmente, as contas de inquilino podem ser usadas para segregar objetos armazenados por diferentes entidades. Por exemplo, várias contas de inquilino podem ser usadas para qualquer um desses casos de uso:
+
+* *Caso de uso corporativo:* se o sistema StorageGRID estiver sendo usado dentro de uma empresa, o armazenamento de objetos da grade pode ser segregado pelos diferentes departamentos da organização. Por exemplo, pode haver contas de inquilino para o departamento de marketing, o departamento de suporte ao cliente, o departamento de recursos humanos e assim por diante.
++
+
+NOTE: Se você usar o protocolo cliente S3, também poderá usar buckets e políticas de bucket do S3 para segregar objetos entre os departamentos de uma empresa. Você não precisa criar contas de locatário separadas. Consulte as instruções de implementação link:../s3/bucket-and-group-access-policies.html["Buckets e políticas de buckets do S3"] para obter mais informações.
+
+* * Caso de uso do provedor de serviços:* se o sistema StorageGRID estiver sendo usado por um provedor de serviços, o armazenamento de objetos da grade pode ser segregado pelas diferentes entidades que alugam o armazenamento. Por exemplo, pode haver contas de inquilino para a empresa A, empresa B, empresa C e assim por diante.
+
+
+
+
+== Criar contas de inquilino
+
+As contas de inquilino são criadas por um administrador de grade do StorageGRID usando o Gerenciador de Grade. Ao criar uma conta de locatário, o administrador da grade especifica as seguintes informações:
+
+* Nome de exibição para o locatário (o ID da conta do locatário é atribuído automaticamente e não pode ser alterado).
+* Se a conta de locatário usará o protocolo S3 ou Swift.
+* Para contas de inquilino S3: Se a conta de inquilino tem permissão para usar serviços de plataforma. Se o uso de serviços de plataforma for permitido, a grade deve ser configurada para suportar seu uso.
+* Opcionalmente, uma cota de armazenamento para a conta de locatário - o número máximo de gigabytes, terabytes ou petabytes disponíveis para os objetos do locatário. A cota de armazenamento de um locatário representa uma quantidade lógica (tamanho do objeto), e não uma quantidade física (tamanho no disco).
+* Se a federação de identidade estiver ativada para o sistema StorageGRID, qual grupo federado tem permissão de acesso root para configurar a conta de locatário.
+* Se o logon único (SSO) não estiver em uso para o sistema StorageGRID, se a conta do locatário usará sua própria origem de identidade ou compartilhará a origem de identidade da grade e a senha inicial para o usuário raiz local do locatário.
+
+
+Além disso, os administradores de grade podem ativar a configuração bloqueio de objeto S3 para o sistema StorageGRID se as contas de locatário S3 precisarem cumprir os requisitos regulamentares. Quando o bloqueio de objeto S3 está ativado, todas as contas de locatário do S3 podem criar e gerenciar buckets compatíveis.
+
+
+
+== Configurar locatários do S3
+
+Depois que uma conta de locatário do S3 for criada, você poderá acessar o Gerenciador do Locatário para executar tarefas como as seguintes:
+
+* Configurando a federação de identidade (a menos que a origem de identidade seja compartilhada com a grade) ou criando grupos e usuários locais
+* Gerenciando chaves de acesso S3
+* Criação e gerenciamento de buckets do S3, incluindo buckets em conformidade
+* Usando serviços de plataforma (se ativado)
+* Monitoramento do uso do storage
+
+
+
+TIP: Embora você possa criar e gerenciar buckets do S3 com o Gerenciador do locatário, você precisa ter S3 chaves de acesso e usar a API REST do S3 para ingerir e gerenciar objetos.
+
+.Informações relacionadas
+* link:../admin/index.html["Administrar o StorageGRID"]
+* link:../s3/index.html["USE A API REST DO S3"]
+

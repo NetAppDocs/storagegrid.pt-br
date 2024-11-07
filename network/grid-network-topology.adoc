@@ -1,0 +1,29 @@
+---
+permalink: network/grid-network-topology.html 
+sidebar: sidebar 
+keywords: grid network topology 
+summary: A topologia de rede mais simples é criada configurando apenas a rede de Grade. 
+---
+= Topologia de rede de grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A topologia de rede mais simples é criada configurando apenas a rede de Grade.
+
+Ao configurar a rede de Grade, você estabelece o endereço IP do host, a máscara de sub-rede e o endereço IP do gateway para a interface eth0 para cada nó de grade.
+
+Durante a configuração, você deve adicionar todas as sub-redes de rede de Grade à Lista de sub-redes de rede de Grade (GNSL). Essa lista inclui todas as sub-redes para todos os sites e também pode incluir sub-redes externas que fornecem acesso a serviços críticos, como NTP, DNS ou LDAP.
+
+Na instalação, a interface rede de Grade aplica rotas estáticas para todas as sub-redes no GNSL e define a rota padrão do nó para o gateway rede de Grade se uma estiver configurada. O GNSL não é necessário se não houver rede de cliente e o gateway de rede de grade for a rota padrão do nó. As rotas de host para todos os outros nós na grade também são geradas.
+
+Neste exemplo, todo o tráfego compartilha a mesma rede, incluindo o tráfego relacionado a solicitações de clientes S3 e funções administrativas e de manutenção.
+
+
+NOTE: Essa topologia é apropriada para implantações de um único local que não estão disponíveis externamente, implantações de prova de conceito ou teste ou quando um balanceador de carga de terceiros atua como limite de acesso do cliente. Quando possível, a rede de Grade deve ser usada exclusivamente para tráfego interno. Tanto a rede Admin quanto a rede Client têm restrições adicionais de firewall que bloqueiam o tráfego externo para serviços internos. O uso da rede de Grade para tráfego de cliente externo é suportado, mas esse uso oferece menos camadas de proteção.
+
+image::../media/grid_network.png[Rede de rede]
+
+image::../media/grid_network_ips.png[IPs de rede de grelha]

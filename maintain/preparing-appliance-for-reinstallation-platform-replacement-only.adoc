@@ -1,0 +1,41 @@
+---
+permalink: maintain/preparing-appliance-for-reinstallation-platform-replacement-only.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, appliance, reinstallation appliance, reinstall appliance 
+summary: Ao recuperar um nó de grade hospedado em um dispositivo de serviços, primeiro você precisa preparar o dispositivo para reinstalação do software StorageGRID. 
+---
+= Prepare o aparelho para reinstalação (apenas substituição da plataforma)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ao recuperar um nó de grade hospedado em um dispositivo de serviços, primeiro você precisa preparar o dispositivo para reinstalação do software StorageGRID.
+
+Execute este procedimento somente se você estiver substituindo um nó com falha hospedado em um dispositivo de serviços. Não siga estas etapas se o nó com falha tiver sido originalmente hospedado no VMware ou em um host Linux.
+
+.Passos
+. Inicie sessão no nó da grelha com falha:
++
+.. Introduza o seguinte comando: `ssh admin@_grid_node_IP_`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+
+
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+. Prepare o aparelho para a instalação do software StorageGRID. Introduza: `sgareinstall`
+. Quando solicitado a continuar, digite: `y`
++
+O aparelho reinicializa e sua sessão SSH termina. Normalmente, demora cerca de 5 minutos para que o Instalador de dispositivos StorageGRID fique disponível, embora em alguns casos você possa precisar esperar até 30 minutos.
+
++
+O utilitário de serviços é redefinido e os dados no nó da grade não estão mais acessíveis. Os endereços IP configurados durante o processo de instalação original devem permanecer intactos; no entanto, é recomendável que você confirme isso quando o procedimento for concluído.
+
++
+Depois de executar o `sgareinstall` comando, todas as contas, senhas e chaves SSH provisionadas pelo StorageGRID são removidas e novas chaves de host são geradas.
+
+

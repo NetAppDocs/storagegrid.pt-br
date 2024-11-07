@@ -1,0 +1,169 @@
+---
+permalink: s3/get-object.html 
+sidebar: sidebar 
+keywords: get object 
+summary: Você pode usar a solicitação S3 GET Object para recuperar um objeto de um bucket do S3. 
+---
+= GetObject
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar a solicitação GetObject S3 para recuperar um objeto de um bucket do S3.
+
+
+
+== Objetos GetObject e multipart
+
+Você pode usar o `partNumber` parâmetro Request para recuperar uma parte específica de um objeto multipart ou segmentado. O `x-amz-mp-parts-count` elemento de resposta indica quantas partes o objeto tem.
+
+Você pode definir `partNumber` como 1 para objetos segmentados/multipartes e objetos não segmentados/não multipartes; no entanto, o `x-amz-mp-parts-count` elemento de resposta é retornado apenas para objetos segmentados ou multipartes.
+
+
+
+== UTF-8 carateres em metadados do usuário
+
+O StorageGRID não analisa nem interpreta carateres UTF-8 escapados em metadados definidos pelo usuário. Obter solicitações para um objeto com carateres UTF-8 escapados em metadados definidos pelo usuário não retornam o `x-amz-missing-meta` cabeçalho se o nome ou valor da chave incluir carateres não imprimíveis.
+
+
+
+== Cabeçalho de solicitação suportado
+
+O seguinte cabeçalho de solicitação é suportado:
+
+* `x-amz-checksum-mode`: Especificar `ENABLED`
++
+O `Range` cabeçalho não é suportado com `x-amz-checksum-mode` para GetObject. Quando você inclui `Range` na solicitação com `x-amz-checksum-mode` habilitado, o StorageGRID não retorna um valor de checksum na resposta.
+
+
+
+
+
+== Cabeçalho de pedido não suportado
+
+O seguinte cabeçalho de solicitação não é suportado e retorna `XNotImplemented`:
+
+* `x-amz-website-redirect-location`
+
+
+
+
+== Controle de versão
+
+Se um `versionId` sub-recurso não for especificado, a operação busca a versão mais recente do objeto em um bucket com versão. Se a versão atual do objeto for um marcador de exclusão, um status "não encontrado" é retornado com o `x-amz-delete-marker` cabeçalho de resposta definido como `true`.
+
+
+
+== Cabeçalhos de solicitação para criptografia no lado do servidor com chaves de criptografia fornecidas pelo cliente (SSE-C)
+
+Use todos os três cabeçalhos se o objeto for criptografado com uma chave exclusiva que você forneceu.
+
+* `x-amz-server-side-encryption-customer-algorithm`: Especificar `AES256`.
+* `x-amz-server-side-encryption-customer-key`: Especifique sua chave de criptografia para o objeto.
+* `x-amz-server-side-encryption-customer-key-MD5`: Especifique o resumo MD5 da chave de criptografia do objeto.
+
+
+
+CAUTION: As chaves de criptografia que você fornece nunca são armazenadas. Se você perder uma chave de criptografia, perderá o objeto correspondente. Antes de usar chaves fornecidas pelo cliente para proteger os dados do objeto, revise as considerações no link:using-server-side-encryption.html["Use a criptografia do lado do servidor"].
+
+
+
+== Comportamento do GetObject para objetos de pool de storage de nuvem
+
+Se um objeto tiver sido armazenado em um link:../ilm/what-cloud-storage-pool-is.html["Cloud Storage Pool"], o comportamento de uma solicitação GetObject depende do estado do objeto. link:head-object.html["HeadObject"]Consulte para obter mais detalhes.
+
+
+NOTE: Se um objeto for armazenado em um pool de armazenamento em nuvem e uma ou mais cópias do objeto também existirem na grade, as solicitações GetObject tentarão recuperar dados da grade, antes de recuperá-los do pool de armazenamento em nuvem.
+
+[cols="1a,1a"]
+|===
+| Estado do objeto | Comportamento de GetObject 
+
+
+ a| 
+Objeto ingerido no StorageGRID, mas ainda não avaliado pelo ILM, ou objeto armazenado em um pool de storage tradicional ou usando codificação de apagamento
+ a| 
+`200 OK`
+
+Uma cópia do objeto é recuperada.
+
+
+
+ a| 
+Objeto no Cloud Storage Pool, mas ainda não transicionado para um estado não recuperável
+ a| 
+`200 OK`
+
+Uma cópia do objeto é recuperada.
+
+
+
+ a| 
+Objeto transicionado para um estado não recuperável
+ a| 
+`403 Forbidden`, `InvalidObjectState`
+
+Use uma link:post-object-restore.html["RestoreObject"] solicitação para restaurar o objeto para um estado recuperável.
+
+
+
+ a| 
+Objeto em processo de restauração a partir de um estado não recuperável
+ a| 
+`403 Forbidden`, `InvalidObjectState`
+
+Aguarde até que a solicitação de RestoreObject seja concluída.
+
+
+
+ a| 
+Objeto totalmente restaurado para o Cloud Storage Pool
+ a| 
+`200 OK`
+
+Uma cópia do objeto é recuperada.
+
+|===
+
+
+=== Objetos segmentados ou multiparte em um pool de armazenamento em nuvem
+
+Se você carregou um objeto multipart ou se o StorageGRID dividir um objeto grande em segmentos, o StorageGRID determina se o objeto está disponível no pool de armazenamento em nuvem amostrando um subconjunto das partes ou segmentos do objeto. Em alguns casos, uma solicitação GetObject pode retornar incorretamente `200 OK` quando algumas partes do objeto já tiverem sido transferidas para um estado não recuperável ou quando algumas partes do objeto ainda não tiverem sido restauradas.
+
+Nestes casos:
+
+* A solicitação GetObject pode retornar alguns dados, mas parar no meio da transferência.
+* Uma solicitação GetObject subsequente pode retornar `403 Forbidden`.
+
+
+
+
+== Replicação GetObject e cross-grid
+
+Se você estiver usando link:../admin/grid-federation-overview.html["federação de grade"] e link:../tenant/grid-federation-manage-cross-grid-replication.html["replicação entre grade"] estiver habilitado para um bucket, o cliente S3 poderá verificar o status de replicação de um objeto emitindo uma solicitação GetObject. A resposta inclui o cabeçalho de resposta específico do StorageGRID `x-ntap-sg-cgr-replication-status`, que terá um dos seguintes valores:
+
+[cols="1a,2a"]
+|===
+| Grelha | Estado da replicação 
+
+
+ a| 
+Fonte
+ a| 
+* *COMPLETED*: A replicação foi bem-sucedida.
+* *PENDENTE*: O objeto ainda não foi replicado.
+* *FAILURE*: A replicação falhou com uma falha permanente. Um usuário deve resolver o erro.
+
+
+
+
+ a| 
+Destino
+ a| 
+* RÉPLICA*: O objeto foi replicado a partir da grade de origem.
+
+|===
+
+NOTE: O StorageGRID não suporta o `x-amz-replication-status` colhedor.

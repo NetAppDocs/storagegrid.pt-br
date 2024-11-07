@@ -1,0 +1,211 @@
+---
+permalink: upgrade/removed-or-deprecated-features.html 
+sidebar: sidebar 
+keywords:  
+summary: Alguns recursos e recursos foram removidos ou obsoletos nesta versão. Revise esses itens para entender se você precisa atualizar aplicativos do cliente ou modificar sua configuração antes de atualizar. 
+---
+= Recursos e recursos removidos ou obsoletos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Alguns recursos e recursos foram removidos ou obsoletos nesta versão. Revise esses itens para entender se você precisa atualizar aplicativos do cliente ou modificar sua configuração antes de atualizar.
+
+
+
+== Definições
+
+Obsoleto:: O recurso *não deve* ser usado em novos ambientes de produção. Os ambientes de produção existentes podem continuar usando o recurso.
+Fim da vida:: Última versão fornecida que suporta o recurso. Em alguns casos, a documentação do recurso pode ser removida nesta fase.
+Removido:: Primeira versão que *não* suporta o recurso.
+
+
+
+
+== Suporte de fim de recurso do StorageGRID
+
+Os recursos obsoletos serão removidos em mais de 2 versões principais. Por exemplo, se um recurso estiver obsoleto na versão N (por exemplo, 6,3), a última versão em que o recurso existirá é N-1 (por exemplo, 6,4). A versão N-2 (por exemplo, 6,5) é a primeira versão quando o recurso não existe no produto.
+
+Consulte https://mysupport.netapp.com/site/info/version-support["Página de suporte da versão de software"^] para obter informações adicionais.
+
+
+NOTE: Em certas situações, o NetApp pode terminar o suporte para recursos específicos mais cedo do que o indicado.
+
+[cols="2a,1a,1a,1a,3a"]
+|===
+| Recurso | Obsoleto | Fim da vida | Removido | Links para documentação anterior 
+
+
+ a| 
+Alarmes legados (_não alertas_)
+ a| 
+11,7
+ a| 
+11,8
+ a| 
+11,9
+ a| 
+https://docs.netapp.com/us-en/storagegrid-118/monitor/alarms-reference.html["Referência de alarmes (StorageGRID 11,8)"^]
+
+
+
+ a| 
+Suporte ao Archive Node
+ a| 
+11,7
+ a| 
+11,8
+ a| 
+11,9
+ a| 
+https://docs.netapp.com/us-en/storagegrid-118/maintain/considerations-for-decommissioning-admin-or-gateway-nodes.html["Considerações para a desativação de nós de arquivo (StorageGRID 11,8)"^]
+
+*Nota*: Antes de iniciar o upgrade, você deve:
+
+. Desativar todos os nós de arquivamento.  https://docs.netapp.com/us-en/storagegrid-118/maintain/grid-node-decommissioning.html["Desativação do nó de grade (StorageGRID 11,8 doc site)"^]Consulte .
+. Remova todas as referências de nó de arquivo de pools de armazenamento e políticas de ILM.  https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_11.9_software_upgrade_resolution_guide["Base de dados de Conhecimento da NetApp: Guia de resolução de atualização do software StorageGRID 11,9"^]Consulte .
+
+
+
+
+ a| 
+Auditoria de exportação através de CIFS/Samba
+ a| 
+11,1
+ a| 
+11,6
+ a| 
+11,7
+ a| 
+
+
+
+ a| 
+Serviço CLB
+ a| 
+11,4
+ a| 
+11,6
+ a| 
+11,7
+ a| 
+
+
+
+ a| 
+Mecanismo de contêiner do Docker
+ a| 
+11,8
+ a| 
+11,9
+ a| 
+A DETERMINAR
+ a| 
+O suporte para Docker como o mecanismo de contentor para implantações somente de software está obsoleto. O Docker será substituído por outro mecanismo de contentor em uma versão futura. Consulte a link:../ubuntu/software-requirements.html#docker-versions-tested["Lista de versões do Docker atualmente suportadas"].
+
+
+
+ a| 
+Exportação de auditoria NFS
+ a| 
+11,8
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-audit-client-access.html["Configurar acesso de cliente de auditoria para NFS (StorageGRID 11,8)"^]
+
+
+
+ a| 
+Suporte à API Swift
+ a| 
+11,7
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+https://docs.netapp.com/us-en/storagegrid-118/swift/index.html["Usar API REST Swift (StorageGRID 11,8)"^]
+
+
+
+ a| 
+RHEL 8,8
+ a| 
+11,9
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+
+
+
+ a| 
+RHEL 9,0
+ a| 
+11,9
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+
+
+
+ a| 
+RHEL 9,2
+ a| 
+11,9
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+
+
+
+ a| 
+Ubuntu 18,04.04
+ a| 
+11,9
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+
+
+
+ a| 
+Ubuntu 20,04.04
+ a| 
+11,9
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+
+
+
+ a| 
+Debian 11
+ a| 
+11,9
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+
+|===
+Consulte também:
+
+* link:../upgrade/changes-to-grid-management-api.html["Alterações na API Grid Management"]
+* link:../upgrade/changes-to-tenant-management-api.html["Alterações na API de gerenciamento do locatário"]
+

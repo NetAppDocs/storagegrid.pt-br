@@ -1,0 +1,102 @@
+---
+permalink: ilm/what-cloud-storage-pool-is.html 
+sidebar: sidebar 
+keywords: what is a cloud storage pool 
+summary: Um pool de armazenamento em nuvem permite que você use o ILM para mover dados de objetos para fora do seu sistema StorageGRID. Por exemplo, você pode migrar objetos acessados com pouca frequência para storage de nuvem de baixo custo, como Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud ou a categoria Acesso de arquivamento no storage de Blobs do Microsoft Azure. Ou, talvez você queira manter um backup na nuvem de objetos do StorageGRID para aprimorar a recuperação de desastres. 
+---
+= O que é um Cloud Storage Pool?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um pool de armazenamento em nuvem permite que você use o ILM para mover dados de objetos para fora do seu sistema StorageGRID. Por exemplo, você pode migrar objetos acessados com pouca frequência para storage de nuvem de baixo custo, como Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud ou a categoria Acesso de arquivamento no storage de Blobs do Microsoft Azure. Ou, talvez você queira manter um backup na nuvem de objetos do StorageGRID para aprimorar a recuperação de desastres.
+
+Do ponto de vista do ILM, um Cloud Storage Pool é semelhante a um pool de storage. Para armazenar objetos em qualquer local, selecione o pool ao criar as instruções de posicionamento para uma regra ILM. No entanto, embora os pools de storage consistam em nós de storage no sistema StorageGRID, um pool de storage de nuvem consiste em um bucket externo (S3 TB) ou contêiner (storage Blob do Azure).
+
+A tabela compara pools de armazenamento com pools de armazenamento em nuvem e mostra as semelhanças e diferenças de alto nível.
+
+[cols="1a,2a,5a"]
+|===
+|  | Pool de storage | Cloud Storage Pool 
+
+
+ a| 
+Como é criado?
+ a| 
+Usando a opção *ILM* > *Storage Pools* no Gerenciador de Grade.
+ a| 
+Usando a opção *ILM* > *Storage Pools* > *Cloud Storage Pools* no Grid Manager.
+
+Você deve configurar o bucket externo ou o contêiner antes de criar o pool de storage de nuvem.
+
+
+
+ a| 
+Quantas piscinas você pode criar?
+ a| 
+Ilimitado.
+ a| 
+Até 10 TB.
+
+
+
+ a| 
+Onde os objetos são armazenados?
+ a| 
+Em um ou mais nós de storage no StorageGRID.
+ a| 
+Em um bucket do Amazon S3, o contêiner de storage do Blob do Azure ou o Google Cloud externo ao sistema StorageGRID.
+
+Se o Cloud Storage Pool for um bucket do Amazon S3:
+
+* Opcionalmente, é possível configurar um ciclo de vida do bucket para migrar objetos para storage de baixo custo e longo prazo, como Amazon S3 Glacier ou S3 Glacier Deep Archive. O sistema de armazenamento externo deve suportar a classe de armazenamento Glacier e a API S3 RestoreObject.
+* Você pode criar pools de armazenamento na nuvem para uso com os Serviços comerciais da AWS (C2S), que oferecem suporte à região secreta da AWS.
+
+
+Se o pool de storage de nuvem for um contêiner de storage de Blob do Azure, o StorageGRID fará o transição do objeto para a categoria Archive.
+
+*Observação:* em geral, não configure o gerenciamento do ciclo de vida de armazenamento do Blob do Azure para o contêiner usado em um pool de storage do Cloud Storage. As operações de RestoreObject em objetos no Cloud Storage Pool podem ser afetadas pelo ciclo de vida configurado.
+
+
+
+ a| 
+O que controla o posicionamento do objeto?
+ a| 
+Uma regra ILM nas políticas ILM ativas.
+ a| 
+Uma regra ILM nas políticas ILM ativas.
+
+
+
+ a| 
+Que método de proteção de dados é usado?
+ a| 
+Replicação ou codificação de apagamento.
+ a| 
+Replicação.
+
+
+
+ a| 
+Quantas cópias de cada objeto são permitidas?
+ a| 
+Vários.
+ a| 
+Uma cópia no pool de storage de nuvem e, opcionalmente, uma ou mais cópias no StorageGRID.
+
+*Observação:* você não pode armazenar um objeto em mais de um pool de armazenamento em nuvem a qualquer momento.
+
+
+
+ a| 
+Quais são as vantagens?
+ a| 
+Os objetos são rapidamente acessíveis a qualquer momento.
+ a| 
+Armazenamento de baixo custo.
+
+*Nota*: Os dados do FabricPool não podem ser dispostos em camadas nos pools de armazenamento em nuvem.
+
+|===

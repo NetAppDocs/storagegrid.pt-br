@@ -1,0 +1,166 @@
+---
+permalink: ilm/manage-erasure-coding-profiles.html 
+sidebar: sidebar 
+keywords: rename erasure-coding profile, ec profile 
+summary: Você pode exibir os detalhes de um perfil de codificação de apagamento e renomear um perfil, se necessário. Você pode desativar um perfil de codificação de apagamento se ele não for usado atualmente em nenhuma regra ILM. 
+---
+= Gerenciar perfis de codificação de apagamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode exibir os detalhes de um perfil de codificação de apagamento e renomear um perfil, se necessário. Você pode desativar um perfil de codificação de apagamento se ele não for usado atualmente em nenhuma regra ILM.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:../admin/admin-group-permissions.html["permissões de acesso necessárias"].
+
+
+
+
+== Ver detalhes do perfil de codificação de apagamento
+
+Você pode visualizar os detalhes de um perfil de codificação de apagamento para determinar seu status, o esquema de codificação de apagamento usado e outras informações.
+
+.Passos
+. Selecione *CONFIGURATION* > *System* > *Erasure coding*.
+. Selecione o perfil. É apresentada a página de detalhes do perfil.
+. Opcionalmente, exiba a guia regras ILM para obter uma lista de regras ILM que usam o perfil e as políticas ILM que usam essas regras.
+. Como opção, exiba a guia nós de storage para obter detalhes sobre cada nó de storage no pool de storage do perfil, como o local onde ele está localizado e o uso do storage.
+
+
+
+
+== Renomeie um perfil de codificação de apagamento
+
+Você pode querer renomear um perfil de codificação de apagamento para torná-lo mais óbvio o que o perfil faz.
+
+.Passos
+. Selecione *CONFIGURATION* > *System* > *Erasure coding*.
+. Selecione o perfil que deseja renomear.
+. Selecione *Renomear*.
+. Insira um nome exclusivo para o perfil de codificação de apagamento.
++
+O nome do perfil de codificação de apagamento é anexado ao nome do pool de armazenamento na instrução de colocação de uma regra ILM.
+
++
+
+NOTE: Os nomes de perfis de codificação de apagamento devem ser exclusivos. Um erro de validação ocorre se você usar o nome de um perfil existente, mesmo que esse perfil tenha sido desativado.
+
+. Selecione *Guardar*.
+
+
+
+
+== Desativar um perfil de codificação de apagamento
+
+Você pode desativar um perfil de codificação de apagamento se você não planeja mais usá-lo e se o perfil não for usado atualmente em nenhuma regra ILM.
+
+
+TIP: Confirme se não estão em curso operações de reparo de dados codificados por apagamento ou procedimentos de desativação. Uma mensagem de erro será retornada se você tentar desativar um perfil de codificação de apagamento enquanto qualquer uma dessas operações estiver em andamento.
+
+.Sobre esta tarefa
+O StorageGRID impede que você desative um perfil de codificação de apagamento se uma das seguintes opções for verdadeira:
+
+* O perfil de codificação de apagamento é usado atualmente em uma regra ILM.
+* O perfil de codificação de apagamento não é mais usado em nenhuma regra ILM, mas os dados de objetos e fragmentos de paridade para o perfil ainda existem.
+
+
+.Passos
+. Selecione *CONFIGURATION* > *System* > *Erasure coding*.
+. Na guia Ativo, revise a coluna *Status* para confirmar que o perfil de codificação de apagamento que você deseja desativar não é usado em nenhuma regra ILM.
++
+Você não pode desativar um perfil de codificação de apagamento se ele for usado em qualquer regra ILM. No exemplo, o perfil 2 mais 1 Data Center 1 é usado em pelo menos uma regra ILM.
+
++
+image::../media/ec_profile_used_in_ilm_rule.png[Perfil EC usado na regra ILM]
+
+. Se o perfil for usado em uma regra ILM, siga estas etapas:
++
+.. Selecione *ILM* > *regras*.
+.. Selecione cada regra e revise o diagrama de retenção para determinar se a regra usa o perfil de codificação de apagamento que você deseja desativar.
+.. Se a regra ILM usar o perfil de codificação de apagamento que você deseja desativar, determine se a regra é usada em qualquer política ILM.
+.. Conclua as etapas adicionais na tabela, com base em onde o perfil de codificação de apagamento é usado.
++
+[cols="2a,4a,1a"]
+|===
+| Onde o perfil foi usado? | Etapas adicionais a serem executadas antes de desativar o perfil | Consulte estas instruções adicionais 
+
+
+ a| 
+Nunca usado em nenhuma regra ILM
+ a| 
+Não são necessários passos adicionais. Continue com este procedimento.
+ a| 
+_Nenhum_
+
+
+
+ a| 
+Em uma regra ILM que nunca foi usada em nenhuma política ILM
+ a| 
+... Edite ou exclua todas as regras ILM afetadas. Se você editar a regra, remova todos os canais que usam o perfil de codificação de apagamento.
+... Continue com este procedimento.
+
+ a| 
+link:working-with-ilm-rules-and-ilm-policies.html["Trabalhe com regras ILM e políticas ILM"]
+
+
+
+ a| 
+Em uma regra ILM que está atualmente em uma política ILM ativa
+ a| 
+... Clonar a política.
+... Remova a regra ILM que usa o perfil de codificação de apagamento.
+... Adicione uma ou mais novas regras ILM para garantir que os objetos estejam protegidos.
+... Salve, simule e ative a nova política.
+... Aguarde que a nova política seja aplicada e que os objetos existentes sejam movidos para novos locais com base nas novas regras adicionadas.
++
+*Observação:* dependendo do número de objetos e do tamanho do seu sistema StorageGRID, pode levar semanas ou até meses para que as operações do ILM movam os objetos para novos locais, com base nas novas regras do ILM.
+
++
+Embora você possa tentar desativar um perfil de codificação de apagamento com segurança enquanto ele ainda estiver associado a dados, a operação de desativação falhará. Uma mensagem de erro irá informá-lo se o perfil ainda não está pronto para ser desativado.
+
+... Edite ou exclua a regra que você removeu da política. Se você editar a regra, remova todos os canais que usam o perfil de codificação de apagamento.
+... Continue com este procedimento.
+
+ a| 
+link:creating-ilm-policy.html["Crie uma política ILM"]
+
+link:working-with-ilm-rules-and-ilm-policies.html["Trabalhe com regras ILM e políticas ILM"]
+
+
+
+ a| 
+Em uma regra ILM que está atualmente em uma política ILM
+ a| 
+... Edite a política.
+... Remova a regra ILM que usa o perfil de codificação de apagamento.
+... Adicione uma ou mais novas regras ILM para garantir que todos os objetos estejam protegidos.
+... Salve a política.
+... Edite ou exclua a regra que você removeu da política. Se você editar a regra, remova todos os canais que usam o perfil de codificação de apagamento.
+... Continue com este procedimento.
+
+ a| 
+link:creating-ilm-policy.html["Crie uma política ILM"]
+
+link:working-with-ilm-rules-and-ilm-policies.html["Trabalhe com regras ILM e políticas ILM"]
+
+|===
+.. Atualize a página Perfis de codificação de apagamento para garantir que o perfil não seja usado em uma regra ILM.
+
+
+. Se o perfil não for usado em uma regra ILM, selecione o botão de opção e selecione *Deactivate*. A caixa de diálogo Desativar perfil de codificação de apagamento é exibida.
++
+
+TIP: Você pode selecionar vários perfis para desativar ao mesmo tempo, desde que cada perfil não seja usado em nenhuma regra.
+
+. Se tiver a certeza de que pretende desativar o perfil, selecione *Desativar*.
+
+
+.Resultados
+* Se o StorageGRID for capaz de desativar o perfil de codificação de apagamento, seu status será desativado. Você não pode mais selecionar este perfil para qualquer regra ILM. Não é possível reativar um perfil desativado.
+* Se o StorageGRID não conseguir desativar o perfil, é apresentada uma mensagem de erro. Por exemplo, uma mensagem de erro será exibida se os dados do objeto ainda estiverem associados a esse perfil. Talvez seja necessário esperar várias semanas antes de tentar novamente o processo de desativação.
+

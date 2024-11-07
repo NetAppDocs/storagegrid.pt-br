@@ -1,0 +1,403 @@
+---
+permalink: admin/kms-managing.html 
+sidebar: sidebar 
+keywords: manage kms, manage key management server, view kms, view key management server, edit kms, edit key management server, view encrypted nodes, remove kms, remove key management server 
+summary: 'O gerenciamento de um servidor de gerenciamento de chaves (KMS) envolve a visualização ou edição de detalhes, o gerenciamento de certificados, a visualização de nós criptografados e a remoção de um KMS quando ele não for mais necessário.' 
+---
+= Gerenciar um KMS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O gerenciamento de um servidor de gerenciamento de chaves (KMS) envolve a visualização ou edição de detalhes, o gerenciamento de certificados, a visualização de nós criptografados e a remoção de um KMS quando não for mais necessário.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:admin-group-permissions.html["permissão de acesso necessária"].
+
+
+
+
+== Ver detalhes do KMS
+
+Você pode exibir informações sobre cada servidor de gerenciamento de chaves (KMS) em seu sistema StorageGRID, incluindo detalhes das chaves e o status atual dos certificados de servidor e cliente.
+
+.Passos
+. Selecione *CONFIGURATION* > *Security* > *Key Management Server*.
++
+A página servidor de gerenciamento de chaves é exibida e mostra as seguintes informações:
+
++
+** A guia Detalhes da configuração lista todos os servidores de gerenciamento de chaves configurados.
+** A guia nós criptografados lista todos os nós que têm criptografia de nó ativada.
+
+
+. Para exibir os detalhes de um KMS específico e executar operações nesse KMS, selecione o nome do KMS. A página de detalhes do KMS lista as seguintes informações:
++
+[cols="1a,3a"]
+|===
+| Campo | Descrição 
+
+
+ a| 
+Gere as chaves para
+ a| 
+O site StorageGRID associado ao KMS.
+
+Este campo exibe o nome de um site StorageGRID específico ou *sites não gerenciados por outro KMS (KMS padrão).*
+
+
+
+ a| 
+Nome do anfitrião
+ a| 
+O nome de domínio totalmente qualificado ou endereço IP do KMS.
+
+Se houver um cluster de dois servidores de gerenciamento de chaves, o nome de domínio totalmente qualificado ou o endereço IP de ambos os servidores serão listados. Se houver mais de dois servidores de gerenciamento de chaves em um cluster, o nome de domínio totalmente qualificado ou o endereço IP do primeiro KMS são listados juntamente com o número de servidores de gerenciamento de chaves adicionais no cluster.
+
+Por exemplo: `10.10.10.10 and 10.10.10.11` Ou `10.10.10.10 and 2 others`.
+
+Para visualizar todos os nomes de host em um cluster, selecione um KMS e selecione *Editar* ou *ações* > *Editar*.
+
+|===
+. Selecione uma guia na página de detalhes do KMS para exibir as seguintes informações:
++
+[cols="1a,1a,3a"]
+|===
+| Separador | Campo | Descrição 
+
+
+ a| 
+Principais detalhes
+ a| 
+Nome da chave
+ a| 
+O alias de chave para o cliente StorageGRID no KMS.
+
+
+
+ a| 
+UID da chave
+ a| 
+O identificador exclusivo da versão mais recente da chave.
+
+
+
+ a| 
+Modificado pela última vez
+ a| 
+A data e a hora da versão mais recente da chave.
+
+
+
+ a| 
+Certificado do servidor
+ a| 
+Metadados
+ a| 
+Os metadados do certificado, como número de série, data e hora de validade e o PEM do certificado.
+
+
+
+ a| 
+Certificado PEM
+ a| 
+O conteúdo do arquivo PEM (Privacy Enhanced mail) para o certificado.
+
+
+
+ a| 
+Certificado de cliente
+ a| 
+Metadados
+ a| 
+Os metadados do certificado, como número de série, data e hora de validade e o PEM do certificado.
+
+
+
+ a| 
+Certificado PEM
+ a| 
+O conteúdo do arquivo PEM (Privacy Enhanced mail) para o certificado.
+
+|===
+. [[Rotate-key]] sempre que exigido pelas práticas de segurança da sua organização, selecione *Rotate key* ou use o software KMS para criar uma nova versão da chave.
++
+Quando a rotação da chave é bem-sucedida, os campos UID da chave e Last modified são atualizados.
+
++
+[CAUTION]
+====
+Se você girar a chave de criptografia usando o software KMS, gire-a da última versão usada da chave para uma nova versão da mesma chave. Não rode para uma chave totalmente diferente.
+
+Nunca tente girar uma chave alterando o nome da chave (alias) para o KMS. O StorageGRID requer que todas as versões de chave usadas anteriormente (bem como quaisquer versões futuras) sejam acessíveis a partir do KMS com o mesmo alias de chave. Se você alterar o alias de chave para um KMS configurado, o StorageGRID pode não conseguir descriptografar seus dados.
+
+====
+
+
+
+
+== Gerenciar certificados
+
+Resolver imediatamente quaisquer problemas de certificado de servidor ou cliente. Se possível, substitua os certificados antes de expirarem.
+
+
+CAUTION: Você deve resolver quaisquer problemas de certificado o mais rápido possível para manter o acesso aos dados.
+
+.Passos
+. Selecione *CONFIGURATION* > *Security* > *Key Management Server*.
+. Na tabela, observe o valor de expiração do certificado para cada KMS.
+. Se a expiração do certificado para qualquer KMS for desconhecida, aguarde até 30 minutos e, em seguida, atualize seu navegador da Web.
+. Se a coluna expiração do certificado indicar que um certificado expirou ou está prestes a expirar, selecione o KMS para ir para a página de detalhes do KMS.
++
+.. Selecione *certificado do servidor* e verifique o valor do campo "expira em".
+.. Para substituir o certificado, selecione *Editar certificado* para carregar um novo certificado.
+.. Repita essas subetapas e selecione *certificado do cliente* em vez de certificado do servidor.
+
+
+. Quando os alertas *expiração do certificado KMS CA*, *expiração do certificado do cliente KMS* e *expiração do certificado do servidor KMS* forem acionados, anote a descrição de cada alerta e execute as ações recomendadas.
++
+Pode demorar StorageGRID até 30 minutos para obter atualizações para a expiração do certificado. Atualize seu navegador da Web para ver os valores atuais.
+
+
+
+
+NOTE: Se você receber um status de *o status do certificado do servidor é desconhecido*, verifique se o KMS permite obter um certificado do servidor sem exigir um certificado do cliente.
+
+
+
+== Exibir nós criptografados
+
+Você pode exibir informações sobre os nós do dispositivo no seu sistema StorageGRID que têm a configuração *criptografia de nó* ativada.
+
+.Passos
+. Selecione *CONFIGURATION* > *Security* > *Key Management Server*.
++
+A página Key Management Server (servidor de gerenciamento de chaves) é exibida. A guia Detalhes da configuração mostra todos os servidores de gerenciamento de chaves que foram configurados.
+
+. Na parte superior da página, selecione a guia *nós criptografados*.
++
+A guia nós criptografados lista os nós do dispositivo no sistema StorageGRID que têm a configuração *criptografia de nó* ativada.
+
+. Revise as informações na tabela para cada nó de dispositivo.
++
+[cols="1a,3a"]
+|===
+| Coluna | Descrição 
+
+
+ a| 
+Nome do nó
+ a| 
+O nome do nó do dispositivo.
+
+
+
+ a| 
+Tipo de nó
+ a| 
+O tipo de nó: Storage, Admin ou Gateway.
+
+
+
+ a| 
+Local
+ a| 
+O nome do site do StorageGRID onde o nó está instalado.
+
+
+
+ a| 
+KMS nome
+ a| 
+O nome descritivo do KMS usado para o nó.
+
+Se nenhum KMS estiver listado, selecione a guia Detalhes da configuração para adicionar um KMS.
+
+link:kms-adding.html["Adicionar um servidor de gerenciamento de chaves (KMS)"]
+
+
+
+ a| 
+UID da chave
+ a| 
+O ID exclusivo da chave de criptografia usada para criptografar e descriptografar dados no nó do dispositivo. Para ver um UID de chave inteiro, selecione o texto.
+
+Um traço (--) indica que a chave UID é desconhecida, possivelmente por causa de um problema de conexão entre o nó do aparelho e o KMS.
+
+
+
+ a| 
+Estado
+ a| 
+O status da conexão entre o KMS e o nó do dispositivo. Se o nó estiver conetado, o carimbo de data/hora será atualizado a cada 30 minutos. Pode levar vários minutos para que o status da conexão seja atualizado após as alterações de configuração do KMS.
+
+*Observação:* Atualize seu navegador para ver os novos valores.
+
+|===
+. Se a coluna Status indicar um problema KMS, solucione o problema imediatamente.
++
+Durante as operações normais de KMS, o status será *conectado ao KMS*. Se um nó for desconetado da grade, o estado de conexão do nó é mostrado (administrativamente para baixo ou desconhecido).
+
++
+Outras mensagens de status correspondem a alertas StorageGRID com os mesmos nomes:
+
++
+** Falha ao carregar a configuração DE KMS
+** Erro de conetividade DE KMS
+** Nome da chave de encriptação KMS não encontrado
+** Falha na rotação da chave de CRIPTOGRAFIA KMS
+** A chave KMS falhou ao desencriptar um volume de aparelho
+** KMS não está configurado
+
+
++
+Execute as ações recomendadas para esses alertas.
+
+
+
+
+CAUTION: Você deve resolver quaisquer problemas imediatamente para garantir que seus dados estejam totalmente protegidos.
+
+
+
+== Edite um KMS
+
+Talvez seja necessário editar a configuração de um servidor de gerenciamento de chaves, por exemplo, se um certificado estiver prestes a expirar.
+
+.Antes de começar
+* Se pretende atualizar o site selecionado para um KMS, analisou o link:kms-considerations-for-changing-for-site.html["Considerações para alterar o KMS para um site"].
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:admin-group-permissions.html["Permissão de acesso à raiz"].
+
+
+.Passos
+. Selecione *CONFIGURATION* > *Security* > *Key Management Server*.
++
+A página servidor de gerenciamento de chaves é exibida e mostra todos os servidores de gerenciamento de chaves que foram configurados.
+
+. Selecione o KMS que deseja editar e selecione *ações* > *Editar*.
++
+Você também pode editar um KMS selecionando o nome do KMS na tabela e selecionando *Editar* na página de detalhes do KMS.
+
+. Opcionalmente, atualize os detalhes em *Etapa 1 (detalhes do KMS)* do assistente Editar um servidor de gerenciamento de chaves.
++
+[cols="1a,3a"]
+|===
+| Campo | Descrição 
+
+
+ a| 
+KMS nome
+ a| 
+Um nome descritivo para ajudá-lo a identificar este KMS. Deve ter entre 1 e 64 carateres.
+
+
+
+ a| 
+Nome da chave
+ a| 
+O alias exato da chave para o cliente StorageGRID no KMS. Deve ter entre 1 e 255 carateres.
+
+Você só precisa editar o nome da chave em casos raros. Por exemplo, você deve editar o nome da chave se o alias for renomeado no KMS ou se todas as versões da chave anterior tiverem sido copiadas para o histórico de versões do novo alias.
+
+
+
+ a| 
+Gere as chaves para
+ a| 
+Se você estiver editando um KMS específico do site e ainda não tiver um KMS padrão, opcionalmente selecione *Sites não gerenciados por outro KMS (KMS padrão)*. Esta seleção converte um KMS específico do site para o KMS padrão, que se aplicará a todos os sites que não têm um KMS dedicado e a quaisquer sites adicionados em uma expansão.
+
+*Observação:* se você estiver editando um KMS específico do site, não poderá selecionar outro site. Se você estiver editando o KMS padrão, não será possível selecionar um site específico.
+
+
+
+ a| 
+Porta
+ a| 
+A porta que o servidor KMS usa para comunicações KMIP (Key Management Interoperability Protocol). O padrão é 5696, que é a porta padrão KMIP.
+
+
+
+ a| 
+Nome do anfitrião
+ a| 
+O nome de domínio ou endereço IP totalmente qualificado para o KMS.
+
+*Nota:* o campo Nome alternativo (SAN) do assunto do certificado do servidor deve incluir o FQDN ou o endereço IP que você inserir aqui. Caso contrário, o StorageGRID não poderá se conetar ao KMS ou a todos os servidores em um cluster KMS.
+
+|===
+. Se você estiver configurando um cluster KMS, selecione *Adicionar outro nome de host* para adicionar um nome de host para cada servidor no cluster.
+. Selecione *continuar*.
++
+A etapa 2 (carregar certificado do servidor) do assistente Editar um servidor de gerenciamento de chaves é exibida.
+
+. Se precisar substituir o certificado do servidor, selecione *Procurar* e carregue o novo arquivo.
+. Selecione *continuar*.
++
+A etapa 3 (carregar certificados de cliente) do assistente Editar um servidor de gerenciamento de chaves é exibida.
+
+. Se precisar substituir o certificado de cliente e a chave privada do certificado de cliente, selecione *Procurar* e carregue os novos arquivos.
+. Selecione *testar e salvar*.
++
+As conexões entre o servidor de gerenciamento de chaves e todos os nós de dispositivos criptografados por nós nos locais afetados são testadas. Se todas as conexões de nó forem válidas e a chave correta for encontrada no KMS, o servidor de gerenciamento de chaves será adicionado à tabela na página servidor de gerenciamento de chaves.
+
+. Se for apresentada uma mensagem de erro, reveja os detalhes da mensagem e selecione *OK*.
++
+Por exemplo, você pode receber um erro de entidade 422: Não processável se o site selecionado para este KMS já for gerenciado por outro KMS, ou se um teste de conexão falhou.
+
+. Se você precisar salvar a configuração atual antes de resolver os erros de conexão, selecione *Force save*.
++
+
+CAUTION: Selecionar *Force save* salva a configuração do KMS, mas não testa a conexão externa de cada dispositivo para esse KMS. Se houver um problema com a configuração, talvez você não consiga reinicializar os nós de dispositivo que têm a criptografia de nó ativada no site afetado. Você pode perder o acesso aos seus dados até que os problemas sejam resolvidos.
+
++
+A configuração do KMS é salva.
+
+. Reveja o aviso de confirmação e selecione *OK* se tiver a certeza de que pretende forçar a gravação da configuração.
++
+A configuração do KMS é salva, mas a conexão com o KMS não é testada.
+
+
+
+
+
+== Remover um servidor de gerenciamento de chaves (KMS)
+
+Em alguns casos, você pode querer remover um servidor de gerenciamento de chaves. Por exemplo, você pode querer remover um KMS específico do site se você tiver desativado o site.
+
+.Antes de começar
+* Você revisou o link:kms-considerations-and-requirements.html["considerações e requisitos para usar um servidor de gerenciamento de chaves"].
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:admin-group-permissions.html["Permissão de acesso à raiz"].
+
+
+.Sobre esta tarefa
+Você pode remover um KMS nestes casos:
+
+* Você pode remover um KMS específico do site se o site tiver sido desativado ou se o site não incluir nós de dispositivo com criptografia de nó ativada.
+* Você pode remover o KMS padrão se um KMS específico do site já existir para cada site que tenha nós de dispositivo com criptografia de nó ativada.
+
+
+.Passos
+. Selecione *CONFIGURATION* > *Security* > *Key Management Server*.
++
+A página servidor de gerenciamento de chaves é exibida e mostra todos os servidores de gerenciamento de chaves que foram configurados.
+
+. Selecione o KMS que deseja remover e selecione *ações* > *Remover*.
++
+Você também pode remover um KMS selecionando o nome do KMS na tabela e selecionando *Remover* na página de detalhes do KMS.
+
+. Confirme se o seguinte é verdadeiro:
++
+** Você está removendo um KMS específico do site para um site que não tem nó de dispositivo com criptografia de nó ativada.
+** Você está removendo o KMS padrão, mas um KMS específico do site já existe para cada site com criptografia de nó.
+
+
+. Selecione *Sim*.
++
+A configuração do KMS é removida.
+
+

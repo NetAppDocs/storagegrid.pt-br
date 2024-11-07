@@ -1,0 +1,96 @@
+---
+permalink: ilm/creating-default-ilm-rule.html 
+sidebar: sidebar 
+keywords: create default ilm rule 
+summary: Antes de criar uma política de ILM, você deve criar uma regra padrão para colocar objetos não correspondidos por outra regra na política. A regra padrão não pode usar nenhum filtro. Ele deve se aplicar a todos os locatários, todos os buckets e todas as versões de objetos. 
+---
+= Crie uma regra ILM padrão
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de criar uma política de ILM, você deve criar uma regra padrão para colocar objetos não correspondidos por outra regra na política. A regra padrão não pode usar nenhum filtro. Ele deve se aplicar a todos os locatários, todos os buckets e todas as versões de objetos.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
+
+
+.Sobre esta tarefa
+A regra padrão é a última regra a ser avaliada em uma política ILM, portanto, ela não pode usar nenhum filtro. As instruções de posicionamento para a regra padrão são aplicadas a quaisquer objetos que não sejam correspondidos por outra regra na política.
+
+Neste exemplo de política, a primeira regra se aplica apenas a objetos pertencentes ao test-tenant-1. A regra padrão, que é a última, aplica-se a objetos pertencentes a todas as outras contas de inquilino.
+
+image::../media/ilm_policies_page_default_rule.png[Regra padrão da página de políticas ILM]
+
+Ao criar a regra padrão, lembre-se destes requisitos:
+
+* A regra padrão será automaticamente colocada como a última regra quando você a adicionar a uma política.
+* A regra padrão não pode usar nenhum filtro básico ou avançado.
+* A regra padrão deve ser aplicada a todas as versões de objetos.
+* A regra padrão deve criar cópias replicadas.
++
+
+NOTE: Não use uma regra que crie cópias codificadas por apagamento como regra padrão para uma política. As regras de codificação de apagamento devem usar um filtro avançado para evitar que objetos menores sejam codificados por apagamento.
+
+* Em geral, a regra padrão deve manter objetos para sempre.
+* Se você estiver usando (ou planeja habilitar) a configuração global S3 Object Lock, a regra padrão deve ser compatível.
+
+
+.Passos
+. Selecione *ILM* > *regras*.
+. Selecione *criar*.
++
+O passo 1 (Inserir detalhes) do assistente criar regra ILM é exibido.
+
+. Digite um nome exclusivo para a regra no campo *Nome da regra*.
+. Opcionalmente, insira uma breve descrição para a regra no campo *Description*.
+. Deixe o campo *Contas do locatário* em branco.
++
+A regra padrão deve ser aplicada a todas as contas de locatário.
+
+. Deixe a seleção suspensa Nome do balde como *aplicável a todos os baldes*.
++
+A regra padrão deve ser aplicada a todos os buckets do S3.
+
+. Mantenha a resposta padrão, *não*, para a pergunta: "Aplicar esta regra apenas a versões de objetos mais antigas (em buckets do S3 com controle de versão habilitado)?"
+. Não adicione filtros avançados.
++
+A regra padrão não pode especificar nenhum filtro.
+
+. Selecione *seguinte*.
++
+É apresentado o passo 2 (Definir posicionamentos).
+
+. Para tempo de referência, selecione qualquer opção.
++
+Se você manteve a resposta padrão, *não*, para a pergunta, "aplicar esta regra apenas a versões de objetos mais antigas?" A hora não atual não será incluída na lista suspensa. A regra padrão deve aplicar todas as versões de objeto.
+
+. Especifique as instruções de colocação para a regra padrão.
++
+** A regra padrão deve manter objetos para sempre. Um aviso aparece quando você ativa uma nova política se a regra padrão não retiver objetos para sempre. Você deve confirmar que este é o comportamento que você espera.
+** A regra padrão deve criar cópias replicadas.
++
+
+NOTE: Não use uma regra que crie cópias codificadas por apagamento como regra padrão para uma política. As regras de codificação de apagamento devem incluir o filtro avançado *Object Size (MB) maior que 200 KB* para evitar que objetos menores sejam codificados por apagamento.
+
+** Se você estiver usando (ou pretende ativar) a configuração global S3 Object Lock, a regra padrão deve ser compatível:
++
+*** Ele precisa criar pelo menos duas cópias de objeto replicadas ou uma cópia codificada por apagamento.
+*** Essas cópias devem existir nos nós de storage durante toda a duração de cada linha nas instruções de posicionamento.
+*** As cópias de objetos não podem ser salvas em um pool de armazenamento em nuvem.
+*** Pelo menos uma linha das instruções de colocação deve começar no dia 0, usando o tempo de ingestão como o tempo de referência.
+*** Pelo menos uma linha das instruções de colocação deve ser "para sempre".
+
+
+
+
+. Veja o diagrama de retenção para confirmar as instruções de colocação.
+. Selecione *continuar*.
++
+A etapa 3 (Selecionar comportamento de ingestão) é exibida.
+
+. Selecione a opção de ingestão a utilizar e selecione *criar*.
+

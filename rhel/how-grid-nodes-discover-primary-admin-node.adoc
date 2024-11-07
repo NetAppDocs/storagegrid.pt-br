@@ -1,0 +1,32 @@
+---
+permalink: rhel/how-grid-nodes-discover-primary-admin-node.html 
+sidebar: sidebar 
+keywords: red hat linux primary admin node 
+summary: Os nós de grade se comunicam com o nó de administração principal para configuração e gerenciamento. Cada nó de grade deve saber o endereço IP do nó de administração principal na rede de grade. 
+---
+= Como os nós de grade descobrem o nó de administração principal
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os nós de grade se comunicam com o nó de administração principal para configuração e gerenciamento. Cada nó de grade deve saber o endereço IP do nó de administração principal na rede de grade.
+
+Para garantir que um nó de grade possa acessar o nó Admin principal, você pode fazer um dos seguintes procedimentos ao implantar o nó:
+
+* Você pode usar o parâmetro Admin_IP para inserir o endereço IP do nó de administrador principal manualmente.
+* Você pode omitir o parâmetro ADMIN_IP para que o nó de grade descubra o valor automaticamente. A deteção automática é especialmente útil quando a rede de Grade usa DHCP para atribuir o endereço IP ao nó Admin principal.
+
+
+A deteção automática do nó de administração principal é realizada usando um sistema de nome de domínio multicast (mDNS). Quando o nó de administração principal é iniciado pela primeira vez, ele publica seu endereço IP usando mDNS. Outros nós na mesma sub-rede podem então consultar o endereço IP e adquiri-lo automaticamente. No entanto, como o tráfego IP multicast não é normalmente roteável entre sub-redes, os nós em outras sub-redes não podem adquirir o endereço IP do nó de administração principal diretamente.
+
+[NOTE]
+====
+Se utilizar a deteção automática:
+
+* Você deve incluir a configuração Admin_IP para pelo menos um nó de grade em todas as sub-redes às quais o nó Admin principal não esteja diretamente conetado. Esse nó de grade publicará o endereço IP do nó de administrador principal para outros nós na sub-rede para serem detetados com mDNS.
+* Certifique-se de que a sua infra-estrutura de rede suporta a passagem de tráfego IP multi-cast dentro de uma sub-rede.
+
+
+====

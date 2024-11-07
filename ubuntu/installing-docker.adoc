@@ -1,0 +1,48 @@
+---
+permalink: ubuntu/installing-docker.html 
+sidebar: sidebar 
+keywords: how to install Docker 
+summary: O sistema StorageGRID é executado no Linux como uma coleção de contentores Docker. Antes de poder instalar o StorageGRID, você deve instalar o Docker. 
+---
+= Instale o Docker
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O sistema StorageGRID é executado no Linux como uma coleção de contentores Docker. Antes de poder instalar o StorageGRID, você deve instalar o Docker.
+
+
+NOTE: O suporte para Docker como o mecanismo de contentor para implantações somente de software está obsoleto. O Docker será substituído por outro mecanismo de contentor em uma versão futura.
+
+.Passos
+. Instale o Docker seguindo as instruções para sua distribuição Linux.
++
+
+NOTE: Se o Docker não estiver incluído na sua distribuição Linux, você poderá baixá-lo a partir do site do Docker.
+
+. Certifique-se de que o Docker foi ativado e iniciado executando os dois comandos a seguir:
++
+[listing]
+----
+sudo systemctl enable docker
+----
++
+[listing]
+----
+sudo systemctl start docker
+----
+. Confirme que instalou a versão esperada do Docker inserindo o seguinte:
++
+[listing]
+----
+sudo docker version
+----
++
+As versões Cliente e servidor devem ser 1.11.0 ou posterior.
+
+
+
+.Informações relacionadas
+link:configuring-host-storage.html["Configurar o armazenamento do host"]

@@ -1,0 +1,98 @@
+---
+permalink: audit/using-audit-explain-tool.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, tool, audit-explain, audit explain, translate audit messages, translate messages, translate audit message, translate message 
+summary: Você pode usar a ferramenta audit-explain para traduzir as mensagens de auditoria no login de auditoria para um formato fácil de ler. 
+---
+= Utilize a ferramenta de auditoria-explicação
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar a `audit-explain` ferramenta para traduzir as mensagens de auditoria no login de auditoria para um formato fácil de ler.
+
+.Antes de começar
+* Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
+* Tem de ter o `Passwords.txt` ficheiro.
+* Você deve saber o endereço IP do nó de administração principal.
+
+
+.Sobre esta tarefa
+A `audit-explain` ferramenta, disponível no nó de administração principal, fornece resumos simplificados das mensagens de auditoria em um log de auditoria.
+
+
+NOTE: A `audit-explain` ferramenta destina-se principalmente ao uso por suporte técnico durante operações de solução de problemas. As consultas de processamento `audit-explain` podem consumir uma grande quantidade de energia da CPU, o que pode afetar as operações do StorageGRID.
+
+Este exemplo mostra a saída típica da `audit-explain` ferramenta. Essas quatro link:sput-s3-put.html["SPUT"]mensagens de auditoria foram geradas quando o locatário S3 com ID de conta 92484777680322627870 usou S3 SOLICITAÇÕES PUT para criar um bucket chamado "bucket1" e adicionar três objetos a esse bucket.
+
+[listing]
+----
+SPUT S3 PUT bucket bucket1 account:92484777680322627870 usec:124673
+SPUT S3 PUT object bucket1/part1.txt tenant:92484777680322627870  cbid:9DCB157394F99FE5 usec:101485
+SPUT S3 PUT object bucket1/part2.txt tenant:92484777680322627870  cbid:3CFBB07AB3D32CA9 usec:102804
+SPUT S3 PUT object bucket1/part3.txt tenant:92484777680322627870  cbid:5373D73831ECC743 usec:93874
+----
+A `audit-explain` ferramenta pode fazer o seguinte:
+
+* Processe logs de auditoria simples ou compatados. Por exemplo:
++
+`audit-explain audit.log`
+
++
+`audit-explain 2019-08-12.txt.gz`
+
+* Processe vários arquivos simultaneamente. Por exemplo:
++
+`audit-explain audit.log 2019-08-12.txt.gz 2019-08-13.txt.gz`
+
++
+`audit-explain /var/local/log/*`
+
+* Aceite a entrada de um pipe, que permite filtrar e pré-processar a entrada usando o `grep` comando ou outros meios. Por exemplo:
++
+`grep SPUT audit.log | audit-explain`
+
++
+`grep bucket-name audit.log | audit-explain`
+
+
+
+Como os logs de auditoria podem ser muito grandes e lentos para analisar, você pode economizar tempo filtrando partes que você deseja olhar e executar `audit-explain` nas partes, em vez de todo o arquivo.
+
+[NOTE]
+====
+A `audit-explain` ferramenta não aceita arquivos compatados como entrada pipeada. Para processar arquivos compatados, forneça seus nomes de arquivo como argumentos de linha de comando ou use a `zcat` ferramenta para descomprimir os arquivos primeiro. Por exemplo:
+
+`zcat audit.log.gz | audit-explain`
+
+====
+Utilize a `help (-h)` opção para ver as opções disponíveis. Por exemplo:
+
+`$ audit-explain -h`
+
+.Passos
+. Faça login no nó de administração principal:
++
+.. Introduza o seguinte comando: `ssh admin@_primary_Admin_Node_IP_`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+
+
+. Digite o seguinte comando, onde `/var/local/log/audit.log` representa o nome e a localização do arquivo ou arquivos que você deseja analisar:
++
+`$ audit-explain /var/local/log/audit.log`
+
++
+A `audit-explain` ferramenta imprime interpretações humanamente legíveis de todas as mensagens no arquivo ou arquivos especificados.
+
++
+
+NOTE: Para reduzir o comprimento das linhas e facilitar a legibilidade, os carimbos de data/hora não são apresentados por predefinição. Se você quiser ver os carimbos de data/hora, use a opção carimbo de data/hora (`-t`).
+
+

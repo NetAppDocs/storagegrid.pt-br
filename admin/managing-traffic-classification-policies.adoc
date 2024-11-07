@@ -1,0 +1,109 @@
+---
+permalink: admin/managing-traffic-classification-policies.html 
+sidebar: sidebar 
+keywords: QoS, quality of service, traffic classification, best practices, limit traffic, monitor traffic 
+summary: 'As políticas de classificação de tráfego permitem identificar e monitorar diferentes tipos de tráfego de rede. Essas políticas podem ajudar com a limitação de tráfego e o monitoramento para aprimorar suas ofertas de qualidade do serviço (QoS).' 
+---
+= O que são políticas de classificação de tráfego?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+As políticas de classificação de tráfego permitem identificar e monitorar diferentes tipos de tráfego de rede. Essas políticas podem ajudar com a limitação de tráfego e o monitoramento para aprimorar suas ofertas de qualidade do serviço (QoS).
+
+As políticas de classificação de tráfego são aplicadas a pontos de extremidade no serviço de balanceador de carga do StorageGRID para nós de gateway e nós de administração. Para criar políticas de classificação de tráfego, você já deve ter criado pontos de extremidade do balanceador de carga.
+
+
+
+== Regras correspondentes
+
+Cada política de classificação de tráfego contém uma ou mais regras correspondentes para identificar o tráfego de rede relacionado a uma ou mais das seguintes entidades:
+
+* Baldes
+* Sub-rede
+* Locatário
+* Pontos de extremidade do balanceador de carga
+
+
+O StorageGRID monitora o tráfego que corresponde a qualquer regra dentro da política de acordo com os objetivos da regra. Qualquer tráfego que corresponda a qualquer regra de uma política é Tratado por essa política. Por outro lado, você pode definir regras para corresponder a todo o tráfego, exceto uma entidade especificada.
+
+
+
+== Limitação de tráfego
+
+Opcionalmente, você pode adicionar os seguintes tipos de limite a uma política:
+
+* Largura de banda de agregado
+* Largura de banda por solicitação
+* Solicitações simultâneas
+* Taxa de solicitação
+
+
+Os valores-limite são impostos por balanceador de carga. Se o tráfego for distribuído simultaneamente em vários balanceadores de carga, as taxas máximas totais são vários dos limites de taxa especificados.
+
+
+NOTE: Você pode criar políticas para limitar a largura de banda agregada ou limitar a largura de banda por solicitação. No entanto, o StorageGRID não pode limitar ambos os tipos de largura de banda ao mesmo tempo. Os limites de largura de banda agregada podem impor um impactos menor no desempenho adicional no tráfego não limitado.
+
+Para limites de largura de banda agregada ou por solicitação, as solicitações são transmitidas ou enviadas pela taxa definida. O StorageGRID só pode impor uma velocidade, então a correspondência de política mais específica, por tipo matcher, é a aplicada. A largura de banda consumida pela solicitação não conta com outras políticas de correspondência menos específicas que contenham políticas de limite de largura de banda agregada. Para todos os outros tipos de limite, as solicitações do cliente são atrasadas em 250 milissegundos e recebem uma resposta de retardo 503 para solicitações que excedem qualquer limite de política correspondente.
+
+No Gerenciador de Grade, você pode visualizar gráficos de tráfego e verificar se as políticas estão aplicando os limites de tráfego esperados.
+
+
+
+== Use políticas de classificação de tráfego com SLAs
+
+Você pode usar políticas de classificação de tráfego em conjunto com limites de capacidade e proteção de dados para aplicar acordos de nível de serviço (SLAs) que fornecem detalhes sobre capacidade, proteção de dados e desempenho.
+
+O exemplo a seguir mostra três níveis de um SLA. Você pode criar políticas de classificação de tráfego para alcançar os objetivos de desempenho de cada nível de SLA.
+
+[cols="1a,1a,1a,1a,1a"]
+|===
+| Nível de serviço | Capacidade | Proteção de dados | Desempenho máximo permitido | Custo 
+
+
+ a| 
+Ouro
+ a| 
+1 PB de armazenamento permitido
+ a| 
+3 copiar regra ILM
+ a| 
+25 K solicitações/seg
+
+Largura de banda de 5 GB/seg (40 Gbps)
+ a| 
+dólares por mês
+
+
+
+ a| 
+Prata
+ a| 
+250 TB de armazenamento permitido
+ a| 
+2 copiar regra ILM
+ a| 
+10 K solicitações/seg
+
+Largura de banda de 1,25 GB/seg (10 Gbps)
+ a| 
+dólares por mês
+
+
+
+ a| 
+Bronze
+ a| 
+100 TB de armazenamento permitido
+ a| 
+2 copiar regra ILM
+ a| 
+5 K solicitações/seg
+
+Largura de banda de 1 GB/seg (8 Gbps)
+ a| 
+dólares por mês
+
+|===

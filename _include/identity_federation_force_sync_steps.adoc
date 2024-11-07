@@ -1,0 +1,17 @@
+= 
+:allow-uri-read: 
+
+
+O sistema StorageGRID sincroniza periodicamente grupos federados e usuários da origem da identidade. Você pode forçar o início da sincronização se quiser ativar ou restringir as permissões de usuário o mais rápido possível.
+
+.Passos
+. Vá para a página de federação de identidade.
+. Selecione *servidor de sincronização* na parte superior da página.
++
+O processo de sincronização pode demorar algum tempo, dependendo do ambiente.
+
++
+
+NOTE: O alerta *Falha na sincronização da federação de identidade* é acionado se houver um problema na sincronização de grupos federados e usuários da origem da identidade.
+
+

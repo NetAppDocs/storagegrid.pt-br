@@ -1,0 +1,106 @@
+---
+permalink: audit/cbse-object-send-end.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, CBSE, Object Send End 
+summary: Quando a transferência de um bloco de conteúdo de um nó para outro for concluída, essa mensagem é emitida pela entidade de origem. 
+---
+= CBSE: Fim de envio de objeto
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando a transferência de um bloco de conteúdo de um nó para outro for concluída, essa mensagem é emitida pela entidade de origem.
+
+[cols="1a,1a,4a"]
+|===
+| Código | Campo | Descrição 
+
+
+ a| 
+CNID
+ a| 
+Identificador de ligação
+ a| 
+O identificador exclusivo da sessão/conexão nó a nó.
+
+
+
+ a| 
+CBID
+ a| 
+Identificador do bloco de conteúdo
+ a| 
+O identificador exclusivo do bloco de conteúdo que está sendo transferido.
+
+
+
+ a| 
+CTDR
+ a| 
+Direção de transferência
+ a| 
+Indica se a transferência CBID foi iniciada por push ou iniciada por pull:
+
+PUSH: A operação de transferência foi solicitada pela entidade emissora.
+
+PULL: A operação de transferência foi solicitada pela entidade recetora.
+
+
+
+ a| 
+CTSR
+ a| 
+Entidade de origem
+ a| 
+O ID do nó da origem (remetente) da transferência CBID.
+
+
+
+ a| 
+CTDS
+ a| 
+Entidade de destino
+ a| 
+O ID do nó do destino (recetor) da transferência CBID.
+
+
+
+ a| 
+CTSS
+ a| 
+Iniciar contagem de sequência
+ a| 
+Indica a contagem de sequência com a qual a transferência foi iniciada.
+
+
+
+ a| 
+CTAS
+ a| 
+Contagem sequência fim Real
+ a| 
+Indica a última contagem de sequência transferida com êxito. Se a contagem de sequência final real for a mesma que a contagem de sequência inicial e o resultado da transferência não tiver sido bem-sucedido, não foram trocados dados.
+
+
+
+ a| 
+RSLT
+ a| 
+Resultado da transferência
+ a| 
+O resultado da operação de transferência (do ponto de vista da entidade de envio):
+
+SUCS: Transferência concluída com êxito; todas as contagens de sequência solicitadas foram enviadas.
+
+CONL: Conexão perdida durante a transferência
+
+CTMO: Tempo limite de conexão durante o estabelecimento ou transferência
+
+UNRE: ID do nó de destino inalcançável
+
+CRPT: A transferência terminou devido à receção de dados corrompidos ou inválidos
+
+|===
+Essa mensagem de auditoria significa que uma operação de transferência de dados nó a nó foi concluída. Se o resultado da transferência tiver sido bem-sucedido, a operação transferiu dados de "Start Sequence Count" (contagem de sequência de início) para "Real End Sequence Count" (contagem de sequência final real). Os nós de envio e recebimento são identificados por suas IDs de nó. Essas informações podem ser usadas para rastrear o fluxo de dados do sistema e localizar, tabular e analisar erros. Quando combinado com mensagens de auditoria de armazenamento, ele também pode ser usado para verificar contagens de réplicas.

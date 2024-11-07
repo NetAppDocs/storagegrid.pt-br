@@ -1,0 +1,40 @@
+---
+permalink: tenant/duplicating-group.html 
+sidebar: sidebar 
+keywords: how to duplicate tenant group 
+summary: Você pode criar novos grupos mais rapidamente duplicando um grupo existente. 
+---
+= Grupo duplicado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode criar novos grupos mais rapidamente duplicando um grupo existente.
+
+.Antes de começar
+* Você está conetado ao Gerenciador do Locatário usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você pertence a um grupo de usuários que tem a permissão de acesso root. link:tenant-management-permissions.html["Permissões de gerenciamento do locatário"]Consulte .
+
+
+.Passos
+. Selecione *GERENCIAMENTO DE ACESSO* > *grupos*.
+. Marque a caixa de seleção do grupo que deseja duplicar.
+. Selecione *Duplicate group*. Para obter detalhes adicionais sobre como criar um grupo, consulte as instruções para criar grupos para link:creating-groups-for-s3-tenant.html["Um inquilino de S3 anos"] ou para link:creating-groups-for-swift-tenant.html["Um inquilino Swift"].
+. Selecione a guia *local group* para criar um grupo local ou selecione a guia *Federated group* para importar um grupo da origem de identidade configurada anteriormente.
++
+Se o logon único (SSO) estiver ativado para o sistema StorageGRID, os usuários pertencentes a grupos locais não poderão fazer login no Gerenciador de locatários, embora possam usar aplicativos clientes para gerenciar os recursos do locatário, com base link:tenant-management-permissions.html["permissões de grupo"]no .
+
+. Introduza o nome do grupo.
++
+** *Local group*: Insira um nome de exibição e um nome exclusivo. Pode editar o nome de apresentação mais tarde.
+** *Federated group*: Insira o nome exclusivo. Para o ative Directory, o nome exclusivo é o nome associado ao `sAMAccountName` atributo. Para OpenLDAP, o nome exclusivo é o nome associado ao `uid` atributo.
+
+
+. Selecione *continuar*.
+. Conforme necessário, modifique as permissões para este grupo.
+. Selecione *continuar*.
+. Conforme necessário, se você estiver duplicando um grupo para um locatário S3, opcionalmente, selecione uma política diferente nos botões de opção *Adicionar política S3*. Se você selecionou uma política personalizada, atualize a cadeia de carateres JSON conforme necessário.
+. Selecione *criar grupo*.
+

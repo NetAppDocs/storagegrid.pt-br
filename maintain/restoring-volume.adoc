@@ -1,0 +1,174 @@
+---
+permalink: maintain/restoring-volume.html 
+sidebar: sidebar 
+keywords: storagegrid, restore, volume 
+summary: Você pode restaurar dados de objeto para um volume de armazenamento ou nó de armazenamento com falha usando o Grid Manager. Você também pode usar o Gerenciador de Grade para monitorar os processos de restauração em andamento e exibir um histórico de restauração. 
+---
+= Restaure dados de objetos usando o Gerenciador de Grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode restaurar dados de objeto para um volume de armazenamento ou nó de armazenamento com falha usando o Grid Manager. Você também pode usar o Gerenciador de Grade para monitorar os processos de restauração em andamento e exibir um histórico de restauração.
+
+.Antes de começar
+* Você concluiu um destes procedimentos para formatar volumes com falha:
++
+** link:../maintain/remounting-and-reformatting-appliance-storage-volumes.html["Remontagem e reformatação dos volumes de storage do dispositivo (etapas manuais)"]
+** link:../maintain/remounting-and-reformatting-storage-volumes-manual-steps.html["Remontagem e reformatação de volumes de storage (etapas manuais)"]
+
+
+* Você confirmou que o nó de armazenamento onde você está restaurando objetos tem um estado de conexão de *Connected* image:../media/icon_alert_green_checkmark.png["marca de verificação verde de alerta do ícone"]na guia *NODES* > *Overview* no Gerenciador de Grade.
+* Você confirmou o seguinte:
++
+** Uma expansão de grade para adicionar um nó de storage não está em processo.
+** A desativação de um nó de storage não está em processo ou falhou.
+** A recuperação de um volume de armazenamento com falha não está em processo.
+** Uma recuperação de um nó de armazenamento com uma unidade de sistema com falha não está em processo.
+** Um trabalho de reequilíbrio EC não está em processo.
+** A clonagem do nó do dispositivo não está em processo.
+
+
+
+
+.Sobre esta tarefa
+Depois de substituir as unidades e executar as etapas manuais para formatar os volumes, o Gerenciador de Grade exibe os volumes como candidatos para restauração na guia *MAINTENANCE* > *volume restoration* > *Nodes to restore*.
+
+Sempre que possível, restaure os dados do objeto usando a página de restauração de volume no Gerenciador de Grade. Você pode <<enable-auto-restore-mode,ativar o modo de restauração automática>>iniciar automaticamente a restauração de volume quando os volumes estiverem prontos para serem restaurados ou <<manually-restore,realize manualmente a restauração do volume>>. Siga estas diretrizes:
+
+* Se os volumes estiverem listados em *MAINTENANCE* > *volume restoration* > *nodes to restore*, restaure os dados do objeto conforme descrito nas etapas abaixo. Os volumes serão listados se:
++
+** Alguns, mas não todos, volumes de armazenamento em um nó falharam
+** Todos os volumes de storage em um nó falharam e estão sendo substituídos pelo mesmo número de volumes ou mais volumes
+
+
++
+A página de restauração de volume no Gerenciador de Grade também permite que <<view-restoration-progress,monitorize o processo de restauro do volume>>você e <<view-restoration-history,veja o histórico de restauração>>.
+
+* Se os volumes não estiverem listados no Gerenciador de Grade como candidatos à restauração, siga as etapas apropriadas para usar o `repair-data` script para restaurar dados de objeto:
++
+** link:restoring-object-data-to-storage-volume.html["Restauração de dados de objetos para o volume de armazenamento (falha na unidade do sistema)"]
+** link:restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["Restaure os dados de objetos para o volume de storage em que a unidade do sistema esteja intacta"]
+** link:restoring-object-data-to-storage-volume-for-appliance.html["Restaure os dados de objeto para o volume de storage do dispositivo"]
++
+
+NOTE: O script repair-data está obsoleto e será removido em uma versão futura.
+
+
+
++
+Se o nó de armazenamento recuperado contiver menos volumes do que o nó que está substituindo, você deve usar o `repair-data` script.
+
+
+
+Você pode restaurar dois tipos de dados de objeto:
+
+* Os objetos de dados replicados são restaurados de outros locais, supondo que as regras de ILM da grade foram configuradas para disponibilizar cópias de objetos.
++
+** Se uma regra ILM foi configurada para armazenar apenas uma cópia replicada e essa cópia existia em um volume de armazenamento que falhou, você não poderá recuperar o objeto.
+** Se a única cópia restante de um objeto estiver em um pool de armazenamento em nuvem, o StorageGRID deverá emitir várias solicitações ao endpoint do pool de armazenamento em nuvem para restaurar os dados do objeto.
+
+
+* Os objetos de dados codificados por apagamento (EC) são restaurados pela remontagem dos fragmentos armazenados. Fragmentos corrompidos ou perdidos são recriados pelo algoritmo de codificação de apagamento a partir dos dados restantes e fragmentos de paridade.
++
+As reparações de dados codificados por apagamento podem começar enquanto alguns nós de storage estão offline. No entanto, se todos os dados codificados por apagamento não puderem ser contabilizados, a reparação não poderá ser concluída. O reparo será concluído depois que todos os nós estiverem disponíveis.
+
+
+
+
+NOTE: A restauração de volume depende da disponibilidade de recursos onde as cópias de objetos são armazenadas. O progresso da restauração de volume é não linear e pode levar dias ou semanas para ser concluído.
+
+
+
+== [[enable-auto-restore-mode]]ative o modo de restauração automática
+
+Quando ativa o modo de restauro automático, a restauração do volume é iniciada automaticamente quando os volumes estão prontos para serem restaurados.
+
+.Passos
+. No Grid Manager, vá para *MAINTENANCE* > *volume restoration*.
+. Selecione a guia *nós a restaurar* e deslize a alternância para *modo de restauração automática* para a posição ativada.
+. Quando a caixa de diálogo de confirmação for exibida, revise os detalhes.
++
+[NOTE]
+====
+** Você não poderá iniciar trabalhos de restauração de volume manualmente em nenhum nó.
+** As restaurações por volume só começarão automaticamente quando não houver outros procedimentos de manutenção em andamento.
+** Pode monitorizar o estado do trabalho a partir da página de monitorização do progresso.
+** O StorageGRID tenta novamente restaurações de volume automaticamente que não são iniciadas.
+
+
+====
+. Quando entender os resultados da ativação do modo de restauração automática, selecione *Sim* na caixa de diálogo de confirmação.
++
+Você pode desativar o modo de restauração automática a qualquer momento.
+
+
+
+
+
+== [[manually-restore]]restaure manualmente o volume ou nó com falha
+
+Siga estas etapas para restaurar um volume ou nó com falha.
+
+.Passos
+. No Grid Manager, vá para *MAINTENANCE* > *volume restoration*.
+. Selecione a guia *nós a restaurar* e deslize a alternância para *modo de restauração automática* para a posição desativada.
++
+O número na guia indica o número de nós com volumes que exigem restauração.
+
+. Expanda cada nó para ver os volumes de TI que precisam de restauração e seu status.
+. Corrija quaisquer problemas que impeçam a restauração de cada volume. Os problemas serão indicados quando selecionar *aguardando etapas manuais*, se for exibido como o status do volume.
+. Selecione um nó para restaurar onde todos os volumes indicam um status Pronto para restaurar.
++
+Você só pode restaurar os volumes para um nó de cada vez.
+
++
+Cada volume no nó deve indicar que está pronto para ser restaurado.
+
+. Selecione *Iniciar restauração*.
+. Aborde quaisquer avisos que possam aparecer ou selecione *Iniciar de qualquer maneira* para ignorar os avisos e iniciar a restauração.
+
+
+Os nós são movidos da guia *nós para restaurar* para a guia *progresso da restauração* quando a restauração é iniciada.
+
+Se uma restauração de volume não puder ser iniciada, o nó retornará à guia *nós para restaurar*.
+
+
+
+== [[view-restoration-progress]]Ver o progresso da restauração
+
+A guia *progresso da Restauração* mostra o status do processo de restauração de volume e informações sobre os volumes de um nó que está sendo restaurado.
+
+As taxas de reparo de dados para objetos replicados e codificados por apagamento em todos os volumes são médias que resumem todas as restaurações em processo, incluindo as restaurações iniciadas com `repair-data` o script. A porcentagem de objetos nesses volumes que estão intactos e não requerem restauração também é indicada.
+
+
+NOTE: A restauração de dados replicados depende da disponibilidade de recursos onde as cópias replicadas são armazenadas. O progresso da restauração de dados replicados é não linear e pode levar dias ou semanas para ser concluído.
+
+A seção Restoration Jobs (tarefas de restauração) exibe informações sobre restaurações de volume iniciadas no Grid Manager.
+
+* O número no cabeçalho da seção trabalhos de restauração indica o número de volumes que estão sendo restaurados ou enfileirados para restauração.
+* A tabela exibe informações sobre cada volume em um nó que está sendo restaurado e seu progresso.
++
+** O progresso de cada nó exibe a porcentagem de cada trabalho.
+** Expanda a coluna Detalhes para exibir a hora de início da restauração e o ID do trabalho.
+
+
+* Se uma restauração de volume falhar:
++
+** A coluna Status indica `failed (attempting retry)`, e será tentada novamente automaticamente.
+** Se vários trabalhos de restauro falharem, o trabalho mais recente será novamente tentado automaticamente primeiro.
+** O alerta *EC repair failure* é acionado se as tentativas continuarem falhando. Siga as etapas no alerta para resolver o problema.
+
+
+
+
+
+
+== [[view-restoration-history]]Ver histórico de restauro
+
+A guia *Histórico de Restauração* mostra informações sobre todas as restaurações de volume concluídas com êxito.
+
+
+NOTE: Os tamanhos não são aplicáveis a objetos replicados e são exibidos apenas para restaurações que contêm objetos de dados codificados por apagamento (EC).

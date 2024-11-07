@@ -1,0 +1,60 @@
+---
+permalink: ilm/guidelines-for-creating-storage-pools.html 
+sidebar: sidebar 
+keywords: storage pool guidelines 
+summary: Configure e use pools de storage para se proteger contra a perda de dados, distribuindo dados em vários locais. As cópias replicadas e as cópias codificadas por apagamento exigem configurações de pool de storage diferentes. 
+---
+= Diretrizes para a criação de pools de armazenamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Configure e use pools de storage para se proteger contra a perda de dados, distribuindo dados em vários locais. As cópias replicadas e as cópias codificadas por apagamento exigem configurações de pool de storage diferentes.
+
+link:using-multiple-storage-pools-for-cross-site-replication.html["Exemplos de ativação da proteção contra perda de sites usando replicação e codificação de apagamento"]Consulte .
+
+
+
+== Diretrizes para todos os pools de armazenamento
+
+* Mantenha as configurações do pool de storage o mais simples possível. Não crie mais pools de armazenamento do que o necessário.
+* Crie pools de storage com tantos nós quanto possível. Cada pool de storage deve conter dois ou mais nós. Um pool de storage com nós insuficientes pode causar backlogs de ILM se um nó ficar indisponível.
+* Evite criar ou usar pools de storage que se sobrepõem (contêm um ou mais dos mesmos nós). Se os pools de armazenamento se sobrepuserem, mais de uma cópia dos dados de objeto poderá ser salva no mesmo nó.
+* Em geral, não use o pool de storage todos os nós de storage (StorageGRID 11,6 e anterior) ou o site todos os sites. Esses itens são atualizados automaticamente para incluir novos sites adicionados em uma expansão, o que pode não ser o comportamento desejado.
+
+
+
+
+== Diretrizes para pools de storage usados para cópias replicadas
+
+* Para proteção contra perda de local usando link:what-replication-is.html["replicação"]o , especifique um ou mais pools de armazenamento específicos do local no link:create-ilm-rule-define-placements.html["Instruções de colocação para cada regra ILM"].
++
+Um pool de storage é criado automaticamente para cada local durante a instalação do StorageGRID.
+
++
+O uso de um pool de storage para cada local garante que as cópias de objetos replicadas sejam colocadas exatamente onde você espera (por exemplo, uma cópia de cada objeto em cada local para proteção contra perda de local).
+
+* Se você adicionar um site em uma expansão, crie um novo pool de armazenamento que contenha apenas o novo site. Em seguidalink:working-with-ilm-rules-and-ilm-policies.html#edit-an-ilm-rule["Atualizar regras ILM"], para controlar quais objetos são armazenados no novo site.
+* Se o número de cópias for menor que o número de pools de storage, o sistema as distribuirá para equilibrar a utilização de disco entre os pools.
+* Se os pools de storage se sobreporem (contiverem os mesmos nós de storage), todas as cópias do objeto poderão ser salvas em apenas um local. Você deve garantir que os pools de storage selecionados não contenham os mesmos nós de storage.
+
+
+
+
+== Diretrizes para pools de storage usados para cópias codificadas por apagamento
+
+* Para proteção contra perda de local usando link:what-erasure-coding-is.html["codificação de apagamento"]o , crie pools de armazenamento que consistem em pelo menos três locais. Se um pool de armazenamento incluir apenas dois sites, você não poderá usar esse pool de armazenamento para codificação de apagamento. Não há esquemas de codificação de apagamento disponíveis para um pool de storage que tenha dois locais.
+* O número de nós de storage e sites contidos no pool de storage determina quais link:what-erasure-coding-schemes-are.html["esquemas de codificação de apagamento"]estão disponíveis.
+* Se possível, um pool de storage deve incluir mais do que o número mínimo de nós de storage necessário para o esquema de codificação de apagamento selecionado. Por exemplo, se você usar um 3 esquema de codificação de apagamento de mais de 6 anos, precisará ter pelo menos nove nós de storage. No entanto, é recomendável ter pelo menos um nó de armazenamento adicional por local.
+* Distribua os nós de storage entre locais da forma mais uniforme possível. Por exemplo, para dar suporte a um 3 esquema de codificação de apagamento de mais de 6 horas por dia, configure um pool de storage que inclua pelo menos três nós de storage em três locais.
+* Se você tiver altos requisitos de taxa de transferência, usar um pool de armazenamento que inclua vários locais não é recomendado se a latência de rede entre locais for maior que 100 ms. À medida que a latência aumenta, a taxa na qual o StorageGRID pode criar, colocar e recuperar fragmentos de objetos diminui drasticamente devido à diminuição da taxa de transferência da rede TCP.
++
+A diminuição na taxa de transferência afeta as taxas máximas alcançáveis de ingestão e recuperação de objetos (quando balanceado ou rigoroso são selecionados como o comportamento de ingestão) ou pode levar a backlogs de fila ILM (quando Dual Commit é selecionado como o comportamento de ingestão). link:what-ilm-rule-is.html#ilm-rule-ingest-behavior["Comportamento de ingestão de regra de ILM"]Consulte .
+
++
+
+NOTE: Se a grade incluir apenas um local, você será impedido de usar o pool de storage todos os nós de storage (StorageGRID 11,6 e anterior) ou o site todos os sites em um perfil de codificação de apagamento. Esse comportamento impede que o perfil se torne inválido se um segundo site for adicionado.
+
+

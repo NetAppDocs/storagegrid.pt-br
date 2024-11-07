@@ -1,0 +1,34 @@
+---
+permalink: tenant/viewing-your-s3-access-keys.html 
+sidebar: sidebar 
+keywords: how to view your s3 access key 
+summary: Se você estiver usando um locatário do S3 e tiver a permissão apropriada, você poderá exibir uma lista de suas chaves de acesso do S3. Você pode classificar a lista por tempo de expiração, para que você possa determinar quais chaves expirarão em breve. Conforme necessário, você pode criar novas chaves ou excluir chaves que você não está mais usando. 
+---
+= Veja as suas teclas de acesso S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você estiver usando um locatário do S3 e tiver o link:tenant-management-permissions.html["permissão apropriada"], você poderá exibir uma lista das chaves de acesso do S3. Você pode classificar a lista por tempo de expiração, para que você possa determinar quais chaves expirarão em breve. Conforme necessário, você pode link:creating-your-own-s3-access-keys.html["crie novas chaves"] ou link:deleting-your-own-s3-access-keys.html["eliminar chaves"]não está mais usando.
+
+
+CAUTION: Os buckets e objetos do S3 pertencentes à sua conta podem ser acessados usando o ID da chave de acesso e a chave de acesso secreta exibidos para a sua conta no Gerenciador do Locatário. Por esse motivo, proteja as chaves de acesso como faria com uma senha. Gire as chaves de acesso regularmente, remova quaisquer chaves não utilizadas da sua conta e nunca as compartilhe com outros usuários.
+
+.Antes de começar
+* Você está conetado ao Gerenciador do Locatário usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você pertence a um grupo de usuários que tem as credenciais Gerenciar suas próprias credenciais S3 link:tenant-management-permissions.html["permissão"].
+
+
+.Passos
+. Selecione *ARMAZENAMENTO (S3)* > *as minhas chaves de acesso*.
+. Na página Minhas chaves de acesso, classifique todas as chaves de acesso existentes por *tempo de expiração* ou *ID da chave de acesso*.
+. Conforme necessário, crie novas chaves ou exclua quaisquer chaves que você não esteja mais usando.
++
+Se você criar novas chaves antes que as chaves existentes expirem, você pode começar a usar as novas chaves sem perder temporariamente o acesso aos objetos na conta.
+
++
+As chaves expiradas são removidas automaticamente.
+
+
