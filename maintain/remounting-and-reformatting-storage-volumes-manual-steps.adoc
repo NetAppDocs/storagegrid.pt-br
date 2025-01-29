@@ -218,11 +218,11 @@ Tenha em atenção o seguinte:
 ** Não pressione *Ctrl C* enquanto a sessão SSH estiver ativa.
 ** O script será executado em segundo plano se ocorrer uma interrupção da rede e terminar a sessão SSH, mas você pode visualizar o progresso da página recuperação.
 ** Se o nó de armazenamento usar o serviço RSM, o script pode parecer parar por 5 minutos à medida que os serviços do nó são reiniciados. Este atraso de 5 minutos é esperado sempre que o serviço RSM arranca pela primeira vez.
-
-
 +
 
 NOTE: O serviço RSM está presente nos nós de storage que incluem o serviço ADC.
+
+
 
 +
 

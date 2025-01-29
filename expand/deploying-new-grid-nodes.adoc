@@ -179,13 +179,13 @@ Durante esta fase, ocorre um dos seguintes processos:
 +
 ** Para um dispositivo de armazenamento, o instalador se coneta ao controlador de armazenamento, limpa qualquer configuração existente, comunica com o SANtricity os para configurar volumes e configura as configurações do host.
 ** Para um dispositivo de serviços, o instalador limpa qualquer configuração existente das unidades no controlador de computação e configura as configurações do host.
-
-
 +
 *2. Instale o os*
 
 +
 Durante esta fase, o instalador copia a imagem base do sistema operativo para o StorageGRID para o dispositivo.
+
+
 
 . Continue monitorando o progresso da instalação até que uma mensagem seja exibida na janela do console, solicitando que você use o Gerenciador de Grade para aprovar o nó.
 +

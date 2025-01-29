@@ -110,6 +110,4 @@ indexpage:
     - title: Documentação do StorageGRID 11,5
       url: https://docs.netapp.com/us-en/storagegrid-115/index.html
     - title: Documentação do StorageGRID 11,4
-      url: https://docs.netapp.com/sgws-114/index.jsp
-    - title: Documentação do StorageGRID 11,3
-      url: https://docs.netapp.com/sgws-113/index.jsp
+      url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=63374

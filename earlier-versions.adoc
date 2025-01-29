@@ -20,6 +20,5 @@ Você pode encontrar documentação para outras versões do software NetApp Stor
 * https://docs.netapp.com/us-en/storagegrid-117/index.html["Documentação do StorageGRID 11,7"^]
 * https://docs.netapp.com/us-en/storagegrid-116/index.html["Documentação do StorageGRID 11,6"^]
 * https://docs.netapp.com/us-en/storagegrid-115/index.html["Documentação do StorageGRID 11,5"^]
-* https://docs.netapp.com/sgws-114/index.jsp["Centro de Documentação do StorageGRID 11,4"^]
-* https://docs.netapp.com/sgws-113/index.jsp["Centro de Documentação do StorageGRID 11,3"^]
+* https://mysupport.netapp.com/documentation/docweb/index.html?productID=63374["Centro de Documentação do StorageGRID 11,4"^]
 
