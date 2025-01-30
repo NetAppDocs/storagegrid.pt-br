@@ -47,11 +47,16 @@ Você pode encontrar esse erro ao tentar criar, editar ou excluir um pool de arm
 
 Normalmente, você só verá esse erro se estiver criando um novo pool de armazenamento em nuvem e outra instância do StorageGRID já estiver usando o mesmo pool de armazenamento em nuvem.
 
-Tente estas etapas para corrigir o problema:
+Tente um destes passos para corrigir o problema:
 
-* Verifique se ninguém na sua organização também está usando este pool de armazenamento em nuvem.
-* Exclua todos os objetos existentes dentro do intervalo de destino, incluindo o `x-ntap-sgws-cloud-pool-uuid` arquivo, e tente configurar o pool de armazenamento do Cloud novamente.
+* Se você estiver configurando um novo Cloud Storage Pool e o bucket contiver o `x-ntap-sgws-cloud-pool-uuid` arquivo e as chaves de objeto adicionais semelhantes ao exemplo a seguir, crie um novo bucket e use esse novo bucket.
++
+Exemplo de uma chave de objeto adicional: `my-bucket.3E64CF2C-B74D-4B7D-AFE7-AD28BC18B2F6.1727326606730410`
 
+* Se o `x-ntap-sgws-cloud-pool-uuid` arquivo for o único objeto no intervalo, exclua esse arquivo.
+
+
+Se estas etapas não se aplicarem ao seu cenário, entre em Contato com o suporte.
 
 
 
