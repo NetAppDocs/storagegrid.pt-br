@@ -40,6 +40,24 @@ Antes de adicionar nós de storage para aumentar a capacidade dos metadados, lei
 * Ao adicionar capacidade de metadados, você deve adicionar o mesmo número de nós de storage a cada local.
 
 
+Os nós de storage somente de metadados têm requisitos específicos de hardware:
+
+* Ao usar dispositivos StorageGRID, os nós somente de metadados podem ser configurados somente em dispositivos SGF6112 com doze unidades de 1,9 TB ou doze unidades de 3,8 TB.
+* Ao usar nós baseados em software, os recursos de nós somente metadados devem corresponder aos recursos existentes dos nós de storage. Por exemplo:
++
+** Se o local do StorageGRID existente estiver usando dispositivos SG6000 ou SG6100, os nós somente de metadados baseados em software deverão atender aos seguintes requisitos mínimos:
++
+*** 128 GB DE RAM
+*** CPU de 8 núcleos
+*** SSD de 8 TB ou armazenamento equivalente para o banco de dados Cassandra (rangedb/0)
+
+
+** Se o site StorageGRID existente estiver usando nós de armazenamento virtual com 24 GB de RAM, CPU de 8 núcleos e 3 TB ou 4TB TB de armazenamento de metadados, os nós somente de metadados baseados em software devem usar recursos semelhantes (24 GB de RAM, CPU de 8 núcleos e 4TB GB de armazenamento de metadados (rangedb/0).
+
+
+* Ao adicionar um novo site StorageGRID, a capacidade total de metadados do novo local deve, no mínimo, corresponder aos locais StorageGRID existentes e os novos recursos do local devem corresponder aos nós de storage nos locais StorageGRID existentes.
+
+
 Consulte link:../admin/managing-object-metadata-storage.html["Descrição do que é Metadata Reserved Space"].
 
 

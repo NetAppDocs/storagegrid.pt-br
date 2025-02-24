@@ -24,6 +24,20 @@ Cada nó do StorageGRID requer os seguintes recursos mínimos:
 
 
 
+Os recursos de nó somente de metadados baseados em software devem corresponder aos recursos dos nós de storage existentes. Por exemplo:
+
+* Se o local do StorageGRID existente estiver usando dispositivos SG6000 ou SG6100, os nós somente de metadados baseados em software deverão atender aos seguintes requisitos mínimos:
++
+** 128 GB DE RAM
+** CPU de 8 núcleos
+** SSD de 8 TB ou armazenamento equivalente para o banco de dados Cassandra (rangedb/0)
+
+
+* Se o site StorageGRID existente estiver usando nós de armazenamento virtual com 24 GB de RAM, CPU de 8 núcleos e 3 TB ou 4TB TB de armazenamento de metadados, os nós somente de metadados baseados em software devem usar recursos semelhantes (24 GB de RAM, CPU de 8 núcleos e 4TB GB de armazenamento de metadados (rangedb/0).
+
+
+Ao adicionar um novo site StorageGRID, a capacidade total de metadados do novo local deve, no mínimo, corresponder aos locais StorageGRID existentes e os novos recursos do local devem corresponder aos nós de storage nos locais StorageGRID existentes.
+
 Certifique-se de que o número de nós de StorageGRID que você planeja executar em cada host físico ou virtual não exceda o número de núcleos de CPU ou a RAM física disponível. Se os hosts não forem dedicados à execução do StorageGRID (não recomendado), certifique-se de considerar os requisitos de recursos dos outros aplicativos.
 
 
