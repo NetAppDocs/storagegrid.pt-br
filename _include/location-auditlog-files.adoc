@@ -2,4 +2,35 @@
 :allow-uri-read: 
 
 
-link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Saiba mais sobre os destinos para informações de auditoria"].
+O diretório de log de auditoria e os nós aplicáveis dependem das configurações de destino da auditoria.
+
+[cols="1a,2a"]
+|===
+| Opção | Destino 
+
+
+ a| 
+Nós locais (padrão)
+ a| 
+`/var/local/log/localaudit.log`
+
+
+
+ a| 
+Nós de administração/nós locais
+ a| 
+* Nós de administração (primários e não primários): `/var/local/audit/export/audit.log`
+* Todos os nós: O `/var/local/log/localaudit.log` arquivo está normalmente vazio ou ausente neste modo.
+
+
+
+
+ a| 
+Servidor syslog externo
+ a| 
+`/var/local/log/localaudit.log`
+
+|===
+Dependendo das definições de destino da auditoria, introduza: `cd /var/local/log` Ou `/var/local/audit/export/`
+
+Para saber mais, link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Selecione destinos de informações de auditoria"]consulte .

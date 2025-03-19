@@ -44,20 +44,50 @@ image::../media/nodes_storage_nodes_objects_page_lost_object.png[Objeto perdido 
 ... Introduza a palavra-passe listada no `Passwords.txt` ficheiro. Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
 
 
-.. Mude para o diretório onde os logs de auditoria estão localizados. Introduza: `cd /var/local/log/`
+.. Mude para o diretório onde os logs de auditoria estão localizados.
 +
-[NOTE]
-====
-link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Saiba mais sobre os destinos para informações de auditoria"].
+--
+O diretório de log de auditoria e os nós aplicáveis dependem das configurações de destino da auditoria.
 
-====
+[cols="1a,2a"]
+|===
+| Opção | Destino 
+
+
+ a| 
+Nós locais (padrão)
+ a| 
+`/var/local/log/localaudit.log`
+
+
+
+ a| 
+Nós de administração/nós locais
+ a| 
+*** Nós de administração (primários e não primários): `/var/local/audit/export/audit.log`
+*** Todos os nós: O `/var/local/log/localaudit.log` arquivo está normalmente vazio ou ausente neste modo.
+
+
+
+
+ a| 
+Servidor syslog externo
+ a| 
+`/var/local/log/localaudit.log`
+
+|===
+Dependendo das definições de destino da auditoria, introduza: `cd /var/local/log` Ou `/var/local/audit/export/`
+
+Para saber mais, link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Selecione destinos de informações de auditoria"]consulte .
+
+--
 .. Use grep para extrair as mensagens de auditoria OLST (Object Lost). Introduza: `grep OLST audit_file_name`
 .. Observe o valor UUID incluído na mensagem.
 +
 [listing]
 ----
->Admin: # grep OLST audit.log
-2020-02-12T19:18:54.780426 [AUDT:[CBID(UI64):0x38186FE53E3C49A5][UUID(CSTR):926026C4-00A4-449B-AC72-BCCA72DD1311]
+Admin: # grep OLST audit.log
+2020-02-12T19:18:54.780426 [AUDT:[CBID(UI64):0x38186FE53E3C49A5][UUID(CSTR):"926026C4-00A4-449B-AC72-BCCA72DD1311"]
 [PATH(CSTR):"source/cats"][NOID(UI32):12288733][VOLI(UI64):3222345986][RSLT(FC32):NONE][AVER(UI32):10]
 [ATIM(UI64):1581535134780426][ATYP(FC32):OLST][ANID(UI32):12448208][AMID(FC32):ILMX][ATID(UI64):7729403978647354233]]
 ----

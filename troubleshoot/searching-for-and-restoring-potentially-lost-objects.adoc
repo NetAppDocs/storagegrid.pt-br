@@ -35,13 +35,43 @@ CAUTION: Contacte o suporte técnico para obter assistência com este procedimen
 ... Introduza a palavra-passe listada no `Passwords.txt` ficheiro. Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
 
 
-.. Mude para o diretório onde os logs de auditoria estão localizados: `cd /var/local/log/`
+.. [[substep-1b]]mude para o diretório onde os logs de auditoria estão localizados.
 +
-[NOTE]
-====
-link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Saiba mais sobre os destinos para informações de auditoria"].
+--
+O diretório de log de auditoria e os nós aplicáveis dependem das configurações de destino da auditoria.
 
-====
+[cols="1a,2a"]
+|===
+| Opção | Destino 
+
+
+ a| 
+Nós locais (padrão)
+ a| 
+`/var/local/log/localaudit.log`
+
+
+
+ a| 
+Nós de administração/nós locais
+ a| 
+*** Nós de administração (primários e não primários): `/var/local/audit/export/audit.log`
+*** Todos os nós: O `/var/local/log/localaudit.log` arquivo está normalmente vazio ou ausente neste modo.
+
+
+
+
+ a| 
+Servidor syslog externo
+ a| 
+`/var/local/log/localaudit.log`
+
+|===
+Dependendo das definições de destino da auditoria, introduza: `cd /var/local/log` Ou `/var/local/audit/export/`
+
+Para saber mais, link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Selecione destinos de informações de auditoria"]consulte .
+
+--
 .. Use grep para extrair o link:../audit/object-ingest-transactions.html["auditar mensagens associadas ao objeto potencialmente perdido"] e enviá-los para um arquivo de saída. Introduza: `grep uuid-value audit_file_name > output_file_name`
 +
 Por exemplo:
@@ -49,7 +79,7 @@ Por exemplo:
 +
 [listing]
 ----
-Admin: # grep 926026C4-00A4-449B-AC72-BCCA72DD1311 audit.log > messages_about_lost_object.txt
+Admin: # grep 926026C4-00A4-449B-AC72-BCCA72DD1311 audit.log > /var/local/tmp/messages_about_lost_object.txt
 ----
 .. Use grep para extrair as mensagens de auditoria de localização perdida (LLST) deste arquivo de saída. Introduza: `grep LLST output_file_name`
 +
@@ -58,7 +88,7 @@ Por exemplo:
 +
 [listing]
 ----
-Admin: # grep LLST messages_about_lost_objects.txt
+Admin: # grep LLST /var/local/tmp/messages_about_lost_objects.txt
 ----
 +
 Uma mensagem de auditoria LLST se parece com esta mensagem de exemplo.
@@ -66,12 +96,11 @@ Uma mensagem de auditoria LLST se parece com esta mensagem de exemplo.
 +
 [listing]
 ----
-[AUDT:\[NOID\(UI32\):12448208\][CBIL(UI64):0x38186FE53E3C49A5]
+[AUDT:[NOID(UI32):12448208][CBIL(UI64):0x38186FE53E3C49A5]
 [UUID(CSTR):"926026C4-00A4-449B-AC72-BCCA72DD1311"][LTYP(FC32):CLDI]
-[PCLD\(CSTR\):"/var/local/rangedb/1/p/17/11/00rH0%DkRs&LgA%\#3tN6"\]
-[TSRC(FC32):SYST][RSLT(FC32):NONE][AVER(UI32):10][ATIM(UI64):
-1581535134379225][ATYP(FC32):LLST][ANID(UI32):12448208][AMID(FC32):CLSM]
-[ATID(UI64):7086871083190743409]]
+[PCLD(CSTR):"/var/local/rangedb/1/p/17/11/00rH0%DkRs&LgA#3tN6"]
+[TSRC(FC32):SYST][RSLT(FC32):NONE][AVER(UI32):10][ATIM(UI64):1581535134379225]
+[ATYP(FC32):LLST][ANID(UI32):12448208][AMID(FC32):CLSM][ATID(UI64):7086871083190743409]]
 ----
 .. Localize o campo PCLD e o campo NOID na mensagem LLST.
 +
@@ -180,7 +209,7 @@ Avance para o passo seguinte.
 ... Introduza a palavra-passe listada no `Passwords.txt` ficheiro. Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
 
 
-.. Mude para o diretório onde os logs de auditoria estão localizados: `cd /var/local/log/`
+.. Mude para o diretório onde os logs de auditoria estão localizados. Consulte a <<substep-1b,subetapa 1. b>> .
 .. Use grep para extrair as mensagens de auditoria associadas ao objeto para um arquivo de saída. Introduza: `grep uuid-value audit_file_name > output_file_name`
 +
 Por exemplo:
@@ -188,7 +217,7 @@ Por exemplo:
 +
 [listing]
 ----
-Admin: # grep 926026C4-00A4-449B-AC72-BCCA72DD1311 audit.log > messages_about_restored_object.txt
+Admin: # grep 926026C4-00A4-449B-AC72-BCCA72DD1311 audit.log > /var/local/tmp/messages_about_restored_object.txt
 ----
 .. Use o grep para extrair as mensagens de auditoria regras de objeto atendidas (ORLM) deste arquivo de saída. Introduza: `grep ORLM output_file_name`
 +
@@ -197,7 +226,7 @@ Por exemplo:
 +
 [listing]
 ----
-Admin: # grep ORLM messages_about_restored_object.txt
+Admin: # grep ORLM /var/local/tmp/messages_about_restored_object.txt
 ----
 +
 Uma mensagem de auditoria ORLM se parece com esta mensagem de exemplo.
