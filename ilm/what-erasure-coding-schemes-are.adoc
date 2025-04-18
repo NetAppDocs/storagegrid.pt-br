@@ -66,7 +66,7 @@ NOTE: Não é possível usar a codificação de apagamento se o pool de armazena
 * O pool de storage deve incluir pelo menos `_k+m_ +1` nós de storage que podem armazenar dados de objetos.
 +
 
-NOTE: Os nós de storage podem ser configurados durante a instalação para conter dados de objetos e metadados ("nó de storage combinado"), apenas metadados de objetos ou apenas dados de objetos. Para obter mais informações, link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nós de storage"]consulte .
+NOTE: Os nós de storage podem ser configurados durante a instalação para conter apenas metadados de objetos e não dados de objetos. Para obter mais informações, link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nós de storage"]consulte .
 
 +
 O número mínimo de nós de storage necessário é `k+m`. No entanto, ter pelo menos um nó de armazenamento adicional pode ajudar a evitar falhas de ingestão ou backlogs de ILM se um nó de armazenamento necessário estiver temporariamente indisponível.

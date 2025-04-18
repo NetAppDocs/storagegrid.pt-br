@@ -73,7 +73,7 @@ Os inquilinos do FabricPool normalmente não precisam usar o S3 Select.
 .. Opcionalmente, selecione *usar conexão de federação de grade* para permitir que o locatário use um link:../admin/grid-federation-overview.html["conexão de federação de grade"] para clone de conta e replicação entre grade. Em seguida, selecione a conexão de federação de grade a ser usada.
 
 
-. Para a etapa Definir acesso raiz, especifique qual usuário terá a permissão de acesso raiz inicial para a conta de locatário, com base no uso do sistema StorageGRID link:../admin/using-identity-federation.html["federação de identidade"] link:../admin/how-sso-works.html["Logon único (SSO)"], ou ambos.
+. Para a etapa Definir acesso raiz, especifique qual usuário terá a permissão de acesso raiz inicial para a conta de locatário, com base no uso do sistema StorageGRID link:../admin/using-identity-federation.html["federação de identidade"] link:../admin/configuring-sso.html["Logon único (SSO)"], ou ambos.
 +
 [cols="1a,2a"]
 |===

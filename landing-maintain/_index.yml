@@ -11,7 +11,7 @@ indexpage:
     links:
     - title: Manutenção da grelha
       url: "../maintain/index.html"
-    - title: Baixe o pacote de recuperação
+    - title: Baixar Recovery Package
       url: "../maintain/downloading-recovery-package.html"
   - title: Desativar nós ou locais
     links:

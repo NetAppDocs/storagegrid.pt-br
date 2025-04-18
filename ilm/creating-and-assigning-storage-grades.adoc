@@ -24,7 +24,7 @@ Quando você instala o StorageGRID pela primeira vez, o nível de armazenamento 
 O uso de classes de armazenamento personalizadas permite criar pools de armazenamento ILM que contêm apenas um tipo específico de nó de armazenamento. Por exemplo, você pode querer que certos objetos sejam armazenados em seus nós de storage mais rápidos, como dispositivos de storage all-flash StorageGRID.
 
 
-NOTE: Os nós de storage podem ser configurados durante a instalação para conter dados de objetos e metadados ("nó de storage combinado"), apenas metadados de objetos ou apenas dados de objetos. Os nós de storage somente de metadados não podem ser atribuídos a um nível de storage. Para obter mais informações, link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nós de storage"]consulte .
+NOTE: Os nós de storage podem ser configurados durante a instalação para conter apenas metadados de objetos e não dados de objetos. Os nós de storage somente de metadados não podem ser atribuídos a um nível de storage. Para obter mais informações, link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nós de storage"]consulte .
 
 Se o grau de armazenamento não for um problema (por exemplo, todos os nós de armazenamento são idênticos), você pode ignorar este procedimento e usar a seleção *inclui todas as classes de armazenamento* para o grau de armazenamento quando link:creating-storage-pool.html["crie pools de armazenamento"]você . O uso dessa seleção garante que o pool de armazenamento incluirá todos os nós de armazenamento no local, independentemente de seu nível de armazenamento.
 

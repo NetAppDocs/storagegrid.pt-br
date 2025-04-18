@@ -91,4 +91,4 @@ Content-Type: application/xml
 <Consistency xmlns="http://s3.storagegrid.com/doc/2015-02-01/">read-after-new-write</Consistency>
 ----
 .Informações relacionadas
-link:consistency.html["Consistência"]
+link:consistency-controls.html["Valores de consistência"]

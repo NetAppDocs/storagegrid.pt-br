@@ -73,6 +73,12 @@ Após a conclusão da atualização, você pode revisar qualquer alerta relacion
 
 
 
+== Muitas notificações SNMP são geradas
+
+Esteja ciente de que um grande número de notificações SNMP pode ser gerado quando os nós de grade são interrompidos e reiniciados durante a atualização. Para evitar notificações excessivas, desmarque a caixa de seleção *Ativar notificações de agente SNMP* (*CONFIGURAÇÃO* > *Monitoramento* > *agente SNMP*) para desativar as notificações SNMP antes de iniciar a atualização. Em seguida, reative as notificações após a atualização estar concluída.
+
+
+
 == As alterações de configuração são restritas
 
 
@@ -96,4 +102,23 @@ Até que a tarefa *etapas de atualização final* seja concluída:
 
 * Não execute um procedimento de expansão.
 * Não efetue um procedimento de desativação.
+
+
+
+
+== Não é possível visualizar os detalhes do bucket nem gerenciar buckets do Tenant Manager
+
+Durante a atualização para o StorageGRID 11,9 (ou seja, enquanto o sistema estiver operando como um ambiente de versão mista), você não pode exibir detalhes do bucket ou gerenciar buckets usando o Gerenciador do locatário. Um dos seguintes erros aparece na página baldes no Tenant Manager:
+
+* Você não pode usar essa API enquanto estiver atualizando para 11,9.
+* Você não pode exibir detalhes de versão do bucket no Gerenciador de inquilinos enquanto estiver atualizando para o 11,9.
+
+
+Este erro será resolvido após a atualização para o 11,9 estar concluída.
+
+.Solução alternativa
+Enquanto a atualização do 11,9 estiver em andamento, use as seguintes ferramentas para exibir detalhes do bucket ou gerenciar buckets, em vez de usar o Gerenciador do locatário:
+
+* Para efetuar operações S3 padrão num balde, utilize a link:../s3/operations-on-buckets.html["S3 API REST"] ou a link:../tenant/understanding-tenant-management-api.html["API de gerenciamento do locatário"].
+* Para executar operações personalizadas do StorageGRID em um bucket (por exemplo, exibindo e modificando a consistência do bucket, habilitando ou desativando as atualizações do último tempo de acesso ou configurando a integração de pesquisa), use a API de Gerenciamento do locatário.
 

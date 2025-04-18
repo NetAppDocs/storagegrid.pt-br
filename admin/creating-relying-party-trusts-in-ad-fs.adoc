@@ -15,8 +15,8 @@ Você deve usar os Serviços de Federação do ative Directory (AD FS) para cria
 
 .Antes de começar
 * Você configurou o logon único para o StorageGRID e selecionou *AD FS* como o tipo SSO.
-* Você tem link:../admin/configure-sso.html#enter-sandbox-mode-adfs["entrou no modo sandbox"] no Gerenciador de Grade.
-* Você conhece o nome de domínio totalmente qualificado (ou o endereço IP) e o identificador de entidade dependente para cada nó de administração no seu sistema. Você pode encontrar esses valores na tabela de detalhes dos nós de administrador na página Configurar SSO do StorageGRID.
+* *O modo Sandbox* está selecionado na página de logon único no Gerenciador de Grade. link:../admin/using-sandbox-mode.html["Use o modo sandbox"]Consulte .
+* Você conhece o nome de domínio totalmente qualificado (ou o endereço IP) e o identificador de entidade dependente para cada nó de administração no seu sistema. Você pode encontrar esses valores na tabela de detalhes dos nós de administração na página de logon único do StorageGRID.
 +
 
 NOTE: Você deve criar uma confiança de parte confiável para cada nó de administrador no seu sistema StorageGRID. Ter uma confiança de parte confiável para cada nó de administração garante que os usuários possam entrar e sair com segurança de qualquer nó de administração.
@@ -88,7 +88,7 @@ Se os metadados estiverem ausentes, confirme se o endereço de metadados da Fede
 
 
 . Repita essas etapas para configurar uma confiança de parte confiável para todos os nós de administração no sistema StorageGRID.
-. Quando terminar, regresse ao StorageGRID e link:../admin/configure-sso.html#test-sso["teste todos os trusts de confiança"]confirme que está configurado corretamente.
+. Quando terminar, retorne ao StorageGRID e teste todas as confianças de terceiros confiáveis para confirmar que elas estão configuradas corretamente. link:using-sandbox-mode.html["Use o modo Sandbox"]Consulte para obter instruções.
 
 
 
@@ -139,7 +139,7 @@ Se os metadados estiverem ausentes, confirme se o endereço de metadados da Fede
 
 
 . Repita essas etapas para configurar uma confiança de parte confiável para todos os nós de administração no sistema StorageGRID.
-. Quando terminar, regresse ao StorageGRID e link:../admin/configure-sso.html#test-sso["teste todos os trusts de confiança"]confirme que estão configurados corretamente.
+. Quando terminar, retorne ao StorageGRID e teste todas as confianças de terceiros confiáveis para confirmar que elas estão configuradas corretamente. link:using-sandbox-mode.html["Use o modo Sandbox"]Consulte para obter instruções.
 
 
 
@@ -233,5 +233,5 @@ As propriedades da parte dependente são salvas e fechadas.
 
 
 . Repita essas etapas para configurar uma confiança de parte confiável para todos os nós de administração no sistema StorageGRID.
-. Quando terminar, regresse ao StorageGRID e link:../admin/configure-sso.html#test-sso["teste todos os trusts de confiança"]confirme que estão configurados corretamente.
+. Quando terminar, retorne ao StorageGRID e teste todas as confianças de terceiros confiáveis para confirmar que elas estão configuradas corretamente. link:using-sandbox-mode.html["Use o modo sandbox"]Consulte para obter instruções.
 

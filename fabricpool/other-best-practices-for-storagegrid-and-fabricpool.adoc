@@ -19,7 +19,7 @@ Ao configurar um sistema StorageGRID para uso com o FabricPool, talvez seja nece
 
 As cargas de trabalho do FabricPool geralmente têm uma alta taxa de operações de leitura, o que pode gerar um alto volume de mensagens de auditoria.
 
-* Se você não precisar de um Registro de operações de leitura de cliente para o FabricPool ou qualquer outro aplicativo S3, opcionalmente vá para *CONFIGURATION* > *Monitoring* > *servidor de auditoria e syslog*. Altere a configuração *leitura do cliente* para *erro* para diminuir o número de mensagens de auditoria registradas no log de auditoria. link:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria e servidor syslog externo"]Consulte para obter detalhes.
+* Se você não precisar de um Registro de operações de leitura de cliente para o FabricPool ou qualquer outro aplicativo S3, opcionalmente vá para *CONFIGURATION* > *Monitoring* > *servidor de auditoria e syslog*. Altere a configuração *leitura do cliente* para *erro* para diminuir o número de mensagens de auditoria registradas no log de auditoria. link:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria e destinos de log"]Consulte para obter detalhes.
 * Se você tiver uma grade grande, use vários tipos de aplicativos S3 ou deseja reter todos os dados de auditoria, configure um servidor syslog externo e salve as informações de auditoria remotamente. O uso de um servidor externo minimiza o impactos no desempenho do Registro de mensagens de auditoria sem reduzir a integridade dos dados de auditoria. link:../monitor/considerations-for-external-syslog-server.html["Considerações para servidor syslog externo"]Consulte para obter detalhes.
 
 

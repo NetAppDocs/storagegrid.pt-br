@@ -14,7 +14,7 @@ summary: Você pode usar logs do StorageGRID para solucionar problemas.
 Você pode usar logs do StorageGRID para solucionar problemas.
 
 
-NOTE: Se pretender enviar os seus registos para um servidor syslog externo ou alterar o destino das informações de auditoria, como a `bycast.log` e `nms.log`, link:../monitor/configure-audit-messages.html#["Configurar mensagens de auditoria e servidor syslog externo"]consulte .
+NOTE: Se pretender enviar os seus registos para um servidor syslog externo ou alterar o destino das informações de auditoria, como a `bycast.log` e `nms.log`, link:../monitor/configure-audit-messages.html#["Configurar mensagens de auditoria e destinos de log"]consulte .
 
 
 

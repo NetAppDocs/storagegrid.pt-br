@@ -145,6 +145,9 @@ Se o botão *Start Installation* (Iniciar instalação) não estiver ativado, po
 
 . Na página inicial do Instalador de dispositivos StorageGRID, selecione *Iniciar instalação*.
 +
+image::../media/appliance_installer_home_start_installation_enabled.gif[Esta imagem é descrita pelo texto circundante.]
+
++
 O estado atual muda para "a instalação está em andamento" e a página Instalação do monitor é exibida.
 
 . Se a expansão incluir vários nós de dispositivo, repita as etapas anteriores para cada dispositivo.
@@ -155,6 +158,9 @@ NOTE: Se você precisar implantar vários nós de storage de dispositivos de uma
 . Se precisar acessar manualmente a página Instalação do Monitor, selecione *Instalação do Monitor* na barra de menus.
 +
 A página Instalação do monitor mostra o progresso da instalação.
+
++
+image::../media/monitor_installation_configure_storage.gif[Esta imagem é explicada pelo texto circundante.]
 
 +
 A barra de status azul indica qual tarefa está atualmente em andamento. As barras de estado verdes indicam tarefas concluídas com êxito.
@@ -185,5 +191,8 @@ Durante esta fase, o instalador copia a imagem base do sistema operativo para o 
 +
 
 NOTE: Aguarde até que todos os nós adicionados nessa expansão estejam prontos para aprovação antes de ir para o Gerenciador de Grade para aprovar os nós.
+
++
+image::../media/monitor_installation_install_sgws.gif[Esta imagem é explicada pelo texto circundante.]
 
 

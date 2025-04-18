@@ -40,23 +40,23 @@ O computador portátil de serviço tem de ter o seguinte:
 
 
  a| 
-Arquivo de pacote de recuperação `.zip`
+Arquivo do pacote de recuperação `.zip`
  a| 
-Obtenha uma cópia do arquivo de pacote de recuperação mais recente `.zip`:
+Obtenha uma cópia do arquivo mais recente do Pacote de recuperação `.zip`:
 `sgws-recovery-package-_id-revision_.zip`
 
-O conteúdo do `.zip` arquivo é atualizado sempre que o sistema é modificado. Você é direcionado para armazenar a versão mais recente do pacote de recuperação em um local seguro depois de fazer tais alterações. Use a cópia mais recente para recuperar de falhas na grade.
+O conteúdo do `.zip` arquivo é atualizado sempre que o sistema é modificado. Você é direcionado para armazenar a versão mais recente do Pacote de recuperação em um local seguro depois de fazer tais alterações. Use a cópia mais recente para recuperar de falhas na grade.
 
-Se o nó Admin principal estiver operando normalmente, você poderá fazer o download do pacote de recuperação do Gerenciador de Grade. Selecione *MAINTENANCE* > *System* > *Recovery package*.
+Se o nó Admin principal estiver operando normalmente, você poderá fazer o download do Pacote de recuperação do Gerenciador de Grade. Selecione *MAINTENANCE* > *System* > *Recovery package*.
 
-Se você não puder acessar o Gerenciador de Grade, poderá encontrar cópias criptografadas do pacote de recuperação em alguns nós de armazenamento que contêm o serviço ADC. Em cada nó de armazenamento, examine este local para o pacote de recuperação: `/var/local/install/sgws-recovery-package-_grid-id_-_revision_.zip.gpg` Use o pacote de recuperação com o número de revisão mais alto.
+Se você não puder acessar o Gerenciador de Grade, poderá encontrar cópias criptografadas do Pacote de recuperação em alguns nós de armazenamento que contêm o serviço ADC. Em cada nó de armazenamento, examine este local para o pacote de recuperação: `/var/local/install/sgws-recovery-package-_grid-id_-_revision_.zip.gpg` Use o pacote de recuperação com o número de revisão mais alto.
 
 
 
  a| 
 `Passwords.txt` ficheiro
  a| 
-Contém as senhas necessárias para acessar os nós de grade na linha de comando. Incluído no pacote de recuperação.
+Contém as senhas necessárias para acessar os nós de grade na linha de comando. Incluído no Pacote de recuperação.
 
 
 

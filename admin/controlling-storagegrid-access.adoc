@@ -32,16 +32,16 @@ Opcionalmente, você pode configurar um grupo para ser somente leitura. Os usuá
 
 == Ative o logon único
 
-O sistema StorageGRID suporta logon único (SSO) usando o padrão de linguagem de marcação de asserção de Segurança 2,0 (SAML 2,0). Depois de link:how-sso-works.html["Configurar e ativar SSO"]você , todos os usuários devem ser autenticados por um provedor de identidade externo antes que possam acessar o Gerenciador de Grade, o Gerenciador de Locatário, a API de Gerenciamento de Grade ou a API de Gerenciamento de Locatário. Os usuários locais não podem entrar no StorageGRID.
+O sistema StorageGRID suporta logon único (SSO) usando o padrão de linguagem de marcação de asserção de Segurança 2,0 (SAML 2,0). Depois de link:configuring-sso.html["Configurar e ativar SSO"]você , todos os usuários devem ser autenticados por um provedor de identidade externo antes que possam acessar o Gerenciador de Grade, o Gerenciador de Locatário, a API de Gerenciamento de Grade ou a API de Gerenciamento de Locatário. Os usuários locais não podem entrar no StorageGRID.
 
 
 
 == Alterar a frase-passe do aprovisionamento
 
-A senha de provisionamento é necessária para muitos procedimentos de instalação e manutenção e para baixar o pacote de recuperação do StorageGRID. A senha também é necessária para fazer o download de backups das informações de topologia de grade e chaves de criptografia para o sistema StorageGRID. Você pode link:changing-provisioning-passphrase.html["altere a frase-passe"]como necessário.
+A senha de provisionamento é necessária para muitos procedimentos de instalação e manutenção e para baixar o Pacote de recuperação do StorageGRID. A senha também é necessária para fazer o download de backups das informações de topologia de grade e chaves de criptografia para o sistema StorageGRID. Você pode link:changing-provisioning-passphrase.html["altere a frase-passe"]como necessário.
 
 
 
 == Altere as senhas do console do nó
 
-Cada nó na sua grade tem uma senha de console de nó, que você precisa fazer login no nó como "admin" usando SSH, ou para o usuário raiz em uma conexão VM/console físico. Conforme necessário, você pode link:change-node-console-password.html["altere a senha do console do nó"] para cada nó.
+Cada nó na sua grade tem uma senha exclusiva do console de nó, que você precisa fazer login no nó como "admin" usando SSH, ou para o usuário root em uma conexão VM/console físico. Conforme necessário, você pode link:change-node-console-password.html["altere a senha do console do nó"] para cada nó.

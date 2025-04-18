@@ -11,7 +11,7 @@ summary: 'Se você configurou e ativou o logon único (SSO) e usa o Azure como p
 
 
 [role="lead"]
-Se você tiver link:../admin/how-sso-works.html["Logon único configurado e habilitado (SSO)"] e usar o Azure como provedor SSO, você pode usar dois scripts de exemplo para obter um token de autenticação válido para a API de Gerenciamento de Grade ou a API de Gerenciamento do locatário.
+Se você tiver link:../admin/configuring-sso.html["Logon único configurado e habilitado (SSO)"] e usar o Azure como provedor SSO, você pode usar dois scripts de exemplo para obter um token de autenticação válido para a API de Gerenciamento de Grade ou a API de Gerenciamento do locatário.
 
 
 

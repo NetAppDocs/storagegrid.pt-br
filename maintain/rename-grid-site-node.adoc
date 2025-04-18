@@ -17,7 +17,7 @@ Você pode usar este procedimento para adicionar ou atualizar os nomes de exibi�
 * No *nó Admin principal*, você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
 +
 
-NOTE: Você pode adicionar ou atualizar nomes de exibição de um nó de administração não primário, mas deve estar conetado ao nó de administração principal para baixar um pacote de recuperação.
+NOTE: Você pode adicionar ou atualizar nomes de exibição de um nó de administração não primário, mas você deve estar conetado ao nó de administração principal para baixar um pacote de recuperação.
 
 * Você tem o link:../admin/admin-group-permissions.html["Permissão de manutenção ou acesso root"].
 * Você tem a senha de provisionamento.
@@ -167,11 +167,11 @@ image::../media/rename-bulk-rename-tool-after.png[Renomeie a ferramenta em massa
 
 === [[download-recovery-package]]Baixe o pacote de recuperação
 
-Quando terminar de renomear itens, baixe e salve um novo pacote de recuperação. Os novos nomes de exibição para os itens que você renomeou são incluídos no `Passwords.txt` arquivo.
+Quando terminar de renomear itens, baixe e salve um novo Pacote de recuperação. Os novos nomes de exibição para os itens que você renomeou são incluídos no `Passwords.txt` arquivo.
 
 .Passos
 . Introduza a frase-passe de aprovisionamento.
-. Selecione *Baixar pacote de recuperação*.
+. Selecione *Download Recovery Package*.
 +
 O download começa imediatamente.
 

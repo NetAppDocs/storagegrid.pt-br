@@ -16,7 +16,7 @@ O nó de substituição deve ser configurado como nó de administração princip
 .Antes de começar
 * Para nós de administração primários hospedados em máquinas virtuais, a máquina virtual foi implantada, ativada e inicializada.
 * Para nós de administração primários hospedados em um dispositivo de serviços, você substituiu o dispositivo e instalou o software. Consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["instruções de instalação para o seu aparelho"^] .
-* Tem a cópia de segurança mais recente do ficheiro de pacote de recuperação (`sgws-recovery-package-_id-revision_.zip`).
+* Tem a cópia de segurança mais recente do ficheiro do pacote de recuperação (`sgws-recovery-package-_id-revision_.zip`).
 * Você tem a senha de provisionamento.
 
 
@@ -41,7 +41,7 @@ image::../media/install_or_recover_primary_admin_node.png[Instale ou recupere o 
 . Carregue o backup mais recente do pacote de recuperação:
 +
 .. Clique em *Procurar*.
-.. Localize o arquivo de pacote de recuperação mais recente para o seu sistema StorageGRID e clique em *Open*.
+.. Localize o arquivo mais recente do Pacote de recuperação para o seu sistema StorageGRID e clique em *Open*.
 
 
 . Introduza a frase-passe de aprovisionamento.
@@ -52,7 +52,7 @@ O processo de recuperação começa. O Gerenciador de Grade pode ficar indispon�
 . Se o logon único (SSO) estiver ativado para o seu sistema StorageGRID e a confiança da parte confiável para o nó Admin que você recuperou foi configurada para usar o certificado de interface de gerenciamento padrão, atualizar (ou excluir e recriar) a confiança da parte confiável do nó nos Serviços de Federação do ative Directory (AD FS). Use o novo certificado de servidor padrão que foi gerado durante o processo de recuperação do Admin Node.
 +
 
-NOTE: Para configurar uma confiança de parte confiável, link:../admin/configure-sso.html["Configurar o logon único"]consulte . Para acessar o certificado padrão do servidor, faça login no shell de comando do nó Admin. Vá para `/var/local/mgmt-api` o diretório e selecione o `server.crt` arquivo.
+NOTE: Para configurar uma confiança de parte confiável, link:../admin/configuring-sso.html["Configurar o logon único"]consulte . Para acessar o certificado padrão do servidor, faça login no shell de comando do nó Admin. Vá para `/var/local/mgmt-api` o diretório e selecione o `server.crt` arquivo.
 
 
 

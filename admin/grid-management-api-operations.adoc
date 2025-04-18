@@ -63,7 +63,7 @@ NOTE: As métricas que ``_private_``incluem em seus nomes são destinadas apenas
 * *ntp-serviders*: Operações para listar ou atualizar servidores NTP (Network Time Protocol) externos.
 * * Objetos*: Operações em objetos e metadados de objetos.
 * *Recuperação*: Operações para o procedimento de recuperação.
-* * Recovery-package*: Operações para baixar o pacote de recuperação.
+* *Recovery-package*: Operações para baixar o Recovery Package.
 * *Regiões*: Operações para visualizar e criar regiões.
 * *S3-object-lock*: Operações em configurações globais de bloqueio de objetos S3D.
 * *Certificado de servidor*: Operações para visualizar e atualizar certificados de servidor do Grid Manager.

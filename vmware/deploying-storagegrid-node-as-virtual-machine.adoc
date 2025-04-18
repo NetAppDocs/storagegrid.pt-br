@@ -160,7 +160,7 @@ NOTE: Se você estiver recuperando um nó de grade, insira o nome do nó que est
 .. Use a lista suspensa *senha de instalação temporária* para especificar uma senha de instalação temporária, de modo que você possa acessar o console da VM ou a API de instalação do StorageGRID, ou usar SSH, antes que o novo nó se una à grade.
 +
 
-NOTE: A senha de instalação temporária só é usada durante a instalação do nó. Depois que um nó for adicionado à grade, você poderá acessá-lo usando o link:../admin/change-node-console-password.html["senha do console do nó"], que está listado no `Passwords.txt` arquivo no pacote de recuperação.
+NOTE: A senha de instalação temporária só é usada durante a instalação do nó. Depois que um nó for adicionado à grade, você poderá acessá-lo usando o link:../admin/change-node-console-password.html["senha do console do nó"], que está listado no `Passwords.txt` arquivo no Pacote de recuperação.
 
 +
 *** *Use node name*: O valor fornecido para o campo *Node name* é usado como a senha de instalação temporária.

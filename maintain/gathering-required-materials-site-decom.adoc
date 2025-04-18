@@ -19,18 +19,18 @@ Antes de desativar um site, você deve obter os seguintes materiais.
 
 
  a| 
-Arquivo de pacote de recuperação `.zip`
+Arquivo do pacote de recuperação `.zip`
  a| 
-Tem de transferir o ficheiro de pacote de recuperação mais recente `.zip`(`sgws-recovery-package-id-revision.zip` ). Você pode usar o arquivo do pacote de recuperação para restaurar o sistema se ocorrer uma falha.
+Tem de transferir o ficheiro de pacote de recuperação mais recente `.zip`(`sgws-recovery-package-id-revision.zip` ). Você pode usar o arquivo Pacote de recuperação para restaurar o sistema se ocorrer uma falha.
 
-link:downloading-recovery-package.html["Baixe o pacote de recuperação"]
+link:downloading-recovery-package.html["Faça o download do pacote de recuperação"]
 
 
 
  a| 
 `Passwords.txt` ficheiro
  a| 
-Este arquivo contém as senhas necessárias para acessar os nós de grade na linha de comando e está incluído no pacote de recuperação.
+Este arquivo contém as senhas necessárias para acessar os nós de grade na linha de comando e está incluído no Pacote de recuperação.
 
 
 

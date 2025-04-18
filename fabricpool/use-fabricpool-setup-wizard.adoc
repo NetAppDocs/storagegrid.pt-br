@@ -56,7 +56,7 @@ Se você planeja usar uma LAN virtual para segregar o tráfego FabricPool, já c
 
 === Configure a federação de identidade e o SSO
 
-Se você planeja usar federação de identidade ou logon único (SSO) para seu sistema StorageGRID, ativou esses recursos. Você também sabe qual grupo federado deve ter acesso root para a conta de locatário que o ONTAP usará. link:../admin/using-identity-federation.html["Use a federação de identidade"]Consulte e link:../admin/how-sso-works.html["Configurar o logon único"].
+Se você planeja usar federação de identidade ou logon único (SSO) para seu sistema StorageGRID, ativou esses recursos. Você também sabe qual grupo federado deve ter acesso root para a conta de locatário que o ONTAP usará. link:../admin/using-identity-federation.html["Use a federação de identidade"]Consulte e link:../admin/configuring-sso.html["Configurar o logon único"].
 
 
 

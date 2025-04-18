@@ -47,7 +47,7 @@ Exportar os logs para o servidor syslog fornece estes recursos:
 * Melhor visibilidade das solicitações que foram bloqueadas pelos classificadores de tráfego no balanceador de carga.
 
 
-Para exportar os registos, link:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria e servidor syslog externo"]consulte .
+Para exportar os registos, link:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria e destinos de log"]consulte .
 
 
 

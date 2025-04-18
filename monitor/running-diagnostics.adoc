@@ -38,7 +38,7 @@ Os Estados de diagnóstico são independentes dos alertas atuais e podem não in
 A página Diagnósticos é exibida e lista os resultados de cada verificação de diagnóstico. Os resultados são classificados por gravidade (cuidado, atenção e, em seguida, normal). Dentro de cada gravidade, os resultados são ordenados alfabeticamente.
 
 +
-Neste exemplo, um diagnóstico tem um estado de atenção e três diagnósticos têm um estado normal.
+Neste exemplo, todos os diagnósticos têm um estado normal.
 
 +
 image::../media/support_diagnostics_page.png[Página de Diagnóstico de suporte]
@@ -55,13 +55,13 @@ São apresentados detalhes sobre o diagnóstico e os seus resultados atuais. Os 
 
 NOTE: Não é possível alterar esses limites.
 
-** *Valores de status*: Um gráfico e uma tabela (tabela não mostrada na captura de tela) mostrando o status e o valor do diagnóstico em todo o sistema StorageGRID. Neste exemplo, a utilização atual da CPU para cada nó em um sistema StorageGRID é mostrada. Todos os valores de nós estão abaixo dos limites de atenção e cuidado, portanto, o status geral do diagnóstico é normal.
+** *Valores de estado*: Uma tabela que mostra o estado e o valor do diagnóstico em todo o sistema StorageGRID. Neste exemplo, a utilização atual da CPU para cada nó em um sistema StorageGRID é mostrada. Todos os valores de nós estão abaixo dos limites de atenção e cuidado, portanto, o status geral do diagnóstico é normal.
+
+
 +
-image::../media/support_diagnostics_cpu_utilization.png[Exemplo de valores de status do diagnóstico]
+image::../media/support_diagnostics_cpu_utilization.png[Suporte Diagnóstico utilização da CPU]
 
-
-
-. *Opcional*: Para ver gráficos Grafana relacionados a este diagnóstico, selecione *Painel Grafana*.
+. *Opcional*: Para ver gráficos do Grafana relacionados a este diagnóstico, clique no link *painel do Grafana*.
 +
 Este link não é exibido para todos os diagnósticos.
 

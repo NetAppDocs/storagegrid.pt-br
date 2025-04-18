@@ -36,22 +36,22 @@ Monitore o status das `repair-data` tarefas com base se você usa *dados replica
 
 * Para monitorizar a reparação em mais detalhes:
 +
-.. Selecione *NODES*.
-.. Selecione *_grid name_* > *ILM*.
-.. Posicione o cursor sobre o gráfico de fila ILM para ver o valor do atributo *taxa de digitalização (objetos/seg)*, que é a taxa na qual os objetos na grade são digitalizados e enfileirados para ILM.
-.. Na seção fila de ILM, observe os seguintes atributos:
+.. Selecione *SUPPORT* > *Tools* > *Grid topology*.
+.. Selecione *_Grid_* > *_Storage Node a ser reparado_* > *LDR* > *Data Store*.
+.. Use uma combinação dos seguintes atributos para determinar, assim como possível, se as reparações replicadas estão concluídas.
 +
-*** *Período de digitalização - estimado*: O tempo estimado para concluir uma varredura ILM completa de todos os objetos.
+
+NOTE: As inconsistências do Cassandra podem estar presentes e as reparações falhadas não são rastreadas.
+
 +
-Uma verificação completa não garante que o ILM tenha sido aplicado a todos os objetos.
-
-*** *Tentativas de reparação*: O número total de operações de reparação de objetos para dados replicados que foram tentados. Essa contagem aumenta cada vez que um nó de storage tenta reparar um objeto de alto risco. As reparações ILM de alto risco são priorizadas se a grelha ficar ocupada.
+*** * Tentativas de reparos (XRPA)*: Use este atributo para rastrear o progresso de reparos replicados. Esse atributo aumenta cada vez que um nó de storage tenta reparar um objeto de alto risco. Quando este atributo não aumenta por um período superior ao período de digitalização atual (fornecido pelo atributo *período de digitalização -- estimado*), significa que a digitalização ILM não encontrou objetos de alto risco que precisam ser reparados em nenhum nó.
 +
-O mesmo reparo de objeto pode aumentar novamente se a replicação falhar após o reparo. Esses atributos podem ser úteis quando você está monitorando o progresso da recuperação de volume do nó de armazenamento. Se o número de reparações tentadas tiver parado de aumentar e tiver sido concluído um exame completo, a reparação provavelmente foi concluída.
+
+NOTE: Objetos de alto risco são objetos que correm o risco de serem completamente perdidos. Isso não inclui objetos que não satisfazem sua configuração ILM.
+
+*** *Período de digitalização -- estimado (XSCM)*: Use este atributo para estimar quando uma alteração de política será aplicada a objetos ingeridos anteriormente. Se o atributo *Repairs tented* não aumentar durante um período superior ao período de digitalização atual, é provável que sejam efetuadas reparações replicadas. Note que o período de digitalização pode mudar. O atributo *período de digitalização -- estimado (XSCM)* aplica-se a toda a grade e é o máximo de todos os períodos de varredura de nós. Você pode consultar o histórico de atributos *período de digitalização -- estimado* para a grade para determinar um período de tempo apropriado.
 
 
-
-.. Alternativamente, envie uma consulta Prometheus para `storagegrid_ilm_scan_period_estimated_minutes` e `storagegrid_ilm_repairs_attempted`.
 
 
 

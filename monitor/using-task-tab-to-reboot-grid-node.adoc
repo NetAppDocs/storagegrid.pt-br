@@ -1,0 +1,21 @@
+---
+permalink: monitor/using-task-tab-to-reboot-grid-node.html 
+sidebar: sidebar 
+keywords: Tasks tab, rename node, reboot node, maintenance mode 
+summary: A guia tarefas é exibida para todos os nós. Você pode usar essa guia para renomear ou reinicializar um nó ou colocar um nó de appliance no modo de manutenção. 
+---
+= Use a guia tarefas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A guia tarefas é exibida para todos os nós. Você pode usar essa guia para renomear ou reinicializar um nó ou colocar um nó de appliance no modo de manutenção.
+
+Para obter os requisitos e instruções completos para cada opção neste separador, consulte o seguinte:
+
+* link:../maintain/rename-grid-site-node-overview.html["Renomeie grade, sites e nós"]
+* link:../maintain/rebooting-grid-node-from-grid-manager.html["Reinicie o nó da grade"]
+* https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/placing-appliance-into-maintenance-mode.html["Coloque o aparelho no modo de manutenção"^]
+

@@ -64,11 +64,11 @@ Um aviso é exibido, indicando que você selecionou um nó desconetado e que os 
 
 . Revise a lista de nós e clique em *OK*.
 +
-O procedimento de desativação é iniciado e o progresso é exibido para cada nó. Durante o procedimento, um novo pacote de recuperação é gerado contendo a alteração da configuração da grade.
+O procedimento de desativação é iniciado e o progresso é exibido para cada nó. Durante o procedimento, um novo Pacote de recuperação é gerado contendo a alteração de configuração da grade.
 
-. Assim que o novo pacote de recuperação estiver disponível, clique no link ou selecione *MAINTENANCE* > *System* > *Recovery package* para acessar a página do pacote de recuperação. Em seguida, baixe o `.zip` arquivo.
+. Assim que o novo pacote de recuperação estiver disponível, clique no link ou selecione *MAINTENANCE* > *System* > *Recovery package* para acessar a página Recovery Package. Em seguida, baixe o `.zip` arquivo.
 +
-Consulte as instruções para link:downloading-recovery-package.html["baixando o pacote de recuperação"].
+Consulte as instruções para link:downloading-recovery-package.html["Transferir o pacote de recuperação"].
 
 +
 
@@ -106,22 +106,22 @@ CAUTION: Não execute esta etapa até que os nós sejam desligados automaticamen
 
 * Para monitorizar a reparação em mais detalhes:
 +
-.. Selecione *NODES*.
-.. Selecione *_grid name_* > *ILM*.
-.. Posicione o cursor sobre o gráfico de fila ILM para ver o valor do atributo *taxa de digitalização (objetos/seg)*, que é a taxa na qual os objetos na grade são digitalizados e enfileirados para ILM.
-.. Na seção fila de ILM, observe os seguintes atributos:
+.. Selecione *SUPPORT* > *Tools* > *Grid topology*.
+.. Selecione *_Grid_* > *_Storage Node a ser reparado_* > *LDR* > *Data Store*.
+.. Use uma combinação dos seguintes atributos para determinar, assim como possível, se as reparações replicadas estão concluídas.
 +
-*** *Período de digitalização - estimado*: O tempo estimado para concluir uma varredura ILM completa de todos os objetos.
+
+NOTE: As inconsistências do Cassandra podem estar presentes e as reparações falhadas não são rastreadas.
+
 +
-Uma verificação completa não garante que o ILM tenha sido aplicado a todos os objetos.
-
-*** *Tentativas de reparação*: O número total de operações de reparação de objetos para dados replicados que foram tentados. Essa contagem aumenta cada vez que um nó de storage tenta reparar um objeto de alto risco. As reparações ILM de alto risco são priorizadas se a grelha ficar ocupada.
+*** * Tentativas de reparos (XRPA)*: Use este atributo para rastrear o progresso de reparos replicados. Esse atributo aumenta cada vez que um nó de storage tenta reparar um objeto de alto risco. Quando este atributo não aumenta por um período superior ao período de digitalização atual (fornecido pelo atributo *período de digitalização -- estimado*), significa que a digitalização ILM não encontrou objetos de alto risco que precisam ser reparados em nenhum nó.
 +
-O mesmo reparo de objeto pode aumentar novamente se a replicação falhar após o reparo. Esses atributos podem ser úteis quando você está monitorando o progresso da recuperação de volume do nó de armazenamento. Se o número de reparações tentadas tiver parado de aumentar e tiver sido concluído um exame completo, a reparação provavelmente foi concluída.
+
+NOTE: Objetos de alto risco são objetos que correm o risco de serem completamente perdidos. Isso não inclui objetos que não satisfazem sua configuração ILM.
+
+*** *Período de digitalização -- estimado (XSCM)*: Use este atributo para estimar quando uma alteração de política será aplicada a objetos ingeridos anteriormente. Se o atributo *Repairs tented* não aumentar durante um período superior ao período de digitalização atual, é provável que sejam efetuadas reparações replicadas. Note que o período de digitalização pode mudar. O atributo *período de digitalização -- estimado (XSCM)* aplica-se a toda a grade e é o máximo de todos os períodos de varredura de nós. Você pode consultar o histórico de atributos *período de digitalização -- estimado* para a grade para determinar um período de tempo apropriado.
 
 
-
-.. Alternativamente, envie uma consulta Prometheus para `storagegrid_ilm_scan_period_estimated_minutes` e `storagegrid_ilm_repairs_attempted`.
 
 
 

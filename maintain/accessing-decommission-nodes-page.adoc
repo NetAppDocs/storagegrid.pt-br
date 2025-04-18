@@ -62,7 +62,7 @@ Nenhum.
  a| 
 Não, pelo menos um nó de grade está desconetado.
 
-*Nota*: Esta mensagem é mostrada somente para nós de grade conetados.
+*Nota:* esta mensagem é mostrada apenas para nós de grade conetados.
  a| 
 Não é possível desativar um nó de grade conetado se qualquer nó de grade estiver desconetado.
 
@@ -81,7 +81,7 @@ Você deve colocar todos os nós desconetados novamente on-line ou link:decommis
  a| 
 Não, um ou mais nós necessários estão atualmente desconetados e devem ser recuperados.
 
-*Nota*: Esta mensagem é mostrada apenas para nós de grade desconetados.
+*Nota:* esta mensagem é mostrada apenas para nós de grade desconetados.
  a| 
 Não é possível desativar um nó de grade desconetado se um ou mais nós necessários também estiverem desconetados (por exemplo, um nó de armazenamento necessário para o quórum de ADC).
  a| 
@@ -97,7 +97,7 @@ Não é possível desativar um nó de grade desconetado se um ou mais nós neces
 
 
  a| 
-Não, membro do grupo HA: _Nome do grupo_. Antes de desativar esse nó, você deve removê-lo de todos os grupos de HA.
+Não, membro do(s) grupo(s) HA: _Nome do grupo_. Antes de desativar esse nó, você deve removê-lo de todos os grupos de HA.
  a| 
 Não é possível desativar um nó de administrador ou um nó de gateway se uma interface de nó pertencer a um grupo de alta disponibilidade (HA).
  a| 
@@ -108,16 +108,16 @@ Edite o grupo de HA para remover a interface do nó ou remover todo o grupo de H
  a| 
 Não, o local _x_ requer um mínimo de _n_ nós de armazenamento com serviços ADC.
  a| 
-*Somente nós de storage* (nós de storage combinados ou somente metadados). Não é possível desativar um nó de storage se nós insuficientes permanecessem no local para suportar os requisitos de quórum de ADC. No entanto, você pode mover o serviço ADC para outro nó de armazenamento.
+*Somente nós de storage.* Não é possível desativar um nó de storage se nós insuficientes permanecessem no local para suportar os requisitos de quórum de ADC.
  a| 
-link:../maintain/move-adc-service.html["Mova o serviço ADC para outro nó de armazenamento no mesmo local"], Ou execute uma expansão adicionando um novo nó de armazenamento ao site e especificando que ele deve ter um serviço ADC. link:understanding-adc-service-quorum.html["Quórum de ADC"]Consulte a .
+Execute uma expansão. Adicione um novo nó de armazenamento ao site e especifique que ele deve ter um serviço ADC. Consulte informações sobre o link:understanding-adc-service-quorum.html["Quórum de ADC"].
 
 
 
  a| 
 Não, um ou mais perfis de codificação de apagamento precisam de pelo menos _n_ nós de storage. Se o perfil não for usado em uma regra ILM, você poderá desativá-lo.
  a| 
-*Somente nós de storage*. Não é possível desativar um nó de storage a menos que haja nós suficientes para os perfis de codificação de apagamento existentes.
+*Somente nós de storage.* Não é possível desativar um nó de storage a menos que haja nós suficientes para os perfis de codificação de apagamento existentes.
 
 Por exemplo, se existir um perfil de codificação 4 de apagamento para codificação de apagamento a mais de 2, pelo menos 6 nós de storage devem permanecer.
  a| 

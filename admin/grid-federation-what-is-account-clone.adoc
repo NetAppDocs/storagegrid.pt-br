@@ -37,7 +37,7 @@ Se qualquer um dos sistemas StorageGRID na conexão de federação de grade usar
 
 .Passos
 . Configure a mesma fonte de identidade para ambas as grades. link:using-identity-federation.html["Use a federação de identidade"]Consulte .
-. Configure o mesmo provedor de identidade SSO (IDP) para ambas as grades. link:how-sso-works.html["Configurar o logon único"]Consulte .
+. Configure o mesmo provedor de identidade SSO (IDP) para ambas as grades. link:configuring-sso.html["Configurar o logon único"]Consulte .
 . link:managing-admin-groups.html["Crie o mesmo grupo de administração"] em ambas as grades importando o mesmo grupo federado.
 +
 Ao criar o locatário, você selecionará esse grupo para ter a permissão de acesso raiz inicial para as contas de locatário de origem e destino.

@@ -13,8 +13,8 @@ entries:
   entries:
   - title: Solicitações de cliente conflitantes
     url: "/s3/conflicting-client-requests.html"
-  - title: Consistência
-    url: "/s3/consistency.html"
+  - title: Valores de consistência
+    url: "/s3/consistency-controls.html"
   - title: Controle de versão de objetos
     url: "/s3/object-versioning.html"
   - title: Use a API REST do S3 para configurar o bloqueio de objetos do S3

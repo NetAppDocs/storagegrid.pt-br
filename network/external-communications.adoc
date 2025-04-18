@@ -180,6 +180,25 @@ As solicitações do Cloud Storage Pools enviadas para destinos da AWS que usam 
 
 
  a| 
+111
+ a| 
+TCP/UDP
+ a| 
+RPCBind
+ a| 
+Cliente NFS
+ a| 
+Nós de administração
+ a| 
+Usado pela exportação de auditoria baseada em NFS (portmap).
+
+*Nota:* esta porta é necessária apenas se a exportação de auditoria baseada em NFS estiver ativada.
+
+*Observação:* o suporte para NFS foi obsoleto e será removido em uma versão futura.
+
+
+
+ a| 
 123
  a| 
 UDP
@@ -310,6 +329,25 @@ Solicitações do Cloud Storage Pools enviadas para destinos da AWS que usam HTT
 
 
  a| 
+903
+ a| 
+TCP
+ a| 
+NFS
+ a| 
+Cliente NFS
+ a| 
+Nós de administração
+ a| 
+Usado pela exportação de auditoria baseada em NFS (`rpc.mountd`).
+
+*Nota:* esta porta é necessária apenas se a exportação de auditoria baseada em NFS estiver ativada.
+
+*Observação:* o suporte para NFS foi obsoleto e será removido em uma versão futura.
+
+
+
+ a| 
 2022
  a| 
 TCP
@@ -321,6 +359,25 @@ Serviço de laptop
 Todos os nós
  a| 
 SSH ou acesso ao console é necessário para procedimentos com etapas do console. Opcionalmente, você pode usar a porta 22 em vez de 2022.
+
+
+
+ a| 
+2049
+ a| 
+TCP
+ a| 
+NFS
+ a| 
+Cliente NFS
+ a| 
+Nós de administração
+ a| 
+Usado pela exportação de auditoria baseada em NFS (NFS).
+
+*Nota:* esta porta é necessária apenas se a exportação de auditoria baseada em NFS estiver ativada.
+
+*Observação:* o suporte para NFS foi obsoleto e será removido em uma versão futura.
 
 
 

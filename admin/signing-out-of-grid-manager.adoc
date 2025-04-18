@@ -41,7 +41,7 @@ SSO ativado
  a| 
 Você está desconetado de todos os nós de administrador que estava acessando. É apresentada a página de início de sessão do StorageGRID. *Grid Manager* está listado como padrão no menu suspenso *Recent Accounts* e o campo *Account ID* mostra 0.
 
-*Observação:* se o SSO estiver ativado e você também estiver conetado ao Gerenciador de Locatário, você também link:../tenant/signing-out-of-tenant-manager.html["saia da conta de locatário"] deverá entrar link:how-sso-works.html["Sair do SSO"]no .
+*Observação:* se o SSO estiver ativado e você também estiver conetado ao Gerenciador de Locatário, você também link:../tenant/signing-out-of-tenant-manager.html["saia da conta de locatário"] deverá entrar link:configuring-sso.html["Sair do SSO"]no .
 
 |===
 

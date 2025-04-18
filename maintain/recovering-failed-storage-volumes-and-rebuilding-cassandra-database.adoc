@@ -51,7 +51,7 @@ NOTE: Comentar um volume com falha `/etc/fstab` no arquivo é insuficiente. O vo
 ** Você será solicitado a reconstruir o banco de dados do Cassandra, se necessário.
 +
 *** Reveja os avisos. Se nenhum deles se aplicar, reconstrua o banco de dados Cassandra. Digite: *Y*
-*** Se mais de um nó de armazenamento estiver offline. Digite: *N*
+*** Se mais de um nó de armazenamento estiver offline ou se outro nó de armazenamento tiver sido reconstruído nos últimos 15 dias. Digite: *N*
 +
 O script sairá sem reconstruir o Cassandra. Entre em Contato com o suporte técnico.
 

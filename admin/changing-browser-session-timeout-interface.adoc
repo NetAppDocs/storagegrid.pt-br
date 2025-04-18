@@ -29,7 +29,7 @@ O tempo limite de inatividade do navegador também é controlado pelo seguinte:
 * Um temporizador StorageGRID separado, não configurável, incluído para a segurança do sistema. O token de autenticação de cada usuário expira 16 horas após o login do usuário. Quando a autenticação de um usuário expira, esse usuário é desconetado automaticamente, mesmo que o tempo limite de inatividade do navegador esteja desativado ou o valor do tempo limite do navegador não tenha sido atingido. Para renovar o token, o usuário deve entrar novamente.
 * Configurações de tempo limite para o provedor de identidade, supondo que o logon único (SSO) esteja ativado para o StorageGRID.
 +
-Se o SSO estiver ativado e o navegador de um usuário expirar, o usuário deverá inserir novamente suas credenciais SSO para acessar o StorageGRID novamente. link:how-sso-works.html["Como o SSO funciona"]Consulte .
+Se o SSO estiver ativado e o navegador de um usuário expirar, o usuário deverá inserir novamente suas credenciais SSO para acessar o StorageGRID novamente. link:configuring-sso.html["Configurar o logon único"]Consulte .
 
 
 

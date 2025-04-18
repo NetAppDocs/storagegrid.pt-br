@@ -19,6 +19,7 @@ Depois de substituir um nó de armazenamento, você deve selecionar Iniciar recu
 * Você tem a senha de provisionamento.
 * Você implantou e configurou o nó de substituição.
 * Tem a data de início de quaisquer trabalhos de reparação para dados codificados por apagamento.
+* Você verificou que o nó de storage não foi reconstruído nos últimos 15 dias.
 
 
 .Sobre esta tarefa

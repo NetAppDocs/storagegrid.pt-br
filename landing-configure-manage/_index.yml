@@ -30,7 +30,7 @@ indexpage:
     - title: Permissões do grupo de administração
       url: "../admin/admin-group-permissions.html"
     - title: Configurar o logon único
-      url: "../admin/how-sso-works.html"
+      url: "../admin/configuring-sso.html"
   - title: Use a federação de grade
     links:
     - title: O que é a federação de grade?

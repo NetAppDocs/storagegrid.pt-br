@@ -167,13 +167,19 @@ O `setup_rangedbs.sh` script é executado automaticamente.
 . Verifique se o estado de storage do nó de storage está online:
 +
 .. Faça login no Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
-.. Selecione *NODES* > *_Storage Node_* > *Tasks*.
-.. Se a lista suspensa *Storage State* estiver definida como somente leitura ou Offline, selecione *Online*.
-.. Selecione *Guardar*.
+.. Selecione *SUPPORT* > *Tools* > *Grid topology*.
+.. Selecione *_site_* > *_Storage Node_* > *LDR* > *Storage*.
+.. Selecione a guia *Configuração* e a guia *Principal*.
+.. Se a lista suspensa *Estado de armazenamento - desejado* estiver definida como somente leitura ou Offline, selecione *Online*.
+.. Clique em *aplicar alterações*.
 
 
-. Para ver os novos armazenamentos de objetos, selecione *armazenamento*.
-. Veja os detalhes na tabela *volumes*.
+. Para ver os novos armazenamentos de objetos:
++
+.. Selecione *NÓS* > *_site_* > *_Storage Node_* > *Storage*.
+.. Veja os detalhes na tabela *Object Stores*.
+
+
 
 
 .Resultado

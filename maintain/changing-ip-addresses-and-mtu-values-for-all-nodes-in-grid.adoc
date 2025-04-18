@@ -36,7 +36,7 @@ NOTE: Se os servidores DNS existentes não estiverem acessíveis à grade nos no
 
 +
 
-NOTE: Se o SSO estiver habilitado para o seu sistema StorageGRID e quaisquer confianças de terceiros confiáveis tiverem sido configuradas usando endereços IP de nó de administrador (em vez de nomes de domínio totalmente qualificados, conforme recomendado), esteja preparado para atualizar ou reconfigurar essas confianças de terceiros confiáveis nos Serviços de Federação do ative Directory (AD FS) imediatamente após você alterar endereços IP. link:../admin/configure-sso.html["Configurar o logon único"]Consulte .
+NOTE: Se o SSO estiver habilitado para o seu sistema StorageGRID e quaisquer confianças de terceiros confiáveis tiverem sido configuradas usando endereços IP de nó de administrador (em vez de nomes de domínio totalmente qualificados, conforme recomendado), esteja preparado para atualizar ou reconfigurar essas confianças de terceiros confiáveis nos Serviços de Federação do ative Directory (AD FS) imediatamente após você alterar endereços IP. link:../admin/configuring-sso.html["Configurar o logon único"]Consulte .
 
 +
 
@@ -130,7 +130,7 @@ NOTE: Toda a grade deve ser desligada, de modo que todos os nós estejam inativo
 .. Se você adicionou novos servidores DNS, exclua os valores antigos do servidor DNS.
 
 
-. Baixe o novo pacote de recuperação do Grid Manager.
+. Faça o download do novo Pacote de recuperação do Gerenciador de Grade.
 +
 .. Selecione *MAINTENANCE* > *System* > *Recovery package*.
 .. Introduza a frase-passe de aprovisionamento.

@@ -11,7 +11,7 @@ summary: 'Você pode criar usuários locais e atribuí-los a grupos locais para 
 
 
 [role="lead"]
-Você pode criar usuários locais e atribuí-los a grupos locais para determinar quais recursos esses usuários podem acessar. O Gerenciador do Locatário inclui um usuário local predefinido, chamado "root". Embora você possa adicionar e remover usuários locais, você não pode remover o usuário raiz.
+Você pode criar usuários locais e atribuí-los a grupos locais para determinar quais recursos esses usuários podem acessar. O Gerenciador do Tenant inclui um usuário local predefinido, chamado "root". Embora você possa adicionar e remover usuários locais, você não pode remover o usuário raiz.
 
 
 NOTE: Se o logon único (SSO) estiver habilitado para o sistema StorageGRID, os usuários locais não poderão fazer login no Gerenciador do Locatário ou na API de Gerenciamento do Locatário, embora possam usar aplicativos cliente para acessar os recursos do locatário, com base nas permissões de grupo.
@@ -170,33 +170,6 @@ Você não pode alterar o nome de usuário.
 
 
 . Confirme se selecionou *Guardar alterações* para cada secção alterada.
-
-
-
-
-== Importar usuários federados
-
-Você pode importar um ou mais usuários federados, até um máximo de 100 usuários, diretamente para a página usuários.
-
-.Passos
-. Selecione *GERENCIAMENTO DE ACESSO* > *usuários*.
-. Selecione *Importar usuários federados*.
-. Insira o UUID ou nome de usuário para um ou mais usuários federados.
-+
-Para várias entradas, adicione cada UUID ou nome de usuário em uma nova linha.
-
-. Selecione *Importar*.
-+
-Se a importação para o campo usuários falhar para um ou mais usuários, execute as seguintes etapas:
-
-+
-.. Selecione *Copiar usuários*.
-.. Tente novamente a importação selecionando *anterior* e colando os usuários copiados na caixa de diálogo *Importar usuários federados*.
-
-
-+
-Depois de fechar a caixa de diálogo *Importar usuários federados*, as informações do usuário federado são exibidas na página usuários para os usuários importados com êxito.
-
 
 
 

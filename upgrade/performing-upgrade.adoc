@@ -65,7 +65,7 @@ Executar pré-verificações permite detetar e resolver quaisquer problemas de a
 . Para a etapa *Executar pré-verificações*, comece digitando a senha de provisionamento para sua grade.
 . Selecione *Baixar pacote de recuperação*.
 +
-Você deve baixar a cópia atual do arquivo do pacote de recuperação antes de atualizar o nó Admin principal. O arquivo do pacote de recuperação permite restaurar o sistema se ocorrer uma falha.
+Você deve baixar a cópia atual do arquivo do pacote de recuperação antes de atualizar o nó de administração principal. O arquivo do Pacote de recuperação permite restaurar o sistema se ocorrer uma falha.
 
 . Quando o arquivo for baixado, confirme se você pode acessar o conteúdo, incluindo o `Passwords.txt` arquivo.
 . Copie o arquivo baixado (`.zip`) para dois locais seguros, seguros e separados.
@@ -132,10 +132,10 @@ NOTE: Quando a atualização começa em um nó de grade, os serviços nesse nó 
 ** Quando a tarefa *Start upgrade Service* estiver concluída, a tarefa *Upgrade other Grid Nodes* (Atualizar outros nós de grade) é iniciada e você será solicitado a fazer o download de uma nova cópia do pacote de recuperação.
 
 
-. Quando solicitado, insira sua senha de provisionamento e faça o download de uma nova cópia do pacote de recuperação.
+. Quando solicitado, insira sua senha de provisionamento e faça o download de uma nova cópia do Pacote de recuperação.
 +
 
-CAUTION: Você deve baixar uma nova cópia do arquivo do pacote de recuperação depois que o nó Admin principal for atualizado. O arquivo do pacote de recuperação permite restaurar o sistema se ocorrer uma falha.
+CAUTION: Você deve fazer o download de uma nova cópia do arquivo do pacote de recuperação depois que o nó de administração principal for atualizado. O arquivo do Pacote de recuperação permite restaurar o sistema se ocorrer uma falha.
 
 . Revise as tabelas de status para cada tipo de nó. Existem tabelas para nós de administração não primários, nós de gateway e nós de storage.
 +

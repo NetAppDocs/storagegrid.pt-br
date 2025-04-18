@@ -40,8 +40,8 @@ Para obter uma explicação detalhada de como a configuração espaço reservado
 .Passos
 . Determine a configuração atual espaço reservado de metadados.
 +
-.. Selecione *CONFIGURATION* > *System* > *Storage settings*.
-.. Observe o valor de *espaço reservado de metadados*.
+.. Selecione *CONFIGURATION* > *System* > *Storage options*.
+.. Na seção Storage watermarks (marcas d'água de armazenamento), observe o valor de *Metadata Reserved Space* (espaço reservado de metadados).
 
 
 . Certifique-se de que tem espaço disponível suficiente no volume de armazenamento 0 de cada nó de armazenamento para aumentar este valor.
@@ -78,13 +78,17 @@ Por exemplo, se a configuração espaço reservado de metadados for atualmente d
 
 . Atualize a configuração espaço reservado metadados.
 +
-.. Selecione *CONFIGURATION* > *System* > *Storage settings*.
-.. Selecione *espaço reservado de metadados*.
+.. Selecione *CONFIGURATION* > *System* > *Storage options*.
+.. Selecione o separador Configuration (Configuração).
+.. Na seção Storage watermarks (marcas d'água de armazenamento), selecione *Metadata Reserved Space* (espaço reservado de metadados).
 .. Introduza o novo valor.
 +
 Por exemplo, para introduzir 8 TB, que é o valor máximo suportado, introduza *8000000000000* (8, seguido de 12 zeros)
 
-.. Selecione *Guardar*.
++
+image::../media/metadata_reserved_space.png[Espaço reservado para metadados]
+
+.. Selecione *aplicar alterações*.
 
 
 

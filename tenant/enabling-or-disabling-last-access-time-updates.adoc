@@ -53,19 +53,6 @@ A tabela resume o comportamento aplicado a todos os objetos no intervalo quando 
 
 
  a| 
-Solicitação para recuperar metadados de um objeto quando uma operação HEAD é emitida
- a| 
-Não
- a| 
-Não
- a| 
-Não
- a| 
-Não
-
-
-
- a| 
 Solicitação para recuperar um objeto, sua lista de controle de acesso ou seus metadados
  a| 
 Não

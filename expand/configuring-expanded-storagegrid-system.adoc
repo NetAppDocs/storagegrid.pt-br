@@ -43,7 +43,7 @@ CAUTION: Certifique-se de que pelo menos dois nós em cada local possam acessar 
 
 . Se você adicionou um nó Admin:
 +
-.. Se o logon único (SSO) estiver ativado para o seu sistema StorageGRID, crie uma confiança de parte confiável para o novo nó de administração. Você não pode entrar no nó até criar essa confiança de parte confiável. link:../admin/configure-sso.html["Configurar o logon único"]Consulte .
+.. Se o logon único (SSO) estiver ativado para o seu sistema StorageGRID, crie uma confiança de parte confiável para o novo nó de administração. Você não pode entrar no nó até criar essa confiança de parte confiável. link:../admin/configuring-sso.html["Configurar o logon único"]Consulte .
 .. Se você planeja usar o serviço Load Balancer em nós de administração, adicione opcionalmente o novo nó de administração a um grupo de HA. Selecione *CONFIGURATION* > *Network* > *High Availability Groups* para rever a lista de grupos de HA existentes e adicionar o novo nó. link:../admin/configure-high-availability-group.html["Configurar grupos de alta disponibilidade"]Consulte .
 .. Opcionalmente, copie o banco de dados do nó Admin do nó Admin principal para o nó Admin de expansão se quiser manter as informações de atributo e auditoria consistentes em cada nó Admin. link:copying-admin-node-database.html["Copie o banco de dados Admin Node"]Consulte .
 .. Opcionalmente, copie o banco de dados Prometheus do nó Admin primário para o nó Admin de expansão se quiser manter as métricas históricas consistentes em cada nó Admin. link:copying-prometheus-metrics.html["Copiar métricas Prometheus"]Consulte .

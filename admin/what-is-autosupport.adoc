@@ -13,7 +13,7 @@ summary: O recurso AutoSupport permite que o StorageGRID envie pacotes de integr
 [role="lead"]
 O recurso AutoSupport permite que o StorageGRID envie pacotes de integridade e status para o suporte técnico da NetApp.
 
-Usar o AutoSupport ajuda a resolver problemas mais rapidamente. O suporte técnico pode monitorar as necessidades de storage do seu sistema e ajudar a determinar se você precisa adicionar novos nós ou sites. Opcionalmente, o AutoSupport pode enviar pacotes para um destino adicional.
+O uso do AutoSupport pode acelerar significativamente a determinação e resolução de problemas. O suporte técnico também pode monitorar as necessidades de storage do seu sistema e ajudá-lo a determinar se precisa adicionar novos nós ou sites. Opcionalmente, você pode configurar pacotes AutoSupport para serem enviados para um destino adicional.
 
 StorageGRID tem dois tipos de AutoSupport:
 

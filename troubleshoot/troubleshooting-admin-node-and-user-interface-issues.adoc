@@ -46,7 +46,7 @@ Se o erro não for resolvido automaticamente, vá para a próxima etapa.
 
 
 . Determine se o hardware do nó está offline.
-. Se o logon único (SSO) estiver ativado para o sistema StorageGRID, consulte as etapas para link:../admin/configure-sso.html["configurando logon único"].
+. Se o logon único (SSO) estiver ativado para o sistema StorageGRID, consulte as etapas para link:../admin/configuring-sso.html["configurando logon único"].
 +
 Talvez seja necessário desativar e reativar temporariamente o SSO para um único nó de administração para resolver quaisquer problemas.
 

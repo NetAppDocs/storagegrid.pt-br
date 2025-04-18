@@ -29,6 +29,7 @@ Se uma conta de locatário tiver a permissão *usar conexão de federação de g
 
 * Deve ter o mesmo nome, mas pode ter regiões diferentes
 * Deve ter o controle de versão habilitado
+* Tem de ter o bloqueio de objetos S3 desativado
 * Deve estar vazio
 
 
@@ -41,7 +42,7 @@ link:../tenant/grid-federation-manage-cross-grid-replication.html["Gerenciar a r
 
 == Como a replicação entre redes funciona
 
-Você pode configurar a replicação entre grade para ocorrer em uma direção ou em ambas as direções.
+A replicação entre grades pode ser configurada para ocorrer em uma direção ou em ambas as direções.
 
 
 
@@ -67,7 +68,7 @@ Quando um cliente S3 adiciona um objeto a um bucket que tem replicação entre g
 
 . O StorageGRID replica automaticamente o objeto do bucket de origem para o bucket de destino. O tempo para executar essa operação de replicação em segundo plano depende de vários fatores, incluindo o número de outras operações de replicação pendentes.
 +
-O cliente S3 pode verificar o status de replicação de um objeto emitindo uma solicitação GetObject ou HeadObject. A resposta inclui um cabeçalho de resposta específico do StorageGRID `x-ntap-sg-cgr-replication-status`, que tem um dos seguintes valores:
+O cliente S3 pode verificar o status de replicação de um objeto emitindo uma solicitação GetObject ou HeadObject. A resposta inclui um cabeçalho de resposta específico do StorageGRID `x-ntap-sg-cgr-replication-status`, que terá um dos seguintes valores: O cliente S3 pode verificar o status de replicação de um objeto emitindo uma solicitação GetObject ou HeadObject. A resposta inclui um cabeçalho de resposta específico do StorageGRID `x-ntap-sg-cgr-replication-status`, que terá um dos seguintes valores:
 
 +
 [cols="1a,2a"]
@@ -93,7 +94,7 @@ Destino
 |===
 +
 
-NOTE: O StorageGRID não suporta o `x-amz-replication-status` cabeçalho.
+NOTE: O StorageGRID não suporta o `x-amz-replication-status` colhedor.
 
 . O StorageGRID usa as políticas de ILM ativas de cada grade para gerenciar os objetos, assim como qualquer outro objeto. Por exemplo, Objeto A na Grade 1 pode ser armazenado como duas cópias replicadas e retido para sempre, enquanto a cópia do Objeto A que foi replicado para a Grade 2 pode ser armazenada usando codificação de apagamento 2-1 e excluída após três anos.
 
@@ -115,10 +116,10 @@ Quando o StorageGRID exclui um objeto devido a uma operação Excluir objetos na
 Para entender o que acontece quando um cliente S3 exclui objetos de um bucket que tem replicação entre grade ativada, revise como os clientes S3 excluem objetos de buckets que têm o controle de versão ativado, da seguinte forma:
 
 * Se um cliente S3 emitir uma solicitação de exclusão que inclua um ID de versão, essa versão do objeto será removida permanentemente. Nenhum marcador de eliminação é adicionado ao balde.
-* Se um cliente S3 emitir uma solicitação de exclusão que não inclua uma ID de versão, o StorageGRID não exclui nenhuma versão de objeto. Em vez disso, ele adiciona um marcador de exclusão ao intervalo. O marcador de exclusão faz com que o StorageGRID atue como se o objeto fosse excluído:
+* Se um cliente S3 emitir uma solicitação de exclusão que não inclua um ID de versão, o StorageGRID não exclui nenhuma versão de objeto. Em vez disso, ele adiciona um marcador de exclusão ao intervalo. O marcador de exclusão faz com que o StorageGRID atue como se o objeto fosse excluído:
 +
-** Uma solicitação GetObject sem um ID de versão falha com `404 No Object Found`
-** Uma solicitação GetObject com um ID de versão válido é bem-sucedida e retorna a versão do objeto solicitado.
+** Uma solicitação GetObject sem um ID de versão falhará `404 No Object Found`
+** Uma solicitação GetObject com um ID de versão válido será bem-sucedida e retornará a versão do objeto solicitada.
 
 
 
@@ -134,7 +135,7 @@ Quando um cliente S3 exclui um objeto de um bucket que tem replicação entre gr
 
 
 
-Na figura, *Replicate DELETE markers* foi definido como *Yes* quando link:../tenant/grid-federation-manage-cross-grid-replication.html["a replicação entre redes foi ativada"]. Excluir solicitações para o bucket de origem que inclua um ID de versão não exclua objetos do bucket de destino. Excluir solicitações para o bucket de origem que não incluem um ID de versão parecem excluir objetos no bucket de destino.
+Na figura, *Replicate DELETE markers* foi definido como *Yes* quando link:../tenant/grid-federation-manage-cross-grid-replication.html["a replicação entre redes foi ativada"]. Excluir solicitações para o bucket de origem que inclua um ID de versão não excluirá objetos do bucket de destino. Excluir solicitações para o bucket de origem que não inclua um ID de versão aparecerão para excluir objetos no bucket de destino.
 
 image::../media/grid-federation-cross-grid-replication-delete.png[imagem que mostra a eliminação do cliente replicado em ambas as grelhas]
 
@@ -157,7 +158,7 @@ Para usar a criptografia padrão para um bucket, use uma solicitação PutBucket
 Para usar criptografia no nível da grade, defina a opção *Stored Object Encryption* como *AES-256*. A criptografia no nível da grade se aplica a quaisquer objetos que não sejam criptografados no nível do bucket ou que sejam ingeridos sem o `x-amz-server-side-encryption` cabeçalho da solicitação. link:../admin/changing-network-options-object-encryption.html["Configure as opções de rede e objeto"]Consulte .
 
 
-NOTE: SSE não suporta AES-128. Se a opção *Stored Object Encryption* estiver ativada para a grade de origem usando a opção *AES-128*, o uso do algoritmo AES-128 não será propagado para o objeto replicado. Em vez disso, o objeto replicado usa o intervalo padrão do destino ou a configuração de criptografia em nível de grade, se disponível.
+NOTE: SSE não suporta AES-128. Se a opção *Stored Object Encryption* estiver ativada para a grade de origem usando a opção *AES-128*, o uso do algoritmo AES-128 não será propagado para o objeto replicado. Em vez disso, o objeto replicado usará o intervalo padrão do destino ou a configuração de criptografia em nível de grade, se disponível.
 
 Ao determinar como criptografar objetos de origem, o StorageGRID aplica estas regras:
 
@@ -177,74 +178,14 @@ Ao determinar como criptografar objetos replicados, o StorageGRID aplica essas r
 
 
 
-=== Replicação entre grade com S3 Object Lock
-
-Você pode configurar a replicação entre grade entre buckets do StorageGRID com o bloqueio de objeto S3 ativado nas seguintes circunstâncias.
-
-[cols="1a,1a"]
-|===
-| Quando o bloqueio de objeto S3 no bucket de origem é... | E o bloqueio de objetos S3D no intervalo de destino é... 
-
-
- a| 
-Ativado
- a| 
-Ativado
-
-
-
- a| 
-Desativado
- a| 
-Ativado
-
-|===
-Quando o bloqueio de objetos S3D no bucket de origem está ativado:
-
-* Os objetos são bloqueados com configurações de retenção no destino nesta ordem:
-+
-.. Os valores do cabeçalho de retenção do objeto de origem para:
-+
-`x-amz-object-lock-mode`
-
-+
-`x-amz-object-lock-retain-until-date`
-
-.. A retenção padrão do bucket de origem, se definido.
-.. A retenção padrão do intervalo de destino, se definida.
-
-
-+
-A retenção padrão do bucket de destino não substitui as configurações de retenção replicadas do objeto de origem.
-
-* Você pode definir o status de retenção legal para o objeto de destino usando `x-amz-object-lock-legal-hold` ao carregar o objeto.
-* Um erro ocorre se o locatário ou bucket de destino não suportar as configurações de bloqueio de objeto S3 do objeto de origem. Consulte link:../admin/grid-federation-troubleshoot.html#cross-grid-replication-alerts-and-errors["Alertas e erros de replicação entre redes."]
-
-
-Quando o bloqueio de objetos S3D no bucket de origem está desativado:
-
-* Você pode configurar a retenção padrão no intervalo de destino para aplicar as configurações de retenção do bloqueio de objetos do S3 ao objeto de destino.
-* O objeto de destino não pode definir um status de retenção legal.
-
-
-
-
 === PutObjectTagging e DeleteObjectTagging não são suportados
 
 As solicitações PutObjectTagging e DeleteObjectTagging não são suportadas para objetos em buckets que têm replicação entre grade ativada.
 
-Se um cliente S3 emitir uma solicitação PutObjectTagging ou DeleteObjectTagging, `501 Not Implemented` será retornado. A mensagem é `Put(Delete) ObjectTagging isn't available for buckets that have cross-grid replication configured`.
-
-
-
-=== PutObjectRetention e PutObjectLegalOld não são suportados
-
-As solicitações PutObjectRetention e PutObjectLegalHold não são totalmente suportadas para objetos em buckets que têm replicação entre grade ativada.
-
-Se um cliente S3 emitir uma solicitação PutObjectRetention ou PutObjectLegalHold, as configurações do objeto de origem são modificadas, mas as alterações não são aplicadas ao destino.
+Se um cliente S3 emitir uma solicitação PutObjectTagging ou DeleteObjectTagging, `501 Not Implemented` será retornado. A mensagem é `Put(Delete) ObjectTagging is not available for buckets that have cross-grid replication configured`.
 
 
 
 === Como os objetos segmentados são replicados
 
-O tamanho máximo do segmento da grade de origem aplica-se a objetos replicados na grade de destino. Quando os objetos são replicados para outra grade, a configuração *tamanho máximo do segmento* (*CONFIGURATION* > *System* > *Storage options*) da grade de origem é usada em ambas as grades. Por exemplo, suponha que o tamanho máximo do segmento para a grade de origem seja de 1 GB, enquanto o tamanho máximo do segmento da grade de destino é de 50 MB. Se você ingerir um objeto de 2 GB na grade de origem, esse objeto será salvo como dois segmentos de 1 GB. Ele também é replicado para a grade de destino como dois segmentos de 1 GB, mesmo que o tamanho máximo do segmento da grade seja de 50 MB.
+O tamanho máximo do segmento da grade de origem aplica-se a objetos replicados na grade de destino. Quando os objetos são replicados para outra grade, a configuração *tamanho máximo do segmento* (*CONFIGURATION* > *System* > *Storage options*) da grade de origem será usada em ambas as grades. Por exemplo, suponha que o tamanho máximo do segmento para a grade de origem seja de 1 GB, enquanto o tamanho máximo do segmento da grade de destino é de 50 MB. Se você ingerir um objeto de 2 GB na grade de origem, esse objeto será salvo como dois segmentos de 1 GB. Ele também será replicado para a grade de destino como dois segmentos de 1 GB, mesmo que o tamanho máximo do segmento da grade seja de 50 MB.

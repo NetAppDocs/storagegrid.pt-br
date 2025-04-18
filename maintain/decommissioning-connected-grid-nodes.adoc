@@ -99,9 +99,9 @@ O procedimento de desativação do nó é iniciado e o progresso é exibido para
 
 CAUTION: Não coloque um nó de armazenamento offline após o início do procedimento de desativação. Alterar o estado pode resultar em algum conteúdo não ser copiado para outros locais.
 
-. Assim que o novo pacote de recuperação estiver disponível, selecione o link do pacote de recuperação no banner ou selecione *MAINTENANCE* > *System* > *Recovery package* para acessar a página do pacote de recuperação. Em seguida, baixe o `.zip` arquivo.
+. Assim que o novo Pacote de recuperação estiver disponível, selecione o link Pacote de recuperação no banner ou selecione *MANUTENÇÃO* > *sistema* > *Pacote de recuperação* para acessar a página Pacote de recuperação. Em seguida, baixe o `.zip` arquivo.
 +
-link:downloading-recovery-package.html["baixando o pacote de recuperação"]Consulte .
+link:downloading-recovery-package.html["Transferir o pacote de recuperação"]Consulte .
 
 +
 

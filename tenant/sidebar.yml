@@ -70,8 +70,6 @@ entries:
     url: "/tenant/creating-s3-bucket.html"
   - title: Veja os detalhes do balde
     url: "/tenant/viewing-s3-bucket-details.html"
-  - title: Gerenciar buckets de filiais
-    url: "/tenant/manage-branch-buckets.html"
   - title: Aplique a etiqueta de política ILM ao intervalo
     url: "/tenant/ilm-policy-tags.html"
   - title: Gerenciar política de bucket
@@ -86,10 +84,8 @@ entries:
     url: "/tenant/using-s3-object-lock.html"
   - title: Atualização S3 retenção padrão bloqueio Objeto
     url: "/tenant/update-default-retention-settings.html"
-  - title: Configure o CORS para buckets e objetos
-    url: "/tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html"
-  - title: Ative o CORS para uma interface de gerenciamento
-    url: "/tenant/enable-cross-origin-resource-sharing-for-management-interface.html"
+  - title: Configurar o compartilhamento de recursos entre origens (CORS)
+    url: "/tenant/configuring-cross-origin-resource-sharing-cors.html"
   - title: Excluir objetos no bucket
     url: "/tenant/deleting-s3-bucket-objects.html"
   - title: Eliminar o balde

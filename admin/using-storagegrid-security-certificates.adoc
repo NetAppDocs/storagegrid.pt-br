@@ -19,15 +19,13 @@ O StorageGRID usa dois tipos de certificados de segurança:
 * *Certificados de cliente* autenticam uma identidade de cliente ou usuário no servidor, fornecendo autenticação mais segura do que senhas sozinhas. Os certificados de cliente não encriptam dados.
 
 
-Quando um cliente se coneta ao servidor usando HTTPS, o servidor responde com o certificado do servidor, que contém uma chave pública. O cliente compara a assinatura do servidor com a assinatura em sua cópia do certificado. Se as assinaturas corresponderem, o cliente inicia uma sessão com o servidor usando a mesma chave pública.
+Quando um cliente se coneta ao servidor usando HTTPS, o servidor responde com o certificado do servidor, que contém uma chave pública. O cliente verifica esse certificado comparando a assinatura do servidor com a assinatura em sua cópia do certificado. Se as assinaturas corresponderem, o cliente inicia uma sessão com o servidor usando a mesma chave pública.
 
 O StorageGRID funciona como o servidor para algumas conexões (como o endpoint do balanceador de carga) ou como o cliente para outras conexões (como o serviço de replicação do CloudMirror).
 
 * Certificado padrão de CA de grade*
 
-O StorageGRID tem uma autoridade de certificação (CA) integrada que gera um certificado interno da CA de grade durante a instalação do sistema. O certificado de CA de grade é usado, por padrão, para proteger o tráfego interno do StorageGRID. Uma autoridade de certificação externa (CA) pode emitir certificados personalizados que são totalmente compatíveis com as políticas de segurança de informações da sua organização.
-
-Use o certificado Grid CA para ambientes que não sejam de produção. Para produção, use certificados personalizados assinados por uma autoridade de certificação externa. Conexões não protegidas sem certificado são suportadas, mas não recomendadas.
+O StorageGRID inclui uma autoridade de certificação (CA) integrada que gera um certificado interno da CA de grade durante a instalação do sistema. O certificado de CA de grade é usado, por padrão, para proteger o tráfego interno do StorageGRID. Uma autoridade de certificação externa (CA) pode emitir certificados personalizados que são totalmente compatíveis com as políticas de segurança de informações da sua organização. Embora seja possível usar o certificado da CA de Grade para um ambiente que não seja de produção, a prática recomendada para um ambiente de produção é usar certificados personalizados assinados por uma autoridade de certificação externa. Conexões não protegidas sem certificado também são suportadas, mas não são recomendadas.
 
 * Os certificados de CA personalizados não removem os certificados internos; no entanto, os certificados personalizados devem ser os especificados para verificar conexões de servidor.
 * Todos os certificados personalizados devem atender ao link:../harden/hardening-guideline-for-server-certificates.html["diretrizes de fortalecimento do sistema para certificados de servidor"].
@@ -454,7 +452,7 @@ Autentica a conexão entre serviços de federação de identidade, como AD FS (S
  a| 
 *CONFIGURATION* > *access control* > *Single sign-on*
  a| 
-link:how-sso-works.html["Configurar o logon único"]
+link:configuring-sso.html["Configurar o logon único"]
 
 |===
 
@@ -471,7 +469,7 @@ Neste exemplo, o StorageGRID atua como servidor.
 . Você configura uma conexão de cliente S3 para o endpoint do balanceador de carga e carrega o mesmo certificado para o cliente.
 . Quando o cliente deseja salvar ou recuperar dados, ele se coneta ao endpoint do balanceador de carga usando HTTPS.
 . O StorageGRID responde com o certificado do servidor, que contém uma chave pública e com uma assinatura baseada na chave privada.
-. O cliente compara a assinatura do servidor com a assinatura em sua cópia do certificado. Se as assinaturas corresponderem, o cliente inicia uma sessão usando a mesma chave pública.
+. O cliente verifica esse certificado comparando a assinatura do servidor com a assinatura em sua cópia do certificado. Se as assinaturas corresponderem, o cliente inicia uma sessão usando a mesma chave pública.
 . O cliente envia dados de objeto para o StorageGRID.
 
 

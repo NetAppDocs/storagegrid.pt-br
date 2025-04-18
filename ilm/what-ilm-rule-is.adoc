@@ -107,7 +107,7 @@ O comportamento de ingestão controla se as cópias de objeto são imediatamente
 .Informações relacionadas
 * link:data-protection-options-for-ingest.html["Opções de ingestão"]
 * link:advantages-disadvantages-of-ingest-options.html["Vantagens, desvantagens e limitações das opções de ingestão"]
-* link:../s3/consistency.html#how-consistency-and-ILM-rules-interact["Como a consistência e as regras de ILM interagem para afetar a proteção de dados"]
+* link:../s3/consistency-controls.html#how-consistency-controls-and-ILM-rules-interact["Como a consistência e as regras de ILM interagem para afetar a proteção de dados"]
 
 
 

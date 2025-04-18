@@ -42,7 +42,7 @@ Os nós não podem ser removidos da rede de Grade.
 NOTE: Swaps de endereço IP não são permitidos. Se for necessário trocar endereços IP entre nós de grade, você deverá usar um endereço IP intermediário temporário.
 
 
-NOTE: Se o logon único (SSO) estiver ativado para o sistema StorageGRID e você estiver alterando o endereço IP de um nó Admin, esteja ciente de que qualquer confiança de parte confiável que foi configurada usando o endereço IP do nó Admin (em vez de seu nome de domínio totalmente qualificado, conforme recomendado) se tornará inválida. Você não poderá mais entrar no nó. Imediatamente após alterar o endereço IP, você deve atualizar ou reconfigurar a confiança de parte confiável do nó nos Serviços de Federação do ative Directory (AD FS) com o novo endereço IP. Consulte as instruções para link:../admin/configure-sso.html["Configurando o SSO"].
+NOTE: Se o logon único (SSO) estiver ativado para o sistema StorageGRID e você estiver alterando o endereço IP de um nó Admin, esteja ciente de que qualquer confiança de parte confiável que foi configurada usando o endereço IP do nó Admin (em vez de seu nome de domínio totalmente qualificado, conforme recomendado) se tornará inválida. Você não poderá mais entrar no nó. Imediatamente após alterar o endereço IP, você deve atualizar ou reconfigurar a confiança de parte confiável do nó nos Serviços de Federação do ative Directory (AD FS) com o novo endereço IP. Consulte as instruções para link:../admin/configuring-sso.html["Configurando o SSO"].
 
 
 NOTE: Todas as alterações feitas na rede usando a ferramenta Change IP são propagadas para o firmware do instalador dos dispositivos StorageGRID. Dessa forma, se o software StorageGRID for reinstalado em um dispositivo ou se um dispositivo for colocado no modo de manutenção, a configuração de rede estará correta.
@@ -186,7 +186,7 @@ Updating grid network configuration on Name
 
 
 +
-Depois de aplicar ou alterar o estágio, um novo pacote de recuperação é gerado como resultado da alteração da configuração da grade.
+Depois de aplicar ou alterar o estágio, um novo pacote de recuperação é gerado como resultado da alteração de configuração da grade.
 
 . Se você selecionou *stage*, siga estas etapas após a conclusão do provisionamento:
 +
@@ -201,51 +201,10 @@ Depois de aplicar ou alterar o estágio, um novo pacote de recuperação é gera
 
 
 . Selecione *0* para sair da ferramenta Change IP após a conclusão das alterações.
-. Faça o download de um novo pacote de recuperação do Grid Manager.
+. Faça o download de um novo Pacote de recuperação do Gerenciador de Grade.
 +
 .. Selecione *MAINTENANCE* > *System* > *Recovery package*.
 .. Introduza a frase-passe de aprovisionamento.
 
 
 
-
-
-
-== Alterar temporariamente a taxa de PDU LACP
-
-Para executar operações de manutenção em componentes de rede instalados no seu dispositivo, como a atualização do firmware da NIC, você pode verificar a configuração atual da taxa de PDU LACP. Você também pode alternar não persistentemente a taxa de PDU LACP entre rápido e lento, se necessário.
-
-
-NOTE: Para fazer alterações permanentes na taxa de PDU LACP, https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-network-links.html["Configurar ligações de rede"^] consulte .
-
-.Antes de começar
-* O Admin Node está instalado e em execução.
-* Você tem o `Passwords.txt` arquivo.
-
-
-.Passos
-. Faça login no nó de administração principal:
-+
-.. Introduza o seguinte comando: `ssh admin@primary_Admin_Node_IP`
-.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
-.. Digite o seguinte comando para mudar para root: `su -`
-.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
-+
-Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
-
-
-
-. Para verificar a definição atual da taxa de PDU LACP, introduza o seguinte comando:
-+
-`run-each-node --parallel --port 8022 '/usr/sbin/set-lacp-rate.sh --lacprate'`
-
-. Para alterar temporariamente a taxa de PDU LACP, digite o seguinte comando:
-+
-`run-each-node --parallel --port 8022 '/usr/sbin/set-lacp-rate.sh --lacprate _<speed>_'`
-
-+
- `_<version-number>_`onde está `fast` ou `slow`.
-
-
-
-A taxa de PDU LACP reverterá para sua configuração anterior na próxima reinicialização do aparelho.

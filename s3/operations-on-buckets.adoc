@@ -25,7 +25,7 @@ Consulte o seguinte para obter mais informações:
 * link:../admin/configuring-s3-api-endpoint-domain-names.html["Configurar nomes de domínio de endpoint S3"]
 
 
-As operações ListObjects (GET Bucket) e ListObjectVersions (GET Bucket object versions) suportam StorageGRID link:consistency.html["valores de consistência"].
+As operações ListObjects (GET Bucket) e ListObjectVersions (GET Bucket object versions) suportam StorageGRID link:consistency-controls.html["valores de consistência"].
 
 Você pode verificar se as atualizações para a última hora de acesso estão ativadas ou desativadas para buckets individuais. link:get-bucket-last-access-time-request.html["OBTER último tempo de acesso do Bucket"]Consulte .
 
@@ -290,7 +290,7 @@ PutBucketNotificationConfiguration
  a| 
 Configura notificações para o bucket usando o XML de configuração de notificação incluído no corpo da solicitação. Você deve estar ciente dos seguintes detalhes de implementação:
 
-* O StorageGRID oferece suporte a tópicos do Amazon Simple Notification Service (Amazon SNS), tópicos do Kafka ou endpoints do webhook como destinos. Os endpoints do Simple Queue Service (SQS) ou do AWS Lambda não são suportados.
+* O StorageGRID oferece suporte a tópicos do Amazon Simple Notification Service (Amazon SNS) ou Kafka como destinos. Os endpoints do Simple Queue Service (SQS) ou do Amazon Lambda não são suportados.
 * O destino das notificações deve ser especificado como a URNA de um endpoint do StorageGRID. Os endpoints podem ser criados usando o Gerenciador do Locatário ou a API de Gerenciamento do Locatário.
 +
 O endpoint deve existir para que a configuração de notificação seja bem-sucedida. Se o endpoint não existir, um `400 Bad Request` erro é retornado com o código `InvalidArgument`.

@@ -14,7 +14,7 @@ summary: Os ficheiros de registo de auditoria são guardados no diretório /var/
 Os arquivos de logs de auditoria são salvos no diretório de um nó de administrador `/var/local/log`. Os arquivos de log de auditoria ativos são `audit.log` nomeados .
 
 
-NOTE: Opcionalmente, você pode alterar o destino dos logs de auditoria e enviar informações de auditoria para um servidor syslog externo. Os logs locais dos Registros de auditoria continuam a ser gerados e armazenados quando um servidor syslog externo é configurado. link:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria e servidor syslog externo"]Consulte .
+NOTE: Opcionalmente, você pode alterar o destino dos logs de auditoria e enviar informações de auditoria para um servidor syslog externo. Os logs locais dos Registros de auditoria continuam a ser gerados e armazenados quando um servidor syslog externo é configurado. link:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria e destinos de log"]Consulte .
 
 Uma vez por dia, o arquivo ativo `audit.log` é salvo e um novo `audit.log` arquivo é iniciado. O nome do ficheiro guardado indica quando foi guardado, no formato `_yyyy-mm-dd.txt_`. Se mais de um log de auditoria for criado em um único dia, os nomes de arquivo usarão a data em que o arquivo foi salvo, anexado por um número, no formato `_yyyy-mm-dd.txt.n_`. Por exemplo, `2018-04-15.txt` e `2018-04-15.txt.1` são os primeiros e segundos arquivos de log criados e salvos em 15 de abril de 2018.
 

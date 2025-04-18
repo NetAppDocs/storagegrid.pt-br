@@ -996,13 +996,6 @@ Nulo
  a| 
 Verifica se uma chave de condição está presente no contexto de solicitação atual.
 
-
-
- a| 
-IfExists
- a| 
-Anexado a qualquer operador de condição, exceto a condição nula, para verificar a ausência dessa chave de condição. RETORNA TRUE se a chave de condição não estiver presente.
-
 |===
 
 
@@ -1089,24 +1082,6 @@ Irá comparar com o parâmetro Max-keys especificado em uma solicitação ListOb
 
 
  a| 
-s3: object-lock-mode
- a| 
-S3:PutObject
- a| 
-Compara com o `object-lock-mode` expandido a partir do cabeçalho de solicitação na solicitação PutObject, CopyObject e CreateMultipartUpload.
-
-
-
- a| 
-s3: object-lock-mode
- a| 
-S3:retenção de objetos Put
- a| 
-Compara com o `object-lock-mode` expandido do corpo XML na solicitação PutObjectRetention.
-
-
-
- a| 
 s3: object-lock-resting-retension-days
  a| 
 S3:PutObject
@@ -1150,15 +1125,6 @@ S3:PutObjectTagging
 S3:PutObjectVersionTagging
  a| 
 Exigirá uma chave de tag específica e um valor quando a solicitação de objeto incluir marcação.
-
-
-
- a| 
-s3:x-amz-server-side-encryption-customer-algorithm
- a| 
-S3:PutObject
- a| 
-Compara com o `sse-customer-algorithm` ou com `copy-source-sse-customer-algorithm` o expandido a partir do cabeçalho da solicitação nas solicitações PutObject, CopyObject, CreateMultipartUploadPart, UploadPartCopy e CompleteMultipartUpload.
 
 |===
 

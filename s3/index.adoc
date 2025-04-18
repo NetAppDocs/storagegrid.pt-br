@@ -55,13 +55,6 @@ https://datatracker.ietf.org/doc/html/rfc2616["IETF RFC 2616: Protocolo de trans
 
 
  a| 
-12,0
- a| 
-Adicionado suporte para compartilhamento de recursos de origem cruzada (CORS) para uma interface de gerenciamento, que permite que outro domínio acesse dados no StorageGRID usando APIs de gerenciamento. link:../tenant/enable-cross-origin-resource-sharing-for-management-interface.html["Saiba mais"].
-
-
-
- a| 
 11,9
  a| 
 * Adicionado suporte para valores de checksum SHA-256 pré-calculados para as seguintes solicitações e cabeçalhos suportados. Você pode usar esse recurso para verificar a integridade dos objetos carregados:

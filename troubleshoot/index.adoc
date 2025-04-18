@@ -477,7 +477,9 @@ Recolha ficheiros de registo e dados do sistema para o seu sistema. Selecione *S
 
 Você pode coletar logs para toda a grade ou para nós selecionados.
 
-Se você estiver coletando logs somente para nós selecionados, certifique-se de incluir pelo menos um nó de armazenamento que tenha o serviço ADC. Os três primeiros nós de storage instalados em um local incluem o serviço ADC.
+Se você estiver coletando logs somente para nós selecionados, certifique-se de incluir pelo menos um nó de armazenamento que tenha o serviço ADC. (Os três primeiros nós de storage em um local incluem o serviço ADC.)
+
+link:../monitor/collecting-log-files-and-system-data.html["Colete arquivos de log e dados do sistema"]
 
 
 
