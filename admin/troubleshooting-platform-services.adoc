@@ -78,7 +78,11 @@ Após a criação de endpoints, os erros de solicitação de serviço da platafo
 
 Se o StorageGRID encontrar um erro recuperável, a solicitação de serviço da plataforma será tentada novamente até que seja bem-sucedida.
 
-Outros erros são irrecuperáveis. Por exemplo, um erro irrecuperável ocorre se o endpoint for excluído.
+Outros erros são irrecuperáveis. Por exemplo, erros irrecuperáveis podem ocorrer pelas seguintes razões:
+
+* O endpoint é excluído.
+* Um destino de endpoint do webhook responde a uma solicitação de notificação com um `400 Bad Request` erro.
+
 
 Se o StorageGRID encontrar um erro de endpoint irrecuperável:
 

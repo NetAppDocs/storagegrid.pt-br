@@ -608,14 +608,15 @@ Arquivo de configuração em branco para uso com o script
 
 |===
 * Criou um `configure-storagegrid.json` ficheiro de configuração. Para criar este ficheiro, pode modificar o ficheiro de configuração de exemplo (`configure-storagegrid.sample.json`) ou o ficheiro de configuração em branco (`configure-storagegrid.blank.json`).
-+
+
+
+
+CAUTION: Armazene a senha de gerenciamento e a senha de provisionamento da seção senhas do arquivo de configuração modificado `configure-storagegrid.json` em um local seguro. Essas senhas são necessárias para procedimentos de instalação, expansão e manutenção. Você também deve fazer backup do arquivo de configuração modificado `configure-storagegrid.json` e armazená-lo em um local seguro.
+
+.Sobre esta tarefa
 Você pode usar o `configure-storagegrid.py` script Python e o `configure-storagegrid.json` arquivo de configuração de grade para automatizar a configuração do seu sistema StorageGRID.
 
-+
-
-NOTE: Você também pode configurar o sistema usando o Gerenciador de Grade ou a API de Instalação.
-
-
+Observação: Você também pode configurar o sistema usando o Gerenciador de Grade ou a API de Instalação.
 
 .Passos
 . Faça login na máquina Linux que você está usando para executar o script Python.
@@ -643,7 +644,7 @@ Por exemplo:
 
 
 .Resultado
-Um arquivo do Pacote de recuperação `.zip` é gerado durante o processo de configuração e é baixado para o diretório onde você está executando o processo de instalação e configuração. Você deve fazer backup do arquivo do pacote de recuperação para que você possa recuperar o sistema StorageGRID se um ou mais nós de grade falhar. Por exemplo, copie-o para um local de rede seguro e de backup e para um local seguro de armazenamento em nuvem.
+Um arquivo de pacote de recuperação `.zip` é gerado durante o processo de configuração e é baixado para o diretório onde você está executando o processo de instalação e configuração. É necessário fazer backup do arquivo do pacote de recuperação para que você possa recuperar o sistema StorageGRID se um ou mais nós de grade falhar. Por exemplo, copie-o para um local de rede seguro e de backup e para um local seguro de armazenamento em nuvem.
 
 
 CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID.

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: disable sso, disable single sign on 
 summary: Você pode desativar o logon único se não quiser mais usar essa funcionalidade. Você deve desativar o logon único antes de desativar a federação de identidade. 
 ---
-= Desative o logon único
+= Desativar SSO
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

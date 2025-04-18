@@ -20,6 +20,10 @@ Por exemplo, os locatários podem configurar os seguintes tipos de endpoints de 
 * Um cluster Elasticsearch hospedado localmente
 * Um aplicativo local compatível com o recebimento de mensagens do Amazon Simple Notification Service
 * Um cluster Kafka hospedado localmente
+* Um endpoint de webhook externo ou hospedado localmente que suporta solicitações de notificação HTTP POST.
++
+Esse endpoint pode ser hospedado em vários servidores da Web, frameworks ou ferramentas do Data Processing, como o Fluentd.
+
 * Um bucket do S3 hospedado localmente na mesma ou em outra instância do StorageGRID
 * Um endpoint externo, como um endpoint no Amazon Web Services.
 

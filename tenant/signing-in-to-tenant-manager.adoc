@@ -53,13 +53,7 @@ A tela de login exibida depende do URL digitado e se o SSO (logon único) foi co
 Se o StorageGRID não estiver usando SSO, uma das seguintes telas será exibida:
 
 ** A página de login do Gerenciador de Grade. Selecione o link *Logon* do locatário.
-+
-image::../media/tenant_login_link.png[Link de login do locatário na página de login do Grid Manager]
-
-** A página de início de sessão do Tenant Manager. O campo *Account* pode já estar concluído, como mostrado abaixo.
-+
-image::../media/tenant_user_sign_in.png[Página de login do Gerenciador do locatário]
-
+** A página de início de sessão do Tenant Manager. O campo *Account* pode já estar concluído.
 +
 ... Se o ID da conta de 20 dígitos do locatário não for exibido, selecione o nome da conta do locatário se ele aparecer na lista de contas recentes ou insira o ID da conta.
 ... Introduza o seu nome de utilizador e palavra-passe.
@@ -77,17 +71,11 @@ image::../media/tenant_user_sign_in.png[Página de login do Gerenciador do locat
 --
 Se o StorageGRID estiver usando SSO, uma das seguintes telas será exibida:
 
-** Página SSO da sua organização. Por exemplo:
-+
-image::../media/sso_organization_page.gif[Exemplo de organização Página de login para SSO]
-
+** Página SSO da sua organização.
 +
 Insira suas credenciais SSO padrão e selecione *entrar*.
 
 ** A página de login SSO do Tenant Manager.
-+
-image::../media/sign_in_sso.png[Fazer login em uma conta de locatário se o SSO estiver habilitado]
-
 +
 ... Se o ID da conta de 20 dígitos do locatário não for exibido, selecione o nome da conta do locatário se ele aparecer na lista de contas recentes ou insira o ID da conta.
 ... Selecione *entrar*.

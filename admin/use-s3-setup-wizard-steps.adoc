@@ -347,7 +347,7 @@ Para obter detalhes sobre esta tarefa, link:creating-tenant-account.html["Crie u
 +
 Os nomes de inquilinos não precisam ser únicos. Quando a conta de locatário é criada, ela recebe um ID de conta numérico único.
 
-. Defina o acesso root para a conta de locatário, com base se o sistema StorageGRID usa link:using-identity-federation.html["federação de identidade"], link:configuring-sso.html["Logon único (SSO)"]ou ambos.
+. Defina o acesso root para a conta de locatário, com base se o sistema StorageGRID usa link:using-identity-federation.html["federação de identidade"], link:how-sso-works.html["Logon único (SSO)"]ou ambos.
 +
 [cols="1a,2a"]
 |===

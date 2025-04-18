@@ -68,7 +68,7 @@ Data de criação:: A data e a hora em que o intervalo foi criado. Esta coluna e
 . Para ver detalhes de um intervalo específico, selecione o nome do intervalo na tabela.
 +
 .. Veja as informações de resumo na parte superior da página da Web para confirmar os detalhes do intervalo, como contagem de região e Objeto.
-.. Veja a barra de uso do limite de capacidade. Se o uso for 100% ou próximo a 100%, considere aumentar o limite ou excluir alguns objetos.
+.. Veja as barras de uso do limite de capacidade e limite de contagem de objetos. Se o uso for 100% ou próximo a 100%, considere aumentar o limite ou excluir alguns objetos.
 .. Conforme necessário, selecione *Excluir objetos no bucket* e *Excluir bucket*.
 +
 [CAUTION]
@@ -88,6 +88,7 @@ Preste muita atenção às precauções que aparecem quando você seleciona cada
 **** link:manage-bucket-consistency.html["Gerenciar a consistência do balde"]
 **** link:enabling-or-disabling-last-access-time-updates.html["Últimas atualizações de tempo de acesso"]
 **** link:../tenant/creating-s3-bucket.html#capacity-limit["Limite de capacidade"]
+**** link:../tenant/creating-s3-bucket.html#object-count-limit["Limite de contagem de objetos"]
 **** link:changing-bucket-versioning.html["Controle de versão de objetos"]
 **** link:using-s3-object-lock.html["S3 bloqueio de objetos"]
 **** link:update-default-retention-settings.html["Retenção padrão do balde"]
@@ -97,10 +98,11 @@ Preste muita atenção às precauções que aparecem quando você seleciona cada
 *** *Serviços de plataforma*: link:considerations-for-platform-services.html["Gerenciar serviços de plataforma"](Se permitido para o inquilino)
 *** *Bucket Access*: Veja ou altere as configurações de opção. Você deve ter permissões de acesso específicas.
 +
-**** Configure link:configuring-cross-origin-resource-sharing-cors.html["Compartilhamento de recursos entre origens (CORS)"] para que o bucket e os objetos no bucket fiquem acessíveis a aplicativos da Web em outros domínios.
+**** Configure link:configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["CORS para baldes e objetos"] para que o bucket e os objetos no bucket fiquem acessíveis a aplicativos da Web em outros domínios.
 **** link:../tenant/manage-bucket-policy.html["Controle o acesso do usuário"] Para um balde S3 e objetos nesse balde.
 
 
+*** *Branches*: Veja a lista de buckets de ramais para o bucket. link:../tenant/manage-branch-buckets.html["Crie um novo bucket de ramificação ou gerencie buckets de ramificação"].
 
 
 

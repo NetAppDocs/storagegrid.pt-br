@@ -99,7 +99,7 @@ Mostrado como o nome principal quando o item é renomeado:
 
 
  a| 
-`Passwords.txt` Arquivo no Pacote de recuperação
+`Passwords.txt` arquivo no pacote de recuperação
  a| 
 Mostrado como `Server Name`
  a| 

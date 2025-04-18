@@ -2,7 +2,7 @@
 permalink: upgrade/changes-to-tenant-management-api.html 
 sidebar: sidebar 
 keywords: tenant management api, api, api version, swagger, rest api 
-summary: O StorageGRID 11,9 usa a versão 4 da API de gerenciamento do locatário. A versão 4 desconsidera a versão 3; no entanto, as versões 1, 2 e 3 ainda são suportadas. 
+summary: O StorageGRID 12,0 usa a versão 4 da API de gerenciamento do locatário. A versão 4 desconsidera a versão 3; no entanto, as versões 1, 2 e 3 ainda são suportadas. 
 ---
 = Alterações na API de gerenciamento do locatário
 :allow-uri-read: 
@@ -11,15 +11,15 @@ summary: O StorageGRID 11,9 usa a versão 4 da API de gerenciamento do locatári
 
 
 [role="lead"]
-O StorageGRID 11,9 usa a versão 4 da API de gerenciamento do locatário. A versão 4 desconsidera a versão 3; no entanto, as versões 1, 2 e 3 ainda são suportadas.
+O StorageGRID 12,0 usa a versão 4 da API de gerenciamento do locatário. A versão 4 desconsidera a versão 3; no entanto, as versões 1, 2 e 3 ainda são suportadas.
 
 
-NOTE: Você pode continuar usando versões obsoletas da API de gerenciamento de locatário com o StorageGRID 11,9; no entanto, o suporte para essas versões da API será removido em uma versão futura do StorageGRID. Depois de atualizar para o StorageGRID 11,9, você pode desativar as APIs obsoletas usando a `PUT /grid/config/management` API.
+NOTE: Você pode continuar usando versões obsoletas da API de gerenciamento de locatário com o StorageGRID 12,0; no entanto, o suporte para essas versões da API será removido em uma versão futura do StorageGRID. Depois de atualizar para o StorageGRID 12,0, você pode desativar as APIs obsoletas usando a `PUT /grid/config/management` API.
 
 Para saber mais, link:../tenant/understanding-tenant-management-api.html["Entenda a API de gerenciamento do locatário"]acesse .
 
 
 
-== Nova API para limite de capacidade do bucket
+== Nova API para replicação de objetos
 
-Você pode usar a `/org/containers/{bucketName}/quota-object-bytes` API com operações DE GET/PUT para obter e definir o limite de capacidade de storage para um bucket.
+Você pode usar a `/org/cross-grid-replication/{versionId}/replicate` API para replicar manualmente objetos em um bucket existente que tenha replicação entre grade recém-configurada.

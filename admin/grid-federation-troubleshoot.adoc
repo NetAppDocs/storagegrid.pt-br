@@ -125,14 +125,16 @@ Quando link:../monitor/grid-federation-monitor-connections.html["exibindo uma co
 image::../media/grid-federation-last-error.png[Captura de tela mostrando uma mensagem na coluna último erro de uma conexão de federação de grade]
 
 .Detalhes
-Para cada conexão de federação de grade, a coluna *último erro* mostra o erro mais recente a ocorrer, se houver, quando os dados de um locatário estavam sendo replicados para a outra grade. Esta coluna mostra apenas o último erro de replicação entre grelha a ocorrer; os erros anteriores que possam ter ocorrido não serão apresentados. Um erro nesta coluna pode ocorrer por um destes motivos:
+Para cada conexão de federação de grade, a coluna *último erro* mostra o erro mais recente a ocorrer, se houver, quando os dados de um locatário estavam sendo replicados para a outra grade. Esta coluna mostra apenas o último erro de replicação entre grelha a ocorrer; os erros anteriores que possam ter ocorrido não são apresentados. Um erro nesta coluna pode ocorrer por um destes motivos:
 
 * A versão do objeto fonte não foi encontrada.
-* O balde de origem não foi encontrado.
+* O intervalo de origem não foi encontrado.
 * O intervalo de destino foi eliminado.
 * O intervalo de destino foi recriado por uma conta diferente.
 * O bucket de destino tem controle de versão suspenso.
 * O intervalo de destino foi recriado pela mesma conta, mas agora não foi versionado.
+* O objeto de origem tem S3 configurações de bloqueio de objeto que não estão em conformidade com as configurações de retenção no nível de locatário da grade de destino.
+* O objeto de origem tem S3 configurações de bloqueio de objeto e o bloqueio de objeto S3 está desativado no intervalo de destino.
 
 
 .Ações recomendadas
@@ -181,7 +183,6 @@ Esse alerta indica que os objetos de locatário não podem ser replicados entre 
 +
 ** Há um intervalo correspondente para o mesmo inquilino na outra grade (deve usar o nome exato).
 ** Ambos os buckets têm o controle de versão de objetos ativado (o controle de versão não pode ser suspenso em nenhuma grade).
-** Ambos os buckets têm o bloqueio de objeto S3 desativado.
 ** Nenhum dos buckets está no estado *Deletando objetos: Somente leitura*.
 
 

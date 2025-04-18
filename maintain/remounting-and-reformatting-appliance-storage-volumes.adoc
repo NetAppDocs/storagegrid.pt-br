@@ -23,7 +23,7 @@ A execução `sn-remount-volumes` do script pode ajudá-lo a identificar volumes
 
 
 
-CAUTION: Contacte o suporte técnico se mais de um nó de armazenamento estiver offline ou se um nó de armazenamento nesta grelha tiver sido reconstruído nos últimos 15 dias. Não execute o `sn-recovery-postinstall.sh` script. A reconstrução do Cassandra em dois ou mais nós de storage em até 15 dias um do outro pode resultar na perda de dados.
+CAUTION: Entre em Contato com o suporte técnico se mais de um nó de armazenamento estiver offline. Não execute o `sn-recovery-postinstall.sh` script.
 
 .Sobre esta tarefa
 Para concluir este procedimento, execute estas tarefas de alto nível:

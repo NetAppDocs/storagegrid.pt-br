@@ -19,9 +19,9 @@ Ao realizar a atualização, todos os nós do seu sistema StorageGRID são atual
 
 == Antes de começar
 
-Revise esses tópicos para saber mais sobre os novos recursos e aprimoramentos no StorageGRID 11,9, determinar se algum recurso foi descontinuado ou removido e descobrir as alterações nas APIs do StorageGRID.
+Revise esses tópicos para saber mais sobre os novos recursos e aprimoramentos no StorageGRID 12,0, determinar se algum recurso foi descontinuado ou removido e descobrir as alterações nas APIs do StorageGRID.
 
-* link:whats-new.html["Novidades do StorageGRID 11,9"]
+* link:whats-new.html["Novidades do StorageGRID 12,0"]
 * link:removed-or-deprecated-features.html["Recursos removidos ou obsoletos"]
 * link:changes-to-grid-management-api.html["Alterações na API Grid Management"]
 * link:changes-to-tenant-management-api.html["Alterações na API de gerenciamento do locatário"]

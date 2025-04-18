@@ -19,17 +19,7 @@ Depois de recuperar um nó de armazenamento de dispositivo, você deve verificar
 
 
 .Passos
-. Selecione *SUPPORT* > *Tools* > *Grid topology*.
-. Verifique os valores de *nó de armazenamento recuperado* > *LDR* > *armazenamento* > *Estado de armazenamento -- desejado* e *Estado de armazenamento -- atual*.
-+
-O valor de ambos os atributos deve ser Online.
-
-. Se o estado de armazenamento - desejado estiver definido como somente leitura, execute as seguintes etapas:
-+
-.. Clique na guia *Configuração*.
-.. Na lista suspensa *Estado de armazenamento - desejado*, selecione *Online*.
-.. Clique em *aplicar alterações*.
-.. Clique na guia *Visão geral* e confirme se os valores de *Estado de armazenamento -- desejado* e *Estado de armazenamento -- atual* são atualizados para Online.
-
-
+. Selecione *NODES* > *_Storage Node_* > *Tasks*.
+. Se a lista suspensa *Storage State* estiver definida como somente leitura ou Offline, selecione *Online*.
+. Selecione *Guardar*.
 

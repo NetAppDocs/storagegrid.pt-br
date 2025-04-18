@@ -30,6 +30,7 @@ Você pode usar qualquer combinação das seguintes opções para enviar pacotes
 * *Event-dispolled*: Envie pacotes AutoSupport automaticamente a cada hora ou quando ocorrerem eventos significativos do sistema. Predefinição: Activado.
 * *Sob demanda*: Permita que o suporte técnico solicite que seu sistema StorageGRID envie pacotes AutoSupport automaticamente, o que é útil quando eles estão trabalhando ativamente em um problema (requer protocolo de transmissão HTTPS AutoSupport). Predefinição: Desativada.
 * *User-Triggered*: Envie manualmente pacotes AutoSupport a qualquer momento.
+* *Coleção de registos*link:../monitor/collecting-log-files-and-system-data.html["Colete manualmente arquivos de log e dados do sistema e envie um pacote AutoSupport"]: .
 
 
 

@@ -15,25 +15,23 @@ Antes de recuperar volumes de armazenamento com falha para um nó de armazenamen
 
 Os volumes de armazenamento (ou rangedbs) em um nó de armazenamento são identificados por um número hexadecimal, que é conhecido como ID de volume. Por exemplo, 0000 é o primeiro volume e 000F é o décimo sexto volume. O primeiro armazenamento de objetos (volume 0) em cada nó de armazenamento usa até 4 TB de espaço para metadados de objetos e operações de banco de dados Cassandra; qualquer espaço restante nesse volume é usado para dados de objeto. Todos os outros volumes de storage são usados exclusivamente para dados de objetos.
 
-Se o volume 0 falhar e precisar ser recuperado, o banco de dados Cassandra pode ser reconstruído como parte do procedimento de recuperação de volume. Cassandra também pode ser reconstruída nas seguintes circunstâncias:
+O banco de dados Cassandra pode ser reconstruído como parte do procedimento de recuperação de volume se:
 
-* Um nó de armazenamento é colocado de volta online depois de estar offline por mais de 15 dias.
+* O volume 0 falha e é recuperado.
 * A unidade do sistema e um ou mais volumes de armazenamento falham e são recuperados.
 
 
-Quando o Cassandra é reconstruído, o sistema usa informações de outros nós de storage. Se muitos nós de storage estiverem offline, alguns dados do Cassandra podem não estar disponíveis. Se o Cassandra foi reconstruído recentemente, os dados do Cassandra podem ainda não ser consistentes em toda a grade. A perda de dados pode ocorrer se o Cassandra for reconstruído quando muitos nós de storage estiverem off-line ou se dois ou mais nós de storage forem reconstruídos em até 15 dias um do outro.
+Quando o Cassandra é reconstruído, o sistema usa informações de outros nós de storage. Se o Cassandra foi reconstruído recentemente, os dados do Cassandra podem ainda não ser consistentes em toda a grade. Se muitos nós de storage estiverem offline:
+
+* Alguns dados do Cassandra podem não estar disponíveis.
+* Pode ocorrer perda de dados.
 
 
-CAUTION: Se mais de um nó de armazenamento tiver falhado (ou estiver offline), contacte o suporte técnico. Não execute o seguinte procedimento de recuperação. Pode ocorrer perda de dados.
+
+CAUTION: Se mais de um nó de armazenamento tiver falhado (ou estiver offline), contacte o suporte técnico. Não execute o seguinte procedimento de recuperação. Pode ocorrer perda de dados. Para obter mais informações, link:how-site-recovery-is-performed-by-technical-support.html["Como o suporte técnico recupera um site"]consulte .
 
 
-CAUTION: Se esta for a segunda falha do nó de storage em menos de 15 dias após uma falha ou recuperação do nó de storage, entre em Contato com o suporte técnico. A reconstrução do Cassandra em dois ou mais nós de storage em até 15 dias pode resultar na perda de dados.
-
-
-NOTE: Se mais de um nó de armazenamento em um local tiver falhado, um procedimento de recuperação do local pode ser necessário. link:how-site-recovery-is-performed-by-technical-support.html["Como o suporte técnico recupera um site"]Consulte .
-
-
-CAUTION: Se as regras ILM estiverem configuradas para armazenar apenas uma cópia replicada e a cópia existir num volume de armazenamento que falhou, não será possível recuperar o objeto.
+CAUTION: Se as regras do ILM estiverem configuradas para armazenar apenas uma cópia replicada e a cópia existir em um volume de armazenamento que falhou, você não poderá recuperar o objeto.
 
 .Informações relacionadas
 link:warnings-and-considerations-for-grid-node-recovery.html["Avisos e considerações para a recuperação do nó da grade"]

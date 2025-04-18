@@ -25,7 +25,7 @@ Se os nós de administração estiverem incluídos em um grupo de alta disponibi
 
 === Use SSO
 
-Os passos de início de sessão são ligeiramente diferentes se link:configuring-sso.html["Logon único (SSO) foi configurado"].
+Os passos de início de sessão são ligeiramente diferentes se link:how-sso-works.html["Logon único (SSO) foi configurado"].
 
 
 
@@ -70,9 +70,6 @@ O ecrã de início de sessão que aparece depende se o início de sessão único
 --
 .. Insira seu nome de usuário e senha para o Gerenciador de Grade.
 .. Selecione *entrar*.
-+
-image::../media/sign_in_grid_manager_no_sso.png[Iniciar sessão na página]
-
 
 
 --
@@ -81,21 +78,12 @@ image::../media/sign_in_grid_manager_no_sso.png[Iniciar sessão na página]
 ** Se o StorageGRID estiver usando SSO e esta é a primeira vez que você acessou o URL neste navegador:
 +
 ... Selecione *entrar*. Você pode deixar o 0 no campo conta.
-+
-image::../media/sso_sign_in_first_time.png[Ecrã de início de sessão se o SSO estiver ativado e sem cookies]
-
 ... Insira suas credenciais SSO padrão na página de login SSO da sua organização. Por exemplo:
-+
-image::../media/sso_organization_page.gif[Exemplo de página de login da organização para SSO]
-
 
 
 ** Se o StorageGRID estiver usando SSO e você tiver acessado anteriormente o Gerenciador de Grade ou uma conta de locatário:
 +
 ... Digite *0* (o ID da conta do Gerenciador de Grade) ou selecione *Gerenciador de Grade* se aparecer na lista de contas recentes.
-+
-image::../media/sign_in_grid_manager_sso.png[Selecione Gerenciador de Grade na lista de contas recentes se o SSO estiver ativado]
-
 ... Selecione *entrar*.
 ... Inicie sessão com as suas credenciais SSO padrão na página de início de sessão SSO da sua organização.
 
@@ -107,8 +95,6 @@ image::../media/sign_in_grid_manager_sso.png[Selecione Gerenciador de Grade na l
 
 
 Quando você estiver conetado, a página inicial do Gerenciador de Grade será exibida, que inclui o painel. Para saber quais informações são fornecidas, link:../monitor/viewing-dashboard.html["Visualizar e gerenciar o painel"]consulte .
-
-image::../media/grid_manager_dashboard.png[painel de instrumentos]
 
 
 

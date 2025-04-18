@@ -23,7 +23,7 @@ settings:
   langs: pt-br,us-en,de-de,es-es,fr-fr,it-it,ja-jp,ko-kr,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: Documentos do StorageGRID 11,9
+  - title: Documentos do StorageGRID 12,0
     url: "/index.html"
   - title: Dispositivos StorageGRID
     url: "/storagegrid-hardware.html"
@@ -84,7 +84,7 @@ sidebar:
     entries:
     - title: Manutenção da grelha
       url: "/maintain/index.html"
-    - title: Baixar Recovery Package
+    - title: Baixe o pacote de recuperação
       url: "/maintain/downloading-recovery-package.html"
     - title: Desativar nós ou local
       entries:
@@ -102,6 +102,10 @@ sidebar:
             url: "/maintain/considerations-for-decommissioning-storage-nodes.html"
           - title: Quórum de ADC
             url: "/maintain/understanding-adc-service-quorum.html"
+          - title: Mova o serviço ADC
+            url: "/maintain/move-adc-service.html"
+          - title: Converter para nó somente de dados
+            url: "/maintain/convert-to-data-only-node.html"
           - title: Reveja a política de ILM e a configuração de armazenamento
             url: "/maintain/reviewing-ilm-policy-and-storage-configuration.html"
           - title: Consolide os nós de storage

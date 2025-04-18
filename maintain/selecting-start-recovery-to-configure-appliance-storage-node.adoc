@@ -19,7 +19,6 @@ Você deve selecionar Iniciar recuperação no Gerenciador de Grade para configu
 * Você tem a senha de provisionamento.
 * Você implantou um nó de storage do dispositivo de recuperação.
 * Tem a data de início de quaisquer trabalhos de reparação para dados codificados por apagamento.
-* Você verificou que o nó de storage não foi reconstruído nos últimos 15 dias.
 
 
 .Passos

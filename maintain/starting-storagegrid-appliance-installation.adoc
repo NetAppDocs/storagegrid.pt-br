@@ -30,7 +30,7 @@ Para instalar o StorageGRID em um nó de storage do dispositivo:
 * Inicie a instalação e aguarde à medida que os volumes estão configurados e o software está instalado.
 +
 
-NOTE: Ao recuperar um nó de armazenamento de dispositivo, reinstale-o com o mesmo tipo de armazenamento que o dispositivo original (combinado, somente metadados ou somente dados). Se especificar um tipo de armazenamento diferente, a recuperação falhará e exigirá a reinstalação do dispositivo com o tipo de armazenamento correto especificado.
+NOTE: Ao recuperar um nó de storage de dispositivo, reinstale-o com o mesmo tipo de storage que o dispositivo original (combinado, somente metadados ou somente dados). Se especificar um tipo de armazenamento diferente, a recuperação falhará e exigirá a reinstalação do dispositivo com o tipo de armazenamento correto especificado.
 
 * No decorrer do processo, a instalação é interrompida. Para retomar a instalação, você deve entrar no Gerenciador de Grade e configurar o nó de armazenamento pendente como um substituto para o nó com falha.
 * Depois de configurar o nó, o processo de instalação do appliance é concluído e o appliance é reinicializado.
@@ -82,9 +82,6 @@ Detecção automática de todos os nós de administração principal conetados
 Se o botão *Start Installation* (Iniciar instalação) não estiver ativado, poderá ser necessário alterar a configuração da rede ou as definições da porta. Para obter instruções, consulte as instruções de manutenção do seu aparelho.
 
 . Na página inicial do Instalador de dispositivos StorageGRID, clique em *Iniciar instalação*.
-+
-image::../media/appliance_installer_home_start_installation_enabled.gif[Esta figura é descrita pelo texto circundante.]
-
 +
 O estado atual muda para "a instalação está em andamento" e a página Instalação do monitor é exibida.
 

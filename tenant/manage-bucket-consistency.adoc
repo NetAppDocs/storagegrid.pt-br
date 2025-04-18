@@ -76,7 +76,7 @@ NOTE: O valor de consistência para controle de versão de bucket, bloqueio de o
 As seguintes configurações de bucket não usam consistência forte e têm maior disponibilidade para alterações. As alterações a essas configurações podem levar algum tempo antes de ter um efeito.
 
 * link:considerations-for-platform-services.html["Configuração de serviços de plataforma: Integração de notificação, replicação ou pesquisa"]
-* link:configuring-cross-origin-resource-sharing-cors.html["Configuração CORS"]
+* link:configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["Configurar StorageGRID CORS para buckets e objetos"]
 * <<change-bucket-consistency,Altere a consistência do balde>>
 
 

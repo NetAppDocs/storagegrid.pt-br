@@ -131,7 +131,7 @@ Updating grid network configuration on Name
 ----
 
 
-. Faça o download de um novo Pacote de recuperação do Gerenciador de Grade.
+. Faça o download de um novo pacote de recuperação do Grid Manager.
 +
 .. Selecione *MAINTENANCE* > *System* > *Recovery package*.
 .. Introduza a frase-passe de aprovisionamento.

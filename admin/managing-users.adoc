@@ -175,6 +175,33 @@ Alterar grupos (somente usuários locais)
 
 
 
+== Importar usuários federados
+
+Você pode importar um ou mais usuários federados, até um máximo de 100 usuários, diretamente para a página usuários.
+
+.Passos
+. Selecione *CONFIGURATION* > *Admin Users*.
+. Selecione *Importar usuários federados*.
+. Insira o UUID ou nome de usuário para um ou mais usuários federados.
++
+Para várias entradas, adicione cada UUID ou nome de usuário em uma nova linha.
+
+. Selecione *Importar*.
++
+Se a importação para o campo usuários falhar para um ou mais usuários, execute as seguintes etapas:
+
++
+.. Selecione *Copiar usuários*.
+.. Tente novamente a importação selecionando *anterior* e colando os usuários copiados na caixa de diálogo *Importar usuários federados*.
+
+
++
+Depois de fechar a caixa de diálogo *Importar usuários federados*, as informações do usuário federado são exibidas na página usuários para os usuários importados com êxito.
+
+
+
+
+
 == Duplicar um usuário
 
 Você pode duplicar um usuário existente para criar um novo usuário com as mesmas permissões.

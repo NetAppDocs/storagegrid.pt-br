@@ -5,7 +5,7 @@ entries:
 - title: Antes de começar
   pdf-filename: Atualize o software StorageGRID
   url: "/upgrade/index.html"
-- title: Novidades do StorageGRID 11,9
+- title: Novidades do StorageGRID 12,0
   url: "/upgrade/whats-new.html"
 - title: Recursos removidos ou obsoletos
   url: "/upgrade/removed-or-deprecated-features.html"

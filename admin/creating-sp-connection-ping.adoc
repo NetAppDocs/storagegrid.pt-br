@@ -15,12 +15,12 @@ Você usa o PingFederate para criar uma conexão de provedor de serviços (SP) p
 
 .Antes de começar
 * Você configurou o logon único para o StorageGRID e selecionou *Ping federate* como o tipo SSO.
-* *O modo Sandbox* está selecionado na página de logon único no Gerenciador de Grade. link:../admin/using-sandbox-mode.html["Use o modo sandbox"]Consulte .
-* Você tem o *ID de conexão SP* para cada nó de administrador no sistema. Você pode encontrar esses valores na tabela de detalhes dos nós de administração na página de logon único do StorageGRID.
+* Você tem link:../admin/configure-sso.html#enter-sandbox-mode["entrou no modo sandbox"] no Gerenciador de Grade.
+* Você tem o *ID de conexão SP* para cada nó de administrador no sistema. Você pode encontrar esses valores na tabela de detalhes dos nós de administração na página Configurar SSO.
 * Você baixou os *metadados SAML* para cada nó Admin no seu sistema.
 * Você tem experiência em criar conexões SP no servidor PingFederate.
 * Você tem o https://docs.pingidentity.com/pingfederate/latest/administrators_reference_guide/pf_administrators_reference_guide.html["Guia de referência do administrador"^] para PingFederate Server. A documentação do PingFederate fornece instruções detalhadas passo a passo e explicações.
-* Você tem o link:admin-group-permissions.html["Permissão de administrador"] para PingFederate Server.
+* Você tem o link:../admin/admin-group-permissions.html["Permissão de administrador"] para PingFederate Server.
 
 
 .Sobre esta tarefa
@@ -109,7 +109,7 @@ TIP: Você deve criar uma conexão SP para cada nó de administração no sistem
 
 .Passos
 . Na guia Importar metadados, selecione *Arquivo*.
-. Escolha o arquivo de metadados SAML que você baixou na página de logon único do StorageGRID para o nó de administração.
+. Escolha o arquivo de metadados SAML que você baixou na página Configurar SSO para o nó Admin.
 . Revise o Resumo de metadados e as informações fornecidas na guia informações gerais.
 +
 O ID da entidade do Parceiro e o Nome da conexão são definidos como ID de conexão StorageGRID SP. (Por exemplo, 10.96.105.200-DC1-ADM1-105-200). O URL base é o IP do nó de administração do StorageGRID.

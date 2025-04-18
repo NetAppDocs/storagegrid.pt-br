@@ -35,7 +35,7 @@ A API de instalação do StorageGRID inclui as seguintes seções:
 * *Nodes* -- operações de configuração em nível de nó. Você pode recuperar uma lista de nós de grade, excluir um nó de grade, configurar um nó de grade, exibir um nó de grade e redefinir a configuração de um nó de grade.
 * *Provisão* -- operações de provisionamento. Você pode iniciar a operação de provisionamento e exibir o status da operação de provisionamento.
 * *Recovery* -- operações de recuperação do nó de administração principal. Você pode redefinir informações, carregar o pacote de recuperação, iniciar a recuperação e exibir o status da operação de recuperação.
-* *Recovery-package* -- operações para baixar o Recovery Package.
+* *Recovery-package* -- operações para baixar o pacote de recuperação.
 * *Sites* -- operações de configuração no nível do local. Você pode criar, exibir, excluir e modificar um site.
 * *Temporary-password* -- operações na senha temporária para proteger a mgmt-api durante a instalação.
 

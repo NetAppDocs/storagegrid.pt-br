@@ -44,7 +44,7 @@ Você deve configurar o hipervisor para reiniciar as máquinas virtuais quando o
 
 == Tarefas opcionais
 
-* link:../maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["Atualize os endereços IP do nó da grade"] Se eles foram alterados desde que você planejou sua implantação e gerou o Pacote de recuperação.
+* link:../maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["Atualize os endereços IP do nó da grade"] se eles mudaram desde que você planejou sua implantação e gerou o pacote de recuperação.
 * link:../admin/changing-network-options-object-encryption.html["Configurar a criptografia de armazenamento"], se necessário.
 * link:../admin/configuring-stored-object-compression.html["Configurar a compressão de armazenamento"] para reduzir o tamanho dos objetos armazenados, se necessário.
 * link:../admin/configure-vlan-interfaces.html["Configurar interfaces VLAN"] para isolar e particionar o tráfego de rede, se necessário.

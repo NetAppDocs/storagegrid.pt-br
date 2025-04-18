@@ -169,7 +169,7 @@ Quando cabeçalhos HTTP são encontrados em uma solicitação, eles são incluí
 
 +
 
-NOTE: Os cabeçalhos de solicitação de protocolo de auditoria são registrados somente se o nível de auditoria para *leitura do cliente* ou *gravações do cliente* não for *desativado*.
+NOTE: Os cabeçalhos de solicitação de protocolo de auditoria são registrados somente se o nível de auditoria para *Client reads* ou *Client Write* não for *Off*.
 
 . Selecione *Guardar*
 +

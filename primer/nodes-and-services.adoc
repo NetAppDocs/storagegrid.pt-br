@@ -113,6 +113,42 @@ Nós de administração
 
 
  a| 
+Apache Tomcat
+ a| 
+Servidor Web para aplicações baseadas em Java.
+ a| 
+Nós de administração
+
+
+
+ a| 
+Avahi Daemon
+ a| 
+Trata o mDNS, que é usado para resolução de nomes e descoberta de serviços na rede local.
+ a| 
+Todos os nós
+
+
+
+ a| 
+Serviço de cache
+ a| 
+É executado em nós do balanceador de carga (Gateway) e gerencia um cache local do conteúdo do objeto.
+ a| 
+Nós de gateway
+
+
+
+ a| 
+Cassandra
+ a| 
+Gerencia o banco de dados distribuído para metadados de objetos.
+ a| 
+Nós de storage (exceto somente dados)
+
+
+
+ a| 
 Cassandra Reaper
  a| 
 Executa reparos automáticos de metadados de objetos.
@@ -187,7 +223,7 @@ Nós de administrador e gateway
  a| 
 Identidade (idnt)
  a| 
-Federa identidades de usuários do LDAP e do ative Directory.
+Gerencia usuários e grupos locais, autenticação e federa identidades de usuários do LDAP e do ative Directory.
  a| 
 Nós de storage que usam o serviço ADC
 
@@ -239,9 +275,9 @@ Todos os nós
 
 
  a| 
-nginx-gw
+Balanceador de carga nginx-gw
  a| 
-Alimenta o serviço Load Balancer.
+Fornece balanceamento de carga de tráfego S3 de clientes para nós de storage. O serviço Load Balancer pode ser configurado através da página de configuração Load Balancer Endpoints. Este serviço também é conhecido como o serviço nginx-gw.
  a| 
 Nós de administrador e gateway
 
@@ -253,6 +289,24 @@ NMS (sistema de gerenciamento de rede)
 Alimenta as opções de monitoramento, relatórios e configuração que são exibidas pelo Gerenciador de Grade.
  a| 
 Nós de administração
+
+
+
+ a| 
+Exportador de nó (coleta de dados Prometheus)
+ a| 
+Publica estatísticas ao nível do sistema para a coleção métrica de séries temporais Prometheus.
+ a| 
+Todos os nós
+
+
+
+ a| 
+ntp
+ a| 
+Serviço de protocolo de tempo de rede (NTP).
+ a| 
+Todos os nós
 
 
 
@@ -293,7 +347,70 @@ Uma instância está presente em cada nó de grade
 
 
  a| 
-Trace Collector
+Gerenciador de servidores
+ a| 
+Gerencia os serviços do StorageGRID.
+ a| 
+Todos os nós
+
+
+
+ a| 
+Agente SNMP
+ a| 
+Responde a solicitações SNMP.
+ a| 
+Nós de administração
+
+
+
+ a| 
+Serviço de Gerenciamento de portas SNMP
+ a| 
+Lida com o gerenciamento dinâmico de portas SNMP.
+ a| 
+Todos os nós
+
+
+
+ a| 
+SSH (Secure Shell)
+ a| 
+Lida com acesso seguro e gerenciamento remoto do sistema.
+ a| 
+Todos os nós
+
+
+
+ a| 
+SSM (Monitor de estado do sistema)
+ a| 
+Monitora as condições de hardware e os relatórios para o serviço NMS.
+ a| 
+Todos os nós
+
+
+
+ a| 
+STAT
+ a| 
+Registra métricas adicionais relacionadas aos buckets do S3.
+ a| 
+Nós de storage
+
+
+
+ a| 
+Agente de rastreamento (jaeger-Agent)
+ a| 
+Recebe e processa informações de rastreamento enviadas pelo coletor de rastreamento (jaeger-Collector).
+ a| 
+Todos os nós
+
+
+
+ a| 
+Trace Collector (jaeger-Collector)
  a| 
 Executa a coleta de rastreamento para coletar informações para uso pelo suporte técnico. O serviço de coletor de rastreamento usa software Jaeger de código aberto.
  a| 

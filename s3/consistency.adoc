@@ -1,10 +1,10 @@
 ---
-permalink: s3/consistency-controls.html 
+permalink: s3/consistency.html 
 sidebar: sidebar 
 keywords: consistency, consistency control, consistency values 
 summary: A consistência fornece um equilíbrio entre a disponibilidade dos objetos e a consistência desses objetos em diferentes nós de storage e locais. Você pode alterar a consistência conforme exigido pelo seu aplicativo. 
 ---
-= Valores de consistência
+= Consistência
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,15 +13,15 @@ summary: A consistência fornece um equilíbrio entre a disponibilidade dos obje
 [role="lead"]
 A consistência fornece um equilíbrio entre a disponibilidade dos objetos e a consistência desses objetos em diferentes nós de storage e locais. Você pode alterar a consistência conforme exigido pelo seu aplicativo.
 
-Por padrão, o StorageGRID garante consistência de leitura após gravação para objetos recém-criados. Qualquer GET seguindo um PUT concluído com sucesso será capaz de ler os dados recém-escritos. As substituições de objetos existentes, atualizações de metadados e exclusões são, eventualmente, consistentes. As substituições geralmente levam segundos ou minutos para se propagar, mas podem levar até 15 dias.
+Por padrão, o StorageGRID garante consistência de leitura após gravação para objetos recém-criados. Qualquer GET seguindo um PUT concluído com sucesso será capaz de ler os dados recém-escritos. As substituições de objetos existentes, atualizações de metadados e exclusões são, eventualmente, consistentes.
 
 Se você quiser executar operações de objeto em uma consistência diferente, você pode:
 
-* Especifique uma consistência para <<bucket-consistency-control,cada balde>>o .
+* Especifique uma consistência para <<bucket-consistency,cada balde>>o .
 * Especifique uma consistência para <<api-operation-consistency-control,Cada operação da API>>o .
 * Altere a consistência padrão em toda a grade executando uma das seguintes tarefas:
 +
-** No Gerenciador de Grade, vá para *CONFIGURATION* > *System* > *Storage settings* > *Default consistency*.
+** No Gerenciador de Grade, vá para *CONFIGURATION* > *System* > *Storage settings* > *Default bucket consistency*.
 ** .
 +
 
@@ -79,7 +79,7 @@ NOTE: Você deve usar a mesma consistência para as operações PutObject e GetO
 
 
 
-== [[bucket-consistency-control]]Especifique a consistência para o bucket
+== [[bucket-consistency]]Especifique a consistência para o bucket
 
 Para definir a consistência do bucket, você pode usar a solicitação StorageGRIDlink:put-bucket-consistency-request.html["COLOQUE a consistência do balde"]. Ou você pode link:../tenant/manage-bucket-consistency.html#change-bucket-consistency["altere a consistência de um balde"] do Gerente do Locatário.
 
@@ -92,7 +92,7 @@ Ao definir a consistência de um balde, tenha em atenção o seguinte:
 
 
 
-== [[How-consistency-controls-and-ILM-rules-interact]]como a consistência e as regras ILM interagem para afetar a proteção de dados
+== [[How-Consistency-and-ILM-rules-Interact]]como a consistência e as regras ILM interagem para afetar a proteção de dados
 
 Tanto a sua escolha de consistência quanto a sua regra ILM afetam a forma como os objetos são protegidos. Essas configurações podem interagir.
 

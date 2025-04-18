@@ -75,8 +75,6 @@ O link:../monitor/viewing-nodes-page.html["Página de nós"] exibe informações
 
 A home page dos nós exibe métricas combinadas para toda a grade. Para exibir informações de um site ou nó específico, selecione o site ou nó.
 
-image::../media/nodes_page.png[página principal dos nós]
-
 
 
 == Página de inquilinos
@@ -84,8 +82,6 @@ image::../media/nodes_page.png[página principal dos nós]
 O link:../admin/managing-tenants.html["Página de inquilinos"] permite-lhe link:../tenant/index.html["crie e monitore as contas de locatários de storage"]utilizar o seu sistema StorageGRID. Você deve criar pelo menos uma conta de locatário para especificar quem pode armazenar e recuperar objetos e qual funcionalidade está disponível para eles.
 
 A página locatários também fornece detalhes de uso para cada locatário, incluindo a quantidade de storage usada e o número de objetos. Se você definir uma cota quando criou o locatário, poderá ver quanto dessa cota foi usada.
-
-image::../media/tenants_page.png[Menu e Página de inquilinos]
 
 
 
@@ -145,7 +141,7 @@ As tarefas do sistema incluem:
 * Uso link:../admin/grid-federation-overview.html["federação de grade"] para clonar informações da conta de locatário e replicar dados de objeto entre dois sistemas StorageGRID.
 * Opcionalmente, ativando a link:../admin/configuring-stored-object-compression.html["Comprimir objetos armazenados"] opção.
 * link:../ilm/managing-objects-with-s3-object-lock.html["Gerenciando o bloqueio de objetos S3"]
-* Noções básicas sobre opções de armazenamento, link:../admin/what-object-segmentation-is.html["segmentação de objetos"]como e link:../admin/what-storage-volume-watermarks-are.html["marcas de água do volume de armazenamento"].
+* Noções básicas sobre as configurações de armazenamento, link:../admin/what-object-segmentation-is.html["segmentação de objetos"]como e link:../admin/what-storage-volume-watermarks-are.html["marcas de água do volume de armazenamento"].
 * link:../ilm/manage-erasure-coding-profiles.html["Gerenciar perfis de codificação de apagamento"].
 
 
@@ -169,7 +165,7 @@ As tarefas de controle de acesso incluem:
 * link:../admin/managing-users.html["Gerenciamento de usuários administrativos"]
 * Alterar link:../admin/changing-provisioning-passphrase.html["frase-passe do aprovisionamento"]ou link:../admin/change-node-console-password.html["senhas do console do nó"]
 * link:../admin/using-identity-federation.html["Usando a federação de identidade"]
-* link:../admin/configuring-sso.html["Configurando SSO"]
+* link:../admin/how-sso-works.html["Configurar SSO"]
 
 
 
@@ -200,7 +196,7 @@ As tarefas de manutenção incluem:
 As tarefas de manutenção do sistema que você pode executar incluem:
 
 * link:../admin/viewing-storagegrid-license-information.html["Visualizar informações de licença do StorageGRID"] ou link:../admin/updating-storagegrid-license-information.html["atualizando informações de licença"]
-* Gerando e baixando o. link:../maintain/downloading-recovery-package.html["Pacote de recuperação"]
+* Gerando e baixando o. link:../maintain/downloading-recovery-package.html["pacote de recuperação"]
 * Executar atualizações de software do StorageGRID, incluindo atualizações de software, hotfixes e atualizações do software SANtricity os em dispositivos selecionados
 +
 ** link:../upgrade/index.html["Procedimento de atualização"]

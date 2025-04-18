@@ -39,88 +39,11 @@ A verificação em segundo plano é executada a uma taxa contínua que é projet
 
 
 
-=== Alertas relacionados à verificação em segundo plano
+== Alertas relacionados à verificação em segundo plano
 
 Se o sistema detetar um objeto corrompido que ele não pode corrigir automaticamente (porque a corrupção impede que o objeto seja identificado), o alerta *Objeto corrompido não identificado detetado* é acionado.
 
 Se a verificação em segundo plano não puder substituir um objeto corrompido porque ele não consegue localizar outra cópia, o alerta *objetos perdidos* é acionado.
-
-
-
-=== Altere a taxa de verificação em segundo plano
-
-Você pode alterar a taxa na qual a verificação em segundo plano verifica os dados de objetos replicados em um nó de storage se tiver preocupações com a integridade dos dados.
-
-.Antes de começar
-* Você deve estar conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
-* Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
-
-
-.Sobre esta tarefa
-Você pode alterar a taxa de verificação para verificação em segundo plano em um nó de storage:
-
-* Adaptive (adaptável): Predefinição. A tarefa foi projetada para verificar no máximo 4 MB/s ou 10 objetos/s (o que for excedido primeiro).
-* Alta: A verificação do armazenamento prossegue rapidamente, a uma taxa que pode retardar as atividades normais do sistema.
-
-
-Use a taxa de verificação alta somente quando suspeitar que uma falha de hardware ou software pode ter dados de objeto corrompidos. Após a conclusão da verificação de fundo de alta prioridade, a taxa de verificação é automaticamente redefinida para Adaptive (adaptável).
-
-.Passos
-. Selecione *SUPPORT* > *Tools* > *Grid topology*.
-. Selecione *_Storage Node_* > *LDR* > *Verificação*.
-. Selecione *Configuração* > *Principal*.
-. Aceda a *LDR* > *Verificação* > *Configuração* > *Principal*.
-. Em Verificação em segundo plano, selecione *taxa de verificação* > *alta* ou *taxa de verificação* > *adaptável*.
-+
-image::../media/background_verification_rate.png[Definição da taxa de verificação]
-
-. Clique em *aplicar alterações*.
-. Monitore os resultados da verificação em segundo plano para objetos replicados.
-+
-.. Vá para *NODES* > *_Storage Node_* > *Objects*.
-.. Na seção Verificação, monitore os valores para *objetos corrompidos* e *objetos corrompidos não identificados*.
-+
-Se a verificação em segundo plano encontrar dados de objeto replicados corrompidos, a métrica *objetos corrompidos* será incrementada e o StorageGRID tentará extrair o identificador de objeto dos dados, da seguinte forma:
-
-+
-*** Se o identificador do objeto puder ser extraído, o StorageGRID criará automaticamente uma nova cópia dos dados do objeto. A nova cópia pode ser feita em qualquer lugar do sistema StorageGRID que satisfaça as políticas ativas de ILM.
-*** Se o identificador de objeto não puder ser extraído (porque foi corrompido), a métrica *objetos corrompidos não identificados* é incrementada e o alerta *Objeto corrompido não identificado detetado* é acionado.
-
-
-.. Se forem encontrados dados de objeto replicados corrompidos, entre em Contato com o suporte técnico para determinar a causa raiz da corrupção.
-
-
-. Monitore os resultados da verificação em segundo plano para objetos codificados por apagamento.
-+
-Se a verificação em segundo plano encontrar fragmentos corrompidos de dados de objetos codificados por apagamento, o atributo fragmentos corrompidos detetados é incrementado. O StorageGRID se recupera reconstruindo o fragmento corrompido no mesmo nó de storage.
-
-+
-.. Selecione *SUPPORT* > *Tools* > *Grid topology*.
-.. Selecione *_Storage Node_* > *LDR* > *Erasure Coding*.
-.. Na tabela resultados da verificação, monitore o atributo fragmentos corrompidos detetados (ECCD).
-
-
-. Depois que os objetos corrompidos forem restaurados automaticamente pelo sistema StorageGRID, redefina a contagem de objetos corrompidos.
-+
-.. Selecione *SUPPORT* > *Tools* > *Grid topology*.
-.. Selecione *_Storage Node_* > *LDR* > *Verificação* > *Configuração*.
-.. Selecione *Redefinir contagem de objetos corrompidos*.
-.. Clique em *aplicar alterações*.
-
-
-. Se você estiver confiante de que objetos em quarentena não são necessários, você pode excluí-los.
-+
-
-NOTE: Se o alerta *Objects Lost* foi acionado, o suporte técnico pode querer acessar objetos em quarentena para ajudar a depurar o problema subjacente ou tentar a recuperação de dados.
-
-+
-.. Selecione *SUPPORT* > *Tools* > *Grid topology*.
-.. Selecione *_Storage Node_* > *LDR* > *Verificação* > *Configuração*.
-.. Selecione *Excluir objetos em quarentena*.
-.. Selecione *aplicar alterações*.
-
-
-
 
 
 
@@ -138,7 +61,7 @@ A verificação de existência de objeto lê os metadados de cada objeto armazen
 
 
 
-=== Executar verificação de existência de objeto
+== Executar verificação de existência de objeto
 
 Você cria e executa um trabalho de verificação de existência de objeto de cada vez. Ao criar uma tarefa, você seleciona os nós de storage e os volumes que deseja verificar. Você também seleciona a consistência do trabalho.
 
@@ -216,9 +139,6 @@ Esse valor representa o número total de cópias ausentes de objetos replicados 
 +
 Se o número de cópias de objetos ausentes detetadas for maior que 100, pode haver um problema com o armazenamento do nó de armazenamento.
 
-+
-image::../media/oec_active.png[Trabalho ativo OEC]
-
 . Após a conclusão do trabalho, execute quaisquer ações adicionais necessárias:
 +
 ** Se as cópias de objeto em falta detetadas forem zero, não foram encontrados problemas. Nenhuma ação é necessária.
@@ -243,9 +163,6 @@ Quando o StorageGRID tiver tido tempo para alcançar a consistência de metadado
 
 
 .. Selecione a caixa de verificação para cada trabalho que pretende executar novamente e, em seguida, selecione *Reexecutar*.
-+
-image::../media/oec_rerun.png[Reexecutar o OEC]
-
 .. No assistente de reexecução de trabalhos, reveja os nós e volumes selecionados e a consistência.
 .. Quando estiver pronto para executar novamente os trabalhos, selecione *Reexecutar*.
 
@@ -253,6 +170,3 @@ image::../media/oec_rerun.png[Reexecutar o OEC]
 
 
 É apresentado o separador trabalho ativo. Todos os trabalhos selecionados são reexecutados como um trabalho com consistência de um local forte. Um campo *trabalhos relacionados* na seção Detalhes lista os IDs dos trabalhos originais.
-
-.Depois de terminar
-Se ainda tiver preocupações sobre a integridade dos dados, aceda a *SUPPORT* > *Tools* > *Grid topoly* > *_site_* > *_Storage Node_* > *LDR* > *Verification* > *Configuration* > *Main* e aumente a taxa de verificação em segundo plano. A verificação em segundo plano verifica a exatidão de todos os dados de objetos armazenados e repara quaisquer problemas que encontrar. Encontrar e reparar possíveis problemas o mais rápido possível reduz o risco de perda de dados.

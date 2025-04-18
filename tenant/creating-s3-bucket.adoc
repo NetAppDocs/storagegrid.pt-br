@@ -24,7 +24,7 @@ NOTE: As permissões para definir ou modificar as propriedades de bloqueio de ob
 * Se cada locatário tiver 5.000 buckets, cada nó de armazenamento na grade tem um mínimo de 64 GB de RAM.
 +
 
-NOTE: Cada grade pode ter um máximo de 100.000 baldes.
+NOTE: Cada grade pode ter um máximo de 100.000 baldes, link:../tenant/manage-branch-buckets.html["baldes de ramificação"]incluindo .
 
 
 
@@ -87,7 +87,15 @@ O administrador do StorageGRID gerencia as regiões disponíveis. A região de u
 .Passos
 . Opcionalmente, habilite o controle de versão de objetos para o bucket.
 +
-Ative o controle de versão de objetos se você quiser armazenar todas as versões de cada objeto neste intervalo. Em seguida, você pode recuperar versões anteriores de um objeto, conforme necessário. Você deve habilitar o controle de versão de objetos se o bucket for usado para replicação entre grades.
+Ative o controle de versão de objetos se você quiser armazenar todas as versões de cada objeto neste intervalo. Em seguida, você pode recuperar versões anteriores de um objeto, conforme necessário.
+
++
+Você deve habilitar o controle de versão de objetos se:
+
++
+** O balde será utilizado para replicação em grelha cruzada.
+** Você quer criar um link:../tenant/manage-branch-buckets.html["balde de ramificação"] a partir deste intervalo.
+
 
 . Se a configuração global S3 Object Lock estiver ativada, ative opcionalmente o S3 Object Lock para o bucket armazenar objetos usando um modelo WORM (write-once-read-many).
 +
@@ -146,12 +154,16 @@ Um período de retenção _máximo_, que pode ser um valor de 1 dia a 100 anos, 
 
 
 
-. [[Capacity-Limit]]opcionalmente, selecione *Enable Capacity Limit*.
+. [[Capacity-Limit]]opcionalmente, selecione *Enable Capacity Limit*, insira um valor e selecione a unidade de capacidade.
 +
 O limite de capacidade é a capacidade máxima disponível para os objetos deste bucket. Este valor representa uma quantidade lógica (tamanho do objeto), não uma quantidade física (tamanho no disco).
 
 +
 Se nenhum limite for definido, a capacidade para este intervalo é ilimitada. link:../tenant/understanding-tenant-manager-dashboard.html#bucket-capacity-usage["Uso do limite de capacidade"]Consulte para obter mais informações.
+
+. [[object-count-limit]]opcionalmente, selecione *Ativar limite de contagem de objetos* e insira um número inteiro de pelo menos 1 e não mais do que 1.000.000.000.000.000.000.
++
+O limite de contagem de objetos é o número máximo de objetos que esse intervalo pode conter. Este valor representa uma quantidade lógica (contagem de objetos). Se nenhum limite for definido, a contagem de objetos será ilimitada.
 
 . Selecione *criar bucket*.
 +
@@ -159,3 +171,5 @@ O bucket é criado e adicionado à tabela na página Buckets.
 
 . Opcionalmente, selecione *ir para a página de detalhes do bucket* link:viewing-s3-bucket-details.html["veja os detalhes do balde"]e execute configurações adicionais.
 
+
+Você também pode link:../tenant/manage-branch-buckets.html["crie buckets de ramificação"]conforme necessário.

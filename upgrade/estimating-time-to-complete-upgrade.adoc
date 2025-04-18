@@ -51,7 +51,7 @@ O arquivo de software é distribuído e o serviço de atualização é iniciado.
  a| 
 Atualizar outros nós de grade
  a| 
-O software em todos os outros nós de grade é atualizado, na ordem em que você aprova os nós. Cada nó em seu sistema será derrubado um de cada vez.
+O software em todos os outros nós de grade é atualizado na ordem em que você aprova os nós. Um nó de administrador ou gateway é atualizado ao mesmo tempo que um nó de armazenamento.
  a| 
 de 15 minutos a 1 hora por nó, com os nós do dispositivo que exigem mais tempo
 

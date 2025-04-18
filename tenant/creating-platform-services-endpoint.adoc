@@ -20,7 +20,7 @@ Você deve criar pelo menos um endpoint do tipo correto antes de habilitar um se
 * O recurso referenciado pelo endpoint de serviços da plataforma foi criado:
 +
 ** Replicação do CloudMirror: Bucket do S3
-** Notificação de eventos: Tópico do Amazon Simple Notification Service (Amazon SNS) ou Kafka
+** Notificação de eventos: Tópico do Amazon Simple Notification Service (Amazon SNS), tópico Kafka ou endpoint do webhook
 ** Notificação de pesquisa: Índice Elasticsearch, se o cluster de destino não estiver configurado para criar índices automaticamente.
 
 
@@ -76,7 +76,7 @@ Para endpoints do Kafka, você pode usar as seguintes credenciais:
 
 --
 ====
-** Certificado de segurança (se estiver usando um certificado de CA personalizado)
+** Certificado de segurança (se a verificação do certificado for necessária)
 
 
 * Se os recursos de segurança do Elasticsearch estiverem ativados, você terá o privilégio de cluster do monitor para teste de conetividade e o privilégio de índice de gravação ou o Privileges de índice de índice e exclusão para atualizações de documentos.
@@ -87,7 +87,7 @@ Para endpoints do Kafka, você pode usar as seguintes credenciais:
 . Selecione *criar endpoint*.
 . Introduza um nome de apresentação para descrever brevemente o ponto final e a respetiva finalidade.
 +
-O tipo de serviço de plataforma que o endpoint suporta é mostrado ao lado do nome do endpoint quando ele está listado na página Endpoints, para que você não precise incluir essas informações no nome.
+O tipo de serviço de plataforma que o endpoint suporta é mostrado ao lado do nome do endpoint quando ele é listado na página Endpoints, para que você não precise incluir essas informações no nome.
 
 . No campo *URI*, especifique o URI (Unique Resource Identifier) do endpoint.
 +
@@ -140,6 +140,10 @@ NOTE: Você não pode alterar a URNA DE um endpoint depois que o endpoint foi cr
 
 . Selecione *continuar*.
 . Selecione um valor para *tipo de autenticação*.
++
+
+NOTE: Se você quiser autenticação para endpoints do webhook, configure o TLS (Mutual Transport Layer Security) no <<verify-certs,Passo 9>>.
+
 +
 [role="tabbed-block"]
 ====
@@ -318,17 +322,37 @@ Selecione *usar autenticação de delegação tomada* se o nome de usuário e a 
 --
 ====
 . Selecione *continuar*.
-. Selecione um botão de opção para *verificar servidor* para escolher como a conexão TLS com o endpoint é verificada.
+. [[Verify-certs]]Selecione um botão de opção para *Verify certificates* para escolher como a conexão TLS com o endpoint é verificada.
 +
+[role="tabbed-block"]
+====
+.A maioria dos endpoints
+--
+Verifique a conexão TLS para integração de pesquisa, replicação do CloudMirror, Amazon SNS ou pontos de extremidade Kafka.
+
 [cols="1a,2a"]
 |===
 | Tipo de verificação do certificado | Descrição 
 
 
  a| 
+TLS
+ a| 
+Valida o certificado do servidor para conexões TLS com o recurso de endpoint.
+
+
+
+ a| 
+Desativado
+ a| 
+A verificação do certificado está desativada. Esta opção não é segura.
+
+
+
+ a| 
 Use certificado CA personalizado
  a| 
-Use um certificado de segurança personalizado. Se você selecionar essa configuração, copie e cole o certificado de segurança personalizado na caixa de texto *certificado CA*.
+O certificado de CA personalizado é usado para verificar a identidade do servidor ao se conetar ao endpoint.
 
 
 
@@ -337,14 +361,80 @@ Use o certificado CA do sistema operacional
  a| 
 Use o certificado de CA de grade padrão instalado no sistema operacional para proteger conexões.
 
+|===
+--
+.Apenas endpoints do webhook
+--
+Verifique a conexão TLS para endpoints do webhook.
+
+[cols="1a,2a"]
+|===
+| Tipo de verificação do certificado | Descrição 
 
 
  a| 
-Não verifique o certificado
+TLS
  a| 
-O certificado usado para a conexão TLS não é verificado. Esta opção não é segura.
+Valida o certificado do servidor para conexões TLS com o recurso de endpoint.
+
+
+
+ a| 
+MTLS
+ a| 
+Valida os certificados de cliente e servidor para conexões TLS mútuas com o recurso de endpoint.
+
+
+
+ a| 
+Desativado
+ a| 
+A verificação do certificado está desativada. Esta opção não é segura.
+
+
+
+ a| 
+Use certificado CA personalizado
+ a| 
+O certificado de CA personalizado é usado para verificar a identidade do servidor ao se conetar ao endpoint.
 
 |===
+Quando você seleciona *MTLS*, essas opções ficam disponíveis.
+
+[cols="1a,2a"]
+|===
+| Tipo de verificação do certificado | Descrição 
+
+
+ a| 
+Não verifique o certificado do servidor
+ a| 
+Desativa a verificação do certificado do servidor, o que significa que a identidade do servidor não é verificada. Esta opção não é segura.
+
+
+
+ a| 
+Certificado de cliente
+ a| 
+O certificado de cliente é usado para verificar a identidade do cliente ao se conetar ao endpoint.
+
+
+
+ a| 
+Chave privada do cliente
+ a| 
+A chave privada para o certificado do cliente. Se criptografado, ele deve usar o formato tradicional PKCS nº 1 (o formato PKCS nº 8 não é suportado).
+
+
+
+ a| 
+Senha de chave privada do cliente
+ a| 
+A frase-passe para desencriptar a chave privada do cliente. Se a chave privada não estiver criptografada, deixe isso em branco.
+
+|===
+--
+====
 . Selecione *testar e criar endpoint*.
 +
 ** Uma mensagem de sucesso será exibida se o endpoint puder ser alcançado usando as credenciais especificadas. A conexão com o endpoint é validada a partir de um nó em cada local.

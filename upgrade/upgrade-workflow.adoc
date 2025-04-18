@@ -21,7 +21,7 @@ Se algum nó do StorageGRID for implantado em hosts Linux, link:linux-installing
 [role="quick-margin-para"]
 A partir do nó de administração principal, aceda à página Atualização do StorageGRID e carregue o ficheiro de atualização e o ficheiro de correção, se necessário.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"] Baixar Recovery Package
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"] Baixe o pacote de recuperação
 [role="quick-margin-para"]
 Baixe o pacote de recuperação atual antes de iniciar a atualização.
 
@@ -33,9 +33,9 @@ As pré-verificações de atualização ajudam a detetar problemas, para que voc
 [role="quick-margin-para"]
 Quando você inicia a atualização, as pré-verificações são executadas novamente e o nó de administração principal é atualizado automaticamente. Não é possível acessar o Gerenciador de Grade enquanto o nó Admin principal estiver sendo atualizado. Os logs de auditoria também estarão indisponíveis. Esta atualização pode demorar até 30 minutos.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"] Baixar Recovery Package
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"] Baixe o pacote de recuperação
 [role="quick-margin-para"]
-Depois que o nó Admin principal tiver sido atualizado, faça o download de um novo pacote de recuperação.
+Depois que o nó Admin principal tiver sido atualizado, baixe um novo pacote de recuperação.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sete"] Aprovar nós
 [role="quick-margin-para"]

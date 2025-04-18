@@ -44,7 +44,7 @@ O computador portátil de serviço tem o seguinte:
  a| 
 `Passwords.txt` ficheiro
  a| 
-Contém as senhas necessárias para acessar os nós de grade na linha de comando. Incluído no Pacote de recuperação.
+Contém as senhas necessárias para acessar os nós de grade na linha de comando. Incluído no pacote de recuperação.
 
 
 

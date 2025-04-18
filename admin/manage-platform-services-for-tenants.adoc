@@ -15,6 +15,8 @@ Os serviços de plataforma incluem replicação do CloudMirror, notificações d
 
 Se você ativar os serviços de plataforma para contas de locatário do S3, configure sua grade para que os locatários possam acessar os recursos externos necessários para usar esses serviços.
 
+Os serviços de plataforma não são suportados para link:../tenant/manage-branch-buckets.html["baldes de ramificação"].
+
 
 
 == Replicação do CloudMirror
@@ -23,8 +25,7 @@ O serviço de replicação do StorageGRID CloudMirror é usado para espelhar obj
 
 Por exemplo, você pode usar a replicação do CloudMirror para espelhar Registros específicos de clientes no Amazon S3 e aproveitar os serviços da AWS para realizar análises nos seus dados.
 
-
-NOTE: A replicação do CloudMirror tem algumas semelhanças e diferenças importantes com o recurso de replicação entre grades. Para saber mais, link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["Compare a replicação entre redes e a replicação do CloudMirror"]consulte .
+A replicação do CloudMirror tem algumas semelhanças e diferenças importantes com o recurso de replicação entre grades. Para saber mais, link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["Compare a replicação entre redes e a replicação do CloudMirror"]consulte .
 
 
 NOTE: A replicação do CloudMirror não é suportada se o bucket de origem tiver o S3 Object Lock ativado.
@@ -33,7 +34,7 @@ NOTE: A replicação do CloudMirror não é suportada se o bucket de origem tive
 
 == Notificações
 
-As notificações de eventos por bucket são usadas para enviar notificações sobre ações específicas executadas em objetos para um cluster Kafka externo especificado ou Amazon Simple Notification Service.
+As notificações de eventos por bucket são usadas para enviar notificações sobre ações específicas executadas em objetos para um cluster Kafka externo especificado, endpoint webhook ou Amazon Simple Notification Service.
 
 Por exemplo, você pode configurar alertas para serem enviados aos administradores sobre cada objeto adicionado a um bucket, onde os objetos representam arquivos de log associados a um evento crítico do sistema.
 

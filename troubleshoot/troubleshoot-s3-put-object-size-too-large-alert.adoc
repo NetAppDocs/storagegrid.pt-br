@@ -116,7 +116,7 @@ audit.log:2023-01-05T18:47:05.525999 [AUDT:[RSLT(FC32):SUCS][CNID(UI64):16729436
 
 . Se as gravações do cliente não forem normais, use o ID do locatário do alerta para identificar o locatário:
 +
-.. Aceda a *SUPPORT* > *Tools* > *Logs*. Colete logs de aplicativos para o nó de armazenamento no alerta. Especifique 15 minutos antes e depois do alerta.
+.. Aceda a *SUPPORT* > *Tools* > *Logs*. Colete logs de aplicativos para o nó de armazenamento no alerta. Especifique 15 minutos antes e depois do alerta. link:../monitor/collecting-log-files-and-system-data.html["Colete arquivos de log e dados do sistema"]Consulte a .
 .. Extraia o arquivo e vá `bycast.log` para :
 +
 `/GID<grid_id>_<time_stamp>/<site_node>/<time_stamp>/grid/bycast.log`

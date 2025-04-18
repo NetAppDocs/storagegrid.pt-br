@@ -2,7 +2,7 @@
 permalink: audit/whea-swift-head.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, WHEA, Swift HEAD 
-summary: Quando um cliente Swift emite uma TRANSAÇÃO PRINCIPAL, uma solicitação é feita para verificar a existência de uma conta, contentor ou objeto e recuperar quaisquer metadados relevantes. Esta mensagem é emitida pelo servidor se a transação for bem-sucedida. 
+summary: Quando um cliente Swift emite uma operação HEAD, uma solicitação é feita para verificar a existência de uma conta, contentor ou objeto e recuperar quaisquer metadados relevantes. Esta mensagem é emitida pelo servidor se a operação for bem-sucedida. 
 ---
 = WHEA: CABEÇA rápida
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Quando um cliente Swift emite uma TRANSAÇÃO PRINCIPAL, uma solicitaç
 
 
 [role="lead"]
-Quando um cliente Swift emite uma TRANSAÇÃO PRINCIPAL, uma solicitação é feita para verificar a existência de uma conta, contentor ou objeto e recuperar quaisquer metadados relevantes. Esta mensagem é emitida pelo servidor se a transação for bem-sucedida.
+Quando um cliente Swift emite uma operação HEAD, uma solicitação é feita para verificar a existência de uma conta, contentor ou objeto e recuperar quaisquer metadados relevantes. Esta mensagem é emitida pelo servidor se a operação for bem-sucedida.
 
 [cols="1a,1a,4a"]
 |===
@@ -52,7 +52,7 @@ RSLT
  a| 
 Código do resultado
  a| 
-Resultado da TRANSAÇÃO PRINCIPAL. O resultado é sempre:
+Resultado do funcionamento DA CABEÇA. O resultado é sempre:
 
 SUCS: Bem-sucedido
 

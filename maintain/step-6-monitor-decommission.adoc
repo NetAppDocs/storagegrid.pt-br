@@ -33,7 +33,7 @@ Cada nó de gateway ou nó de administrador pode exigir apenas alguns minutos ou
 .Passos
 . Assim que um novo pacote de recuperação for gerado, baixe o arquivo.
 +
-image::../media/decommission_site_step_6_recovery_package.png[Pacote de recuperação passo 6 da Decommission do site]
+image::../media/decommission_site_step_6_recovery_package.png[Pacote de recuperação do passo 6 da Decommission]
 
 +
 
@@ -43,7 +43,7 @@ NOTE: Baixe o pacote de recuperação o mais rápido possível para garantir que
 .. Selecione o link na mensagem ou selecione *MAINTENANCE* > *System* > *Recovery package*.
 .. Transfira o `.zip` ficheiro.
 +
-Consulte as instruções para link:downloading-recovery-package.html["Transferir o pacote de recuperação"].
+Consulte as instruções para link:downloading-recovery-package.html["baixando o pacote de recuperação"].
 
 
 

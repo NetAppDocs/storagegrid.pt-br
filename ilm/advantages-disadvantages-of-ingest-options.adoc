@@ -74,7 +74,7 @@ Aqui está um breve resumo dos valores de consistência que estão disponíveis 
 
 
 
-NOTE: Antes de selecionar um valor de consistência, link:../s3/consistency-controls.html["leia a descrição completa da consistência"]. Você deve entender os benefícios e limitações antes de alterar o valor padrão.
+NOTE: Antes de selecionar um valor de consistência, link:../s3/consistency.html["leia a descrição completa da consistência"]. Você deve entender os benefícios e limitações antes de alterar o valor padrão.
 
 
 

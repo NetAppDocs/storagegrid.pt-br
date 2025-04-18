@@ -15,7 +15,7 @@ Esta seção descreve como o sistema StorageGRID implementa S3 operações de AP
 
 As seguintes condições se aplicam a todas as operações de objetos:
 
-* Os StorageGRID link:consistency-controls.html["valores de consistência"]são suportados por todas as operações em objetos, com exceção dos seguintes:
+* Os StorageGRID link:consistency.html["valores de consistência"]são suportados por todas as operações em objetos, com exceção dos seguintes:
 +
 ** GetObjectAcl
 ** `OPTIONS /`

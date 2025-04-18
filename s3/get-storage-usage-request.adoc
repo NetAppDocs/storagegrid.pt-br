@@ -72,4 +72,4 @@ Content-Type: application/xml
 Cada versão de objeto armazenada contribuirá para os `ObjectCount` valores e `DataBytes` na resposta. Excluir marcadores não são adicionados ao `ObjectCount` total.
 
 .Informações relacionadas
-link:consistency-controls.html["Valores de consistência"]
+link:consistency.html["Consistência"]

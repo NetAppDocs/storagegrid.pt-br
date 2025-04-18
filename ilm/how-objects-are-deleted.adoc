@@ -92,6 +92,8 @@ Quando os objetos são versionados, as solicitações de exclusão de objetos n�
 
 Mesmo que o objeto não tenha sido removido, o StorageGRID se comporta como se a versão atual do objeto não estivesse mais disponível. Solicitações para esse objeto retornam 404 NotFound. No entanto, como os dados de objetos não atuais não foram removidos, as solicitações que especificam uma versão não atual do objeto podem ser bem-sucedidas.
 
+Se um cliente excluir uma versão de objeto com um ID de versão de um link:../tenant/manage-branch-buckets.html["balde de ramificação"], o StorageGRID oculta a existência da versão do objeto, mas não cria um marcador de exclusão no intervalo de ramificação. Se um cliente excluir um objeto sem um ID de versão de um bucket de ramificação, o StorageGRID criará um marcador de exclusão no bucket de ramificação de acordo com o comportamento padrão do S3.
+
 Para liberar espaço ao excluir objetos com controle de versão ou remover marcadores de exclusão, use um dos seguintes procedimentos:
 
 * *Solicitação de cliente S3*: Especifique o ID da versão do objeto na solicitação DE EXCLUSÃO de objeto S3 (`DELETE /object?versionId=ID`). Tenha em mente que essa solicitação só remove cópias de objetos para a versão especificada (as outras versões ainda estão ocupando espaço).

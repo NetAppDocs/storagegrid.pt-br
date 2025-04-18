@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recovery package 
 summary: O arquivo do pacote de recuperação permite restaurar o sistema StorageGRID se ocorrer uma falha. 
 ---
-= Baixar Recovery Package
+= Baixe o pacote de recuperação
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -19,7 +19,7 @@ O arquivo do pacote de recuperação permite restaurar o sistema StorageGRID se 
 * Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
 
 
-Faça o download do arquivo atual do Pacote de recuperação antes de fazer alterações na topologia da grade no sistema StorageGRID ou antes de atualizar o software. Em seguida, faça o download de uma nova cópia do Pacote de recuperação após fazer alterações na topologia da grade ou após atualizar o software.
+Faça o download do arquivo atual do pacote de recuperação antes de fazer alterações na topologia da grade no sistema StorageGRID ou antes de atualizar o software. Em seguida, faça o download de uma nova cópia do pacote de recuperação depois de fazer alterações na topologia da grade ou depois de atualizar o software.
 
 .Passos
 . Selecione *MAINTENANCE* > *System* > *Recovery package*.

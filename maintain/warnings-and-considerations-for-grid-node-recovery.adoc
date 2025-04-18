@@ -17,7 +17,7 @@ Se um nó de grade falhar, você deve recuperá-lo o mais rápido possível. Voc
 CAUTION: O StorageGRID é um sistema distribuído composto por vários nós que trabalham uns com os outros. Não use snapshots de disco para restaurar nós de grade. Em vez disso, consulte os procedimentos de recuperação e manutenção para cada tipo de nó.
 
 
-NOTE: Se um site StorageGRID inteiro falhar, entre em Contato com o suporte técnico. O suporte técnico trabalhará com você para desenvolver e executar um plano de recuperação de local que maximiza a quantidade de dados recuperados e atende aos seus objetivos de negócios. link:how-site-recovery-is-performed-by-technical-support.html["Como o suporte técnico recupera um site"]Consulte .
+NOTE: Se um site StorageGRID inteiro falhar, entre em Contato com o suporte técnico. O suporte técnico trabalhará com você para desenvolver e executar um plano de recuperação de local que maximiza a quantidade de dados recuperados e atende aos seus objetivos de negócios. link:how-site-recovery-is-performed-by-technical-support.html["Como o suporte técnico recupera um site"]Consulte a .
 
 Alguns dos motivos para recuperar um nó de grade com falha o mais rápido possível incluem o seguinte:
 
@@ -39,7 +39,7 @@ Todas as condições a seguir são assumidas ao recuperar nós de grade:
 * O hardware físico ou virtual com falha foi substituído e configurado.
 * A versão do Instalador de dispositivos StorageGRID no dispositivo de substituição corresponde à versão de software do seu sistema StorageGRID, conforme descrito em https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/verifying-and-upgrading-storagegrid-appliance-installer-version.html["Verifique e atualize a versão do instalador do StorageGRID Appliance"^].
 * Se você estiver recuperando um nó de grade diferente do nó Admin principal, há conetividade entre o nó de grade sendo recuperado e o nó Admin principal.
-* Se você estiver recuperando um nó de armazenamento de dispositivo, especifique o mesmo tipo de armazenamento que o dispositivo original (combinado, somente metadados ou somente dados) durante a instalação do dispositivo. Se especificar um tipo de armazenamento diferente, a recuperação falhará e exigirá a reinstalação do dispositivo com o tipo de armazenamento correto especificado.
+* Se você estiver recuperando um nó de storage de dispositivo, especifique o mesmo tipo de storage que o dispositivo original (combinado, somente metadados ou somente dados) durante a instalação do dispositivo. Se especificar um tipo de armazenamento diferente, a recuperação falhará e exigirá a reinstalação do dispositivo com o tipo de armazenamento correto especificado.
 
 
 
