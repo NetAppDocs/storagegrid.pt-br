@@ -1,6 +1,6 @@
 ---
 settings:
-  name: StorageGRID
+  name: StorageGRID software
   search: storagegrid-enable,storagegrid,storagegrid-appliances
   internal:
     pdf_enabled: true
@@ -23,7 +23,7 @@ settings:
   langs: pt-br,us-en,de-de,es-es,fr-fr,it-it,ja-jp,ko-kr,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: Documentos do StorageGRID 11,9
+  - title: Documentação do StorageGRID 11,9
     url: "/index.html"
   - title: Dispositivos StorageGRID
     url: "/storagegrid-hardware.html"
