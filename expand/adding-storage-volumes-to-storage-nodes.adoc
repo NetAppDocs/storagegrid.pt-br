@@ -2,7 +2,7 @@
 permalink: expand/adding-storage-volumes-to-storage-nodes.html 
 sidebar: sidebar 
 keywords: storage volumes, expand, expansion, add, storage nodes, adding storage capacity 
-summary: Você pode expandir a capacidade de storage dos nós de storage que têm 16 ou menos volumes de storage adicionando volumes de storage adicionais. Talvez você precise adicionar volumes de storage a mais de um nó de storage para atender aos requisitos de ILM para cópias replicadas ou codificadas por apagamento. 
+summary: Você pode expandir a capacidade de storage dos nós de storage que têm 48 ou menos volumes de storage adicionando volumes de storage adicionais. Talvez você precise adicionar volumes de storage a mais de um nó de storage para atender aos requisitos de ILM para cópias replicadas ou codificadas por apagamento. 
 ---
 = Adicionar volumes de storage aos nós de storage
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Você pode expandir a capacidade de storage dos nós de storage que tê
 
 
 [role="lead"]
-Você pode expandir a capacidade de storage dos nós de storage que têm 16 ou menos volumes de storage adicionando volumes de storage adicionais. Talvez você precise adicionar volumes de storage a mais de um nó de storage para atender aos requisitos de ILM para cópias replicadas ou codificadas por apagamento.
+Você pode expandir a capacidade de storage dos nós de storage que têm 48 ou menos volumes de storage adicionando volumes de storage adicionais. Talvez você precise adicionar volumes de storage a mais de um nó de storage para atender aos requisitos de ILM para cópias replicadas ou codificadas por apagamento.
 
 .Antes de começar
 Antes de adicionar volumes de armazenamento, consulte o link:guidelines-for-adding-object-capacity.html["diretrizes para adicionar capacidade de objeto"] para garantir que você saiba onde adicionar volumes para atender aos requisitos da política de ILM.
@@ -20,7 +20,7 @@ Antes de adicionar volumes de armazenamento, consulte o link:guidelines-for-addi
 NOTE: Estas instruções se aplicam somente a nós de storage baseados em software.  https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/adding-expansion-shelf-to-deployed-sg6060.html["Adicione o compartimento de expansão ao SG6060 implantado"^]Consulte ou https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/adding-expansion-shelf-to-deployed-sg6160.html["Adicione o compartimento de expansão ao SG6160 implantado"^] para saber como adicionar volumes de armazenamento ao SG6060 ou SG6160 instalando os compartimentos de expansão. Não é possível expandir os nós de storage de outros dispositivos.
 
 .Sobre esta tarefa
-O storage subjacente de um nó de storage é dividido em volumes de storage. Os volumes de armazenamento são dispositivos de armazenamento baseados em blocos que são formatados pelo sistema StorageGRID e montados para armazenar objetos. Cada nó de armazenamento pode suportar até 16 volumes de armazenamento, que são chamados _armazenamentos de objetos_ no Gerenciador de Grade.
+O storage subjacente de um nó de storage é dividido em volumes de storage. Os volumes de armazenamento são dispositivos de armazenamento baseados em blocos que são formatados pelo sistema StorageGRID e montados para armazenar objetos. Cada nó de armazenamento pode suportar até 48 volumes de armazenamento, que são chamados _armazenamentos de objetos_ no Gerenciador de Grade.
 
 
 NOTE: Os metadados de objetos são sempre armazenados no armazenamento de objetos 0.

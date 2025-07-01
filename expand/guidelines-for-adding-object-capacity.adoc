@@ -21,7 +21,7 @@ Antes de adicionar volumes de storage a nós de storage existentes, consulte as 
 
 * Você deve examinar as regras atuais do ILM para determinar onde e quando link:../expand/adding-storage-volumes-to-storage-nodes.html["adicione volumes de armazenamento"]aumentar o armazenamento disponível para link:../ilm/what-replication-is.html["objetos replicados"] ou link:../ilm/what-erasure-coding-schemes-are.html["objetos com codificação de apagamento"].
 * Não é possível aumentar a capacidade de metadados do sistema adicionando volumes de armazenamento porque os metadados de objetos são armazenados apenas no volume 0.
-* Cada nó de storage baseado em software pode dar suporte a um máximo de 16 volumes de storage. Se você precisar adicionar capacidade além disso, precisará adicionar novos nós de storage.
+* Cada nó de storage baseado em software pode dar suporte a um máximo de 48 volumes de storage. Se você precisar adicionar capacidade além disso, precisará adicionar novos nós de storage.
 * Você pode adicionar uma ou duas gavetas de expansão a cada dispositivo SG6060. Cada compartimento de expansão adiciona 16 volumes de storage. Com ambas as gavetas de expansão instaladas, o SG6060 dá suporte a um total de 48 volumes de storage.
 * Você pode adicionar uma ou duas gavetas de expansão a cada dispositivo SG6160. Cada compartimento de expansão adiciona 60 volumes de storage. Com ambas as gavetas de expansão instaladas, o SG6160 dá suporte a um total de 180 volumes de storage.
 * Não é possível adicionar volumes de armazenamento a qualquer outro dispositivo de armazenamento.

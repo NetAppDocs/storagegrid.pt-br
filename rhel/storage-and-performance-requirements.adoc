@@ -94,7 +94,7 @@ Dados de objeto
  a| 
 3 para cada nó de storage nesse host
 
-*Nota:* Um nó de armazenamento baseado em software pode ter 1 a 16 volumes de armazenamento; pelo menos 3 volumes de armazenamento são recomendados.
+*Nota:* Um nó de armazenamento baseado em software pode ter 1 a 48 volumes de armazenamento; pelo menos 3 volumes de armazenamento são recomendados.
  a| 
 12 TB (4 TB/LUN) consulte <<storage_req_SN,Requisitos de storage para nós de storage>> para obter mais informações.
 
@@ -276,10 +276,10 @@ Nó de gateway
 
 == Requisitos de storage para nós de storage
 
-Um nó de storage baseado em software pode ter 1 a 16 volumes de armazenamento--3 ou mais volumes de armazenamento são recomendados. Cada volume de armazenamento deve ser de 4 TB ou maior.
+Um nó de armazenamento baseado em software pode ter de 1 a 48 volumes de armazenamento; 3 ou mais volumes de armazenamento são recomendados. Cada volume de armazenamento deve ser de 4 TB ou maior.
 
 
-NOTE: Um nó de storage de dispositivo pode ter até 48 volumes de storage.
+NOTE: Um nó de armazenamento de dispositivo também pode ter até 48 volumes de armazenamento.
 
 Como mostrado na figura, o StorageGRID reserva espaço para metadados de objetos no volume de storage 0 de cada nó de storage. Qualquer espaço restante no volume de armazenamento 0 e quaisquer outros volumes de armazenamento no nó de armazenamento são usados exclusivamente para dados de objeto.
 

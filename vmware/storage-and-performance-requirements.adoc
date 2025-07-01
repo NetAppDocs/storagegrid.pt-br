@@ -68,7 +68,7 @@ LUN DE 100 GB PARA OS
 
 3 LUNs para cada nó de storage nesse host
 
-*Nota*: Um nó de armazenamento pode ter 1 a 16 LUNs de armazenamento; pelo menos 3 LUNs de armazenamento são recomendados.
+*Nota*: Um nó de armazenamento pode ter 1 a 48 LUNs de armazenamento; pelo menos 3 LUNs de armazenamento são recomendados.
 
 Tamanho mínimo por LUN: 4 TB
 
@@ -104,10 +104,10 @@ NOTE: Dependendo do nível de auditoria configurado, do tamanho das entradas do 
 
 == Requisitos de storage para nós de storage
 
-Um nó de storage baseado em software pode ter 1 a 16 volumes de armazenamento--3 ou mais volumes de armazenamento são recomendados. Cada volume de armazenamento deve ser de 4 TB ou maior.
+Um nó de armazenamento baseado em software pode ter de 1 a 48 volumes de armazenamento; 3 ou mais volumes de armazenamento são recomendados. Cada volume de armazenamento deve ser de 4 TB ou maior.
 
 
-NOTE: Um nó de storage de dispositivo pode ter até 48 volumes de storage.
+NOTE: Um nó de armazenamento de dispositivo também pode ter até 48 volumes de armazenamento.
 
 Como mostrado na figura, o StorageGRID reserva espaço para metadados de objetos no volume de storage 0 de cada nó de storage. Qualquer espaço restante no volume de armazenamento 0 e quaisquer outros volumes de armazenamento no nó de armazenamento são usados exclusivamente para dados de objeto.
 
