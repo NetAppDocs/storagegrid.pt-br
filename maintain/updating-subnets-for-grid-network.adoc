@@ -23,6 +23,26 @@ O StorageGRID mantém uma lista das sub-redes de rede usadas para se comunicar e
 .Sobre esta tarefa
 Se você estiver executando uma atividade de expansão que inclua a adição de uma nova sub-rede, será necessário adicionar uma nova sub-rede à lista de sub-rede da rede de Grade antes de iniciar o procedimento de expansão. Caso contrário, você terá que cancelar a expansão, adicionar a nova sub-rede e iniciar a expansão novamente.
 
+[NOTE]
+====
+Não use sub-redes que contenham os seguintes endereços IPv4 para a Rede de Grade, Rede de Administração ou Rede de Cliente de qualquer nó:
+
+* 192.168.130.101
+* 192.168.131.101
+* 192.168.130.102
+* 192.168.131.102
+* 198.51.100.2
+* 198.51.100.4
+
+
+Por exemplo, não use os seguintes intervalos de sub-rede para a Rede de grade, Rede de administração ou Rede de cliente de nenhum nó:
+
+* 192.168.130.0/24 porque este intervalo de sub-rede contém os endereços IP 192.168.130.101 e 192.168.130.102
+* 192.168.131.0/24 porque este intervalo de sub-rede contém os endereços IP 192.168.131.101 e 192.168.131.102
+* 198.51.100.0/24 porque este intervalo de sub-rede contém os endereços IP 198.51.100.2 e 198.51.100.4
+
+
+====
 
 
 == Adicione uma sub-rede

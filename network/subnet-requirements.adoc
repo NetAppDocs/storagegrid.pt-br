@@ -20,6 +20,25 @@ As seguintes restrições são impostas pelo Gerenciador de Grade durante a impl
 
 * A máscara de sub-rede para qualquer endereço IP de rede não pode ser 255.255.255.254 ou 255.255.255.255 (/31 ou /32 em notação CIDR).
 * A sub-rede definida por um endereço IP de interface de rede e uma máscara de sub-rede (CIDR) não pode sobrepor a sub-rede de qualquer outra interface configurada no mesmo nó.
+* Não use sub-redes que contenham os seguintes endereços IPv4 para a Rede de Grade, Rede de Administração ou Rede de Cliente de qualquer nó:
++
+** 192.168.130.101
+** 192.168.131.101
+** 192.168.130.102
+** 192.168.131.102
+** 198.51.100.2
+** 198.51.100.4
+
+
++
+Por exemplo, não use os seguintes intervalos de sub-rede para a Rede de grade, Rede de administração ou Rede de cliente de nenhum nó:
+
++
+** 192.168.130.0/24 porque este intervalo de sub-rede contém os endereços IP 192.168.130.101 e 192.168.130.102
+** 192.168.131.0/24 porque este intervalo de sub-rede contém os endereços IP 192.168.131.101 e 192.168.131.102
+** 198.51.100.0/24 porque este intervalo de sub-rede contém os endereços IP 198.51.100.2 e 198.51.100.4
+
+
 * A sub-rede da rede de Grade para cada nó deve ser incluída no GNSL.
 * A sub-rede Admin Network não pode sobrepor a sub-rede Grid Network, a sub-rede Client Network ou qualquer sub-rede no GNSL.
 * As sub-redes no AESL não podem se sobrepor com nenhuma sub-rede no GNSL.
