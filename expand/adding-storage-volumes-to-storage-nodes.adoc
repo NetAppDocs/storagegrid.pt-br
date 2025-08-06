@@ -2,7 +2,7 @@
 permalink: expand/adding-storage-volumes-to-storage-nodes.html 
 sidebar: sidebar 
 keywords: storage volumes, expand, expansion, add, storage nodes, adding storage capacity 
-summary: Você pode expandir a capacidade de storage dos nós de storage que têm 48 ou menos volumes de storage adicionando volumes de storage adicionais. Talvez você precise adicionar volumes de storage a mais de um nó de storage para atender aos requisitos de ILM para cópias replicadas ou codificadas por apagamento. 
+summary: Você pode expandir a capacidade de armazenamento dos Nós de Armazenamento que estão abaixo do número máximo de volumes suportados.  Pode ser necessário adicionar volumes de armazenamento a mais de um nó de armazenamento para atender aos requisitos de ILM para cópias replicadas ou codificadas para eliminação. 
 ---
 = Adicionar volumes de storage aos nós de storage
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Você pode expandir a capacidade de storage dos nós de storage que tê
 
 
 [role="lead"]
-Você pode expandir a capacidade de storage dos nós de storage que têm 48 ou menos volumes de storage adicionando volumes de storage adicionais. Talvez você precise adicionar volumes de storage a mais de um nó de storage para atender aos requisitos de ILM para cópias replicadas ou codificadas por apagamento.
+Você pode expandir a capacidade de armazenamento dos Nós de Armazenamento que estão abaixo do número máximo de volumes suportados.  Pode ser necessário adicionar volumes de armazenamento a mais de um nó de armazenamento para atender aos requisitos de ILM para cópias replicadas ou codificadas para eliminação.
 
 .Antes de começar
 Antes de adicionar volumes de armazenamento, consulte o link:guidelines-for-adding-object-capacity.html["diretrizes para adicionar capacidade de objeto"] para garantir que você saiba onde adicionar volumes para atender aos requisitos da política de ILM.

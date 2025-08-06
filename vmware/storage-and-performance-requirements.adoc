@@ -68,7 +68,7 @@ LUN DE 100 GB PARA OS
 
 3 LUNs para cada nó de storage nesse host
 
-*Nota*: Um nó de armazenamento pode ter 1 a 48 LUNs de armazenamento; pelo menos 3 LUNs de armazenamento são recomendados.
+*Observação*: Um nó de armazenamento pode ter de 1 a 16 LUNs de armazenamento; pelo menos 3 LUNs de armazenamento são recomendados.
 
 Tamanho mínimo por LUN: 4 TB
 
@@ -85,7 +85,7 @@ LUN DE 100 GB PARA OS
 
 Tamanho mínimo por LUN: 4 TB
 
-*Nota*: Não há tamanho máximo para o único LUN. A capacidade excedente é economizada para uso futuro.
+Tamanho máximo de LUN testado: 39 TB.
 
 *Nota*: Somente um rangedb é necessário para nós de storage somente metadados.
 
@@ -104,7 +104,7 @@ NOTE: Dependendo do nível de auditoria configurado, do tamanho das entradas do 
 
 == Requisitos de storage para nós de storage
 
-Um nó de armazenamento baseado em software pode ter de 1 a 48 volumes de armazenamento; 3 ou mais volumes de armazenamento são recomendados. Cada volume de armazenamento deve ser de 4 TB ou maior.
+Um nó de armazenamento baseado em software pode ter de 1 a 16 volumes de armazenamento; 3 ou mais volumes de armazenamento são recomendados.  Cada volume de armazenamento deve ter 4 TB ou mais.
 
 
 NOTE: Um nó de armazenamento de dispositivo também pode ter até 48 volumes de armazenamento.

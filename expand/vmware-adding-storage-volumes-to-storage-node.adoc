@@ -2,7 +2,7 @@
 permalink: expand/vmware-adding-storage-volumes-to-storage-node.html 
 sidebar: sidebar 
 keywords: expand, expansion, storage node, add storage volumes, VMware 
-summary: Se um nó de storage incluir menos de 48 volumes de storage, você poderá aumentar sua capacidade usando o VMware vSphere para adicionar volumes. 
+summary: Se um nó de armazenamento incluir menos de 16 volumes de armazenamento, você poderá aumentar sua capacidade usando o VMware vSphere para adicionar volumes. 
 ---
 = VMware: Adicione volumes de storage ao nó de storage
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Se um nó de storage incluir menos de 48 volumes de storage, você pode
 
 
 [role="lead"]
-Se um nó de storage incluir menos de 48 volumes de storage, você poderá aumentar sua capacidade usando o VMware vSphere para adicionar volumes.
+Se um nó de armazenamento incluir menos de 16 volumes de armazenamento, você poderá aumentar sua capacidade usando o VMware vSphere para adicionar volumes.
 
 .Antes de começar
 * Você tem acesso às instruções para instalar implantações do StorageGRID para VMware.
