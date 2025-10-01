@@ -37,9 +37,9 @@ O StorageGRID é compatível com pontos de extremidade de replicação que repre
 
 == Endpoints para notificações
 
-O StorageGRID suporta endpoints Amazon SNS e Kafka. Os endpoints do Simple Queue Service (SQS) ou do AWS Lambda não são suportados.
+O StorageGRID oferece suporte a endpoints do Amazon SNS, Kafka e webhook.  Os endpoints do Simple Queue Service (SQS) e do AWS Lambda não são suportados.
 
-Para endpoints Kafka, TLS mútuo não é suportado. Como resultado, se você tiver `ssl.client.auth` definido como `required` na configuração do seu broker Kafka, isso pode causar problemas de configuração do endpoint do Kafka.
+Para endpoints do Kafka, o TLS mútuo não é suportado.  Como resultado, se você tiver `ssl.client.auth` definido para `required` na configuração do seu broker Kafka, isso pode causar problemas de configuração do endpoint Kafka.
 
 
 

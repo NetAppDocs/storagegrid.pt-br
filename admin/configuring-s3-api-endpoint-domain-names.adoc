@@ -55,7 +55,7 @@ NOTE: Se você não adicionar nomes de domínio de endpoint S3 e a lista estiver
 == Adicione um nome de domínio de endpoint S3
 
 .Passos
-. Selecione *CONFIGURATION* > *Network* > *S3 endpoint domain names*.
+. Selecione *Configuração* > *Rede* > *Nomes de domínio de ponto de extremidade S3*.
 . Introduza o nome de domínio no campo *Domain Name 1*. Selecione *Adicionar outro nome de domínio* para adicionar mais nomes de domínio.
 . Selecione *Guardar*.
 . Certifique-se de que os certificados de servidor que os clientes utilizam correspondem aos nomes de domínio de endpoint S3 necessários.
@@ -77,7 +77,7 @@ Agora, quando os clientes usam o endpoint `_bucket.s3.company.com_`, o servidor 
 Se você alterar um nome usado por aplicativos S3, as solicitações de estilo hospedado virtual falharão.
 
 .Passos
-. Selecione *CONFIGURATION* > *Network* > *S3 endpoint domain names*.
+. Selecione *Configuração* > *Rede* > *Nomes de domínio de ponto de extremidade S3*.
 . Selecione o campo de nome de domínio que deseja editar e faça as alterações necessárias.
 . Selecione *Guardar*.
 . Selecione *Sim* para confirmar a alteração.
@@ -90,7 +90,7 @@ Se você alterar um nome usado por aplicativos S3, as solicitações de estilo h
 Se você remover um nome usado por aplicativos S3, as solicitações de estilo hospedado virtual falharão.
 
 .Passos
-. Selecione *CONFIGURATION* > *Network* > *S3 endpoint domain names*.
+. Selecione *Configuração* > *Rede* > *Nomes de domínio de ponto de extremidade S3*.
 . Selecione o ícone de exclusão image:../media/icon-x-to-remove.png["eliminar ícone"]ao lado do nome de domínio.
 . Selecione *Sim* para confirmar a exclusão.
 

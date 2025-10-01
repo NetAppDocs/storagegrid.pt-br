@@ -13,7 +13,7 @@ summary: Você deve criar pelo menos uma conta de locatário para controlar o ac
 [role="lead"]
 Você deve criar pelo menos uma conta de locatário para controlar o acesso ao storage no sistema StorageGRID.
 
-As etapas para criar uma conta de locatário variam de acordo com link:using-identity-federation.html["federação de identidade"]a configuração e link:configuring-sso.html["logon único"]se a conta do Gerenciador de Grade que você usa para criar a conta de locatário pertence a um grupo de administração com a permissão de acesso root.
+As etapas para criar uma conta de locatário variam dependendo selink:using-identity-federation.html["federação de identidade"] elink:how-sso-works.html["logon único"] estão configurados e se a conta do Grid Manager que você usa para criar a conta do locatário pertence a um grupo de administradores com permissão de acesso Root.
 
 .Antes de começar
 * Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
@@ -42,7 +42,7 @@ TIP: Se esse grupo de administração não existir em ambas as grades antes de c
 == Acesse o assistente
 
 .Passos
-. Selecione *TENANTS*.
+. Selecione *Inquilinos*.
 . Selecione *criar*.
 
 
@@ -77,9 +77,7 @@ Se você estiver criando um locatário que usará uma conexão de federação de
  a| 
 Tipo de cliente
  a| 
-O tipo de protocolo de cliente que este locatário usará, seja *S3* ou *Swift*.
-
-*Nota*: O suporte para aplicativos cliente Swift foi obsoleto e será removido em uma versão futura.
+Deve ser *S3*.
 
 
 
@@ -118,7 +116,7 @@ O locatário pode usar serviços de plataforma S3, como o CloudMirror. link:../a
  a| 
 Use a própria fonte de identidade
  a| 
-O locatário pode configurar e gerenciar sua própria fonte de identidade para grupos federados e usuários. Esta opção é desativada se tiver link:../admin/configuring-sso.html["SSO configurado"] para o seu sistema StorageGRID.
+O locatário pode configurar e gerenciar sua própria fonte de identidade para grupos e usuários federados.  Esta opção estará desabilitada se você tiverlink:../admin/how-sso-works.html["SSO configurado"] para seu sistema StorageGRID .
 
 
 
@@ -290,7 +288,7 @@ O URL do Gerenciador do Locatário tem este formato:
  a| 
 Porta 443
  a| 
-* No Gerenciador de Grade, selecione *TENANTS* e *Sign in* à direita do nome do locatário.
+* No Grid Manager, selecione *Inquilinos* e selecione * Sign in* à direita do nome do inquilino.
 * Insira o URL do locatário em um navegador da Web:
 +
 `https://_FQDN_or_Admin_Node_IP_/?accountId=_20-digit-account-id_/`
@@ -307,7 +305,7 @@ Porta 443
  a| 
 Uma porta restrita
  a| 
-* No Gerenciador de Grade, selecione *TENANTS* e *restricted*.
+* No Grid Manager, selecione *Inquilinos* e selecione *Restrito*.
 * Insira o URL do locatário em um navegador da Web:
 +
 `https://_FQDN_or_Admin_Node_IP:port_/?accountId=_20-digit-account-id_`

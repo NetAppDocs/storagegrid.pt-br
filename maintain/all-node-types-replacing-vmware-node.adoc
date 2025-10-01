@@ -33,7 +33,7 @@ Este procedimento é apenas uma etapa no processo de recuperação do nó de gra
 . Se o nó de grade com falha for um nó de armazenamento, determine se algum dos discos rígidos virtuais usados para armazenamento de dados não está danificado e preserve-os para refixação ao nó de grade recuperado.
 . Desligue a máquina virtual.
 . Selecione *ações* > *todas as ações do vCenter* > *Excluir do disco* para excluir a máquina virtual.
-. Implante uma nova máquina virtual para ser o nó de substituição e conete-a a uma ou mais redes StorageGRID. Para obter instruções, link:../vmware/deploying-storagegrid-node-as-virtual-machine.html["Implantando um nó StorageGRID como uma máquina virtual"]consulte .
+. Implante uma nova máquina virtual para ser o nó de substituição e conecte-a a uma ou mais redes StorageGRID .  Para obter instruções, consultelink:../swnodes/deploying-storagegrid-node-as-virtual-machine.html["Implantando um nó StorageGRID como uma máquina virtual"] .
 +
 Ao implantar o nó, você pode opcionalmente remapear as portas dos nós ou aumentar as configurações de CPU ou memória.
 

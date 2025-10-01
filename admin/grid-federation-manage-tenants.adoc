@@ -52,7 +52,7 @@ TIP: Antes que um usuário raiz local possa fazer login no locatário replicado 
 Você pode ver detalhes de um locatário que tem permissão para usar uma conexão de federação de grade.
 
 .Passos
-. Selecione *TENANTS*.
+. Selecione *Inquilinos*.
 . Na página de locatários, selecione o nome do locatário para exibir a página de detalhes do locatário.
 +
 Se essa for a grade de origem do locatário (ou seja, se o locatário foi criado nessa grade), um banner aparecerá para lembrá-lo de que o locatário foi clonado para outra grade. Se você editar ou excluir esse locatário, suas alterações não serão sincronizadas com a outra grade.
@@ -121,7 +121,7 @@ Como primeira etapa, desative a replicação entre grade para todos os buckets d
 
 .Passos
 . A partir de qualquer grade, entre no Gerenciador de Grade a partir do nó Admin primário.
-. Selecione *CONFIGURATION* > *System* > *Grid Federation*.
+. Selecione *Configuração* > *Sistema* > *Federação de grade*.
 . Selecione o nome da ligação para apresentar os respetivos detalhes.
 . Na guia *allowed tenants* (inquilinos permitidos), determine se o locatário está usando a conexão.
 . Se o inquilino estiver listado, instrua-o para link:../tenant/grid-federation-manage-cross-grid-replication.html["desative a replicação entre redes"]todos os seus buckets em ambas as grades na conexão.
@@ -145,7 +145,7 @@ Depois que a replicação entre grades for desativada para buckets do locatário
 ====
 .Página de federação de grade
 --
-.. Selecione *CONFIGURATION* > *System* > *Grid Federation*.
+.. Selecione *Configuração* > *Sistema* > *Federação de grade*.
 .. Selecione o nome da ligação para apresentar a respetiva página de detalhes.
 .. Na guia *allowed tenants* (inquilinos permitidos), selecione o botão de opção para o locatário.
 .. Selecione *Remover permissão*.
@@ -154,7 +154,7 @@ Depois que a replicação entre grades for desativada para buckets do locatário
 --
 .Página de inquilinos
 --
-.. Selecione *TENANTS*.
+.. Selecione *Inquilinos*.
 .. Selecione o nome do locatário para exibir a página de detalhes.
 .. No separador *Grid Federation* (federação de grelha), selecione o botão de opção para a ligação.
 .. Selecione *Remover permissão*.
@@ -196,7 +196,7 @@ Antes de remover a permissão de um inquilino por força, observe as consideraç
 
 .Passos
 . Inicie sessão no Grid Manager a partir do nó de administração principal.
-. Selecione *CONFIGURATION* > *System* > *Grid Federation*.
+. Selecione *Configuração* > *Sistema* > *Federação de grade*.
 . Selecione o nome da ligação para apresentar a respetiva página de detalhes.
 . Na guia *allowed tenants* (inquilinos permitidos), selecione o botão de opção para o locatário.
 . Selecione *Remover permissão*.

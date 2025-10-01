@@ -11,7 +11,7 @@ summary: 'Se você configurou e ativou o logon único (SSO) e usa o ative Direct
 
 
 [role="lead"]
-Se você tiver link:../admin/configuring-sso.html["Logon único configurado e habilitado (SSO)"] e usar o ative Directory como provedor SSO, deverá emitir uma série de solicitações de API para obter um token de autenticação válido para a API de Gerenciamento de Grade ou para a API de Gerenciamento do locatário.
+Se você temlink:../admin/how-sso-works.html["Logon único configurado e habilitado (SSO)"] e você usa o Active Directory como o provedor de SSO, você deve emitir uma série de solicitações de API para obter um token de autenticação válido para a API de gerenciamento de grade ou a API de gerenciamento de locatários.
 
 
 
@@ -27,7 +27,7 @@ Estas instruções se aplicam se você estiver usando o ative Directory como pro
 .Sobre esta tarefa
 Para obter um token de autenticação, você pode usar um dos seguintes exemplos:
 
-* O `storagegrid-ssoauth.py` script Python, que está localizado no diretório de arquivos de instalação do StorageGRID (`./rpms`para Red Hat Enterprise Linux, `./debs` para Ubuntu ou Debian, e `./vsphere` para VMware).
+* O `storagegrid-ssoauth.py` Script Python, que está localizado no diretório de arquivos de instalação do StorageGRID(`./rpms` para RHEL, `./debs` para Ubuntu ou Debian, e `./vsphere` para VMware).
 * Um exemplo de fluxo de trabalho de solicitações curl.
 +
 O fluxo de trabalho curl pode ter um tempo limite se você o executar muito lentamente. Você pode ver o erro: `A valid SubjectConfirmation was not found on this Response`.

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, remove port remap, removing port remap, port remap 
 summary: Se você quiser configurar um ponto de extremidade para o serviço Load Balancer e quiser usar uma porta que já tenha sido configurada como a porta mapeada de um remapeamento de porta, primeiro remova o remapeamento de porta existente ou o ponto de extremidade não será efetivo. Você deve executar um script em cada nó de administrador e nó de gateway que tenha portas remapeadas conflitantes para remover todos os remapas de portas do nó. 
 ---
-= Remova os remapas de portas
+= Remover remapeamentos de porta em dispositivos StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -25,6 +25,7 @@ NOTE: Se o remapeamento da porta fornecer acesso ao cliente, reconfigure o clien
 NOTE: Este procedimento não funciona para um sistema StorageGRID implantado como um contentor em hosts de metal nu. Consulte as instruções para link:removing-port-remaps-on-bare-metal-hosts.html["remoção de remapas de portas em hosts bare metal"].
 
 .Passos
+. O acesso SSH externo é bloqueado por padrão.  Se necessário,link:../admin/manage-external-ssh-access.html["permitir acesso temporariamente"] .
 . Faça login no nó.
 +
 .. Introduza o seguinte comando: `ssh -p 8022 admin@node_IP`
@@ -43,4 +44,5 @@ Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
 . Reinicie o nó: `reboot`
 . Faça logout do shell de comando: `exit`
 . Repita estas etapas em cada nó de administração e nó de gateway que tenha portas remapeadas conflitantes.
+. Se você permitiu acesso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear acesso"] quando você terminar de remover os remapeamentos de portas.
 

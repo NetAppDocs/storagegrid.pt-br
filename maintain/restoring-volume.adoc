@@ -20,7 +20,7 @@ Você pode restaurar dados de objeto para um volume de armazenamento ou nó de a
 ** link:../maintain/remounting-and-reformatting-storage-volumes-manual-steps.html["Remontagem e reformatação de volumes de storage (etapas manuais)"]
 
 
-* Você confirmou que o nó de armazenamento onde você está restaurando objetos tem um estado de conexão de *Connected* image:../media/icon_alert_green_checkmark.png["marca de verificação verde de alerta do ícone"]na guia *NODES* > *Overview* no Gerenciador de Grade.
+* Você confirmou que o nó de armazenamento onde você está restaurando objetos tem um estado de conexão de *Conectado*image:../media/icon_alert_green_checkmark.png["marca de verificação verde de alerta do ícone"] na aba *Nós* > *Visão geral* no Gerenciador de grade.
 * Você confirmou o seguinte:
 +
 ** Uma expansão de grade para adicionar um nó de storage não está em processo.
@@ -34,11 +34,11 @@ Você pode restaurar dados de objeto para um volume de armazenamento ou nó de a
 
 
 .Sobre esta tarefa
-Depois de substituir as unidades e executar as etapas manuais para formatar os volumes, o Gerenciador de Grade exibe os volumes como candidatos para restauração na guia *MAINTENANCE* > *volume restoration* > *Nodes to restore*.
+Depois de substituir as unidades e executar as etapas manuais para formatar os volumes, o Grid Manager exibe os volumes como candidatos para restauração na guia *Manutenção* > *Restauração de volume* > *Nós para restaurar*.
 
 Sempre que possível, restaure os dados do objeto usando a página de restauração de volume no Gerenciador de Grade. Você pode <<enable-auto-restore-mode,ativar o modo de restauração automática>>iniciar automaticamente a restauração de volume quando os volumes estiverem prontos para serem restaurados ou <<manually-restore,realize manualmente a restauração do volume>>. Siga estas diretrizes:
 
-* Se os volumes estiverem listados em *MAINTENANCE* > *volume restoration* > *nodes to restore*, restaure os dados do objeto conforme descrito nas etapas abaixo. Os volumes serão listados se:
+* Se os volumes estiverem listados em *Manutenção* > *Restauração de volume* > *Nós a serem restaurados*, restaure os dados do objeto conforme descrito nas etapas abaixo.  Os volumes serão listados se:
 +
 ** Alguns, mas não todos, volumes de armazenamento em um nó falharam
 ** Todos os volumes de storage em um nó falharam e estão sendo substituídos pelo mesmo número de volumes ou mais volumes
@@ -87,7 +87,7 @@ NOTE: A restauração de volume depende da disponibilidade de recursos onde as c
 Quando ativa o modo de restauro automático, a restauração do volume é iniciada automaticamente quando os volumes estão prontos para serem restaurados.
 
 .Passos
-. No Grid Manager, vá para *MAINTENANCE* > *volume restoration*.
+. No Grid Manager, vá para *Manutenção* > *Restauração de volume*.
 . Selecione a guia *nós a restaurar* e deslize a alternância para *modo de restauração automática* para a posição ativada.
 . Quando a caixa de diálogo de confirmação for exibida, revise os detalhes.
 +
@@ -113,7 +113,7 @@ Você pode desativar o modo de restauração automática a qualquer momento.
 Siga estas etapas para restaurar um volume ou nó com falha.
 
 .Passos
-. No Grid Manager, vá para *MAINTENANCE* > *volume restoration*.
+. No Grid Manager, vá para *Manutenção* > *Restauração de volume*.
 . Selecione a guia *nós a restaurar* e deslize a alternância para *modo de restauração automática* para a posição desativada.
 +
 O número na guia indica o número de nós com volumes que exigem restauração.

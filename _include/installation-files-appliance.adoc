@@ -2,6 +2,9 @@
 :allow-uri-read: 
 
 
+
+NOTE: Para instalação do dispositivo, esses arquivos são necessários somente se você precisar evitar tráfego de rede.  O dispositivo pode baixar os arquivos necessários do nó de administração onde você executa o procedimento de recuperação.
+
 [cols="1a,1a"]
 |===
 | Caminho e nome do arquivo | Descrição 
@@ -17,5 +20,3 @@ MD5 checksum para o arquivo `/debs/storagegridwebscale-
 images-version-SHA.deb`.
 
 |===
-
-NOTE: Para a instalação do dispositivo, esses arquivos só são necessários se você precisar evitar o tráfego de rede. O dispositivo pode baixar os arquivos necessários do nó de administração principal.

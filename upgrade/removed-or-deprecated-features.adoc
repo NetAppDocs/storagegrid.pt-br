@@ -103,7 +103,7 @@ Mecanismo de contêiner do Docker
  a| 
 A DETERMINAR
  a| 
-O suporte para Docker como o mecanismo de contentor para implantações somente de software está obsoleto. O Docker será substituído por outro mecanismo de contentor em uma versão futura. Consulte a link:../ubuntu/software-requirements.html#docker-versions-tested["Lista de versões do Docker atualmente suportadas"].
+O suporte ao Docker como mecanismo de contêiner para implantações somente de software está obsoleto.  O Docker será substituído por outro mecanismo de contêiner em uma versão futura.  Consulte olink:../swnodes/software-requirements.html["requisitos de software para nós baseados em software"] para obter uma lista de versões do Docker atualmente suportadas.
 
 
 
@@ -117,6 +117,18 @@ Exportação de auditoria NFS
 12,0
  a| 
 https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-audit-client-access.html["Configurar acesso de cliente de auditoria para NFS (StorageGRID 11,8)"^]
+
+
+
+ a| 
+Remapeamento de portas
+ a| 
+12,0
+ a| 
+12,1
+ a| 
+12,2
+ a| 
 
 
 

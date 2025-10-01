@@ -8,8 +8,8 @@
 
 Sempre que possível, restaure os dados do objeto usando a página *Restauração de volume* no Gerenciador de Grade.
 
-* Se os volumes estiverem listados em *MAINTENANCE* > *volume restoration* > *nodes to restore*, restaure os dados do objeto usando o link:../maintain/restoring-volume.html["Página de restauração de volume no Gerenciador de Grade"].
-* Se os volumes não estiverem listados em *MAINTENANCE* > *volume restoration* > *nodes to restore*, siga as etapas abaixo para usar o `repair-data` script para restaurar os dados do objeto.
+* Se os volumes estiverem listados em *Manutenção* > *Restauração de volume* > *Nós a serem restaurados*, restaure os dados do objeto usando olink:../maintain/restoring-volume.html["Página de restauração de volume no Gerenciador de Grade"] .
+* Se os volumes não estiverem listados em *Manutenção* > *Restauração de volume* > *Nós para restaurar*, siga as etapas abaixo para usar o `repair-data` script para restaurar dados do objeto.
 +
 Se o nó de armazenamento recuperado contiver menos volumes do que o nó que está substituindo, você deve usar o `repair-data` script.
 
@@ -23,7 +23,7 @@ NOTE: O script repair-data está obsoleto e será removido em uma versão futura
 == Use o `repair-data` script para restaurar dados de objeto
 
 .Antes de começar
-* Você confirmou que o nó de armazenamento recuperado tem um estado de conexão de *Connected* image:../media/icon_alert_green_checkmark.png["marca de verificação verde de alerta do ícone"]na guia *NODES* > *Overview* no Gerenciador de Grade.
+* Você confirmou que o nó de armazenamento recuperado tem um estado de conexão de *Conectado*image:../media/icon_alert_green_checkmark.png["marca de verificação verde de alerta do ícone"] na aba *Nós* > *Visão geral* no Gerenciador de grade.
 
 
 .Sobre esta tarefa

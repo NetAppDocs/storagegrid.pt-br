@@ -24,7 +24,7 @@ Para usar o assistente de configuração do FabricPool para concluir esta tarefa
 
 
 .Passos
-. Selecione *CONFIGURATION* > *Network* > *Load balancer endpoints*.
+. Selecione *Configuração* > *Rede* > *Pontos de extremidade do balanceador de carga*.
 . Selecione *criar*.
 . Para a etapa *Digite os detalhes do endpoint*, preencha os campos a seguir.
 +

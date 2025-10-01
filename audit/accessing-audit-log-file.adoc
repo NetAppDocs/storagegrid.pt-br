@@ -13,6 +13,8 @@ summary: O compartilhamento de auditoria contém o arquivo audit.log ativo e tod
 [role="lead"]
 O compartilhamento de auditoria contém o arquivo ativo `audit.log` e todos os arquivos de log de auditoria compatados. Você pode acessar arquivos de log de auditoria diretamente da linha de comando do nó Admin.
 
+O `audit.log` o arquivo permanece vazio, a menos que você configure o StorageGRID para *Nós de administração/nós locais* ou *Nó de administração e servidor syslog externo*. Para mais informações, consulte link:../monitor/configure-log-management.html#select-log-location["Selecione o local do log"] .
+
 .Antes de começar
 * Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
 * Tem de ter o `Passwords.txt` ficheiro.
@@ -33,7 +35,7 @@ Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
 
 . Vá para o diretório que contém os arquivos de log de auditoria:
 +
-`cd /var/local/log`
+`cd  /var/local/audit/export/`
 
 . Visualize o ficheiro de registo de auditoria atual ou guardado, conforme necessário.
 

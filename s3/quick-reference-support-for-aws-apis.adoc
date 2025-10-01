@@ -784,7 +784,7 @@ link:operations-on-buckets.html["Operações em baldes"]
 O StorageGRID oferece suporte a tudo <<common-params,parâmetros e cabeçalhos comuns>> para essa solicitação.
 
 .Corpo do pedido
-Para obter detalhes sobre os campos de corpo JSON suportados, link:bucket-and-group-access-policies.html["Use políticas de acesso de grupo e bucket"]consulte .
+Para obter detalhes sobre os campos de corpo JSON suportados, consultelink:use-access-policies.html["Use políticas de acesso de grupo e bucket"] .
 
 
 

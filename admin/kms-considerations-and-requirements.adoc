@@ -35,7 +35,7 @@ Você deve garantir que cada nó de dispositivo que usa criptografia de nó tenh
 
 As comunicações entre os nós do dispositivo e o KMS configurado usam conexões TLS seguras. O StorageGRID pode dar suporte ao protocolo TLS 1,2 ou TLS 1,3 quando faz conexões KMIP a um cluster KMS ou KMS, com base no suporte do KMS e no qual link:manage-tls-ssh-policy.html["Política TLS e SSH"] você está usando.
 
-O StorageGRID negocia o protocolo e a cifra (TLS 1,2) ou conjunto de cifra (TLS 1,3) com o KMS quando faz a conexão. Para ver quais versões de protocolo e conjuntos de cifras/cifras estão disponíveis, consulte `tlsOutbound` a seção da política TLS e SSH ativa da grade (*CONFIGURATION* > *Security* *Security* *Security* *Security settings*).
+O StorageGRID negocia o protocolo e a cifra (TLS 1.2) ou conjunto de cifras (TLS 1.3) com o KMS quando faz a conexão.  Para ver quais versões de protocolo e cifras/conjuntos de cifras estão disponíveis, revise o `tlsOutbound` seção da política TLS e SSH ativa da grade (*Configuração* > *Segurança* *Configurações de segurança*).
 
 
 

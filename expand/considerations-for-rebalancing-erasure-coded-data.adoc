@@ -26,9 +26,9 @@ O procedimento de reequilíbrio CE:
 * Move apenas dados de objetos codificados por apagamento. Ele não move dados de objetos replicados.
 * Redistribui os dados em um local. Ele não move dados entre sites.
 * Redistribui dados entre todos os nós de storage em um local. Ele não redistribui dados dentro de volumes de storage.
-* Não considera o uso de dados replicados em cada nó de storage ao determinar para onde mover dados codificados por apagamento.
-* Redistribui uniformemente os dados codificados por apagamento entre os nós de storage, sem considerar as capacidades relativas de cada nó.
-* Não distribuirá dados codificados por apagamento para nós de storage que estejam mais de 80% cheios.
+* Tenta distribuir o mesmo número de bytes para cada nó.  Os nós que contêm mais dados replicados armazenarão menos dados codificados por eliminação após a conclusão do rebalanceamento.
+* Redistribui dados codificados para eliminação uniformemente entre os nós de armazenamento sem considerar as capacidades relativas de cada nó.  Dados replicados são incluídos no cálculo.
+* Não distribuirá dados codificados para eliminação para nós de armazenamento que estejam mais de 80% cheios.
 * Pode diminuir o desempenho das operações ILM e das operações de cliente S3 quando executa& n.o 8212;recursos adicionais são necessários para redistribuir os fragmentos de codificação de apagamento.
 
 
@@ -39,7 +39,7 @@ Quando o procedimento de reequilíbrio CE estiver concluído:
 * Os valores usados (%) podem ser diferentes entre nós de storage por dois motivos:
 +
 ** As cópias de objetos replicadas continuarão a consumir espaço nos nós existentes& n.o 8212; o procedimento de rebalanceamento EC não move dados replicados.
-** Os nós de maior capacidade ficarão relativamente menos cheios do que os nós de menor capacidade, mesmo que todos os nós acabem com aproximadamente a mesma quantidade de dados codificados por apagamento.
+** Nós de maior capacidade estarão relativamente menos cheios do que nós de menor capacidade, mesmo que todos os nós acabem com aproximadamente a mesma quantidade de dados.
 +
 Por exemplo, suponha que três nós de 200 TB estejam preenchidos a 80% (200 e 215; 0,8: 160 TB em cada nó ou 480 TB para o local). Se você adicionar um nó de 400 TB e executar o procedimento de rebalancear, todos os nós agora terão aproximadamente a mesma quantidade de dados de código de apagamento (480/4: 120 TB). No entanto, o usado (%) para o nó maior será menor do que o usado (%) para os nós menores.
 
@@ -53,6 +53,10 @@ image::../media/used_space_with_larger_node.png[Espaço usado antes da expansão
 
 
 == Quando rebalancear os dados codificados por apagamento
+
+O procedimento de rebalanceamento do EC redistribui os dados codificados para eliminação existentes para garantir que os nós não fiquem ou permaneçam cheios.  O procedimento ajuda a garantir que a codificação EC possa continuar no site.
+
+Execute o procedimento de rebalanceamento quando houver um viés preocupante na distribuição de dados em um site e o site armazenar principalmente dados EC (já que os dados replicados não podem ser movidos pelo rebalanceamento).
 
 Considere o seguinte cenário:
 

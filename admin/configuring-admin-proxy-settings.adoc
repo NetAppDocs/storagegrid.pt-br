@@ -24,7 +24,7 @@ Para obter mais informações sobre o AutoSupport, link:configure-autosupport-gr
 Você pode configurar as configurações para um único proxy de administrador.
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Proxy settings*.
+. Selecione *Configuração* > *Segurança* > *Configurações de proxy*.
 +
 A página Configurações de proxy é exibida. Por padrão, o armazenamento é selecionado no menu de guias.
 

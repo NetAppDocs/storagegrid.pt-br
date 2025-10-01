@@ -91,9 +91,11 @@ Para adicionar interfaces de tronco ou acesso, consulte o seguinte:
 
 * *VMware (após a instalação do nó)*: link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["VMware: Adicione interfaces de tronco ou acesso a um nó"]
 +
-** *Red Hat Enterprise Linux (antes de instalar o nó)*: link:../rhel/creating-node-configuration-files.html["Criar arquivos de configuração de nó"]
-** * Ubuntu ou Debian (antes de instalar o nó)*: link:../ubuntu/creating-node-configuration-files.html["Criar arquivos de configuração de nó"]
-** *RHEL, Ubuntu ou Debian (após instalar o nó)*: link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux: Adicione interfaces de tronco ou acesso a um nó"]
+** *Linux (antes de instalar o nó)*:link:../swnodes/creating-node-configuration-files.html["Criar arquivos de configuração de nó"]
+** *Linux (após instalar o nó)*:link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Adicionar interfaces de tronco ou de acesso a um nó"]
 
 
 
+
+
+NOTE: "Linux" refere-se a uma implantação RHEL, Ubuntu ou Debian.  Para obter uma lista de versões suportadas, consulte o https://imt.netapp.com/matrix/#welcome["Ferramenta de Matriz de interoperabilidade NetApp (IMT)"^] .

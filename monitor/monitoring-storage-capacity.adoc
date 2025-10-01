@@ -45,7 +45,7 @@ image::../media/dashboard_storage_over_time.png[Gráfico de armazenamento ao lon
 
 . Use a página nós para obter detalhes adicionais sobre quanto storage foi usado e quanto storage permanece disponível na grade para dados de objetos e metadados de objetos.
 +
-.. Selecione *NODES*.
+.. Selecione *Nós*.
 .. Selecione *_Grid_* > *Storage*.
 +
 image::../media/nodes_deployment_storage_tab.png[Guia de storage de implantação de nós]
@@ -82,7 +82,7 @@ Espaço utilizável é a quantidade de espaço de armazenamento disponível para
 image::../media/calculating_watermarks.gif[Desenho conceitual para espaço total utilizável]
 
 .Passos
-. Selecione *NÓS* > *_Storage Node_* > *Storage*.
+. Selecione *Nós* > *_Nó de armazenamento_* > *Armazenamento*.
 +
 Os gráficos e tabelas para o nó aparecem.
 
@@ -140,7 +140,7 @@ Em alguns casos, a capacidade de metadados de objetos da grade pode ser consumid
 Alguns dos fatores que podem aumentar o uso de metadados incluem o tamanho e a quantidade de metadados e tags do usuário, o número total de peças em um upload de várias partes e a frequência de alterações nos locais de armazenamento de ILM.
 
 .Passos
-. Selecione *NÓS* > *_Storage Node_* > *Storage*.
+. Selecione *Nós* > *_Nó de armazenamento_* > *Armazenamento*.
 . Posicione o cursor sobre o gráfico armazenamento usado - metadados de objetos para ver os valores de um tempo específico.
 +
 image::../media/storage_used_object_metadata.png[Armazenamento usado - metadados Objeto]

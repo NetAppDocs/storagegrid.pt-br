@@ -19,7 +19,7 @@ Ao exibir os detalhes de um grupo, você pode alterar o nome de exibição, as p
 
 
 .Passos
-. Selecione *GERENCIAMENTO DE ACESSO* > *grupos*.
+. Selecione *Gerenciamento de acesso* > *Grupos*.
 . Selecione o nome do grupo cujos detalhes deseja exibir ou editar.
 +
 Em alternativa, pode selecionar *ações* > *Ver detalhes do grupo*.
@@ -44,10 +44,6 @@ Não é possível alterar o nome exclusivo de um grupo. Não é possível editar
 .. Para a política de grupo, faça as alterações apropriadas para o seu locatário do S3.
 +
 *** Se você estiver editando um grupo para um locatário S3, opcionalmente, selecione uma política de grupo S3 diferente. Se você selecionar uma política S3 personalizada, atualize a cadeia de carateres JSON conforme necessário.
-*** Se você estiver editando um grupo para um locatário Swift, opcionalmente marque ou desmarque a caixa de seleção *Administrador Swift*.
-+
-Para obter mais informações sobre a permissão Swift Administrator, consulte as instruções para criar grupos para um locatário Swift.
-
 
 
 .. Opcionalmente, adicione ou remova usuários.
@@ -58,5 +54,4 @@ Para obter mais informações sobre a permissão Swift Administrator, consulte a
 
 .Informações relacionadas
 * link:creating-groups-for-s3-tenant.html["Criar grupos para S3 inquilino"]
-* link:creating-groups-for-swift-tenant.html["Crie grupos para o locatário Swift"]
 

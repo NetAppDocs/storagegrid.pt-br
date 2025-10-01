@@ -21,7 +21,7 @@ O alerta S3 PUT Object Size too large (tamanho do objeto de COLOCAÇÃO muito gr
 Determine quais locatários usam objetos maiores que 5 GiB, para que você possa notificá-los.
 
 .Passos
-. Aceda a *CONFIGURATION* > *Monitoring* > *Audit and syslog Server*.
+. Vá para *Configuração* > *Monitoramento* > *Servidor de auditoria e syslog*.
 . Se as gravações do cliente forem normais, acesse o log de auditoria:
 +
 .. Introduza `ssh admin@_primary_Admin_Node_IP_`
@@ -65,7 +65,7 @@ Servidor syslog externo
 |===
 Dependendo das definições de destino da auditoria, introduza: `cd /var/local/log` Ou `/var/local/audit/export/`
 
-Para saber mais, link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Selecione destinos de informações de auditoria"]consulte .
+Para saber mais, consultelink:../monitor/configure-log-management.html#select-log-location["Selecione o local do log"] .
 
 --
 .. Identifique quais locatários estão usando objetos maiores que 5 GiB.
@@ -116,7 +116,7 @@ audit.log:2023-01-05T18:47:05.525999 [AUDT:[RSLT(FC32):SUCS][CNID(UI64):16729436
 
 . Se as gravações do cliente não forem normais, use o ID do locatário do alerta para identificar o locatário:
 +
-.. Aceda a *SUPPORT* > *Tools* > *Logs*. Colete logs de aplicativos para o nó de armazenamento no alerta. Especifique 15 minutos antes e depois do alerta.
+.. Vá para *Suporte* > *Ferramentas* > *Coleta de logs*.  Colete logs de aplicativos para o nó de armazenamento no alerta.  Especifique 15 minutos antes e depois do alerta. Consulte link:../monitor/collecting-log-files-and-system-data.html["Colete arquivos de log e dados do sistema"] .
 .. Extraia o arquivo e vá `bycast.log` para :
 +
 `/GID<grid_id>_<time_stamp>/<site_node>/<time_stamp>/grid/bycast.log`

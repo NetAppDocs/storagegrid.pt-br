@@ -17,23 +17,23 @@ O uso da federação de identidade torna a configuração de grupos e usuários 
 
 == Configure a federação de identidade para o Grid Manager
 
-Você pode configurar a federação de identidade no Gerenciador de Grade se quiser que os grupos de administração e usuários sejam gerenciados em outro sistema, como ative Directory, Azure ative Directory (Azure AD), OpenLDAP ou Oracle Directory Server.
+Você pode configurar a federação de identidade no Grid Manager se quiser que grupos de administradores e usuários sejam gerenciados em outro sistema, como Active Directory, Microsoft Entra ID, OpenLDAP ou Oracle Directory Server.
 
 .Antes de começar
-* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
-* Você link:admin-group-permissions.html["permissões de acesso específicas"]tem .
-* Você está usando o ative Directory, o Azure AD, o OpenLDAP ou o Oracle Directory Server como provedor de identidade.
+* Você está conectado ao Grid Manager usando umlink:../admin/web-browser-requirements.html["navegador da web suportado"] .
+* Você temlink:admin-group-permissions.html["permissões de acesso específicas"] .
+* Você está usando o Active Directory, o Microsoft Entra ID, o OpenLDAP ou o Oracle Directory Server como provedor de identidade.
 +
 
-NOTE: Se pretender utilizar um serviço LDAP v3 que não esteja listado, contacte o suporte técnico.
+NOTE: Se você quiser usar um serviço LDAP v3 que não esteja listado, entre em contato com o suporte técnico.
 
 * Se você pretende usar o OpenLDAP, você deve configurar o servidor OpenLDAP. <<Diretrizes para configurar um servidor OpenLDAP>>Consulte .
-* Se você planeja habilitar o logon único (SSO), revisou o link:requirements-for-sso.html["requisitos e considerações para logon único"].
+* Se você planeja habilitar o logon único (SSO), você revisou olink:requirements-for-sso.html["requisitos e considerações para logon único"] .
 * Se você planeja usar TLS (Transport Layer Security) para comunicações com o servidor LDAP, o provedor de identidade está usando TLS 1,2 ou 1,3. link:supported-ciphers-for-outgoing-tls-connections.html["Cifras suportadas para conexões TLS de saída"]Consulte .
 
 
 .Sobre esta tarefa
-Você pode configurar uma fonte de identidade para o Gerenciador de Grade se quiser importar grupos de outro sistema, como ative Directory, Azure AD, OpenLDAP ou Oracle Directory Server. Você pode importar os seguintes tipos de grupos:
+Você pode configurar uma fonte de identidade para o Grid Manager se quiser importar grupos de outro sistema, como Active Directory, Microsoft Entra ID, OpenLDAP ou Oracle Directory Server.  Você pode importar os seguintes tipos de grupos:
 
 * Grupos de administração. Os usuários nos grupos de administração podem entrar no Gerenciador de Grade e executar tarefas, com base nas permissões de gerenciamento atribuídas ao grupo.
 * Grupos de usuários de locatários que não usam sua própria fonte de identidade. Os usuários em grupos de inquilinos podem entrar no Gerenciador de inquilinos e executar tarefas, com base nas permissões atribuídas ao grupo no Gerenciador de inquilinos. link:creating-tenant-account.html["Crie uma conta de locatário"]Consulte e link:../tenant/index.html["Use uma conta de locatário"] para obter detalhes.
@@ -44,7 +44,7 @@ Você pode configurar uma fonte de identidade para o Gerenciador de Grade se qui
 === Introduza a configuração
 
 .Passos
-. Selecione *CONFIGURATION* > *access control* > *Identity Federation*.
+. Selecione *Configuração* > *Controle de acesso* > *Federação de identidade*.
 . Selecione *Ativar federação de identidade*.
 . Na secção tipo de serviço LDAP, selecione o tipo de serviço LDAP que pretende configurar.
 +
@@ -55,10 +55,10 @@ Selecione *Other* para configurar valores para um servidor LDAP que use o Oracle
 
 . Se você selecionou *Other*, preencha os campos na seção atributos LDAP. Caso contrário, vá para a próxima etapa.
 +
-** *Nome exclusivo do usuário*: O nome do atributo que contém o identificador exclusivo de um usuário LDAP. Este atributo é equivalente `sAMAccountName` ao ative Directory e `uid` ao OpenLDAP. Se estiver configurando o Oracle Directory Server, digite `uid`.
-** *UUID de usuário*: O nome do atributo que contém o identificador exclusivo permanente de um usuário LDAP. Este atributo é equivalente `objectGUID` ao ative Directory e `entryUUID` ao OpenLDAP. Se estiver configurando o Oracle Directory Server, digite `nsuniqueid`. O valor de cada usuário para o atributo especificado deve ser um número hexadecimal de 32 dígitos no formato de 16 bytes ou string, onde os hífens são ignorados.
-** *Group Unique Name*: O nome do atributo que contém o identificador exclusivo de um grupo LDAP. Este atributo é equivalente `sAMAccountName` ao ative Directory e `cn` ao OpenLDAP. Se estiver configurando o Oracle Directory Server, digite `cn`.
-** *Group UUID*: O nome do atributo que contém o identificador exclusivo permanente de um grupo LDAP. Este atributo é equivalente `objectGUID` ao ative Directory e `entryUUID` ao OpenLDAP. Se estiver configurando o Oracle Directory Server, digite `nsuniqueid`. O valor de cada grupo para o atributo especificado deve ser um número hexadecimal de 32 dígitos no formato de 16 bytes ou string, onde os hífens são ignorados.
+** *Nome exclusivo do usuário*: O nome do atributo que contém o identificador exclusivo de um usuário LDAP.  Este atributo é equivalente a `sAMAccountName` para o Active Directory e `uid` para OpenLDAP.  Se você estiver configurando o Oracle Directory Server, insira `uid` .
+** *UUID do usuário*: O nome do atributo que contém o identificador exclusivo permanente de um usuário LDAP.  Este atributo é equivalente a `objectGUID` para o Active Directory e `entryUUID` para OpenLDAP.  Se você estiver configurando o Oracle Directory Server, insira `nsuniqueid` .  O valor de cada usuário para o atributo especificado deve ser um número hexadecimal de 32 dígitos em formato de 16 bytes ou string, onde hifens são ignorados.
+** *Nome exclusivo do grupo*: O nome do atributo que contém o identificador exclusivo de um grupo LDAP.  Este atributo é equivalente a `sAMAccountName` para o Active Directory e `cn` para OpenLDAP.  Se você estiver configurando o Oracle Directory Server, insira `cn` .
+** *UUID do grupo*: O nome do atributo que contém o identificador exclusivo permanente de um grupo LDAP.  Este atributo é equivalente a `objectGUID` para o Active Directory e `entryUUID` para OpenLDAP.  Se você estiver configurando o Oracle Directory Server, insira `nsuniqueid` .  O valor de cada grupo para o atributo especificado deve ser um número hexadecimal de 32 dígitos em formato de 16 bytes ou string, onde hifens são ignorados.
 
 
 . Para todos os tipos de serviço LDAP, introduza as informações de ligação de rede e servidor LDAP necessárias na secção Configurar servidor LDAP.
@@ -82,7 +82,7 @@ O usuário especificado deve ter permissão para listar grupos e usuários e par
 *** `cn`
 *** `memberOf` ou `isMemberOf`
 *** *Ative Directory*: `objectSid`, `primaryGroupID`, `userAccountControl`, E `userPrincipalName`
-*** *Azure*: `accountEnabled` E. `userPrincipalName`
+*** *ID de entrada*: `accountEnabled` e `userPrincipalName`
 
 
 ** *Senha*: A senha associada ao nome de usuário.
@@ -108,8 +108,8 @@ NOTE: Os valores *Nome exclusivo do usuário* devem ser exclusivos dentro do *DN
 Introduza um destes padrões:
 
 +
-*** *Padrão UserPrincipalName (ative Directory e Azure)*: `[USERNAME]@_example_.com`
-*** * Padrão de nome de logon de nível inferior (ative Directory e Azure)*: `_example_\[USERNAME]`
+*** *Padrão UserPrincipalName (AD e Entra ID)*: `[USERNAME]@_example_.com`
+*** *Padrão de nome de logon de nível inferior (ID do AD e Entra)*: `_example_\[USERNAME]`
 *** * Padrão de nome distinto *: `CN=[USERNAME],CN=Users,DC=_example_,DC=com`
 +
 Inclua *[USERNAME]* exatamente como escrito.
@@ -120,12 +120,12 @@ Inclua *[USERNAME]* exatamente como escrito.
 
 . Na seção Transport Layer Security (TLS), selecione uma configuração de segurança.
 +
-** *Use STARTTLS*: Use STARTTLS para proteger as comunicações com o servidor LDAP. Esta é a opção recomendada para ative Directory, OpenLDAP ou outro, mas esta opção não é suportada para o Azure.
-** *Use LDAPS*: A opção LDAPS (LDAP sobre SSL) usa TLS para estabelecer uma conexão com o servidor LDAP. Você deve selecionar essa opção para o Azure.
-** *Não use TLS*: O tráfego de rede entre o sistema StorageGRID e o servidor LDAP não será protegido. Esta opção não é suportada para o Azure.
+** *Use STARTTLS*: Use STARTTLS para proteger as comunicações com o servidor LDAP.  Esta é a opção recomendada para Active Directory, OpenLDAP ou Outros, mas esta opção não é suportada para o Microsoft Entra ID.
+** *Usar LDAPS*: A opção LDAPS (LDAP sobre SSL) usa TLS para estabelecer uma conexão com o servidor LDAP.  Você deve selecionar esta opção para o Microsoft Entra ID.
+** *Não use TLS*: O tráfego de rede entre o sistema StorageGRID e o servidor LDAP não será protegido.  Esta opção não é suportada pelo Microsoft Entra ID.
 +
 
-NOTE: O uso da opção *não usar TLS* não é suportado se o servidor do ative Directory forçar a assinatura LDAP. Você deve usar STARTTLS ou LDAPS.
+NOTE: O uso da opção *Não usar TLS* não é suportado se o seu servidor Active Directory impõe assinatura LDAP.  Você deve usar STARTTLS ou LDAPS.
 
 
 
@@ -148,7 +148,7 @@ Depois de introduzir todos os valores, tem de testar a ligação antes de poder 
 
 .Passos
 . Selecione *Test Connection*.
-. Se você não forneceu um formato de nome de usuário do BIND:
+. Se você não forneceu um formato de nome de usuário de vinculação:
 +
 ** É apresentada uma mensagem "Test Connection successful" (testar ligação bem-sucedida) se as definições de ligação forem válidas. Selecione *Save* (Guardar) para guardar a configuração.
 ** É apresentada uma mensagem "não foi possível estabelecer ligação de teste" se as definições da ligação forem inválidas. Selecione *Fechar*. Em seguida, resolva quaisquer problemas e teste a conexão novamente.
@@ -190,15 +190,15 @@ NOTE: O alerta *Falha na sincronização da federação de identidade* é aciona
 
 == Desativar a federação de identidade
 
-Você pode desativar temporariamente ou permanentemente a federação de identidade para grupos e usuários. Quando a federação de identidade está desativada, não há comunicação entre o StorageGRID e a fonte de identidade. No entanto, todas as configurações que você configurou são mantidas, permitindo que você reative facilmente a federação de identidade no futuro.
+Você pode desabilitar temporária ou permanentemente a federação de identidade para grupos e usuários.  Quando a federação de identidade está desabilitada, não há comunicação entre o StorageGRID e a origem da identidade.  No entanto, todas as configurações que você definiu serão mantidas, permitindo que você reative facilmente a federação de identidades no futuro.
 
 .Sobre esta tarefa
 Antes de desativar a federação de identidade, você deve estar ciente do seguinte:
 
 * Os utilizadores federados não poderão iniciar sessão.
 * Os usuários federados que estiverem conetados no momento manterão o acesso ao sistema StorageGRID até que sua sessão expire, mas não poderão fazer login depois que sua sessão expirar.
-* A sincronização entre o sistema StorageGRID e a origem da identidade não ocorrerá e os alertas não serão gerados para contas que não tenham sido sincronizadas.
-* A caixa de seleção *Ativar federação de identidade* será desativada se o logon único (SSO) estiver definido como *ativado* ou *modo Sandbox*. O status SSO na página de logon único deve ser *Desabilitado* antes de desativar a federação de identidade. link:../admin/disabling-single-sign-on.html["Desative o logon único"]Consulte .
+* A sincronização entre o sistema StorageGRID e a fonte de identidade não ocorrerá, e alertas não serão gerados para contas que não foram sincronizadas.
+* A caixa de seleção *Habilitar federação de identidade* será desabilitada se o status de logon único (SSO) for *Habilitado* ou *Modo Sandbox*.  O status do SSO na página de logon único deve ser *Desativado* antes que você possa desabilitar a federação de identidades. Ver link:../admin/disabling-single-sign-on.html["Desative o logon único"] .
 
 
 .Passos
@@ -213,7 +213,7 @@ Antes de desativar a federação de identidade, você deve estar ciente do segui
 Se você quiser usar um servidor OpenLDAP para federação de identidade, você deve configurar configurações específicas no servidor OpenLDAP.
 
 
-CAUTION: Para fontes de identidade que não são ActiveDirectory ou Azure, o StorageGRID não bloqueará automaticamente o acesso S3 aos usuários que estão desativados externamente. Para bloquear o acesso S3, exclua quaisquer chaves S3 para o usuário ou remova o usuário de todos os grupos.
+CAUTION: Para fontes de identidade que não sejam o Active Directory ou o Microsoft Entra ID, o StorageGRID não bloqueará automaticamente o acesso ao S3 para usuários desabilitados externamente.  Para bloquear o acesso ao S3, exclua todas as chaves S3 do usuário ou remova o usuário de todos os grupos.
 
 
 

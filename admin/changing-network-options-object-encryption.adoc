@@ -57,7 +57,7 @@ link:summary-ip-addresses-and-ports-for-client-connections.html["Resumo: Endere�
 
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Security settings*.
+. Selecione *Configuração* > *Segurança* > *Configurações de segurança*.
 . Selecione a guia *rede e objetos*.
 . Para criptografia de objetos armazenados, use a configuração *nenhum* (padrão) se você não quiser que objetos armazenados sejam criptografados ou selecione *AES-128* ou *AES-256* para criptografar objetos armazenados.
 . Opcionalmente, selecione *impedir modificação do cliente* se você quiser impedir que clientes S3 façam solicitações específicas.

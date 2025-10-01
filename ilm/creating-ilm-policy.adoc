@@ -53,13 +53,11 @@ NOTE: Se o link:enabling-s3-object-lock-globally.html["A definição Global S3 O
 
 --
 ====
-* Opcionalmente, você assistiu ao vídeo: https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e768d4da-da88-413c-bbaa-b1ff00874d10["Vídeo: Visão geral das políticas do ILM"^]
-+
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e768d4da-da88-413c-bbaa-b1ff00874d10]
-image::../media/video-screenshot-ilm-policies-118.png[Vídeo: Visão geral das políticas do ILM]
+* Opcionalmente, você assistiu ao vídeo:
 
 
-
+.Visão geral das políticas do ILM
+video::e768d4da-da88-413c-bbaa-b1ff00874d10[panopto]
 Consulte também link:ilm-policy-overview.html["Use políticas ILM"].
 
 .Passos
@@ -255,10 +253,10 @@ Alternativamente, você pode ativar uma única política na página *ILM* > *Pol
 --
 .Ative várias políticas
 --
-Para ativar várias políticas, você deve criar tags e atribuir uma política a cada tag.
+Para ativar várias políticas, você deve criar tags de política e atribuir uma política a cada tag.  Você pode criar no máximo 10 tags de política para sua grade.
 
 
-TIP: Quando várias tags estão em uso, se os locatários frequentemente reatribuírem tags de política a buckets, o desempenho da grade pode ser afetado. Se você tiver locatários não confiáveis, considere usar apenas a tag padrão.
+TIP: Quando várias tags de política estão em uso, se os locatários reatribuírem frequentemente tags de política aos buckets, o desempenho da grade poderá ser afetado.  Se você tiver locatários não confiáveis, considere usar apenas a tag de política Padrão.
 
 . Selecione *ILM* > *Policy tags*.
 . Selecione *criar*.

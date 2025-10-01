@@ -49,7 +49,7 @@ Acesso apenas ao Gestor do Locatário
 
 
  a| 
-Acesso ao cliente S3 -- Serviço de Load Balancer
+Acesso do cliente S3 - Serviço de balanceador de carga
  a| 
 * Nós de administração
 * Nós de gateway

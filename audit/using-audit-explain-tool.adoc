@@ -48,7 +48,7 @@ A `audit-explain` ferramenta pode fazer o seguinte:
 `audit-explain audit.log 2019-08-12.txt.gz 2019-08-13.txt.gz`
 
 +
-`audit-explain /var/local/log/*`
+`audit-explain /var/local/audit/export/*`
 
 * Aceite a entrada de um pipe, que permite filtrar e pré-processar a entrada usando o `grep` comando ou outros meios. Por exemplo:
 +
@@ -84,9 +84,9 @@ Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
 
 
 
-. Digite o seguinte comando, onde `/var/local/log/audit.log` representa o nome e a localização do arquivo ou arquivos que você deseja analisar:
+. Digite o seguinte comando, onde `/var/local/audit/export/audit.log` representa o nome e o local do arquivo ou arquivos que você deseja analisar:
 +
-`$ audit-explain /var/local/log/audit.log`
+`$ audit-explain /var/local/audit/export/audit.log`
 
 +
 A `audit-explain` ferramenta imprime interpretações humanamente legíveis de todas as mensagens no arquivo ou arquivos especificados.

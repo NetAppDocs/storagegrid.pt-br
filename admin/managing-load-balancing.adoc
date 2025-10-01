@@ -38,7 +38,7 @@ Como prática recomendada geral, cada local no seu sistema StorageGRID deve incl
 
 Um ponto de extremidade do balanceador de carga define a porta e o protocolo de rede (HTTPS ou HTTP) que as solicitações de aplicativos de cliente de entrada e saída usarão para acessar os nós que contêm o serviço Load Balancer. O endpoint também define o tipo de cliente (S3), o modo de encadernação e, opcionalmente, uma lista de inquilinos permitidos ou bloqueados.
 
-Para criar um ponto de extremidade do balanceador de carga, selecione *CONFIGURATION* > *Network* > *Load balancer endpoints* ou conclua o assistente de configuração do FabricPool e do S3. Para obter instruções:
+Para criar um ponto de extremidade do balanceador de carga, use o Grid Manager ou conclua os assistentes de configuração do S3 e do FabricPool :
 
 * link:configuring-load-balancer-endpoints.html["Configurar pontos de extremidade do balanceador de carga"]
 * link:use-s3-setup-wizard-steps.html["Utilize o assistente de configuração S3"]
@@ -47,11 +47,87 @@ Para criar um ponto de extremidade do balanceador de carga, selecione *CONFIGURA
 
 
 
+=== Considerações sobre o cache do balanceador de carga
+
+O armazenamento em cache melhora significativamente o desempenho quando uma carga de trabalho opera em um subconjunto de dados e acessa objetos várias vezes.  Além disso, o armazenamento em cache fornece acesso remoto ao armazenamento de objetos sem uma implantação de grade completa.  O cache do balanceador de carga está disponível somente para nós de gateway.
+
+Ao criar endpoints do balanceador de carga:
+
+* Habilite o cache somente para cargas de trabalho que podem ser armazenadas em cache.  Cargas de trabalho que acessam dados não armazenados em cache com mais frequência do que dados armazenados em cache terão desempenho pior do que se não tivessem sido atendidas pelo cache.  Em alguns casos, cargas de trabalho com altas taxas de substituição e remoção também podem exceder a resistência de gravação de unidade garantida.
+* Considere adicionar pontos de extremidade ou nós adicionais para armazenar em cache cargas de trabalho individuais que sejam bons candidatos para armazenamento em cache.
+* Use pontos de extremidade distintos para cargas de trabalho armazenáveis em cache e não armazenáveis em cache.  Essa separação garante que os mecanismos de cache sejam aplicados adequadamente e não interfiram no processamento de dados não armazenáveis em cache.
+* Avalie uma carga de trabalho potencialmente armazenável em cache direcionando-a para o ponto de extremidade habilitado para cache.  Monitore e verifique a taxa de acertos do cache para determinar a adequação da carga de trabalho para armazenamento em cache.  Essa avaliação ajuda a otimizar o desempenho e garantir o uso eficiente dos recursos de cache.
+* link:../audit/index.html["Rever registos de auditoria"]para determinar se uma carga de trabalho existente seria uma boa candidata para armazenamento em cache.  Para um determinado período de tempo, determine qual porcentagem de GETs são para objetos exclusivos.  Para ser adequado para armazenamento em cache, esse valor deve estar abaixo de 50%.
+
+
+
+
+==== Exemplos de cargas de trabalho que podem ser boas candidatas para armazenamento em cache
+
+* Lagos de dados
+* Computação de alto desempenho (HPC)
+* Treinamento de IA/ML
+* Redes de Distribuição de Conteúdo (CDN)
+* Gestão de ativos de mídia
+* Produção de vídeo
+
+
+[NOTE]
+====
+* Várias versões de objetos podem ser armazenadas em cache.
+* Operações de leitura de intervalo são suportadas.
+
+
+====
+
+
+==== Exemplos de cargas de trabalho que não são boas candidatas para armazenamento em cache
+
+* Piscina de Tecido
+* Aplicativos de backup
+* Camadas de armazenamento
+
+
+
+CAUTION: Se qualquer conteúdo a ser servido pelo cache exigir criptografia em repouso, https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-enabling-node-encryption.html["habilitar criptografia de nó ou unidade"^] no nó de cache.
+
+
+
+==== Tipos de objetos e solicitações que não serão armazenados em cache
+
+* O `response-content-encoding` parâmetro de consulta
+* O `partNumber` parâmetro de consulta
+* Cabeçalhos condicionais
++
+** `If-Match`
+** `If-Modified-Since`
+** `If-None-Match`
+** `If-Unmodified-Since`
+
+
+* Solicitações que foram criptografadas em repouso com qualquer um dos seguintes:
++
+** SSE (criptografia do lado do servidor com chaves gerenciadas StorageGRID)
+** SSE-C (criptografia do lado do servidor com chaves fornecidas pelo cliente)
+** Criptografia de objeto armazenado
+
+
+
+
+Quaisquer solicitações que não sejam armazenadas em cache são encaminhadas para um LDR upstream como se o cache não estivesse habilitado.
+
+.Informações relacionadas
+* link:../troubleshoot/troubleshooting-load-balancer-caching.html["Solucionar problemas de cache do balanceador de carga"]
+* Para obter mais informações sobre o cache do balanceador de carga, entre em contato com o suporte técnico.
+
+
+
+
 === Considerações para a porta
 
 A porta de um ponto de extremidade do balanceador de carga é padrão para 10433 para o primeiro ponto de extremidade criado, mas você pode especificar qualquer porta externa não utilizada entre 1 e 65535. Se você usar a porta 80 ou 443, o endpoint usará o serviço Load Balancer somente nos nós do Gateway. Essas portas são reservadas em nós de administração. Se você usar a mesma porta para mais de um endpoint, você deve especificar um modo de encadernação diferente para cada endpoint.
 
-As portas usadas por outros serviços de grade não são permitidas. Consulte link:../network/network-port-reference.html["Referência da porta de rede"].
+Portas usadas por outros serviços de rede não são permitidas. Ver link:../network/internal-grid-node-communications.html#storagegrid-internal-ports["Portas internas do StorageGRID"] .
 
 
 

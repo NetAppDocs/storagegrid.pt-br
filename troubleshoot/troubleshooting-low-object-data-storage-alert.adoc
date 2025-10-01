@@ -37,7 +37,7 @@ Nesta condição:
 Se um alerta maior ou menor *armazenamento de dados de objeto baixo* for acionado, você deve executar um procedimento de expansão o mais rápido possível.
 
 .Passos
-. Selecione *ALERTAS* > *atual*.
+. Selecione *Alertas* > *Atual*.
 +
 A página Alertas é exibida.
 
@@ -53,7 +53,7 @@ NOTE: Selecione o alerta e não o cabeçalho de um grupo de alertas.
 ** Os valores atuais das métricas para este alerta
 
 
-. Selecione *NÓS* > *_Storage Node ou Site_* > *Storage*.
+. Selecione *Nós* > *_Nó ou Site de Armazenamento_* > *Armazenamento*.
 . Posicione o cursor sobre o gráfico armazenamento usado - dados do objeto.
 +
 São apresentados os seguintes valores:

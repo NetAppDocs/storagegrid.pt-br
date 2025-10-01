@@ -25,7 +25,7 @@ As contas de inquilino podem ser usadas para segregar objetos armazenados por di
 * * Caso de uso corporativo:* se você estiver administrando um sistema StorageGRID em um aplicativo corporativo, talvez queira separar o armazenamento de objetos da grade pelos diferentes departamentos da sua organização. Nesse caso, você pode criar contas de inquilino para o departamento de marketing, o departamento de suporte ao cliente, o departamento de recursos humanos e assim por diante.
 +
 
-NOTE: Se você usar o protocolo cliente S3, poderá usar buckets e políticas de bucket do S3 para segregar objetos entre os departamentos de uma empresa. Você não precisa usar contas de locatário. Consulte as instruções de implementação link:../s3/bucket-and-group-access-policies.html["Buckets e políticas de buckets do S3"] para obter mais informações.
+NOTE: Se você usar o protocolo de cliente S3, poderá usar buckets e políticas de bucket do S3 para segregar objetos entre os departamentos de uma empresa.  Você não precisa usar contas de inquilino.  Veja as instruções para implementaçãolink:../s3/use-access-policies.html["Buckets e políticas de buckets do S3"] para mais informações.
 
 * * Caso de uso do provedor de serviços:* se você estiver administrando um sistema StorageGRID como provedor de serviços, você pode segregar o armazenamento de objetos da grade pelas diferentes entidades que alugarão o armazenamento em sua grade. Neste caso, você criaria contas de inquilino para a empresa A, empresa B, empresa C e assim por diante.
 

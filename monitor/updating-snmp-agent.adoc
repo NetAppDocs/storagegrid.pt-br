@@ -22,7 +22,7 @@ Você pode desativar notificações SNMP, atualizar strings da comunidade ou adi
 Consulte link:configuring-snmp-agent.html["Configure o agente SNMP"] para obter detalhes sobre cada campo na página do agente SNMP. Você deve selecionar *Salvar* na parte inferior da página para confirmar as alterações feitas em cada guia.
 
 .Passos
-. Selecione *CONFIGURATION* > *Monitoring* > *SNMP Agent*.
+. Selecione *Configuração* > *Monitoramento* > *Agente SNMP*.
 +
 A página do agente SNMP é exibida.
 

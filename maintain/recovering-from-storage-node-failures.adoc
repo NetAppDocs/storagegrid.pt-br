@@ -22,15 +22,11 @@ Use esta tabela para selecionar o procedimento de recuperação para um nó de a
 
  a| 
 * Mais de um nó de storage falhou.
-* Um segundo nó de storage falhou menos de 15 dias após uma falha ou recuperação do nó de storage.
-+
-Isso inclui o caso em que um nó de storage falha enquanto a recuperação de outro nó de storage ainda está em andamento.
-
 
  a| 
 Entre em Contato com o suporte técnico.
  a| 
-A recuperação de mais de um nó de storage (ou mais de um nó de storage em 15 dias) pode afetar a integridade do banco de dados Cassandra, o que pode causar perda de dados.
+Recuperar mais de um nó de armazenamento pode afetar a integridade do banco de dados Cassandra, o que pode causar perda de dados.
 
 O suporte técnico pode determinar quando é seguro iniciar a recuperação de um segundo nó de armazenamento.
 

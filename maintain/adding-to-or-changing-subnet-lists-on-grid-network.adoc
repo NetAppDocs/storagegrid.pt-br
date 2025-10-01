@@ -43,6 +43,7 @@ Por exemplo, não use os seguintes intervalos de sub-rede para a Rede de grade, 
 
 ====
 .Passos
+. O acesso SSH externo é bloqueado por padrão.  Se necessário,link:../admin/manage-external-ssh-access.html["permitir acesso temporariamente"] .
 . Faça login no nó de administração principal:
 +
 .. Introduza o seguinte comando: `ssh admin@_primary_Admin_Node_IP_`
@@ -149,7 +150,7 @@ Se você não sabia que as alterações propostas exigem que os nós sejam reini
 
 
 +
-Depois de aplicar ou alterar o estágio, um novo pacote de recuperação é gerado como resultado da alteração de configuração da grade.
+Depois de aplicar ou preparar as alterações, um novo pacote de recuperação é gerado como resultado da alteração na configuração da grade.
 
 . Se a configuração for interrompida devido a erros, as seguintes opções estarão disponíveis:
 +
@@ -162,14 +163,15 @@ A operação com falha pode ser tentada mais tarde selecionando a opção *10* (
 ** Se você teve que intervir manualmente (para reinicializar um nó, por exemplo) e está confiante de que a ação que a ferramenta acha que falhou foi realmente concluída com sucesso, digite *f* para marcá-lo como bem-sucedido e passar para a próxima operação.
 
 
-. Faça o download de um novo Pacote de recuperação do Gerenciador de Grade.
+. Baixe um novo pacote de recuperação do Grid Manager.
 +
-.. Selecione *MAINTENANCE* > *System* > *Recovery package*.
+.. Selecione *Manutenção* > *Sistema* > *Pacote de recuperação*.
 .. Introduza a frase-passe de aprovisionamento.
 
 
 +
 
-CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID.
+CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID .
 
+. Se você permitiu acesso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear acesso"] quando terminar de adicionar ou alterar as listas de sub-redes.
 

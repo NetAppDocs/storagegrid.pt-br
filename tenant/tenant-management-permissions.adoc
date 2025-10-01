@@ -24,7 +24,7 @@ Para todas as permissões, a configuração do modo de acesso do grupo determina
 
 NOTE: Se um usuário pertencer a vários grupos e qualquer grupo estiver definido como somente leitura, o usuário terá acesso somente leitura a todas as configurações e recursos selecionados.
 
-Pode atribuir as seguintes permissões a um grupo. Observe que S3 locatários e locatários Swift têm permissões de grupo diferentes.
+Você pode atribuir as seguintes permissões a um grupo.
 
 [cols="1a,3a,3a"]
 |===
@@ -36,16 +36,6 @@ Acesso à raiz
  a| 
 Fornece acesso total ao Gerenciador do Locatário e à API de Gerenciamento do Locatário.
  a| 
-Os usuários Swift devem ter permissão de acesso root para entrar na conta do locatário.
-
-
-
- a| 
-Administrador
- a| 
-Apenas inquilinos Swift. Fornece acesso total aos contentores e objetos Swift para essa conta de locatário
- a| 
-Os usuários Swift devem ter a permissão Swift Administrator para executar qualquer operação com a SWIFT REST API.
 
 
 
@@ -61,30 +51,22 @@ Os utilizadores que não têm esta permissão não veem a opção de menu *STORA
  a| 
 Veja todos os baldes
  a| 
-*S3 locatários*: Permite que os usuários visualizem todos os buckets e configurações de bucket.
-
-*Swift tenants*: Permite que os usuários do Swift visualizem todos os contentores e configurações de contentores usando a API de Gerenciamento do locatário.
+Permite que os usuários visualizem todos os buckets e configurações de buckets.
  a| 
 Os usuários que não têm a permissão Exibir todos os buckets ou Gerenciar todos os buckets não veem a opção de menu *Buckets*.
 
-Essa permissão é substituída pela permissão Gerenciar todos os buckets. Não afeta as políticas de grupo ou bucket S3 usadas por clientes S3 ou console S3.
-
-Você só pode atribuir essa permissão aos grupos Swift a partir da API de Gerenciamento de Tenant. Não é possível atribuir essa permissão a grupos Swift usando o Gerenciador de Locações.
+Esta permissão é substituída pela permissão Gerenciar todos os buckets.  Não afeta as políticas de grupo ou bucket do S3 usadas pelos clientes do S3 ou pelo Console do S3.
 
 
 
  a| 
 Gerenciar todos os buckets
  a| 
-*S3 inquilinos*: Permite que os usuários usem o Gerenciador do locatário e a API de gerenciamento do locatário para criar e excluir buckets do S3 e gerenciar as configurações de todos os buckets do S3 na conta do locatário, independentemente das políticas de bucket ou grupo do S3.
-
-*Swift tenants*: Permite que usuários Swift controlem a consistência para contentores Swift usando a API de Gerenciamento de inquilinos.
+Permite que os usuários usem o Tenant Manager e a Tenant Management API para criar e excluir buckets do S3 e gerenciar as configurações de todos os buckets do S3 na conta do locatário, independentemente das políticas de grupo ou bucket do S3.
  a| 
 Os usuários que não têm a permissão Exibir todos os buckets ou Gerenciar todos os buckets não veem a opção de menu *Buckets*.
 
-Esta permissão substitui a permissão Exibir todos os buckets. Não afeta as políticas de grupo ou bucket S3 usadas por clientes S3 ou console S3.
-
-Você só pode atribuir essa permissão aos grupos Swift a partir da API de Gerenciamento de Tenant. Não é possível atribuir essa permissão a grupos Swift usando o Gerenciador de Locações.
+Esta permissão substitui a permissão Exibir todos os buckets.  Não afeta as políticas de grupo ou bucket do S3 usadas pelos clientes do S3 ou pelo Console do S3.
 
 
 

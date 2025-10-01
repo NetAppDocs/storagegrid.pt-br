@@ -19,17 +19,7 @@ Depois de recuperar a unidade do sistema para um nó de armazenamento, você dev
 
 
 .Passos
-. Selecione *SUPPORT* > *Tools* > *Grid topology*.
-. Verifique os valores de *nó de armazenamento recuperado* > *LDR* > *armazenamento* > *Estado de armazenamento -- desejado* e *Estado de armazenamento -- atual*.
-+
-O valor de ambos os atributos deve ser Online.
-
-. Se o estado de armazenamento - desejado estiver definido como somente leitura, execute as seguintes etapas:
-+
-.. Clique na guia *Configuração*.
-.. Na lista suspensa *Estado de armazenamento - desejado*, selecione *Online*.
-.. Clique em *aplicar alterações*.
-.. Clique na guia *Visão geral* e confirme se os valores de *Estado de armazenamento -- desejado* e *Estado de armazenamento -- atual* são atualizados para Online.
-
-
+. Selecione *Nós* > *_Nó de Armazenamento_* > *Tarefas*.
+. Se a lista suspensa *Estado de armazenamento* estiver definida como Somente leitura ou Offline, selecione *Online*.
+. Selecione *Guardar*.
 

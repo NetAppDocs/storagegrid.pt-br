@@ -63,3 +63,6 @@ Em alternativa, selecione o nome da etiqueta. A página de detalhes da tag é ex
 
 . Selecione *Sim* para excluir a tag.
 
+
+.Informações relacionadas
+link:creating-ilm-policy.html#activate-ilm-policy["Saiba mais sobre como criar tags de política do ILM"]

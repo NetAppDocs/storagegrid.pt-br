@@ -1,41 +1,8 @@
 ---
 permalink: rhel/overview-of-installation-rest-api.html 
-sidebar: sidebar 
-keywords: installation overview red hat linux 
-summary: O StorageGRID fornece a API de instalação do StorageGRID para executar tarefas de instalação. 
+redirect: storagegrid/swnodes/overview-of-installation-rest-api.html 
 ---
-= API REST de instalação
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-O StorageGRID fornece a API de instalação do StorageGRID para executar tarefas de instalação.
-
-A API usa a plataforma de API de código aberto Swagger para fornecer a documentação da API. O Swagger permite que desenvolvedores e não desenvolvedores interajam com a API em uma interface de usuário que ilustra como a API responde a parâmetros e opções. Esta documentação pressupõe que você esteja familiarizado com as tecnologias da Web padrão e o formato de dados JSON.
-
-
-CAUTION: Todas as operações de API executadas usando a página da Documentação da API são operações ativas. Tenha cuidado para não criar, atualizar ou excluir dados de configuração ou outros dados por engano.
-
-Cada comando REST API inclui o URL da API, uma ação HTTP, quaisquer parâmetros de URL necessários ou opcionais e uma resposta de API esperada.
-
-
-
-== API de instalação do StorageGRID
-
-A API de instalação do StorageGRID só está disponível quando você estiver configurando inicialmente o sistema StorageGRID e se precisar executar uma recuperação do nó de administração principal. A API de instalação pode ser acessada por HTTPS a partir do Gerenciador de Grade.
-
-Para acessar a documentação da API, vá para a página da Web de instalação no nó de administração principal e selecione *Ajuda* > *Documentação da API* na barra de menus.
-
-A API de instalação do StorageGRID inclui as seguintes seções:
-
-* *Config* -- operações relacionadas à versão do produto e versões da API. Você pode listar a versão de lançamento do produto e as principais versões da API suportadas por essa versão.
-* *Grid* -- operações de configuração em nível de grade. Você pode obter e atualizar configurações de grade, incluindo detalhes de grade, sub-redes de rede de grade, senhas de grade e endereços IP de servidor NTP e DNS.
-* *Nodes* -- operações de configuração em nível de nó. Você pode recuperar uma lista de nós de grade, excluir um nó de grade, configurar um nó de grade, exibir um nó de grade e redefinir a configuração de um nó de grade.
-* *Provisão* -- operações de provisionamento. Você pode iniciar a operação de provisionamento e exibir o status da operação de provisionamento.
-* *Recovery* -- operações de recuperação do nó de administração principal. Você pode redefinir informações, carregar o pacote de recuperação, iniciar a recuperação e exibir o status da operação de recuperação.
-* *Recovery-package* -- operações para baixar o Recovery Package.
-* *Sites* -- operações de configuração no nível do local. Você pode criar, exibir, excluir e modificar um site.
-* *Temporary-password* -- operações na senha temporária para proteger a mgmt-api durante a instalação.
 

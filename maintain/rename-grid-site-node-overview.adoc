@@ -29,7 +29,7 @@ Use o procedimento de renomeação para corrigir erros de digitação, implement
 
 A tabela a seguir resume onde nomes de sistema e nomes de exibição são exibidos na interface de usuário do StorageGRID e em arquivos StorageGRID.
 
-[cols="2a,2a,3a"]
+[cols="1a,1a,3a"]
 |===
 | Localização | Nome do sistema | Nome do visor 
 
@@ -55,20 +55,11 @@ Se um item for renomeado, mostrado em vez do nome do sistema nessas localizaçõ
 
 
  a| 
-*NÓS* > *Visão geral* guia para um nó
+*Nós* > guia *Visão geral* para um nó
  a| 
 Sempre apresentado
  a| 
 Mostrado apenas se o item for renomeado
-
-
-
- a| 
-Páginas legadas no Gerenciador de Grade (por exemplo, *SUPORTE* > *topologia de Grade*)
- a| 
-Mostrado
- a| 
-Não apresentado
 
 
 
@@ -99,7 +90,7 @@ Mostrado como o nome principal quando o item é renomeado:
 
 
  a| 
-`Passwords.txt` Arquivo no Pacote de recuperação
+`Passwords.txt`arquivo no pacote de recuperação
  a| 
 Mostrado como `Server Name`
  a| 

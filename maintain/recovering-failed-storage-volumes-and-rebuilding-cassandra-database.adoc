@@ -18,8 +18,8 @@ Você deve executar um script que reformata e remonta o armazenamento em volumes
 * As unidades de sistema no servidor estão intactas.
 * A causa da falha foi identificada e, se necessário, o hardware de armazenamento de substituição já foi adquirido.
 * O tamanho total do armazenamento de substituição é o mesmo que o original.
-* Você verificou que a desativação de um nó de storage não está em andamento ou interrompeu o procedimento de desativação do nó. (No Gerenciador de Grade, selecione *MAINTENANCE* > *Tasks* > *Decommission*.)
-* Você verificou que uma expansão não está em andamento. (No Gerenciador de Grade, selecione *MAINTENANCE* > *Tasks* > *Expansion*.)
+* Você verificou se o descomissionamento do nó de armazenamento não está em andamento ou pausou o procedimento de descomissionamento do nó.  (No Grid Manager, selecione *Manutenção* > *Tarefas* > *Desativação*.)
+* Você verificou que não há nenhuma expansão em andamento.  (No Grid Manager, selecione *Manutenção* > *Tarefas* > *Expansão*.)
 * Você link:reviewing-warnings-about-storage-volume-recovery.html["revisou os avisos sobre a recuperação do volume de armazenamento"]tem .
 
 
@@ -28,7 +28,7 @@ Você deve executar um script que reformata e remonta o armazenamento em volumes
 +
 Não remonte os volumes nesta etapa. O armazenamento é remontado e adicionado em `/etc/fstab` um passo posterior.
 
-. No Gerenciador de Grade, vá para *NÓS* `*appliance Storage Node*` > *hardware*. Na seção StorageGRID Appliance da página, verifique se o modo RAID de armazenamento está funcionando.
+. No Grid Manager, vá para *Nós* > `*appliance Storage Node*` > *Hardware*.  Na seção StorageGRID Appliance da página, verifique se o modo Storage RAID está íntegro.
 . Faça login no nó de storage com falha:
 +
 .. Introduza o seguinte comando: `ssh admin@_grid_node_IP_`
@@ -51,7 +51,7 @@ NOTE: Comentar um volume com falha `/etc/fstab` no arquivo é insuficiente. O vo
 ** Você será solicitado a reconstruir o banco de dados do Cassandra, se necessário.
 +
 *** Reveja os avisos. Se nenhum deles se aplicar, reconstrua o banco de dados Cassandra. Digite: *Y*
-*** Se mais de um nó de armazenamento estiver offline ou se outro nó de armazenamento tiver sido reconstruído nos últimos 15 dias. Digite: *N*
+*** Se mais de um nó de armazenamento estiver offline.  Digite: *n*
 +
 O script sairá sem reconstruir o Cassandra. Entre em Contato com o suporte técnico.
 

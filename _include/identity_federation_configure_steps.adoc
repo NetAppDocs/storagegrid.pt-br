@@ -12,10 +12,10 @@ Selecione *Other* para configurar valores para um servidor LDAP que use o Oracle
 
 . Se você selecionou *Other*, preencha os campos na seção atributos LDAP. Caso contrário, vá para a próxima etapa.
 +
-** *Nome exclusivo do usuário*: O nome do atributo que contém o identificador exclusivo de um usuário LDAP. Este atributo é equivalente `sAMAccountName` ao ative Directory e `uid` ao OpenLDAP. Se estiver configurando o Oracle Directory Server, digite `uid`.
-** *UUID de usuário*: O nome do atributo que contém o identificador exclusivo permanente de um usuário LDAP. Este atributo é equivalente `objectGUID` ao ative Directory e `entryUUID` ao OpenLDAP. Se estiver configurando o Oracle Directory Server, digite `nsuniqueid`. O valor de cada usuário para o atributo especificado deve ser um número hexadecimal de 32 dígitos no formato de 16 bytes ou string, onde os hífens são ignorados.
-** *Group Unique Name*: O nome do atributo que contém o identificador exclusivo de um grupo LDAP. Este atributo é equivalente `sAMAccountName` ao ative Directory e `cn` ao OpenLDAP. Se estiver configurando o Oracle Directory Server, digite `cn`.
-** *Group UUID*: O nome do atributo que contém o identificador exclusivo permanente de um grupo LDAP. Este atributo é equivalente `objectGUID` ao ative Directory e `entryUUID` ao OpenLDAP. Se estiver configurando o Oracle Directory Server, digite `nsuniqueid`. O valor de cada grupo para o atributo especificado deve ser um número hexadecimal de 32 dígitos no formato de 16 bytes ou string, onde os hífens são ignorados.
+** *Nome exclusivo do usuário*: O nome do atributo que contém o identificador exclusivo de um usuário LDAP.  Este atributo é equivalente a `sAMAccountName` para o Active Directory e `uid` para OpenLDAP.  Se você estiver configurando o Oracle Directory Server, insira `uid` .
+** *UUID do usuário*: O nome do atributo que contém o identificador exclusivo permanente de um usuário LDAP.  Este atributo é equivalente a `objectGUID` para o Active Directory e `entryUUID` para OpenLDAP.  Se você estiver configurando o Oracle Directory Server, insira `nsuniqueid` .  O valor de cada usuário para o atributo especificado deve ser um número hexadecimal de 32 dígitos em formato de 16 bytes ou string, onde hifens são ignorados.
+** *Nome exclusivo do grupo*: O nome do atributo que contém o identificador exclusivo de um grupo LDAP.  Este atributo é equivalente a `sAMAccountName` para o Active Directory e `cn` para OpenLDAP.  Se você estiver configurando o Oracle Directory Server, insira `cn` .
+** *UUID do grupo*: O nome do atributo que contém o identificador exclusivo permanente de um grupo LDAP.  Este atributo é equivalente a `objectGUID` para o Active Directory e `entryUUID` para OpenLDAP.  Se você estiver configurando o Oracle Directory Server, insira `nsuniqueid` .  O valor de cada grupo para o atributo especificado deve ser um número hexadecimal de 32 dígitos em formato de 16 bytes ou string, onde hifens são ignorados.
 
 
 . Para todos os tipos de serviço LDAP, introduza as informações de ligação de rede e servidor LDAP necessárias na secção Configurar servidor LDAP.
@@ -39,7 +39,7 @@ O usuário especificado deve ter permissão para listar grupos e usuários e par
 *** `cn`
 *** `memberOf` ou `isMemberOf`
 *** *Ative Directory*: `objectSid`, `primaryGroupID`, `userAccountControl`, E `userPrincipalName`
-*** *Azure*: `accountEnabled` E. `userPrincipalName`
+*** *ID de entrada*: `accountEnabled` e `userPrincipalName`
 
 
 ** *Senha*: A senha associada ao nome de usuário.
@@ -65,8 +65,8 @@ NOTE: Os valores *Nome exclusivo do usuário* devem ser exclusivos dentro do *DN
 Introduza um destes padrões:
 
 +
-*** *Padrão UserPrincipalName (ative Directory e Azure)*: `[USERNAME]@_example_.com`
-*** * Padrão de nome de logon de nível inferior (ative Directory e Azure)*: `_example_\[USERNAME]`
+*** *Padrão UserPrincipalName (AD e Entra ID)*: `[USERNAME]@_example_.com`
+*** *Padrão de nome de logon de nível inferior (ID do AD e Entra)*: `_example_\[USERNAME]`
 *** * Padrão de nome distinto *: `CN=[USERNAME],CN=Users,DC=_example_,DC=com`
 +
 Inclua *[USERNAME]* exatamente como escrito.
@@ -77,12 +77,12 @@ Inclua *[USERNAME]* exatamente como escrito.
 
 . Na seção Transport Layer Security (TLS), selecione uma configuração de segurança.
 +
-** *Use STARTTLS*: Use STARTTLS para proteger as comunicações com o servidor LDAP. Esta é a opção recomendada para ative Directory, OpenLDAP ou outro, mas esta opção não é suportada para o Azure.
-** *Use LDAPS*: A opção LDAPS (LDAP sobre SSL) usa TLS para estabelecer uma conexão com o servidor LDAP. Você deve selecionar essa opção para o Azure.
-** *Não use TLS*: O tráfego de rede entre o sistema StorageGRID e o servidor LDAP não será protegido. Esta opção não é suportada para o Azure.
+** *Use STARTTLS*: Use STARTTLS para proteger as comunicações com o servidor LDAP.  Esta é a opção recomendada para Active Directory, OpenLDAP ou Outros, mas esta opção não é suportada para o Microsoft Entra ID.
+** *Usar LDAPS*: A opção LDAPS (LDAP sobre SSL) usa TLS para estabelecer uma conexão com o servidor LDAP.  Você deve selecionar esta opção para o Microsoft Entra ID.
+** *Não use TLS*: O tráfego de rede entre o sistema StorageGRID e o servidor LDAP não será protegido.  Esta opção não é suportada pelo Microsoft Entra ID.
 +
 
-NOTE: O uso da opção *não usar TLS* não é suportado se o servidor do ative Directory forçar a assinatura LDAP. Você deve usar STARTTLS ou LDAPS.
+NOTE: O uso da opção *Não usar TLS* não é suportado se o seu servidor Active Directory impõe assinatura LDAP.  Você deve usar STARTTLS ou LDAPS.
 
 
 
@@ -105,7 +105,7 @@ Depois de introduzir todos os valores, tem de testar a ligação antes de poder 
 
 .Passos
 . Selecione *Test Connection*.
-. Se você não forneceu um formato de nome de usuário do BIND:
+. Se você não forneceu um formato de nome de usuário de vinculação:
 +
 ** É apresentada uma mensagem "Test Connection successful" (testar ligação bem-sucedida) se as definições de ligação forem válidas. Selecione *Save* (Guardar) para guardar a configuração.
 ** É apresentada uma mensagem "não foi possível estabelecer ligação de teste" se as definições da ligação forem inválidas. Selecione *Fechar*. Em seguida, resolva quaisquer problemas e teste a conexão novamente.

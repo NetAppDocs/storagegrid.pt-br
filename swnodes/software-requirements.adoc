@@ -1,0 +1,152 @@
+---
+permalink: swnodes/software-requirements.html 
+sidebar: sidebar 
+keywords: software requirements 
+summary: Você pode usar uma máquina virtual para hospedar qualquer tipo de nó StorageGRID. Você precisa de uma máquina virtual para cada nó de grade. 
+---
+= Requisitos de software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar uma máquina virtual para hospedar qualquer tipo de nó StorageGRID. Você precisa de uma máquina virtual para cada nó de grade.
+
+[role="tabbed-block"]
+====
+.RHEL
+--
+Para instalar o StorageGRID no RHEL, você precisa instalar alguns pacotes de software de terceiros.  Algumas distribuições Linux suportadas não contêm esses pacotes por padrão.  As versões dos pacotes de software nas quais as instalações do StorageGRID são testadas incluem aquelas listadas nesta página.
+
+Se você selecionar uma opção de instalação de runtime de distribuição Linux e container que exija qualquer um desses pacotes e eles não forem instalados automaticamente pela distribuição Linux, instale uma das versões listadas aqui se disponível no seu provedor ou no fornecedor de suporte para sua distribuição Linux. Caso contrário, use as versões de pacote padrão disponíveis do seu fornecedor.
+
+Todas as opções de instalação requerem Podman ou Docker. Não instale ambos os pacotes. Instale apenas o pacote exigido pela opção de instalação.
+
+
+NOTE: O suporte para Docker como o mecanismo de contentor para implantações somente de software está obsoleto. O Docker será substituído por outro mecanismo de contentor em uma versão futura.
+
+*Versões em Python testadas*
+
+* 3,5.2-2
+* 3,6.8-2
+* 3,6.8-38
+* 3,6.9-1
+* 3,7.3-1
+* 3,8.10-0
+* 3,9.2-1
+* 3,9.10-2
+* 3,9.16-1
+* 3,10.6-1
+* 3,11.2-6
+
+
+*Versões do Podman testadas*
+
+* 3,2.3-0
+* 3,4.4-ds1
+* 4,1.1-7
+* 4,2.0-11
+* 4,3.1-ds1-8-b1
+* 4,4.1-8
+* 4,4.1-12
+
+
+*Versões do Docker testadas*
+
+
+IMPORTANT: O suporte do Docker está obsoleto e será removido em uma versão futura.
+
+* Docker-CE 20.10.7
+* Docker-CE 20.10.20-3
+* Docker-CE 23,0.6-1
+* Docker-CE 24,0.2-1
+* Docker-CE 24,0.4-1
+* Docker-CE 24,0.5-1
+* Docker-CE 24,0.7-1
+* 1,5-2
+
+
+--
+.Ubuntu e Debian
+--
+Para instalar o StorageGRID no Ubuntu ou Debian, você deve instalar alguns pacotes de software de terceiros. Algumas distribuições Linux suportadas não contêm esses pacotes por padrão. As versões de pacotes de software em que as instalações do StorageGRID são testadas incluem as listadas nesta página.
+
+Se você selecionar uma opção de instalação de runtime de distribuição Linux e container que exija qualquer um desses pacotes e eles não forem instalados automaticamente pela distribuição Linux, instale uma das versões listadas aqui se disponível no seu provedor ou no fornecedor de suporte para sua distribuição Linux. Caso contrário, use as versões de pacote padrão disponíveis do seu fornecedor.
+
+Todas as opções de instalação requerem Podman ou Docker. Não instale ambos os pacotes. Instale apenas o pacote exigido pela opção de instalação.
+
+
+NOTE: O suporte para Docker como o mecanismo de contentor para implantações somente de software está obsoleto. O Docker será substituído por outro mecanismo de contentor em uma versão futura.
+
+*Versões em Python testadas*
+
+* 3,5.2-2
+* 3,6.8-2
+* 3,6.8-38
+* 3,6.9-1
+* 3,7.3-1
+* 3,8.10-0
+* 3,9.2-1
+* 3,9.10-2
+* 3,9.16-1
+* 3,10.6-1
+* 3,11.2-6
+
+
+*Versões do Podman testadas*
+
+* 3,2.3-0
+* 3,4.4-ds1
+* 4,1.1-7
+* 4,2.0-11
+* 4,3.1-ds1-8-b1
+* 4,4.1-8
+* 4,4.1-12
+
+
+*Versões do Docker testadas*
+
+
+IMPORTANT: O suporte do Docker está obsoleto e será removido em uma versão futura.
+
+* Docker-CE 20.10.7
+* Docker-CE 20.10.20-3
+* Docker-CE 23,0.6-1
+* Docker-CE 24,0.2-1
+* Docker-CE 24,0.4-1
+* Docker-CE 24,0.5-1
+* Docker-CE 24,0.7-1
+* 1,5-2
+
+
+--
+.VMware
+--
+*Hipervisor VMware vSphere*
+
+Você deve instalar o VMware vSphere Hypervisor em um servidor físico preparado. O hardware deve ser configurado corretamente (incluindo versões de firmware e configurações de BIOS) antes de instalar o software VMware.
+
+* Configure a rede no hypervisor conforme necessário para suportar a rede para o sistema StorageGRID que você está instalando.
++
+link:../network/index.html["Diretrizes de rede"]
+
+* Certifique-se de que o datastore seja grande o suficiente para as máquinas virtuais e os discos virtuais necessários para hospedar os nós da grade.
+* Se você criar mais de um datastore, nomeie cada datastore para que possa identificar facilmente qual datastore usar para cada nó de grade ao criar máquinas virtuais.
+
+
+*Requisitos de configuração do host ESX*
+
+
+CAUTION: Você deve configurar corretamente o protocolo NTP (Network Time Protocol) em cada host ESX. Se o tempo do host estiver incorreto, podem ocorrer efeitos negativos, incluindo perda de dados.
+
+*Requisitos de configuração do VMware*
+
+Você deve instalar e configurar o VMware vSphere e o vCenter antes de implantar os nós do StorageGRID.
+
+Para versões com suporte do software VMware vSphere Hypervisor e VMware vCenter Server, consulte o https://imt.netapp.com/matrix/#welcome["Ferramenta de Matriz de interoperabilidade do NetApp"^].
+
+Para obter as etapas necessárias para instalar esses produtos VMware, consulte a documentação da VMware.
+
+--
+====

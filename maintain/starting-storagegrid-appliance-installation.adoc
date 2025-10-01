@@ -30,7 +30,7 @@ Para instalar o StorageGRID em um nó de storage do dispositivo:
 * Inicie a instalação e aguarde à medida que os volumes estão configurados e o software está instalado.
 +
 
-NOTE: Ao recuperar um nó de armazenamento de dispositivo, reinstale-o com o mesmo tipo de armazenamento que o dispositivo original (combinado, somente metadados ou somente dados). Se especificar um tipo de armazenamento diferente, a recuperação falhará e exigirá a reinstalação do dispositivo com o tipo de armazenamento correto especificado.
+NOTE: Ao recuperar um nó de armazenamento do dispositivo, reinstale-o com o mesmo tipo de armazenamento do dispositivo original (combinado, somente metadados ou somente dados).  Se você especificar um tipo de armazenamento diferente, a recuperação falhará e exigirá a reinstalação do dispositivo com o tipo de armazenamento correto especificado.
 
 * No decorrer do processo, a instalação é interrompida. Para retomar a instalação, você deve entrar no Gerenciador de Grade e configurar o nó de armazenamento pendente como um substituto para o nó com falha.
 * Depois de configurar o nó, o processo de instalação do appliance é concluído e o appliance é reinicializado.
@@ -59,8 +59,12 @@ O Instalador do StorageGRID Appliance pode descobrir esse endereço IP automatic
 Entrada de IP manual
  a| 
 .. Desmarque a caixa de seleção *Ativar descoberta de nó de administrador*.
-.. Introduza o endereço IP manualmente.
-.. Clique em *Salvar*.
+.. Insira manualmente o endereço IP.
+
+
+*Observação*: Para instalação, insira manualmente o endereço IP do nó de administração que você deseja usar para instalar o nó.  Para recuperação, use o IP do nó de administração primário, se disponível; caso contrário, use o IP de um nó de administração não primário.
+
+.. Selecione *Guardar*.
 .. Aguarde enquanto o estado de conexão para o novo endereço IP se torna "pronto".
 
 
@@ -70,21 +74,24 @@ Entrada de IP manual
 Detecção automática de todos os nós de administração principal conetados
  a| 
 .. Marque a caixa de seleção *Enable Admin Node Discovery* (Ativar descoberta de nó de administrador).
-.. Na lista de endereços IP descobertos, selecione o nó de administração principal para a grade em que este nó de armazenamento do dispositivo será implantado.
-.. Clique em *Salvar*.
+.. Na lista de endereços IP descobertos, selecione o nó de administração da grade onde este nó de armazenamento do dispositivo será implantado.
+
+
+*Observação*: para recuperação, use o IP do nó de administração primário, se disponível; caso contrário, use o IP de um nó de administração não primário.
+
+.. Selecione *Guardar*.
 .. Aguarde enquanto o estado de conexão para o novo endereço IP se torna "pronto".
 
 
 |===
+
+
 . No campo *Nome do nó*, insira o mesmo nome de host (nome do sistema) usado para o nó que você está recuperando e clique em *Salvar*.
 . Na seção Instalação, confirme se o estado atual é "Pronto para iniciar a instalação `_node name_` no grid com o nó Admin principal "_admin_ip_" e que o botão *Start Installation* está ativado.
 +
 Se o botão *Start Installation* (Iniciar instalação) não estiver ativado, poderá ser necessário alterar a configuração da rede ou as definições da porta. Para obter instruções, consulte as instruções de manutenção do seu aparelho.
 
 . Na página inicial do Instalador de dispositivos StorageGRID, clique em *Iniciar instalação*.
-+
-image::../media/appliance_installer_home_start_installation_enabled.gif[Esta figura é descrita pelo texto circundante.]
-
 +
 O estado atual muda para "a instalação está em andamento" e a página Instalação do monitor é exibida.
 

@@ -15,7 +15,7 @@ O fortalecimento do sistema é o processo de eliminar o maior número possível 
 
 À medida que você instala e configura o StorageGRID, use estas diretrizes para ajudá-lo a cumprir quaisquer objetivos de segurança prescritos quanto a confidencialidade, integridade e disponibilidade.
 
-Você já deve estar usando as melhores práticas padrão do setor para o fortalecimento do sistema. Por exemplo, você usa senhas fortes para StorageGRID, usa HTTPS em vez de HTTP e ativa autenticação baseada em certificado quando disponível.
+Você já deve estar usando as melhores práticas padrão do setor para reforço do sistema.  Por exemplo, você usa senhas fortes para StorageGRID, usa HTTPS em vez de HTTP e habilita a autenticação baseada em certificado quando disponível.  Essas práticas recomendadas devem incluir segurança física e ambiental que limite o acesso físico, bem como proteja o data center físico e a infraestrutura de suporte.  Você também deve consultar quaisquer padrões regulatórios e recomendações aplicáveis ​​ao seu negócio e região.
 
 StorageGRID segue o https://security.netapp.com/policy/["Política de tratamento de vulnerabilidades do NetApp"^]. Vulnerabilidades relatadas são verificadas e resolvidas de acordo com o processo de resposta a incidentes de segurança do produto.
 

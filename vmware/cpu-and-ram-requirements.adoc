@@ -1,50 +1,8 @@
 ---
 permalink: vmware/cpu-and-ram-requirements.html 
-sidebar: sidebar 
-keywords: cpu, ram, cpu cores 
-summary: Antes de instalar o software StorageGRID, verifique e configure o hardware para que ele esteja pronto para suportar o sistema StorageGRID. 
+redirect: storagegrid/swnodes/cpu-and-ram-requirements.html 
 ---
-= Requisitos de CPU e RAM
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-Antes de instalar o software StorageGRID, verifique e configure o hardware para que ele esteja pronto para suportar o sistema StorageGRID.
-
-Cada nó do StorageGRID requer os seguintes recursos mínimos:
-
-* Núcleos de CPU: 8 por nó
-* RAM: Depende do total de RAM disponível e da quantidade de software que não seja StorageGRID executado no sistema
-+
-** Geralmente, pelo menos 24 GB por nó e 2 a 16 GB menos do que a RAM total do sistema
-** Um mínimo de 64 GB para cada locatário que terá aproximadamente 5.000 buckets
-
-
-
-
-Os recursos de nó somente de metadados baseados em software devem corresponder aos recursos dos nós de storage existentes. Por exemplo:
-
-* Se o local do StorageGRID existente estiver usando dispositivos SG6000 ou SG6100, os nós somente de metadados baseados em software deverão atender aos seguintes requisitos mínimos:
-+
-** 128 GB DE RAM
-** CPU de 8 núcleos
-** SSD de 8 TB ou armazenamento equivalente para o banco de dados Cassandra (rangedb/0)
-
-
-* Se o site StorageGRID existente estiver usando nós de armazenamento virtual com 24 GB de RAM, CPU de 8 núcleos e 3 TB ou 4TB TB de armazenamento de metadados, os nós somente de metadados baseados em software devem usar recursos semelhantes (24 GB de RAM, CPU de 8 núcleos e 4TB GB de armazenamento de metadados (rangedb/0).
-
-
-Ao adicionar um novo site StorageGRID, a capacidade total de metadados do novo local deve, no mínimo, corresponder aos locais StorageGRID existentes e os novos recursos do local devem corresponder aos nós de storage nos locais StorageGRID existentes.
-
-A VMware oferece suporte a um nó por máquina virtual. Certifique-se de que o nó StorageGRID não exceda a RAM física disponível. Cada máquina virtual deve ser dedicada à execução do StorageGRID.
-
-
-CAUTION: Monitore regularmente o uso da CPU e da memória para garantir que esses recursos continuem a acomodar sua carga de trabalho. Por exemplo, duplicar a alocação de RAM e CPU para nós de storage virtual forneceria recursos semelhantes aos fornecidos para nós de dispositivos StorageGRID. Além disso, se a quantidade de metadados por nó exceder 500 GB, considere aumentar a RAM por nó para 48 GB ou mais. Para obter informações sobre como gerenciar o armazenamento de metadados de objetos, aumentar a configuração espaço reservado de metadados e monitorar o uso da CPU e da memória, consulte as instruções para link:../admin/index.html["administrar"], link:../monitor/index.html["monitorização"]e link:../upgrade/index.html["a atualizar"]StorageGRID.
-
-Se o hyperthreading estiver habilitado nos hosts físicos subjacentes, você poderá fornecer 8 núcleos virtuais (4 núcleos físicos) por nó. Se o hyperthreading não estiver habilitado nos hosts físicos subjacentes, você deverá fornecer 8 núcleos físicos por nó.
-
-Se você estiver usando máquinas virtuais como hosts e tiver controle sobre o tamanho e o número de VMs, use uma única VM para cada nó do StorageGRID e dimensione a VM de acordo.
-
-Consulte também link:storage-and-performance-requirements.html["Requisitos de storage e desempenho"].

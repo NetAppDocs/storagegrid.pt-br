@@ -15,44 +15,22 @@ indexpage:
     links:
     - title: Hardware do dispositivo
       url: https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html
-    - title: Red Hat Enterprise Linux
-      url: "../rhel/index.html"
-    - title: Ubuntu ou Debian
-      url: "../ubuntu/index.html"
-    - title: VMware
-      url: "../vmware/index.html"
-  - title: Prepare materiais
+    - title: Nós baseados em software
+      url: "../swnodes/index.html"
+  - title: Nós baseados em software
     links:
-    - title: Red Hat Enterprise Linux
-      url: "../rhel/required-materials.html"
-    - title: Ubuntu ou Debian
-      url: "../ubuntu/required-materials.html"
-    - title: VMware
-      url: "../vmware/required-materials.html"
-  - title: Automatizar a instalação
-    links:
-    - title: Red Hat Enterprise Linux
-      url: "../rhel/automating-installation.html"
-    - title: Ubuntu ou Debian
-      url: "../ubuntu/automating-installation.html"
-    - title: VMware
-      url: "../vmware/automating-grid-node-deployment-in-vmware-vsphere.html"
-  - title: Implantar nós
-    links:
-    - title: Red Hat Enterprise Linux
-      url: "../rhel/creating-node-configuration-files.html"
-    - title: Ubuntu ou Debian
-      url: "../ubuntu/creating-node-configuration-files.html"
-    - title: VMware
-      url: "../vmware/collecting-information-about-your-deployment-environment.html"
-  - title: Instalação completa do nó
-    links:
-    - title: Red Hat Enterprise Linux
-      url: "../rhel/navigating-to-grid-manager.html"
-    - title: Ubuntu ou Debian
-      url: "../ubuntu/navigating-to-grid-manager.html"
-    - title: VMware
-      url: "../vmware/navigating-to-grid-manager.html"
+    - title: Prepare materiais
+      url: "../swnodes/required-materials.html"
+    - title: Automatizar instalação do Linux
+      url: "../swnodes/automating-installation-linux.html"
+    - title: Automatize a instalação do VMware
+      url: "../swnodes/automating-grid-node-deployment-in-vmware-vsphere.html"
+    - title: Implantar Linux
+      url: "../swnodes/creating-node-configuration-files.html"
+    - title: Implantar VMware
+      url: "../swnodes/collecting-information-about-your-deployment-environment.html"
+    - title: Instalação completa de nó baseada em software
+      url: "../swnodes/navigating-to-grid-manager.html"
   - title: Atualização ou hotfix
     links:
     - title: O que há de novo

@@ -365,7 +365,7 @@ Crie um novo locatário e bucket ou selecione um locatário existente.
 .Novo locatário e balde
 --
 . Para criar um novo locatário e intervalo, insira um *Nome do locatário*. Por exemplo, `FabricPool tenant`.
-. Defina o acesso root para a conta de locatário, com base se o sistema StorageGRID usa link:../admin/using-identity-federation.html["federação de identidade"], link:../admin/configuring-sso.html["Logon único (SSO)"]ou ambos.
+. Defina o acesso root para a conta do locatário, com base no uso do seu sistema StorageGRIDlink:../admin/using-identity-federation.html["federação de identidade"] ,link:../admin/how-sso-works.html["Logon único (SSO)"] , ou ambos.
 +
 [cols="1a,3a"]
 |===

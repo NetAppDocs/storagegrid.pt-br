@@ -18,13 +18,13 @@ Você pode usar o Gerenciador do locatário para criar buckets do S3 para dados 
 * Você pertence a um grupo de usuários que tem o acesso raiz ou Gerenciar todos os buckets link:tenant-management-permissions.html["permissão"]. Essas permissões substituem as configurações de permissões em políticas de grupo ou bucket.
 +
 
-NOTE: As permissões para definir ou modificar as propriedades de bloqueio de objetos S3D de buckets ou objetos podem ser concedidas pelo link:../s3/bucket-and-group-access-policies.html["política de bucket ou política de grupo"].
+NOTE: Permissões para definir ou modificar propriedades de bloqueio de objeto S3 de buckets ou objetos podem ser concedidas porlink:../s3/use-access-policies.html["política de bucket ou política de grupo"] .
 
 * Se você planeja habilitar o bloqueio de objeto S3 para um bucket, um administrador de grade ativou a configuração global de bloqueio de objeto S3 para o sistema StorageGRID e revisou os requisitos para buckets e objetos do bloqueio de objeto S3.
 * Se cada locatário tiver 5.000 buckets, cada nó de armazenamento na grade tem um mínimo de 64 GB de RAM.
 +
 
-NOTE: Cada grade pode ter um máximo de 100.000 baldes.
+NOTE: Cada grade pode ter no máximo 100.000 buckets, incluindolink:../tenant/what-is-branch-bucket.html["baldes de galhos"] .
 
 
 
@@ -72,7 +72,7 @@ Região
  a| 
 A região do balde.
 
-O administrador do StorageGRID gerencia as regiões disponíveis. A região de um bucket pode afetar a política de proteção de dados aplicada a objetos. Por padrão, todos os buckets são criados na `us-east-1` região.
+O administrador do StorageGRID gerencia as regiões disponíveis.  A região de um bucket pode afetar a política de proteção de dados aplicada aos objetos.  Por padrão, todos os buckets são criados no `us-east-1` região.  Se a região padrão estiver configurada para uma região diferente de `us-east-1` , esta outra região é inicialmente selecionada no menu suspenso.
 
 *Nota*: Não é possível alterar a região depois de criar o intervalo.
 
@@ -87,7 +87,15 @@ O administrador do StorageGRID gerencia as regiões disponíveis. A região de u
 .Passos
 . Opcionalmente, habilite o controle de versão de objetos para o bucket.
 +
-Ative o controle de versão de objetos se você quiser armazenar todas as versões de cada objeto neste intervalo. Em seguida, você pode recuperar versões anteriores de um objeto, conforme necessário. Você deve habilitar o controle de versão de objetos se o bucket for usado para replicação entre grades.
+Ative o controle de versão de objetos se você quiser armazenar todas as versões de cada objeto neste intervalo. Em seguida, você pode recuperar versões anteriores de um objeto, conforme necessário.
+
++
+Você deve habilitar o controle de versão de objeto se:
+
++
+** O bucket será usado para replicação entre grades.
+** Você quer criar umlink:../tenant/what-is-branch-bucket.html["balde de galhos"] deste balde.
+
 
 . Se a configuração global S3 Object Lock estiver ativada, ative opcionalmente o S3 Object Lock para o bucket armazenar objetos usando um modelo WORM (write-once-read-many).
 +
@@ -146,12 +154,16 @@ Um período de retenção _máximo_, que pode ser um valor de 1 dia a 100 anos, 
 
 
 
-. [[Capacity-Limit]]opcionalmente, selecione *Enable Capacity Limit*.
+. [[capacity-limit]]Opcionalmente, selecione *Ativar limite de capacidade*, insira um valor e selecione a unidade de capacidade.
 +
 O limite de capacidade é a capacidade máxima disponível para os objetos deste bucket. Este valor representa uma quantidade lógica (tamanho do objeto), não uma quantidade física (tamanho no disco).
 
 +
 Se nenhum limite for definido, a capacidade para este intervalo é ilimitada. link:../tenant/understanding-tenant-manager-dashboard.html#bucket-capacity-usage["Uso do limite de capacidade"]Consulte para obter mais informações.
+
+. [[object-count-limit]]Opcionalmente, selecione *Ativar limite de contagem de objetos*.
++
+O limite de contagem de objetos é o número máximo de objetos que este bucket pode conter.  Este valor representa uma quantidade lógica (contagem de objetos).  Se nenhum limite for definido, a contagem de objetos será ilimitada.
 
 . Selecione *criar bucket*.
 +
@@ -159,3 +171,5 @@ O bucket é criado e adicionado à tabela na página Buckets.
 
 . Opcionalmente, selecione *ir para a página de detalhes do bucket* link:viewing-s3-bucket-details.html["veja os detalhes do balde"]e execute configurações adicionais.
 
+
+Você também podelink:../tenant/manage-branch-buckets.html["criar buckets de ramificação"] conforme necessário.

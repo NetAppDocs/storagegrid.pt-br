@@ -17,4 +17,4 @@ Estas instruções destinam-se aos administradores responsáveis pela produção
 
 Para usar o arquivo de log de texto, você deve ter acesso ao compartilhamento de auditoria configurado no nó Admin.
 
-Para obter informações sobre como configurar níveis de mensagens de auditoria e usar um servidor syslog externo, link:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria e destinos de log"]consulte .
+Para obter informações sobre como configurar níveis de mensagens de auditoria e usar um servidor syslog externo, consultelink:../monitor/configure-log-management.html["Configurar gerenciamento de log e servidor syslog externo"] .

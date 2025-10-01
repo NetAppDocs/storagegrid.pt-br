@@ -18,12 +18,12 @@ summary: É necessário executar manualmente dois scripts para remontar volumes 
 +
 A execução `sn-remount-volumes` do script pode ajudá-lo a identificar volumes de armazenamento com falha adicionais.
 
-* Você verificou que a desativação de um nó de storage não está em andamento ou interrompeu o procedimento de desativação do nó. (No Gerenciador de Grade, selecione *MAINTENANCE* > *Tasks* > *Decommission*.)
-* Você verificou que uma expansão não está em andamento. (No Gerenciador de Grade, selecione *MAINTENANCE* > *Tasks* > *Expansion*.)
+* Você verificou se o descomissionamento do nó de armazenamento não está em andamento ou pausou o procedimento de descomissionamento do nó.  (No Grid Manager, selecione *Manutenção* > *Tarefas* > *Desativação*.)
+* Você verificou que não há nenhuma expansão em andamento.  (No Grid Manager, selecione *Manutenção* > *Tarefas* > *Expansão*.)
 * Você link:reviewing-warnings-for-system-drive-recovery.html["Revisou os avisos para recuperação da unidade do sistema Storage Node"]tem .
 +
 
-CAUTION: Contacte o suporte técnico se mais de um nó de armazenamento estiver offline ou se um nó de armazenamento nesta grelha tiver sido reconstruído nos últimos 15 dias. Não execute o `sn-recovery-postinstall.sh` script. A reconstrução do Cassandra em dois ou mais nós de storage em até 15 dias um do outro pode resultar na perda de dados.
+CAUTION: Entre em contato com o suporte técnico se mais de um nó de armazenamento estiver offline.  Não execute o `sn-recovery-postinstall.sh` roteiro.
 
 
 

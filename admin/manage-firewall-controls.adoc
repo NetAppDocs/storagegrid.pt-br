@@ -64,7 +64,7 @@ Depois de salvar sua configuração, todas as portas externas no Admin Node em s
 
 === Exemplo 2: Bloquear portas sensíveis
 
-Suponha que você queira bloquear portas sensíveis e o serviço nessa porta (por exemplo, SSH na porta 22). Você pode usar as seguintes etapas gerais:
+Suponha que você queira bloquear portas sensíveis e o serviço nessa porta.  Você pode usar as seguintes etapas gerais:
 
 . Use a guia lista de endereços privilegiados para conceder acesso somente aos hosts que precisam acessar o serviço.
 . Use a guia Gerenciar acesso externo para bloquear todas as portas.
@@ -73,7 +73,7 @@ Suponha que você queira bloquear portas sensíveis e o serviço nessa porta (po
 
 CAUTION: Adicione o endereço IP privilegiado antes de bloquear o acesso a quaisquer portas atribuídas ao Access Grid Manager e ao Gerenciador de inquilinos (as portas predefinidas são 443 e 8443). Todos os usuários conetados atualmente em uma porta bloqueada, incluindo você, perderão acesso ao Grid Manager, a menos que seu endereço IP tenha sido adicionado à lista de endereços privilegiados.
 
-Depois de salvar sua configuração, a porta 22 e o serviço SSH estarão disponíveis para os hosts na lista de endereços privilegiados. Todos os outros hosts terão acesso negado ao serviço, independentemente da interface da solicitação.
+Depois de salvar sua configuração, a porta sensível e o serviço nessa porta ficam disponíveis para hosts na lista de endereços privilegiados.  Todos os outros hosts têm o acesso ao serviço negado, independentemente da interface de onde a solicitação vem.
 
 
 

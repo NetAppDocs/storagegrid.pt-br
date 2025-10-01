@@ -30,7 +30,7 @@ Cada armazenamento de objetos é montado em um volume que corresponde ao seu ID.
 Antes de adicionar novos volumes de armazenamento, use o Gerenciador de Grade para exibir os armazenamentos de objetos atuais para cada nó de armazenamento, bem como os pontos de montagem correspondentes. Você pode usar essas informações ao adicionar volumes de armazenamento.
 
 .Passos
-. Selecione *NÓS* > *_site_* > *_Storage Node_* > *Storage*.
+. Selecione *Nós* > *_site_* > *_Nó de Armazenamento_* > *Armazenamento*.
 . Role para baixo para ver as quantidades de armazenamento disponível para cada volume e armazenamento de objetos.
 +
 Para nós de storage de dispositivo, o Nome Mundial para cada disco corresponde ao identificador mundial de volume (WWID) que aparece quando você visualiza as propriedades de volume padrão no SANtricity os (o software de gerenciamento conetado ao controlador de storage do dispositivo).

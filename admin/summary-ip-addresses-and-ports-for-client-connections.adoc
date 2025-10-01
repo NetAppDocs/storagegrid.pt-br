@@ -88,7 +88,7 @@ Por exemplo, se o endereço IP virtual do grupo HA for 192.0.2.5 e o número da 
 . Faça login no Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
 . Para localizar o endereço IP de um nó de grade:
 +
-.. Selecione *NODES*.
+.. Selecione *Nós*.
 .. Selecione o nó de administração, nó de gateway ou nó de armazenamento ao qual deseja se conetar.
 .. Selecione a guia *Visão geral*.
 .. Na seção informações do nó, observe os endereços IP do nó.
@@ -110,13 +110,13 @@ NOTE: Se você estiver exibindo um nó de administrador ou um nó de gateway e f
 
 . Para localizar o endereço IP virtual de um grupo de alta disponibilidade:
 +
-.. Selecione *CONFIGURATION* > *Network* > *High Availability groups*.
+.. Selecione *Configuração* > *Rede* > *Grupos de alta disponibilidade*.
 .. Na tabela, anote o endereço IP virtual do grupo HA.
 
 
 . Para localizar o número da porta de um endpoint do Load Balancer:
 +
-.. Selecione *CONFIGURATION* > *Network* > *Load balancer endpoints*.
+.. Selecione *Configuração* > *Rede* > *Pontos de extremidade do balanceador de carga*.
 .. Observe o número da porta do endpoint que você deseja usar.
 +
 

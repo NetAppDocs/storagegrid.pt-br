@@ -38,7 +38,7 @@ Quando o StorageGRID reinicializa um nó de grade, ele emite o `reboot` comando 
 TIP: Se for necessário reiniciar mais de um nó, pode utilizar o link:../maintain/rolling-reboot-procedure.html["procedimento de reinicialização a rolar"].
 
 .Passos
-. Selecione *NODES*.
+. Selecione *Nós*.
 . Selecione o nó de grade que deseja reinicializar.
 . Selecione a guia *tarefas*.
 . Selecione *Reboot*.

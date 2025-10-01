@@ -19,8 +19,8 @@ Depois de recuperar volumes de storage para o nó de storage do dispositivo, voc
 
 Sempre que possível, restaure os dados do objeto usando a página *Restauração de volume* no Gerenciador de Grade.
 
-* Se os volumes estiverem listados em *MAINTENANCE* > *volume restoration* > *nodes to restore*, restaure os dados do objeto usando o link:../maintain/restoring-volume.html["Página de restauração de volume no Gerenciador de Grade"].
-* Se os volumes não estiverem listados em *MAINTENANCE* > *volume restoration* > *nodes to restore*, siga as etapas abaixo para usar o `repair-data` script para restaurar os dados do objeto.
+* Se os volumes estiverem listados em *Manutenção* > *Restauração de volume* > *Nós a serem restaurados*, restaure os dados do objeto usando olink:../maintain/restoring-volume.html["Página de restauração de volume no Gerenciador de Grade"] .
+* Se os volumes não estiverem listados em *Manutenção* > *Restauração de volume* > *Nós para restaurar*, siga as etapas abaixo para usar o `repair-data` script para restaurar dados do objeto.
 +
 Se o nó de armazenamento recuperado contiver menos volumes do que o nó que está substituindo, você deve usar o `repair-data` script.
 
@@ -34,7 +34,7 @@ NOTE: O script repair-data está obsoleto e será removido em uma versão futura
 == Use o `repair-data` script para restaurar dados de objeto
 
 .Antes de começar
-* Você confirmou que o nó de armazenamento recuperado tem um estado de conexão de *Connected* image:../media/icon_alert_green_checkmark.png["marca de verificação verde de alerta do ícone"]na guia *NODES* > *Overview* no Gerenciador de Grade.
+* Você confirmou que o nó de armazenamento recuperado tem um estado de conexão de *Conectado*image:../media/icon_alert_green_checkmark.png["marca de verificação verde de alerta do ícone"] na aba *Nós* > *Visão geral* no Gerenciador de grade.
 
 
 .Sobre esta tarefa
@@ -99,7 +99,7 @@ NOTE: O trabalho de reparação EC reserva temporariamente uma grande quantidade
 
 == Encontre o nome do host para nó de armazenamento
 
-. Faça login no nó de administração principal:
+. Efetue login em qualquer nó de administração:
 +
 .. Introduza o seguinte comando: `ssh admin@_primary_Admin_Node_IP_`
 .. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
@@ -135,7 +135,7 @@ Este comando repara os dados replicados em um nó de storage chamado SG-DC-SN3:
 `repair-data start-replicated-node-repair --nodes SG-DC-SN3`
 
 
-NOTE: À medida que os dados do objeto são restaurados, o alerta *objetos perdidos* é acionado se o sistema StorageGRID não conseguir localizar dados de objeto replicados. Os alertas podem ser acionados em nós de storage em todo o sistema. Você deve determinar a causa da perda e se a recuperação é possível. link:../troubleshoot/investigating-lost-objects.html["Investigue objetos perdidos"]Consulte .
+NOTE: Conforme os dados do objeto são restaurados, o alerta *Objetos Perdidos* é acionado se o sistema StorageGRID não conseguir localizar os dados do objeto replicados.  Alertas podem ser disparados em nós de armazenamento em todo o sistema.  Você deve determinar a causa da perda e se a recuperação é possível. Ver link:../troubleshoot/investigating-potentially-lost-objects.html["Investigar objetos potencialmente perdidos"] .
 
 --
 .Dados codificados por apagamento (EC)
@@ -227,28 +227,28 @@ Também pode monitorizar o estado dos trabalhos de restauro de volume em process
 
 * Para determinar se as reparações estão concluídas:
 +
-.. Selecione *NODES* > *_Storage Node a ser reparado_* > *ILM*.
+.. Selecione *Nós* > *_Nó de armazenamento sendo reparado_* > *ILM*.
 .. Reveja os atributos na secção avaliação. Quando os reparos estiverem concluídos, o atributo *aguardando - All* indica objetos 0D.
 
 
 * Para monitorizar a reparação em mais detalhes:
 +
-.. Selecione *SUPPORT* > *Tools* > *Grid topology*.
-.. Selecione *_Grid_* > *_Storage Node a ser reparado_* > *LDR* > *Data Store*.
-.. Use uma combinação dos seguintes atributos para determinar, assim como possível, se as reparações replicadas estão concluídas.
+.. Selecione *Nós*.
+.. Selecione *_grid name_* > *ILM*.
+.. Posicione o cursor sobre o gráfico da fila do ILM para ver o valor do atributo *Taxa de varredura (objetos/seg)*, que é a taxa na qual os objetos na grade são varridos e colocados na fila para o ILM.
+.. Na seção Fila do ILM, observe os seguintes atributos:
 +
-
-NOTE: As inconsistências do Cassandra podem estar presentes e as reparações falhadas não são rastreadas.
-
+*** *Período de digitalização - estimado*: O tempo estimado para concluir uma varredura ILM completa de todos os objetos.
 +
-*** * Tentativas de reparos (XRPA)*: Use este atributo para rastrear o progresso de reparos replicados. Esse atributo aumenta cada vez que um nó de storage tenta reparar um objeto de alto risco. Quando este atributo não aumenta por um período superior ao período de digitalização atual (fornecido pelo atributo *período de digitalização -- estimado*), significa que a digitalização ILM não encontrou objetos de alto risco que precisam ser reparados em nenhum nó.
+Uma verificação completa não garante que o ILM foi aplicado a todos os objetos.
+
+*** *Tentativas de reparo*: O número total de tentativas de operações de reparo de objetos para dados replicados que são consideradas de alto risco.  Objetos de alto risco são quaisquer objetos com uma cópia restante, seja especificado pela política de ILM ou como resultado de cópias perdidas.  Essa contagem aumenta cada vez que um nó de armazenamento tenta reparar um objeto de alto risco.  Reparos de ILM de alto risco são priorizados se a rede ficar ocupada.
 +
-
-NOTE: Objetos de alto risco são objetos que correm o risco de serem completamente perdidos. Isso não inclui objetos que não satisfazem sua configuração ILM.
-
-*** *Período de digitalização -- estimado (XSCM)*: Use este atributo para estimar quando uma alteração de política será aplicada a objetos ingeridos anteriormente. Se o atributo *Repairs tented* não aumentar durante um período superior ao período de digitalização atual, é provável que sejam efetuadas reparações replicadas. Note que o período de digitalização pode mudar. O atributo *período de digitalização -- estimado (XSCM)* aplica-se a toda a grade e é o máximo de todos os períodos de varredura de nós. Você pode consultar o histórico de atributos *período de digitalização -- estimado* para a grade para determinar um período de tempo apropriado.
+O mesmo reparo de objeto pode ser incrementado novamente se a replicação falhar após o reparo.  + Esses atributos podem ser úteis quando você estiver monitorando o progresso da recuperação do volume do nó de armazenamento.  Se o número de tentativas de reparo parou de aumentar e uma verificação completa foi concluída, o reparo provavelmente foi concluído.
 
 
+
+.. Alternativamente, envie uma consulta Prometheus para `storagegrid_ilm_scan_period_estimated_minutes` e `storagegrid_ilm_repairs_attempted` .
 
 
 
@@ -260,7 +260,7 @@ Para monitorar o reparo de dados codificados por apagamento e tentar novamente q
 
 . Determinar o status dos reparos de dados codificados por apagamento:
 +
-** Selecione *SUPPORT* > *Tools* > *Metrics* para visualizar o tempo estimado para conclusão e a porcentagem de conclusão do trabalho atual. Em seguida, selecione *EC Overview* na seção Grafana. Veja os painéis *Grid EC Job tempo estimado para conclusão* e *Grid EC Job percentage Completed*.
+** Selecione *Suporte* > *Ferramentas* > *Métricas* para visualizar o tempo estimado para conclusão e a porcentagem de conclusão do trabalho atual.  Em seguida, selecione *Visão geral do EC* na seção Grafana.  Veja os painéis *Tempo estimado para conclusão do trabalho do Grid EC* e *Porcentagem concluída do trabalho do Grid EC*.
 ** Use este comando para ver o status de uma operação específica `repair-data`:
 +
 `repair-data show-ec-repair-status --repair-id repair ID`

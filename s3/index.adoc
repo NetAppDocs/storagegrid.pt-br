@@ -19,7 +19,7 @@ O suporte à API REST do S3 permite conetar aplicativos orientados a serviços d
 
 == Versões suportadas
 
-O StorageGRID suporta as seguintes versões específicas do S3 e HTTP.
+O StorageGRID oferece suporte às seguintes versões específicas de STS, S3 e HTTP:
 
 [cols="1a,1a"]
 |===
@@ -27,9 +27,18 @@ O StorageGRID suporta as seguintes versões específicas do S3 e HTTP.
 
 
  a| 
+Especificação da API STS AssumeRole
+ a| 
+https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html["Documentação da Amazon Web Services (AWS): Referência da API do Amazon Assumerole"^]
+
+Para obter mais informações sobre AssumeRole, consultelink:../tenant/manage-groups.html#set-up-assumerole["Configurar AssumeRole"] .
+
+
+
+ a| 
 Especificação da API S3
  a| 
-http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html["Documentação do Amazon Web Services (AWS): Referência da API do Amazon Simple Storage Service"^]
+http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html["Documentação da AWS: Referência da API do Amazon Simple Storage Service"^]
 
 
 
@@ -52,6 +61,15 @@ https://datatracker.ietf.org/doc/html/rfc2616["IETF RFC 2616: Protocolo de trans
 [cols="1a,4a"]
 |===
 | Solte | Comentários 
+
+
+ a| 
+12,0
+ a| 
+* Adicionado suporte para compartilhamento de recursos entre origens (CORS) para uma interface de gerenciamento, o que permite que outro domínio acesse dados no StorageGRID usando APIs de gerenciamento. link:../admin/enable-cross-origin-resource-sharing-for-management-interface.html["Saiba mais"] .
+* Adicionado suporte para STS AssumeRole e política de sessão. Ver link:example-session-policies.html["um exemplo de uma política de sessão"] .  Você pode configurar AssumeRole em grupos de locatários.
+
+
 
 
  a| 
@@ -201,6 +219,6 @@ Adicionado suporte para upload em várias partes, solicitações virtuais de est
  a| 
 10,0
  a| 
-Suporte inicial da API REST do S3 pelo sistema StorageGRID. A versão atualmente suportada da _Simple Storage Service API Reference_ é 2006-03-01.
+Suporte inicial da API REST S3 pelo sistema StorageGRID .  A versão atualmente suportada da _Referência da API do Serviço de Armazenamento Simples_ é 2006-03-01.
 
 |===

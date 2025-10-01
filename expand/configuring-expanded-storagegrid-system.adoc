@@ -38,19 +38,19 @@ CAUTION: Certifique-se de que pelo menos dois nós em cada local possam acessar 
 
 . Se você adicionou um nó de gateway:
 +
-** Se os grupos de alta disponibilidade (HA) forem usados para conexões de cliente, adicione opcionalmente o nó de gateway a um grupo de HA. Selecione *CONFIGURATION* > *Network* > *High Availability Groups* para rever a lista de grupos de HA existentes e adicionar o novo nó. link:../admin/configure-high-availability-group.html["Configurar grupos de alta disponibilidade"]Consulte .
+** Se grupos de alta disponibilidade (HA) forem usados para conexões de cliente, opcionalmente, adicione o nó de gateway a um grupo de HA.  Selecione *Configuração* > *Rede* > *Grupos de alta disponibilidade* para revisar a lista de grupos de HA existentes e adicionar o novo nó. Ver link:../admin/configure-high-availability-group.html["Configurar grupos de alta disponibilidade"] .
 
 
 . Se você adicionou um nó Admin:
 +
-.. Se o logon único (SSO) estiver ativado para o seu sistema StorageGRID, crie uma confiança de parte confiável para o novo nó de administração. Você não pode entrar no nó até criar essa confiança de parte confiável. link:../admin/configuring-sso.html["Configurar o logon único"]Consulte .
-.. Se você planeja usar o serviço Load Balancer em nós de administração, adicione opcionalmente o novo nó de administração a um grupo de HA. Selecione *CONFIGURATION* > *Network* > *High Availability Groups* para rever a lista de grupos de HA existentes e adicionar o novo nó. link:../admin/configure-high-availability-group.html["Configurar grupos de alta disponibilidade"]Consulte .
+.. Se o logon único (SSO) estiver habilitado para seu sistema StorageGRID , crie uma parte confiável para o novo nó de administração.  Você não pode fazer login no nó até criar essa confiança de terceira parte confiável. Ver link:../admin/configure-sso.html["Configurar o logon único"] .
+.. Se você planeja usar o serviço Load Balancer em nós de administração, opcionalmente adicione o novo nó de administração a um grupo de HA.  Selecione *Configuração* > *Rede* > *Grupos de alta disponibilidade* para revisar a lista de grupos de HA existentes e adicionar o novo nó. Ver link:../admin/configure-high-availability-group.html["Configurar grupos de alta disponibilidade"] .
 .. Opcionalmente, copie o banco de dados do nó Admin do nó Admin principal para o nó Admin de expansão se quiser manter as informações de atributo e auditoria consistentes em cada nó Admin. link:copying-admin-node-database.html["Copie o banco de dados Admin Node"]Consulte .
 .. Opcionalmente, copie o banco de dados Prometheus do nó Admin primário para o nó Admin de expansão se quiser manter as métricas históricas consistentes em cada nó Admin. link:copying-prometheus-metrics.html["Copiar métricas Prometheus"]Consulte .
 .. Opcionalmente, copie os logs de auditoria existentes do nó de administração principal para o nó de administração de expansão se quiser manter as informações de log histórico consistentes em cada nó de administração. link:copying-audit-logs.html["Copiar registos de auditoria"]Consulte .
 
 
-. Para verificar se os nós de expansão foram adicionados com uma rede cliente não confiável ou para alterar se a rede cliente de um nó não é confiável ou confiável, vá para *CONFIGURATION* > *Security* > *Firewall control*.
+. Para verificar se os nós de expansão foram adicionados com uma Rede de Cliente não confiável ou para alterar se a Rede de Cliente de um nó é confiável ou não confiável, vá para *Configuração* > *Segurança* > *Controle de Firewall*.
 +
 Se a rede do cliente no nó de expansão não for confiável, as conexões com o nó na rede do cliente devem ser feitas usando um ponto de extremidade do balanceador de carga. link:../admin/configuring-load-balancer-endpoints.html["Configurar pontos de extremidade do balanceador de carga"]Consulte e link:../admin/manage-firewall-controls.html["Gerenciar controles de firewall"].
 

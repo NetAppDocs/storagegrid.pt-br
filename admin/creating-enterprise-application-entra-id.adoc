@@ -1,0 +1,102 @@
+---
+permalink: admin/creating-enterprise-application-entra-id.html 
+sidebar: sidebar 
+keywords: enterprise application, entra id, single sign on, sso 
+summary: Use o Entra ID para criar um aplicativo empresarial para cada nó de administração no seu sistema. 
+---
+= Crie aplicativos corporativos no Entra ID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Use o Entra ID para criar um aplicativo empresarial para cada nó de administração no seu sistema.
+
+.Antes de começar
+* Você começou a configurar o logon único para o StorageGRID e selecionou *Entra ID* como o tipo de SSO.
+* Você temlink:../admin/configure-sso.html#enter-sandbox-mode["entrou no modo sandbox"] no Grid Manager.
+* Você tem o *Nome do aplicativo corporativo* para cada nó de administração no seu sistema.  Você pode copiar esses valores da tabela de detalhes do nó de administração na página Configurar SSO.
++
+
+NOTE: Você deve criar um aplicativo empresarial para cada nó de administração no sistema StorageGRID. Ter um aplicativo corporativo para cada nó de administração garante que os usuários possam entrar e sair com segurança de qualquer nó de administração.
+
+* Você tem experiência na criação de aplicativos corporativos no Entra ID.
+* Você tem uma conta Entra ID com uma assinatura ativa.
+* Você tem uma das seguintes funções na conta Entra ID: Administrador global, Administrador de aplicativo em nuvem, Administrador de aplicativo ou proprietário da entidade de serviço.
+
+
+
+
+== ID de entrada de acesso
+
+.Passos
+. Inicie sessão no https://portal.azure.com["Portal do Azure"^].
+. Navegar para https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade["ID de entrada"^] .
+.  https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview/menuId/["Aplicações empresariais"^]Selecione .
+
+
+
+
+== Crie aplicativos empresariais e salve a configuração SSO do StorageGRID
+
+Para salvar a configuração de SSO para o Entra ID no StorageGRID, você deve usar o Entra ID para criar um aplicativo empresarial para cada nó de administração.  Você copiará os URLs de metadados da federação do Entra ID e os colará nos campos *URL de metadados da federação* correspondentes na página Configurar SSO.
+
+.Passos
+. Repita as etapas a seguir para cada nó Admin.
++
+.. No painel de aplicativos Entra ID Enterprise, selecione *Novo aplicativo*.
+.. Selecione *Crie seu próprio aplicativo*.
+.. Para o nome, insira o *Nome do aplicativo corporativo* que você copiou da tabela de detalhes do nó de administração na página Configurar SSO.
+.. Deixe o botão de opção *integrar qualquer outro aplicativo que você não encontrar na galeria (não galeria)* selecionado.
+.. Selecione *criar*.
+.. Selecione o link *Get Started* no *2. Configure a caixa Single Sign On* (Início de sessão único) ou selecione o link *Single Sign-On* (Início de sessão único) na margem esquerda.
+.. Selecione a caixa *SAML*.
+.. Copie o URL de metadados de Federação de aplicativos*, que você pode encontrar em *Etapa 3 certificado de assinatura SAML*.
+.. Acesse a página Configurar SSO e cole a URL no campo *URL de metadados da federação* que corresponde ao *Nome do aplicativo empresarial* que você usou.
+
+
+. Depois de colar uma URL de metadados de federação para cada nó de administração e fazer todas as outras alterações necessárias na configuração do SSO, selecione *Salvar* na página Configurar SSO.
+
+
+
+
+== Faça o download dos metadados SAML para cada nó de administração
+
+Depois que a configuração SSO for salva, você pode baixar um arquivo de metadados SAML para cada nó de administrador no sistema StorageGRID.
+
+.Passos
+. Repita estas etapas para cada nó Admin.
++
+.. Inicie sessão no StorageGRID a partir do nó de administração.
+.. Selecione *Configuração* > *Controle de acesso* > *Logon único*.
+.. Selecione o botão para baixar os metadados SAML para esse nó Admin.
+.. Salve o arquivo, que você carregará no Entra ID.
+
+
+
+
+
+
+== Carregue metadados SAML para cada aplicação empresarial
+
+Após baixar um arquivo de metadados SAML para cada nó de administração do StorageGRID , execute as seguintes etapas no Entra ID:
+
+.Passos
+. Retorne ao Portal do Azure.
+. Repita estes passos para cada aplicação empresarial:
++
+
+NOTE: Talvez seja necessário atualizar a página aplicativos empresariais para ver os aplicativos adicionados anteriormente na lista.
+
++
+.. Vá para a página Propriedades do aplicativo corporativo.
+.. Defina *atribuição necessária* como *não* (a menos que você queira configurar atribuições separadamente).
+.. Aceda à página de início de sessão único.
+.. Conclua a configuração SAML.
+.. Selecione o botão *Upload metadata file* e selecione o arquivo de metadados SAML que você baixou para o Admin Node correspondente.
+.. Depois que o arquivo for carregado, selecione *Save* e, em seguida, selecione *X* para fechar o painel. Você será retornado à página Configurar logon único com SAML.
+
+
+. link:../admin/configure-sso.html#test-sso["Teste cada aplicação"] .
+

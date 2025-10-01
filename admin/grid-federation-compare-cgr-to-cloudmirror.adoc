@@ -13,6 +13,9 @@ summary: À medida que você começar a usar a federação de grade, analise as 
 [role="lead"]
 À medida que você começar a usar a federação de grade, revise as semelhanças e as diferenças entre link:grid-federation-what-is-cross-grid-replication.html["replicação entre grade"] e o link:../tenant/understanding-cloudmirror-replication-service.html["Serviço de replicação do StorageGRID CloudMirror"].
 
+
+NOTE: Não é possível usar o CloudMirror em um bucket replicado pela replicação entre grades e vice-versa.
+
 [cols="1a,3a,3a"]
 |===
 |  | Replicação entre grade | Serviço de replicação do CloudMirror 
@@ -25,7 +28,7 @@ Um sistema StorageGRID atua como um sistema de recuperação de desastres. Os ob
  a| 
 Permite que um locatário replique automaticamente objetos de um bucket no StorageGRID (origem) para um bucket externo do S3 (destino).
 
-A replicação do CloudMirror cria uma cópia independente de um objeto em uma infraestrutura S3 independente. Essa cópia independente não é usada como backup, mas muitas vezes processada na nuvem.
+A replicação do CloudMirror cria uma cópia independente de um objeto em uma infraestrutura S3 independente.  Essa cópia independente não é usada como backup, mas geralmente é processada na nuvem.
 
 
 

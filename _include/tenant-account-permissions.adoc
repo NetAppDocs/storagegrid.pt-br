@@ -17,7 +17,7 @@ O locatário pode usar serviços de plataforma S3, como o CloudMirror. link:../a
  a| 
 Use a própria fonte de identidade
  a| 
-O locatário pode configurar e gerenciar sua própria fonte de identidade para grupos federados e usuários. Esta opção é desativada se tiver link:../admin/configuring-sso.html["SSO configurado"] para o seu sistema StorageGRID.
+O locatário pode configurar e gerenciar sua própria fonte de identidade para grupos e usuários federados.  Esta opção estará desabilitada se você tiverlink:../admin/how-sso-works.html["SSO configurado"] para seu sistema StorageGRID .
 
 
 

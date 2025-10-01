@@ -20,7 +20,7 @@ Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser
 Para obter informações sobre como alterar endereços IP, link:../maintain/configuring-ip-addresses.html["Configurar endereços IP"]consulte .
 
 .Passos
-. Selecione *NODES* > *_grid node_* > *Visão geral*.
+. Selecione *Nós* > *_nó da grade_* > *Visão geral*.
 . Selecione *Mostrar mais* à direita do título dos endereços IP.
 +
 Os endereços IP desse nó de grade são listados em uma tabela.

@@ -18,7 +18,7 @@ Se você precisar acessar o StorageGRID usando uma ferramenta de monitoramento e
 link:using-storagegrid-security-certificates.html["Gerenciar certificados de segurança"]Consulte e link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["Configurar certificados de servidor personalizados"].
 
 
-NOTE: Para garantir que as operações não sejam interrompidas por um certificado de servidor com falha, o alerta *expiração de certificados de cliente configurados na página certificados* é acionado quando este certificado de servidor está prestes a expirar. Conforme necessário, você pode ver quando o certificado atual expira selecionando *CONFIGURATION* > *Security* > *Certificates* e observando a data de validade do certificado do cliente na guia Client.
+NOTE: Para garantir que as operações não sejam interrompidas por um certificado de servidor com falha, o alerta *Expiração de certificados de cliente configurados na página Certificados* é acionado quando este certificado de servidor está prestes a expirar.  Conforme necessário, você pode visualizar quando o certificado atual expira selecionando *Configuração* > *Segurança* > *Certificados* e verificando a data de expiração do certificado do cliente na guia Cliente.
 
 
 NOTE: Se você estiver usando um servidor de gerenciamento de chaves (KMS) para proteger os dados em nós de dispositivo especialmente configurados, consulte as informações específicas sobre link:kms-adding.html["Carregar um certificado de cliente KMS"]o .
@@ -60,7 +60,7 @@ Para adicionar o certificado de cliente, use um destes procedimentos:
 Use este procedimento para adicionar um certificado de cliente se um certificado de interface de gerenciamento já estiver configurado usando uma CA fornecida pelo cliente, um certificado de cliente e uma chave privada.
 
 .Passos
-. No Gerenciador de Grade, selecione *CONFIGURATION* > *Security* > *Certificates* e, em seguida, selecione a guia *Client*.
+. No Grid Manager, selecione *Configuração* > *Segurança* > *Certificados* e, em seguida, selecione a guia *Cliente*.
 . Selecione *Adicionar*.
 . Introduza um nome de certificado.
 . Para acessar as métricas do Prometheus usando sua ferramenta de monitoramento externo, selecione *permitir prometheus*.
@@ -91,7 +91,7 @@ Use este procedimento para adicionar um certificado de cliente administrador se 
 
 .Passos
 . Execute as etapas para link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["configurar um certificado de interface de gerenciamento"].
-. No Gerenciador de Grade, selecione *CONFIGURATION* > *Security* > *Certificates* e, em seguida, selecione a guia *Client*.
+. No Grid Manager, selecione *Configuração* > *Segurança* > *Certificados* e, em seguida, selecione a guia *Cliente*.
 . Selecione *Adicionar*.
 . Introduza um nome de certificado.
 . Para acessar as métricas do Prometheus usando sua ferramenta de monitoramento externo, selecione *permitir prometheus*.
@@ -121,7 +121,7 @@ Os novos certificados aparecem na guia Cliente.
 Use este procedimento para adicionar um certificado de cliente administrador se um certificado de interface de gerenciamento não tiver sido configurado e você planeja adicionar um certificado de cliente para Prometheus que use a função gerar certificado no Gerenciador de Grade.
 
 .Passos
-. No Gerenciador de Grade, selecione *CONFIGURATION* > *Security* > *Certificates* e, em seguida, selecione a guia *Client*.
+. No Grid Manager, selecione *Configuração* > *Segurança* > *Certificados* e, em seguida, selecione a guia *Cliente*.
 . Selecione *Adicionar*.
 . Introduza um nome de certificado.
 . Para acessar as métricas do Prometheus usando sua ferramenta de monitoramento externo, selecione *permitir prometheus*.
@@ -167,7 +167,7 @@ Especifique o nome do arquivo de chave privada e o local de download.
 +
 O novo certificado é exibido na guia Cliente.
 
-. No Gerenciador de Grade, selecione *CONFIGURATION* > *Security* > *Certificates* e, em seguida, selecione a guia *Global*.
+. No Grid Manager, selecione *Configuração* > *Segurança* > *Certificados* e, em seguida, selecione a guia *Global*.
 . Selecione *certificado de interface de gestão*.
 . Selecione *usar certificado personalizado*.
 . Carregue os arquivos certificate.pem e private_key.pem da <<client_cert_details,detalhes do certificado do cliente>> etapa. Não há necessidade de carregar o pacote CA.
@@ -228,7 +228,7 @@ Para obter informações sobre as métricas, consulte o link:../monitor/index.ht
 Você pode editar um certificado de cliente administrador para alterar seu nome, ativar ou desativar o acesso Prometheus ou carregar um novo certificado quando o atual expirar.
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Certificates* e, em seguida, selecione a guia *Client*.
+. Selecione *Configuração* > *Segurança* > *Certificados* e então selecione a aba *Cliente*.
 +
 As datas de expiração do certificado e as permissões de acesso Prometheus estão listadas na tabela. Se um certificado expirar em breve ou já estiver expirado, uma mensagem será exibida na tabela e um alerta será acionado.
 
@@ -249,7 +249,7 @@ O certificado atualizado é exibido na guia Cliente.
 Você pode carregar um novo certificado quando o atual expirar.
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Certificates* e, em seguida, selecione a guia *Client*.
+. Selecione *Configuração* > *Segurança* > *Certificados* e então selecione a aba *Cliente*.
 +
 As datas de expiração do certificado e as permissões de acesso Prometheus estão listadas na tabela. Se um certificado expirar em breve ou já estiver expirado, uma mensagem será exibida na tabela e um alerta será acionado.
 
@@ -343,7 +343,7 @@ O novo certificado é exibido na guia Cliente.
 Você pode baixar ou copiar um certificado de cliente para uso em outro lugar.
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Certificates* e, em seguida, selecione a guia *Client*.
+. Selecione *Configuração* > *Segurança* > *Certificados* e então selecione a aba *Cliente*.
 . Selecione o certificado que pretende copiar ou transferir.
 . Baixe ou copie o certificado.
 +
@@ -384,7 +384,7 @@ Por exemplo: `storagegrid_certificate.pem`
 Se você não precisar mais de um certificado de cliente administrador, poderá removê-lo.
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Certificates* e, em seguida, selecione a guia *Client*.
+. Selecione *Configuração* > *Segurança* > *Certificados* e então selecione a aba *Cliente*.
 . Selecione o certificado que pretende remover.
 . Selecione *Delete* e confirme.
 

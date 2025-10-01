@@ -48,6 +48,7 @@ Antes de adicionar nós de storage a sites existentes, consulte as diretrizes e 
 * Você pode adicionar nós de storage e outros tipos de nós em um único procedimento de expansão.
 * Antes de iniciar o procedimento de expansão, deve confirmar se todas as operações de reparação de dados efetuadas como parte de uma recuperação estão concluídas. link:../maintain/checking-data-repair-jobs.html["Verifique os trabalhos de reparação de dados"]Consulte .
 * Se você precisar remover nós de storage antes ou depois de executar uma expansão, não deverá desativar mais de 10 nós de storage em um único procedimento de nó de compactação.
+* Adicione nós de armazenamento suficientes para manter o desempenho de E/S de armazenamento subjacente.  As operações de gravação serão distribuídas entre os nós de armazenamento com base na capacidade de armazenamento disponível.  Se os nós de armazenamento expandidos tiverem significativamente mais capacidade de armazenamento disponível, esses nós receberão significativamente mais gravações.  Em particular, quando os nós de armazenamento existentes estiverem quase cheios, novas gravações dependerão apenas dos nós de armazenamento expandidos.  As operações de leitura e exclusão serão tratadas de acordo com sua carga de trabalho específica.
 
 
 
@@ -56,10 +57,10 @@ Antes de adicionar nós de storage a sites existentes, consulte as diretrizes e 
 
 Ao configurar a expansão, você deve escolher se deseja incluir o serviço controlador de domínio administrativo (ADC) em cada novo nó de armazenamento. O serviço ADC mantém o controle da localização e disponibilidade dos serviços da grade.
 
+* Você pode link:../maintain/move-adc-service.html["mover o serviço ADC de um nó de armazenamento para outro no mesmo site"] .
 * O sistema StorageGRID requer que a link:../maintain/understanding-adc-service-quorum.html["Quórum de serviços ADC"]esteja disponível em cada local e em todos os momentos.
 * Pelo menos três nós de storage em cada local devem incluir o serviço ADC.
 * Adicionar o serviço ADC a cada nó de armazenamento não é recomendado. Incluir muitos serviços ADC pode causar lentidão devido ao aumento da quantidade de comunicação entre nós.
 * Uma única grade não deve ter mais de 48 nós de storage com o serviço ADC. Isso equivale a 16 sites com três serviços ADC em cada local.
-* Em geral, quando você seleciona a configuração *ADC Service* para um novo nó, você deve selecionar *Automatic*. Selecione *Sim* somente se o novo nó substituir outro nó de armazenamento que inclua o serviço ADC. Como você não pode desativar um nó de armazenamento se houver poucos serviços ADC, isso garante que um novo serviço ADC esteja disponível antes que o serviço antigo seja removido.
-* Não é possível adicionar o serviço ADC a um nó depois que ele é implantado.
+* Em geral, ao selecionar a configuração *Serviço ADC* para um novo nó, você deve selecionar *Automático*.  Selecione *Sim* somente se o novo nó substituir outro nó de armazenamento que inclua o serviço ADC.  Como não é possível desativar um nó de armazenamento se houver poucos serviços ADC restantes, selecionar *Sim* garante que um novo serviço ADC esteja disponível antes que o serviço antigo seja removido.
 

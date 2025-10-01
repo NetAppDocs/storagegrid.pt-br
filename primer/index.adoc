@@ -29,16 +29,7 @@ NOTE: O suporte para nós de arquivamento foi removido. Mover objetos de um nó 
 As vantagens do sistema StorageGRID incluem o seguinte:
 
 * Altamente escalável e fácil de usar um repositório de dados distribuído geograficamente para dados não estruturados.
-* Protocolos padrão de storage de objetos:
-+
-** Amazon Web Services Simple Storage Service (S3)
-** OpenStack Swift
-+
-
-NOTE: O suporte para aplicativos cliente Swift foi obsoleto e será removido em uma versão futura.
-
-
-
+* O protocolo padrão de armazenamento de objetos do Amazon Web Services Simple Storage Service (S3).
 * Nuvem híbrida habilitada. O gerenciamento do ciclo de vida das informações (ILM) baseado em políticas armazena objetos em nuvens públicas, incluindo Amazon Web Services (AWS) e Microsoft Azure. Os serviços de plataforma StorageGRID permitem replicação de conteúdo, notificação de eventos e pesquisa de metadados de objetos armazenados em nuvens públicas.
 * Proteção de dados flexível para garantir durabilidade e disponibilidade. Os dados podem ser protegidos usando replicação e codificação de apagamento em camadas. A verificação de dados em repouso e em trânsito garante a integridade para retenção a longo prazo.
 * Gerenciamento dinâmico do ciclo de vida dos dados para ajudar a gerenciar custos de storage. Você pode criar regras de ILM que gerenciam o ciclo de vida dos dados no nível do objeto, personalizando a localidade, a durabilidade, o desempenho, o custo e o tempo de retenção dos dados.
@@ -49,7 +40,7 @@ NOTE: O suporte para aplicativos cliente Swift foi obsoleto e será removido em 
 +
 ** Máquinas virtuais em execução no VMware.
 ** Motores de contentor em hosts Linux.
-** Aparelhos projetados pela StorageGRID.
+** Dispositivos projetados pela StorageGRID.
 +
 *** Os dispositivos de storage fornecem storage de objetos.
 *** Os dispositivos de serviços fornecem serviços de administração de grade e balanceamento de carga.

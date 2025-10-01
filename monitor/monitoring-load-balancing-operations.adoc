@@ -25,7 +25,7 @@ Para obter mais informações, link:../admin/configuring-client-connections.html
 .Passos
 . Se os clientes S3 se conetarem usando o serviço Load Balancer, verifique se os nós de administrador ou os nós de gateway estão distribuindo ativamente o tráfego como você espera:
 +
-.. Selecione *NODES*.
+.. Selecione *Nós*.
 .. Selecione um nó de gateway ou nó de administrador.
 .. Na guia *Visão geral*, verifique se uma interface de nó está em um grupo de HA e se a interface de nó tem a função de primária.
 +

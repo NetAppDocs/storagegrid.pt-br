@@ -21,7 +21,7 @@ Depois de substituir um nó Admin não primário, você deve selecionar Iniciar 
 
 
 .Passos
-. No Gerenciador de Grade, selecione *MAINTENANCE* > *Tasks* > *Recovery*.
+. No Grid Manager, selecione *Manutenção* > *Tarefas* > *Recuperação*.
 . Selecione o nó de grade que você deseja recuperar na lista de nós pendentes.
 +
 Os nós aparecem na lista depois que eles falham, mas você não pode selecionar um nó até que ele seja reinstalado e esteja pronto para recuperação.
@@ -51,6 +51,6 @@ Se pretender tentar novamente a recuperação após reiniciar o procedimento, te
 . Se o logon único (SSO) estiver ativado para o seu sistema StorageGRID e a confiança da parte confiável para o nó Admin que você recuperou foi configurada para usar o certificado de interface de gerenciamento padrão, atualizar (ou excluir e recriar) a confiança da parte confiável do nó nos Serviços de Federação do ative Directory (AD FS). Use o novo certificado de servidor padrão que foi gerado durante o processo de recuperação do Admin Node.
 +
 
-NOTE: Para configurar uma confiança de parte confiável, link:../admin/configuring-sso.html["Configurar o logon único"]consulte . Para acessar o certificado padrão do servidor, faça login no shell de comando do nó Admin. Vá para `/var/local/mgmt-api` o diretório e selecione o `server.crt` arquivo.
+NOTE: Para configurar uma confiança de terceira parte confiável, consultelink:../admin/configure-sso.html["Configurar o logon único"] .  Para acessar o certificado do servidor padrão, efetue login no shell de comando do nó de administração.  Vá para o `/var/local/mgmt-api` diretório e selecione o `server.crt` arquivo.
 
 

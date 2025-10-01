@@ -44,7 +44,7 @@ Ao criar grupos e usuários, sempre comece a partir da grade de origem do locat�
 
 
 [role="quick-margin-list"]
-* Se você não estiver usando a federação de identidade link:creating-groups-for-s3-tenant.html["crie novos grupos locais"]e, em seguidalink:managing-local-users.html["crie usuários locais"], .
+* Se você não estiver usando federação de identidade,link:creating-groups-for-s3-tenant.html["crie novos grupos locais"] e entãolink:manage-users.html["crie usuários locais"] .
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"] Crie S3 chaves de acesso
@@ -78,9 +78,9 @@ NOTE: Os usuários selecionados quando você cria um grupo local na grade de ori
 
 === Os usuários locais criados na grade de origem são clonados
 
-Quando você cria um novo usuário local na grade de origem, o StorageGRID automaticamente clona esse usuário na grade de destino. Tanto o usuário original quanto seu clone têm o mesmo nome completo, nome de usuário e configuração *Negar acesso*. Ambos os usuários também pertencem aos mesmos grupos. Para obter instruções, link:managing-local-users.html["Gerenciar usuários locais"]consulte .
+Quando você cria um novo usuário local na grade de origem, o StorageGRID clona automaticamente esse usuário na grade de destino.  Tanto o usuário original quanto seu clone têm o mesmo nome completo, nome de usuário e configuração *Negar acesso*.  Ambos os usuários também pertencem aos mesmos grupos. Para obter instruções, consultelink:manage-users.html["Gerenciar usuários"] .
 
-Por motivos de segurança, as senhas de usuário local não são clonadas para a grade de destino. Se um usuário local precisar acessar o Gerenciador do Locatário na grade de destino, o usuário raiz da conta do locatário deve adicionar uma senha para esse usuário na grade de destino. Para obter instruções, link:managing-local-users.html["Gerenciar usuários locais"]consulte .
+Por motivos de segurança, as senhas dos usuários locais não são clonadas para a grade de destino.  Se um usuário local precisar acessar o Tenant Manager na grade de destino, o usuário raiz da conta do locatário deverá adicionar uma senha para esse usuário na grade de destino. Para obter instruções, consultelink:manage-users.html["Gerenciar usuários"] .
 
 image::../media/grid-federation-local-user-clone.png[imagem que mostra que os usuários locais são clonados da grade de origem para a grade de destino]
 

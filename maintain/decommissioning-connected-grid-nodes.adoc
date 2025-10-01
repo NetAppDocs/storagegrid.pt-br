@@ -99,13 +99,13 @@ O procedimento de desativação do nó é iniciado e o progresso é exibido para
 
 CAUTION: Não coloque um nó de armazenamento offline após o início do procedimento de desativação. Alterar o estado pode resultar em algum conteúdo não ser copiado para outros locais.
 
-. Assim que o novo Pacote de recuperação estiver disponível, selecione o link Pacote de recuperação no banner ou selecione *MANUTENÇÃO* > *sistema* > *Pacote de recuperação* para acessar a página Pacote de recuperação. Em seguida, baixe o `.zip` arquivo.
+. Assim que o novo pacote de recuperação estiver disponível, selecione o link do pacote de recuperação no banner ou selecione *Manutenção* > *Sistema* > *Pacote de recuperação* para acessar a página do pacote de recuperação.  Em seguida, baixe o `.zip` arquivo.
 +
-link:downloading-recovery-package.html["Transferir o pacote de recuperação"]Consulte .
+Ver link:downloading-recovery-package.html["baixando o pacote de recuperação"] .
 
 +
 
-NOTE: Baixe o pacote de recuperação o mais rápido possível para garantir que você possa recuperar sua grade se algo der errado durante o procedimento de desativação.
+NOTE: Baixe o pacote de recuperação o mais rápido possível para garantir que você possa recuperar sua rede se algo der errado durante o procedimento de desativação.
 
 . Monitore periodicamente a página Decommission Nodes para garantir que todos os nós selecionados sejam desativados com êxito.
 +
@@ -122,7 +122,7 @@ Siga estas etapas depois de concluir o procedimento de desativação do nó:
 
 . Siga o passo apropriado para a sua plataforma. Por exemplo:
 +
-** * Linux*: Você pode querer desanexar os volumes e excluir os arquivos de configuração de nó criados durante a instalação. link:../rhel/index.html["Instale o StorageGRID no Red Hat Enterprise Linux"]Consulte e link:../ubuntu/index.html["Instale o StorageGRID no Ubuntu ou Debian"].
+** *Linux*: Talvez você queira desanexar os volumes e excluir os arquivos de configuração do nó que você criou durante a instalação. Ver link:../swnodes/index.html["Instalar StorageGRID em nós baseados em software"] .
 ** *VMware*: Você pode querer usar a opção "Excluir do disco" do vCenter para excluir a máquina virtual. Você também pode precisar excluir quaisquer discos de dados que sejam independentes da máquina virtual.
 ** *StorageGRID Appliance*: O nó appliance reverte automaticamente para um estado não implantado, onde você pode acessar o Instalador de dispositivos StorageGRID. Pode desligar o aparelho ou adicioná-lo a outro sistema StorageGRID.
 

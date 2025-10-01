@@ -25,14 +25,14 @@ Todas as atividades do cliente S3 estão associadas às contas de inquilino do S
 A página inquilinos mostra informações básicas para todas as contas de inquilino atuais.
 
 .Passos
-. Selecione *TENANTS*.
+. Selecione *Inquilinos*.
 . Reveja as informações apresentadas nas páginas do locatário.
 +
 O espaço lógico usado, o uso da cota, a cota e a contagem de objetos são listados para cada locatário. Se uma cota não for definida para um locatário, os campos de utilização e quota da quota contêm um traço (& n.o 8212;).
 
 +
 
-NOTE: Os valores de espaço utilizados são estimativas. Essas estimativas são afetadas pelo timing de inests, conetividade de rede e status de nó.
+NOTE: O tamanho lógico de todos os objetos pertencentes a este locatário inclui uploads multipartes incompletos e em andamento.  O tamanho não inclui espaço físico adicional usado para políticas de ILM.  Os valores do Espaço utilizado são estimativas.  Essas estimativas são afetadas pelo tempo de ingestão, pela conectividade de rede e pelo status do nó.
 
 +
 image::../media/tenant_accounts_page.png[Página de contas de inquilino]
@@ -75,6 +75,10 @@ image::../media/tenant_usage_modal.png[Modal de uso do locatário]
 . Revise a visão geral do locatário na parte superior da página.
 +
 Esta seção da página de detalhes fornece informações resumidas para o locatário, incluindo a contagem de objetos do locatário, o uso da cota, o espaço lógico usado e a configuração da cota.
+
++
+
+NOTE: O tamanho lógico de todos os objetos pertencentes a este locatário inclui uploads multipartes incompletos e em andamento.  O tamanho não inclui espaço físico adicional usado para políticas de ILM.  Os valores do Espaço utilizado são estimativas.  Essas estimativas são afetadas pelo tempo de ingestão, pela conectividade de rede e pelo status do nó.
 
 . Na guia *repartição de espaço*, revise o gráfico *consumo de espaço*.
 +
@@ -129,7 +133,7 @@ link:../admin/grid-federation-overview.html["O que é a federação de grade?"]C
 Se as políticas de classificação de tráfego estiverem em vigor para um locatário, revise o tráfego de rede desse locatário.
 
 .Passos
-. Selecione *CONFIGURATION* > *Network* > *Traffic Classification*.
+. Selecione *Configuração* > *Rede* > *Classificação de tráfego*.
 +
 A página políticas de classificação de tráfego é exibida e as políticas existentes são listadas na tabela.
 
@@ -164,7 +168,7 @@ Consulte link:../audit/index.html["Rever registos de auditoria"] para obter mais
 
 Opcionalmente, use as métricas Prometheus para relatar a atividade do locatário.
 
-* No Gerenciador de Grade, selecione *support* > *Tools* > *Metrics*. Você pode usar painéis existentes, como a Visão geral do S3, para analisar as atividades do cliente.
+* No Grid Manager, selecione *Suporte* > *Ferramentas* > *Métricas*.  Você pode usar painéis existentes, como o S3 Overview, para revisar as atividades do cliente.
 +
 
 NOTE: As ferramentas disponíveis na página Metrics destinam-se principalmente ao uso pelo suporte técnico. Alguns recursos e itens de menu dentro dessas ferramentas são intencionalmente não funcionais.

@@ -20,7 +20,7 @@ Você deve atualizar as informações de licença do seu sistema StorageGRID a q
 
 
 .Passos
-. Selecione *MAINTENANCE* > *System* > *License*.
+. Selecione *Manutenção* > *Sistema* > *Licença*.
 . Na seção Atualizar licença, selecione *Procurar*.
 . Localize e selecione o novo ficheiro de licença (`.txt`).
 +

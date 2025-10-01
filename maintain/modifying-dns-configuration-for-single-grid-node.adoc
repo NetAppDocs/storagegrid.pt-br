@@ -13,9 +13,10 @@ summary: Em vez de configurar o DNS globalmente para toda a implantação, você
 [role="lead"]
 Em vez de configurar o DNS globalmente para toda a implantação, você pode executar um script para configurar o DNS de forma diferente para cada nó de grade.
 
-Em geral, você deve usar a opção *MAINTENANCE* > *Network* > *DNS Servers* no Grid Manager para configurar servidores DNS. Use o script a seguir somente se você precisar usar servidores DNS diferentes para diferentes nós de grade.
+Em geral, você deve usar a opção *Manutenção* > *Rede* > *Servidores DNS* no Grid Manager para configurar servidores DNS.  Use o script a seguir somente se precisar usar servidores DNS diferentes para nós de grade diferentes.
 
 .Passos
+. O acesso SSH externo é bloqueado por padrão.  Se necessário,link:../admin/manage-external-ssh-access.html["permitir acesso temporariamente"] .
 . Faça login no nó de administração principal:
 +
 .. Introduza o seguinte comando: `ssh admin@_primary_Admin_Node_IP_`
@@ -77,4 +78,5 @@ Enter command [`add search <domain>|remove search <domain>|add nameserver <ip>`]
 . [[close_cmd_shell]]feche o shell de comando no servidor: `exit`
 . Para cada nó de grade, repita as etapas de <<log_in_to_node,iniciar sessão no nó>> até <<close_cmd_shell,fechando o shell de comando>>.
 . Quando você não precisar mais de acesso sem senha a outros servidores, remova a chave privada do agente SSH. Introduza: `ssh-add -D`
+. Se você permitiu acesso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear acesso"] quando terminar de modificar a configuração de DNS.
 

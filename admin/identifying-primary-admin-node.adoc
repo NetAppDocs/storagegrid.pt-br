@@ -21,7 +21,7 @@ Para obter mais informações sobre nós de administração, link:../primer/what
 
 
 .Passos
-. Selecione *NODES*.
+. Selecione *Nós*.
 . Digite *Primary* na caixa de pesquisa.
 +
 Nos resultados da pesquisa, identifique o nó com "nó Admin principal" exibido na coluna tipo. Um nó de administração principal deve ser listado.

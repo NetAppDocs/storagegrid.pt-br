@@ -1,0 +1,34 @@
+---
+permalink: admin/manage-external-ssh-access.html 
+sidebar: sidebar 
+keywords: security, external, ssh, access 
+summary: Gerencie a proteção SSH bloqueando ou permitindo acesso SSH externo. 
+---
+= Gerenciar acesso SSH externo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Gerencie o acesso SSH para tráfego de entrada na grade bloqueando ou permitindo acesso externo.  Gerenciar o acesso externo SSH não afeta o tráfego entre os nós na grade.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você link:admin-group-permissions.html["Permissão de acesso à raiz"]tem .
+
+
+.Sobre esta tarefa
+Para aumentar a segurança do sistema, o acesso SSH externo é bloqueado por padrão.  Se você precisar executar tarefas que exigem acesso SSH de entrada, como solução de problemas, permita temporariamente o acesso externo.  Quando terminar a tarefa, bloqueie o acesso externo.
+
+.Passos
+. Selecione *Configuração* > *Segurança* > *Configurações de segurança*.
+. Selecione a aba *Bloquear SSH*.
+. Use a opção *Bloquear acesso SSH de entrada* para gerenciar o acesso SSH externo:
++
+.. Marque a caixa de seleção para bloquear o acesso (padrão).
+.. Desmarque a caixa de seleção para permitir o acesso.
+
+
+. Selecione *Guardar*.
+

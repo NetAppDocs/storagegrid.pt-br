@@ -2,7 +2,7 @@
 permalink: tenant/understanding-tenant-manager-dashboard.html 
 sidebar: sidebar 
 keywords: how to understand tenant manager dashboard 
-summary: 'O painel do Gerenciador do Tenant fornece uma visão geral da configuração de uma conta de locatário e da quantidade de espaço usada por objetos nos buckets do locatário(S3) ou containers(Swift). Se o locatário tiver uma cota, o painel mostrará quanto da cota é usada e quanto resta. Se houver algum erro relacionado à conta do locatário, os erros serão exibidos no painel.' 
+summary: O painel do Tenant Manager fornece uma visão geral da configuração da conta de um locatário e da quantidade de espaço usado pelos objetos nos buckets S3 do locatário.  Se o locatário tiver uma cota, o painel mostrará quanto da cota foi usado e quanto resta.  Se houver algum erro relacionado à conta do locatário, os erros serão exibidos no painel. 
 ---
 = Entenda o painel do Tenant Manager
 :allow-uri-read: 
@@ -11,10 +11,10 @@ summary: 'O painel do Gerenciador do Tenant fornece uma visão geral da configur
 
 
 [role="lead"]
-O painel do Tenant Manager fornece uma visão geral da configuração de uma conta de locatário e da quantidade de espaço usada por objetos nos buckets do locatário (S3) ou contentores (Swift). Se o locatário tiver uma cota, o painel mostrará quanto da cota é usada e quanto resta. Se houver algum erro relacionado à conta do locatário, os erros serão exibidos no painel.
+O painel do Tenant Manager fornece uma visão geral da configuração da conta de um locatário e da quantidade de espaço usado pelos objetos nos buckets S3 do locatário.  Se o locatário tiver uma cota, o painel mostrará quanto da cota foi usado e quanto resta.  Se houver algum erro relacionado à conta do locatário, os erros serão exibidos no painel.
 
 
-NOTE: Os valores espaço utilizado são estimativas. Essas estimativas são afetadas pelo timing de inests, conetividade de rede e status de nó.
+NOTE: O tamanho lógico de todos os objetos pertencentes a este locatário inclui uploads multipartes incompletos e em andamento.  O tamanho não inclui espaço físico adicional usado para políticas de ILM.  Os valores do Espaço utilizado são estimativas.  Essas estimativas são afetadas pelo tempo de ingestão, pela conectividade de rede e pelo status do nó.
 
 Quando os objetos tiverem sido carregados, o painel se parece com o seguinte exemplo:
 

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: disable sso, disable single sign on 
 summary: Você pode desativar o logon único se não quiser mais usar essa funcionalidade. Você deve desativar o logon único antes de desativar a federação de identidade. 
 ---
-= Desative o logon único
+= Desativar SSO
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -19,17 +19,15 @@ Você pode desativar o logon único (SSO) se não quiser mais usar essa funciona
 
 
 .Passos
-. Selecione *CONFIGURATION* > *access control* > *Single sign-on*.
+. Selecione *Configuração* > *Controle de acesso* > *Logon único*.
 +
 É apresentada a página Single Sign-on (Início de sessão único).
 
-. Selecione a opção *Disabled* (Desativado).
-. Selecione *Guardar*.
+. Selecione *Desativar SSO*.
+. Selecione *Sim*.
 +
 É apresentada uma mensagem de aviso indicando que os utilizadores locais poderão iniciar sessão.
 
-. Selecione *OK*.
-+
+
+
 Na próxima vez que você entrar no StorageGRID, a página de login do StorageGRID será exibida e você deverá inserir o nome de usuário e a senha de um usuário do StorageGRID local ou federado.
-
-

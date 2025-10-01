@@ -28,13 +28,6 @@ S3BK (balde), S3KY (chave) ou ambos
 
 
  a| 
-Ligando as operações Swift
- a| 
-WCON (container), WOBJ (objeto), ou ambos
-
-
-
- a| 
 Vinculação de operações internas
  a| 
 CBID (identificador interno do objeto)

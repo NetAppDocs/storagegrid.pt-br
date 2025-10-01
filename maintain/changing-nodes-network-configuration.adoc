@@ -17,13 +17,7 @@ Você pode alterar a configuração de rede de um ou mais nós usando a ferramen
 Você tem o `Passwords.txt` arquivo.
 
 .Sobre esta tarefa
-* Linux:* se você estiver adicionando um nó de grade à rede Admin ou rede de cliente pela primeira vez, e você não tiver configurado anteriormente ADMIN_network_TARGET ou CLIENT_network_TARGET no arquivo de configuração do nó, você deve fazê-lo agora.
-
-Consulte as instruções de instalação do StorageGRID para seu sistema operacional Linux:
-
-* link:../rhel/index.html["Instale o StorageGRID no Red Hat Enterprise Linux"]
-* link:../ubuntu/index.html["Instale o StorageGRID no Ubuntu ou Debian"]
-
+*Linux:* Se você estiver adicionando um nó de grade à Rede de Administração ou à Rede de Cliente pela primeira vez e não tiver configurado ADMIN_NETWORK_TARGET ou CLIENT_NETWORK_TARGET anteriormente no arquivo de configuração do nó, deverá fazê-lo agora.  Veja o StorageGRIDlink:../swnodes/index.html["instruções de instalação"] para o seu sistema operacional Linux.
 
 *Appliances:* em appliances StorageGRID, se o cliente ou a rede de administração não tiver sido configurada no Instalador de appliance StorageGRID durante a instalação inicial, a rede não poderá ser adicionada usando apenas a ferramenta Change IP (alterar IP). Primeiro, você deve https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/placing-appliance-into-maintenance-mode.html["coloque o aparelho no modo de manutenção"^] configurar os links, retornar o dispositivo ao modo de operação normal e usar a ferramenta alterar IP para modificar a configuração de rede. Consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-network-links.html["procedimento para configurar links de rede"^] .
 
@@ -42,12 +36,13 @@ Os nós não podem ser removidos da rede de Grade.
 NOTE: Swaps de endereço IP não são permitidos. Se for necessário trocar endereços IP entre nós de grade, você deverá usar um endereço IP intermediário temporário.
 
 
-NOTE: Se o logon único (SSO) estiver ativado para o sistema StorageGRID e você estiver alterando o endereço IP de um nó Admin, esteja ciente de que qualquer confiança de parte confiável que foi configurada usando o endereço IP do nó Admin (em vez de seu nome de domínio totalmente qualificado, conforme recomendado) se tornará inválida. Você não poderá mais entrar no nó. Imediatamente após alterar o endereço IP, você deve atualizar ou reconfigurar a confiança de parte confiável do nó nos Serviços de Federação do ative Directory (AD FS) com o novo endereço IP. Consulte as instruções para link:../admin/configuring-sso.html["Configurando o SSO"].
+NOTE: Se o logon único (SSO) estiver habilitado para seu sistema StorageGRID e você estiver alterando o endereço IP de um nó de administração, esteja ciente de que qualquer confiança de parte confiável que foi configurada usando o endereço IP do nó de administração (em vez de seu nome de domínio totalmente qualificado, conforme recomendado) se tornará inválida.  Você não poderá mais fazer login no nó.  Imediatamente após alterar o endereço IP, você deve atualizar ou reconfigurar a parte confiável do nó nos Serviços de Federação do Active Directory (AD FS) com o novo endereço IP.  Veja as instruções paralink:../admin/configure-sso.html["Configurando o SSO"] .
 
 
 NOTE: Todas as alterações feitas na rede usando a ferramenta Change IP são propagadas para o firmware do instalador dos dispositivos StorageGRID. Dessa forma, se o software StorageGRID for reinstalado em um dispositivo ou se um dispositivo for colocado no modo de manutenção, a configuração de rede estará correta.
 
 .Passos
+. O acesso SSH externo é bloqueado por padrão.  Se necessário,link:../admin/manage-external-ssh-access.html["permitir acesso temporariamente"] .
 . Faça login no nó de administração principal:
 +
 .. Introduza o seguinte comando: `ssh admin@_primary_Admin_Node_IP_`
@@ -186,7 +181,7 @@ Updating grid network configuration on Name
 
 
 +
-Depois de aplicar ou alterar o estágio, um novo pacote de recuperação é gerado como resultado da alteração de configuração da grade.
+Depois de aplicar ou preparar as alterações, um novo pacote de recuperação é gerado como resultado da alteração na configuração da grade.
 
 . Se você selecionou *stage*, siga estas etapas após a conclusão do provisionamento:
 +
@@ -201,10 +196,52 @@ Depois de aplicar ou alterar o estágio, um novo pacote de recuperação é gera
 
 
 . Selecione *0* para sair da ferramenta Change IP após a conclusão das alterações.
-. Faça o download de um novo Pacote de recuperação do Gerenciador de Grade.
+. Baixe um novo pacote de recuperação do Grid Manager.
 +
-.. Selecione *MAINTENANCE* > *System* > *Recovery package*.
+.. Selecione *Manutenção* > *Sistema* > *Pacote de recuperação*.
 .. Introduza a frase-passe de aprovisionamento.
 
 
+. Se você permitiu acesso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear acesso"] quando terminar de alterar a configuração de rede do nó.
 
+
+
+
+== Alteração temporária da taxa de PDU do LACP
+
+Para executar operações de manutenção em componentes de rede instalados no seu dispositivo, como atualizar o firmware da NIC, você pode verificar se a configuração atual da taxa do PDU LACP atende aos requisitos de tempo de comunicação da NIC.  Você pode alternar de forma não persistente a taxa do PDU LACP entre rápida (espera de 1 segundo) e lenta (espera de 30 segundos), se necessário.
+
+
+NOTE: Para fazer alterações permanentes na taxa de PDU do LACP, consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-network-links.html["Configurar ligações de rede"^] .
+
+.Antes de começar
+* O nó de administração está instalado e em execução.
+* Você tem o `Passwords.txt` arquivo.
+
+
+.Passos
+. Faça login no nó de administração principal:
++
+.. Introduza o seguinte comando: `ssh admin@primary_Admin_Node_IP`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+
+
+. Para verificar a configuração atual da taxa do PDU LACP, digite o seguinte comando:
++
+`run-each-node --parallel --port 8022 '/usr/sbin/set-lacp-rate.sh'`
+
+. Para alterar temporariamente a taxa do PDU LACP, digite o seguinte comando:
++
+`run-each-node --parallel --port 8022 '/usr/sbin/set-lacp-rate.sh _<speed>_'`
+
++
+onde `_<speed>_` é `fast` ou `slow` .
+
+
+
+A taxa do PDU LACP retornará à configuração anterior na próxima reinicialização do dispositivo.

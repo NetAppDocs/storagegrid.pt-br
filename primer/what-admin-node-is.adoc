@@ -17,7 +17,7 @@ Os nós de administração fornecem serviços de gerenciamento, como configuraç
 
 == Diferenças entre nós de administração primários e não primários
 
-Quando você entra no Gerenciador de Grade ou no Gerenciador de Tenant, você está se conetando a um nó Admin. Você pode se conetar a qualquer nó de administrador e cada nó de administrador exibe uma exibição semelhante do sistema StorageGRID. No entanto, o nó de administração principal fornece mais funcionalidade do que os nós de administração não primários. Por exemplo, a maioria dos procedimentos de manutenção deve ser realizada a partir dos nós de administração primários.
+Ao fazer login no Grid Manager ou no Tenant Manager, você está se conectando a um nó de administração.  Você pode se conectar a qualquer nó administrativo, e cada nó administrativo exibe uma visão semelhante do sistema StorageGRID .  No entanto, o nó administrativo primário fornece mais funcionalidades do que os nós administrativos não primários.  Por exemplo, a maioria dos procedimentos de manutenção deve ser executada no nó de administração principal.
 
 A tabela resume os recursos dos nós de administração primários e não primários.
 
@@ -99,6 +99,15 @@ Não
 
 
  a| 
+Pode baixar o pacote de recuperação
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
 Pode executar o rebalanceamento de EC após a expansão do nó de storage
  a| 
 Sim
@@ -121,6 +130,24 @@ Pode coletar arquivos de log e dados do sistema de um ou mais nós
  a| 
 Sim
  a| 
+Sim
+
+
+
+ a| 
+Pode recuperar nós de armazenamento, gateway e administradores não primários
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Pode recuperar o nó de administração primário
+ a| 
+Sim
+ a| 
 Não
 
 
@@ -139,12 +166,12 @@ Sim. Atua como um remetente em espera.
 
 Se sua implantação do StorageGRID incluir vários nós de administração, o nó de administração principal é o remetente preferido para notificações de alerta, pacotes AutoSupport e traps SNMP e informa.
 
-Em operações normais do sistema, apenas o remetente preferido envia notificações. No entanto, todos os outros nós de administração monitoram o remetente preferido. Se um problema for detetado, outros nós de administração agem como _remetentes de reserva_.
+Em operações normais do sistema, somente o remetente preferido envia notificações.  Entretanto, todos os outros nós administrativos monitoram o remetente preferido.  Se um problema for detectado, outros nós administrativos atuam como remetentes em espera.
 
-Várias notificações podem ser enviadas nesses casos:
+Várias notificações podem ser enviadas nestes casos:
 
 * Se os nós de administração ficarem "isaterizados" uns dos outros, tanto o remetente preferido como os remetentes de reserva tentarão enviar notificações, e várias cópias de notificações podem ser recebidas.
-* Se o remetente em espera detetar problemas com o remetente preferido e começar a enviar notificações, o remetente preferido pode recuperar sua capacidade de enviar notificações. Se isso ocorrer, notificações duplicadas podem ser enviadas. O remetente em espera deixará de enviar notificações quando não detetar mais erros no remetente preferido.
+* Se um remetente em espera detectar problemas com o remetente preferencial e começar a enviar notificações, o remetente preferencial poderá recuperar sua capacidade de enviar notificações.  Se isso ocorrer, notificações duplicadas poderão ser enviadas.  O remetente em espera deixará de enviar notificações quando não detectar mais erros no remetente preferido.
 +
 
 NOTE: Quando você testa pacotes do AutoSupport, todos os nós de administração enviam o teste. Ao testar notificações de alerta, você deve entrar em cada nó de administração para verificar a conetividade.

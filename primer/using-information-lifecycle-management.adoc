@@ -11,13 +11,11 @@ summary: 'Você usa o gerenciamento do ciclo de vida das informações (ILM) par
 
 
 [role="lead"]
-Use o gerenciamento do ciclo de vida das informações (ILM) para controlar o posicionamento, a duração e o comportamento de ingestão de todos os objetos no sistema StorageGRID. As regras do ILM determinam como o StorageGRID armazena objetos ao longo do tempo. Você configura uma ou mais regras ILM e as adiciona a uma política ILM.
-
-Uma grade tem apenas uma política ativa de cada vez. Uma política pode conter várias regras.
+Use o gerenciamento do ciclo de vida das informações (ILM) para controlar o posicionamento, a duração e o comportamento de ingestão de todos os objetos no seu sistema StorageGRID .  As regras do ILM determinam como o StorageGRID armazena objetos ao longo do tempo.  Configure uma ou mais regras de ILM e adicione-as a uma política de ILM.  Uma grade pode ter mais de uma política ativa ao mesmo tempo.
 
 As regras do ILM definem:
 
-* Quais objetos devem ser armazenados. Uma regra pode ser aplicada a todos os objetos ou você pode especificar filtros para identificar quais objetos uma regra se aplica. Por exemplo, uma regra só pode se aplicar a objetos associados a determinadas contas de locatário, buckets específicos do S3 ou contentores Swift ou valores específicos de metadados.
+* Quais objetos devem ser armazenados.  Uma regra pode ser aplicada a todos os objetos, ou você pode especificar filtros para identificar a quais objetos uma regra se aplica.  Por exemplo, uma regra pode ser aplicada somente a objetos associados a determinadas contas de locatários, buckets S3 específicos ou valores de metadados específicos.
 * O tipo de armazenamento e a localização. Os objetos podem ser armazenados em nós de storage ou em Cloud Storage Pools.
 * O tipo de cópias de objeto feitas. As cópias podem ser replicadas ou codificadas para apagamento.
 * Para cópias replicadas, o número de cópias feitas.

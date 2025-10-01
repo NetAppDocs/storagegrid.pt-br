@@ -13,4 +13,4 @@ summary: Obtenha informações específicas sobre problemas corrigidos e problem
 [role="lead"]
 Obtenha informações específicas sobre problemas corrigidos e problemas conhecidos.
 
-Faça login no site de suporte da NetApp para https://library.netapp.com/ecm/ecm_download_file/ECMLP3330064["Ver ou transferir um ficheiro PDF"^] conter as notas de versão do StorageGRID 11,9.
+Faça login no site de suporte da NetApp para https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["Ver ou transferir um ficheiro PDF"^] contendo as notas de versão do StorageGRID 12.0.

@@ -170,7 +170,7 @@ Porta
  a| 
 A porta StorageGRID que você deseja usar para balanceamento de carga. Este campo é padrão para 10433 para o primeiro endpoint que você criar, mas você pode inserir qualquer porta externa não utilizada. Se você inserir 80 ou 443, o endpoint será configurado apenas em nós de Gateway, porque essas portas serão reservadas em nós de administração.
 
-*Observação:* as portas usadas por outros serviços de grade não são permitidas. Consulte link:../network/network-port-reference.html["Referência da porta de rede"].
+*Observação:* Portas usadas por outros serviços de rede não são permitidas. Ver link:../network/internal-grid-node-communications.html#storagegrid-internal-ports["Portas internas do StorageGRID"] .
 
 
 
@@ -347,7 +347,7 @@ Para obter detalhes sobre esta tarefa, link:creating-tenant-account.html["Crie u
 +
 Os nomes de inquilinos não precisam ser únicos. Quando a conta de locatário é criada, ela recebe um ID de conta numérico único.
 
-. Defina o acesso root para a conta de locatário, com base se o sistema StorageGRID usa link:using-identity-federation.html["federação de identidade"], link:configuring-sso.html["Logon único (SSO)"]ou ambos.
+. Defina o acesso root para a conta do locatário, com base no uso do seu sistema StorageGRIDlink:using-identity-federation.html["federação de identidade"] ,link:how-sso-works.html["Logon único (SSO)"] , ou ambos.
 +
 [cols="1a,2a"]
 |===

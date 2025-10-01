@@ -14,7 +14,12 @@ summary: Depois de ativar uma política ILM, ingira objetos de teste representat
 Depois de ativar uma política ILM, ingira objetos de teste representativos no sistema StorageGRID e, em seguida, execute uma pesquisa de metadados de objetos para confirmar que as cópias estão sendo feitas conforme o pretendido e colocadas nos locais corretos.
 
 .Antes de começar
-Você tem um identificador de objeto, que pode ser um dos seguintes: * * * UUID*: O Identificador universalmente exclusivo do objeto. * *CBID*: O identificador exclusivo do objeto dentro do StorageGRID. Você pode obter o CBID de um objeto a partir do log de auditoria. Introduza o CBID em todas as maiúsculas. * * Bucket *S3 e chave de objeto*: Quando um objeto é ingerido através da interface S3, o aplicativo cliente usa uma combinação de bucket e chave de objeto para armazenar e identificar o objeto. Se o bucket S3 estiver versionado e você quiser procurar uma versão específica de um objeto S3 usando o bucket e a chave do objeto, você tem o *version ID*.
+Você tem um identificador de objeto, que pode ser um dos seguintes:
+
+* *UUID*: Identificador Universalmente Único do objeto.
+* *CBID*: O identificador exclusivo do objeto dentro do StorageGRID.  Você pode obter o CBID de um objeto no log de auditoria.  Digite o CBDID em letras maiúsculas.
+* *Chave de bucket e objeto S3*: Quando um objeto é ingerido por meio da interface S3, o aplicativo cliente usa uma combinação de chave de bucket e objeto para armazenar e identificar o objeto.  Se o bucket do S3 tiver versão e você quiser consultar uma versão específica de um objeto do S3 usando o bucket e a chave do objeto, você terá o *ID da versão*.
+
 
 .Passos
 . Ingira o objeto.

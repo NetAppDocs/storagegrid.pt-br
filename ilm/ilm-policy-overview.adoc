@@ -26,7 +26,7 @@ Quando você instala o StorageGRID e adiciona sites, uma política ILM padrão �
 * Se a grade contiver mais de um local, a regra padrão replicará uma cópia de cada objeto em cada local.
 
 
-Se a política padrão não atender aos requisitos de storage, você poderá criar suas próprias regras e políticas. link:what-ilm-rule-is.html["Crie uma regra ILM"]Consulte e link:creating-ilm-policy.html["Crie uma política ILM"].
+Se a política padrão não atender aos seus requisitos de armazenamento, você poderá criar suas próprias regras e políticas.  Verlink:what-ilm-rule-is.html["Crie uma regra ILM"] elink:creating-ilm-policy.html["Crie uma política ILM"] .
 
 
 
@@ -56,6 +56,11 @@ Tags de política ILM:: Se você quiser permitir que os locatários alternem fac
 Por exemplo, você pode ter três tags chamadas Ouro, Prata e Bronze. Você pode atribuir uma política de ILM a cada tag, com base em quanto tempo e onde ela armazena objetos. Os locatários podem escolher qual política usar marcando seus buckets. Um bucket com a tag Gold é gerenciado pela política Gold e recebe o nível Gold de proteção e desempenho de dados.
 
 --
+
+
+
+NOTE: Você podelink:../ilm/creating-ilm-policy.html#activate-ilm-policy["crie no máximo 10 tags de política"] para sua grade.
+
 Etiqueta de política ILM padrão:: Uma tag de política ILM padrão é criada automaticamente quando você instala o StorageGRID. Cada grade deve ter uma política ativa que é atribuída à tag padrão. A política padrão se aplica a quaisquer buckets S3 não marcados.
 
 

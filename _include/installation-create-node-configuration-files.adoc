@@ -67,7 +67,7 @@ A tabela a seguir define os valores para todas as chaves suportadas. Cada chave 
 
 
  a| 
-Rede de grade IPv4 endereço do nó de administração principal para a grade à qual esse nó pertence. Use o mesmo valor que você especificou para GRID_NETWORK_IP para o nó de grade com NODE_TYPE e ADMIN_ROLE. Se você omitir esse parâmetro, o nó tentará descobrir um nó Admin primário usando mDNS.
+Endereço IPv4 da rede Grid do nó de administração que você deseja usar para instalar o nó baseado em Linux.  Para recuperação, use o IP do nó de administração primário, se disponível; caso contrário, use o IP de um nó de administração não primário.  Se você omitir esse parâmetro, o nó tentará descobrir um nó de administração primário usando mDNS.
 
 link:how-grid-nodes-discover-primary-admin-node.html["Como os nós de grade descobrem o nó de administração principal"]
 
@@ -277,11 +277,7 @@ Defina a chave como "true" para fazer com que o contentor StorageGRID use o ende
 
 *Prática recomendada:* em redes onde o modo promíscuo seria necessário, use a chave ADMIN_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC em vez disso.
 
-Para obter mais detalhes sobre clonagem MAC:
-
-* link:../rhel/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerações e recomendações para clonagem de endereços MAC (Red Hat Enterprise Linux)"]
-* link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerações e recomendações para clonagem de endereços MAC (Ubuntu ou Debian)"]
-
+Para mais detalhes sobre clonagem de MAC para Linux, consultelink:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerações e recomendações para clonagem de endereços MAC"]
  a| 
 Prática recomendada
 
@@ -639,11 +635,7 @@ Defina a chave como "true" para fazer com que o contentor StorageGRID use o ende
 
 *Melhor prática:* em redes onde o modo promíscuo seria necessário, use a chave CLIENT_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC em vez disso.
 
-Para obter mais detalhes sobre clonagem MAC:
-
-* link:../rhel/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerações e recomendações para clonagem de endereços MAC (Red Hat Enterprise Linux)"]
-* link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerações e recomendações para clonagem de endereços MAC (Ubuntu ou Debian)"]
-
+Para mais detalhes sobre clonagem de MAC para Linux, consultelink:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerações e recomendações para clonagem de endereços MAC"]
  a| 
 Prática recomendada
 
@@ -834,11 +826,7 @@ Defina o valor da chave como "true" para fazer com que o contentor StorageGRID u
 
 *Melhor prática:* em redes onde o modo promíscuo seria necessário, use a chave GRID_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC em vez disso.
 
-Para obter mais detalhes sobre clonagem MAC:
-
-* link:../rhel/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerações e recomendações para clonagem de endereços MAC (Red Hat Enterprise Linux)"]
-* link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerações e recomendações para clonagem de endereços MAC (Ubuntu ou Debian)"]
-
+Para mais detalhes sobre clonagem de MAC para Linux, consultelink:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerações e recomendações para clonagem de endereços MAC"]
  a| 
 Prática recomendada
 
@@ -980,6 +968,9 @@ Opcional
 
 
 === Teclas de remapeamento de portas
+
+
+NOTE: O suporte para remapeamento de portas está obsoleto e será removido em uma versão futura. Para remover portas remapeadas, consultelink:../maintain/removing-port-remaps-on-bare-metal-hosts.html["Remova os remapas de portas em hosts bare metal"] .
 
 
 

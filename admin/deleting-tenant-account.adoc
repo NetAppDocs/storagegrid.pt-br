@@ -21,7 +21,7 @@ Você pode excluir uma conta de locatário se quiser remover permanentemente o a
 
 
 .Passos
-. Selecione *TENANTS*.
+. Selecione *Inquilinos*.
 . Localize a conta de locatário ou contas que você deseja excluir.
 +
 Use a caixa de pesquisa para procurar um locatário por nome ou ID de locatário.

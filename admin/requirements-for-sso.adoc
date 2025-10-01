@@ -1,10 +1,10 @@
 ---
 permalink: admin/requirements-for-sso.html 
 sidebar: sidebar 
-keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, azure ad, ad fs 
+keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, entra id, ad fs 
 summary: Antes de ativar o logon único para um sistema StorageGRID, revise os requisitos e considerações. 
 ---
-= Requisitos e considerações para logon único
+= Requisitos e considerações para SSO
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -20,7 +20,7 @@ Antes de ativar o logon único (SSO) para um sistema StorageGRID, revise os requ
 O StorageGRID oferece suporte aos seguintes provedores de identidade SSO (IDP):
 
 * Serviço de Federação do ative Directory (AD FS)
-* Azure ative Directory (Azure AD)
+* ID de entrada da Microsoft
 * PingFederate
 
 
@@ -35,16 +35,16 @@ Você deve configurar a federação de identidade para o seu sistema StorageGRID
 Ative Directory
  a| 
 * Ative Directory
-* Azure
+* ID de entrada
 * PingFederate
 
 
 
 
  a| 
-Azure
+ID de entrada
  a| 
-Azure
+ID de entrada
 
 |===
 
@@ -71,15 +71,15 @@ NOTE: O Windows Server 2016 deve estar usando o https://support.microsoft.com/en
 
 
 
-=== Considerações para o Azure
+=== Considerações para Entra ID
 
-Se você usar o Azure como o tipo SSO e os usuários tiverem nomes principais de usuário que não usam o sAMAccountName como prefixo, problemas de login podem ocorrer se o StorageGRID perder sua conexão com o servidor LDAP. Para permitir que os utilizadores iniciem sessão, tem de restaurar a ligação ao servidor LDAP.
+Se você usar o Entra ID como o tipo de SSO e os usuários tiverem nomes principais de usuário que não usam o sAMAccountName como prefixo, poderão ocorrer problemas de login se o StorageGRID perder sua conexão com o servidor LDAP.  Para permitir que os usuários efetuem login, você deve restaurar a conexão com o servidor LDAP.
 
 
 
 == Requisitos de certificado do servidor
 
-Por padrão, o StorageGRID usa um certificado de interface de gerenciamento em cada nó de administrador para proteger o acesso ao Gerenciador de Grade, ao Gerenciador de locatário, à API de gerenciamento de grade e à API de gerenciamento de locatário. Quando você configura confiança de parte confiável (AD FS), aplicativos empresariais (Azure) ou conexões de provedor de serviços (PingFederate) para StorageGRID, você usa o certificado de servidor como o certificado de assinatura para solicitações StorageGRID.
+Por padrão, o StorageGRID usa um certificado de interface de gerenciamento em cada nó de administração para proteger o acesso ao Grid Manager, ao Tenant Manager, à Grid Management API e à Tenant Management API.  Ao configurar relações de confiança de terceira parte confiável (AD FS), aplicativos corporativos (Entra ID) ou conexões de provedor de serviços (PingFederate) para o StorageGRID, você usa o certificado do servidor como o certificado de assinatura para solicitações do StorageGRID .
 
 Se ainda não link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["configurado um certificado personalizado para a interface de gerenciamento"]o fez, deve fazê-lo agora. Quando você instala um certificado de servidor personalizado, ele é usado para todos os nós de administração e você pode usá-lo em todos os trusts de partes dependentes do StorageGRID, aplicativos empresariais ou conexões SP.
 

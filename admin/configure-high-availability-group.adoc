@@ -13,19 +13,24 @@ summary: 'Você pode configurar grupos de alta disponibilidade (HA) para fornece
 [role="lead"]
 Você pode configurar grupos de alta disponibilidade (HA) para fornecer acesso altamente disponível aos serviços em nós de administração ou nós de gateway.
 
+
+NOTE: Um sistema StorageGRID pode ter no máximo 255 grupos HA.
+
 .Antes de começar
 * Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
 * Você tem o link:admin-group-permissions.html["Permissão de acesso à raiz"].
 * Se você planeja usar uma interface VLAN em um grupo HA, criou a interface VLAN. link:../admin/configure-vlan-interfaces.html["Configurar interfaces VLAN"]Consulte .
 * Se você planeja usar uma interface de acesso para um nó em um grupo de HA, criou a interface:
 +
-** *Red Hat Enterprise Linux (antes de instalar o nó)*: link:../rhel/creating-node-configuration-files.html["Criar arquivos de configuração de nó"]
-** * Ubuntu ou Debian (antes de instalar o nó)*: link:../ubuntu/creating-node-configuration-files.html["Criar arquivos de configuração de nó"]
-** * Linux (após a instalação do nó)*: link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux: Adicione interfaces de tronco ou acesso a um nó"]
-** *VMware (após a instalação do nó)*: link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["VMware: Adicione interfaces de tronco ou acesso a um nó"]
+** *Linux (antes de instalar o nó)*:link:../swnodes/creating-node-configuration-files.html["Criar arquivos de configuração de nó"]
+** *Linux (após instalar o nó)*:link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Adicionar interfaces de tronco ou de acesso a um nó"]
+** *VMware (após instalar o nó)*:link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["Adicionar interfaces de tronco ou de acesso a um nó"]
 
 
 
+
+
+NOTE: "Linux" refere-se a uma implantação RHEL, Ubuntu ou Debian.  Para obter uma lista de versões suportadas, consulte o https://imt.netapp.com/matrix/#welcome["Ferramenta de Matriz de interoperabilidade NetApp (IMT)"^] .
 
 
 
@@ -40,7 +45,7 @@ Uma interface deve ser incluída em um grupo de HA para um nó de gateway ou um 
 === Acesse o assistente
 
 .Passos
-. Selecione *CONFIGURATION* > *Network* > *High Availability groups*.
+. Selecione *Configuração* > *Rede* > *Grupos de alta disponibilidade*.
 . Selecione *criar*.
 
 
@@ -154,7 +159,7 @@ Você pode editar um grupo de alta disponibilidade (HA) para alterar seu nome e 
 Por exemplo, talvez seja necessário editar um grupo de HA se desejar remover o nó associado a uma interface selecionada em um procedimento de desativação de site ou nó.
 
 .Passos
-. Selecione *CONFIGURATION* > *Network* > *High Availability groups*.
+. Selecione *Configuração* > *Rede* > *Grupos de alta disponibilidade*.
 +
 A página grupos de alta disponibilidade mostra todos os grupos de HA existentes.
 
@@ -199,10 +204,10 @@ TIP: Não é possível remover um grupo de HA se ele estiver vinculado a um pont
 Para evitar interrupções do cliente, atualize os aplicativos de cliente S3 afetados antes de remover um grupo de HA. Atualize cada cliente para se conetar usando outro endereço IP, por exemplo, o endereço IP virtual de um grupo HA diferente ou o endereço IP configurado para uma interface durante a instalação.
 
 .Passos
-. Selecione *CONFIGURATION* > *Network* > *High Availability groups*.
+. Selecione *Configuração* > *Rede* > *Grupos de alta disponibilidade*.
 . Revise a coluna *Load balancer endpoints* para cada grupo de HA que você deseja remover. Se algum ponto final do balanceador de carga estiver listado:
 +
-.. Aceda a *CONFIGURATION* > *Network* > *Load balancer endpoints*.
+.. Vá para *Configuração* > *Rede* > *Pontos de extremidade do balanceador de carga*.
 .. Selecione a caixa de verificação para o endpoint.
 .. Selecione *actions* > *Edit endpoint binding mode*
 .. Atualize o modo de encadernação para remover o grupo HA.

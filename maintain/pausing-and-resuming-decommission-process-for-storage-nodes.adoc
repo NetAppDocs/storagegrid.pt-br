@@ -22,7 +22,7 @@ NOTE: O botão *Pausa* é ativado somente quando os estágios de avaliação ILM
 
 
 .Passos
-. Selecione *MAINTENANCE* > *Tasks* > *Decommission*.
+. Selecione *Manutenção* > *Tarefas* > *Desativar*.
 +
 A página Decommission é exibida.
 

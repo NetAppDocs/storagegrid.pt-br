@@ -14,7 +14,7 @@ summary: Você pode usar logs do StorageGRID para solucionar problemas.
 Você pode usar logs do StorageGRID para solucionar problemas.
 
 
-NOTE: Se pretender enviar os seus registos para um servidor syslog externo ou alterar o destino das informações de auditoria, como a `bycast.log` e `nms.log`, link:../monitor/configure-audit-messages.html#["Configurar mensagens de auditoria e destinos de log"]consulte .
+NOTE: Se você deseja enviar seus logs para um servidor syslog externo ou alterar o destino das informações de auditoria, como `bycast.log` e `nms.log` , verlink:../monitor/configure-log-management.html["Configurar gerenciamento de log"] .
 
 
 
@@ -26,14 +26,14 @@ NOTE: Se pretender enviar os seus registos para um servidor syslog externo ou al
 
 
 | /var/local/log/bycast.log  a| 
-O arquivo primário de solução de problemas do StorageGRID. Selecione *SUPPORT* > *Tools* > *Grid topology*. Em seguida, selecione *_Site_* > *_Node_* > *SSM* > *Eventos*.
+O arquivo principal de solução de problemas do StorageGRID .
  a| 
 Todos os nós
 
 
 
 | /var/local/log/bycast-err.log  a| 
-Contém um subconjunto de `bycast.log` (mensagens com ERRO de gravidade e CRÍTICO). Mensagens CRÍTICAS também são exibidas no sistema. Selecione *SUPPORT* > *Tools* > *Grid topology*. Em seguida, selecione *_Site_* > *_Node_* > *SSM* > *Eventos*.
+Contém um subconjunto de `bycast.log` (mensagens com gravidade ERRO e CRÍTICO).  Mensagens CRÍTICAS também são exibidas no sistema.
  a| 
 Todos os nós
 
@@ -188,6 +188,13 @@ Nós de storage executando o serviço ADC
 | /var/local/log/ams.errlog  a| 
  a| 
 Nós de administração
+
+
+
+| /var/local/log/cache-svc.log + /var/local/log/cache-svc.errlog  a| 
+Logs do serviço de cache.
+ a| 
+Nós de gateway
 
 
 

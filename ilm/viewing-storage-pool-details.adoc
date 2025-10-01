@@ -46,7 +46,7 @@ A tabela inclui as seguintes informações para cada nó:
 ** Uso do storage: A porcentagem do espaço utilizável total para dados de objetos que foram usados para o nó de storage.
 +
 
-NOTE: O mesmo valor de uso de armazenamento (%) também é mostrado no gráfico armazenamento usado - dados de objetos para cada nó de armazenamento (selecione *NÓS* > *_Storage Node_* > *Storage*).
+NOTE: O mesmo valor de uso de armazenamento (%) também é mostrado no gráfico Armazenamento usado - Dados do objeto para cada nó de armazenamento (selecione *Nós* > *_Nó de armazenamento_* > *Armazenamento*).
 
 
 

@@ -24,7 +24,7 @@ A configuração de e-mail usada para notificações de alerta não é usada par
 Se sua implantação do StorageGRID incluir vários nós de administração, o nó de administração principal é o remetente preferido para notificações de alerta, pacotes AutoSupport e traps SNMP e informa. Se o nó de administração principal ficar indisponível, as notificações serão enviadas temporariamente por outros nós de administração. link:../primer/what-admin-node-is.html["O que é um nó de administração?"]Consulte .
 
 .Passos
-. Selecione *ALERTAS* > *Configuração do e-mail*.
+. Selecione *Alertas* > *Configuração de e-mail*.
 +
 A página Configuração de e-mail é exibida.
 
@@ -290,7 +290,7 @@ Se o alerta *Falha na notificação por e-mail* for acionado ou você não conse
 .Passos
 . Verifique as suas definições.
 +
-.. Selecione *ALERTAS* > *Configuração do e-mail*.
+.. Selecione *Alertas* > *Configuração de e-mail*.
 .. Verifique se as configurações do servidor de e-mail (SMTP) estão corretas.
 .. Verifique se você especificou endereços de e-mail válidos para os destinatários.
 

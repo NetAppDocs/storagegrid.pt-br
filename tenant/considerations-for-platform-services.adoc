@@ -32,7 +32,7 @@ TIP: O uso de serviços de plataforma deve ser habilitado para cada conta de loc
 
 == Como os serviços de plataforma são configurados
 
-Os serviços de plataforma comunicam-se com endpoints externos que você configura usando o link:configuring-platform-services-endpoints.html["Gerente do locatário"] ou o link:understanding-tenant-management-api.html["API de gerenciamento do locatário"]. Cada endpoint representa um destino externo, como um bucket do StorageGRID S3, um bucket do Amazon Web Services, um tópico do Amazon SNS ou um cluster do Elasticsearch hospedado localmente, na AWS ou em qualquer outro lugar.
+Os serviços de plataforma se comunicam com endpoints externos que você configura usando olink:configuring-platform-services-endpoints.html["Gerente do locatário"] ou olink:understanding-tenant-management-api.html["API de gerenciamento do locatário"] .  Cada ponto de extremidade representa um destino externo, como um bucket do StorageGRID S3, um bucket do Amazon Web Services, um tópico do Amazon SNS, um ponto de extremidade do webhook ou um cluster do Elasticsearch hospedado localmente, na AWS ou em outro lugar.
 
 Depois de criar um endpoint externo, você pode habilitar um serviço de plataforma para um bucket adicionando a configuração XML ao bucket. A configuração XML identifica os objetos nos quais o bucket deve agir, a ação que o bucket deve realizar e o ponto final que o bucket deve usar para o serviço.
 

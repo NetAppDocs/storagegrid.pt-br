@@ -22,7 +22,7 @@ O StorageGRID usa uma autoridade de certificação interna (CA) para proteger o 
 Se um certificado de servidor personalizado tiver sido configurado, os aplicativos cliente devem verificar o servidor usando o certificado de servidor personalizado. Eles não devem copiar o certificado da CA do sistema StorageGRID.
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Certificates* e, em seguida, selecione a guia *Grid CA*.
+. Selecione *Configuração* > *Segurança* > *Certificados* e então selecione a aba *Grid CA*.
 . Na seção *Certificate PEM*, baixe ou copie o certificado.
 +
 [role="tabbed-block"]

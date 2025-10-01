@@ -15,7 +15,7 @@ O arquivo `/var/local/log/bycast.log` é o principal arquivo de solução de pro
 
 O ficheiro `/var/local/log/bycast-err.log` é um subconjunto `bycast.log`de . Ele contém mensagens de ERRO de gravidade e CRÍTICAS.
 
-Opcionalmente, você pode alterar o destino dos logs de auditoria e enviar informações de auditoria para um servidor syslog externo. Os logs locais dos Registros de auditoria continuam a ser gerados e armazenados quando um servidor syslog externo é configurado. link:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria e destinos de log"]Consulte .
+Opcionalmente, você pode alterar o destino dos logs de auditoria e enviar informações de auditoria para um servidor syslog externo.  Os logs locais dos registros de auditoria continuam sendo gerados e armazenados quando um servidor syslog externo é configurado. Ver link:../monitor/configure-log-management.html["Configurar gerenciamento de log e servidor syslog externo"] .
 
 
 
@@ -32,7 +32,7 @@ O limite de rotação para `bycast-err.log` é de sete arquivos.
 
 NOTE: Se um arquivo de log tiver sido compactado, você não deve descompactá-lo para o mesmo local em que foi escrito. A descompressão do arquivo para o mesmo local pode interferir com os scripts de rotação de log.
 
-Opcionalmente, você pode alterar o destino dos logs de auditoria e enviar informações de auditoria para um servidor syslog externo. Os logs locais dos Registros de auditoria continuam a ser gerados e armazenados quando um servidor syslog externo é configurado. link:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria e destinos de log"]Consulte .
+Opcionalmente, você pode alterar o destino dos logs de auditoria e enviar informações de auditoria para um servidor syslog externo.  Os logs locais dos registros de auditoria continuam sendo gerados e armazenados quando um servidor syslog externo é configurado. Ver link:../monitor/configure-log-management.html["Configurar gerenciamento de log e servidor syslog externo"] .
 
 .Informações relacionadas
 link:collecting-log-files-and-system-data.html["Colete arquivos de log e dados do sistema"]

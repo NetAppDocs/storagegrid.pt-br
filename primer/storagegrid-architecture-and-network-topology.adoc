@@ -13,15 +13,15 @@ summary: Um sistema StorageGRID consiste em vários tipos de nós de grade em um
 [role="lead"]
 Um sistema StorageGRID consiste em vários tipos de nós de grade em um ou mais locais de data center.
 
-Consulte link:nodes-and-services.html["descrições dos tipos de nó de grade"].
+Aprenda sobre olink:nodes-and-services.html["tipos de nós de grade"] .
 
-Para obter informações adicionais sobre topologia de rede, requisitos e comunicações em grade do StorageGRID, consulte o link:../network/index.html["Diretrizes de rede"].
+Para obter informações adicionais sobre a topologia da rede StorageGRID , requisitos e comunicações de grade, consulte olink:../network/index.html["Diretrizes de rede"] .
 
 
 
 == Topologias de implantação
 
-O sistema StorageGRID pode ser implantado em um único local de data center ou em vários locais de data center.
+O sistema StorageGRID pode ser implantado em um único local de data center ou em vários locais de data center.  O número máximo de sites por implantação é 16.
 
 
 
@@ -37,11 +37,11 @@ image::../media/data_center_site_single.png[Um único local de data center]
 
 Em uma implantação com vários sites, diferentes tipos e números de recursos do StorageGRID podem ser instalados em cada local. Por exemplo, pode ser necessário mais armazenamento em um data center do que em outro.
 
-Diferentes locais são frequentemente localizados em locais geograficamente diferentes em diferentes domínios de falha, como uma linha de falha de Terremoto ou planície de inundação. O compartilhamento de dados e a recuperação de desastres são obtidos pela distribuição automatizada de dados para outros sites.
+Os locais geralmente estão localizados em locais geograficamente diferentes em diferentes domínios de falhas, como uma falha geológica causada por terremotos ou uma planície de inundação.  O compartilhamento de dados e a recuperação de desastres são obtidos pela distribuição automatizada de dados para outros sites.
 
 image::../media/data_center_sites_multiple.png[Vários locais de data center]
 
-Vários locais lógicos também podem existir em um único data center para permitir o uso de replicação distribuída e codificação de apagamento para aumentar a disponibilidade e a resiliência.
+Vários sites lógicos também podem existir em um único data center para permitir o uso de replicação distribuída e codificação de eliminação para maior disponibilidade e resiliência.
 
 
 
@@ -61,4 +61,4 @@ Os clientes S3 armazenam e recuperam objetos no StorageGRID. Outros clientes sã
 
 Os clientes S3 podem se conetar a um nó de gateway ou a um nó de administrador para usar a interface de balanceamento de carga aos nós de storage. Como alternativa, os clientes S3 podem se conectar diretamente aos nós de storage usando HTTPS.
 
-Os objetos podem ser armazenados no StorageGRID em nós de storage baseados em software ou hardware ou em pools de storage de nuvem, que consistem em buckets externos do S3 ou contêineres de storage Azure Blob.
+Os objetos podem ser armazenados no StorageGRID em nós de armazenamento baseados em software ou hardware, ou em pools de armazenamento em nuvem, que consistem em buckets S3 externos ou contêineres de armazenamento de Blobs do Azure.

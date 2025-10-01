@@ -19,7 +19,7 @@ Você pode excluir uma política de classificação de tráfego se não precisar
 
 
 .Passos
-. Selecione *CONFIGURATION* > *Network* > *Traffic Classification*.
+. Selecione *Configuração* > *Rede* > *Classificação de tráfego*.
 +
 A página políticas de classificação de tráfego é exibida com as políticas existentes listadas em uma tabela.
 

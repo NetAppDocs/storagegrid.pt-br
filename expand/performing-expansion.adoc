@@ -28,7 +28,7 @@ A execução da expansão inclui estas principais tarefas do utilizador:
 
 . Configure a expansão.
 . Inicie a expansão.
-. Faça o download de um novo arquivo de pacote de recuperação.
+. Baixe um novo arquivo de pacote de recuperação.
 . Monitore as etapas e estágios de expansão até que todos os novos nós sejam instalados e configurados e todos os serviços tenham iniciado.
 +
 
@@ -37,7 +37,7 @@ CAUTION: Alguns passos e estágios de expansão podem levar uma quantidade signi
 
 
 .Passos
-. Selecione *MAINTENANCE* > *Tasks* > *Expansion*.
+. Selecione *Manutenção* > *Tarefas* > *Expansão*.
 +
 A página expansão da grade é exibida. A seção Pending Nodes lista os nós que estão prontos para serem adicionados.
 
@@ -119,9 +119,10 @@ A função NTP (Network Time Protocol) do nó de grade:
  a| 
 Serviço ADC (nós de storage combinados ou somente metadados)
  a| 
-Se este nó de armazenamento irá executar o serviço controlador de domínio administrativo (ADC). O serviço ADC mantém o controle da localização e disponibilidade dos serviços da grade. Pelo menos três nós de storage em cada local devem incluir o serviço ADC. Não é possível adicionar o serviço ADC a um nó depois que ele é implantado.
+Se este nó de armazenamento executará o serviço Controlador de Domínio Administrativo (ADC).  O serviço ADC monitora a localização e a disponibilidade dos serviços de rede.  Pelo menos três nós de armazenamento em cada site devem incluir o serviço ADC.
 
-*** Selecione *Sim* se o nó de armazenamento que você está substituindo incluir o serviço ADC. Como você não pode desativar um nó de armazenamento se houver poucos serviços ADC, isso garante que um novo serviço ADC esteja disponível antes que o serviço antigo seja removido.
+*** Selecione *Sim* se o nó de armazenamento que você está substituindo incluir o serviço ADC.  Como não é possível desativar um nó de armazenamento se houver poucos serviços ADC restantes, essa configuração garante que um novo serviço ADC esteja disponível antes que o serviço antigo seja removido.
+*** Você podelink:../maintain/move-adc-service.html["mover o serviço ADC para outro nó de armazenamento no mesmo site"] para garantir que o quórum de serviço do ADC seja atendido.
 *** Selecione *Automático* para permitir que o sistema determine se esse nó requer o serviço ADC.
 
 
@@ -174,24 +175,21 @@ Após alguns minutos, esta página é atualizada para exibir o status do procedi
 NOTE: Durante a etapa "Instalando nós de grade" para um novo dispositivo, o Instalador de dispositivos StorageGRID mostra a instalação passando do Estágio 3 para o Estágio 4, finalize a instalação. Quando a fase 4 é concluída, o controlador é reinicializado.
 
 +
-image::../media/grid_expansion_progress.png[Esta imagem é explicada pelo texto circundante.]
-
-+
 
 NOTE: Uma expansão de site inclui uma tarefa adicional para configurar o Cassandra para o novo site.
 
-. Assim que o link *Download Recovery Package* for exibido, baixe o arquivo Recovery Package.
+. Assim que o link *Baixar pacote de recuperação* aparecer, baixe o arquivo do pacote de recuperação.
 +
-Você deve baixar uma cópia atualizada do arquivo do Pacote de recuperação o mais rápido possível após fazer alterações na topologia da grade no sistema StorageGRID. O arquivo do Pacote de recuperação permite restaurar o sistema se ocorrer uma falha.
+Você deve baixar uma cópia atualizada do arquivo do pacote de recuperação o mais rápido possível após fazer alterações na topologia da grade no sistema StorageGRID .  O arquivo do pacote de recuperação permite restaurar o sistema caso ocorra uma falha.
 
 +
 .. Selecione a ligação de transferência.
 .. Digite a senha de provisionamento e selecione *Iniciar download*.
 .. Quando o download for concluído, abra o `.zip` arquivo e confirme que você pode acessar o conteúdo, incluindo o `Passwords.txt` arquivo.
-.. Copie o arquivo do pacote de recuperação baixado (`.zip`) para dois locais seguros, seguros e separados.
+.. Copie o arquivo do pacote de recuperação baixado(`.zip` ) para dois locais seguros, protegidos e separados.
 +
 
-CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID.
+CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID .
 
 
 
@@ -206,8 +204,6 @@ CAUTION: Não reinicie nenhum nó de storage durante os estágios "expandindo o 
 .Adição de nós de storage
 --
 Se você estiver adicionando nós de storage a um site existente, revise a porcentagem mostrada na mensagem de status "iniciando Cassandra e transmissão de dados".
-
-image::../media/grid_expansion_starting_cassandra.png[Expansão de grade > iniciando Cassandra e streaming de dados]
 
 Essa porcentagem estima o quão completa é a operação de streaming do Cassandra, com base na quantidade total de dados do Cassandra disponíveis e na quantidade que já foi gravada no novo nó.
 

@@ -13,14 +13,14 @@ summary: O recurso AutoSupport permite que o StorageGRID envie pacotes de integr
 [role="lead"]
 O recurso AutoSupport permite que o StorageGRID envie pacotes de integridade e status para o suporte técnico da NetApp.
 
-O uso do AutoSupport pode acelerar significativamente a determinação e resolução de problemas. O suporte técnico também pode monitorar as necessidades de storage do seu sistema e ajudá-lo a determinar se precisa adicionar novos nós ou sites. Opcionalmente, você pode configurar pacotes AutoSupport para serem enviados para um destino adicional.
+Usar o AutoSupport ajuda a resolver problemas mais rapidamente.  O suporte técnico pode monitorar as necessidades de armazenamento do seu sistema e ajudar a determinar se você precisa adicionar novos nós ou sites.  Opcionalmente, o AutoSupport pode enviar pacotes para um destino adicional.
 
 StorageGRID tem dois tipos de AutoSupport:
 
 * *StorageGRID AutoSupport* relata problemas de software StorageGRID. Ativado por padrão quando você instala o StorageGRID pela primeira vez. Você podelink:configure-autosupport-grid-manager.html["Altere a configuração padrão do AutoSupport"], se necessário.
 +
 
-NOTE: Se o StorageGRID AutoSupport não estiver ativado, uma mensagem será exibida no painel Gerenciador de Grade. A mensagem inclui um link para a página de configuração do AutoSupport. Se você fechar a mensagem, ela não aparecerá novamente até que o cache do navegador seja limpo, mesmo que o AutoSupport permaneça desativado.
+NOTE: Se o StorageGRID AutoSupport não estiver habilitado, uma mensagem será exibida no painel do Grid Manager.  A mensagem inclui um link para a página de configuração do AutoSupport .  Se você fechar a mensagem, ela não aparecerá novamente até que o cache do navegador seja limpo, mesmo que o AutoSupport permaneça desativado.
 
 * *O Appliance hardware AutoSupport* relata problemas com o StorageGRID Appliance. Você deve link:configure-autosupport-grid-manager.html#autosupport-for-appliances["Configure o hardware AutoSupport em cada dispositivo"].
 

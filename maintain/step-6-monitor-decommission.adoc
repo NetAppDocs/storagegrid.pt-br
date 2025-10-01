@@ -33,23 +33,23 @@ Cada nó de gateway ou nó de administrador pode exigir apenas alguns minutos ou
 .Passos
 . Assim que um novo pacote de recuperação for gerado, baixe o arquivo.
 +
-image::../media/decommission_site_step_6_recovery_package.png[Pacote de recuperação passo 6 da Decommission do site]
+image::../media/decommission_site_step_6_recovery_package.png[Pacote de recuperação da Etapa 6 de descomissionamento do local]
 
 +
 
-NOTE: Baixe o pacote de recuperação o mais rápido possível para garantir que você possa recuperar sua grade se algo der errado durante o procedimento de desativação.
+NOTE: Baixe o pacote de recuperação o mais rápido possível para garantir que você possa recuperar sua rede se algo der errado durante o procedimento de desativação.
 
 +
-.. Selecione o link na mensagem ou selecione *MAINTENANCE* > *System* > *Recovery package*.
+.. Selecione o link na mensagem ou selecione *Manutenção* > *Sistema* > *Pacote de recuperação*.
 .. Transfira o `.zip` ficheiro.
 +
-Consulte as instruções para link:downloading-recovery-package.html["Transferir o pacote de recuperação"].
+Veja as instruções paralink:downloading-recovery-package.html["baixando o pacote de recuperação"] .
 
 
 
 +
 
-NOTE: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID.
+NOTE: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID .
 
 . Usando o gráfico de movimentação de dados, monitore a movimentação de dados de objetos deste site para outros sites.
 +

@@ -34,15 +34,15 @@ Picos temporários no cartão de fila ILM (objetos) no painel de instrumentos de
 
 
 
-== Use a página NÓS
+== Use a página Nós
 
 .Passos
-Além disso, investigue filas de ILM usando a página *NODES*:
+Além disso, investigue as filas do ILM usando a página *Nós*:
 
 
-NOTE: Os gráficos na página *NODES* serão substituídos pelas placas de painel correspondentes em uma versão futura do StorageGRID.
+NOTE: Os gráficos na página *Nós* serão substituídos pelos cartões do painel correspondentes em uma versão futura do StorageGRID .
 
-. Selecione *NODES*.
+. Selecione *Nós*.
 . Selecione *_grid name_* > *ILM*.
 . Posicione o cursor sobre o gráfico de fila ILM para ver o valor dos seguintes atributos em um determinado ponto no tempo:
 +
@@ -52,11 +52,11 @@ NOTE: Os gráficos na página *NODES* serão substituídos pelas placas de paine
 ** *Taxa de avaliação (objetos/seg)*: A taxa atual na qual os objetos estão sendo avaliados em relação à política ILM na grade.
 
 
-. Na seção fila de ILM, observe os seguintes atributos.
 +
 
 NOTE: A seção fila ILM está incluída apenas para a grade. Essas informações não são mostradas na guia ILM para um site ou nó de armazenamento.
 
+. Na seção fila de ILM, observe os seguintes atributos.
 +
 ** *Período de digitalização - estimado*: O tempo estimado para concluir uma varredura ILM completa de todos os objetos.
 +
@@ -65,12 +65,9 @@ NOTE: Uma verificação completa não garante que o ILM tenha sido aplicado a to
 
 ** *Tentativas de reparação*: O número total de operações de reparação de objetos para dados replicados que foram tentados. Essa contagem aumenta cada vez que um nó de storage tenta reparar um objeto de alto risco. As reparações ILM de alto risco são priorizadas se a grelha ficar ocupada.
 +
-
-NOTE: O mesmo reparo de objeto pode aumentar novamente se a replicação falhar após o reparo.
-
+O mesmo reparo de objeto pode ser incrementado novamente se a replicação falhar após o reparo.  + Esses atributos podem ser úteis quando você estiver monitorando o progresso da recuperação do volume do nó de armazenamento.  Se o número de reparos tentados parou de aumentar e uma verificação completa foi concluída, o reparo provavelmente foi concluído.
 
 
-+
-Esses atributos podem ser úteis quando você está monitorando o progresso da recuperação do volume do nó de armazenamento. Se o número de reparações tentadas tiver parado de aumentar e tiver sido concluído um exame completo, a reparação provavelmente foi concluída.
 
+. Alternativamente, envie uma consulta Prometheus para `storagegrid_ilm_scan_period_estimated_minutes` e `storagegrid_ilm_repairs_attempted` .
 

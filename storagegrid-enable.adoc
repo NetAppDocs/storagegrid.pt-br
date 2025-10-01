@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: storagegrid-enable.html 
-keywords: storagegrid, how to enable, third-party solutions, tools, applications, examples 
+keywords: storagegrid, how to enable, third-party solutions, tools, applications, examples, resources 
 summary: Saiba como testar e habilitar aplicativos em seu ambiente StorageGRID. 
 ---
-= Como ativar o StorageGRID no seu ambiente
+= Soluções e recursos do StorageGRID
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,4 +14,4 @@ summary: Saiba como testar e habilitar aplicativos em seu ambiente StorageGRID.
 
 
 [role="lead"]
- https://docs.netapp.com/us-en/storagegrid-enable/index.html["Como ativar o StorageGRID"^]Acesse para saber como testar e ativar aplicativos em seu ambiente StorageGRID.
+Vá para https://docs.netapp.com/us-en/storagegrid-enable/index.html["Soluções e recursos do StorageGRID"^] para aprender como testar e habilitar aplicativos em seu ambiente StorageGRID .

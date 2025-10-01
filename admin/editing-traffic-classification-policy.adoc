@@ -19,7 +19,7 @@ Você pode editar uma política de classificação de tráfego para alterar seu 
 
 
 .Passos
-. Selecione *CONFIGURATION* > *Network* > *Traffic Classification*.
+. Selecione *Configuração* > *Rede* > *Classificação de tráfego*.
 +
 A página políticas de classificação de tráfego é exibida e as políticas existentes são listadas em uma tabela.
 

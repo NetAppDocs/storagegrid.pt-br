@@ -40,23 +40,23 @@ O computador portátil de serviço tem de ter o seguinte:
 
 
  a| 
-Arquivo do pacote de recuperação `.zip`
+Pacote de recuperação `.zip` arquivo
  a| 
-Obtenha uma cópia do arquivo mais recente do Pacote de recuperação `.zip`:
+Obtenha uma cópia do pacote de recuperação mais recente `.zip` arquivo:
 `sgws-recovery-package-_id-revision_.zip`
 
-O conteúdo do `.zip` arquivo é atualizado sempre que o sistema é modificado. Você é direcionado para armazenar a versão mais recente do Pacote de recuperação em um local seguro depois de fazer tais alterações. Use a cópia mais recente para recuperar de falhas na grade.
+O conteúdo do `.zip` os arquivos são atualizados sempre que o sistema é modificado.  Você será instruído a armazenar a versão mais recente do pacote de recuperação em um local seguro após fazer essas alterações.  Use a cópia mais recente para se recuperar de falhas na rede.
 
-Se o nó Admin principal estiver operando normalmente, você poderá fazer o download do Pacote de recuperação do Gerenciador de Grade. Selecione *MAINTENANCE* > *System* > *Recovery package*.
+Quando estiver conectado a qualquer nó de administração, use o Grid Manager para baixar um pacote de recuperação.  Selecione *Manutenção* > *Sistema* > *Pacote de recuperação*.
 
-Se você não puder acessar o Gerenciador de Grade, poderá encontrar cópias criptografadas do Pacote de recuperação em alguns nós de armazenamento que contêm o serviço ADC. Em cada nó de armazenamento, examine este local para o pacote de recuperação: `/var/local/install/sgws-recovery-package-_grid-id_-_revision_.zip.gpg` Use o pacote de recuperação com o número de revisão mais alto.
+Se você não conseguir acessar o Grid Manager, poderá encontrar cópias criptografadas do pacote de recuperação em alguns nós de armazenamento que contêm o serviço ADC.  Em cada nó de armazenamento, examine este local para o pacote de recuperação: `/var/local/install/sgws-recovery-package-_grid-id_-_revision_.zip.gpg` Use o pacote de recuperação com o maior número de revisão.
 
 
 
  a| 
 `Passwords.txt` ficheiro
  a| 
-Contém as senhas necessárias para acessar os nós de grade na linha de comando. Incluído no Pacote de recuperação.
+Contém as senhas necessárias para acessar os nós da grade na linha de comando.  Incluído no pacote de recuperação.
 
 
 
@@ -107,7 +107,7 @@ Use o `.zip` arquivo se estiver executando o Windows.
 
 
  a| 
-Red Hat Enterprise Linux
+RHEL
 | `StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip` 
 `StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz` 
 
@@ -124,13 +124,16 @@ VMware
 `StorageGRID-Webscale-_version_-VMware-_uniqueID_.tgz` 
 |===
 . Transfira e extraia o ficheiro de arquivo.
-. Siga o passo apropriado para sua plataforma escolher os arquivos que você precisa, com base em sua plataforma e quais nós de grade você precisa recuperar.
+. Vá para a seção apropriada para sua plataforma para escolher os arquivos necessários, com base na sua plataforma e em quais nós de grade você precisa recuperar.
 +
 Os caminhos listados na etapa para cada plataforma são relativos ao diretório de nível superior instalado pelo arquivo de arquivo.
 
-. Se estiver a recuperar um link:../rhel/index.html["Sistema Red Hat Enterprise Linux"], selecione os ficheiros apropriados.
-
-
+. Se você estiver recuperando umlink:../swnodes/index.html["nó baseado em software"] , selecione os arquivos apropriados:
++
+[role="tabbed-block"]
+====
+.RHEL
+--
 [cols="1a,1a"]
 |===
 | Caminho e nome do arquivo | Descrição 
@@ -205,9 +208,9 @@ Esquemas de API para StorageGRID.
 *Nota*: Antes de executar uma atualização, você pode usar esses esquemas para confirmar que qualquer código que você tenha escrito para usar APIs de gerenciamento do StorageGRID será compatível com a nova versão do StorageGRID se você não tiver um ambiente StorageGRID que não seja de produção para teste de compatibilidade de atualização.
 
 |===
-. Se estiver a recuperar um link:../ubuntu/index.html["Sistema Ubuntu ou Debian"], selecione os ficheiros apropriados.
-
-
+--
+.Ubuntu ou Debian
+--
 [cols="1a,1a"]
 |===
 | Caminho e nome do arquivo | Descrição 
@@ -287,9 +290,9 @@ Esquemas de API para StorageGRID.
 *Nota*: Antes de executar uma atualização, você pode usar esses esquemas para confirmar que qualquer código que você tenha escrito para usar APIs de gerenciamento do StorageGRID será compatível com a nova versão do StorageGRID se você não tiver um ambiente StorageGRID que não seja de produção para teste de compatibilidade de atualização.
 
 |===
-. Se estiver a recuperar um link:../vmware/index.html["Sistema VMware"], selecione os ficheiros apropriados.
-
-
+--
+.VMware
+--
 [cols="1a,1a"]
 |===
 | Caminho e nome do arquivo | Descrição 
@@ -384,8 +387,15 @@ Esquemas de API para StorageGRID.
 *Nota*: Antes de executar uma atualização, você pode usar esses esquemas para confirmar que qualquer código que você tenha escrito para usar APIs de gerenciamento do StorageGRID será compatível com a nova versão do StorageGRID se você não tiver um ambiente StorageGRID que não seja de produção para teste de compatibilidade de atualização.
 
 |===
+--
+====
+
+
 . Se estiver a recuperar um sistema baseado no StorageGRID Appliance, selecione os ficheiros apropriados.
 
+
+
+NOTE: Para instalação do dispositivo, esses arquivos são necessários somente se você precisar evitar tráfego de rede.  O dispositivo pode baixar os arquivos necessários do nó de administração onde você executa o procedimento de recuperação.
 
 [cols="1a,1a"]
 |===
@@ -402,5 +412,3 @@ MD5 checksum para o arquivo `/debs/storagegridwebscale-
 images-version-SHA.deb`.
 
 |===
-
-NOTE: Para a instalação do dispositivo, esses arquivos só são necessários se você precisar evitar o tráfego de rede. O dispositivo pode baixar os arquivos necessários do nó de administração principal.

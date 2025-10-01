@@ -48,19 +48,19 @@ Por exemplo, não use os seguintes intervalos de sub-rede para a Rede de grade, 
 == Adicione uma sub-rede
 
 .Passos
-. Selecione *MAINTENANCE* > *Network* > *Grid Network*.
+. Selecione *Manutenção* > *Rede* > *Rede de grade*.
 . Selecione *Adicionar outra sub-rede* para adicionar uma nova sub-rede na notação CIDR.
 +
 Por exemplo, introduza `10.96.104.0/22`.
 
 . Insira a senha de provisionamento e selecione *Salvar*.
-. Aguarde até que as alterações sejam aplicadas e, em seguida, faça o download de um novo pacote de recuperação.
+. Aguarde até que as alterações sejam aplicadas e, em seguida, baixe um novo pacote de recuperação.
 +
-.. Selecione *MAINTENANCE* > *System* > *Recovery package*.
+.. Selecione *Manutenção* > *Sistema* > *Pacote de recuperação*.
 .. Introduza a *frase-passe de aprovisionamento*.
 +
 
-CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID. Ele também é usado para recuperar o nó de administração principal.
+CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID .  Ele também é usado para recuperar o nó de administração primário.
 
 
 
@@ -73,13 +73,13 @@ As sub-redes especificadas são configuradas automaticamente para o sistema Stor
 == Edite uma sub-rede
 
 .Passos
-. Selecione *MAINTENANCE* > *Network* > *Grid Network*.
+. Selecione *Manutenção* > *Rede* > *Rede de grade*.
 . Selecione a sub-rede que deseja editar e faça as alterações necessárias.
 . Introduza a frase-passe do aprovisionamento e selecione *Guardar*.
 . Selecione *Sim* na caixa de diálogo de confirmação.
-. Aguarde até que as alterações sejam aplicadas e, em seguida, faça o download de um novo pacote de recuperação.
+. Aguarde até que as alterações sejam aplicadas e, em seguida, baixe um novo pacote de recuperação.
 +
-.. Selecione *MAINTENANCE* > *System* > *Recovery package*.
+.. Selecione *Manutenção* > *Sistema* > *Pacote de recuperação*.
 .. Introduza a *frase-passe de aprovisionamento*.
 
 
@@ -90,13 +90,13 @@ As sub-redes especificadas são configuradas automaticamente para o sistema Stor
 == Eliminar uma sub-rede
 
 .Passos
-. Selecione *MAINTENANCE* > *Network* > *Grid Network*.
+. Selecione *Manutenção* > *Rede* > *Rede de grade*.
 . Selecione o ícone de exclusão image:../media/icon-x-to-remove.png["eliminar ícone"]ao lado da sub-rede.
 . Introduza a frase-passe do aprovisionamento e selecione *Guardar*.
 . Selecione *Sim* na caixa de diálogo de confirmação.
-. Aguarde até que as alterações sejam aplicadas e, em seguida, faça o download de um novo pacote de recuperação.
+. Aguarde até que as alterações sejam aplicadas e, em seguida, baixe um novo pacote de recuperação.
 +
-.. Selecione *MAINTENANCE* > *System* > *Recovery package*.
+.. Selecione *Manutenção* > *Sistema* > *Pacote de recuperação*.
 .. Introduza a *frase-passe de aprovisionamento*.
 
 

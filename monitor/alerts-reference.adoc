@@ -174,6 +174,13 @@ Foi detetado um problema com uma unidade de armazenamento de ligação direta (D
 
 
  a| 
+A unidade DAS do dispositivo está no slot ou nó errado
+ a| 
+Uma unidade de armazenamento conectado diretamente (DAS) está no slot ou nó errado
+
+
+
+ a| 
 Luz de localização da unidade do aparelho DAS acesa
  a| 
 A luz do localizador de unidades para uma ou mais unidades de armazenamento de conexão direta (DAS) em um nó de armazenamento de dispositivos está acesa.
@@ -240,6 +247,13 @@ Foi detetado um problema com uma placa de interface de rede (NIC) no dispositivo
 A fonte de alimentação geral do aparelho está degradada
  a| 
 A alimentação de um aparelho StorageGRID desviou-se da tensão de funcionamento recomendada.
+
+
+
+ a| 
+Atualização do software do sistema operacional SANtricity do dispositivo necessária
+ a| 
+A versão do software SANtricity é inferior ao mínimo recomendado para esta versão do StorageGRID.
 
 
 
@@ -380,7 +394,7 @@ O nó não pode encaminhar logs para o servidor syslog externo.
  a| 
 Fila de auditoria grande
  a| 
-A fila de discos para mensagens de auditoria está cheia. Se esta condição não for resolvida, as operações S3 ou Swift podem falhar.
+A fila de disco para mensagens de auditoria está cheia.  Se essa condição não for resolvida, as operações do S3 poderão falhar.
 
 
 
@@ -609,9 +623,23 @@ Não foi possível enviar a notificação por e-mail para um alerta.
 
 
  a| 
+Bucket de destino de arquivamento de log não encontrado
+ a| 
+O bucket de destino do arquivamento de log está ausente, o que impede que os logs sejam arquivados no bucket de destino.
+
+
+
+ a| 
 SNMP informar erros
  a| 
 Erros ao enviar notificações SNMP para um destino de intercetação.
+
+
+
+ a| 
+Acesso externo SSH habilitado
+ a| 
+O acesso externo SSH foi habilitado há mais de 24 horas.
 
 
 
@@ -681,9 +709,9 @@ Um ou mais certificados de cliente estão prestes a expirar.
 
 
  a| 
-Expiração do certificado de servidor global para S3 e Swift
+Expiração do certificado do servidor global para S3
  a| 
-O certificado de servidor global para S3 e Swift está prestes a expirar.
+O certificado do servidor global para S3 está prestes a expirar.
 
 
 
@@ -944,7 +972,7 @@ O desvio entre o relógio local e a hora do NTP (Network Time Protocol) é demas
  a| 
 Baixa capacidade de disco de log de auditoria
  a| 
-O espaço disponível para logs de auditoria é baixo. Se esta condição não for resolvida, as operações S3 ou Swift podem falhar.
+O espaço disponível para logs de auditoria é baixo.  Se essa condição não for resolvida, as operações do S3 poderão falhar.
 
 
 
@@ -1007,7 +1035,7 @@ O espaço disponível no disco raiz é baixo.
  a| 
 Baixa capacidade de dados do sistema
  a| 
-O espaço disponível para /var/local é baixo. Se esta condição não for resolvida, as operações S3 ou Swift podem falhar.
+O espaço disponível para /var/local é baixo.  Se essa condição não for resolvida, as operações do S3 poderão falhar.
 
 
 
@@ -1024,6 +1052,13 @@ O espaço disponível no diretório /tmp é baixo.
 [cols="1a,2a"]
 |===
 | Nome do alerta | Descrição 
+
+
+ a| 
+Quórum do ADC não atingido
+ a| 
+O nó de armazenamento com serviço ADC está offline.  As operações de expansão e desativação estão bloqueadas até que o quórum do ADC seja restaurado.
+
 
 
  a| 
@@ -1238,9 +1273,16 @@ O trabalho de verificação de existência de objeto parou.
 
 
  a| 
-Objetos perdidos
+Objetos potencialmente perdidos
  a| 
-Um ou mais objetos foram perdidos da grade.
+Um ou mais objetos potencialmente perdidos da rede.
+
+
+
+ a| 
+Objetos órfãos detectados
+ a| 
+Objetos órfãos foram detectados.
 
 
 
@@ -1255,6 +1297,21 @@ Um cliente está tentando uma operação PUT Object que excede os limites de tam
 Objeto corrompido não identificado detetado
  a| 
 Um arquivo foi encontrado no storage de objetos replicado que não pôde ser identificado como um objeto replicado.
+
+|===
+
+
+== Alertas de corrupção de objetos
+
+[cols="1a,2a"]
+|===
+| Nome do alerta | Descrição 
+
+
+ a| 
+Incompatibilidade de tamanho do objeto
+ a| 
+Tamanho de objeto inesperado detectado durante procedimento de verificação de existência do objeto.
 
 |===
 
@@ -1348,14 +1405,14 @@ A configuração do serviço nginx-gw é inválida. A configuração anterior es
  a| 
 É necessário reiniciar para desativar o FIPS
  a| 
-A diretiva de segurança não requer o modo FIPS, mas o módulo de segurança criptográfico NetApp está ativado.
+A política de segurança não requer o modo FIPS, mas os módulos FIPS estão em uso.
 
 
 
  a| 
 É necessário reiniciar para ativar o FIPS
  a| 
-A diretiva de segurança requer o modo FIPS, mas o módulo de segurança criptográfico NetApp está desativado.
+A política de segurança requer o modo FIPS, mas os módulos FIPS não estão em uso.
 
 
 

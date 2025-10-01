@@ -18,7 +18,7 @@ A recuperação do nó de administrador principal está concluída.
 
 .Passos
 . Faça login no Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
-. Selecione *NODES*.
+. Selecione *Nós*.
 . Na lista à esquerda, selecione o nó de administração principal.
 . Na guia Visão geral, observe a versão exibida no campo *versão do software*.
 . Selecione qualquer outro nó de grade.

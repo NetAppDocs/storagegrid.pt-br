@@ -19,11 +19,10 @@ Você deve selecionar Iniciar recuperação no Gerenciador de Grade para configu
 * Você tem a senha de provisionamento.
 * Você implantou um nó de storage do dispositivo de recuperação.
 * Tem a data de início de quaisquer trabalhos de reparação para dados codificados por apagamento.
-* Você verificou que o nó de storage não foi reconstruído nos últimos 15 dias.
 
 
 .Passos
-. No Gerenciador de Grade, selecione *MAINTENANCE* > *Tasks* > *Recovery*.
+. No Grid Manager, selecione *Manutenção* > *Tarefas* > *Recuperação*.
 . Selecione o nó de grade que você deseja recuperar na lista de nós pendentes.
 +
 Os nós aparecem na lista depois que eles falham, mas você não pode selecionar um nó até que ele seja reinstalado e esteja pronto para recuperação.

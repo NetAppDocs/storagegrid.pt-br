@@ -26,7 +26,7 @@ A correção é aplicada automaticamente primeiro ao nó de administração prin
 
 .Passos
 . Faça login no Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
-. Selecione *MAINTENANCE* > *System* > *Software update*.
+. Selecione *Manutenção* > *Sistema* > *Atualização de software*.
 +
 A página Atualização de software é exibida.
 
@@ -70,7 +70,7 @@ O botão *Start* (Iniciar) fica ativado.
 Quando o hotfix é iniciado:
 
 +
-.. As validações de hotfix são executadas.
+.. As validações de hotfix são executadas, incluindo a verificação da assinatura do código.
 +
 
 NOTE: Se algum erro for relatado, resolva-os, faça o upload novamente do arquivo de hotfix e selecione *Iniciar* novamente.

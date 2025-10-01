@@ -40,7 +40,7 @@ NOTE: Se você precisar compactar objetos e seu aplicativo cliente precisar usar
 
 
 .Passos
-. Selecione *CONFIGURATION* > *System* > *Storage settings* > *Object Compression*.
+. Selecione *Configuração* > *Sistema* > *Configurações de armazenamento* > *Compactação de objetos*.
 . Marque a caixa de seleção *Compress Stored Objects*.
 . Selecione *Guardar*.
 

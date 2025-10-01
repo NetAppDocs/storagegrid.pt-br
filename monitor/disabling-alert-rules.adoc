@@ -25,7 +25,7 @@ Quando uma regra de alerta é desativada, suas expressões não são avaliadas e
 CAUTION: Em geral, desativar uma regra de alerta padrão não é recomendado. Se uma regra de alerta estiver desativada, talvez você não detete um problema subjacente até que ela impeça que uma operação crítica seja concluída.
 
 .Passos
-. Selecione *ALERTAS* > *regras*.
+. Selecione *Alertas* > *Regras*.
 +
 A página regras de alerta é exibida.
 

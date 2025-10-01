@@ -16,7 +16,7 @@ Um pool de storage é um agrupamento lógico de nós de storage.
 Quando você instala o StorageGRID, um pool de storage por site é criado automaticamente. Você pode configurar pools de storage adicionais conforme necessário para seus requisitos de storage.
 
 
-NOTE: Os nós de storage podem ser configurados durante a instalação para conter dados de objetos e metadados de objetos, ou apenas metadados de objetos. Os nós de storage somente de metadados não podem ser usados em pools de storage. Para obter mais informações, link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nós de storage"]consulte .
+NOTE: Os nós de armazenamento podem ser configurados durante a instalação para conter dados e metadados de objetos (nó de armazenamento "combinado"), somente metadados de objetos ou somente dados de objetos.  Nós de armazenamento somente de metadados não podem ser usados em pools de armazenamento. Para mais informações, consulte link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nós de storage"] .
 
 Os pools de armazenamento têm dois atributos:
 

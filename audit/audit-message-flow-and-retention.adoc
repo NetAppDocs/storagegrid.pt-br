@@ -13,11 +13,13 @@ summary: Todos os serviços StorageGRID geram mensagens de auditoria durante a o
 [role="lead"]
 Todos os serviços StorageGRID geram mensagens de auditoria durante a operação normal do sistema. Você deve entender como essas mensagens de auditoria se movem pelo sistema StorageGRID para `audit.log` o arquivo.
 
+Os seguintes fluxos de trabalho para mensagens de auditoria e retenção de mensagens de auditoria serão aplicáveis ​​somente se o StorageGRID estiver configurado para *Nós de administração/nós locais* ou *Nó de administração e servidor syslog externo*.  Se o StorageGRID estiver configurado para "Somente nós locais" (padrão) ou "Servidor syslog externo", as mensagens de auditoria serão salvas localmente em cada nó no `/var/local/log/localaudit.log` arquivo e não pode ser processado por nós de administração ou nós de armazenamento.
+
 
 
 == Auditoria do fluxo de mensagens
 
-As mensagens de auditoria são processadas pelos nós de administração e pelos nós de armazenamento que têm um serviço de controlador de domínio administrativo (ADC).
+As mensagens de auditoria são processadas pelos nós de administração quando o StorageGRID é configurado para *nós de administração/nós locais* ou *nó de administração e servidor syslog externo* e pelos nós de armazenamento que têm um serviço de controlador de domínio administrativo (ADC).
 
 Conforme mostrado no diagrama de fluxo de mensagens de auditoria, cada nó StorageGRID envia suas mensagens de auditoria para um dos serviços ADC no local do data center. O serviço ADC é ativado automaticamente para os três primeiros nós de storage instalados em cada local.
 
@@ -33,21 +35,21 @@ image::../media/audit_message_flow.gif[Diagrama que resume o fluxo de mensagens 
 
 O StorageGRID usa um processo de cópia e exclusão para garantir que nenhuma mensagem de auditoria seja perdida antes que ela possa ser gravada no log de auditoria.
 
-Quando um nó gera ou retransmite uma mensagem de auditoria, a mensagem é armazenada em uma fila de mensagens de auditoria no disco do sistema do nó da grade. Uma cópia da mensagem é sempre mantida em uma fila de mensagens de auditoria até que a mensagem seja gravada no arquivo de log de auditoria no diretório do Admin Node `/var/local/log`. Isso ajuda a evitar a perda de uma mensagem de auditoria durante o transporte.
+Quando um nó gera ou retransmite uma mensagem de auditoria, a mensagem é armazenada em uma fila de mensagens de auditoria no disco do sistema do nó da grade.  Uma cópia da mensagem é sempre mantida em uma fila de mensagens de auditoria até que a mensagem seja gravada no arquivo de log de auditoria no nó de administração. `/var/local/audit/export` diretório.  Isso ajuda a evitar a perda de uma mensagem de auditoria durante o transporte.
 
 image::../media/audit_message_retention.gif[Diagrama que resume o recebimento da mensagem de auditoria no AMS]
 
-A fila de mensagens de auditoria pode aumentar temporariamente devido a problemas de conetividade de rede ou capacidade de auditoria insuficiente. À medida que as filas aumentam, elas consomem mais espaço disponível no diretório de cada nó `/var/local/`. Se o problema persistir e o diretório de mensagens de auditoria de um nó ficar muito cheio, os nós individuais priorizarão o processamento de seu backlog e ficarão temporariamente indisponíveis para novas mensagens.
+A fila de mensagens de auditoria pode aumentar temporariamente devido a problemas de conectividade de rede ou capacidade de auditoria insuficiente.  À medida que as filas aumentam, elas consomem mais espaço disponível em cada nó `/var/local/` diretório.  Se o problema persistir e o diretório de mensagens de auditoria de um nó ficar muito cheio, os nós individuais priorizarão o processamento de seu backlog e ficarão temporariamente indisponíveis para novas mensagens.
 
 Especificamente, você pode ver os seguintes comportamentos:
 
-* Se o `/var/local/log` diretório usado por um nó Admin ficar cheio, o nó Admin será sinalizado como indisponível para novas mensagens de auditoria até que o diretório não esteja mais cheio. As solicitações do cliente S3 não são afetadas. O alarme XAMS (Unreachable Audit Repositories) é acionado quando um repositório de auditoria é inacessível.
-* Se o `/var/local/` diretório usado por um nó de armazenamento com o serviço ADC ficar 92% cheio, o nó será sinalizado como indisponível para auditar mensagens até que o diretório esteja apenas 87% cheio. As solicitações de cliente S3 para outros nós não são afetadas. O alarme NRLY (relés de auditoria disponíveis) é acionado quando os relés de auditoria não são alcançáveis.
+* Se o `/var/local/audit/export` o diretório usado por um nó de administração fica cheio, o nó de administração é sinalizado como indisponível para novas mensagens de auditoria até que o diretório não esteja mais cheio.  As solicitações do cliente S3 não são afetadas.  O alarme XAMS (Repositórios de auditoria inacessíveis) é acionado quando um repositório de auditoria fica inacessível.
+* Se o `/var/local/` o diretório usado por um nó de armazenamento com o serviço ADC fica 92% cheio, o nó é sinalizado como indisponível para mensagens de auditoria até que o diretório esteja apenas 87% cheio.  As solicitações do cliente S3 para outros nós não são afetadas.  O alarme NRLY (Relés de auditoria disponíveis) é acionado quando os relés de auditoria estão inacessíveis.
 +
 
 NOTE: Se não houver nós de armazenamento disponíveis com o serviço ADC, os nós de armazenamento armazenam as mensagens de auditoria localmente `/var/local/log/localaudit.log` no arquivo.
 
-* Se o `/var/local/` diretório usado por um nó de armazenamento ficar 85% cheio, o nó começará a recusar solicitações de cliente S3 com `503 Service Unavailable`.
+* Se o `/var/local/` diretório usado por um nó de armazenamento fica 85% cheio, o nó começa a recusar solicitações de cliente S3 com `503 Service Unavailable` .
 
 
 Os seguintes tipos de problemas podem fazer com que as filas de mensagens de auditoria cresçam muito grandes:
@@ -65,7 +67,7 @@ Para ajudá-lo a monitorar o tamanho das filas de mensagens de auditoria ao long
 
 Se o alerta *fila de auditoria grande* ou o alarme AMQS legado for acionado, comece verificando a carga no sistema - se houver um número significativo de transações recentes, o alerta e o alarme devem ser resolvidos com o tempo e podem ser ignorados.
 
-Se o alerta ou o alarme persistir e aumentar a gravidade, veja um gráfico do tamanho da fila. Se o número estiver aumentando constantemente ao longo de horas ou dias, a carga de auditoria provavelmente excedeu a capacidade de auditoria do sistema. Reduza a taxa de operação do cliente ou diminua o número de mensagens de auditoria registradas alterando o nível de auditoria para gravações do cliente e leituras do cliente para erro ou Desativado. link:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria e destinos de log"]Consulte .
+Se o alerta ou alarme persistir e aumentar em gravidade, visualize um gráfico do tamanho da fila.  Se o número estiver aumentando constantemente ao longo de horas ou dias, a carga de auditoria provavelmente excedeu a capacidade de auditoria do sistema.  Reduza a taxa de operação do cliente ou diminua o número de mensagens de auditoria registradas alterando o nível de auditoria para Gravações do Cliente e Leituras do Cliente para Erro ou Desligado. Ver link:../monitor/configure-log-management.html["Configurar gerenciamento de log e servidor syslog externo"] .
 
 
 

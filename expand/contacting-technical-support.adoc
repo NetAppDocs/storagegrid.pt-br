@@ -16,12 +16,12 @@ Se você encontrar erros durante o processo de expansão da grade que você não
 Antes de contactar o suporte técnico, recolha os ficheiros de registo necessários para ajudar na resolução de problemas.
 
 .Passos
+. O acesso SSH externo é bloqueado por padrão.  Se necessário,link:../admin/manage-external-ssh-access.html["permitir acesso temporariamente"] .
 . Conete-se ao nó de expansão que sofreu falhas:
 +
 .. Introduza o seguinte comando:``ssh -p 8022 admin@_grid_node_IP_``
 +
-
-NOTE: A porta 8022 é a porta SSH do sistema operacional base, enquanto a porta 22 é a porta SSH do mecanismo de contentor que executa o StorageGRID.
+A porta 8022 é a porta SSH do sistema operacional base, enquanto a porta 22 é a porta SSH do mecanismo de contentor que executa o StorageGRID.
 
 .. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
 .. Digite o seguinte comando para mudar para root: `su -`
@@ -57,4 +57,5 @@ Linux
 
 
 |===
+. Se você permitiu acesso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear acesso"] quando você terminar a tarefa.
 

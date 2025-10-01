@@ -45,7 +45,7 @@ Replicação do CloudMirror
  a| 
 Notificações
  a| 
-`sns` ou `kafka`
+`sns`, `kafka` , ou `webhook`
 
 
 
@@ -57,7 +57,9 @@ Integração de pesquisa
 |===
 Por exemplo, para continuar especificando a URN para um endpoint do CloudMirror hospedado no StorageGRID, você adicionaria `s3` ao GET `urn:sgws:s3`.
 
-O elemento final da URNA identifica o recurso alvo específico no URI de destino.
+Para a maioria dos pontos de extremidade, o elemento final do URN identifica o recurso de destino específico no URI de destino, por exemplo, `sns-topic-name` .
+
+Para endpoints de webhook, o recurso de destino é o próprio URI de destino.
 
 [cols="1a,2a"]
 |===
@@ -75,6 +77,8 @@ Replicação do CloudMirror
 Notificações
  a| 
 `sns-topic-name` ou `kafka-topic-name`
+
+*Observação:* Para endpoints de webhook, o elemento final do URN pode ser qualquer string, desde que o URN do endpoint seja exclusivo.
 
 
 
@@ -152,6 +156,14 @@ Especifique um ponto final Kafka:
 [listing]
 ----
 urn:mysite:kafka:optional:optional:kafka-topic-name
+----
++
+Especifique um ponto de extremidade do webhook:
+
++
+[listing]
+----
+urn:mysite:webhook:optional:optional:webhook-name
 ----
 * Integração de pesquisa:
 +

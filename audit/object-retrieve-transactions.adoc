@@ -13,7 +13,7 @@ summary: Você pode identificar transações de recuperação de objetos no log 
 [role="lead"]
 Você pode identificar transações de recuperação de objetos no log de auditoria localizando mensagens de auditoria específicas da API do S3.
 
-Nem todas as mensagens de auditoria geradas durante uma transação de recuperação são listadas nas tabelas a seguir. Apenas as mensagens necessárias para rastrear a transação de recuperação são incluídas.
+Nem todas as mensagens de auditoria geradas durante uma transação de recuperação estão listadas na tabela a seguir.  Somente mensagens necessárias para rastrear a transação de recuperação são incluídas.
 
 
 
@@ -34,27 +34,6 @@ Solicitação feita para recuperar um objeto de um bucket.
 CBID, S3BK, S3KY
  a| 
 link:sget-s3-get.html["SGET: S3 GET"]
-
-|===
-
-
-== Mensagens de auditoria de recuperação rápida
-
-[cols="1a,1a,2a,1a,1a"]
-|===
-| Código | Nome | Descrição | Traçado | Consulte 
-
-
- a| 
-WGET
- a| 
-Swift GET
- a| 
-Solicitação feita para recuperar um objeto de um contentor.
- a| 
-CBID, WCON, WOBJ
- a| 
-link:wget-swift-get.html["WGET: Rápido"]
 
 |===
 

@@ -33,6 +33,7 @@ NOTE: Se um único host incluir mais de um nó de grade, não encerre o host at�
 NOTE: Se necessário, você pode link:linux-migrating-grid-node-to-new-host.html["Migre nós de um host Linux para outro"]executar a manutenção do host sem afetar a funcionalidade ou a disponibilidade de sua grade.
 
 .Passos
+. O acesso SSH externo é bloqueado por padrão.  Se necessário,link:../admin/manage-external-ssh-access.html["permitir acesso temporariamente"] .
 . Impedir que todas as aplicações cliente acedam à grelha.
 . [[log_in_to_gn]]Faça login em cada nó de gateway:
 +
@@ -141,6 +142,7 @@ Este LED fica aceso quando os dados em cache precisam ser gravados nas unidades.
 +
 A grelha StorageGRID foi agora desligada.
 
+. Se você permitiu acesso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear acesso"] quando terminar de desligar os nós.
 
 
 
@@ -171,7 +173,7 @@ Você pode ativar esses nós em qualquer ordem.
 
 . Ligue os hosts para todos os nós do Gateway.
 . Faça login no Gerenciador de Grade.
-. Selecione *NÓS* e monitore o status dos nós da grade. Verifique se não há ícones de alerta ao lado dos nomes dos nós.
+. Selecione *Nós* e monitore o status dos nós da grade.  Verifique se não há ícones de alerta ao lado dos nomes dos nós.
 
 
 .Informações relacionadas

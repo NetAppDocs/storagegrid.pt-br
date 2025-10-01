@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: expand, expansion, storage node, add storage volumes, VMware 
 summary: Se um nó de armazenamento incluir menos de 16 volumes de armazenamento, você poderá aumentar sua capacidade usando o VMware vSphere para adicionar volumes. 
 ---
-= VMware: Adicione volumes de storage ao nó de storage
+= Adicionar volumes de armazenamento aos nós de armazenamento VMware
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,11 +14,7 @@ summary: Se um nó de armazenamento incluir menos de 16 volumes de armazenamento
 Se um nó de armazenamento incluir menos de 16 volumes de armazenamento, você poderá aumentar sua capacidade usando o VMware vSphere para adicionar volumes.
 
 .Antes de começar
-* Você tem acesso às instruções para instalar implantações do StorageGRID para VMware.
-+
-** link:../vmware/index.html["Instale o StorageGRID no VMware"]
-
-
+* Você tem acesso aolink:../swnodes/index.html["instruções para instalar o StorageGRID para implantações VMware"] .
 * Você tem o `Passwords.txt` arquivo.
 * Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
 
@@ -93,19 +89,13 @@ O estado é atualizado automaticamente.
 . Verifique se o nó de storage está on-line:
 +
 .. Faça login no Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
-.. Selecione *SUPPORT* > *Tools* > *Grid topology*.
-.. Selecione *_site_* > *_Storage Node_* > *LDR* > *Storage*.
-.. Selecione a guia *Configuração* e a guia *Principal*.
-.. Se a lista suspensa *Estado de armazenamento - desejado* estiver definida como somente leitura ou Offline, selecione *Online*.
-.. Selecione *aplicar alterações*.
+.. Selecione *Nós* > *_Nó de Armazenamento_* > *Tarefas*.
+.. Se a lista suspensa *Estado de armazenamento* estiver definida como Somente leitura ou Offline, selecione *Online*.
+.. Selecione *Guardar*.
 
 
-. Para ver os novos armazenamentos de objetos:
-+
-.. Selecione *NÓS* > *_site_* > *_Storage Node_* > *Storage*.
-.. Veja os detalhes na tabela *Object Stores*.
-
-
+. Para ver os novos armazenamentos de objetos, selecione *Armazenamento*.
+. Veja os detalhes na tabela *Volumes*.
 
 
 .Resultado

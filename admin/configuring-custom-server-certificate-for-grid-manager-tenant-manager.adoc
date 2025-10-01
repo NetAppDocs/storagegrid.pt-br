@@ -21,7 +21,7 @@ Como um único certificado de interface de gerenciamento personalizado é usado 
 Você precisa concluir a configuração no servidor e, dependendo da autoridade de certificação raiz (CA) que você está usando, os usuários também podem precisar instalar o certificado de CA de grade no navegador da Web que eles usarão para acessar o Gerenciador de Grade e o Gerenciador de locatário.
 
 
-NOTE: Para garantir que as operações não sejam interrompidas por um certificado de servidor com falha, o alerta *Expiration of Server certificate for Management Interface* é acionado quando este certificado de servidor está prestes a expirar. Conforme necessário, você pode ver quando o certificado atual expira selecionando *CONFIGURATION* > *Security* > *Certificates* e observando a data de validade do certificado da interface de gerenciamento na guia Global.
+NOTE: Para garantir que as operações não sejam interrompidas por um certificado de servidor com falha, o alerta *Expiração do certificado do servidor para a Interface de Gerenciamento* é acionado quando este certificado do servidor está prestes a expirar.  Conforme necessário, você pode visualizar quando o certificado atual expira selecionando *Configuração* > *Segurança* > *Certificados* e verificando a data de expiração do certificado da interface de gerenciamento na guia Global.
 
 [NOTE]
 ====
@@ -39,7 +39,7 @@ Se você estiver acessando o Gerenciador de Grade ou o Gerenciador de locatário
 Para adicionar um certificado de interface de gerenciamento personalizado, você pode fornecer seu próprio certificado ou gerar um usando o Gerenciador de Grade.
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Certificates*.
+. Selecione *Configuração* > *Segurança* > *Certificados*.
 . Na guia *Global*, selecione *certificado de interface de gerenciamento*.
 . Selecione *usar certificado personalizado*.
 . Carregue ou gere o certificado.
@@ -166,7 +166,7 @@ NOTE: Depois de carregar ou gerar um novo certificado, aguarde até um dia para 
 Você pode reverter para o uso do certificado de interface de gerenciamento padrão para conexões do Gerenciador de Grade e do Gerenciador de Tenant.
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Certificates*.
+. Selecione *Configuração* > *Segurança* > *Certificados*.
 . Na guia *Global*, selecione *certificado de interface de gerenciamento*.
 . Selecione *Use default certificate* (usar certificado padrão).
 +
@@ -229,7 +229,7 @@ Inclua as tags DE INÍCIO e FIM em sua seleção.
 . Confirme se o certificado foi configurado:
 +
 .. Acesse o Gerenciador de Grade.
-.. Selecione *CONFIGURATION* > *Security* > *Certificates*
+.. Selecione *Configuração* > *Segurança* > *Certificados*
 .. Na guia *Global*, selecione *certificado de interface de gerenciamento*.
 
 
@@ -243,7 +243,7 @@ Inclua as tags DE INÍCIO e FIM em sua seleção.
 Você pode salvar ou copiar o conteúdo do certificado da interface de gerenciamento para uso em outro lugar.
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Certificates*.
+. Selecione *Configuração* > *Segurança* > *Certificados*.
 . Na guia *Global*, selecione *certificado de interface de gerenciamento*.
 . Selecione a guia *Server* ou *CA bundle* e, em seguida, baixe ou copie o certificado.
 +

@@ -85,6 +85,7 @@ O alerta *Grid Network MTU mismatch* é acionado quando a configuração MTU (un
 As diferenças nas configurações de MTU podem indicar que algumas, mas não todas, redes eth0 são configuradas para quadros jumbo. Uma incompatibilidade de tamanho da MTU superior a 1000 pode causar problemas de desempenho da rede.
 
 .Passos
+. O acesso SSH externo é bloqueado por padrão.  Se necessário,link:../admin/manage-external-ssh-access.html["permitir acesso temporariamente"] .
 . Liste as configurações de MTU para eth0 em todos os nós.
 +
 ** Use a consulta fornecida no Gerenciador de Grade.
@@ -148,6 +149,7 @@ O nó. O padrão é o nó local.
 |===
 
 
+. Se você permitiu acesso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear acesso"] quando você terminar a tarefa.
 
 
 
@@ -257,12 +259,12 @@ Você pode ver problemas com a conetividade de rede para nós StorageGRID hosped
 
 === Clonagem de endereços MAC
 
-Em alguns casos, os problemas de rede podem ser resolvidos usando a clonagem de endereços MAC. Se você estiver usando hosts virtuais, defina o valor da chave de clonagem de endereços MAC para cada uma de suas redes como "verdadeiro" no arquivo de configuração do nó. Esta configuração faz com que o endereço MAC do contentor StorageGRID use o endereço MAC do host. Para criar arquivos de configuração de nó, consulte as instruções para link:../rhel/creating-node-configuration-files.html["Red Hat Enterprise Linux"] ou link:../ubuntu/creating-node-configuration-files.html["Ubuntu ou Debian"].
+Em alguns casos, problemas de rede podem ser resolvidos usando clonagem de endereço MAC.  Se você estiver usando hosts virtuais, defina o valor da chave de clonagem de endereço MAC para cada uma das suas redes como "true" no arquivo de configuração do nó.  Esta configuração faz com que o endereço MAC do contêiner StorageGRID use o endereço MAC do host.  Veja as instruções paralink:../swnodes/creating-node-configuration-files.html["criar arquivos de configuração de nó"] .
 
 
 NOTE: Crie interfaces de rede virtuais separadas para uso pelo sistema operacional host Linux. Usar as mesmas interfaces de rede para o sistema operacional host Linux e o contentor StorageGRID pode fazer com que o sistema operacional do host se torne inacessível se o modo promíscuo não tiver sido ativado no hypervisor.
 
-Para obter mais informações sobre como ativar a clonagem MAC, consulte as instruções para link:../rhel/configuring-host-network.html["Red Hat Enterprise Linux"] ou link:../ubuntu/configuring-host-network.html["Ubuntu ou Debian"].
+Para mais informações, consulte as instruções paralink:../swnodes/configuring-host-network.html["habilitando clonagem de MAC"] .
 
 
 
@@ -270,7 +272,7 @@ Para obter mais informações sobre como ativar a clonagem MAC, consulte as inst
 
 Se você não quiser usar a clonagem de endereços MAC e preferir permitir que todas as interfaces recebam e transmitam dados para endereços MAC diferentes dos atribuídos pelo hypervisor, verifique se as propriedades de segurança nos níveis de switch virtual e grupo de portas estão definidas como *Accept* para modo promíscuo, alterações de endereço MAC e transmissões forjadas. Os valores definidos no switch virtual podem ser substituídos pelos valores no nível do grupo de portas, portanto, certifique-se de que as configurações sejam as mesmas em ambos os locais.
 
-Para obter mais informações sobre como usar o modo promíscuo, consulte as instruções para link:../rhel/configuring-host-network.html["Red Hat Enterprise Linux"] ou link:../ubuntu/configuring-host-network.html["Ubuntu ou Debian"].
+Para obter mais informações sobre o uso do Modo Promíscuo, consulte as instruções paralink:../swnodes/configuring-host-network.html["como configurar a rede host"] .
 
 
 
@@ -327,7 +329,7 @@ Talvez seja necessário habilitar o suporte IPv6 no kernel se você tiver instal
 .Sobre esta tarefa
 Para ver o endereço IPv6 que foi atribuído a um nó de grade:
 
-. Selecione *NÓS* e selecione o nó.
+. Selecione *Nós* e selecione o nó.
 . Selecione *Mostrar endereços IP adicionais* ao lado de *endereços IP* na guia Visão geral.
 
 

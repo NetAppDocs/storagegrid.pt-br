@@ -14,12 +14,7 @@ summary: Você pode adicionar interfaces de tronco ou acesso extras a um nó Lin
 Você pode adicionar interfaces de tronco ou acesso extras a um nó Linux depois que ele foi instalado. As interfaces adicionadas são exibidas na página interfaces VLAN e na página grupos HA.
 
 .Antes de começar
-* Você tem acesso às instruções para instalar o StorageGRID em sua plataforma Linux.
-+
-** link:../rhel/index.html["Instale o StorageGRID no Red Hat Enterprise Linux"]
-** link:../ubuntu/index.html["Instale o StorageGRID no Ubuntu ou Debian"]
-
-
+* Você tem acesso aolink:../swnodes/index.html["instruções para instalar o StorageGRID"] na sua plataforma Linux.
 * Você tem o `Passwords.txt` arquivo.
 * Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
 

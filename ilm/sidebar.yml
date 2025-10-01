@@ -73,7 +73,7 @@ entries:
     url: "/ilm/troubleshooting-cloud-storage-pools.html"
 - title: Gerenciar perfis de codificação de apagamento
   url: "/ilm/manage-erasure-coding-profiles.html"
-- title: Configurar regiões (opcional e apenas S3)
+- title: Configurar regiões S3
   url: "/ilm/configuring-regions-optional-and-s3-only.html"
 - title: Criar regra ILM
   entries:

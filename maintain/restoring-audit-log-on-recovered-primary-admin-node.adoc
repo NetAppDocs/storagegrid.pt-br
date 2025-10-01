@@ -33,7 +33,7 @@ Por padrão, as informações de auditoria são enviadas para o log de auditoria
 * Você especificou explicitamente que as mensagens de auditoria devem ser salvas somente nos nós locais que as geraram.
 
 
-link:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria e destinos de log"]Consulte para obter detalhes.
+Verlink:../monitor/configure-log-management.html["Configurar gerenciamento de log e servidor syslog externo"] para mais detalhes.
 
 ====
 .Passos
@@ -48,12 +48,12 @@ link:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria
 +
 Depois de iniciar sessão como root, o aviso muda de `$` para `#`.
 
-. Verifique quais arquivos de auditoria foram preservados: `cd /var/local/log`
+. Verifique quais arquivos de auditoria foram preservados: `cd /var/local/audit/export`
 . Copie os arquivos de log de auditoria preservados para o Admin Node recuperado: `scp admin@_grid_node_IP_:/var/local/tmp/saved-audit-logs/YYYY* .`
 +
 Quando solicitado, insira a senha para admin.
 
 . Para segurança, exclua os logs de auditoria do nó de grade com falha depois de verificar se eles foram copiados com sucesso para o nó de administração recuperado.
-. Atualize as configurações de usuário e grupo dos arquivos de log de auditoria no Admin Node recuperado: `chown ams-user: bycast *`
+. Atualize as configurações de usuário e grupo dos arquivos de log de auditoria no nó de administração recuperado: `chown ams-user:bycast *`
 . Faça logout como root: `exit`
 

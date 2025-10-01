@@ -1,0 +1,33 @@
+---
+permalink: s3/example-session-policies.html 
+sidebar: sidebar 
+keywords: session policy example 
+summary: Use o exemplo nesta seção para criar políticas de sessão do StorageGRID . 
+---
+= Exemplo de política de sessão
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Use o exemplo a seguir para criar uma política de sessão StorageGRID .
+
+
+
+== Exemplo: Configurar uma política de sessão que permita a recuperação de objetos
+
+Neste exemplo, o principal da sessão só tem permissão para recuperar objetos do bucket1.  Todas as outras ações são implicitamente negadas, exceto ações específicas do StorageGRID, como usar olink:use-access-policies/#use-putoverwriteobject-permission["S3:PutOverwriteObject"] permissão.  A política de sessão pode ser fornecida como um arquivo JSON ao chamar a API AssumeRole.
+
+[listing]
+----
+{
+  "Statement": [
+    {
+      "Action": "s3:GetObject",
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::bucket1/*"
+    }
+  ]
+}
+----

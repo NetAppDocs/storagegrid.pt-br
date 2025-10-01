@@ -50,7 +50,7 @@ Da mesma forma, durante a operação normal, quaisquer interfaces de prioridade 
 
 == Exibir o status atual do grupo de HA de um nó
 
-Para ver se um nó está atribuído a um grupo de HA e determinar seu status atual, selecione *NÓS* > *_node_*.
+Para ver se um nó está atribuído a um grupo HA e determinar seu status atual, selecione *Nós* > *_nó_*.
 
 Se a guia *Visão geral* incluir uma entrada para *grupos de HA*, o nó será atribuído aos grupos de HA listados. O valor após o nome do grupo é o status atual do nó no grupo HA:
 

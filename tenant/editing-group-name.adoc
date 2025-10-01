@@ -19,7 +19,7 @@ Pode editar o nome de apresentação de um grupo. Não é possível editar o nom
 
 
 .Passos
-. Selecione *GERENCIAMENTO DE ACESSO* > *grupos*.
+. Selecione *Gerenciamento de acesso* > *Grupos*.
 . Selecione a caixa de verificação para o grupo cujo nome de apresentação pretende editar.
 . Selecione *ações* > *Editar nome do grupo*.
 +

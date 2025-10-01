@@ -45,7 +45,7 @@ NOTE: Algumas mensagens de erro na coluna *último erro* podem incluir um LOGID 
 
 == Problemas relacionados aos servidores proxy
 
-Se você tiver configurado um link:configuring-storage-proxy-settings.html["proxy de storage"] entre nós de storage e endpoints de serviço da plataforma, poderão ocorrer erros se o serviço proxy não permitir mensagens do StorageGRID. Para resolver esses problemas, verifique as configurações do servidor proxy para garantir que as mensagens relacionadas ao serviço da plataforma não sejam bloqueadas.
+Se você configurou umlink:configuring-storage-proxy-settings.html["proxy de storage"] entre os nós de armazenamento e os pontos de extremidade do serviço de plataforma, podem ocorrer erros se o serviço de proxy não permitir mensagens do StorageGRID.  Para resolver esses problemas, verifique as configurações do seu servidor proxy para garantir que as mensagens relacionadas ao serviço da plataforma não estejam bloqueadas.
 
 
 
@@ -61,8 +61,9 @@ Alguns problemas de serviços de plataforma podem causar falha nas operações d
 
 Para verificar o status dos serviços:
 
-. Selecione *SUPPORT* > *Tools* > *Grid topology*.
-. Selecione *_site_* > *_Storage Node_* > *SSM* > *Serviços*.
+. Selecione *Nós* > *_site_* > *_Nó de Armazenamento_* > *Visão Geral*.
+. Verifique se há alertas ativos na tabela Alertas.
+. Resolva quaisquer alertas ativos.  Se necessário, entre em contato com o suporte técnico.
 
 
 
@@ -72,13 +73,17 @@ Para verificar o status dos serviços:
 Após a criação de endpoints, os erros de solicitação de serviço da plataforma podem ocorrer por vários motivos. Alguns erros são recuperáveis com a intervenção do usuário. Por exemplo, erros recuperáveis podem ocorrer pelos seguintes motivos:
 
 * As credenciais do usuário foram excluídas ou expiraram.
-* O intervalo de destino não existe.
+* O bucket de destino não existe.
 * A notificação não pode ser entregue.
 
 
 Se o StorageGRID encontrar um erro recuperável, a solicitação de serviço da plataforma será tentada novamente até que seja bem-sucedida.
 
-Outros erros são irrecuperáveis. Por exemplo, um erro irrecuperável ocorre se o endpoint for excluído.
+Outros erros são irrecuperáveis.  Por exemplo, erros irrecuperáveis podem ocorrer pelos seguintes motivos:
+
+* O ponto final é excluído.
+* Um destino de ponto de extremidade do webhook responde a uma solicitação de notificação com um `400 Bad Request` erro.
+
 
 Se o StorageGRID encontrar um erro de endpoint irrecuperável:
 
@@ -91,7 +96,7 @@ Se o StorageGRID encontrar um erro de endpoint irrecuperável:
 
 == As mensagens dos serviços da plataforma não podem ser entregues
 
-Se o destino encontrar um problema que o impeça de aceitar mensagens de serviços da plataforma, a operação do cliente no bucket será bem-sucedida, mas a mensagem de serviços da plataforma não será entregue. Por exemplo, esse erro pode acontecer se as credenciais forem atualizadas no destino, de modo que o StorageGRID não possa mais se autenticar no serviço de destino.
+Se o destino encontrar um problema que o impeça de aceitar mensagens de serviços de plataforma, a operação do cliente no bucket será bem-sucedida, mas a mensagem de serviços de plataforma não será entregue.  Por exemplo, esse erro pode ocorrer se as credenciais forem atualizadas no destino de forma que o StorageGRID não consiga mais se autenticar no serviço de destino.
 
 Verifique se existem alertas relacionados.
 
@@ -111,7 +116,7 @@ As solicitações do CloudMirror são mais propensas a serem afetadas pelo desem
 
 Para visualizar a taxa de falha da solicitação para serviços de plataforma:
 
-. Selecione *NODES*.
+. Selecione *Nós*.
 . Selecione *_site_* > *Serviços de Plataforma*.
 . Veja o gráfico de taxa de erro de solicitação.
 +

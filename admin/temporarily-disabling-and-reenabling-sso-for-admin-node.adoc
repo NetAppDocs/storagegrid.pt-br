@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: signing in when sso is down, single sign on failure 
 summary: 'Talvez você não consiga entrar no Gerenciador de Grade se o sistema de logon único (SSO) for desativado. Nesse caso, você pode desativar e reativar temporariamente o SSO para um nó de administrador. Para desativar e reativar o SSO, você deve acessar o shell de comando do nó.' 
 ---
-= Desative e reative temporariamente o logon único para um nó de administração
+= Desabilitar e reabilitar temporariamente o SSO para um nó de administração
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -52,7 +52,7 @@ A página de login do Gerenciador de Grade agora é exibida porque o SSO foi des
 . Inicie sessão com a raiz do nome de utilizador e a palavra-passe do utilizador raiz local.
 . Se você desativou o SSO temporariamente porque precisava corrigir a configuração SSO:
 +
-.. Selecione *CONFIGURATION* > *access control* > *Single sign-on*.
+.. Selecione *Configuração* > *Controle de acesso* > *Logon único*.
 .. Altere as configurações de SSO incorretas ou desatualizadas.
 .. Selecione *Guardar*.
 +

@@ -25,7 +25,7 @@ O gerenciamento de um servidor de gerenciamento de chaves (KMS) envolve a visual
 Você pode exibir informações sobre cada servidor de gerenciamento de chaves (KMS) em seu sistema StorageGRID, incluindo detalhes das chaves e o status atual dos certificados de servidor e cliente.
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Key Management Server*.
+. Selecione *Configuração* > *Segurança* > *Servidor de gerenciamento de chaves*.
 +
 A página servidor de gerenciamento de chaves é exibida e mostra as seguintes informações:
 
@@ -147,7 +147,7 @@ Resolver imediatamente quaisquer problemas de certificado de servidor ou cliente
 CAUTION: Você deve resolver quaisquer problemas de certificado o mais rápido possível para manter o acesso aos dados.
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Key Management Server*.
+. Selecione *Configuração* > *Segurança* > *Servidor de gerenciamento de chaves*.
 . Na tabela, observe o valor de expiração do certificado para cada KMS.
 . Se a expiração do certificado para qualquer KMS for desconhecida, aguarde até 30 minutos e, em seguida, atualize seu navegador da Web.
 . Se a coluna expiração do certificado indicar que um certificado expirou ou está prestes a expirar, selecione o KMS para ir para a página de detalhes do KMS.
@@ -173,7 +173,7 @@ NOTE: Se você receber um status de *o status do certificado do servidor é desc
 Você pode exibir informações sobre os nós do dispositivo no seu sistema StorageGRID que têm a configuração *criptografia de nó* ativada.
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Key Management Server*.
+. Selecione *Configuração* > *Segurança* > *Servidor de gerenciamento de chaves*.
 +
 A página Key Management Server (servidor de gerenciamento de chaves) é exibida. A guia Detalhes da configuração mostra todos os servidores de gerenciamento de chaves que foram configurados.
 
@@ -274,7 +274,7 @@ Talvez seja necessário editar a configuração de um servidor de gerenciamento 
 
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Key Management Server*.
+. Selecione *Configuração* > *Segurança* > *Servidor de gerenciamento de chaves*.
 +
 A página servidor de gerenciamento de chaves é exibida e mostra todos os servidores de gerenciamento de chaves que foram configurados.
 
@@ -382,7 +382,7 @@ Você pode remover um KMS nestes casos:
 
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Key Management Server*.
+. Selecione *Configuração* > *Segurança* > *Servidor de gerenciamento de chaves*.
 +
 A página servidor de gerenciamento de chaves é exibida e mostra todos os servidores de gerenciamento de chaves que foram configurados.
 

@@ -69,7 +69,7 @@ Você pode visualizar as configurações atuais da marca d'água e os valores ot
 Você pode exibir as configurações atuais de marca d'água de armazenamento no Gerenciador de Grade.
 
 .Passos
-. Selecione *SUPPORT* > *Other* > *Storage watermarks*.
+. Selecione *Suporte* > *Outros* > *Marcas d'água de armazenamento*.
 . Na página marcas d'água de armazenamento, observe a caixa de seleção usar valores otimizados.
 +
 ** Se a caixa de verificação estiver selecionada, todas as três marcas de água são otimizadas para cada volume de armazenamento em cada nó de armazenamento, com base no tamanho do nó de armazenamento e na capacidade relativa do volume.
@@ -90,7 +90,7 @@ Quando especificar definições de marca d'água personalizadas, tem de introduz
 
 O StorageGRID usa duas métricas Prometheus para mostrar os valores otimizados que calculou para a marca d'água de somente leitura suave do volume de armazenamento. Você pode visualizar os valores otimizados mínimo e máximo para cada nó de storage em sua grade.
 
-. Selecione *SUPPORT* > *Tools* > *Metrics*.
+. Selecione *Suporte* > *Ferramentas* > *Métricas*.
 . Na seção Prometheus, selecione o link para acessar a interface do usuário Prometheus.
 . Para ver a marca d'água mínima de leitura suave recomendada, insira a seguinte métrica Prometheus e selecione *execute*:
 +

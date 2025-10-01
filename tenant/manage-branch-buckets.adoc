@@ -1,0 +1,195 @@
+---
+permalink: tenant/manage-branch-buckets.html 
+sidebar: sidebar 
+keywords: how to create branch bucket 
+summary: Use o Gerenciador de locatários para criar e visualizar detalhes de buckets de ramificação. 
+---
+= Gerenciar buckets de ramificação
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Use o Gerenciador de locatários para criar e visualizar detalhes de buckets de ramificação.
+
+.Antes de começar
+* Você fez login no Tenant Manager usando umlink:../admin/web-browser-requirements.html["navegador da web suportado"] .
+* Você pertence a um grupo de usuários que tem acesso Root oulink:tenant-management-permissions.html["Gerenciar todas as permissões de buckets"] .  Essas permissões substituem as configurações de permissões em políticas de grupo ou bucket.
+* O bucket base do qual você deseja criar uma ramificação temlink:../tenant/changing-bucket-versioning.html["controle de versão habilitado"] .
+* Você é o proprietário do bucket base.
+
+
+.Sobre esta tarefa
+Observe as seguintes informações para buckets de ramificação:
+
+* Permissões para definir propriedades de bloqueio de objeto S3 de buckets ou objetos podem ser concedidas porlink:../s3/use-access-policies.html["política de bucket ou política de grupo"] .
+* Se você suspender o controle de versão no bucket base, o conteúdo do bucket base não ficará mais visível em seus buckets de ramificação.
+
+
+
+CAUTION: Depois de configurar e criar um branch bucket, você não poderá alterar a configuração.
+
+
+
+== Criar bucket de ramificação
+
+.Passos
+. Selecione *View buckets* no painel ou selecione *STORAGE (S3)* > *Buckets*.
+. Selecione o bucket do qual você deseja criar uma ramificação (o "bucket base").
+. Na página de detalhes do bucket, selecione *Branches* > *Criar bucket de branch*.
++
+O botão *Criar bucket de ramificação* será desabilitado se o bucket base não tiver o controle de versão habilitado.
+
+
+
+
+
+== Introduza os detalhes
+
+.Passos
+. Insira detalhes para o bucket de ramificação.
++
+[cols="1a,3a"]
+|===
+| Campo | Descrição 
+
+
+ a| 
+Nome do bucket do branch
+ a| 
+Um nome para o branch bucket que esteja em conformidade com estas regras:
+
+** Deve ser exclusivo em cada sistema StorageGRID (não apenas exclusivo na conta do locatário).
+** Deve ser compatível com DNS.
+** Deve conter pelo menos 3 e não mais de 63 carateres.
+** Cada rótulo deve começar e terminar com uma letra minúscula ou um número e só pode usar letras minúsculas, números e hífens.
+** Não deve conter períodos em solicitações de estilo hospedadas virtuais. Os períodos causarão problemas com a verificação do certificado curinga do servidor.
+
+
+Para obter mais informações, consulte https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html["Documentação da Amazon Web Services (AWS) sobre regras de nomenclatura de bucket"^] .
+
+*Observação*: você não pode alterar o nome depois de criar o branch bucket.
+
+
+
+ a| 
+Região (não é possível modificar para buckets de ramificação)
+ a| 
+A região do bucket de ramificação.
+
+A região do bucket de ramificação deve corresponder à região do bucket base, portanto, esse campo fica desabilitado para buckets de ramificação.
+
+
+
+ a| 
+Antes do tempo
+ a| 
+O tempo limite para que versões de objetos criadas no bucket base sejam acessíveis a partir do bucket de ramificação.  O branch bucket fornece acesso a versões de objetos criadas antes do tempo Before.
+
+Antes do tempo deve haver uma data e hora que já passaram.  Não pode ser uma data futura.
+
+
+
+ a| 
+Tipo de balde de ramificação
+ a| 
+** *Leitura e gravação*: você pode adicionar ou excluir objetos ou versões de objetos no branch bucket.
+** *Somente leitura*: Você não pode modificar objetos no branch bucket.
+
+
+*Observação*: você pode definir o tipo de bucket de ramificação como somente leitura se o bucket de ramificação estiver vazio.  Se o tipo de um branch bucket existente estiver definido como leitura-gravação e você não tiver escrito nele, você poderá alterar o tipo para somente leitura.
+
+|===
+. Selecione *continuar*.
+
+
+
+
+== Gerenciar configurações de objeto (opcional)
+
+As configurações de objeto para um bucket de ramificação não afetam as versões de objeto no bucket base.
+
+.Passos
+. Se a configuração global S3 Object Lock estiver habilitada, opcionalmente habilite o S3 Object Lock para o branch bucket.  Para habilitar o bloqueio de objeto S3, o bucket de ramificação deve ser um bucket de leitura e gravação.
++
+Habilite o Bloqueio de Objeto S3 para um branch bucket somente se você precisar manter objetos por um período fixo de tempo, por exemplo, para atender a determinados requisitos regulatórios.  O Bloqueio de Objetos do S3 é uma configuração permanente que ajuda a evitar que objetos sejam excluídos ou substituídos por um período fixo de tempo ou indefinidamente.
+
++
+
+CAUTION: Depois que a configuração de bloqueio de objeto do S3 é habilitada para um bucket, ela não pode ser desabilitada.  Qualquer pessoa com as permissões corretas pode adicionar objetos ao branch bucket que não podem ser alterados.  Talvez você não consiga excluir esses objetos ou o próprio branch bucket.
+
+. Se você selecionou *Ativar bloqueio de objeto S3*, opcionalmente ative *Retenção padrão* para o branch bucket.
++
+
+NOTE: O administrador da grade deve dar permissão link:../tenant/using-s3-object-lock.html["Use recursos específicos do S3 Object Lock"]ao .
+
++
+Quando a *Retenção padrão* estiver habilitada, novos objetos adicionados ao branch bucket serão automaticamente protegidos contra exclusão ou substituição.  A configuração *Retenção padrão* não se aplica a objetos que têm seus próprios períodos de retenção.
+
++
+.. Se *Retenção padrão* estiver habilitado, especifique um *Modo de retenção padrão* para o bucket de ramificação.
++
+[cols="1a,2a"]
+|===
+| Modo de retenção predefinido | Descrição 
+
+
+ a| 
+Governança
+ a| 
+*** Os usuários com `s3:BypassGovernanceRetention` permissão podem usar o `x-amz-bypass-governance-retention: true` cabeçalho de solicitação para ignorar as configurações de retenção.
+*** Esses usuários podem excluir uma versão de objeto antes de sua data de retenção ser alcançada.
+*** Esses usuários podem aumentar, diminuir ou remover a data de retenção até um objeto.
+
+
+
+
+ a| 
+Conformidade
+ a| 
+*** O objeto não pode ser excluído até que sua data de retenção seja alcançada.
+*** O retent-until-date do objeto pode ser aumentado, mas não pode ser diminuído.
+*** A data de retenção do objeto não pode ser removida até que essa data seja atingida.
+
+
+*Nota*: O administrador da grade deve permitir que você use o modo de conformidade.
+
+|===
+.. Se *Retenção padrão* estiver habilitado, especifique o *Período de retenção padrão* para o bucket de ramificação.
++
+O *Período de retenção padrão* indica por quanto tempo novos objetos adicionados ao branch bucket devem ser retidos, a partir do momento em que são ingeridos.  Especifique um valor menor ou igual ao período máximo de retenção do locatário, conforme definido pelo administrador da grade.
+
++
+Um período de retenção _máximo_, que pode ser um valor de 1 dia a 100 anos, é definido quando o administrador da grade cria o locatário. Quando você define um período de retenção _default_, ele não pode exceder o valor definido para o período de retenção máximo. Se necessário, peça ao administrador da grade para aumentar ou diminuir o período máximo de retenção.
+
+
+
+. Opcionalmente, selecione *Ativar limite de capacidade*.
++
+O limite de capacidade é a capacidade máxima disponível para o bucket de ramificação.  Este valor representa uma quantidade lógica (tamanho do objeto), não uma quantidade física (tamanho no disco).
+
++
+Se nenhum limite for definido, a capacidade do branch bucket será ilimitada. Consulte link:../tenant/understanding-tenant-manager-dashboard.html#bucket-capacity-usage["Uso do limite de capacidade"] para maiores informações.
+
++
+
+NOTE: Essa configuração se aplica somente a objetos ingeridos diretamente no bucket de ramificação e não aos objetos que são visíveis do bucket base por meio do bucket de ramificação.
+
+. Opcionalmente, selecione *Ativar limite de contagem de objetos*.
++
+O limite de contagem de objetos é o número máximo de objetos que o branch bucket pode conter.  Este valor representa uma quantidade lógica (contagem de objetos).  Se nenhum limite for definido, a contagem de objetos será ilimitada.
+
++
+
+NOTE: Essa configuração se aplica somente a objetos ingeridos diretamente no bucket de ramificação e não aos objetos que são visíveis do bucket base por meio do bucket de ramificação.
+
+. Selecione *criar bucket*.
++
+O bucket de ramificação é criado e adicionado à tabela na página Buckets.
+
+. Opcionalmente, selecione *Ir para a página de detalhes do bucket* paralink:viewing-s3-bucket-details.html["ver detalhes do bucket de ramificação"] e executar configurações adicionais.
++
+Na página Detalhes do bucket, algumas opções de configuração relacionadas à modificação de objetos estão desabilitadas para buckets somente leitura.
+
+

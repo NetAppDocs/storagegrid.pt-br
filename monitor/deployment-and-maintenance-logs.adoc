@@ -56,7 +56,7 @@ Nó de administração principal
 | /var/local/log/gdu-server.log  a| 
 Criado pelo serviço GDU. Contém eventos relacionados aos procedimentos de provisionamento e manutenção gerenciados pelo nó de administração principal.
  a| 
-Nó de administração principal
+Nós de administração
 
 
 

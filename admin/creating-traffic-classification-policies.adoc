@@ -21,7 +21,7 @@ Você pode criar políticas de classificação de tráfego se quiser monitorar e
 
 
 .Passos
-. Selecione *CONFIGURATION* > *Network* > *Traffic Classification*.
+. Selecione *Configuração* > *Rede* > *Classificação de tráfego*.
 . Selecione *criar*.
 . Introduza um nome e uma descrição (opcional) para a política e selecione *continuar*.
 +
@@ -122,7 +122,7 @@ A unidade que descreve o valor introduzido.
 
 |===
 +
-Por exemplo, se você quiser criar um limite de largura de banda de 40 GB/s para um nível SLA, crie dois limites de largura de banda agregados: GET/HEAD a 40 GB/s e PUT/POST/DELETE a 40 GB/s.
+Por exemplo, se você quiser criar um limite de largura de banda de 4 GB/s para uma camada de SLA, crie dois limites de largura de banda agregados: GET/HEAD a 4 GB/s e PUT/POST/DELETE a 4 GB/s.
 
 . Selecione *continuar*.
 . Leia e reveja a política de classificação de tráfego. Use o botão *anterior* para voltar e fazer alterações conforme necessário. Quando estiver satisfeito com a política, selecione *Salvar e continuar*.

@@ -36,12 +36,13 @@ NOTE: Se os servidores DNS existentes não estiverem acessíveis à grade nos no
 
 +
 
-NOTE: Se o SSO estiver habilitado para o seu sistema StorageGRID e quaisquer confianças de terceiros confiáveis tiverem sido configuradas usando endereços IP de nó de administrador (em vez de nomes de domínio totalmente qualificados, conforme recomendado), esteja preparado para atualizar ou reconfigurar essas confianças de terceiros confiáveis nos Serviços de Federação do ative Directory (AD FS) imediatamente após você alterar endereços IP. link:../admin/configuring-sso.html["Configurar o logon único"]Consulte .
+NOTE: Se o SSO estiver habilitado para seu sistema StorageGRID e quaisquer trusts de terceira parte confiável tiverem sido configurados usando endereços IP do nó de administração (em vez de nomes de domínio totalmente qualificados, conforme recomendado), esteja preparado para atualizar ou reconfigurar esses trusts de terceira parte confiável nos Serviços de Federação do Active Directory (AD FS) imediatamente após alterar os endereços IP. Ver link:../admin/configure-sso.html["Configurar o logon único"] .
 
 +
 
 NOTE: Se necessário, adicione a nova sub-rede para os novos endereços IP.
 
+. O acesso SSH externo é bloqueado por padrão.  Se necessário,link:../admin/manage-external-ssh-access.html["permitir acesso temporariamente"] .
 . Faça login no nó de administração principal:
 +
 .. Introduza o seguinte comando: `ssh admin@_primary_Admin_Node_IP_`
@@ -130,12 +131,13 @@ NOTE: Toda a grade deve ser desligada, de modo que todos os nós estejam inativo
 .. Se você adicionou novos servidores DNS, exclua os valores antigos do servidor DNS.
 
 
-. Faça o download do novo Pacote de recuperação do Gerenciador de Grade.
+. Baixe o novo pacote de recuperação do Grid Manager.
 +
-.. Selecione *MAINTENANCE* > *System* > *Recovery package*.
+.. Selecione *Manutenção* > *Sistema* > *Pacote de recuperação*.
 .. Introduza a frase-passe de aprovisionamento.
 
 
+. Se você permitiu acesso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear acesso"] quando terminar de alterar os endereços IP.
 
 
 .Informações relacionadas

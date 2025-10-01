@@ -13,9 +13,6 @@ summary: Os pontos de extremidade do balanceador de carga determinam as portas e
 [role="lead"]
 Os pontos de extremidade do balanceador de carga determinam as portas e os protocolos de rede que os clientes S3 podem usar ao se conetar ao balanceador de carga StorageGRID nos nós de gateway e administrador. Você também pode usar endpoints para acessar o Gerenciador de Grade, o Gerenciador de Tenant ou ambos.
 
-
-TIP: Os detalhes do Swift foram removidos desta versão do site do doc.  https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-client-connections.html["Configurar conexões de cliente S3 e Swift"^]Consulte .
-
 .Antes de começar
 * Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
 * Você tem o link:admin-group-permissions.html["Permissão de acesso à raiz"].
@@ -41,15 +38,15 @@ NOTE: As alterações a um certificado de endpoint podem levar até 15 minutos p
 
 == Crie um ponto de extremidade do balanceador de carga
 
-Cada ponto de extremidade do balanceador de carga do cliente S3 especifica uma porta, um tipo de cliente (S3) e um protocolo de rede (HTTP ou HTTPS). Os pontos de extremidade do balanceador de carga da interface de gerenciamento especificam uma porta, tipo de interface e rede cliente não confiável.
+Cada ponto de extremidade do balanceador de carga do cliente S3 especifica uma porta, um tipo de cliente (S3) e um protocolo de rede (HTTP ou HTTPS).  Os pontos de extremidade do balanceador de carga da interface de gerenciamento especificam uma porta, um tipo de interface e uma rede de cliente não confiável.
 
 
 
 === Acesse o assistente
 
 .Passos
-. Selecione *CONFIGURATION* > *Network* > *Load balancer endpoints*.
-. Para criar um endpoint para um cliente S3 ou Swift, selecione a guia *S3 ou Swift client*.
+. Selecione *Configuração* > *Rede* > *Pontos de extremidade do balanceador de carga*.
+. Para criar um ponto de extremidade para um cliente S3, selecione a guia *Cliente S3*.
 . Para criar um endpoint para acesso ao Gerenciador de Grade, Gerenciador de Tenant ou ambos, selecione a guia *Interface de Gerenciamento*.
 . Selecione *criar*.
 
@@ -64,7 +61,7 @@ Cada ponto de extremidade do balanceador de carga do cliente S3 especifica uma p
 
 [role="tabbed-block"]
 ====
-.Cliente S3 ou Swift
+.Cliente S3
 --
 [cols="1a,3a"]
 |===
@@ -90,7 +87,7 @@ Se você digitar *80* ou *8443*, o endpoint será configurado somente em nós de
  a| 
 Tipo de cliente
  a| 
-O tipo de aplicativo cliente que usará esse endpoint, *S3* ou *Swift*.
+Deve ser *S3*.
 
 
 
@@ -102,6 +99,15 @@ O protocolo de rede que os clientes utilizarão ao ligar a este ponto final.
 * Selecione *HTTPS* para comunicação segura e criptografada TLS (recomendada). Você deve anexar um certificado de segurança antes de salvar o endpoint.
 * Selecione *HTTP* para comunicação menos segura e não criptografada. Use HTTP apenas para uma grade não-produção.
 
+
+
+
+ a| 
+Habilitar cache
+ a| 
+Habilitar ou desabilitarlink:../admin/managing-load-balancing.html#considerations-for-load-balancer-caching["cache nos nós de gateway"] para este ponto de extremidade do balanceador de carga.
+
+Se ocorrerem problemas com o cache, consultelink:../troubleshoot/troubleshooting-load-balancer-caching.html["Solucionar problemas de cache do balanceador de carga"] .
 
 |===
 --

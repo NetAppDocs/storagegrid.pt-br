@@ -68,11 +68,11 @@ Você pode atualizar os custos de link entre sites de data center para refletir 
 
 .Antes de começar
 * Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
-* Você tem o link:admin-group-permissions.html["Permissão de configuração de página de topologia de grade"].
+* Você tem olink:admin-group-permissions.html["Outras permissões de configuração de grade"] .
 
 
 .Passos
-. Selecione *SUPPORT* > *Other* > *Link Cost*.
+. Selecione *Suporte* > *Outro* > *Custo do link*.
 +
 image::../media/configuring_link_costs.png[Custo da ligação]
 

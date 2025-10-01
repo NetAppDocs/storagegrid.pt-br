@@ -45,14 +45,12 @@ Saiba como:
 
 [role="quick-margin-list"]
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["Instale o hardware do dispositivo"^]
-* link:../rhel/index.html["Instale o StorageGRID no Red Hat Enterprise Linux"]
-* link:../ubuntu/index.html["Instale o StorageGRID no Ubuntu ou Debian"]
-* link:../vmware/index.html["Instale o StorageGRID no VMware"]
+* link:../swnodes/index.html["Instalar StorageGRID em nós baseados em software"]
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"] Inicie sessão e verifique a integridade do sistema
 [role="quick-margin-para"]
-Assim que você instalar o nó Admin principal, você pode entrar no Gerenciador de Grade. A partir daí, você pode analisar a integridade geral do seu novo sistema, ativar AutoSupport e e-mails de alerta e configurar nomes de domínio de endpoint S3.
+Quando a instalação da grade estiver concluída, você poderá fazer login no Grid Manager.  A partir daí, você pode revisar a integridade geral do seu novo sistema, habilitar o AutoSupport e e-mails de alerta, além de configurar nomes de domínio de endpoint S3.
 
 [role="quick-margin-para"]
 Saiba como:

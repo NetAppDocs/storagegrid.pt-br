@@ -31,7 +31,7 @@ Cada chave pode ter um tempo de expiração específico ou nenhuma expiração. 
 CAUTION: Os buckets e objetos do S3 pertencentes a um usuário podem ser acessados usando o ID da chave de acesso e a chave de acesso secreta exibidos para esse usuário no Gerenciador do locatário. Por esse motivo, proteja as chaves de acesso como faria com uma senha. Gire as chaves de acesso regularmente, remova quaisquer chaves não utilizadas da conta e nunca as compartilhe com outros usuários.
 
 .Passos
-. Selecione *GERENCIAMENTO DE ACESSO* > *usuários*.
+. Selecione *Gerenciamento de acesso* > *Usuários*.
 . Selecione o usuário cujas chaves de acesso S3 você deseja gerenciar.
 +
 É apresentada a página de detalhes do utilizador.

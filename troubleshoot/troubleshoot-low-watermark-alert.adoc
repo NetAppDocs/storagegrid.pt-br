@@ -84,7 +84,7 @@ Você pode resolver o alerta * baixa substituição de marca d'água somente lei
 === Avalie o uso de dados de objeto para toda a grade
 
 .Passos
-. Selecione *NODES*.
+. Selecione *Nós*.
 . Para cada local na grade, expanda a lista de nós.
 . Revise os valores de porcentagem mostrados na coluna *dados de objeto usados* para cada nó de armazenamento em cada local.
 +
@@ -105,7 +105,7 @@ image::../media/nodes_page_object_data_used_with_alert.png[Página de nós mostr
 O StorageGRID usa duas métricas Prometheus para mostrar os valores otimizados que calculou para a marca d'água de somente leitura suave do volume de armazenamento. Você pode visualizar os valores otimizados mínimo e máximo para cada nó de storage em sua grade.
 
 .Passos
-. Selecione *SUPPORT* > *Tools* > *Metrics*.
+. Selecione *Suporte* > *Ferramentas* > *Métricas*.
 . Na seção Prometheus, selecione o link para acessar a interface do usuário Prometheus.
 . Para ver a marca d'água mínima de leitura suave recomendada, insira a seguinte métrica Prometheus e selecione *execute*:
 +
@@ -129,7 +129,7 @@ A última coluna mostra o valor otimizado máximo da marca d'água somente leitu
 === [[determine-optimized-watermarks]]determine se você pode usar marcas de água otimizadas
 
 .Passos
-. Selecione *NODES*.
+. Selecione *Nós*.
 . Repita estas etapas para cada nó de armazenamento online:
 +
 .. Selecione *_Storage Node_* > *Storage*.
@@ -153,7 +153,7 @@ NOTE: Os mesmos valores de marca d'água personalizados são aplicados a cada vo
 === [[marcas de água otimizadas para uso]]Use marcas de água otimizadas
 
 .Passos
-. Aceda a *SUPPORT* > *Other* > *Storage watermarks*.
+. Acesse *Suporte* > *Outros* > *Marcas d'água de armazenamento*.
 . Marque a caixa de seleção *usar valores otimizados*.
 . Selecione *Guardar*.
 

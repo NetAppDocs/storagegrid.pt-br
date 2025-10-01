@@ -21,4 +21,4 @@ Se você tiver uma política de ILM mais complexa que inclua regras que coloquem
 
 Traçar a rapidez com que a capacidade geral de armazenamento está sendo consumida pode ajudá-lo a entender quanto armazenamento adicionar na expansão e quando o espaço de armazenamento adicional será necessário. Você pode usar o Gerenciador de Grade para link:../monitor/monitoring-storage-capacity.html["monitorar e mapear a capacidade de armazenamento"].
 
-Ao Planejar o momento de uma expansão, lembre-se de considerar quanto tempo pode levar para adquirir e instalar armazenamento adicional.
+Ao planejar o momento de uma expansão, lembre-se de considerar quanto tempo pode levar para adquirir e instalar armazenamento adicional.  Para simplificar o planejamento da expansão, considere adicionar nós de armazenamento quando os nós de armazenamento existentes atingirem 70% da capacidade.

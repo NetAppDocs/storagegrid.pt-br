@@ -27,8 +27,9 @@ NOTE: Os detalhes fornecidos para cada tipo de log são apenas para referência.
 
 == Aceder aos registos
 
-Para acessar os logs, você pode link:collecting-log-files-and-system-data.html["colete arquivos de log e dados do sistema"] de um ou mais nós como um único arquivo de log. Ou, se o nó Admin principal não estiver disponível ou não conseguir alcançar um nó específico, você poderá acessar arquivos de log individuais para cada nó de grade da seguinte forma:
+Para acessar os logs, você podelink:collecting-log-files-and-system-data.html["colete arquivos de log e dados do sistema"] de um ou mais nós como um único arquivo de log.  Ou você pode acessar arquivos de log individuais para cada nó da grade da seguinte maneira:
 
+.Passos
 . Introduza o seguinte comando: `ssh admin@grid_node_IP`
 . Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
 . Digite o seguinte comando para mudar para root: `su -`
@@ -41,13 +42,13 @@ Para acessar os logs, você pode link:collecting-log-files-and-system-data.html[
 
 Exportar os logs para o servidor syslog fornece estes recursos:
 
-* Receba uma lista de todas as solicitações do Grid Manager e do Tenant Manager, além das solicitações S3 e Swift.
+* Receba uma lista de todas as solicitações do Grid Manager e do Tenant Manager, além das solicitações do S3.
 * Melhor visibilidade das solicitações do S3 que retornam erros, sem o impacto no desempenho causado pelos métodos de Registro de auditoria.
 * Acesso a solicitações de camada HTTP e códigos de erro que são fáceis de analisar.
 * Melhor visibilidade das solicitações que foram bloqueadas pelos classificadores de tráfego no balanceador de carga.
 
 
-Para exportar os registos, link:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria e destinos de log"]consulte .
+Para exportar os logs, consultelink:../monitor/configure-log-management.html["Configurar gerenciamento de log e servidor syslog externo"] .
 
 
 
@@ -72,6 +73,11 @@ Informações básicas do sistema operacional, incluindo versões de imagem Stor
 
 | pacotes  a| 
 Informações de configuração global (pacotes).
+
+
+
+| cache-svc  a| 
+Logs de serviço de cache (somente em nós de gateway).
 
 
 
@@ -107,6 +113,11 @@ A alta disponibilidade agrupa métricas e logs.
 
 | Lambda-árbitro  a| 
 Logs relacionados à solicitação de proxy S3 Select.
+
+
+
+| vazou  a| 
+Logs do serviço vazado.
 
 
 
@@ -153,7 +164,7 @@ Arquivos e logs de configuração de federação de grade e balanceador de carga
 ** O formato destas mensagens de registo é `[$time_iso8601] $remote_addr $status $bytes_sent $request_length $request_time "$endpointId" "$upstream_addr" "$request" "$http_host"`
 
 
-* `endpoint-access.log.gz`: Solicitações S3 e Swift para terminais do balanceador de carga.
+* `endpoint-access.log.gz`: Solicitações S3 para endpoints do balanceador de carga.
 +
 ** Essas mensagens são prefixadas com `endpoint:` quando exportadas usando syslog.
 ** O formato destas mensagens de registo é `[$time_iso8601] $remote_addr $status $bytes_sent $request_length $request_time "$endpointId" "$upstream_addr" "$request" "$http_host"`
@@ -227,6 +238,6 @@ Saída de comandos StorageGRID Container. Contém informações do sistema, como
 
 
 | sincronizar-recuperação-pacote  a| 
-Relacionado a manter a consistência do pacote de recuperação mais recente em todos os nós de administração e nós de storage que hospedam o serviço ADC.
+Relacionado à manutenção da consistência do pacote de recuperação mais recente em todos os nós de administração e nós de armazenamento que hospedam o serviço ADC.
 
 |===

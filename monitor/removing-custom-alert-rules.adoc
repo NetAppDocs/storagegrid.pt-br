@@ -19,7 +19,7 @@ Você pode remover uma regra de alerta personalizada se não quiser mais usá-la
 
 
 .Passos
-. Selecione *ALERTAS* > *regras*.
+. Selecione *Alertas* > *Regras*.
 +
 A página regras de alerta é exibida.
 

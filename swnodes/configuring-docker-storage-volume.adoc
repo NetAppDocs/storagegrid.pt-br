@@ -1,0 +1,179 @@
+---
+permalink: swnodes/configuring-docker-storage-volume.html 
+sidebar: sidebar 
+keywords: how to configure container engine storage volume, Docker, Podman 
+summary: Antes de instalar o mecanismo de contêiner Docker ou Podman, talvez seja necessário formatar o volume de armazenamento e montá-lo. 
+---
+= Configurar o volume de armazenamento do mecanismo de contêiner (Linux)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de instalar o mecanismo de contêiner Docker ou Podman, talvez seja necessário formatar o volume de armazenamento e montá-lo.
+
+
+NOTE: O suporte para Docker como o mecanismo de contentor para implantações somente de software está obsoleto. O Docker será substituído por outro mecanismo de contentor em uma versão futura.
+
+
+NOTE: "Linux" refere-se a uma implantação RHEL, Ubuntu ou Debian.  Para obter uma lista de versões suportadas, consulte o https://imt.netapp.com/matrix/#welcome["Ferramenta de Matriz de interoperabilidade NetApp (IMT)"^] .
+
+.Sobre esta tarefa
+Você pode pular estas etapas se planeja usar o volume raiz para o volume de armazenamento do Docker ou Podman e tiver espaço suficiente disponível na partição do host contendo:
+
+* Podman: `/var/lib/containers`
+* Docker: `/var/lib/docker`
+
+
+.Passos
+. Crie um sistema de arquivos no volume de armazenamento do mecanismo de contentor:
++
+[role="tabbed-block"]
+====
+.RHEL
+--
+[listing]
+----
+sudo mkfs.ext4 container-engine-storage-volume-device
+----
+--
+.Ubuntu ou Debian
+--
+[listing]
+----
+sudo mkfs.ext4 docker-storage-volume-device
+----
+--
+====
+. Monte o volume de armazenamento do motor do recipiente:
++
+[role="tabbed-block"]
+====
+.RHEL
+--
+** Para Docker:
++
+[listing]
+----
+sudo mkdir -p /var/lib/docker
+sudo mount container-storage-volume-device /var/lib/docker
+----
+** Para Podman:
++
+[listing]
+----
+sudo mkdir -p /var/lib/containers
+sudo mount container-storage-volume-device /var/lib/containers
+----
+
+
+--
+.Ubuntu ou Debian
+--
+[listing]
+----
+sudo mkdir -p /var/lib/docker
+sudo mount docker-storage-volume-device /var/lib/docker
+----
+** Para Podman:
++
+[listing]
+----
+sudo mkdir -p /var/lib/podman
+sudo mount container-storage-volume-device /var/lib/podman
+----
+
+
+--
+====
+. Adicione uma entrada para o dispositivo de volume de armazenamento do contêiner em /etc/fstab.
++
+** RHEL: contêiner-armazenamento-volume-dispositivo
+** Ubuntu ou Debian: docker-storage-volume-device
++
+Essa etapa garante que o volume de storage seja remontado automaticamente após a reinicialização do host.
+
+
+
+
+
+
+
+== Instale o Docker
+
+O sistema StorageGRID pode ser executado no Linux como uma coleção de contêineres.
+
+* Antes de instalar o StorageGRID para Ubuntu ou Debian, você precisa instalar o Docker.
+* Se você escolheu usar o mecanismo de contêiner do Docker, siga estas etapas para instalar o Docker.  De outra forma,<<install-podman-rhel,Instale o Podman>> .
+
+
+
+NOTE: O suporte para Docker como o mecanismo de contentor para implantações somente de software está obsoleto. O Docker será substituído por outro mecanismo de contentor em uma versão futura.
+
+.Passos
+. Instale o Docker seguindo as instruções para sua distribuição Linux.
++
+
+NOTE: Se o Docker não estiver incluído na sua distribuição Linux, você poderá baixá-lo a partir do site do Docker.
+
+. Certifique-se de que o Docker foi ativado e iniciado executando os dois comandos a seguir:
++
+[listing]
+----
+sudo systemctl enable docker
+----
++
+[listing]
+----
+sudo systemctl start docker
+----
+. Confirme que instalou a versão esperada do Docker inserindo o seguinte:
++
+[listing]
+----
+sudo docker version
+----
++
+As versões Cliente e servidor devem ser 1.11.0 ou posterior.
+
+
+
+
+
+== Instale o Podman
+
+O sistema StorageGRID é executado como uma coleção de contêineres.  Se você escolheu usar o mecanismo de contêiner Podman, siga estas etapas para instalar o Podman.  De outra forma,<<Instale o Docker,Instale o Docker>> .
+
+.Passos
+. Instale o Podman e o Podman-Docker seguindo as instruções para sua distribuição Linux.
++
+
+NOTE: Você também deve instalar o pacote Podman-Docker quando instalar o Podman.
+
+. Confirme que instalou a versão esperada do Podman e do Podman-Docker inserindo o seguinte:
++
+[listing]
+----
+sudo docker version
+----
++
+
+NOTE: O pacote Podman-Docker permite que você use comandos Docker.
+
++
+As versões Cliente e servidor devem ser 3.2.3 ou posterior.
+
++
+[listing]
+----
+Version: 3.2.3
+API Version: 3.2.3
+Go Version: go1.15.7
+Built: Tue Jul 27 03:29:39 2021
+OS/Arch: linux/amd64
+----
+
+
+.Informações relacionadas
+link:configuring-host-storage.html["Configurar o armazenamento do host"]

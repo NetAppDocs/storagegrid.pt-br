@@ -25,7 +25,7 @@ Você pode exibir os detalhes de um perfil de codificação de apagamento e reno
 Você pode visualizar os detalhes de um perfil de codificação de apagamento para determinar seu status, o esquema de codificação de apagamento usado e outras informações.
 
 .Passos
-. Selecione *CONFIGURATION* > *System* > *Erasure coding*.
+. Selecione *Configuração* > *Sistema* > *Codificação de eliminação*.
 . Selecione o perfil. É apresentada a página de detalhes do perfil.
 . Opcionalmente, exiba a guia regras ILM para obter uma lista de regras ILM que usam o perfil e as políticas ILM que usam essas regras.
 . Como opção, exiba a guia nós de storage para obter detalhes sobre cada nó de storage no pool de storage do perfil, como o local onde ele está localizado e o uso do storage.
@@ -38,7 +38,7 @@ Você pode visualizar os detalhes de um perfil de codificação de apagamento pa
 Você pode querer renomear um perfil de codificação de apagamento para torná-lo mais óbvio o que o perfil faz.
 
 .Passos
-. Selecione *CONFIGURATION* > *System* > *Erasure coding*.
+. Selecione *Configuração* > *Sistema* > *Codificação de eliminação*.
 . Selecione o perfil que deseja renomear.
 . Selecione *Renomear*.
 . Insira um nome exclusivo para o perfil de codificação de apagamento.
@@ -69,7 +69,7 @@ O StorageGRID impede que você desative um perfil de codificação de apagamento
 
 
 .Passos
-. Selecione *CONFIGURATION* > *System* > *Erasure coding*.
+. Selecione *Configuração* > *Sistema* > *Codificação de eliminação*.
 . Na guia Ativo, revise a coluna *Status* para confirmar que o perfil de codificação de apagamento que você deseja desativar não é usado em nenhuma regra ILM.
 +
 Você não pode desativar um perfil de codificação de apagamento se ele for usado em qualquer regra ILM. No exemplo, o perfil 2 mais 1 Data Center 1 é usado em pelo menos uma regra ILM.

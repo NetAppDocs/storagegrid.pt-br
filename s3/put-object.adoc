@@ -141,6 +141,8 @@ Consulte <<Cabeçalhos de solicitação para criptografia do lado do servidor>>
 
 Os seguintes cabeçalhos de solicitação não são suportados:
 
+* `If-Match`
+* `If-None-Match`
 * `x-amz-acl`
 * `x-amz-sdk-checksum-algorithm`
 * `x-amz-trailer`

@@ -102,7 +102,7 @@ Se você usou o recurso de conformidade legado em uma versão anterior do Storag
  a| 
 Como o recurso é ativado globalmente?
  a| 
-No Gerenciador de Grade, selecione *CONFIGURATION* > *System* > *S3 Object Lock*.
+No Grid Manager, selecione *Configuração* > *Sistema* > *Bloqueio de Objeto S3*.
  a| 
 Já não é suportado.
 

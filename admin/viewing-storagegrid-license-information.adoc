@@ -24,7 +24,7 @@ image::../media/dashboard_health_panel_license_status.png[Estado da licença do 
 .Passos
 . Acesse a página Licença executando um dos seguintes procedimentos:
 +
-** Selecione *MAINTENANCE* > *System* > *License*.
+** Selecione *Manutenção* > *Sistema* > *Licença*.
 ** No cartão de estado de saúde no painel, selecione o ícone de estado da licença ou o link *Licença*.
 +
 Este link aparece somente se houver um problema com a licença.

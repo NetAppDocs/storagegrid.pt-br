@@ -1,0 +1,49 @@
+---
+permalink: troubleshoot/troubleshooting-load-balancer-caching.html 
+sidebar: sidebar 
+keywords: how to troubleshoot load balancer caching 
+summary: Saiba mais sobre possíveis problemas com o cache do balanceador de carga e como solucioná-los. 
+---
+= Solucionar problemas de cache do balanceador de carga
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Saiba mais sobre possíveis problemas com o cache do balanceador de carga e como solucioná-los.
+
+
+
+== Determinar se uma solicitação foi um acerto de cache
+
+* O cabeçalho X-Cache é definido na resposta às solicitações manipuladas pelo serviço de cache.  Códigos possíveis:
++
+** `HIT`:O objeto foi servido do cache
+** `PARTIAL-HIT`: O bucket/chave tinha um registro no cache, mas nem todo o intervalo solicitado pôde ser atendido pelo cache
+** `STALE`: O bucket/chave tinha um registro no cache, mas o objeto foi atualizado desde a última vez que foi servido do cache.
+** `MISS`:O objeto não estava no cache
+
+
+* O `nginx-gw/endpoint-access.log.gz` o registro da solicitação inclui "unix:/run/cache-svc/cache-svc.sock" para solicitações manipuladas pelo cache.
+* O `cache-svc/cache-svc.log` relata uma mensagem como "Solicitação 320390: concluída com sucesso (acerto de cache)" ou "Solicitação 320375: concluída com sucesso (falha de cache)".  Encontre o caminho solicitado pesquisando outros registros com a mesma string "Request _<número>_".
+
+
+
+
+== Baixa taxa de acertos de cache
+
+* Baixas taxas de acerto de cache podem ser esperadas quando uma nova carga de trabalho é adicionada ou o conjunto de trabalho acessado por uma carga de trabalho muda.  Nessas situações, espera-se que a taxa de acerto aumente ao longo do tempo.
+* Se várias cargas de trabalho estiverem usando cache, considere adicionar políticas de classificação de tráfego para isolar partes das cargas de trabalho atendidas pelo cache.  As métricas de taxa de acerto do cache estão disponíveis por política de classificação de tráfego.  Se algumas cargas de trabalho não estiverem apresentando boas taxas de acerto de cache, considere movê-las para outros endpoints que não tenham o cache habilitado.
+* Avalie a taxa de remoção do cache.  Se o cache for muito pequeno para caber no conjunto de trabalho, ele sofrerá altas taxas de remoção e poderá contribuir para menores taxas de acerto.
+* Opções para melhorar as taxas de acerto de determinadas cargas de trabalho podem estar disponíveis no FPVR.
+
+
+
+
+== Baixo desempenho
+
+* Avalie a taxa de acertos do cache.  Baixas taxas de acertos de cache podem levar a um baixo desempenho geral.
+* Avalie a taxa de remoção do cache.  Durante a remoção, alguns recursos de armazenamento são usados para remover objetos existentes do disco.  Se o processo de remoção não acompanhar o acesso de novos objetos, o sistema poderá atingir os limites de marca d'água e começar a ignorar o cache.
+* Verifique os limites da rede usando os diagnósticos “Uso de recepção de interfaces de rede” e “Uso de transmissão de interfaces de rede”.
+

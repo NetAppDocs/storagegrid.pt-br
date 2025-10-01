@@ -13,14 +13,14 @@ summary: Os objetos podem ser recuperados por vários motivos, incluindo solicit
 [role="lead"]
 Os objetos podem ser recuperados por vários motivos, incluindo solicitações de leitura de um aplicativo cliente, verificações em segundo plano de dados de objeto replicados, reavaliações ILM e a restauração de dados de objeto durante a recuperação de um nó de armazenamento.
 
-O sistema StorageGRID usa informações de localização nos metadados de um objeto para determinar a partir de qual local recuperar o objeto. Se uma cópia do objeto não for encontrada no local esperado, o sistema tentará recuperar outra cópia do objeto de outra parte do sistema, assumindo que a política ILM contém uma regra para fazer duas ou mais cópias do objeto.
+O sistema StorageGRID usa informações de localização nos metadados de um objeto para determinar de qual local recuperar o objeto.  Se uma cópia do objeto não for encontrada no local esperado, o sistema tentará recuperar outra cópia do objeto de outro lugar no sistema, supondo que a política do ILM contenha uma regra para fazer duas ou mais cópias do objeto.
 
-Se esta recuperação for bem-sucedida, o sistema StorageGRID substitui a cópia em falta do objeto. Caso contrário, o alerta *objetos perdidos* é acionado, da seguinte forma:
+Se essa recuperação for bem-sucedida, o sistema StorageGRID substituirá a cópia ausente do objeto.  Caso contrário, o alerta *Objetos potencialmente perdidos* será acionado, da seguinte forma:
 
 * Para cópias replicadas, se outra cópia não puder ser recuperada, o objeto será considerado perdido e o alerta será acionado.
 * Para cópias codificadas por apagamento, se uma cópia não puder ser recuperada do local esperado, o atributo cópias corrompidas detetadas (ECOR) será incrementado por um antes de uma tentativa ser feita para recuperar uma cópia de outro local. Se nenhuma outra cópia for encontrada, o alerta é acionado.
 
 
-Você deve investigar todos os alertas *objetos perdidos* imediatamente para determinar a causa raiz da perda e determinar se o objeto ainda pode existir em um nó de armazenamento offline ou de outra forma indisponível no momento. link:../troubleshoot/investigating-lost-objects.html["Investigue objetos perdidos"]Consulte .
+Você deve investigar todos os alertas de *Objetos potencialmente perdidos* imediatamente para determinar a causa raiz da perda e para determinar se o objeto ainda pode existir em um Nós de Armazenamento offline ou indisponível no momento. Ver link:../troubleshoot/investigating-potentially-lost-objects.html["Investigar objetos potencialmente perdidos"] .  Alertas de objetos perdidos podem ser disparados falsamente por precaução.
 
-No caso de perda de dados de objetos sem cópias, não há solução de recuperação. No entanto, você deve redefinir o contador de objetos perdidos para evitar que objetos perdidos conhecidos mascarem quaisquer novos objetos perdidos. link:resetting-lost-and-missing-object-counts.html["Repor contagens de objetos perdidas e em falta"]Consulte .
+No caso de dados de objetos sem cópias serem perdidos, não há solução de recuperação.  No entanto, você develink:../troubleshoot/investigating-potentially-lost-objects.html#reset-lost-obj-count["redefinir o contador de objetos potencialmente perdidos"] para evitar que objetos perdidos conhecidos mascarem quaisquer novos objetos perdidos.

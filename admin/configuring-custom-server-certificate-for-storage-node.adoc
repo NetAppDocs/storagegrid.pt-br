@@ -24,7 +24,7 @@ Um único certificado de servidor personalizado é usado para todos os nós de a
 Depois de concluir a configuração no servidor, talvez você também precise instalar o certificado de CA de grade no cliente de API S3 que você usará para acessar o sistema, dependendo da autoridade de certificação raiz (CA) que você estiver usando.
 
 
-NOTE: Para garantir que as operações não sejam interrompidas por um certificado de servidor com falha, o alerta *Expiration of global Server certificate for S3 API* é acionado quando o certificado do servidor raiz está prestes a expirar. Conforme necessário, você pode ver quando o certificado atual expira selecionando *CONFIGURATION* > *Security* > *Certificates* e observando a data de expiração do certificado API S3 na guia Global.
+NOTE: Para garantir que as operações não sejam interrompidas por um certificado de servidor com falha, o alerta *Expiração do certificado de servidor global para API S3* é acionado quando o certificado do servidor raiz está prestes a expirar.  Conforme necessário, você pode visualizar quando o certificado atual expira selecionando *Configuração* > *Segurança* > *Certificados* e verificando a data de expiração do certificado da API S3 na guia Global.
 
 Você pode fazer upload ou gerar um certificado de API S3 personalizado.
 
@@ -33,7 +33,7 @@ Você pode fazer upload ou gerar um certificado de API S3 personalizado.
 == Adicione um certificado de API S3 personalizado
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Certificates*.
+. Selecione *Configuração* > *Segurança* > *Certificados*.
 . Na guia *Global*, selecione *S3 API certificate*.
 . Selecione *usar certificado personalizado*.
 . Carregue ou gere o certificado.
@@ -164,7 +164,7 @@ NOTE: Depois de carregar ou gerar um novo certificado, aguarde até um dia para 
 Você pode reverter para o uso do certificado padrão da API S3 para conexões de cliente S3 para nós de storage. No entanto, você não pode usar o certificado padrão da API S3 para um endpoint do balanceador de carga.
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Certificates*.
+. Selecione *Configuração* > *Segurança* > *Certificados*.
 . Na guia *Global*, selecione *S3 API certificate*.
 . Selecione *Use default certificate* (usar certificado padrão).
 +
@@ -184,7 +184,7 @@ Se você tiver permissão de acesso root e o certificado de API S3 personalizado
 Você pode salvar ou copiar o conteúdo do certificado API S3 para uso em outro lugar.
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Certificates*.
+. Selecione *Configuração* > *Segurança* > *Certificados*.
 . Na guia *Global*, selecione *S3 API certificate*.
 . Selecione a guia *Server* ou *CA bundle* e, em seguida, baixe ou copie o certificado.
 +

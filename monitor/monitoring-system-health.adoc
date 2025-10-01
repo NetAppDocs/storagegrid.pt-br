@@ -117,11 +117,10 @@ Nenhuma ação necessária.
 
 *Alertas resolvidos*: Você pode pesquisar e visualizar um histórico de alertas que foram resolvidos.
 
-Opcionalmente, você assistiu ao vídeo: https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1["Vídeo: Visão geral dos alertas"^]
+Opcionalmente, você assistiu ao vídeo:
 
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1]
-image::../media/video-screenshot-alert-overview-118.png[Vídeo: Visão geral dos alertas]
-
+.Visão geral dos alertas
+video::2eea81c5-8323-417f-b0a0-b1ff008506c1[panopto]
 A tabela a seguir descreve as informações mostradas no Gerenciador de Grade para alertas atuais e resolvidos.
 
 [cols="1a,3a"]

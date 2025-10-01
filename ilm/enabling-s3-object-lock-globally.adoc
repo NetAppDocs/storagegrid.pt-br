@@ -29,7 +29,7 @@ Revise as configurações de conformidade dos locatários existentes depois de a
 NOTE: A configuração de conformidade global está obsoleta. Se você ativou essa configuração usando uma versão anterior do StorageGRID, a configuração bloqueio de objeto S3 será ativada automaticamente. Você pode continuar usando o StorageGRID para gerenciar as configurações de buckets em conformidade existentes; no entanto, não é possível criar novos buckets em conformidade. Para obter detalhes, https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de Conhecimento da NetApp: Como gerenciar buckets em conformidade com o legado no StorageGRID 11,5"^] consulte .
 
 .Passos
-. Selecione *CONFIGURATION* > *System* > *S3 Object Lock*.
+. Selecione *Configuração* > *Sistema* > *Bloqueio de Objeto S3*.
 +
 A página Configurações de bloqueio de objetos S3 é exibida.
 

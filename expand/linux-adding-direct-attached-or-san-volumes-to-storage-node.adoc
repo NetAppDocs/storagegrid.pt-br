@@ -14,12 +14,7 @@ summary: Se um nó de armazenamento incluir menos de 48 volumes de armazenamento
 Se um nó de armazenamento incluir menos de 48 volumes de armazenamento, você poderá aumentar sua capacidade adicionando novos dispositivos de armazenamento de bloco, tornando-os visíveis aos hosts Linux e adicionando os novos mapeamentos de dispositivo de bloco ao arquivo de configuração do StorageGRID usado para o nó de armazenamento.
 
 .Antes de começar
-* Você tem acesso às instruções para instalar o StorageGRID para sua plataforma Linux.
-+
-** link:../rhel/index.html["Instale o StorageGRID no Red Hat Enterprise Linux"]
-** link:../ubuntu/index.html["Instale o StorageGRID no Ubuntu ou Debian"]
-
-
+* Você tem acesso aolink:../swnodes/index.html["instruções para instalar o StorageGRID"] para sua plataforma Linux.
 * Você tem o `Passwords.txt` arquivo.
 * Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
 
@@ -167,19 +162,13 @@ O `setup_rangedbs.sh` script é executado automaticamente.
 . Verifique se o estado de storage do nó de storage está online:
 +
 .. Faça login no Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
-.. Selecione *SUPPORT* > *Tools* > *Grid topology*.
-.. Selecione *_site_* > *_Storage Node_* > *LDR* > *Storage*.
-.. Selecione a guia *Configuração* e a guia *Principal*.
-.. Se a lista suspensa *Estado de armazenamento - desejado* estiver definida como somente leitura ou Offline, selecione *Online*.
-.. Clique em *aplicar alterações*.
+.. Selecione *Nós* > *_Nó de Armazenamento_* > *Tarefas*.
+.. Se a lista suspensa *Estado de armazenamento* estiver definida como Somente leitura ou Offline, selecione *Online*.
+.. Selecione *Guardar*.
 
 
-. Para ver os novos armazenamentos de objetos:
-+
-.. Selecione *NÓS* > *_site_* > *_Storage Node_* > *Storage*.
-.. Veja os detalhes na tabela *Object Stores*.
-
-
+. Para ver os novos armazenamentos de objetos, selecione *Armazenamento*.
+. Veja os detalhes na tabela *Volumes*.
 
 
 .Resultado

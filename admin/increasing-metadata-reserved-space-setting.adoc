@@ -15,11 +15,8 @@ Você pode aumentar a configuração do sistema Metadata Reserved Space se seus 
 
 .O que você vai precisar
 * Você está conetado ao Gerenciador de Grade usando um link:web-browser-requirements.html["navegador da web suportado"].
-* Você tem o link:admin-group-permissions.html["Permissão de acesso root ou a Configuração da Página de topologia de Grade e outras permissões de Configuração de Grade"].
+* Você tem olink:admin-group-permissions.html["Permissão de acesso root ou permissão de configuração de outra grade"] .
 
-
-
-NOTE: A página de topologia de Grade foi obsoleta e será removida em uma versão futura.
 
 .Sobre esta tarefa
 Você pode aumentar manualmente a configuração de espaço reservado de metadados em todo o sistema até 8 TB.
@@ -40,13 +37,13 @@ Para obter uma explicação detalhada de como a configuração espaço reservado
 .Passos
 . Determine a configuração atual espaço reservado de metadados.
 +
-.. Selecione *CONFIGURATION* > *System* > *Storage options*.
-.. Na seção Storage watermarks (marcas d'água de armazenamento), observe o valor de *Metadata Reserved Space* (espaço reservado de metadados).
+.. Selecione *Configuração* > *Sistema* > *Configurações de armazenamento*.
+.. Observe o valor de *Espaço Reservado de Metadados*.
 
 
 . Certifique-se de que tem espaço disponível suficiente no volume de armazenamento 0 de cada nó de armazenamento para aumentar este valor.
 +
-.. Selecione *NODES*.
+.. Selecione *Nós*.
 .. Selecione o primeiro nó de armazenamento na grade.
 .. Selecione a guia armazenamento .
 .. Na seção volumes, localize a entrada */var/local/rangedb/0*.
@@ -64,7 +61,7 @@ Por exemplo, se a configuração espaço reservado de metadados for atualmente d
 
 . Certifique-se de que tem pelo menos 128 GB de RAM em cada nó de armazenamento.
 +
-.. Selecione *NODES*.
+.. Selecione *Nós*.
 .. Selecione o primeiro nó de armazenamento na grade.
 .. Selecione a guia *hardware*.
 .. Passe o cursor sobre o gráfico de uso da memória. Certifique-se de que *Total Memory* é de pelo menos 128 GB.
@@ -78,17 +75,13 @@ Por exemplo, se a configuração espaço reservado de metadados for atualmente d
 
 . Atualize a configuração espaço reservado metadados.
 +
-.. Selecione *CONFIGURATION* > *System* > *Storage options*.
-.. Selecione o separador Configuration (Configuração).
-.. Na seção Storage watermarks (marcas d'água de armazenamento), selecione *Metadata Reserved Space* (espaço reservado de metadados).
+.. Selecione *Configuração* > *Sistema* > *Configurações de armazenamento*.
+.. Selecione *Espaço reservado para metadados*.
 .. Introduza o novo valor.
 +
 Por exemplo, para introduzir 8 TB, que é o valor máximo suportado, introduza *8000000000000* (8, seguido de 12 zeros)
 
-+
-image::../media/metadata_reserved_space.png[Espaço reservado para metadados]
-
-.. Selecione *aplicar alterações*.
+.. Selecione *Guardar*.
 
 
 

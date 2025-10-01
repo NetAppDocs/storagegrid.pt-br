@@ -33,12 +33,12 @@ A página Diagnósticos executa um conjunto de verificações de diagnóstico no
 Os Estados de diagnóstico são independentes dos alertas atuais e podem não indicar problemas operacionais com a grade. Por exemplo, uma verificação de diagnóstico pode mostrar o estado de precaução mesmo que nenhum alerta tenha sido acionado.
 
 .Passos
-. Selecione *SUPPORT* > *Tools* > *Diagnostics*.
+. Selecione *Suporte* > *Ferramentas* > *Diagnóstico*.
 +
 A página Diagnósticos é exibida e lista os resultados de cada verificação de diagnóstico. Os resultados são classificados por gravidade (cuidado, atenção e, em seguida, normal). Dentro de cada gravidade, os resultados são ordenados alfabeticamente.
 
 +
-Neste exemplo, todos os diagnósticos têm um estado normal.
+Neste exemplo, um diagnóstico tem status Atenção e três diagnósticos têm status Normal.
 
 +
 image::../media/support_diagnostics_page.png[Página de Diagnóstico de suporte]
@@ -55,22 +55,22 @@ São apresentados detalhes sobre o diagnóstico e os seus resultados atuais. Os 
 
 NOTE: Não é possível alterar esses limites.
 
-** *Valores de estado*: Uma tabela que mostra o estado e o valor do diagnóstico em todo o sistema StorageGRID. Neste exemplo, a utilização atual da CPU para cada nó em um sistema StorageGRID é mostrada. Todos os valores de nós estão abaixo dos limites de atenção e cuidado, portanto, o status geral do diagnóstico é normal.
-
-
+** *Valores de status*: Um gráfico e uma tabela (tabela não mostrada na captura de tela) mostrando o status e o valor do diagnóstico em todo o sistema StorageGRID .  Neste exemplo, é mostrada a utilização atual da CPU para cada nó em um sistema StorageGRID .  Todos os valores dos nós estão abaixo dos limites de Atenção e Cuidado, portanto, o status geral do diagnóstico é Normal.
 +
-image::../media/support_diagnostics_cpu_utilization.png[Suporte Diagnóstico utilização da CPU]
+image::../media/support_diagnostics_cpu_utilization.png[Exemplo de valores de status de diagnóstico]
 
-. *Opcional*: Para ver gráficos do Grafana relacionados a este diagnóstico, clique no link *painel do Grafana*.
+
+
+. *Opcional*: Para ver gráficos do Grafana relacionados a este diagnóstico, selecione *Painel do Grafana*.
 +
 Este link não é exibido para todos os diagnósticos.
 
 +
-O painel do Grafana relacionado é exibido. Neste exemplo, o painel Node aparece mostrando a utilização da CPU ao longo do tempo para este nó, bem como outros gráficos Grafana para o nó.
+O painel relacionado do Grafana aparece.  Neste exemplo, o painel do nó aparece mostrando a utilização da CPU ao longo do tempo para este nó, bem como outros gráficos do Grafana para o nó.
 
 +
 
-NOTE: Você também pode acessar os painéis Grafana pré-construídos na seção Grafana da página *SUPPORT* > *Tools* > *Metrics*.
+NOTE: Você também pode acessar os painéis pré-construídos do Grafana na seção Grafana da página *Suporte* > *Ferramentas* > *Métricas*.
 
 +
 image::../media/grafana_dashboard_nodes.png[Nós do Grafana Dashboard]

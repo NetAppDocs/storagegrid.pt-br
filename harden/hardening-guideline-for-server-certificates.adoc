@@ -11,7 +11,7 @@ summary: Você deve substituir os certificados padrão criados durante a instala
 
 
 [role="lead"]
-Você deve substituir os certificados padrão criados durante a instalação e selecionar a diretiva de segurança apropriada para conexões TLS e SSH.
+Você deve controlar o acesso SSH, substituir os certificados TLS padrão e selecionar a política de segurança apropriada para conexões TLS e SSH.
 
 
 
@@ -48,6 +48,12 @@ Além disso, os clientes devem usar uma verificação rigorosa do nome de host a
 
 Você pode selecionar uma política de segurança para determinar quais protocolos e cifras são usados para estabelecer conexões TLS seguras com aplicativos cliente e conexões SSH seguras com serviços StorageGRID internos.
 
-A política de segurança controla como TLS e SSH criptografam dados em movimento. Como prática recomendada, você deve desativar as opções de criptografia que não são necessárias para a compatibilidade de aplicativos. Use a política moderna padrão, a menos que seu sistema precise ser compatível com critérios comuns ou que você precise usar outras cifras.
+A política de segurança controla como TLS e SSH criptografam dados em movimento.  Como prática recomendada, você deve desabilitar opções de criptografia que não são necessárias para compatibilidade do aplicativo.  Use a política Moderna padrão, a menos que seu sistema precise ser compatível com Common Criteria, FIPS 140-2 ou você precise usar outras cifras
 
 link:../admin/manage-tls-ssh-policy.html["Gerencie a política TLS e SSH"]Consulte para obter detalhes e instruções.
+
+
+
+== Gerenciar acesso SSH externo
+
+Para aumentar a segurança do sistema, o acesso SSH externo é bloqueado por padrão.  Habilite o acesso SSH somente quando precisar executar tarefas que exijam acesso SSH de entrada, como solução de problemas.  Consultelink:../admin/manage-external-ssh-access.html["Gerenciar acesso SSH externo"] para obter detalhes e instruções.

@@ -30,7 +30,7 @@ Se possível, configure qualquer servidor de gerenciamento de chaves específico
 Na Etapa 1 (detalhes do KMS) do assistente Adicionar um servidor de gerenciamento de chaves, você fornece detalhes sobre o cluster KMS ou KMS.
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Key Management Server*.
+. Selecione *Configuração* > *Segurança* > *Servidor de gerenciamento de chaves*.
 +
 A página servidor de gerenciamento de chaves é exibida com a guia Detalhes da configuração selecionada.
 

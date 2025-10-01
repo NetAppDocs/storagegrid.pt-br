@@ -33,11 +33,7 @@ Se não for possível importar nós ausentes, você deve recriar seus arquivos d
 
 Em seguida, você deve validar o arquivo de configuração de grade e resolver quaisquer problemas de rede ou armazenamento que possam ocorrer antes de reiniciar o StorageGRID. Quando você cria novamente o arquivo de configuração para um nó, você deve usar o mesmo nome para o nó de substituição usado para o nó que você está recuperando.
 
-Consulte as instruções de instalação para obter mais informações sobre a localização `/var/local` do volume de um nó.
-
-* link:../rhel/index.html["Instale o StorageGRID no Red Hat Enterprise Linux"]
-* link:../ubuntu/index.html["Instale o StorageGRID no Ubuntu ou Debian"]
-
+Veja olink:../swnodes/index.html["Instruções de instalação do Linux"] para mais informações sobre a localização do `/var/local` volume para um nó.
 
 .Passos
 . Na linha de comando do host recuperado, liste todos os nós StorageGRID configurados atualmente:``sudo storagegrid node list``
@@ -76,10 +72,7 @@ NOTE: Todos os nós importados com o `--force` sinalizador exigirão etapas de r
 
 
 
-. Para nós de grade que não têm um `/var/local` volume, crie novamente o arquivo de configuração do nó para restaurá-lo para o host. Para obter instruções, consulte:
-+
-** link:../rhel/creating-node-configuration-files.html["Crie arquivos de configuração de nós para o Red Hat Enterprise Linux"]
-** link:../ubuntu/creating-node-configuration-files.html["Crie arquivos de configuração de nó para Ubuntu ou Debian"]
+. Para nós de grade que não têm um `/var/local` volume, recrie o arquivo de configuração do nó para restaurá-lo no host. Para obter instruções, consultelink:../swnodes/creating-node-configuration-files.html["Criar arquivos de configuração de nó"] .
 +
 
 NOTE: Quando você cria novamente o arquivo de configuração para um nó, você deve usar o mesmo nome para o nó de substituição usado para o nó que você está recuperando. Para implantações Linux, verifique se o nome do arquivo de configuração contém o nome do nó. Você deve usar as mesmas interfaces de rede, bloquear mapeamentos de dispositivos e endereços IP quando possível. Essa prática minimiza a quantidade de dados que precisa ser copiada para o nó durante a recuperação, o que pode tornar a recuperação significativamente mais rápida (em alguns casos, minutos em vez de semanas).
@@ -87,8 +80,6 @@ NOTE: Quando você cria novamente o arquivo de configuração para um nó, você
 +
 
 NOTE: Se você usar quaisquer novos dispositivos de bloco (dispositivos que o nó StorageGRID não usou anteriormente) como valores para qualquer uma das variáveis de configuração que começam `BLOCK_DEVICE_` quando você está recriando o arquivo de configuração para um nó, siga as diretrizes em <<fix-block-errors,Corrigir erros de dispositivo de bloco em falta>>.
-
-
 
 . Execute o seguinte comando no host recuperado para listar todos os nós do StorageGRID.
 +
@@ -145,17 +136,9 @@ Verifique se você concluiu as etapas em link:deploying-new-linux-hosts.html["Im
 
 Se não conseguir restaurar ou recriar o ficheiro especial do dispositivo de bloco em falta, pode alocar um novo dispositivo de bloco com o tamanho e a categoria de armazenamento apropriados e editar o ficheiro de configuração do nó para alterar o valor de `BLOCK_DEVICE_PURPOSE` para apontar para o novo ficheiro especial do dispositivo de bloco.
 
-Determine o tamanho e a categoria de armazenamento apropriados usando as tabelas do seu sistema operacional Linux:
+Determine o tamanho e a categoria de armazenamento apropriados usando as tabelas para seu sistema operacional Linux. Ver link:../swnodes/storage-and-performance-requirements.html["Requisitos de storage e desempenho"] .
 
-* link:../rhel/storage-and-performance-requirements.html["Requisitos de armazenamento e desempenho para Red Hat Enterprise Linux"]
-* link:../ubuntu/storage-and-performance-requirements.html["Requisitos de armazenamento e desempenho para Ubuntu ou Debian"]
-
-
-Revise as recomendações para configurar o armazenamento de host antes de prosseguir com a substituição do dispositivo de bloco:
-
-* link:../rhel/configuring-host-storage.html["Configurar o armazenamento de host para Red Hat Enterprise Linux"]
-* link:../ubuntu/configuring-host-storage.html["Configurar o armazenamento de host para Ubuntu ou Debian"]
-
+Revise as recomendações paralink:../swnodes/configuring-host-storage.html["configurando o armazenamento do host"] antes de prosseguir com a substituição do dispositivo de bloco.
 
 
 NOTE: Se você precisar fornecer um novo dispositivo de armazenamento de bloco para qualquer uma das variáveis de arquivo de configuração começando com `BLOCK_DEVICE_` porque o dispositivo de bloco original foi perdido com o host com falha, verifique se o novo dispositivo de bloco está desformatado antes de tentar outros procedimentos de recuperação. O novo dispositivo de bloco será desformatado se você estiver usando armazenamento compartilhado e tiver criado um novo volume. Se você não tiver certeza, execute o seguinte comando contra qualquer novo dispositivo de armazenamento de bloco arquivos especiais.

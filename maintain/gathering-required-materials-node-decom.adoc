@@ -19,16 +19,16 @@ Antes de executar uma desativação de um nó de grade, você deve obter as segu
 
 
  a| 
-Arquivo do pacote de recuperação `.zip`
+Pacote de recuperação `.zip` arquivo
  a| 
-Tem de link:downloading-recovery-package.html["Baixe o mais recente pacote de recuperação"] `.zip` (`sgws-recovery-package-_id-revision_.zip`arquivar ). Você pode usar o arquivo Pacote de recuperação para restaurar o sistema se ocorrer uma falha.
+Você develink:downloading-recovery-package.html["baixe o pacote de recuperação mais recente"] `.zip` arquivo(`sgws-recovery-package-_id-revision_.zip` ).  Você pode usar o arquivo do pacote de recuperação para restaurar o sistema caso ocorra uma falha.
 
 
 
  a| 
 `Passwords.txt` ficheiro
  a| 
-Este arquivo contém as senhas necessárias para acessar os nós de grade na linha de comando e está incluído no Pacote de recuperação.
+Este arquivo contém as senhas necessárias para acessar os nós da grade na linha de comando e está incluído no pacote de recuperação.
 
 
 

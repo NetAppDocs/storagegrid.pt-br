@@ -25,7 +25,7 @@ Para obter detalhes sobre esta tarefa, link:../admin/managing-high-availability-
 
 
 .Passos
-. Selecione *CONFIGURATION* > *Network* > *High Availability groups*.
+. Selecione *Configuração* > *Rede* > *Grupos de alta disponibilidade*.
 . Selecione *criar*.
 . Para a etapa *Digite detalhes*, preencha os campos a seguir.
 +

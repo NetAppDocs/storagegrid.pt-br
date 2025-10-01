@@ -23,7 +23,7 @@ CAUTION: Tenha cuidado ao desativar os nós de storage em uma grade que contém 
 Por exemplo, suponha que um site inclua atualmente seis nós de storage com serviços ADC e que você queira desativar três nós de storage. Devido ao requisito de quórum do ADC, você deve concluir dois procedimentos de desativação, como segue:
 
 * No primeiro procedimento de desativação, você deve garantir que quatro nós de storage com serviços ADC permaneçam disponíveis: `((0.5 * 6) + 1)`. Isso significa que você só pode desativar dois nós de storage inicialmente.
-* No segundo procedimento de desativação, você pode remover o terceiro nó de armazenamento porque o quórum de ADC agora requer apenas três serviços ADC para permanecer disponível: `((0.5 * 4) + 1)`.
+* No segundo procedimento de descomissionamento, você pode remover o terceiro nó de armazenamento porque o quorum do ADC agora requer apenas três serviços do ADC para permanecerem disponíveis: `((0.5 * 4) + 1)` .
 
 
-Se você precisar desativar um nó de armazenamento, mas não puder devido ao requisito de quórum de ADC, adicione um novo nó de armazenamento em um link:../expand/index.html["expansão"] e especifique que ele deve ter um serviço ADC. Em seguida, desative o nó de storage existente.
+Se você precisar desativar um nó de armazenamento, poderá continuar a atender ao requisito de quórum do ADClink:../upgrade/changes-to-grid-management-api.html#new-private-endpoints-for-move-adc["Movendo o serviço ADC para outro nó de armazenamento no mesmo site"] ou adicionar um novo nó de armazenamento em umlink:../expand/index.html["expansão"] e especificando que deveria ter um serviço ADC.  Em seguida, você pode desativar o nó de armazenamento existente sem afetar o quorum.

@@ -25,7 +25,7 @@ TIP: Se um locatário tiver a permissão *usar conexão de federação de grade*
 NOTE: A aplicação de configurações de locatário na grade pode levar 15 minutos ou mais com base na conetividade de rede, no status do nó e nas operações do Cassandra.
 
 .Passos
-. Selecione *TENANTS*.
+. Selecione *Inquilinos*.
 +
 image::../media/tenant_accounts_page.png[Página de contas de inquilino]
 

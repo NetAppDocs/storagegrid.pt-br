@@ -33,7 +33,7 @@ Metadados de objetos são qualquer informação que descreva um objeto. O Storag
 
 Os metadados de objeto incluem informações como as seguintes:
 
-* Metadados do sistema, incluindo um ID exclusivo para cada objeto (UUID), o nome do objeto, o nome do bucket do S3 ou do contentor Swift, o nome ou ID da conta do locatário, o tamanho lógico do objeto, a data e hora em que o objeto foi criado pela primeira vez e a data e hora em que o objeto foi modificado pela última vez.
+* Metadados do sistema, incluindo um ID exclusivo para cada objeto (UUID), o nome do objeto, o nome do bucket do S3, o nome ou ID da conta do locatário, o tamanho lógico do objeto, a data e hora em que o objeto foi criado pela primeira vez e a data e hora em que o objeto foi modificado pela última vez.
 * O local de storage atual de cada cópia de objeto ou fragmento codificado de apagamento.
 * Quaisquer metadados de usuário associados ao objeto.
 

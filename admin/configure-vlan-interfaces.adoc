@@ -26,12 +26,14 @@ Você pode criar interfaces de LAN virtual (VLAN) em nós de administração e n
 * Se você precisar adicionar interfaces de tronco, consulte o seguinte para obter detalhes:
 +
 ** *VMware (após a instalação do nó)*: link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["VMware: Adicione interfaces de tronco ou acesso a um nó"]
-** *RHEL (antes de instalar o nó)*: link:../rhel/creating-node-configuration-files.html["Criar arquivos de configuração de nó"]
-** * Ubuntu ou Debian (antes de instalar o nó)*: link:../ubuntu/creating-node-configuration-files.html["Criar arquivos de configuração de nó"]
-** *RHEL, Ubuntu ou Debian (após instalar o nó)*: link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux: Adicione interfaces de tronco ou acesso a um nó"]
+** *Linux (antes de instalar o nó)*:link:../swnodes/creating-node-configuration-files.html["Criar arquivos de configuração de nó"]
+** *Linux (após instalar o nó)*:link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Adicionar interfaces de tronco ou de acesso a um nó"]
 
 
 
+
+
+NOTE: "Linux" refere-se a uma implantação RHEL, Ubuntu ou Debian.  Para obter uma lista de versões suportadas, consulte o https://imt.netapp.com/matrix/#welcome["Ferramenta de Matriz de interoperabilidade NetApp (IMT)"^] .
 
 
 
@@ -54,7 +56,7 @@ Você pode usar o Gerenciador de Grade para criar interfaces de VLAN que permite
 === Acesse o assistente
 
 .Passos
-. Selecione *CONFIGURATION* > *Network* > *VLAN interfaces*.
+. Selecione *Configuração* > *Rede* > *Interfaces VLAN*.
 . Selecione *criar*.
 
 
@@ -101,7 +103,7 @@ image::../media/vlan-create-parent-interfaces.png[VLAN criar interfaces pai do a
 
 
 . Selecione *Guardar*.
-. Aguarde até 5 minutos para que a nova interface apareça como uma seleção na página grupos de alta disponibilidade e seja listada na tabela *interfaces de rede* para o nó (*NODES* > *_parent interface node_* > *Network*).
+. Aguarde até 5 minutos para que a nova interface apareça como uma seleção na página Grupos de alta disponibilidade e seja listada na tabela *Interfaces de rede* do nó (*Nós* > *_nó de interface pai_* > *Rede*).
 
 
 
@@ -126,7 +128,7 @@ Por exemplo, suponha que a VLAN 200 esteja conetada às interfaces pai nos nós 
 
 
 .Passos
-. Selecione *CONFIGURATION* > *Network* > *VLAN interfaces*.
+. Selecione *Configuração* > *Rede* > *Interfaces VLAN*.
 . Marque a caixa de seleção para a interface VLAN que deseja editar. Em seguida, selecione *ações* > *Editar*.
 . Opcionalmente, atualize o ID da VLAN ou a descrição. Em seguida, selecione *continuar*.
 +
@@ -153,7 +155,7 @@ Para evitar quaisquer interrupções no tráfego do cliente, considere fazer um 
 
 
 .Passos
-. Selecione *CONFIGURATION* > *Network* > *VLAN interfaces*.
+. Selecione *Configuração* > *Rede* > *Interfaces VLAN*.
 . Marque a caixa de seleção para cada interface VLAN que você deseja remover. Em seguida, selecione *ações* > *Excluir*.
 . Selecione *Sim* para confirmar a sua seleção.
 +

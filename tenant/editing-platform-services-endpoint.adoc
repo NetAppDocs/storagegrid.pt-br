@@ -46,7 +46,7 @@ NOTE: A chave privada do cliente deve estar no formato encriptado OpenSSL ou no 
 
 
 
-.. Conforme necessário, altere o método para verificar o servidor.
+.. Conforme necessário, altere o método de verificação de certificados.
 
 
 . Selecione *Teste e salve as alterações*.

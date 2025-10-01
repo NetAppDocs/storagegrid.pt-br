@@ -44,13 +44,6 @@ Suporte para AWS Signature versão 4, com as seguintes exceções:
 * Quando você fornece o valor real da soma de verificação da carga útil no `x-amz-content-sha256`, o valor é aceito sem validação, como se o valor `UNSIGNED-PAYLOAD` tivesse sido fornecido para o cabeçalho. Quando você fornece um `x-amz-content-sha256` valor de cabeçalho que implica `aws-chunked` streaming (por exemplo, STREAMING-AWS4-HMAC-SHA256-PAYLOAD), as assinaturas de bloco não são verificadas em relação aos dados de bloco.
 
 
-
-
- a| 
-x-amz-security-token
- a| 
-Não implementado. Retorna `XNotImplemented`.
-
 |===
 
 

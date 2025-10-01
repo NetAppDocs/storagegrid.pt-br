@@ -26,14 +26,6 @@ entries:
     url: "/expand/adding-new-site.html"
 - title: Reúna os materiais necessários
   url: "/expand/gather-required-materials.html"
-- title: Adicione volumes de armazenamento
-  entries:
-  - title: Adicionar volumes de storage aos nós de storage
-    url: "/expand/adding-storage-volumes-to-storage-nodes.html"
-  - title: 'VMware: Adicione volumes de storage ao nó de storage'
-    url: "/expand/vmware-adding-storage-volumes-to-storage-node.html"
-  - title: 'Linux: Adicione volumes de SAN ou de conexão direta ao nó de storage'
-    url: "/expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html"
 - title: Adicione nós de grade ou local
   entries:
   - title: Adicione nós de grade ao site existente ou adicione um novo site
@@ -44,6 +36,14 @@ entries:
     url: "/expand/deploying-new-grid-nodes.html"
   - title: Execute a expansão
     url: "/expand/performing-expansion.html"
+- title: Adicione volumes de armazenamento
+  entries:
+  - title: Adicionar volumes de storage aos nós de storage
+    url: "/expand/adding-storage-volumes-to-storage-nodes.html"
+  - title: 'VMware: Adicione volumes de storage ao nó de storage'
+    url: "/expand/vmware-adding-storage-volumes-to-storage-node.html"
+  - title: 'Linux: Adicione volumes de SAN ou de conexão direta ao nó de storage'
+    url: "/expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html"
 - title: Configurar o sistema expandido
   entries:
   - title: Etapas de configuração

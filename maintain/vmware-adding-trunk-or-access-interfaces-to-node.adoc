@@ -14,7 +14,7 @@ summary: Você pode adicionar interfaces de tronco ou acesso extras a um nó de 
 Você pode adicionar um tronco ou uma interface de acesso a um nó da VM depois que o nó tiver sido instalado. As interfaces adicionadas são exibidas na página interfaces VLAN e na página grupos HA.
 
 .Antes de começar
-* Tem acesso às instruções para link:../vmware/index.html["Instalando o StorageGRID em sua plataforma VMware"].
+* Você tem acesso às instruções paralink:../swnodes/index.html["Instalando o StorageGRID em sua plataforma VMware"] .
 * Você tem máquinas virtuais Admin Node e Gateway Node VMware.
 * Você tem uma sub-rede de rede que não está sendo usada como rede de Grade, Admin ou rede de Cliente.
 * Você tem o `Passwords.txt` arquivo.

@@ -13,7 +13,7 @@ summary: Se você quiser que o StorageGRID envie notificações SNMP quando ocor
 [role="lead"]
 Se você quiser que o StorageGRID envie notificações SNMP quando ocorrerem alertas, você deverá ativar o agente SNMP do StorageGRID e configurar um ou mais destinos de intercetação.
 
-Você pode usar a opção *CONFIGURATION* > *Monitoring* > *SNMP Agent* no Gerenciador de Grade ou os endpoints SNMP da API de Gerenciamento de Grade para habilitar e configurar o agente SNMP do StorageGRID. O agente SNMP suporta todas as três versões do protocolo SNMP.
+Você pode usar a opção *Configuração* > *Monitoramento* > *Agente SNMP* no Grid Manager ou os pontos de extremidade SNMP da Grid Management API para habilitar e configurar o agente SNMP do StorageGRID .  O agente SNMP suporta todas as três versões do protocolo SNMP.
 
 Para saber como configurar o agente SNMP, link:using-snmp-monitoring.html["Utilize a monitorização SNMP"]consulte .
 

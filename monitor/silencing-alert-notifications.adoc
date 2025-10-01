@@ -27,7 +27,7 @@ Se tiver ativado o agente SNMP, os silêncios também suprimem traps SNMP e info
 CAUTION: Tenha cuidado ao decidir silenciar uma regra de alerta. Se você silenciar um alerta, talvez não detete um problema subjacente até que ele impeça que uma operação crítica seja concluída.
 
 .Passos
-. Selecione *ALERTAS* > *silêncios*.
+. Selecione *Alertas* > *Silêncios*.
 +
 É apresentada a página silêncios.
 
@@ -99,7 +99,7 @@ A que nó ou nós você deseja que esse silêncio se aplique. Você pode suprimi
  a| 
 Edite um silêncio
  a| 
-.. Selecione *ALERTAS* > *silêncios*.
+.. Selecione *Alertas* > *Silêncios*.
 .. Na tabela, selecione o botão de opção para o silêncio que deseja editar.
 .. Selecione *Editar*.
 .. Altere a descrição, a quantidade de tempo restante, as severidades selecionadas ou o nó afetado.
@@ -111,7 +111,7 @@ Edite um silêncio
  a| 
 Remova um silêncio
  a| 
-.. Selecione *ALERTAS* > *silêncios*.
+.. Selecione *Alertas* > *Silêncios*.
 .. Na tabela, selecione o botão de opção para o silêncio que deseja remover.
 .. Selecione *Remover*.
 .. Selecione *OK* para confirmar que deseja remover esse silêncio.

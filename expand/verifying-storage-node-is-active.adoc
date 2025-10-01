@@ -15,7 +15,7 @@ Após a conclusão de uma operação de expansão que adiciona novos nós de sto
 
 .Passos
 . Faça login no Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
-. Selecione *NÓS* > *_Expansion Storage Node_* > *Storage*.
+. Selecione *Nós* > *_Nó de Armazenamento de Expansão_* > *Armazenamento*.
 . Posicione o cursor sobre o gráfico *Storage Used - Object Data* (armazenamento usado - dados do objeto) para visualizar o valor para *Used*, que é a quantidade total de espaço utilizável que foi usado para dados do objeto.
 . Verifique se o valor de *usado* está aumentando à medida que você move o cursor para a direita no gráfico.
 

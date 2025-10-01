@@ -2,7 +2,7 @@
 permalink: upgrade/performing-upgrade.html 
 sidebar: sidebar 
 keywords: upgrade, how to perform a software upgrade 
-summary: Você pode atualizar para o StorageGRID 11,9 e aplicar o hotfix mais recente para essa versão ao mesmo tempo. A página de atualização do StorageGRID fornece o caminho de atualização recomendado e links diretamente para as páginas de download corretas. 
+summary: Você pode atualizar para o StorageGRID 12.0 e aplicar o hotfix mais recente para essa versão ao mesmo tempo.  A página de atualização do StorageGRID fornece o caminho de atualização recomendado e links diretamente para as páginas de download corretas. 
 ---
 = Execute a atualização
 :allow-uri-read: 
@@ -11,10 +11,13 @@ summary: Você pode atualizar para o StorageGRID 11,9 e aplicar o hotfix mais re
 
 
 [role="lead"]
-Você pode atualizar para o StorageGRID 11,9 e aplicar o hotfix mais recente para essa versão ao mesmo tempo. A página de atualização do StorageGRID fornece o caminho de atualização recomendado e links diretamente para as páginas de download corretas.
+Você pode atualizar para o StorageGRID 12.0 e aplicar o hotfix mais recente para essa versão ao mesmo tempo.  A página de atualização do StorageGRID fornece o caminho de atualização recomendado e links diretamente para as páginas de download corretas.
 
 .Antes de começar
 Você revisou todas as considerações e concluiu todas as etapas de Planejamento e preparação.
+
+
+CAUTION: Não inicie a atualização se precisar expandir seu armazenamento com urgência para aumentar a capacidade (se seu armazenamento estiver quase cheio).  Conclua o procedimento de atualização em tempo hábil.  Se for necessária uma recuperação, entre em contato com o suporte técnico.
 
 
 
@@ -24,7 +27,7 @@ Como primeira etapa, acesse a página Atualização do StorageGRID no Gerenciado
 
 .Passos
 . Faça login no Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
-. Selecione *MAINTENANCE* > *System* > *Software update*.
+. Selecione *Manutenção* > *Sistema* > *Atualização de software*.
 . No bloco de atualização do StorageGRID, selecione *Upgrade*.
 
 
@@ -32,10 +35,10 @@ Como primeira etapa, acesse a página Atualização do StorageGRID no Gerenciado
 
 == Selecione ficheiros
 
-O caminho de atualização na página Atualização do StorageGRID indica quais versões principais (por exemplo, 11,9.0) e hotfixes (por exemplo, 11,9.0,1) você deve instalar para chegar à versão mais recente do StorageGRID. Você deve instalar as versões recomendadas e hotfixes na ordem mostrada.
+O caminho de atualização na página de atualização do StorageGRID indica quais versões principais (por exemplo, 12.0.0) e hotfixes (por exemplo, 12.0.0.1) você deve instalar para obter a versão mais recente do StorageGRID .  Você deve instalar as versões e os hotfixes recomendados na ordem mostrada.
 
 
-TIP: Se não for apresentado nenhum caminho de atualização, o seu browser poderá não conseguir aceder ao Site de suporte da NetApp ou a caixa de verificação *verificar atualizações de software* na página AutoSupport (*SUPPORT* > *Tools* > *AutoSupport* > *Settings*) pode estar desativada.
+TIP: Se nenhum caminho de atualização for mostrado, seu navegador pode não conseguir acessar o site de suporte da NetApp , ou a caixa de seleção *Verificar atualizações de software* na página AutoSupport (*Suporte* > *Ferramentas* > * AutoSupport* > *Configurações*) pode estar desabilitada.
 
 .Passos
 . Para a etapa *Select Files*, revise o caminho de atualização.
@@ -47,9 +50,9 @@ Se não for apresentado nenhum caminho de atualização, aceda a https://mysuppo
 
 NOTE: Se você precisar baixar e instalar um pacote RPM ou DEB em todos os hosts Linux, talvez você já tenha os arquivos de atualização e hotfix do StorageGRID listados no caminho de atualização.
 
-. Selecione *Procurar* para carregar o ficheiro de atualização da versão para o StorageGRID: `NetApp_StorageGRID_11.9.0_Software_uniqueID.upgrade`
+. Selecione *Navegar* para carregar o arquivo de atualização de versão para o StorageGRID: `NetApp_StorageGRID_12.0.0_Software_uniqueID.upgrade`
 +
-Quando o processo de upload e validação é concluído, uma marca de seleção verde aparece ao lado do nome do arquivo.
+Quando o upload e a verificação da assinatura do código estiverem concluídos, uma marca de seleção verde aparecerá ao lado do nome do arquivo.
 
 . Se você baixou um arquivo de hotfix, selecione *Procurar* para fazer o upload desse arquivo. O hotfix será aplicado automaticamente como parte da atualização de versão.
 . Selecione *continuar*.
@@ -65,16 +68,16 @@ Executar pré-verificações permite detetar e resolver quaisquer problemas de a
 . Para a etapa *Executar pré-verificações*, comece digitando a senha de provisionamento para sua grade.
 . Selecione *Baixar pacote de recuperação*.
 +
-Você deve baixar a cópia atual do arquivo do pacote de recuperação antes de atualizar o nó de administração principal. O arquivo do Pacote de recuperação permite restaurar o sistema se ocorrer uma falha.
+Você deve baixar a cópia atual do arquivo do pacote de recuperação antes de atualizar o nó de administração principal.  O arquivo do pacote de recuperação permite restaurar o sistema caso ocorra uma falha.
 
 . Quando o arquivo for baixado, confirme se você pode acessar o conteúdo, incluindo o `Passwords.txt` arquivo.
 . Copie o arquivo baixado (`.zip`) para dois locais seguros, seguros e separados.
 +
 
-CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID.
+CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID .
 
 . Selecione *Executar pré-verificações* e aguarde até que as pré-verificações sejam concluídas.
-. Reveja os detalhes de cada pré-verificação comunicada e resolva quaisquer erros comunicados.  https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_11.9_software_upgrade_resolution_guide["Guia de resolução de atualização do software StorageGRID"^]Consulte a para obter a versão do StorageGRID 11,9.
+. Revise os detalhes de cada pré-verificação relatada e resolva quaisquer erros relatados.  Veja o https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_12.0_software_upgrade_resolution_guide["Guia de resolução de atualização do software StorageGRID"^] para a versão StorageGRID 12.0.
 +
 Você deve resolver todos os erros _de pré-verificação_ antes de poder atualizar seu sistema. No entanto, você não precisa resolver o pré-check _warnings_ antes de atualizar.
 
@@ -123,19 +126,19 @@ Você deve atualizar todos os nós de grade, mas pode executar várias sessões 
 Se a ordem em que os nós são atualizados for importante, aprove nós ou grupos de nós um de cada vez e aguarde até que a atualização seja concluída em cada nó antes de aprovar o próximo nó ou grupo de nós.
 
 
-NOTE: Quando a atualização começa em um nó de grade, os serviços nesse nó são interrompidos. Mais tarde, o nó de grade é reinicializado. Para evitar interrupções de serviço para aplicativos clientes que estão se comunicando com o nó, não aprove a atualização para um nó a menos que você tenha certeza de que o nó está pronto para ser interrompido e reinicializado. Conforme necessário, agende uma janela de manutenção ou notifique os clientes.
+CAUTION: Quando a atualização começa em um nó de grade, os serviços nesse nó são interrompidos. Mais tarde, o nó de grade é reinicializado. Para evitar interrupções de serviço para aplicativos clientes que estão se comunicando com o nó, não aprove a atualização para um nó a menos que você tenha certeza de que o nó está pronto para ser interrompido e reinicializado. Conforme necessário, agende uma janela de manutenção ou notifique os clientes.
 
 .Passos
 . Para a etapa *Atualizar outros nós*, revise o Resumo, que fornece a hora de início da atualização como um todo e o status de cada tarefa de atualização principal.
 +
 ** *Iniciar serviço de atualização* é a primeira tarefa de atualização. Durante esta tarefa, o arquivo de software é distribuído para os nós de grade e o serviço de atualização é iniciado em cada nó.
-** Quando a tarefa *Start upgrade Service* estiver concluída, a tarefa *Upgrade other Grid Nodes* (Atualizar outros nós de grade) é iniciada e você será solicitado a fazer o download de uma nova cópia do pacote de recuperação.
+** Quando a tarefa *Iniciar serviço de atualização* estiver concluída, a tarefa *Atualizar outros nós de grade* será iniciada e você será solicitado a baixar uma nova cópia do pacote de recuperação.
 
 
-. Quando solicitado, insira sua senha de provisionamento e faça o download de uma nova cópia do Pacote de recuperação.
+. Quando solicitado, digite sua senha de provisionamento e baixe uma nova cópia do pacote de recuperação.
 +
 
-CAUTION: Você deve fazer o download de uma nova cópia do arquivo do pacote de recuperação depois que o nó de administração principal for atualizado. O arquivo do Pacote de recuperação permite restaurar o sistema se ocorrer uma falha.
+CAUTION: Você deve baixar uma nova cópia do arquivo do pacote de recuperação após a atualização do nó de administração principal.  O arquivo do pacote de recuperação permite restaurar o sistema caso ocorra uma falha.
 
 . Revise as tabelas de status para cada tipo de nó. Existem tabelas para nós de administração não primários, nós de gateway e nós de storage.
 +
@@ -148,6 +151,10 @@ Um nó de grade pode estar em um desses estágios quando as tabelas aparecem pel
 
 
 . [[Approval-step]]quando estiver pronto para selecionar nós de grade para atualização (ou se você precisar desaprovar nós selecionados), use estas instruções:
++
+
+NOTE: Para uma atualização do StorageGRID 12.0, se você quiser aprovar nós individuais em vez de todos os nós, a prática recomendada é atualizar um site inteiro antes de passar para o próximo site.
+
 +
 [cols="1a,1a"]
 |===
@@ -240,12 +247,7 @@ Quando todos os nós de grade tiverem concluído os estágios de atualização, 
 
 .Passos
 . Assim que a tarefa *Ativar recursos* estiver concluída (o que ocorre rapidamente), você pode começar a usar o link:whats-new.html["novas funcionalidades"]na versão atualizada do StorageGRID.
-. Durante a tarefa *Atualizar banco de dados*, o processo de atualização verifica cada nó para verificar se o banco de dados Cassandra não precisa ser atualizado.
-+
-
-NOTE: A atualização do StorageGRID 11,8 para o 11,9 não requer uma atualização do banco de dados Cassandra; no entanto, o serviço Cassandra será interrompido e reiniciado em cada nó de armazenamento. Para futuras versões de recursos do StorageGRID, a etapa de atualização do banco de dados do Cassandra pode levar vários dias para ser concluída.
-
-. Quando a tarefa *Atualizar banco de dados* estiver concluída, aguarde alguns minutos para que os *passos finais de atualização* sejam concluídos.
+. A atualização do banco de dados Cassandra é iniciada.  Essa atualização ocorrerá em segundo plano por um a três dias, e o serviço Cassandra será interrompido e reiniciado em cada nó de armazenamento.  Durante esse período, certos procedimentos de manutenção que envolvem streaming de metadados, como expansão, serão desabilitados.
 . Quando os *passos de atualização final* tiverem sido concluídos, a atualização é feita. O primeiro passo, *Select Files*, é reexibido com um banner verde de sucesso.
 . Verifique se as operações da grade voltaram ao normal:
 +
@@ -254,3 +256,6 @@ NOTE: A atualização do StorageGRID 11,8 para o 11,9 não requer uma atualizaç
 
 
 
+
+.Informações relacionadas
+link:how-your-system-is-affected-during-upgrade.html["Como seu sistema é afetado durante a atualização"]

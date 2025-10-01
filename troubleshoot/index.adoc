@@ -152,27 +152,6 @@ Reveja alertas acionados no passado para obter informações adicionais.
 
 
  a| 
-Monitorar eventos
- a| 
-Os eventos incluem qualquer erro de sistema ou eventos de falha para um nó, incluindo erros como erros de rede. Monitore eventos para saber mais sobre problemas ou para ajudar na solução de problemas.
- a| 
-* link:../monitor/monitoring-events.html["Monitorar eventos"]
-
-
-
-
- a| 
-Identifique tendências usando gráficos e relatórios de texto
- a| 
-As tendências podem fornecer pistas valiosas sobre quando os problemas apareceram pela primeira vez e podem ajudá-lo a entender a rapidez com que as coisas estão mudando.
- a| 
-* link:../monitor/using-charts-and-reports.html["Use gráficos e gráficos"]
-* link:../monitor/types-of-text-reports.html["Use relatórios de texto"]
-
-
-
-
- a| 
 Estabeleça linhas de base
  a| 
 Recolher informações sobre os níveis normais de vários valores operacionais. Esses valores de linha de base, e desvios dessas linhas de base, podem fornecer pistas valiosas.
@@ -335,22 +314,13 @@ Você pode coletar essas informações para todo o sistema ou para um data cente
 
 
  a| 
-Taxa de operações S3/Swift
+Taxa de operações S3
  a| 
 Operações/segundo
  a| 
-No painel do Grid Manager, selecione *Performance* > *S3 operations* ou *Performance* > *Swift operations*.
+No painel do Grid Manager, selecione *Desempenho* > *Operações S3 para nós de armazenamento*.
 
-Para ver as taxas de ingestão e recuperação e contagens de um site ou nó específico, selecione *NÓS* > *_site ou nó de armazenamento_* > *objetos*. Posicione o cursor sobre o gráfico de ingestão e recuperação para S3.
-
-
-
- a| 
-Falha nas operações S3/Swift
- a| 
-Operações
- a| 
-Selecione *SUPPORT* > *Tools* > *Grid topology*. Na guia Visão geral na seção operações da API, veja o valor de operações S3 - Falha ou operações rápidas - Falha.
+Para ver as taxas e contagens de ingestão e recuperação de um site ou nó específico, selecione *Nós* > *_site ou Nó de Armazenamento_* > *Objetos*.  Posicione o cursor sobre o gráfico de ingestão e recuperação do S3.
 
 
 
@@ -370,7 +340,7 @@ Taxa de digitalização ILM
  a| 
 Objetos/segundo
  a| 
-Selecione *NODES* > *_grid_* > *ILM*.
+Selecione *Nós* > *_grid_* > *ILM*.
 
 No gráfico fila ILM, encontre um período em que a linha esteja razoavelmente estável. Posicione o cursor sobre o gráfico para estimar um valor de linha de base para *taxa de digitalização* para o seu sistema.
 
@@ -381,7 +351,7 @@ Objetos enfileirados de operações do cliente
  a| 
 Objetos/segundo
  a| 
-Selecione *NODES* > *_grid_* > *ILM*.
+Selecione *Nós* > *_grid_* > *ILM*.
 
 No gráfico fila ILM, encontre um período em que a linha esteja razoavelmente estável. Posicione o cursor sobre o gráfico para estimar um valor de linha de base para *objetos enfileirados (de operações do cliente)* para o seu sistema.
 
@@ -392,7 +362,7 @@ Latência média da consulta
  a| 
 Milissegundos
  a| 
-Selecione *NODES* > *_Storage Node_* > *Objects*. Na tabela consultas, exiba o valor da latência média.
+Selecione *Nós* > *_Nó de Armazenamento_* > *Objetos*.  Na tabela Consultas, visualize o valor de Latência Média.
 
 |===
 
@@ -445,7 +415,7 @@ Qual é a gravidade do problema? Qual é o impactos na aplicação cliente?
  a| 
 ID do sistema StorageGRID
  a| 
-Selecione *MAINTENANCE* > *System* > *License*. A ID do sistema StorageGRID é apresentada como parte da licença atual.
+Selecione *Manutenção* > *Sistema* > *Licença*.  O ID do sistema StorageGRID é exibido como parte da licença atual.
 
 
 
@@ -473,13 +443,11 @@ Resumir como o seu sistema StorageGRID está configurado. Por exemplo, liste o s
  a| 
 Ficheiros de registo e dados do sistema
  a| 
-Recolha ficheiros de registo e dados do sistema para o seu sistema. Selecione *SUPPORT* > *Tools* > *Logs*.
+Colete arquivos de log e dados do sistema para seu sistema.  Selecione *Suporte* > *Ferramentas* > *Coleta de logs*.
 
 Você pode coletar logs para toda a grade ou para nós selecionados.
 
-Se você estiver coletando logs somente para nós selecionados, certifique-se de incluir pelo menos um nó de armazenamento que tenha o serviço ADC. (Os três primeiros nós de storage em um local incluem o serviço ADC.)
-
-link:../monitor/collecting-log-files-and-system-data.html["Colete arquivos de log e dados do sistema"]
+Se você estiver coletando logs apenas para nós selecionados, certifique-se de incluir pelo menos um nó de armazenamento que tenha o serviço ADC.  Os três primeiros nós de armazenamento instalados em um site incluem o serviço ADC.
 
 
 

@@ -25,7 +25,7 @@ NOTE: As configurações de proxy de armazenamento configuradas não se aplicam 
 Você pode configurar as configurações para um único proxy de armazenamento.
 
 .Passos
-. Selecione *CONFIGURATION* > *Security* > *Proxy settings*.
+. Selecione *Configuração* > *Segurança* > *Configurações de proxy*.
 . Na guia *armazenamento*, marque a caixa de seleção *Ativar proxy de armazenamento*.
 . Selecione o protocolo para o proxy de armazenamento.
 . Introduza o nome de anfitrião ou o endereço IP do servidor proxy.

@@ -22,3 +22,5 @@ Para remover um nó de grade ou um local, execute um dos seguintes procedimentos
 CAUTION: Antes de executar uma desativação desconetada do site, entre em Contato com o representante da sua conta do NetApp. O NetApp revisará seus requisitos antes de ativar todas as etapas no assistente do site de desintegração. Você não deve tentar uma desativação de site desconetada se você acredita que pode ser possível recuperar o site ou recuperar dados de objeto do site.
 
 
+
+Antes de desativar um nó de grade, você deve confirmar se não há trabalhos de reparo de dados ativos.  Se algum reparo falhar, você deve reiniciá-lo e esperar que ele seja concluído antes de executar o procedimento de descomissionamento. Consulte link:../maintain/checking-data-repair-jobs.html["Verifique os trabalhos de reparação de dados"] .

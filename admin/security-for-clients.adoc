@@ -69,7 +69,7 @@ Os clientes devem ser configurados para confiar na autoridade de certificação 
 
 == Algoritmos de hash e criptografia suportados para bibliotecas TLS
 
-O sistema StorageGRID suporta um conjunto de conjuntos de codificação que os aplicativos clientes podem usar ao estabelecer uma sessão TLS. Para configurar cifras, vá para *CONFIGURATION* > *Security* > *Security settings* e selecione *TLS e SSH policies*.
+O sistema StorageGRID oferece suporte a um conjunto de conjuntos de cifras que os aplicativos clientes podem usar ao estabelecer uma sessão TLS.  Para configurar cifras, vá para *Configuração* > *Segurança* > *Configurações de segurança* e selecione *Políticas TLS e SSH*.
 
 
 

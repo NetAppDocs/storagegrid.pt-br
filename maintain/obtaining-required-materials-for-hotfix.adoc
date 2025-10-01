@@ -35,14 +35,14 @@ Você deve baixar o arquivo de hotfix do StorageGRID.
 
 
  a| 
-Pacote de recuperação (`.zip`) arquivo
+pacote de recuperação(`.zip` ) arquivo
  a| 
-Antes de aplicar um hotfix, link:downloading-recovery-package.html["Baixe o mais recente arquivo de pacote de recuperação"]caso ocorram problemas durante o hotfix. Em seguida, após a aplicação do hotfix, baixe uma nova cópia do arquivo do pacote de recuperação e salve-o em um local seguro. O arquivo atualizado do Pacote de recuperação permite restaurar o sistema se ocorrer uma falha.
+Antes de aplicar um hotfix,link:downloading-recovery-package.html["baixe o arquivo do pacote de recuperação mais recente"] caso ocorra algum problema durante o hotfix.  Depois que o hotfix for aplicado, baixe uma nova cópia do arquivo do pacote de recuperação e salve-o em um local seguro.  O arquivo do pacote de recuperação atualizado permite restaurar o sistema caso ocorra uma falha.
 
 
 
 | Ficheiro Passwords.txt  a| 
-Opcional e usado somente se você estiver aplicando um hotfix manualmente usando o cliente SSH. O `Passwords.txt` arquivo faz parte do arquivo Recovery Package `.zip`.
+Opcional e usado somente se você estiver aplicando um hotfix manualmente usando o cliente SSH.  O `Passwords.txt` o arquivo faz parte do pacote de recuperação `.zip` arquivo.
 
 
 

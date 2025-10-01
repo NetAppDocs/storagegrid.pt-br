@@ -1,0 +1,110 @@
+---
+permalink: tenant/what-is-branch-bucket.html 
+sidebar: sidebar 
+keywords: how to create branch bucket 
+summary: Um branch bucket fornece acesso a objetos em um bucket conforme eles existiam em um determinado momento. 
+---
+= O que é um branch bucket?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um branch bucket fornece acesso a objetos em um bucket conforme eles existiam em um determinado momento.
+
+Você cria um branch bucket a partir de um bucket existente.  Depois de criar um bucket de ramificação, o bucket original do qual ele foi criado é chamado de _bucket base_.  Além disso, você pode criar um branch bucket a partir de outro branch bucket.
+
+Um branch bucket fornece acesso a dados protegidos, mas não serve como backup.  Para continuar a proteger os dados, use estes recursos nos buckets base:
+
+* link:../tenant/using-s3-object-lock.html["S3 bloqueio de objetos"]
+* link:../admin/grid-federation-what-is-cross-grid-replication.html["Replicação entre grade"]para baldes de base
+* link:../tenant/manage-bucket-policy.html["Políticas de bucket"]para buckets versionados para limpar versões antigas de objetos
+
+
+Observe as seguintes características dos buckets de ramificação:
+
+* Você pode acessar os objetos em buckets de ramificação usandolink:../tenant/use-s3-console.html["Console S3 para baixar objetos"] .
+* Quando os clientes acessam objetos em um branch bucket, o branch bucketlink:../s3/use-access-policies.html["políticas de acesso"] , em vez das políticas do bucket base, determinam se o acesso é concedido ou negado.
+* Os objetos criados em um bucket base são avaliados com base em comolink:../ilm/access-create-ilm-rule-wizard.html["Regras do ILM"] aplicar ao balde base.  Objetos criados em um branch bucket são avaliados com base em como as regras do ILM se aplicam ao branch bucket.
+* A replicação entre grades não é suportada para buckets de ramificação.
+* Os serviços de plataforma não são suportados para buckets de ramificação.
+
+
+
+
+== Exemplos de uso de branch bucket
+
+* Você pode usar um branch bucket para remover objetos corrompidos criando um branch bucket a partir de um ponto no tempo anterior à ocorrência da corrupção e, em seguida, apontando os aplicativos para o branch bucket em vez do bucket base que contém objetos corrompidos.
+* Você está salvando dados em um bucket versionado.  Houve uma vulnerabilidade acidental que fez com que muitos objetos indesejados fossem ingeridos após o tempo _T_.  Você pode criar um bucket de ramificação para o valor de tempo anterior, _T_, e redirecionar as operações do cliente para esse bucket de ramificação.  Então, somente objetos ingeridos antes do tempo Before _T_ são expostos aos clientes.
+
+
+
+
+== Operações em objetos em buckets de ramificação
+
+* Uma operação de objeto PUT em um branch bucket cria um objeto no branch.
+* Uma operação de objeto GET em um branch bucket recupera um objeto do branch.  Se o objeto não existir no bucket de ramificação, ele será recuperado do bucket base.
+* As exclusões de objetos de buckets de ramificação ocorrem da seguinte maneira:
++
+[cols="1a,1a,2a,2a,2a"]
+|===
+| Operação | Alvo | Resultado | Visibilidade do objeto no bucket base | Visibilidade do objeto no branch bucket 
+
+
+ a| 
+Excluir sem ID de versão
+ a| 
+Balde de base
+ a| 
+O marcador de exclusão é criado apenas para o bucket base
+ a| 
+HEAD/GET retorna Objeto não existe, mas versões específicas ainda podem ser acessadas
+ a| 
+HEAD/GET retorna O objeto existe e versões específicas ainda podem ser acessadas
+
+O marcador de exclusão teria sido criado após o branch bucket `beforeTime` .
+
+
+
+ a| 
+Excluir com ID da versão
+ a| 
+Balde de base
+ a| 
+A versão específica do objeto é excluída para o bucket base e o bucket de ramificação
+ a| 
+HEAD/GET retorna Versão do objeto não existe
+ a| 
+HEAD/GET retorna Versão do objeto não existe
+
+
+
+ a| 
+Excluir sem ID de versão
+ a| 
+Balde de galhos
+ a| 
+O marcador de exclusão é criado apenas para o bucket de ramificação
+ a| 
+HEAD/GET retorna objeto (objeto de bucket base não afetado)
+ a| 
+HEAD/GET retorna Objeto não existe
+
+
+
+ a| 
+Excluir com ID da versão
+ a| 
+Balde de galhos
+ a| 
+A versão específica do objeto é excluída apenas para o branch bucket
+ a| 
+HEAD/GET retorna uma versão específica do objeto (objeto do bucket base não afetado)
+ a| 
+HEAD/GET retorna Versão do objeto não existe
+
+|===
+
+
+Consulte tambémlink:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["Como objetos com versão S3 são excluídos"] .

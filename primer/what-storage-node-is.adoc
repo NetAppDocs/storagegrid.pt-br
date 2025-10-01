@@ -33,11 +33,16 @@ Você pode selecionar o tipo de nó de armazenamento nestas situações:
 
 
 
-NOTE: Não é possível alterar o tipo depois que a instalação do nó de armazenamento estiver concluída.
 
-Nó de storage de dados e metadados (combinado):: Por padrão, todos os novos nós de storage armazenarão dados de objetos e metadados. Esse tipo de nó de armazenamento é chamado de nó de armazenamento _combinado_.
-Nó de storage somente de metadados:: Usar um nó de armazenamento exclusivo para metadados pode fazer sentido se sua grade armazenar um número muito grande de objetos pequenos. A instalação da capacidade de metadados dedicada fornece um melhor equilíbrio entre o espaço necessário para um grande número de pequenos objetos e o espaço necessário para os metadados desses objetos. Além disso, os nós de storage somente de metadados hospedados em dispositivos de alta performance podem aumentar a performance.
+=== Nó de storage de dados e metadados (combinado)
 
+Por padrão, todos os novos nós de storage armazenarão dados de objetos e metadados. Esse tipo de nó de armazenamento é chamado de nó de armazenamento _combinado_.
+
+
+
+=== Nó de storage somente de metadados
+
+Usar um nó de armazenamento exclusivo para metadados pode fazer sentido se sua grade armazenar um número muito grande de objetos pequenos. A instalação da capacidade de metadados dedicada fornece um melhor equilíbrio entre o espaço necessário para um grande número de pequenos objetos e o espaço necessário para os metadados desses objetos. Além disso, os nós de storage somente de metadados hospedados em dispositivos de alta performance podem aumentar a performance.
 
 Os nós de storage somente de metadados têm requisitos específicos de hardware:
 
@@ -51,29 +56,34 @@ Os nós de storage somente de metadados têm requisitos específicos de hardware
 *** SSD de 8 TB ou armazenamento equivalente para o banco de dados Cassandra (rangedb/0)
 
 
-** Se o site StorageGRID existente estiver usando nós de armazenamento virtual com 24 GB de RAM, CPU de 8 núcleos e 3 TB ou 4TB TB de armazenamento de metadados, os nós somente de metadados baseados em software devem usar recursos semelhantes (24 GB de RAM, CPU de 8 núcleos e 4TB GB de armazenamento de metadados (rangedb/0).
+** Se o site StorageGRID existente estiver usando nós de armazenamento virtuais com 24 GB de RAM, CPU de 8 núcleos e 3 TB ou 4 TB de armazenamento de metadados, os nós somente de metadados baseados em software deverão usar recursos semelhantes (24 GB de RAM, CPU de 8 núcleos e 4 TB de armazenamento de metadados (rangedb/0)).
 
 
-* Ao adicionar um novo site StorageGRID, a capacidade total de metadados do novo local deve, no mínimo, corresponder aos locais StorageGRID existentes e os novos recursos do local devem corresponder aos nós de storage nos locais StorageGRID existentes.
-
-
-Ao instalar nós somente metadados, a grade também deve conter um número mínimo de nós para o storage de dados:
-
-* Para uma grade de um único local, configure pelo menos dois nós de storage combinados ou somente de dados.
-* Para uma grade de vários locais, configure pelo menos um nó de armazenamento combinado ou somente de dados _por local_.
+* Ao adicionar um novo site StorageGRID , a capacidade total de metadados do novo site deve, no mínimo, corresponder aos sites existentes.  Os recursos em um novo site devem corresponder aos nós de armazenamento em sites existentes.
 
 
 
 NOTE: Embora os nós de storage somente metadados contenham o <<ldr-service,Serviço LDR>> e possam processar solicitações de clientes do S3, a performance do StorageGRID pode não aumentar.
 
-Nó de storage somente de dados:: O uso de um nó de storage exclusivo para dados pode fazer sentido se seus nós de storage tiverem características de desempenho diferentes. Por exemplo, para aumentar potencialmente a performance, você pode ter nós de storage de disco giratório somente de dados e alta capacidade acompanhados por nós de storage de alta performance somente de metadados.
 
 
-Ao instalar nós somente dados, a grade deve conter o seguinte:
+=== Nó de storage somente de dados
 
-* Um mínimo de dois nós de storage combinados ou somente de dados _por grade_
-* Pelo menos um nó de storage combinado ou somente de dados _por local_
-* Um mínimo de três nós de storage combinados ou somente de metadados _por local_
+O uso de um nó de storage exclusivo para dados pode fazer sentido se seus nós de storage tiverem características de desempenho diferentes. Por exemplo, para aumentar potencialmente a performance, você pode ter nós de storage de disco giratório somente de dados e alta capacidade acompanhados por nós de storage de alta performance somente de metadados.
+
+Além disso, você pode obter mais capacidade de metadados removendo nós com pouca RAM do Cassandra, o que aumenta o limite de capacidade de metadados por nó. Consulte link:../admin/managing-object-metadata-storage.html["Gerenciar o storage de metadados de objetos"] .
+
+Você pode converter um nó de armazenamento que não contém o<<adc-service,Serviço ADC>> para um nó de armazenamento somente de dados. Consulte link:../maintain/convert-to-data-only-node.html["Converter um nó de armazenamento em um nó somente de dados"] .
+
+
+
+== Nós de armazenamento necessários por grade e por site
+
+Ao selecionar quais nós de armazenamento usar em sua topologia, lembre-se de que a grade ou cada site na grade deve conter o seguinte:
+
+* Por site (em uma grade de site único ou múltiplo): Três<<adc-service,ADC>> Nós de armazenamento (pode ser qualquer combinação de nós de armazenamento combinados e somente de metadados)
+* Grade de site único: pelo menos dois nós de armazenamento de objetos (pode ser qualquer combinação de combinados e somente dados)
+* Grade multisite: pelo menos um nó de armazenamento de objetos por site (pode ser combinado ou somente de dados)
 
 
 
@@ -95,14 +105,16 @@ Conta (acct)
  a| 
 Gerencia contas de locatários.
 
+Nós de armazenamento somente de dados não hospedam este serviço.
+
 
 
  a| 
-Controlador de domínio administrativo (ADC)
+[[adc-service]]Controlador de Domínio Administrativo (ADC)
  a| 
 Mantém a topologia e a configuração em toda a grade.
 
-*Nota*: Os nós de storage somente de dados não hospedam o serviço ADC.
+Nós de armazenamento somente de dados não hospedam este serviço.
 
 .Detalhes
 [%collapsible]
@@ -125,7 +137,7 @@ Cassandra
  a| 
 Armazena e protege metadados de objetos.
 
-*Nota*: Os nós de storage somente de dados não hospedam o serviço Cassandra.
+Nós de armazenamento somente de dados não hospedam este serviço.
 
 
 
@@ -134,7 +146,7 @@ Cassandra Reaper
  a| 
 Executa reparos automáticos de metadados de objetos.
 
-*Nota*: Os nós de storage somente de dados não hospedam o serviço Cassandra Reaper.
+Nós de armazenamento somente de dados não hospedam este serviço.
 
 
 
@@ -171,6 +183,8 @@ O serviço DDS rastreia o número total de objetos ingeridos no sistema StorageG
 Identidade (idnt)
  a| 
 Federa identidades de usuários do LDAP e do ative Directory.
+
+Nós de armazenamento somente de dados não hospedam este serviço.
 
 
 
@@ -220,6 +234,8 @@ Para garantir redundância e, portanto, proteção contra perda, três cópias d
 Máquina de estado replicado (RSM)
  a| 
 Garante que as solicitações de serviços da plataforma S3 sejam enviadas para seus respetivos endpoints.
+
+Nós de armazenamento somente de dados não hospedam este serviço.
 
 
 

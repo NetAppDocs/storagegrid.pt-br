@@ -17,11 +17,11 @@ Você deve criar pelo menos um endpoint do tipo correto antes de habilitar um se
 * Você está conetado ao Gerenciador do Locatário usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
 * Os serviços de plataforma foram ativados para sua conta de locatário por um administrador do StorageGRID.
 * Você pertence a um grupo de usuários que tem o link:tenant-management-permissions.html["Gerencie endpoints ou permissão de acesso root"].
-* O recurso referenciado pelo endpoint de serviços da plataforma foi criado:
+* O recurso referenciado pelo ponto de extremidade dos serviços da plataforma foi criado:
 +
 ** Replicação do CloudMirror: Bucket do S3
-** Notificação de eventos: Tópico do Amazon Simple Notification Service (Amazon SNS) ou Kafka
-** Notificação de pesquisa: Índice Elasticsearch, se o cluster de destino não estiver configurado para criar índices automaticamente.
+** Notificação de evento: tópico do Amazon Simple Notification Service (Amazon SNS), tópico do Kafka ou endpoint do webhook
+** Notificação de pesquisa: índice do Elasticsearch, se o cluster de destino não estiver configurado para criar índices automaticamente.
 
 
 * Você tem as informações sobre o recurso de destino:
@@ -76,7 +76,7 @@ Para endpoints do Kafka, você pode usar as seguintes credenciais:
 
 --
 ====
-** Certificado de segurança (se estiver usando um certificado de CA personalizado)
+** Certificado de segurança (se a verificação do certificado for necessária)
 
 
 * Se os recursos de segurança do Elasticsearch estiverem ativados, você terá o privilégio de cluster do monitor para teste de conetividade e o privilégio de índice de gravação ou o Privileges de índice de índice e exclusão para atualizações de documentos.
@@ -87,7 +87,7 @@ Para endpoints do Kafka, você pode usar as seguintes credenciais:
 . Selecione *criar endpoint*.
 . Introduza um nome de apresentação para descrever brevemente o ponto final e a respetiva finalidade.
 +
-O tipo de serviço de plataforma que o endpoint suporta é mostrado ao lado do nome do endpoint quando ele está listado na página Endpoints, para que você não precise incluir essas informações no nome.
+O tipo de serviço de plataforma que o endpoint suporta é mostrado ao lado do nome do endpoint quando ele é listado na página Endpoints, portanto você não precisa incluir essa informação no nome.
 
 . No campo *URI*, especifique o URI (Unique Resource Identifier) do endpoint.
 +
@@ -140,6 +140,10 @@ NOTE: Você não pode alterar a URNA DE um endpoint depois que o endpoint foi cr
 
 . Selecione *continuar*.
 . Selecione um valor para *tipo de autenticação*.
++
+
+NOTE: Se você deseja autenticação para endpoints de webhook, configure o Mutual Transport Layer Security (mTLS) em<<verify-certs,Passo 9>> .
+
 +
 [role="tabbed-block"]
 ====
@@ -318,17 +322,37 @@ Selecione *usar autenticação de delegação tomada* se o nome de usuário e a 
 --
 ====
 . Selecione *continuar*.
-. Selecione um botão de opção para *verificar servidor* para escolher como a conexão TLS com o endpoint é verificada.
+. [[verify-certs]]Selecione um botão de opção para *Verificar certificados* para escolher como a conexão TLS com o ponto de extremidade é verificada.
 +
+[role="tabbed-block"]
+====
+.A maioria dos pontos finais
+--
+Verifique a conexão TLS para integração de pesquisa, replicação do CloudMirror, Amazon SNS ou endpoints do Kafka.
+
 [cols="1a,2a"]
 |===
 | Tipo de verificação do certificado | Descrição 
 
 
  a| 
+TLS
+ a| 
+Valida o certificado do servidor para conexões TLS com o recurso de ponto de extremidade.
+
+
+
+ a| 
+Desabilitado
+ a| 
+A verificação do certificado está desativada.  Esta opção não é segura.
+
+
+
+ a| 
 Use certificado CA personalizado
  a| 
-Use um certificado de segurança personalizado. Se você selecionar essa configuração, copie e cole o certificado de segurança personalizado na caixa de texto *certificado CA*.
+O certificado CA personalizado é usado para verificar a identidade do servidor ao se conectar ao ponto de extremidade.
 
 
 
@@ -337,14 +361,80 @@ Use o certificado CA do sistema operacional
  a| 
 Use o certificado de CA de grade padrão instalado no sistema operacional para proteger conexões.
 
+|===
+--
+.Somente endpoints de webhook
+--
+Verifique a conexão TLS para endpoints de webhook.
+
+[cols="1a,2a"]
+|===
+| Tipo de verificação do certificado | Descrição 
 
 
  a| 
-Não verifique o certificado
+TLS
  a| 
-O certificado usado para a conexão TLS não é verificado. Esta opção não é segura.
+Valida o certificado do servidor para conexões TLS com o recurso de ponto de extremidade.
+
+
+
+ a| 
+mTLS
+ a| 
+Valida os certificados de cliente e servidor para conexões TLS mútuas com o recurso de ponto de extremidade.
+
+
+
+ a| 
+Desabilitado
+ a| 
+A verificação do certificado está desativada.  Esta opção não é segura.
+
+
+
+ a| 
+Use certificado CA personalizado
+ a| 
+O certificado CA personalizado é usado para verificar a identidade do servidor ao se conectar ao ponto de extremidade.
 
 |===
+Quando você seleciona *mTLS*, essas opções ficam disponíveis.
+
+[cols="1a,2a"]
+|===
+| Tipo de verificação do certificado | Descrição 
+
+
+ a| 
+Não verificar o certificado do servidor
+ a| 
+Desativa a verificação do certificado do servidor, o que significa que a identidade do servidor não é verificada.  Esta opção não é segura.
+
+
+
+ a| 
+Certificado de cliente
+ a| 
+O certificado do cliente é usado para verificar a identidade do cliente ao se conectar ao ponto de extremidade.
+
+
+
+ a| 
+Chave privada do cliente
+ a| 
+A chave privada para o certificado do cliente.  Se criptografado, ele deve usar o formato tradicional PKCS #1 (o formato PKCS #8 não é suportado).
+
+
+
+ a| 
+Senha da chave privada do cliente
+ a| 
+A senha para descriptografar a chave privada do cliente.  Se a chave privada não estiver criptografada, deixe em branco.
+
+|===
+--
+====
 . Selecione *testar e criar endpoint*.
 +
 ** Uma mensagem de sucesso será exibida se o endpoint puder ser alcançado usando as credenciais especificadas. A conexão com o endpoint é validada a partir de um nó em cada local.

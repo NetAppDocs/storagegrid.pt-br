@@ -17,7 +17,7 @@ Se um nó de grade falhar, você deve recuperá-lo o mais rápido possível. Voc
 CAUTION: O StorageGRID é um sistema distribuído composto por vários nós que trabalham uns com os outros. Não use snapshots de disco para restaurar nós de grade. Em vez disso, consulte os procedimentos de recuperação e manutenção para cada tipo de nó.
 
 
-NOTE: Se um site StorageGRID inteiro falhar, entre em Contato com o suporte técnico. O suporte técnico trabalhará com você para desenvolver e executar um plano de recuperação de local que maximiza a quantidade de dados recuperados e atende aos seus objetivos de negócios. link:how-site-recovery-is-performed-by-technical-support.html["Como o suporte técnico recupera um site"]Consulte .
+NOTE: Se um site StorageGRID inteiro falhar, entre em contato com o suporte técnico.  O suporte técnico trabalhará com você para desenvolver e executar um plano de recuperação de site que maximize a quantidade de dados recuperados e atenda aos seus objetivos comerciais. Consulte link:how-site-recovery-is-performed-by-technical-support.html["Como o suporte técnico recupera um site"] .
 
 Alguns dos motivos para recuperar um nó de grade com falha o mais rápido possível incluem o seguinte:
 
@@ -38,15 +38,15 @@ Todas as condições a seguir são assumidas ao recuperar nós de grade:
 
 * O hardware físico ou virtual com falha foi substituído e configurado.
 * A versão do Instalador de dispositivos StorageGRID no dispositivo de substituição corresponde à versão de software do seu sistema StorageGRID, conforme descrito em https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/verifying-and-upgrading-storagegrid-appliance-installer-version.html["Verifique e atualize a versão do instalador do StorageGRID Appliance"^].
-* Se você estiver recuperando um nó de grade diferente do nó Admin principal, há conetividade entre o nó de grade sendo recuperado e o nó Admin principal.
-* Se você estiver recuperando um nó de armazenamento de dispositivo, especifique o mesmo tipo de armazenamento que o dispositivo original (combinado, somente metadados ou somente dados) durante a instalação do dispositivo. Se especificar um tipo de armazenamento diferente, a recuperação falhará e exigirá a reinstalação do dispositivo com o tipo de armazenamento correto especificado.
+* Se você estiver recuperando um nó de grade diferente do nó de administração principal, haverá conectividade entre o nó de grade que está sendo recuperado e o nó de administração que gerencia o procedimento de recuperação.
+* Se estiver recuperando um nó de armazenamento do dispositivo, você deverá especificar o mesmo tipo de armazenamento do dispositivo original (combinado, somente metadados ou somente dados) durante a instalação do dispositivo.  Se você especificar um tipo de armazenamento diferente, a recuperação falhará e exigirá a reinstalação do dispositivo com o tipo de armazenamento correto especificado.
 
 
 
 
 == Ordem de recuperação de nó se um servidor que hospeda mais de um nó de grade falhar
 
-Se um servidor que hospeda mais de um nó de grade falhar, você poderá recuperar os nós em qualquer ordem. No entanto, se o servidor com falha estiver hospedando o nó Admin principal, você deve recuperar esse nó primeiro. A recuperação do nó de administração principal primeiro impede que outras recuperações de nós parem à medida que esperam para entrar em Contato com o nó de administração principal.
+Se um servidor que hospeda mais de um nó de grade falhar, você poderá recuperar os nós em qualquer ordem.  Entretanto, se o servidor com falha estiver hospedando o nó de administração principal, você deverá recuperar esse nó primeiro.
 
 
 

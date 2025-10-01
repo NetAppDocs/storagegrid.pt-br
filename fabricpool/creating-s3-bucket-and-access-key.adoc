@@ -44,7 +44,7 @@ TIP: Não é possível alterar o nome do bucket depois de criar o bucket.
 
 .. Selecione a região para este intervalo.
 +
-Por padrão, todos os buckets são criados na `us-east-1` região.
+Por padrão, todos os buckets são criados no `us-east-1` região.  Se a região padrão estiver configurada para uma região diferente de `us-east-1` , esta outra região é inicialmente selecionada no menu suspenso.
 
 .. Selecione *continuar*.
 .. Selecione *criar bucket*.

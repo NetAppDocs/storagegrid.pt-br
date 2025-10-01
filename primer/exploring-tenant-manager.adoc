@@ -24,7 +24,7 @@ Quando os usuários do locatário entram no Gerenciador do locatário, eles est�
 
 Depois que um administrador de grade criar uma conta de locatário usando o Gerenciador de Grade ou a API de Gerenciamento de Grade, os usuários do locatário podem fazer login no Gerenciador do locatário.
 
-O painel do Tenant Manager permite que os usuários do locatário monitorem rapidamente o uso do armazenamento. O painel uso do armazenamento contém uma lista dos maiores buckets (S3) ou contentores (Swift) para o locatário. O valor espaço usado é a quantidade total de dados de objeto no intervalo ou recipiente. O gráfico de barras representa os tamanhos relativos desses baldes ou contentores.
+O painel do Tenant Manager permite que os usuários do tenant monitorem o uso do armazenamento rapidamente.  O painel Uso de armazenamento contém uma lista dos maiores buckets do S3 para o locatário.  O valor do espaço usado é a quantidade total de dados do objeto no bucket ou contêiner.  O gráfico de barras representa os tamanhos relativos desses baldes ou contêineres.
 
 O valor mostrado acima do gráfico de barras é uma soma do espaço usado para todos os buckets ou contentores do locatário. Se o número máximo de gigabytes, terabytes ou petabytes disponíveis para o locatário foi especificado quando a conta foi criada, a quantidade de cota usada e restante também será mostrada.
 
@@ -34,7 +34,13 @@ image::../media/tenant_dashboard_with_buckets.png[Painel do Gerenciador do locat
 
 == Menu de armazenamento (S3)
 
-O menu armazenamento é fornecido apenas para contas de inquilino do S3. Esse menu permite que os usuários do S3 gerenciem chaves de acesso; criem, gerenciem e excluam buckets; gerenciem endpoints de serviços de plataforma; e visualizem todas as conexões de federação de grade que tenham permissão para usar.
+Este menu permite que usuários do S3:
+
+* Gerenciar chaves de acesso
+* Criar, gerenciar e excluir buckets
+* Gerenciar endpoints de serviços de plataforma
+* Visualize todas as conexões de federação de rede que eles têm permissão para usar
+
 
 
 

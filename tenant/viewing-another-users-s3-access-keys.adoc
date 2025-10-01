@@ -22,7 +22,7 @@ Se você estiver usando um locatário do S3 e tiver permissões apropriadas, pod
 CAUTION: Os buckets e objetos do S3 pertencentes a um usuário podem ser acessados usando o ID da chave de acesso e a chave de acesso secreta exibidos para esse usuário no Gerenciador do locatário. Por esse motivo, proteja as chaves de acesso como faria com uma senha. Gire as chaves de acesso regularmente, remova quaisquer chaves não utilizadas da conta e nunca as compartilhe com outros usuários.
 
 .Passos
-. Selecione *GERENCIAMENTO DE ACESSO* > *usuários*.
+. Selecione *Gerenciamento de acesso* > *Usuários*.
 . Na página usuários, selecione o usuário cujas teclas de acesso S3 você deseja exibir.
 . Na página Detalhes do usuário, selecione *teclas de acesso*.
 . Classifique as chaves por *tempo de expiração* ou *ID da chave de acesso*.

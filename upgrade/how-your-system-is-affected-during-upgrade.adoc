@@ -15,6 +15,12 @@ Saiba como seu sistema StorageGRID será afetado durante a atualização.
 
 
 
+== O acesso SSH externo é permitido até que a atualização seja concluída
+
+O acesso SSH externo é permitido durante a atualização.  Quando a atualização for concluída, o acesso SSH externo será bloqueado por padrão.  Após a atualização, você pode usar a aba *Bloquear SSH* disponível na página *Grid Manager* > *Configurações de segurança* paralink:../admin/manage-external-ssh-access.html["gerenciar acesso SSH externo"] .  O acesso SSH entre nós da grade não é afetado.
+
+
+
 == As atualizações do StorageGRID não causam interrupções
 
 O sistema StorageGRID pode obter e recuperar dados de aplicativos clientes durante todo o processo de atualização. Se aprovar a atualização de todos os nós do mesmo tipo (por exemplo, nós de storage), os nós serão derrubados um de cada vez, portanto, não haverá tempo em que todos os nós de grade ou todos os nós de grade de um determinado tipo estejam indisponíveis.
@@ -40,14 +46,20 @@ NOTE: Você pode usar vários gateways e grupos de alta disponibilidade (HA) par
 
 
 
+== Os reparos em segundo plano não serão executados em grades com nós de versões mistas
+
+Os reparos em segundo plano não são executados durante a atualização quando a grade contém nós de versões mistas.  Quaisquer inconsistências que ocorrerem durante uma interrupção do site não serão reparadas até que a atualização seja concluída.
+
+
+
 == O firmware do dispositivo foi atualizado
 
-Durante a atualização do StorageGRID 11,9:
+Durante a atualização do StorageGRID 12.0:
 
-* Todos os nós do dispositivo StorageGRID são atualizados automaticamente para a versão 3,9 do firmware do instalador do StorageGRID Appliance.
-* Os dispositivos SG6060 e SGF6024 são atualizados automaticamente para a versão 3B08.EX do firmware do BIOS e para a versão 4.00.07 do firmware do BMC.
-* Os dispositivos SG100 e SG1000 são atualizados automaticamente para a versão 3B13.EC do firmware do BIOS e para a versão 4.74.07 do firmware do BMC.
-* Os dispositivos SGF6112, SG6160, SG110 e SG1100 são atualizados automaticamente para a versão 3.16.07 do firmware BMC.
+* Todos os nós do dispositivo StorageGRID são atualizados automaticamente para a versão de firmware 12.0 do StorageGRID Appliance Installer.
+* Os dispositivos SG6060 e SGF6024 são atualizados automaticamente para a versão de firmware do BIOS 3B08.EX e a versão de firmware do BMC 4.01.07.
+* Os dispositivos SG100 e SG1000 são atualizados automaticamente para a versão de firmware do BIOS 3B13.EC e a versão de firmware do BMC 4.75.07.
+* Os dispositivos SGF6112, SG6160, SG110 e SG1100 são atualizados automaticamente para a versão de firmware do BIOS 3A14.QD e a versão de firmware do BMC 3.19.07.
 
 
 
@@ -65,24 +77,18 @@ Durante a atualização do StorageGRID 11,9:
 
 Os alertas podem ser acionados quando os serviços começam e param e quando o sistema StorageGRID está operando como um ambiente de versão mista (alguns nós de grade executando uma versão anterior, enquanto outros foram atualizados para uma versão posterior). Outros alertas podem ser acionados após a conclusão da atualização.
 
-Por exemplo, você pode ver o alerta *não é possível se comunicar com o nó* quando os serviços são interrompidos, ou você pode ver o alerta *erro de comunicação do Cassandra* quando alguns nós foram atualizados para o StorageGRID 11,9, mas outros nós ainda estão executando o StorageGRID 11,8. Em geral, esses alertas serão apagados quando a atualização for concluída.
+Por exemplo, você pode ver o alerta *Não foi possível comunicar com o nó* quando os serviços são interrompidos, ou pode ver o alerta *Erro de comunicação do Cassandra* quando alguns nós foram atualizados para o StorageGRID 12.0, mas outros nós ainda estão executando o StorageGRID 11.9.  Em geral, esses alertas serão apagados quando a atualização for concluída.
 
-O alerta *ILM Placement unachievable* pode ser acionado quando os nós de armazenamento são interrompidos durante a atualização para o StorageGRID 11,9. Esse alerta pode persistir por 1 dia após a conclusão da atualização.
+O alerta *Posicionamento do ILM inatingível* pode ser acionado quando os nós de armazenamento são interrompidos durante a atualização para o StorageGRID 12.0.  Este alerta pode persistir por 1 dia após a conclusão da atualização.
 
 Após a conclusão da atualização, você pode revisar qualquer alerta relacionado a atualização selecionando *alertas resolvidos recentemente* ou *alertas atuais* no painel do Gerenciador de Grade.
-
-
-
-== Muitas notificações SNMP são geradas
-
-Esteja ciente de que um grande número de notificações SNMP pode ser gerado quando os nós de grade são interrompidos e reiniciados durante a atualização. Para evitar notificações excessivas, desmarque a caixa de seleção *Ativar notificações de agente SNMP* (*CONFIGURAÇÃO* > *Monitoramento* > *agente SNMP*) para desativar as notificações SNMP antes de iniciar a atualização. Em seguida, reative as notificações após a atualização estar concluída.
 
 
 
 == As alterações de configuração são restritas
 
 
-NOTE: Esta lista aplica-se especificamente às atualizações do StorageGRID 11,8 para o StorageGRID 11,9. Se você estiver atualizando para outra versão do StorageGRID, consulte a lista de alterações restritas nas instruções de atualização para essa versão.
+NOTE: Esta lista se aplica especificamente a atualizações do StorageGRID 11.9 para o StorageGRID 12.0.  Se você estiver atualizando para outra versão do StorageGRID , consulte a lista de alterações restritas nas instruções de atualização dessa versão.
 
 Até que a tarefa *Ativar novo recurso* seja concluída:
 
@@ -94,31 +100,12 @@ Até que a tarefa *Ativar novo recurso* seja concluída:
 
 NOTE: Entre em Contato com o suporte técnico se precisar recuperar um nó durante a atualização.
 
-* Você não deve gerenciar grupos de HA, interfaces VLAN ou pontos de extremidade do balanceador de carga durante a atualização para o StorageGRID 11,9.
-* Não exclua nenhum grupo de HA até que a atualização para o StorageGRID 11,9 esteja concluída. Os endereços IP virtuais em outros grupos de HA podem ficar inacessíveis.
+* Você não deve gerenciar grupos de HA, interfaces de VLAN ou pontos de extremidade do balanceador de carga enquanto estiver atualizando para o StorageGRID 12.0.
+* Não exclua nenhum grupo de HA até que a atualização para o StorageGRID 12.0 seja concluída.  Endereços IP virtuais em outros grupos de HA podem se tornar inacessíveis.
 
 
 Até que a tarefa *etapas de atualização final* seja concluída:
 
 * Não execute um procedimento de expansão.
 * Não efetue um procedimento de desativação.
-
-
-
-
-== Não é possível visualizar os detalhes do bucket nem gerenciar buckets do Tenant Manager
-
-Durante a atualização para o StorageGRID 11,9 (ou seja, enquanto o sistema estiver operando como um ambiente de versão mista), você não pode exibir detalhes do bucket ou gerenciar buckets usando o Gerenciador do locatário. Um dos seguintes erros aparece na página baldes no Tenant Manager:
-
-* Você não pode usar essa API enquanto estiver atualizando para 11,9.
-* Você não pode exibir detalhes de versão do bucket no Gerenciador de inquilinos enquanto estiver atualizando para o 11,9.
-
-
-Este erro será resolvido após a atualização para o 11,9 estar concluída.
-
-.Solução alternativa
-Enquanto a atualização do 11,9 estiver em andamento, use as seguintes ferramentas para exibir detalhes do bucket ou gerenciar buckets, em vez de usar o Gerenciador do locatário:
-
-* Para efetuar operações S3 padrão num balde, utilize a link:../s3/operations-on-buckets.html["S3 API REST"] ou a link:../tenant/understanding-tenant-management-api.html["API de gerenciamento do locatário"].
-* Para executar operações personalizadas do StorageGRID em um bucket (por exemplo, exibindo e modificando a consistência do bucket, habilitando ou desativando as atualizações do último tempo de acesso ou configurando a integração de pesquisa), use a API de Gerenciamento do locatário.
 

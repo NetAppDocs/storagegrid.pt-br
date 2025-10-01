@@ -21,7 +21,7 @@ Para determinar se um site pode ser desativado, comece acessando o assistente De
 
 
 .Passos
-. Selecione *MAINTENANCE* > *Tasks* > *Decommission*.
+. Selecione *Manutenção* > *Tarefas* > *Desativar*.
 . Selecione *Decommission Site*.
 +
 O passo 1 (Selecionar local) do assistente Decommission Site aparece. Esta etapa inclui uma lista alfabética dos sites no seu sistema StorageGRID.

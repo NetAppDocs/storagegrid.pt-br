@@ -52,7 +52,7 @@ Os nós de storage somente de metadados têm requisitos específicos de hardware
 *** SSD de 8 TB ou armazenamento equivalente para o banco de dados Cassandra (rangedb/0)
 
 
-** Se o site StorageGRID existente estiver usando nós de armazenamento virtual com 24 GB de RAM, CPU de 8 núcleos e 3 TB ou 4TB TB de armazenamento de metadados, os nós somente de metadados baseados em software devem usar recursos semelhantes (24 GB de RAM, CPU de 8 núcleos e 4TB GB de armazenamento de metadados (rangedb/0).
+** Se o site StorageGRID existente estiver usando nós de armazenamento virtuais com 24 GB de RAM, CPU de 8 núcleos e 3 TB ou 4 TB de armazenamento de metadados, os nós somente de metadados baseados em software deverão usar recursos semelhantes (24 GB de RAM, CPU de 8 núcleos e 4 TB de armazenamento de metadados (rangedb/0)).
 
 
 * Ao adicionar um novo site StorageGRID, a capacidade total de metadados do novo local deve, no mínimo, corresponder aos locais StorageGRID existentes e os novos recursos do local devem corresponder aos nós de storage nos locais StorageGRID existentes.

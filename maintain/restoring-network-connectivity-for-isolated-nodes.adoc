@@ -17,7 +17,7 @@ Em certas circunstâncias, um ou mais grupos de nós podem não ser capazes de e
 O isolamento do nó é indicado por:
 
 * Alertas, como *não é possível se comunicar com o nó* (*Alertas* > *atual*)
-* Diagnósticos relacionados à conetividade (*SUPORTE* > *Ferramentas* > *Diagnóstico*)
+* Diagnóstico relacionado à conectividade (*Suporte* > *Ferramentas* > *Diagnóstico*)
 
 
 Algumas das consequências de ter nós isolados incluem o seguinte:

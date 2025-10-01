@@ -14,11 +14,7 @@ summary: Você pode usar este procedimento para adicionar ou atualizar os nomes 
 Você pode usar este procedimento para adicionar ou atualizar os nomes de exibição usados para sua grade, sites e nós. Você pode renomear um único item, vários itens ou até mesmo todos os itens ao mesmo tempo. Definir ou atualizar um nome de exibição não afeta as operações do StorageGRID de forma alguma.
 
 .Antes de começar
-* No *nó Admin principal*, você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
-+
-
-NOTE: Você pode adicionar ou atualizar nomes de exibição de um nó de administração não primário, mas você deve estar conetado ao nó de administração principal para baixar um pacote de recuperação.
-
+* De qualquer nó de administração, você é conectado ao Grid Manager usando umlink:../admin/web-browser-requirements.html["navegador da web suportado"] .
 * Você tem o link:../admin/admin-group-permissions.html["Permissão de manutenção ou acesso root"].
 * Você tem a senha de provisionamento.
 * Você entende os requisitos e as práticas recomendadas para nomes de exibição. link:../maintain/rename-grid-site-node-overview.html["Renomeie grade, sites e nós"]Consulte .
@@ -39,7 +35,7 @@ Você pode usar um nome de exibição que foi usado anteriormente por um nó dif
 Para iniciar, selecione os itens que deseja renomear.
 
 .Passos
-. Selecione *MAINTENANCE* > *Tasks* > *Renomear grade, sites e nós*.
+. Selecione *Manutenção* > *Tarefas* > *Renomear grade, sites e nós*.
 . Para a etapa *Selecionar nomes*, selecione os itens que deseja renomear.
 +
 [cols="1a,2a"]
@@ -167,11 +163,11 @@ image::../media/rename-bulk-rename-tool-after.png[Renomeie a ferramenta em massa
 
 === [[download-recovery-package]]Baixe o pacote de recuperação
 
-Quando terminar de renomear itens, baixe e salve um novo Pacote de recuperação. Os novos nomes de exibição para os itens que você renomeou são incluídos no `Passwords.txt` arquivo.
+Quando terminar de renomear os itens, baixe e salve um novo pacote de recuperação.  Os novos nomes de exibição para os itens que você renomeou estão incluídos no `Passwords.txt` arquivo.
 
 .Passos
 . Introduza a frase-passe de aprovisionamento.
-. Selecione *Download Recovery Package*.
+. Selecione *Baixar pacote de recuperação*.
 +
 O download começa imediatamente.
 
@@ -179,7 +175,7 @@ O download começa imediatamente.
 . Copie o `sgws-recovery-package-_id-revision_.zip` arquivo para dois locais seguros, seguros e separados.
 +
 
-CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID.
+CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID .
 
 . Selecione *Finish* para retornar ao primeiro passo.
 
@@ -191,7 +187,7 @@ CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém 
 Você pode reverter uma grade renomeada, site ou nó de volta para o nome original do sistema. Quando você reverte um item de volta ao nome do sistema, as páginas do Gerenciador de Grade e outros locais do StorageGRID não mostram mais um *Nome de exibição* para esse item. Apenas o nome do sistema do item é mostrado.
 
 .Passos
-. Selecione *MAINTENANCE* > *Tasks* > *Renomear grade, sites e nós*.
+. Selecione *Manutenção* > *Tarefas* > *Renomear grade, sites e nós*.
 . Para a etapa *Selecionar nomes*, selecione todos os itens que você deseja reverter para os nomes do sistema.
 . Selecione *continuar*.
 . Para a etapa *propor novos nomes*, reverta os nomes de exibição de volta aos nomes de sistema individualmente ou em massa.
@@ -229,7 +225,7 @@ Para reverter um nome de exibição, o nome do sistema deve aparecer no campo *N
 
 --
 ====
-. <<download-recovery-package,Baixe e salve um novo pacote de recuperação>>.
+. <<download-recovery-package,Baixe e salve um novo pacote de recuperação>> .
 +
 Os nomes de exibição dos itens que você reverteu não estão mais incluídos no `Passwords.txt` arquivo.
 

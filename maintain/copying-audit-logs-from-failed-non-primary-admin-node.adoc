@@ -34,7 +34,7 @@ Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
 . Pare o serviço AMS para impedir que ele crie um novo arquivo de log:``service ams stop``
 . Navegue até o diretório de exportação de auditoria:
 +
-`cd /var/local/log`
+`cd /var/local/audit/export/`
 
 . Renomeie o arquivo audit.log de origem para um nome de arquivo numerado exclusivo. Por exemplo, renomeie o arquivo audit.log para `2023-10-25.txt.1`.
 +

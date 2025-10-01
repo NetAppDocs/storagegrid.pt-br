@@ -37,12 +37,12 @@ Se o uso do Console S3 resulta em operações demoradas demais (por exemplo, min
 .Antes de começar
 * Você está conetado ao Gerenciador do Locatário usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
 * Se você quiser gerenciar objetos, você pertence a um grupo de usuários que tem a permissão de acesso root. Como alternativa, você pertence a um grupo de usuários que tem a permissão usar a guia Console S3 e a permissão Exibir todos os buckets ou Gerenciar todos os buckets. link:tenant-management-permissions.html["Permissões de gerenciamento do locatário"]Consulte .
-* Uma política de grupo S3 ou balde foi configurada para o utilizador. link:../s3/bucket-and-group-access-policies.html["Use políticas de acesso de grupo e bucket"]Consulte .
+* Uma política de grupo ou bucket S3 foi configurada para o usuário. Ver link:../s3/use-access-policies.html["Use políticas de acesso de grupo e bucket"] .
 * Você sabe o ID da chave de acesso do usuário e a chave de acesso secreta. Opcionalmente, você tem um `.csv` arquivo contendo essas informações. Consulte link:creating-your-own-s3-access-keys.html["instruções para criar chaves de acesso"].
 
 
 .Passos
-. Selecione *STORAGE* > *Buckets* > *_bucket name_*.
+. Selecione *Armazenamento* > *Buckets* > *_nome do bucket_*.
 . Selecione a guia Console do S3.
 . Cole o ID da chave de acesso e a chave de acesso secreta nos campos. Caso contrário, selecione *carregar chaves de acesso* e selecione o seu `.csv` ficheiro.
 . Selecione *entrar*.

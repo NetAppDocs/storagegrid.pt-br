@@ -46,8 +46,8 @@ Você pode usar *Search* para encontrar entradas na barra lateral do Gerenciador
 
 O menu de ajuda image:../media/icon-help-menu-bar.png["ícone de ajuda na barra de menus"]fornece acesso a:
 
-* O link:../fabricpool/use-fabricpool-setup-wizard.html["FabricPool"]assistente elink:../admin/use-s3-setup-wizard.html["Configuração S3"]
-* O centro de documentação do StorageGRID para a versão atual
+* Olink:../fabricpool/use-fabricpool-setup-wizard.html["FabricPool"] elink:../admin/use-s3-setup-wizard.html["Configuração S3"] bruxos
+* O site de documentação do StorageGRID para a versão atual
 * link:../admin/using-grid-management-api.html["Documentação do API"]
 * Informações sobre qual versão do StorageGRID está instalada atualmente
 
@@ -71,11 +71,7 @@ No menu Alertas, você pode fazer o seguinte paralink:../monitor/managing-alerts
 
 == Página de nós
 
-O link:../monitor/viewing-nodes-page.html["Página de nós"] exibe informações sobre toda a grade, cada local na grade e cada nó em um local.
-
-A home page dos nós exibe métricas combinadas para toda a grade. Para exibir informações de um site ou nó específico, selecione o site ou nó.
-
-image::../media/nodes_page.png[página principal dos nós]
+Olink:../monitor/viewing-nodes-page.html["Página de nós"] exibe informações sobre toda a grade, cada site na grade e cada nó em um site.  Para visualizar informações de um site ou nó específico, selecione o site ou nó.
 
 
 
@@ -84,8 +80,6 @@ image::../media/nodes_page.png[página principal dos nós]
 O link:../admin/managing-tenants.html["Página de inquilinos"] permite-lhe link:../tenant/index.html["crie e monitore as contas de locatários de storage"]utilizar o seu sistema StorageGRID. Você deve criar pelo menos uma conta de locatário para especificar quem pode armazenar e recuperar objetos e qual funcionalidade está disponível para eles.
 
 A página locatários também fornece detalhes de uso para cada locatário, incluindo a quantidade de storage usada e o número de objetos. Se você definir uma cota quando criou o locatário, poderá ver quanto dessa cota foi usada.
-
-image::../media/tenants_page.png[Menu e Página de inquilinos]
 
 
 
@@ -116,11 +110,12 @@ O menu Configuração permite especificar as definições de rede, as definiçõ
 
 As tarefas de rede incluem:
 
-* link:../admin/managing-high-availability-groups.html["Gerenciamento de grupos de alta disponibilidade"]
-* link:../admin/managing-load-balancing.html["Gerenciamento de pontos de extremidade do balanceador de carga"]
-* link:../admin/configuring-s3-api-endpoint-domain-names.html["Configurando nomes de domínio de endpoint S3"]
-* link:../admin/managing-traffic-classification-policies.html["Gerir políticas de classificação de tráfego"]
-* link:../admin/configure-vlan-interfaces.html["Configurando interfaces VLAN"]
+* link:../admin/managing-high-availability-groups.html["Gerenciar grupos de alta disponibilidade"]
+* link:../admin/managing-load-balancing.html["Gerenciar endpoints do balanceador de carga"]
+* link:../admin/configuring-s3-api-endpoint-domain-names.html["Configurar nomes de domínio de endpoint S3"]
+* link:../admin/managing-traffic-classification-policies.html["Gerenciar políticas de classificação de tráfego"]
+* link:../admin/configure-vlan-interfaces.html["Configurar interfaces VLAN"]
+* link:../admin/enable-cross-origin-resource-sharing-for-management-interface.html["Habilitar StorageGRID CORS para uma interface de gerenciamento"]
 
 
 
@@ -129,11 +124,11 @@ As tarefas de rede incluem:
 
 As tarefas de segurança incluem:
 
-* link:../admin/using-storagegrid-security-certificates.html["Gerenciamento de certificados de segurança"]
-* link:../admin/manage-firewall-controls.html["Gerenciamento de controles internos de firewall"]
-* link:../admin/kms-configuring.html["Configurando servidores de gerenciamento de chaves"]
-* Configurar as definições de segurança, incluindo link:../admin/manage-tls-ssh-policy.html["Política TLS e SSH"], link:../admin/changing-network-options-object-encryption.html["opções de segurança de rede e objetos"]e link:../admin/changing-browser-session-timeout-interface.html["definições de segurança da interface"].
-* Configurar as definições de a link:../admin/configuring-storage-proxy-settings.html["proxy de storage"] ou A. link:../admin/configuring-admin-proxy-settings.html["proxy de administrador"]
+* link:../admin/using-storagegrid-security-certificates.html["Gerenciar certificados de segurança"]
+* link:../admin/manage-firewall-controls.html["Gerenciar controles internos de firewall"]
+* link:../admin/kms-configuring.html["Configurar servidores de gerenciamento de chaves"]
+* Configurar as definições de segurança, incluindolink:../admin/manage-tls-ssh-policy.html["Política TLS e SSH"] ,link:../admin/changing-network-options-object-encryption.html["opções de segurança de rede e objetos"] ,link:../admin/changing-browser-session-timeout-interface.html["definições de segurança da interface"] , elink:../admin/manage-external-ssh-access.html["Opções de acesso SSH"]
+* Configurar definições para umlink:../admin/configuring-storage-proxy-settings.html["proxy de storage"] ou umlink:../admin/configuring-admin-proxy-settings.html["proxy de administrador"]
 
 
 
@@ -142,11 +137,12 @@ As tarefas de segurança incluem:
 
 As tarefas do sistema incluem:
 
-* Uso link:../admin/grid-federation-overview.html["federação de grade"] para clonar informações da conta de locatário e replicar dados de objeto entre dois sistemas StorageGRID.
-* Opcionalmente, ativando a link:../admin/configuring-stored-object-compression.html["Comprimir objetos armazenados"] opção.
-* link:../ilm/managing-objects-with-s3-object-lock.html["Gerenciando o bloqueio de objetos S3"]
-* Noções básicas sobre opções de armazenamento, link:../admin/what-object-segmentation-is.html["segmentação de objetos"]como e link:../admin/what-storage-volume-watermarks-are.html["marcas de água do volume de armazenamento"].
-* link:../ilm/manage-erasure-coding-profiles.html["Gerenciar perfis de codificação de apagamento"].
+* Usarlink:../admin/grid-federation-overview.html["federação de grade"] para clonar informações de conta de locatário e replicar dados de objeto entre dois sistemas StorageGRID
+* Opcionalmente, habilite olink:../admin/configuring-stored-object-compression.html["Comprimir objetos armazenados"] opção
+* Opcionalmente, configure olink:../s3/consistency.html["configuração de consistência de bucket padrão"]
+* link:../ilm/managing-objects-with-s3-object-lock.html["Gerenciar bloqueio de objeto S3"]
+* Entenda as configurações de armazenamento, comolink:../admin/what-storage-volume-watermarks-are.html["marcas de água do volume de armazenamento"]
+* link:../ilm/manage-erasure-coding-profiles.html["Gerenciar perfis de codificação de apagamento"]
 
 
 
@@ -155,8 +151,8 @@ As tarefas do sistema incluem:
 
 As tarefas de monitoramento incluem:
 
-* link:../monitor/configure-audit-messages.html["Configurando mensagens de auditoria e destinos de log"]
-* link:../monitor/using-snmp-monitoring.html["Utilizar a monitorização SNMP"]
+* link:../monitor/configure-log-management.html["Configurar gerenciamento de log"]
+* link:../monitor/using-snmp-monitoring.html["Utilize a monitorização SNMP"]
 
 
 
@@ -165,11 +161,11 @@ As tarefas de monitoramento incluem:
 
 As tarefas de controle de acesso incluem:
 
-* link:../admin/managing-admin-groups.html["Gerenciando grupos de administradores"]
-* link:../admin/managing-users.html["Gerenciamento de usuários administrativos"]
-* Alterar link:../admin/changing-provisioning-passphrase.html["frase-passe do aprovisionamento"]ou link:../admin/change-node-console-password.html["senhas do console do nó"]
-* link:../admin/using-identity-federation.html["Usando a federação de identidade"]
-* link:../admin/configuring-sso.html["Configurando SSO"]
+* link:../admin/managing-admin-groups.html["Gerenciar grupos de administradores"]
+* link:../admin/managing-users.html["Gerenciar usuários administradores"]
+* Mudar olink:../admin/changing-provisioning-passphrase.html["frase-passe do aprovisionamento"] oulink:../admin/change-node-console-password.html["senhas do console do nó"]
+* link:../admin/using-identity-federation.html["Use a federação de identidade"]
+* link:../admin/how-sso-works.html["Configurar SSO"]
 
 
 
@@ -189,7 +185,7 @@ As tarefas de manutenção incluem:
 * link:../maintain/warnings-and-considerations-for-grid-node-recovery.html["Procedimentos de recuperação do nó de grade"] para substituir um nó com falha e restaurar dados
 * link:../maintain/rename-grid-site-node-overview.html["Mudar o nome dos procedimentos"] para alterar os nomes de exibição de sua grade, sites e nós
 * link:../troubleshoot/verifying-object-integrity.html["Operações de verificação de existência de objeto"] verificar a existência (embora não a correção) de dados de objeto
-* Executando um link:../maintain/rolling-reboot-procedure.html["reinício contínuo"] para reiniciar vários nós de grade
+* Executar umlink:../maintain/rolling-reboot-procedure.html["reinício contínuo"] para reiniciar vários nós de grade
 * link:../maintain/restoring-volume.html["Operações de restauração de volume"]
 
 
@@ -199,8 +195,8 @@ As tarefas de manutenção incluem:
 
 As tarefas de manutenção do sistema que você pode executar incluem:
 
-* link:../admin/viewing-storagegrid-license-information.html["Visualizar informações de licença do StorageGRID"] ou link:../admin/updating-storagegrid-license-information.html["atualizando informações de licença"]
-* Gerando e baixando o. link:../maintain/downloading-recovery-package.html["Pacote de recuperação"]
+* link:../admin/viewing-storagegrid-license-information.html["Veja as informações da licença do StorageGRID"]oulink:../admin/updating-storagegrid-license-information.html["atualizar informações de licença"]
+* Gerando e baixando olink:../maintain/downloading-recovery-package.html["pacote de recuperação"]
 * Executar atualizações de software do StorageGRID, incluindo atualizações de software, hotfixes e atualizações do software SANtricity os em dispositivos selecionados
 +
 ** link:../upgrade/index.html["Procedimento de atualização"]
@@ -217,9 +213,9 @@ As tarefas de manutenção do sistema que você pode executar incluem:
 
 As tarefas de manutenção de rede que você pode executar incluem:
 
-* link:../maintain/configuring-dns-servers.html["Configurando servidores DNS"]
-* link:../maintain/updating-subnets-for-grid-network.html["Atualizando sub-redes de rede de Grade"]
-* link:../maintain/configuring-ntp-servers.html["Gerenciamento de servidores NTP"]
+* link:../maintain/configuring-dns-servers.html["Configurar servidores DNS"]
+* link:../maintain/updating-subnets-for-grid-network.html["Atualizar sub-redes da rede Grid"]
+* link:../maintain/configuring-ntp-servers.html["Gerenciar servidores NTP"]
 
 
 
@@ -236,7 +232,6 @@ Na seção Ferramentas do menu suporte, você pode:
 
 * link:../admin/configure-autosupport-grid-manager.html["Configurar o AutoSupport"]
 * link:../monitor/running-diagnostics.html["Execute o diagnóstico"] no estado atual da grelha
-* link:../monitor/viewing-grid-topology-tree.html["Acesse a árvore de topologia de grade"] para exibir informações detalhadas sobre nós de grade, serviços e atributos
 * link:../monitor/collecting-log-files-and-system-data.html["Colete arquivos de log e dados do sistema"]
 * link:../monitor/reviewing-support-metrics.html["Analise as métricas de suporte"]
 +
@@ -247,17 +242,13 @@ NOTE: As ferramentas disponíveis na opção *Metrics* destinam-se a ser utiliza
 
 
 
-=== Alarmes (legado)
-
-As informações sobre alarmes legados foram removidas desta versão da documentação. Consulte a https://docs.netapp.com/us-en/storagegrid-118/monitor/managing-alerts-and-alarms.html["Gerenciar alertas e alarmes (documentação do StorageGRID 11,8)"^].
-
-
-
 === Outros
 
 Na outra seção do menu suporte, você pode:
 
+* Configurarlink:../monitor/manage-io-prioritization.html["Priorização de E/S"]
+* Configurarlink:../admin/configure-autosupport-grid-manager.html["Configuração de e-mail do AutoSupport (antigo)"]
 * Gerenciar link:../admin/manage-link-costs.html["custo da ligação"]
-* link:../admin/viewing-notification-status-and-queues.html["Sistema de gerenciamento de rede (NMS)"]Ver entradas
+* Exibir IDs de serviço de nó
 * Gerenciar link:../admin/what-storage-volume-watermarks-are.html["marcas de água de armazenamento"]
 

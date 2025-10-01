@@ -1,0 +1,49 @@
+---
+permalink: maintain/move-adc-service.html 
+sidebar: sidebar 
+keywords: storagegrid, move adc, adc quorum 
+summary: Você pode mover o serviço ADC para outro nó de armazenamento no mesmo site. 
+---
+= Mover o serviço ADC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode mover o serviço ADC para outro nó de armazenamento no mesmo site.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você temlink:../admin/admin-group-permissions.html["Permissão de manutenção ou acesso root"] .
+* O nó de origem contém o serviço ADC.
+* O nó de destino não contém o serviço ADC.
+* O nó de destino é um nó somente de metadados ou um nó combinado (metadados e dados de objeto).
+* O nó de origem e o nó de destino estão no mesmo site.
+
+
+.Sobre esta tarefa
+Use o procedimento Mover ADC quando quiser:
+
+* Descomissionar um nó de armazenamento que hospeda o serviço ADC
+* Converter um nó de armazenamento que hospeda o serviço ADC em um nó de armazenamento somente de dados
+
+
+Quando você deseja desativar um nó de armazenamento oulink:../maintain/convert-to-data-only-node.html["converter um nó de armazenamento em um nó somente de dados"] , primeiro você pode precisar usar o procedimento Mover ADC.  Você precisará garantir que olink:../maintain/understanding-adc-service-quorum.html["O quórum do ADC é mantido"] .
+
+Este procedimento move os serviços ADC, IDNT, ACCT e RSM de um nó de armazenamento para outro no mesmo site.  Os serviços RSM, IDNT e ACCT dependem do serviço ADC, portanto, eles se movem automaticamente quando o serviço ADC se move.
+
+.Passos
+. Registre os IDs dos nós de origem e de destino.
++
+Na API de gerenciamento de grade, o ID do nó de origem é chamado de `sourceNodeId` .  O ID do nó de destino é chamado de `targetNodeId` .
+
+. Na parte superior do Gerenciador de Grade, selecione o ícone de ajuda e selecione *Documentação da API*.
+. Selecione *vá para a documentação da API privada*.
+. Selecione o `POST /private/move-adc/start` operação. Consulte link:../admin/using-grid-management-api.html#issue-api-requests["Emitir solicitações de API"] para maiores informações.
++
+Durante o procedimento, os dois nós serão reinicializados em sequência.  O nó de origem é reinicializado primeiro, seguido pelo nó de destino.
+
+. Você pode usar `GET /private/move-adc` para monitorar o procedimento.  Se ocorrerem erros, selecione `POST /private/move-adc/retry` para repetir o procedimento.
+. link:../maintain/downloading-recovery-package.html["Baixe um pacote de recuperação"]após concluir este procedimento.
+

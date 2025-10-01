@@ -30,6 +30,7 @@ Você pode usar qualquer combinação das seguintes opções para enviar pacotes
 * *Event-dispolled*: Envie pacotes AutoSupport automaticamente a cada hora ou quando ocorrerem eventos significativos do sistema. Predefinição: Activado.
 * *Sob demanda*: Permita que o suporte técnico solicite que seu sistema StorageGRID envie pacotes AutoSupport automaticamente, o que é útil quando eles estão trabalhando ativamente em um problema (requer protocolo de transmissão HTTPS AutoSupport). Predefinição: Desativada.
 * *User-Triggered*: Envie manualmente pacotes AutoSupport a qualquer momento.
+* *Coleta de logs*:link:../monitor/collecting-log-files-and-system-data.html["coletar manualmente arquivos de log e dados do sistema e enviar um pacote AutoSupport"] .
 
 
 
@@ -46,7 +47,7 @@ Você pode usar qualquer um dos seguintes protocolos para enviar pacotes AutoSup
 O protocolo definido é utilizado para enviar todos os tipos de pacotes AutoSupport.
 
 .Passos
-. Selecione *SUPPORT* > *Tools* > *AutoSupport* > *Settings*.
+. Selecione *Suporte* > *Ferramentas* > * AutoSupport* > *Configurações*.
 . Selecione o protocolo que pretende utilizar para enviar pacotes AutoSupport.
 . Se você selecionou *HTTPS*, selecione se deseja usar um certificado de suporte NetApp (certificado TLS) para proteger a conexão com o servidor de suporte técnico.
 +
@@ -68,7 +69,7 @@ Para determinar quando o pacote AutoSupport semanal será enviado, vá para a gu
 Você pode desativar o envio automático de pacotes AutoSupport semanais a qualquer momento.
 
 .Passos
-. Selecione *SUPPORT* > *Tools* > *AutoSupport* > *Settings*.
+. Selecione *Suporte* > *Ferramentas* > * AutoSupport* > *Configurações*.
 . Desmarque a caixa de seleção *Enable Weekly* (Ativar AutoSupport semanal*).
 . Selecione *Guardar*.
 
@@ -82,7 +83,7 @@ Por padrão, o sistema StorageGRID é configurado para enviar um pacote AutoSupp
 Você pode desativar o AutoSupport acionado por evento a qualquer momento.
 
 .Passos
-. Selecione *SUPPORT* > *Tools* > *AutoSupport* > *Settings*.
+. Selecione *Suporte* > *Ferramentas* > * AutoSupport* > *Configurações*.
 . Desmarque a caixa de seleção *Enable Event-Triggered* (Ativar AutoSupport ativado por evento*).
 . Selecione *Guardar*.
 
@@ -98,7 +99,7 @@ Por padrão, o AutoSupport On Demand está desativado. Ativar este recurso permi
 O suporte técnico não pode ativar ou desativar o AutoSupport sob demanda.
 
 .Passos
-. Selecione *SUPPORT* > *Tools* > *AutoSupport* > *Settings*.
+. Selecione *Suporte* > *Ferramentas* > * AutoSupport* > *Configurações*.
 . Selecione *HTTPS* para o protocolo.
 . Marque a caixa de seleção *Enable Weekly* (Ativar AutoSupport semanal*).
 . Marque a caixa de seleção *Enable on Demand* (Ativar AutoSupport on Demand*).
@@ -117,7 +118,7 @@ Por predefinição, o StorageGRID contacta o NetApp para determinar se estão di
 Conforme necessário, você pode opcionalmente desativar a verificação de atualizações de software. Por exemplo, se o sistema não tiver acesso à WAN, desative a verificação para evitar erros de download.
 
 .Passos
-. Selecione *SUPPORT* > *Tools* > *AutoSupport* > *Settings*.
+. Selecione *Suporte* > *Ferramentas* > * AutoSupport* > *Configurações*.
 . Desmarque a caixa de verificação *verificar atualizações de software*.
 . Selecione *Guardar*.
 
@@ -134,7 +135,7 @@ Para verificar ou alterar o protocolo usado para enviar pacotes AutoSupport, con
 NOTE: Não é possível usar o protocolo SMTP para enviar pacotes AutoSupport para um destino adicional.
 
 .Passos
-. Selecione *SUPPORT* > *Tools* > *AutoSupport* > *Settings*.
+. Selecione *Suporte* > *Ferramentas* > * AutoSupport* > *Configurações*.
 . Selecione *Ativar destino AutoSupport Adicional*.
 . Especifique o seguinte:
 +

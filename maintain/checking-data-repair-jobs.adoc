@@ -11,10 +11,12 @@ summary: Antes de desativar um nó de grade, você deve confirmar que nenhum tra
 
 
 [role="lead"]
-Antes de desativar um nó de grade, você deve confirmar que nenhum trabalho de reparo de dados está ativo. Se alguma reparação tiver falhado, tem de as reiniciar e permitir que sejam concluídas antes de executar o procedimento de desativação.
+Antes de desativar ou expandir um nó de grade, você deve confirmar se não há trabalhos de reparo de dados ativos.  Se algum reparo falhar, você deve reiniciá-lo e esperar que ele seja concluído antes de executar o procedimento de descomissionamento.
+
+Consultelink:../expand/index.html["Tipos de expansão"] para obter detalhes sobre como expandir um nó de grade.
 
 .Sobre esta tarefa
-Se você precisar desativar um nó de armazenamento desconetado, você também concluirá estes passos após a conclusão do procedimento de desativação para garantir que o trabalho de reparo de dados foi concluído com êxito. Você deve garantir que todos os fragmentos codificados de apagamento que estavam no nó removido foram restaurados com sucesso.
+Se você precisar desativar um nó de armazenamento desconectado, conclua estas etapas após a conclusão do procedimento de desativação para garantir que o trabalho de reparo de dados tenha sido concluído.  Você deve garantir que todos os fragmentos codificados para eliminação que estavam no nó removido tenham sido restaurados.
 
 Essas etapas se aplicam somente a sistemas que tenham objetos codificados por apagamento.
 

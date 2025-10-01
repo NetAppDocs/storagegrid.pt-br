@@ -125,7 +125,7 @@ Restrição de localização (apenas S3)
  a| 
 A região onde foi criado um bucket S3. Utilize *ILM* > *Regiões* para definir as regiões que são apresentadas.
 
-*Nota:* Um valor de US-East-1 irá corresponder objetos em buckets criados na região US-East-1, bem como objetos em buckets que não têm nenhuma região especificada. link:configuring-regions-optional-and-s3-only.html["Configurar regiões (opcional e apenas S3)"]Consulte .
+*Observação:* Um valor de us-east-1 corresponderá a objetos em buckets criados na região us-east-1, bem como a objetos em buckets que não têm região especificada. Ver link:configuring-regions-optional-and-s3-only.html["Configurar regiões S3"] .
 
 
 

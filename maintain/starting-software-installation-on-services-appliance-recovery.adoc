@@ -48,10 +48,7 @@ Para instalar o software StorageGRID em um dispositivo de serviços:
 +
 A página inicial do instalador do dispositivo StorageGRID é exibida.
 
-+
-image::../media/services_appliance_installer_gateway_node.png[Página inicial do Instalador de dispositivos]
-
-. Para instalar um nó de administração principal:
+. Para instalar um nó de administração primário:
 +
 .. Na seção este nó, para *tipo de nó*, selecione *Admin principal*.
 .. No campo *Nome do nó*, insira o mesmo nome que foi usado para o nó que você está recuperando e clique em *Salvar*.
@@ -61,10 +58,7 @@ Se a versão do software que está pronta para instalar estiver correta, avance 
 
 .. Se você precisar fazer o upload de uma versão diferente do software, no menu *Avançado*, selecione *carregar software StorageGRID*.
 +
-A página carregar software StorageGRID é exibida.
-
-+
-image::../media/upload_sw_for_pa_on_sga1000.png[Captura de tela descrita pelo texto circundante]
+A página Upload StorageGRID Software é exibida.
 
 .. Clique em *Procurar* para carregar o *Pacote de software* e o *Arquivo de soma de verificação* para o software StorageGRID.
 +
@@ -113,7 +107,7 @@ Detecção automática de todos os nós de administração principal conetados
 |===
 . [[Installation_section_step]]na seção Instalação, confirme se o estado atual está Pronto para iniciar a instalação do nome do nó e se o botão *Start Installation* está ativado.
 +
-Se o botão *Start Installation* (Iniciar instalação) não estiver ativado, poderá ser necessário alterar a configuração da rede ou as definições da porta. Para obter instruções, consulte as instruções de manutenção do seu aparelho.
+Se o botão *Iniciar instalação* não estiver habilitado, talvez seja necessário alterar a configuração de rede ou as configurações de porta.  Consulte as instruções de manutenção do seu aparelho.
 
 . Na página inicial do Instalador de dispositivos StorageGRID, clique em *Iniciar instalação*.
 +

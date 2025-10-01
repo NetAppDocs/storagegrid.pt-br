@@ -24,11 +24,10 @@ NOTE: Se você quiser criar a regra ILM padrão para uma política, siga o link:
 * Você configurou todos os pools de armazenamento em nuvem que planeja usar. link:creating-cloud-storage-pool.html["Crie Cloud Storage Pool"]Consulte .
 * Você está familiarizado com o link:data-protection-options-for-ingest.html["opções de ingestão"].
 * Se você precisar criar uma regra compatível para usar com o bloqueio de objetos S3, você estará familiarizado com o link:requirements-for-s3-object-lock.html["Requisitos para o bloqueio de objetos S3"].
-* Opcionalmente, você assistiu o vídeo: https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7["Vídeo: Visão geral das regras do ILM"^].
+* Opcionalmente, você assistiu ao vídeo:
 +
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7]
-image::../media/video-screenshot-ilm-rules-118.png[Vídeo: Visão geral das regras do ILM]
-
+.Visão geral das regras do ILM
+video::9872d38f-80b3-4ad4-9f79-b1ff008760c7[panopto]
 
 
 .Sobre esta tarefa

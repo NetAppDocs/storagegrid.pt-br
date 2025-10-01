@@ -68,7 +68,7 @@ O _Metadata reserved space_ é uma configuração em todo o sistema que represen
 
 
  a| 
-11,5 a 11,9
+11,5 a 12,0
  a| 
 128 GB ou mais em cada nó de storage na grade
  a| 
@@ -116,7 +116,7 @@ Qualquer valor
 Siga estas etapas para visualizar a configuração espaço reservado metadados para o seu sistema StorageGRID.
 
 .Passos
-. Selecione *CONFIGURATION* > *System* > *Storage settings*.
+. Selecione *Configuração* > *Sistema* > *Configurações de armazenamento*.
 . Na página Configurações de armazenamento, expanda a seção *espaço reservado de metadados*.
 
 
@@ -161,7 +161,7 @@ O menor desses valores:
 Siga estas etapas para exibir o espaço reservado real para metadados em um nó de armazenamento específico.
 
 .Passos
-. No Gerenciador de Grade, selecione *NÓS* > *_Storage Node_*.
+. No Grid Manager, selecione *Nós* > *_Storage Node_*.
 . Selecione a guia *armazenamento*.
 . Posicione o cursor sobre o gráfico armazenamento usado - metadados de objetos e localize o valor *Real reservado*.
 +
@@ -173,7 +173,7 @@ Na captura de tela, o valor *atual reservado* é de 8 TB. Esta captura de tela �
 
 
 
-== Exemplo de espaço reservado real de metadados
+=== Exemplo de espaço reservado real de metadados
 
 Suponha que você instale um novo sistema StorageGRID usando a versão 11,7 ou posterior. Para este exemplo, suponha que cada nó de armazenamento tem mais de 128 GB de RAM e que o volume 0 do nó de armazenamento 1 (SN1) é de 6 TB. Com base nestes valores:
 
@@ -237,7 +237,7 @@ A tabela a seguir mostra como o StorageGRID calcula o espaço de metadados permi
 Siga estas etapas para exibir o espaço de metadados permitido para um nó de armazenamento.
 
 .Passos
-. No Gerenciador de Grade, selecione *NÓS*.
+. No Grid Manager, selecione *Nós*.
 . Selecione o nó de armazenamento.
 . Selecione a guia *armazenamento*.
 . Posicione o cursor sobre o gráfico armazenamento usado - metadados de objetos e localize o valor *permitido*.

@@ -21,24 +21,24 @@ Você deve usar um navegador da Web compatível.
  a| 
 Google Chrome
  a| 
-119
+138
 
 
 
  a| 
 Microsoft Edge
  a| 
-119
+138
 
 
 
  a| 
 Mozilla Firefox
  a| 
-119
+140
 
 |===
-Você deve definir a janela do navegador para uma largura recomendada.
+Defina a janela do navegador para uma largura recomendada.
 
 [cols="3a,1a"]
 |===

@@ -27,7 +27,7 @@ Você pode gerenciar permissões para S3 grupos de usuários importando grupos f
 Como primeira etapa, acesse o assistente criar grupo.
 
 .Passos
-. Selecione *GERENCIAMENTO DE ACESSO* > *grupos*.
+. Selecione *Gerenciamento de acesso* > *Grupos*.
 . Se sua conta de locatário tiver a permissão *Use Grid Federation Connection*, confirme se um banner azul aparece, indicando que novos grupos criados nessa grade serão clonados para o mesmo locatário na outra grade na conexão. Se este banner não aparecer, você pode estar conetado à grade de destino do locatário.
 +
 image::../media/grid-federation-tenant-group-banner.png[Imagem do banner azul na página de grupos da grade de origem do locatário]

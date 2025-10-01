@@ -37,7 +37,7 @@ TIP: Se quiser substituir um aparelho mais antigo por um aparelho mais novo, con
 
 Você pode desativar os nós de grade conetados ou os nós de grade desconetados.
 
-Desativar os nós conectados:: Em geral, você deve desativar os nós de grade somente quando eles estiverem conetados ao sistema StorageGRID e somente quando todos os nós estiverem em estado normal (tenha ícones verdes nas páginas *NÓS* e na página *NÓS de desintegração*).
+Desativar os nós conectados:: Em geral, você deve desativar os nós da grade somente quando eles estiverem conectados ao sistema StorageGRID e somente quando todos os nós estiverem em funcionamento normal (com ícones verdes nas páginas *Nós* e na página *Desativar nós*).
 +
 --
 Para obter instruções, link:decommissioning-connected-grid-nodes.html["Desativar os nós de grade conetados"]consulte .

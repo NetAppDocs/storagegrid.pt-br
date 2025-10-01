@@ -25,7 +25,7 @@ Você pode monitorar informações básicas sobre todas link:../admin/grid-feder
 A página de federação de grade mostra informações básicas sobre todas as conexões de federação de grade e sobre todas as contas de locatário que têm permissão para usar conexões de federação de grade.
 
 .Passos
-. Selecione *CONFIGURATION* > *System* > *Grid Federation*.
+. Selecione *Configuração* > *Sistema* > *Federação de grade*.
 +
 A página de federação de grade é exibida.
 
@@ -107,7 +107,7 @@ image::../media/grid-federation-certificates-tab.png[grid-federation-certificate
 Você pode usar o painel replicação entre grades no Grafana para exibir as métricas do Prometheus sobre operações de replicação entre grades na grade.
 
 .Passos
-. No Gerenciador de Grade, selecione *support* > *Tools* > *Metrics*.
+. No Grid Manager, selecione *Suporte* > *Ferramentas* > *Métricas*.
 +
 
 NOTE: As ferramentas disponíveis na página Metrics destinam-se a ser utilizadas pelo suporte técnico. Alguns recursos e itens de menu dentro dessas ferramentas são intencionalmente não funcionais e estão sujeitos a alterações. Consulte a lista link:../monitor/commonly-used-prometheus-metrics.html["Métricas de Prometheus comumente usadas"]de .

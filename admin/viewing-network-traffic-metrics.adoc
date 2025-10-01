@@ -24,7 +24,7 @@ Para qualquer política de classificação de tráfego existente, você pode exi
 Mesmo que nenhum limite seja definido para uma política de classificação de tráfego, as métricas são coletadas e os gráficos fornecem informações úteis para entender as tendências de tráfego.
 
 .Passos
-. Selecione *CONFIGURATION* > *Network* > *Traffic Classification*.
+. Selecione *Configuração* > *Rede* > *Classificação de tráfego*.
 +
 A página políticas de classificação de tráfego é exibida e as políticas existentes são listadas na tabela.
 
@@ -54,9 +54,9 @@ NOTE: Quando as solicitações são concluídas, este gráfico mostra somente o 
 ** Ler taxa de solicitação por tamanho do objeto: A taxa de SOLICITAÇÕES GET/HEAD correspondentes a essa política. Posicionamento em uma célula individual mostra taxas por segundo. As taxas mostradas na exibição de hover são truncadas para contagens de inteiros e podem reportar 0 quando há solicitações não zero no intervalo.
 
 
-. Em alternativa, aceda aos gráficos a partir do menu *SUPPORT*.
+. Como alternativa, acesse os gráficos no menu *Suporte*.
 +
-.. Selecione *SUPPORT* > *Tools* > *Metrics*.
+.. Selecione *Suporte* > *Ferramentas* > *Métricas*.
 .. Selecione *Política de classificação de tráfego* na seção *Grafana*.
 .. Selecione a política no menu no canto superior esquerdo da página.
 .. Posicione o cursor sobre um gráfico para ver um pop-up que mostra a data e a hora da amostra, os tamanhos de objetos que são agregados na contagem e o número de solicitações por segundo durante esse período de tempo.

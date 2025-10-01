@@ -16,45 +16,9 @@ Antes de atualizar um sistema StorageGRID, verifique se o sistema está pronto p
 .Passos
 . Faça login no Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
 . Verifique e resolva quaisquer alertas ativos.
-. Confirme se não há tarefas de grade conflitantes ativas ou pendentes.
-+
-.. Selecione *SUPPORT* > *Tools* > *Grid topology*.
-.. Selecione *_site_* > *_Main Admin Node_* > *CMN* > *Grid Tasks* > *Configuration*.
-+
-As tarefas de avaliação de gerenciamento do ciclo de vida das informações (ILME) são as únicas tarefas de grade que podem ser executadas simultaneamente com a atualização do software.
-
-.. Se quaisquer outras tarefas de grade estiverem ativas ou pendentes, aguarde até que elas terminem ou liberem seu bloqueio.
+. Consultelink:../network/internal-grid-node-communications.html["Comunicações internas do nó da grade"] elink:../network/external-communications.html["Comunicações externas"] para garantir que todas as portas necessárias para o StorageGRID 12.0 sejam abertas antes da atualização.
 +
 
-NOTE: Contacte o suporte técnico se uma tarefa não terminar ou libertar o respetivo bloqueio.
+NOTE: Nenhuma porta adicional é necessária ao atualizar para o StorageGRID 12.0.
 
 
-
-. link:../network/internal-grid-node-communications.html["Comunicações internas do nó da grade"]Consulte e link:../network/external-communications.html["Comunicações externas"] para garantir que todas as portas necessárias para o StorageGRID 11,9 estejam abertas antes de atualizar.
-+
-
-NOTE: Não são necessárias portas adicionais ao atualizar para o StorageGRID 11,9.
-
-+
-A seguinte porta necessária foi adicionada no StorageGRID 11,7. Certifique-se de que está disponível antes de atualizar para o StorageGRID 11,9.
-
-+
-[cols="1a,2a"]
-|===
-| Porta | Descrição 
-
-
- a| 
-18086
- a| 
-Porta TCP usada para solicitações S3 do balanceador de carga StorageGRID para LDR e o novo serviço LDR.
-
-Antes de atualizar, confirme se essa porta está aberta de todos os nós de grade para todos os nós de storage.
-
-Bloquear esta porta causará S3 interrupções de serviço após a atualização para o StorageGRID 11,9.
-
-|===
-
-
-
-CAUTION: Se tiver aberto quaisquer portas de firewall personalizadas, será notificado durante a pré-verificação da atualização. Você deve entrar em Contato com o suporte técnico antes de prosseguir com a atualização.

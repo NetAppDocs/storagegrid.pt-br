@@ -17,7 +17,7 @@ O componente básico básico de um sistema StorageGRID é o nó de grade. Os nó
 
 == Tipos de nós de grade
 
-O sistema StorageGRID usa quatro tipos de nós de grade:
+O sistema StorageGRID usa três tipos de nós de grade:
 
 Nós de administração:: Fornecer serviços de gerenciamento, como configuração do sistema, monitoramento e logs. Quando você entra no Gerenciador de Grade, você está se conetando a um nó Admin. Cada grade deve ter um nó de administração principal e pode ter nós de administração não primários adicionais para redundância. Você pode se conetar a qualquer nó de administrador e cada nó de administrador exibe uma exibição semelhante do sistema StorageGRID. No entanto, os procedimentos de manutenção devem ser executados usando o nó de administração principal.
 +
@@ -30,6 +30,8 @@ Consulte link:what-admin-node-is.html["O que é um nó de administração?"]
 Nós de storage:: Gerenciar e armazenar dados e metadados de objetos. Cada local do seu sistema StorageGRID precisa ter pelo menos três nós de storage.
 +
 --
+Durante a instalação inicial de um novo nó de armazenamento, você pode especificar que ele seja usado apenas paralink:../primer/what-storage-node-is.html#types-of-storage-nodes["armazenar metadados"] .
+
 Consulte link:what-storage-node-is.html["O que é um nó de storage?"]
 
 --
@@ -45,7 +47,7 @@ Consulte link:what-gateway-node-is.html["O que é um nó de gateway?"]
 
 == Nós de hardware e software
 
-Os nós do StorageGRID podem ser implantados como nós de dispositivos StorageGRID ou como nós baseados em software.
+Os nós do StorageGRID podem ser implantados como nós de dispositivos do StorageGRID ou como nós baseados em software.  O número máximo de nós (incluindo todos os tipos de nós) por sistema é 220.
 
 
 
@@ -63,16 +65,9 @@ Consulte o seguinte para saber mais sobre os aparelhos disponíveis:
 
 === Nós baseados em software
 
-Os nós de grade baseados em software podem ser implantados como máquinas virtuais VMware ou dentro dos mecanismos de contentor em um host Linux.
-
-* Máquina virtual (VM) no VMware vSphere: link:../vmware/index.html["Instale o StorageGRID no VMware"]Consulte .
-* Dentro de um mecanismo de contentor no Red Hat Enterprise Linux: link:../rhel/index.html["Instale o StorageGRID no Red Hat Enterprise Linux"]Consulte .
-* Dentro de um motor de container no Ubuntu ou Debian: Veja link:../ubuntu/index.html["Instale o StorageGRID no Ubuntu ou Debian"].
-
+Os nós de grade baseados em software podem ser implantados como máquinas virtuais VMware ou em mecanismos de contêiner em um host Linux. Ver link:../swnodes/index.html["Instalar StorageGRID em nós baseados em software"] .
 
 Utilize o https://imt.netapp.com/matrix/#welcome["Ferramenta de Matriz de interoperabilidade NetApp (IMT)"^] para determinar as versões suportadas.
-
-Durante a instalação inicial de um novo nó de storage baseado em software, você pode especificar que ele só será usado link:../primer/what-storage-node-is.html#types-of-storage-nodes["armazenar metadados"]no .
 
 
 
@@ -109,6 +104,42 @@ AMS (sistema de Gestão de Auditoria)
 Monitora e Registra todos os eventos e transações do sistema auditados em um arquivo de log de texto.
  a| 
 Nós de administração
+
+
+
+ a| 
+Apache Tomcat
+ a| 
+Servidor web para aplicativos baseados em Java.
+ a| 
+Nós de administração
+
+
+
+ a| 
+Avahi Daemon
+ a| 
+Lida com mDNS, que é usado para resolução de nomes e descoberta de serviços dentro da rede local.
+ a| 
+Todos os nós
+
+
+
+ a| 
+Serviço de Cache
+ a| 
+É executado em nós do balanceador de carga (Gateway) e gerencia um cache local de conteúdo de objetos.
+ a| 
+Nós de gateway
+
+
+
+ a| 
+Cassandra
+ a| 
+Gerencia o banco de dados distribuído para metadados de objetos.
+ a| 
+Nós de armazenamento (exceto somente dados)
 
 
 
@@ -187,7 +218,7 @@ Nós de administrador e gateway
  a| 
 Identidade (idnt)
  a| 
-Federa identidades de usuários do LDAP e do ative Directory.
+Gerencia usuários e grupos locais, autenticação e federa identidades de usuários do LDAP e do Active Directory.
  a| 
 Nós de storage que usam o serviço ADC
 
@@ -239,9 +270,9 @@ Todos os nós
 
 
  a| 
-nginx-gw
+Balanceador de carga nginx-gw
  a| 
-Alimenta o serviço Load Balancer.
+Fornece balanceamento de carga de tráfego S3 de clientes para nós de storage. O serviço Load Balancer pode ser configurado através da página de configuração Load Balancer Endpoints. Este serviço também é conhecido como o serviço nginx-gw.
  a| 
 Nós de administrador e gateway
 
@@ -253,6 +284,24 @@ NMS (sistema de gerenciamento de rede)
 Alimenta as opções de monitoramento, relatórios e configuração que são exibidas pelo Gerenciador de Grade.
  a| 
 Nós de administração
+
+
+
+ a| 
+Exportador de nós (coleta de dados do Prometheus)
+ a| 
+Publica estatísticas em nível de sistema para a coleta de métricas de séries temporais do Prometheus.
+ a| 
+Todos os nós
+
+
+
+ a| 
+ntp
+ a| 
+Serviço de protocolo de tempo de rede (NTP).
+ a| 
+Todos os nós
 
 
 
@@ -293,7 +342,70 @@ Uma instância está presente em cada nó de grade
 
 
  a| 
-Trace Collector
+Gerenciador de Servidores
+ a| 
+Gerencia serviços do StorageGRID .
+ a| 
+Todos os nós
+
+
+
+ a| 
+Agente SNMP
+ a| 
+Responde a solicitações SNMP.
+ a| 
+Nós de administração
+
+
+
+ a| 
+Serviço de gerenciamento de porta SNMP
+ a| 
+Lida com o gerenciamento dinâmico de portas SNMP.
+ a| 
+Todos os nós
+
+
+
+ a| 
+SSH (Shell Seguro)
+ a| 
+Lida com acesso seguro e gerenciamento remoto do sistema.
+ a| 
+Todos os nós
+
+
+
+ a| 
+SSM (Monitor de Status do Sistema)
+ a| 
+Monitora as condições de hardware e os relatórios para o serviço NMS.
+ a| 
+Todos os nós
+
+
+
+ a| 
+Estado
+ a| 
+Registra métricas adicionais relacionadas aos buckets do S3.
+ a| 
+Nós de storage
+
+
+
+ a| 
+Agente de rastreamento (jaeger-agent)
+ a| 
+Recebe e processa informações de rastreamento enviadas pelo coletor de rastreamento (jaeger-collector).
+ a| 
+Todos os nós
+
+
+
+ a| 
+Coletor de Rastros (jaeger-collector)
  a| 
 Executa a coleta de rastreamento para coletar informações para uso pelo suporte técnico. O serviço de coletor de rastreamento usa software Jaeger de código aberto.
  a| 

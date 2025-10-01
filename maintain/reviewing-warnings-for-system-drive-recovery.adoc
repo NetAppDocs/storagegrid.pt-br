@@ -13,23 +13,20 @@ summary: Antes de recuperar uma unidade de sistema com falha de um nó de armaze
 [role="lead"]
 Antes de recuperar uma unidade de sistema com falha de um nó de armazenamento, reveja os avisos gerais link:warnings-and-considerations-for-grid-node-recovery.html["avisos e considerações para a recuperação do nó da grade"] e específicos a seguir.
 
-Os nós de storage têm um banco de dados Cassandra que inclui metadados de objetos. O banco de dados Cassandra pode ser reconstruído nas seguintes circunstâncias:
+Os nós de armazenamento têm um banco de dados Cassandra que inclui metadados de objetos.  O banco de dados Cassandra pode ser reconstruído se:
 
-* Um nó de armazenamento é colocado de volta online depois de estar offline por mais de 15 dias.
-* Um volume de armazenamento falhou e foi recuperado.
+* Um volume de armazenamento falha e é recuperado.
 * A unidade do sistema e um ou mais volumes de armazenamento falham e são recuperados.
 
 
-Quando o Cassandra é reconstruído, o sistema usa informações de outros nós de storage. Se muitos nós de storage estiverem offline, alguns dados do Cassandra podem não estar disponíveis. Se o Cassandra foi reconstruído recentemente, os dados do Cassandra podem ainda não ser consistentes em toda a grade. A perda de dados pode ocorrer se o Cassandra for reconstruído quando muitos nós de storage estiverem off-line ou se dois ou mais nós de storage forem reconstruídos em até 15 dias um do outro.
+Quando o Cassandra é reconstruído, o sistema usa informações de outros nós de armazenamento.  Se o Cassandra foi reconstruído recentemente, os dados do Cassandra podem ainda não ser consistentes em toda a grade.  Se muitos nós de armazenamento estiverem offline:
+
+* Alguns dados do Cassandra podem não estar disponíveis.
+* Pode ocorrer perda de dados.
 
 
-CAUTION: Se mais de um nó de armazenamento tiver falhado (ou estiver offline), contacte o suporte técnico. Não execute o seguinte procedimento de recuperação. Pode ocorrer perda de dados.
 
-
-CAUTION: Se esta for a segunda falha do nó de storage em menos de 15 dias após uma falha ou recuperação do nó de storage, entre em Contato com o suporte técnico. A reconstrução do Cassandra em dois ou mais nós de storage em até 15 dias pode resultar na perda de dados.
-
-
-NOTE: Se mais de um nó de armazenamento em um local tiver falhado, um procedimento de recuperação do local pode ser necessário. link:how-site-recovery-is-performed-by-technical-support.html["Como o suporte técnico recupera um site"]Consulte .
+CAUTION: Se mais de um nó de armazenamento falhar (ou estiver offline), entre em contato com o suporte técnico.  Não execute o seguinte procedimento de recuperação.  Pode ocorrer perda de dados. Para mais informações, consulte link:how-site-recovery-is-performed-by-technical-support.html["Como o suporte técnico recupera um site"] .
 
 
 CAUTION: Se este nó de armazenamento estiver no modo de manutenção somente leitura para permitir a recuperação de objetos por outro nó de armazenamento com volumes de armazenamento com falha, recupere volumes no nó de armazenamento com volumes de armazenamento com falha antes de recuperar este nó de armazenamento com falha. Consulte as instruções para link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["recuperar de uma falha no volume de armazenamento em que a unidade do sistema está intacta"].

@@ -20,7 +20,7 @@ A replicação e a codificação de apagamento exigem configurações diferentes
 
 
 
-CAUTION: Ao configurar a implantação do StorageGRID para proteção contra perda de site, você também deve levar em conta os efeitos do link:data-protection-options-for-ingest.html["opções de ingestão"] e link:../s3/consistency-controls.html["consistência"]do .
+CAUTION: Ao configurar sua implantação do StorageGRID para proteção contra perda de site, você também deve levar em consideração os efeitos delink:data-protection-options-for-ingest.html["opções de ingestão"] elink:../s3/consistency.html["consistência"] .
 
 
 

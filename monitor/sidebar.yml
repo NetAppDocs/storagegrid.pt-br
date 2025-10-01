@@ -91,12 +91,12 @@ entries:
     url: "/monitor/deployment-and-maintenance-logs.html"
   - title: Sobre o bycast.log
     url: "/monitor/about-bycast-log.html"
-- title: Configurar destinos de mensagens de auditoria e de log
+- title: Configurar gerenciamento de log e servidor syslog externo
   entries:
   - title: Considerações para servidor syslog externo
     url: "/monitor/considerations-for-external-syslog-server.html"
-  - title: Configurar mensagens de auditoria e servidor syslog externo
-    url: "/monitor/configure-audit-messages.html"
+  - title: Configurar gerenciamento de log
+    url: "/monitor/configure-log-management.html"
 - title: Utilize a monitorização SNMP
   entries:
   - title: Monitoramento SNMP
@@ -110,26 +110,20 @@ entries:
     url: "/monitor/access-snmp-mib.html"
 - title: Colete dados adicionais do StorageGRID
   entries:
-  - title: Use gráficos e gráficos
-    url: "/monitor/using-charts-and-reports.html"
-  - title: Use relatórios de texto
-    url: "/monitor/types-of-text-reports.html"
   - title: Monitore O PUT e obtenha desempenho
     url: "/monitor/monitoring-put-and-get-performance.html"
   - title: Monitorar operações de verificação de objetos
     url: "/monitor/monitoring-object-verification-operations.html"
-  - title: Monitorar eventos
-    url: "/monitor/monitoring-events.html"
   - title: Rever mensagens de auditoria
     url: "/monitor/reviewing-audit-messages.html"
   - title: Colete arquivos de log e dados do sistema
     url: "/monitor/collecting-log-files-and-system-data.html"
   - title: Acione manualmente um pacote AutoSupport
     url: "/monitor/manually-triggering-autosupport-message.html"
-  - title: Veja a árvore de topologia de Grade
-    url: "/monitor/viewing-grid-topology-tree.html"
   - title: Analise as métricas de suporte
     url: "/monitor/reviewing-support-metrics.html"
+  - title: Alterar priorização de E/S
+    url: "/monitor/manage-io-prioritization.html"
   - title: Execute o diagnóstico
     url: "/monitor/running-diagnostics.html"
   - title: Crie aplicativos de monitoramento personalizados

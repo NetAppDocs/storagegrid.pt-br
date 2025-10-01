@@ -19,9 +19,14 @@ Antes de decidir se deve usar a replicação ou a codificação de apagamento pa
 
 Em comparação com a replicação, a codificação de apagamento oferece maior confiabilidade, disponibilidade e eficiência de storage.
 
-* *Confiabilidade*: A confiabilidade é medida em termos de tolerância a falhas - ou seja, o número de falhas simultâneas que podem ser sustentadas sem perda de dados. Com a replicação, várias cópias idênticas são armazenadas em nós diferentes e em locais diferentes. Com a codificação de apagamento, um objeto é codificado em dados e fragmentos de paridade e distribuído em muitos nós e sites. Essa dispersão fornece proteção contra falha de local e nó. Em comparação com a replicação, a codificação de apagamento oferece maior confiabilidade a custos de storage comparáveis.
-* *Disponibilidade*: A disponibilidade pode ser definida como a capacidade de recuperar objetos se os nós de armazenamento falharem ou ficarem inacessíveis. Em comparação com a replicação, a codificação de apagamento oferece maior disponibilidade a custos de storage comparáveis.
-* *Eficiência de storage*: Para níveis semelhantes de disponibilidade e confiabilidade, os objetos protegidos por meio da codificação de apagamento consomem menos espaço em disco do que os mesmos objetos se protegidos por meio da replicação. Por exemplo, um objeto de 10 MB replicado para dois locais consome 20 MB de espaço em disco (duas cópias), enquanto um objeto codificado por apagamento em três locais com um esquema de codificação de apagamento 6-3 consome apenas 15 MB de espaço em disco.
+* *Confiabilidade*: Medida pelo número de falhas simultâneas que podem ser sustentadas sem perda de dados.
++
+** Replicação: várias cópias idênticas de objetos são armazenadas em diferentes nós e entre sites.
+** Codificação de apagamento: um objeto é codificado em dados e fragmentos de paridade e distribuído entre muitos nós e sites.  Essa dispersão fornece proteção contra falhas no local e no nó.
+
+
+* *Disponibilidade*: A capacidade de obter objetos se os nós de armazenamento falharem ou se tornarem inacessíveis.  Quando comparado à replicação, a codificação de eliminação proporciona maior disponibilidade a custos de armazenamento comparáveis.
+* *Eficiência de armazenamento*: para disponibilidade e confiabilidade semelhantes, objetos codificados para eliminação usam menos espaço em disco do que objetos replicados.  Por exemplo, um objeto de 10 MB replicado em dois sites consome 20 MB de espaço em disco (duas cópias), enquanto um objeto codificado por eliminação em três sites com um esquema de codificação por eliminação 6+3 consome apenas 15 MB de espaço em disco.
 +
 
 NOTE: O espaço em disco para objetos codificados por apagamento é calculado como o tamanho do objeto, além da sobrecarga de storage. A porcentagem de sobrecarga de storage é o número de fragmentos de paridade divididos pelo número de fragmentos de dados.
@@ -38,7 +43,7 @@ Quando comparada à replicação, a codificação de apagamento tem as seguintes
 * Aumento do custo e complexidade das expansões de armazenamento. Para expandir uma implantação que usa replicação, você adiciona capacidade de storage em todos os locais onde são feitas cópias de objetos. Para expandir uma implantação que usa codificação de apagamento, você deve considerar tanto o esquema de codificação de apagamento em uso quanto o número total de nós de storage existentes. Por exemplo, se você esperar até que os nós existentes estejam 100% cheios, será necessário adicionar pelo menos `k+m` nós de storage. No entanto, se você expandir quando os nós existentes estiverem 70% cheios, poderá adicionar dois nós por local e ainda maximizar a capacidade de storage utilizável. Para obter mais informações, link:../expand/adding-storage-capacity-for-erasure-coded-objects.html["Adicionar capacidade de storage para objetos codificados por apagamento"]consulte .
 * Há maiores latências de recuperação quando você usa codificação de apagamento em sites distribuídos geograficamente. Os fragmentos de objeto para um objeto que é codificado por apagamento e distribuído entre locais remotos levam mais tempo para recuperar conexões WAN do que um objeto que é replicado e disponível localmente (o mesmo local ao qual o cliente se coneta).
 * Quando você usa codificação de apagamento em sites distribuídos geograficamente, há maior uso de tráfego de rede WAN para recuperações e reparos, especialmente para objetos recuperados com frequência ou para reparos de objetos em conexões de rede WAN.
-* Quando você usa codificação de apagamento em todos os sites, a taxa de transferência máxima de objetos diminui drasticamente à medida que a latência de rede entre sites aumenta. Esta diminuição deve-se à diminuição correspondente da taxa de transferência da rede TCP, que afeta a rapidez com que o sistema StorageGRID pode armazenar e recuperar fragmentos de objeto.
+* Quando você usa codificação de eliminação em vários sites, a taxa de transferência máxima de objetos diminui drasticamente à medida que a latência da rede entre os sites aumenta.  Essa diminuição é resultado de uma redução na taxa de transferência da rede TCP, o que afeta a rapidez com que o sistema StorageGRID pode armazenar e recuperar fragmentos de objetos.
 * Maior uso de recursos de computação.
 
 
@@ -46,7 +51,7 @@ Quando comparada à replicação, a codificação de apagamento tem as seguintes
 
 == Quando usar codificação de apagamento
 
-A codificação de apagamento é mais adequada para os seguintes requisitos:
+Use a codificação de eliminação para os seguintes requisitos:
 
 * Objetos com mais de 1 MB de tamanho.
 +

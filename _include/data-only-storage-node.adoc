@@ -1,0 +1,7 @@
+= 
+:allow-uri-read: 
+
+
+O uso de um nó de storage exclusivo para dados pode fazer sentido se seus nós de storage tiverem características de desempenho diferentes. Por exemplo, para aumentar potencialmente a performance, você pode ter nós de storage de disco giratório somente de dados e alta capacidade acompanhados por nós de storage de alta performance somente de metadados.
+
+Além disso, você pode obter mais capacidade de metadados removendo nós com pouca RAM do Cassandra, o que aumenta o limite de capacidade de metadados por nó. Consulte link:../admin/managing-object-metadata-storage.html["Gerenciar o storage de metadados de objetos"] .

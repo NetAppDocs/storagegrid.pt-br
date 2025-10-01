@@ -63,7 +63,7 @@ As seguintes configurações de bucket usam a consistência *strong* por padrão
 * link:deleting-s3-bucket-objects.html["Eliminação do balde vazio em segundo plano"]
 * link:enabling-or-disabling-last-access-time-updates.html["Último tempo de acesso"]
 * link:../s3/create-s3-lifecycle-configuration.html["Ciclo de vida do balde"]
-* link:../s3/bucket-and-group-access-policies.html["Política de balde"]
+* link:../s3/use-access-policies.html["Política de balde"]
 * link:../s3/operations-on-buckets.html["Identificação do balde"]
 * link:changing-bucket-versioning.html["Controle de versão do bucket"]
 * link:using-s3-object-lock.html["S3 bloqueio de objetos"]
@@ -76,7 +76,7 @@ NOTE: O valor de consistência para controle de versão de bucket, bloqueio de o
 As seguintes configurações de bucket não usam consistência forte e têm maior disponibilidade para alterações. As alterações a essas configurações podem levar algum tempo antes de ter um efeito.
 
 * link:considerations-for-platform-services.html["Configuração de serviços de plataforma: Integração de notificação, replicação ou pesquisa"]
-* link:configuring-cross-origin-resource-sharing-cors.html["Configuração CORS"]
+* link:configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["Configurar StorageGRID CORS para buckets e objetos"]
 * <<change-bucket-consistency,Altere a consistência do balde>>
 
 

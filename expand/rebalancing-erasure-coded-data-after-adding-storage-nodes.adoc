@@ -16,7 +16,7 @@ Depois de adicionar nós de storage, use o procedimento de rebalancear a codific
 .Antes de começar
 * Você concluiu as etapas de expansão para adicionar os novos nós de storage.
 * Você revisou o link:considerations-for-rebalancing-erasure-coded-data.html["considerações para rebalanceamento de dados codificados por apagamento"].
-* Você entende que os dados de objeto replicados não serão movidos por este procedimento e que o procedimento de rebalancear EC não considera o uso de dados replicados em cada nó de storage ao determinar onde mover dados codificados por apagamento.
+* Você entende que os dados do objeto replicado não serão movidos por este procedimento e que o procedimento de rebalanceamento do EC não move dados replicados.  No entanto, os dados replicados são considerados ao determinar para onde mover os dados do EC.
 * Você tem o `Passwords.txt` arquivo.
 
 
@@ -34,16 +34,6 @@ Você pode executar novamente o procedimento depois que todos os volumes estiver
 
 NOTE: As operações de API S3D para fazer upload de objetos (ou partes de objetos) podem falhar durante o procedimento de rebalanceamento EC se precisarem de mais de 24 horas para serem concluídas. As OPERAÇÕES PUT de longa duração falharão se a regra ILM aplicável usar um posicionamento equilibrado ou rigoroso na ingestão. O seguinte erro será comunicado: `500 Internal Server Error`.
 
-* Durante esse procedimento, todos os nós têm um limite de capacidade de storage de 80%. Os nós que excedem esse limite, mas ainda armazenam abaixo da partição de dados de destino, são excluídos de:
-+
-** O valor de desequilíbrio do local
-** Quaisquer condições de conclusão do trabalho
-+
-
-NOTE: A partição de dados de destino é calculada dividindo o total de dados de um site pelo número de nós.
-
-
-
 * *Condições de conclusão de trabalho*. O procedimento de reequilíbrio CE é considerado completo quando qualquer uma das seguintes situações for verdadeira:
 +
 ** Ele não pode mover mais dados codificados por apagamento.
@@ -56,7 +46,7 @@ NOTE: A partição de dados de destino é calculada dividindo o total de dados d
 .Passos
 . [[Review_object_storage]]Revise os detalhes de armazenamento de objetos atuais para o site que você planeja reequilibrar.
 +
-.. Selecione *NODES*.
+.. Selecione *Nós*.
 .. Selecione o primeiro nó de storage no local.
 .. Selecione a guia *armazenamento*.
 .. Posicione o cursor sobre o gráfico Storage Used - Object Data (armazenamento usado - dados de objetos) para ver a quantidade atual de dados replicados e dados codificados por apagamento no Storage Node.
@@ -112,7 +102,7 @@ Para obter ajuda sobre o comando rebalanceamento-data:
 +
 ** Se `State` for `In progress`, a operação de reequilíbrio CE ainda está em execução. Você deve monitorar periodicamente o procedimento até que ele seja concluído.
 +
-Use o `Site Imbalance` valor para avaliar o quão desequilibrado é o uso de dados de código de apagamento nos nós de storage no local. Esse valor pode variar de 1,0 a 0, com o 0 indicando que o uso de dados com codificação de apagamento é totalmente equilibrado em todos os nós de storage no local.
+Acesse a página Nós para avaliar a distribuição de dados entre os Nós de Armazenamento no site.
 
 +
 O trabalho EC reequilíbrio é considerado concluído e será interrompido quando os dados em todos os nós estiverem dentro de um desvio de 5% da partição de dados de destino.

@@ -41,12 +41,12 @@ Se o erro não for resolvido automaticamente, vá para a próxima etapa.
 
 . Se o seu sistema StorageGRID tiver mais de um nó de administrador, tente iniciar sessão no Gestor de grelha a partir de outro nó de administrador para verificar o estado de um nó de administrador indisponível.
 +
-** Se você conseguir entrar, você pode usar as opções *Dashboard*, *Nodes*, *Alerts* e *SUPPORT* para ajudar a determinar a causa do erro.
+** Se você conseguir fazer login, poderá usar as opções *Painel*, *Nós*, *Alertas* e *Suporte* para ajudar a determinar a causa do erro.
 ** Se você tiver apenas um nó Admin ou ainda não conseguir entrar, vá para a próxima etapa.
 
 
 . Determine se o hardware do nó está offline.
-. Se o logon único (SSO) estiver ativado para o sistema StorageGRID, consulte as etapas para link:../admin/configuring-sso.html["configurando logon único"].
+. Se o logon único (SSO) estiver habilitado para seu sistema StorageGRID , consulte as etapas paralink:../admin/configure-sso.html["configurando logon único"] .
 +
 Talvez seja necessário desativar e reativar temporariamente o SSO para um único nó de administração para resolver quaisquer problemas.
 
@@ -62,7 +62,7 @@ Se a conta de usuário federada não estiver funcionando, tente fazer login no G
 ** Se o utilizador local puder iniciar sessão:
 +
 ... Reveja alertas.
-... Selecione *CONFIGURATION* > *Access Control* > *Identity Federation*.
+... Selecione *Configuração* > *Controle de acesso* > *Federação de identidade*.
 ... Clique em *Test Connection* para validar as configurações de conexão para o servidor LDAP.
 ... Se o teste falhar, resolva quaisquer erros de configuração.
 

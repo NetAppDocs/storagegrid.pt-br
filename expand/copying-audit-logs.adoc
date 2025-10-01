@@ -1,8 +1,8 @@
 ---
-permalink: expand/copying-audit-logs.html 
 sidebar: sidebar 
+permalink: expand/copying-audit-logs.html 
 keywords: copy audit log, Admin Node expansion, 
-summary: Quando você adiciona um novo nó Admin por meio de um procedimento de expansão, seu serviço AMS somente Registra eventos e ações que ocorrem depois que ele se une ao sistema. Conforme necessário, você pode copiar logs de auditoria de um nó de administrador instalado anteriormente para o novo nó de administração de expansão, de modo que ele esteja sincronizado com o resto do sistema StorageGRID. 
+summary: Quando você adiciona um novo nó de administração por meio de um procedimento de expansão, seu serviço AMS registra apenas eventos e ações que ocorrem depois que ele ingressa no sistema.  Conforme necessário, você pode copiar logs de auditoria de um nó de administração instalado anteriormente para o novo nó de administração de expansão para que ele fique sincronizado com o restante do sistema StorageGRID . 
 ---
 = Copiar registos de auditoria
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Quando você adiciona um novo nó Admin por meio de um procedimento de 
 
 
 [role="lead"]
-Quando você adiciona um novo nó Admin por meio de um procedimento de expansão, seu serviço AMS somente Registra eventos e ações que ocorrem depois que ele se une ao sistema. Conforme necessário, você pode copiar logs de auditoria de um nó de administrador instalado anteriormente para o novo nó de administração de expansão, de modo que ele esteja sincronizado com o resto do sistema StorageGRID.
+Quando você adiciona um novo nó de administração por meio de um procedimento de expansão, seu serviço AMS registra apenas eventos e ações que ocorrem depois que ele ingressa no sistema.  Conforme necessário, você pode copiar logs de auditoria de um nó de administração instalado anteriormente para o novo nó de administração de expansão para que ele fique sincronizado com o restante do sistema StorageGRID .
 
 .Antes de começar
 * Você concluiu as etapas de expansão necessárias para adicionar um nó de administrador.
@@ -23,13 +23,13 @@ Para disponibilizar mensagens de auditoria histórica em um novo nó de administ
 
 [NOTE]
 ====
-Por padrão, as informações de auditoria são enviadas para o log de auditoria nos nós de administração. Você pode ignorar estas etapas se qualquer uma das seguintes situações se aplicar:
+Por padrão, as informações de auditoria são enviadas para o `localaudit` faça logon em cada nó.  Para usar este procedimento, você deve ter configurado os Nós de Administração como destino de auditoria da seguinte maneira:
 
-* Você configurou um servidor syslog externo e os logs de auditoria agora estão sendo enviados para o servidor syslog em vez de para nós de administrador.
-* Você especificou explicitamente que as mensagens de auditoria devem ser salvas somente nos nós locais que as geraram.
+* Você configurou *Nós de administração/nós locais* como destino do log.
+* Você configurou *Nós de administração e servidor syslog externo* como destino de log.
 
 
-link:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria e destinos de log"]Consulte para obter detalhes.
+Consultelink:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria e servidor syslog externo"] para mais detalhes.
 
 ====
 .Passos
@@ -47,9 +47,9 @@ Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
 . Pare o serviço AMS para impedir que ele crie um novo arquivo: `service ams stop`
 . Navegue até o diretório de exportação de auditoria:
 +
-`cd /var/local/log`
+`cd /var/local/audit/export/`
 
-. Renomeie o arquivo de origem `audit.log` para garantir que ele não substitua o arquivo no nó de administração de expansão para o qual você está copiando:
+. Renomear a fonte `audit.log` arquivo para garantir que ele não substitua o arquivo no nó de administração de expansão para o qual você está copiando:
 +
 [listing]
 ----
@@ -58,7 +58,7 @@ mv audit.log _new_name_.txt
 ----
 . Copie todos os arquivos de log de auditoria para o local de destino no nó de administração de expansão:
 +
-`scp -p * _IP_address_:/var/local/log`
+`scp -p * _IP_address_:/var/local/audit/export/`
 
 . Se for solicitada a senha para `/root/.ssh/id_rsa`, digite a senha de acesso SSH para o nó de administração principal listado no `Passwords.txt` arquivo.
 . Restaure o arquivo original `audit.log`:
@@ -86,7 +86,7 @@ Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
 
 . Atualize as configurações de usuário e grupo para os arquivos de log de auditoria:
 +
-`cd /var/local/log`
+`cd /var/local/audit/export/`
 
 +
 `chown ams-user:bycast *`

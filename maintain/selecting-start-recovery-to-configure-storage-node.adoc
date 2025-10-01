@@ -19,7 +19,6 @@ Depois de substituir um nó de armazenamento, você deve selecionar Iniciar recu
 * Você tem a senha de provisionamento.
 * Você implantou e configurou o nó de substituição.
 * Tem a data de início de quaisquer trabalhos de reparação para dados codificados por apagamento.
-* Você verificou que o nó de storage não foi reconstruído nos últimos 15 dias.
 
 
 .Sobre esta tarefa
@@ -30,7 +29,7 @@ Se o nó de armazenamento for instalado como um contentor em um host Linux, voc�
 
 
 .Passos
-. No Gerenciador de Grade, selecione *MAINTENANCE* > *Tasks* > *Recovery*.
+. No Grid Manager, selecione *Manutenção* > *Tarefas* > *Recuperação*.
 . Selecione o nó de grade que você deseja recuperar na lista de nós pendentes.
 +
 Os nós aparecem na lista depois que eles falham, mas você não pode selecionar um nó até que ele seja reinstalado e esteja pronto para recuperação.

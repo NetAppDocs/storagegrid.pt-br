@@ -31,6 +31,13 @@ A tabela a seguir mostra os serviços primários para nós de Gateway; no entant
 
 
  a| 
+Serviço de Cache
+ a| 
+Gerencia um cache local de conteúdo de objetos.
+
+
+
+ a| 
 Alta disponibilidade
  a| 
 Gerencia endereços IP virtuais de alta disponibilidade para grupos de nós de administração e nós de gateway.

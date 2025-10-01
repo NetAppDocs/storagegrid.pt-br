@@ -91,13 +91,7 @@ Rede cliente (opcional)
 eth2
 
 |===
-Para obter detalhes sobre o mapeamento de portas virtuais ou físicas para interfaces de rede de nós, consulte as instruções de instalação:
-
-.Nós baseados em software
-* link:../rhel/index.html["Instale o StorageGRID no Red Hat Enterprise Linux"]
-* link:../ubuntu/index.html["Instale o StorageGRID no Ubuntu ou Debian"]
-* link:../vmware/index.html["Instale o StorageGRID no VMware"]
-
+Para obter detalhes sobre o mapeamento de portas virtuais ou físicas para interfaces de rede de nós, consultelink:../swnodes/index.html["Instalar StorageGRID em nós baseados em software"] .
 
 .Nós do dispositivo
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/hardware-description-sg6100.html["SG6160 dispositivo de armazenamento"^]

@@ -13,18 +13,17 @@ summary: Talvez seja necessário executar procedimentos de manutenção relacion
 [role="lead"]
 Talvez seja necessário executar procedimentos de manutenção relacionados a nós de grade ou serviços de nós específicos.
 
-Procedimentos do Server Manager:: O Gerenciador de servidores é executado em cada nó de grade para supervisionar o início e a parada dos serviços e garantir que os serviços se juntem e saiam do sistema StorageGRID. O Gerenciador de servidores também monitora os serviços em cada nó de grade e tentará reiniciar automaticamente quaisquer serviços que relatem falhas.
+Mover ADC:: Olink:../maintain/understanding-adc-service-quorum.html["Serviço ADC"] está localizado em alguns nós de armazenamento.  Em determinadas circunstâncias de desativação e conversão de nós, você precisa mover o serviço ADC para outro nó de armazenamento no mesmo site.
+Converter nó de armazenamento em nó somente de dados:: Você pode converter nós de armazenamento que não contêm o serviço ADC em nós de armazenamento somente de dados.
+Reinicialização, desligamento e energia do nó:: Use esses procedimentos para reinicializar um ou mais nós, desligar e reiniciar nós ou desligar nós e ligá-los novamente.
+Remapeamento de portas:: Você pode usar os procedimentos de remapeamento de portas para remover os remapas de portas de um nó, por exemplo, se quiser configurar um ponto de extremidade do balanceador de carga usando uma porta que foi anteriormente remapeada.
+Gerenciador de Servidores:: O Gerenciador de servidores é executado em cada nó de grade para supervisionar o início e a parada dos serviços e garantir que os serviços se juntem e saiam do sistema StorageGRID. O Gerenciador de servidores também monitora os serviços em cada nó de grade e tentará reiniciar automaticamente quaisquer serviços que relatem falhas.
 +
 --
-Para executar os procedimentos do Gerenciador de servidores, você geralmente precisa acessar a linha de comando do nó.
+Para executar procedimentos do Gerenciador do Servidor, normalmente você precisa acessar a linha de comando do nó.
 
 
-NOTE: Você deve acessar o Server Manager somente se o suporte técnico o tiver direcionado para isso.
-
-
-NOTE: Você deve fechar a sessão de shell de comando atual e fazer logout depois de terminar com o Gerenciador de servidor. Introduza: `exit`
+CAUTION: Você deve acessar o Server Manager somente se o suporte técnico o tiver direcionado para isso.
 
 --
-Procedimentos de reinicialização, desligamento e energia do nó:: Use esses procedimentos para reinicializar um ou mais nós, desligar e reiniciar nós ou desligar nós e ligá-los novamente.
-Procedimentos de remapeamento de portas:: Você pode usar os procedimentos de remapeamento de portas para remover os remapas de portas de um nó, por exemplo, se quiser configurar um ponto de extremidade do balanceador de carga usando uma porta que foi anteriormente remapeada.
 

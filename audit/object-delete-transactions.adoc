@@ -38,27 +38,6 @@ link:sdel-s3-delete.html["SDEL: S3 DELETE"]
 |===
 
 
-== Swift delete mensagens de auditoria
-
-[cols="1a,1a,2a,1a,2a"]
-|===
-| Código | Nome | Descrição | Traçado | Consulte 
-
-
- a| 
-WDEL
- a| 
-Eliminação rápida
- a| 
-Solicitação feita para excluir o objeto de um recipiente ou do recipiente.
- a| 
-CBID, WOBJ
- a| 
-link:wdel-swift-delete.html["WDEL: Swift DELETE"]
-
-|===
-
-
 == Exemplo: Exclusão de objeto S3
 
 Quando um cliente S3 exclui um objeto de um nó de armazenamento (serviço LDR), uma mensagem de auditoria é gerada e salva no log de auditoria.

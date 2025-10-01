@@ -33,7 +33,7 @@ Por padrão, as informações de auditoria são enviadas para o log de auditoria
 * Você especificou explicitamente que as mensagens de auditoria devem ser salvas somente nos nós locais que as geraram.
 
 
-link:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria e destinos de log"]Consulte para obter detalhes.
+Verlink:../monitor/configure-log-management.html["Configurar gerenciamento de log e servidor syslog externo"] para mais detalhes.
 
 ====
 .Passos

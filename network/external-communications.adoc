@@ -21,13 +21,14 @@ Se as políticas de rede empresarial restringirem o acesso a qualquer uma das po
 
 * link:../admin/configuring-load-balancer-endpoints.html["pontos de extremidade do balanceador de carga"]Utilize para permitir o acesso em portas definidas pelo utilizador.
 * Remapear portas ao implantar nós. No entanto, você não deve remapear os pontos de extremidade do balanceador de carga. Consulte as informações sobre o mapeamento de portas para o nó StorageGRID:
-+
-** link:../rhel/creating-node-configuration-files.html#port-remap-keys["As chaves de remapa de porta para StorageGRID no Red Hat Enterprise Linux"]
-** link:../ubuntu/creating-node-configuration-files.html#port-remap-keys["Port Remap chaves para StorageGRID no Ubuntu ou Debian"]
-** link:../vmware/deploying-storagegrid-node-as-virtual-machine.html#vmware-remap-ports["Remapear portas para StorageGRID no VMware"]
-** https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["Opcional: Remapear as portas de rede para o dispositivo"^]
 
 
+
+NOTE: O suporte para remapeamento de portas está obsoleto e será removido em uma versão futura. Para remover portas remapeadas, consultelink:../maintain/removing-port-remaps.html["Remover remapeamentos de porta em dispositivos StorageGRID"] oulink:../maintain/removing-port-remaps-on-bare-metal-hosts.html["Remova os remapas de portas em hosts bare metal"] .
+
+* link:../swnodes/creating-node-configuration-files.html["As chaves de remapa de porta para StorageGRID no Red Hat Enterprise Linux"]
+* link:../swnodes/deploying-storagegrid-node-as-virtual-machine.html#vmware-remap-ports["Remapear portas para StorageGRID no VMware"]
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["Opcional: Remapear as portas de rede para o dispositivo"^]
 
 
 
@@ -42,21 +43,6 @@ NOTE: Esta lista não inclui portas que possam ser configuradas como link:../adm
 [cols="1a,1a,1a,1a,1a,4a"]
 |===
 | Porta | TCP ou UDP | Protocolo | De | Para | Detalhes 
-
-
- a| 
-22
- a| 
-TCP
- a| 
-SSH
- a| 
-Serviço de laptop
- a| 
-Todos os nós
- a| 
-SSH ou acesso ao console é necessário para procedimentos com etapas do console. Opcionalmente, você pode usar a porta 2022 em vez de 22.
-
 
 
  a| 
@@ -176,25 +162,6 @@ Nós de storage
 AWS
  a| 
 As solicitações do Cloud Storage Pools enviadas para destinos da AWS que usam HTTP. Os administradores de grade podem substituir a configuração padrão de porta HTTP de 80 ao configurar um pool de armazenamento em nuvem.
-
-
-
- a| 
-111
- a| 
-TCP/UDP
- a| 
-RPCBind
- a| 
-Cliente NFS
- a| 
-Nós de administração
- a| 
-Usado pela exportação de auditoria baseada em NFS (portmap).
-
-*Nota:* esta porta é necessária apenas se a exportação de auditoria baseada em NFS estiver ativada.
-
-*Observação:* o suporte para NFS foi obsoleto e será removido em uma versão futura.
 
 
 
@@ -329,59 +296,6 @@ Solicitações do Cloud Storage Pools enviadas para destinos da AWS que usam HTT
 
 
  a| 
-903
- a| 
-TCP
- a| 
-NFS
- a| 
-Cliente NFS
- a| 
-Nós de administração
- a| 
-Usado pela exportação de auditoria baseada em NFS (`rpc.mountd`).
-
-*Nota:* esta porta é necessária apenas se a exportação de auditoria baseada em NFS estiver ativada.
-
-*Observação:* o suporte para NFS foi obsoleto e será removido em uma versão futura.
-
-
-
- a| 
-2022
- a| 
-TCP
- a| 
-SSH
- a| 
-Serviço de laptop
- a| 
-Todos os nós
- a| 
-SSH ou acesso ao console é necessário para procedimentos com etapas do console. Opcionalmente, você pode usar a porta 22 em vez de 2022.
-
-
-
- a| 
-2049
- a| 
-TCP
- a| 
-NFS
- a| 
-Cliente NFS
- a| 
-Nós de administração
- a| 
-Usado pela exportação de auditoria baseada em NFS (NFS).
-
-*Nota:* esta porta é necessária apenas se a exportação de auditoria baseada em NFS estiver ativada.
-
-*Observação:* o suporte para NFS foi obsoleto e será removido em uma versão futura.
-
-
-
- a| 
 5353
  a| 
 UDP
@@ -408,21 +322,6 @@ Aparelho
 KMS
  a| 
 Tráfego externo KMIP (Key Management Interoperability Protocol) de dispositivos configurados para criptografia de nó para o servidor de gerenciamento de chaves (KMS), a menos que uma porta diferente seja especificada na página de configuração KMS do instalador do dispositivo StorageGRID.
-
-
-
- a| 
-8022
- a| 
-TCP
- a| 
-SSH
- a| 
-Serviço de laptop
- a| 
-Todos os nós
- a| 
-O SSH na porta 8022 concede acesso ao sistema operacional básico em plataformas de appliance e nó virtual para suporte e solução de problemas. Essa porta não é usada para nós baseados em Linux (bare metal) e não é necessária para ser acessível entre nós de grade ou durante operações normais.
 
 
 
@@ -521,21 +420,6 @@ Tráfego de clientes de S3 U diretamente para nós de storage (HTTPS).
 
 
  a| 
-18083
- a| 
-TCP
- a| 
-HTTPS
- a| 
-Clientes Swift
- a| 
-Nós de storage
- a| 
-Tráfego de cliente ágil diretamente para nós de storage (HTTPS).
-
-
-
- a| 
 18084
  a| 
 TCP
@@ -547,21 +431,6 @@ S3 clientes
 Nós de storage
  a| 
 Tráfego de cliente S3 diretamente para nós de storage (HTTP).
-
-
-
- a| 
-18085
- a| 
-TCP
- a| 
-HTTP
- a| 
-Clientes Swift
- a| 
-Nós de storage
- a| 
-Tráfego de cliente rápido diretamente para nós de armazenamento (HTTP).
 
 
 

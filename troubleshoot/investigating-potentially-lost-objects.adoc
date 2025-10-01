@@ -1,0 +1,144 @@
+---
+permalink: troubleshoot/investigating-potentially-lost-objects.html 
+sidebar: sidebar 
+keywords: lost objects, investigating, objects 
+summary: Quando o alerta *Objetos potencialmente perdidos* for acionado, você deve investigar imediatamente.  Colete informações sobre os objetos afetados e entre em contato com o suporte técnico. 
+---
+= Investigar objetos potencialmente perdidos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando o alerta *Objetos potencialmente perdidos* for acionado, você deve investigar imediatamente.  Colete informações sobre os objetos afetados e entre em contato com o suporte técnico.
+
+.Antes de começar
+* Você deve estar conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
+* Tem de ter o `Passwords.txt` ficheiro.
+
+
+.Sobre esta tarefa
+O alerta *Objetos potencialmente perdidos* indica que, de acordo com as informações disponíveis no StorageGRID, não há cópias de um objeto na grade.  Os dados podem ter sido perdidos permanentemente.
+
+Investigue alertas de objetos perdidos imediatamente. Talvez seja necessário tomar medidas para evitar mais perda de dados. Em alguns casos, você pode restaurar um objeto perdido se você tomar uma ação imediata.
+
+
+CAUTION: Se mais de 10 objetos forem relatados como perdidos, entre em contato com o suporte técnico.  Não siga este procedimento você mesmo.
+
+.Passos
+. Selecione *Nós*.
+. Selecione *_Storage Node_* > *Objects*.
+. Revise o número de objetos perdidos mostrados na tabela contagens de objetos.
++
+Esse número indica o número total de objetos que esse nó de grade deteta como ausente de todo o sistema StorageGRID. O valor é a soma dos contadores de objetos perdidos do componente armazenamento de dados nos serviços LDR e DDS.
+
+. De um nó de administração,link:../audit/accessing-audit-log-file.html["acesse o log de auditoria"] para determinar o identificador exclusivo (UUID) do objeto que acionou o alerta *Objetos potencialmente perdidos*:
++
+.. Faça login no nó da grade:
++
+... Introduza o seguinte comando: `ssh admin@grid_node_IP`
+... Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+... Digite o seguinte comando para mudar para root: `su -`
+... Introduza a palavra-passe listada no `Passwords.txt` ficheiro. Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+
+.. Mude para o diretório onde os logs de auditoria estão localizados.
++
+--
+O diretório de log de auditoria e os nós aplicáveis dependem das configurações de destino da auditoria.
+
+[cols="1a,2a"]
+|===
+| Opção | Destino 
+
+
+ a| 
+Nós locais (padrão)
+ a| 
+`/var/local/log/localaudit.log`
+
+
+
+ a| 
+Nós de administração/nós locais
+ a| 
+*** Nós de administração (primários e não primários): `/var/local/audit/export/audit.log`
+*** Todos os nós: O `/var/local/log/localaudit.log` arquivo está normalmente vazio ou ausente neste modo.
+
+
+
+
+ a| 
+Servidor syslog externo
+ a| 
+`/var/local/log/localaudit.log`
+
+|===
+Dependendo das definições de destino da auditoria, introduza: `cd /var/local/log` Ou `/var/local/audit/export/`
+
+Para saber mais, consultelink:../monitor/configure-log-management.html#select-log-location["Selecione o local do log"] .
+
+--
+.. Use grep para extrair as mensagens de auditoria OLST (Object Lost). Introduza: `grep OLST audit_file_name`
+.. Observe o valor UUID incluído na mensagem.
++
+[listing]
+----
+Admin: # grep OLST audit.log
+2020-02-12T19:18:54.780426 [AUDT:[CBID(UI64):0x38186FE53E3C49A5][UUID(CSTR):"926026C4-00A4-449B-AC72-BCCA72DD1311"]
+[PATH(CSTR):"source/cats"][NOID(UI32):12288733][VOLI(UI64):3222345986][RSLT(FC32):NONE][AVER(UI32):10]
+[ATIM(UI64):1581535134780426][ATYP(FC32):OLST][ANID(UI32):12448208][AMID(FC32):ILMX][ATID(UI64):7729403978647354233]]
+----
+
+
+. Procure os metadados para o objeto perdido usando o UUID:
++
+.. Selecione *ILM* > *Object metadata lookup*.
+.. Introduza o UUID e selecione *Procurar*.
+.. Revise os locais nos metadados e tome a ação apropriada:
++
+[cols="2a,4a"]
+|===
+| Metadados | Conclusão 
+
+
+ a| 
+<object_identifier> Objeto não encontrado
+ a| 
+Se o objeto não for encontrado, a mensagem "ERROR":"" será retornada.
+
+Se o objeto não for encontrado,<<reset-lost-obj-count,redefinir o contador de objetos potencialmente perdidos>> para limpar o alerta.  A ausência de um objeto indica que o objeto foi excluído intencionalmente.
+
+
+
+ a| 
+Localizações > 0
+ a| 
+Se houver locais listados na saída, o alerta *Objetos potencialmente perdidos* pode ser um falso positivo.
+
+Confirme se os objetos existem. Use o ID do nó e o filepath listados na saída para confirmar se o arquivo de objeto está no local listado.
+
+Se os objetos existem,<<reset-lost-obj-count,redefinir o contador de objetos potencialmente perdidos>> para limpar o alerta.
+
+
+
+ a| 
+Localização: 0
+ a| 
+Se não houver locais listados na saída, o objeto está potencialmente ausente.  Entre em contato com o suporte técnico.
+
+O suporte técnico pode pedir-lhe para determinar se existe um procedimento de recuperação de armazenamento em curso. Consulte as informações sobre link:../maintain/restoring-volume.html["Restaurando dados de objetos usando o Grid Manager"] e link:../maintain/restoring-object-data-to-storage-volume.html["restaurar dados de objeto para um volume de armazenamento"].
+
+|===
+
+
+. [[reset-lost-obj-count]]Depois de resolver os problemas de objetos perdidos, redefina o contador de Objetos potencialmente perdidos para garantir que os alertas não sejam falsos positivos:
++
+.. Selecione *Nós*.
+.. Selecione *_Nó de Armazenamento_* > *Tarefas*.
+.. Na seção Redefinir contador de objetos potencialmente perdidos, selecione *Redefinir*.
+
+
+

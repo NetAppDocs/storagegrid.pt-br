@@ -58,7 +58,7 @@ Selecione os nós que pretende reiniciar, reveja as suas seleções, inicie o pr
 Como primeiro passo, acesse a página de reinicialização contínua e selecione os nós que deseja reinicializar.
 
 .Passos
-. Selecione *MAINTENANCE* > *Tasks* > *Rolling reboot*.
+. Selecione *Manutenção* > *Tarefas* > *Reinicialização contínua*.
 . Revise o estado da conexão e os ícones de alerta na coluna *Nome do nó*.
 +
 
@@ -129,6 +129,6 @@ As tabelas fornecem uma barra de progresso da operação em cada nó e mostram a
 Você pode parar o procedimento de reinicialização contínua do nó de administração principal. Quando você parar o procedimento, todos os nós que têm o status "parando serviços", "reinicializando o sistema" ou "iniciando serviços" concluirão a operação de reinicialização. No entanto, esses nós não serão mais rastreados como parte do procedimento.
 
 .Passos
-. Selecione *MAINTENANCE* > *Tasks* > *Rolling reboot*.
+. Selecione *Manutenção* > *Tarefas* > *Reinicialização contínua*.
 . Na etapa *Monitor Reboot*, selecione *Stop Reboot Procedure*.
 

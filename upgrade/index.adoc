@@ -16,12 +16,16 @@ Use estas instruções para atualizar um sistema StorageGRID para uma nova vers�
 Ao realizar a atualização, todos os nós do seu sistema StorageGRID são atualizados.
 
 
+CAUTION: Não inicie a atualização se precisar expandir seu armazenamento com urgência para aumentar a capacidade (se seu armazenamento estiver quase cheio).  Conclua o procedimento de atualização em tempo hábil.  Se for necessária uma recuperação, entre em contato com o suporte técnico.
 
-== Antes de começar
 
-Revise esses tópicos para saber mais sobre os novos recursos e aprimoramentos no StorageGRID 11,9, determinar se algum recurso foi descontinuado ou removido e descobrir as alterações nas APIs do StorageGRID.
 
-* link:whats-new.html["Novidades do StorageGRID 11,9"]
+== Antes de atualizar
+
+Revise estes tópicos para saber mais sobre os novos recursos e aprimoramentos do StorageGRID 12.0, determinar se algum recurso foi descontinuado ou removido e descobrir mais sobre as alterações nas APIs do StorageGRID .
+
+* link:how-your-system-is-affected-during-upgrade.html["Como seu sistema é afetado durante a atualização"]
+* link:whats-new.html["Novidades no StorageGRID 12.0"]
 * link:removed-or-deprecated-features.html["Recursos removidos ou obsoletos"]
 * link:changes-to-grid-management-api.html["Alterações na API Grid Management"]
 * link:changes-to-tenant-management-api.html["Alterações na API de gerenciamento do locatário"]

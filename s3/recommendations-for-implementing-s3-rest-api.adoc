@@ -17,7 +17,7 @@ Você deve seguir estas recomendações ao implementar a API REST do S3 para uso
 
 == Recomendações para heads to non-existent objects
 
-Se o aplicativo verificar rotineiramente se um objeto existe em um caminho onde você não espera que o objeto realmente exista, você deve usar o "disponível" link:consistency-controls.html["consistência"]. Por exemplo, você deve usar a consistência "disponível" se seu aplicativo dirigir um local antes DE COLOCÁ-lo.
+Se o seu aplicativo verifica rotineiramente se um objeto existe em um caminho onde você não espera que o objeto realmente exista, você deve usar o "Disponível"link:consistency.html["consistência"] .  Por exemplo, você deve usar a consistência "Disponível" se seu aplicativo fizer HEAD de um local antes de fazer PUT nele.
 
 Caso contrário, se a operação PRINCIPAL não encontrar o objeto, poderá receber um número elevado de erros de servidor interno 500 se dois ou mais nós de armazenamento no mesmo local não estiverem disponíveis ou se um local remoto não estiver acessível.
 

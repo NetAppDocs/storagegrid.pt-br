@@ -50,15 +50,6 @@ NOTE: Para conceder acesso à página de locatários, que contém a opção *alt
 
 
 
-== Configuração da página de topologia de grade
-
-Esta permissão fornece acesso às guias Configuração na página *SUPPORT* > *Tools* > *Grid topology*.
-
-
-NOTE: A página de topologia de Grade foi obsoleta e será removida em uma versão futura.
-
-
-
 == ILM
 
 Esta permissão fornece acesso às seguintes opções de menu *ILM*:
@@ -73,7 +64,7 @@ Esta permissão fornece acesso às seguintes opções de menu *ILM*:
 
 
 
-NOTE: Os usuários devem ter as permissões *outras configurações de grade* e *Configuração de página de topologia de grade* para gerenciar as notas de armazenamento.
+NOTE: Os usuários devem ter a permissão *Outra configuração de grade* para gerenciar níveis de armazenamento.
 
 
 
@@ -81,17 +72,17 @@ NOTE: Os usuários devem ter as permissões *outras configurações de grade* e 
 
 Os usuários devem ter a permissão Manutenção para usar estas opções:
 
-* *CONFIGURAÇÃO* > *controlo de acesso*:
+* *Configuração* > *Controle de acesso*:
 +
 ** Senhas de grade
 
 
-* *CONFIGURAÇÃO* > *rede*:
+* *Configuração* > *Rede*:
 +
 ** S3 nomes de domínio de endpoint
 
 
-* *MANUTENÇÃO* > *tarefas*:
+* *Manutenção* > *Tarefas*:
 +
 ** Descomissionar
 ** Expansão
@@ -99,13 +90,13 @@ Os usuários devem ter a permissão Manutenção para usar estas opções:
 ** Recuperação
 
 
-* *MANUTENÇÃO* > *sistema*:
+* *Manutenção* > *Sistema*:
 +
 ** Pacote de recuperação
 ** Atualização de software
 
 
-* *SUPORTE* > *Ferramentas*:
+* *Suporte* > *Ferramentas*:
 +
 ** Registos
 
@@ -114,29 +105,29 @@ Os usuários devem ter a permissão Manutenção para usar estas opções:
 
 Os usuários que não têm a permissão Manutenção podem visualizar, mas não editar, estas páginas:
 
-* *MANUTENÇÃO* > *rede*:
+* *Manutenção* > *Rede*:
 +
 ** Servidores DNS
 ** Rede de rede
 ** Servidores NTP
 
 
-* *MANUTENÇÃO* > *sistema*:
+* *Manutenção* > *Sistema*:
 +
 ** Licença
 
 
-* *CONFIGURAÇÃO* > *rede*:
+* *Configuração* > *Rede*:
 +
 ** S3 nomes de domínio de endpoint
 
 
-* *CONFIGURAÇÃO* > *Segurança*:
+* *Configuração* > *Segurança*:
 +
 ** Certificados
 
 
-* *CONFIGURAÇÃO* > *Monitoramento*:
+* *Configuração* > *Monitoramento*:
 +
 ** Servidor de auditoria e syslog
 
@@ -155,7 +146,7 @@ Essa permissão fornece acesso a opções de gerenciamento de alertas. Os usuár
 
 Esta permissão fornece acesso a:
 
-* *SUPORTE* > *Ferramentas* > *métricas* página
+* *Suporte* > *Ferramentas* > página *Métricas*
 * Consultas de métricas personalizadas do Prometheus usando a seção *Metrics* da API Grid Management
 * Cartões de painel do Grid Manager que contêm métricas
 
@@ -170,18 +161,15 @@ Esta permissão fornece acesso à página *ILM* > *Object metadata lookup*.
 
 == Outra configuração de grade
 
-Esta permissão fornece acesso a opções de configuração de grade adicionais.
-
-
-TIP: Para ver essas opções adicionais, os usuários também devem ter a permissão *Grid topology page Configuration*.
+Esta permissão fornece acesso a estas opções adicionais de configuração de grade:
 
 * *ILM*:
 +
 ** Classes de armazenamento
 
 
-* *CONFIGURAÇÃO* > *sistema*:
-* *SUPORTE* > *outro*:
+* *Configuração* > *Sistema*:
+* *Suporte* > *Outros*:
 +
 ** Custo da ligação
 

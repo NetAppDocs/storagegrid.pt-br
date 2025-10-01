@@ -1,45 +1,8 @@
 ---
 permalink: vmware/software-requirements.html 
-sidebar: sidebar 
-keywords: software requirements 
-summary: Você pode usar uma máquina virtual para hospedar qualquer tipo de nó StorageGRID. Você precisa de uma máquina virtual para cada nó de grade. 
+redirect: storagegrid/swnodes/software-requirements.html 
 ---
-= Requisitos de software para VMware
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-Você pode usar uma máquina virtual para hospedar qualquer tipo de nó StorageGRID. Você precisa de uma máquina virtual para cada nó de grade.
-
-
-
-== VMware vSphere Hypervisor
-
-Você deve instalar o VMware vSphere Hypervisor em um servidor físico preparado. O hardware deve ser configurado corretamente (incluindo versões de firmware e configurações de BIOS) antes de instalar o software VMware.
-
-* Configure a rede no hypervisor conforme necessário para suportar a rede para o sistema StorageGRID que você está instalando.
-+
-link:../network/index.html["Diretrizes de rede"]
-
-* Certifique-se de que o datastore seja grande o suficiente para as máquinas virtuais e os discos virtuais necessários para hospedar os nós da grade.
-* Se você criar mais de um datastore, nomeie cada datastore para que possa identificar facilmente qual datastore usar para cada nó de grade ao criar máquinas virtuais.
-
-
-
-
-== Requisitos de configuração do host ESX
-
-
-CAUTION: Você deve configurar corretamente o protocolo NTP (Network Time Protocol) em cada host ESX. Se o tempo do host estiver incorreto, podem ocorrer efeitos negativos, incluindo perda de dados.
-
-
-
-== Requisitos de configuração da VMware
-
-Você deve instalar e configurar o VMware vSphere e o vCenter antes de implantar os nós do StorageGRID.
-
-Para versões com suporte do software VMware vSphere Hypervisor e VMware vCenter Server, consulte o https://imt.netapp.com/matrix/#welcome["Ferramenta de Matriz de interoperabilidade do NetApp"^].
-
-Para obter as etapas necessárias para instalar esses produtos VMware, consulte a documentação da VMware.

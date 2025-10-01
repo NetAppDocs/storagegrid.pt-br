@@ -19,7 +19,7 @@ Ao configurar um sistema StorageGRID para uso com o FabricPool, talvez seja nece
 
 As cargas de trabalho do FabricPool geralmente têm uma alta taxa de operações de leitura, o que pode gerar um alto volume de mensagens de auditoria.
 
-* Se você não precisar de um Registro de operações de leitura de cliente para o FabricPool ou qualquer outro aplicativo S3, opcionalmente vá para *CONFIGURATION* > *Monitoring* > *servidor de auditoria e syslog*. Altere a configuração *leitura do cliente* para *erro* para diminuir o número de mensagens de auditoria registradas no log de auditoria. link:../monitor/configure-audit-messages.html["Configurar mensagens de auditoria e destinos de log"]Consulte para obter detalhes.
+* Se você não precisar de um registro de operações de leitura do cliente para o FabricPool ou qualquer outro aplicativo S3, opcionalmente vá para *Configuração* > *Monitoramento* > *Auditoria e servidor syslog*.  Altere a configuração *Leituras do cliente* para *Erro* para diminuir o número de mensagens de auditoria registradas no log de auditoria. Verlink:../monitor/configure-log-management.html["Configurar gerenciamento de log e servidor syslog externo"] para mais detalhes.
 * Se você tiver uma grade grande, use vários tipos de aplicativos S3 ou deseja reter todos os dados de auditoria, configure um servidor syslog externo e salve as informações de auditoria remotamente. O uso de um servidor externo minimiza o impactos no desempenho do Registro de mensagens de auditoria sem reduzir a integridade dos dados de auditoria. link:../monitor/considerations-for-external-syslog-server.html["Considerações para servidor syslog externo"]Consulte para obter detalhes.
 
 
@@ -34,6 +34,12 @@ Ao configurar o StorageGRID, você pode opcionalmente ativar a link:../admin/cha
 == Compactação de objetos
 
 Ao configurar o StorageGRID, não ative o link:../admin/configuring-stored-object-compression.html["opção global para comprimir objetos armazenados"]. Os dados dispostos em camadas de FabricPool para StorageGRID já estão compatados. Usar a opção StorageGRID não reduzirá ainda mais o tamanho de um objeto.
+
+
+
+== S3 bloqueio de objetos
+
+Se a configuração global de bloqueio de objeto S3 estiver habilitada para seu sistema StorageGRID , não habilitelink:../s3/use-s3-api-for-s3-object-lock.html["S3 bloqueio de objetos"] quando você cria buckets do FabricPool .  O bloqueio de objeto S3 não é compatível com buckets do FabricPool .
 
 
 

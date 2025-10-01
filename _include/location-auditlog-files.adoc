@@ -33,4 +33,4 @@ Servidor syslog externo
 |===
 Dependendo das definições de destino da auditoria, introduza: `cd /var/local/log` Ou `/var/local/audit/export/`
 
-Para saber mais, link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Selecione destinos de informações de auditoria"]consulte .
+Para saber mais, consultelink:../monitor/configure-log-management.html#select-log-location["Selecione o local do log"] .

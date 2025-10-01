@@ -1,0 +1,33 @@
+---
+permalink: monitor/manage-io-prioritization.html 
+sidebar: sidebar 
+keywords: ec repair priority, ec purge priority 
+summary: 'A priorização de entrada/saída (E/S) permite que você altere as prioridades relativas para operações de E/S na grade.' 
+---
+= Alterar priorização de E/S
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A priorização de entrada/saída (E/S) permite que você altere as prioridades relativas para operações de E/S na grade.
+
+Por padrão, o tráfego de E/S PUT e GET do cliente recebe a maior prioridade sobre atividades em segundo plano, como limpeza de dados codificados para eliminação (EC) e reparo de EC.  Ao aumentar a prioridade de limpeza de dados codificados para eliminação (EC) e atividades de reparo de EC, essas tarefas podem ser concluídas mais rapidamente.  A eficácia das alterações de priorização de E/S é afetada pela taxa de solicitações de clientes, flutuações de tráfego de rede e outras tarefas de rede em andamento.
+
+.Antes de começar
+* Revise a página de priorização de E/S para determinar quais opções podem impactar sua grade.
+* Avalie se o tráfego contínuo de clientes pode lidar com segurança com tempos de espera mais longos ou tempos limite de atendimento dos clientes.
+* Esteja preparado para monitorar o efeito da mudança de priorização e fazer ajustes conforme necessário.  Essas mudanças são implementadas rapidamente, mas seus efeitos podem levar horas para se tornarem visíveis.
+
+
+.Passos
+. Selecione *Suporte* > *Priorização de E/S*.
+. (Opcional) Altere a prioridade de limpeza e reparo do EC, para operações em segundo plano que limpam dados do EC, de seus valores padrão.
++
+
+NOTE: Use a prioridade padrão de limpeza e reparo de EC baixo para grades que tenham nós baseados em RAID.
+
+. Selecione *Guardar*.
+. Monitore olink:../monitor/commonly-used-prometheus-metrics.html#where-are-prometheus-metrics-used["métricas"] para avaliar o efeito das mudanças de priorização.
+

@@ -17,7 +17,7 @@ Se a sua conta de locatário tiver sido atribuída a permissão *usar conexão d
 
 == Fluxo de trabalho para replicação entre grades
 
-O diagrama do fluxo de trabalho resume as etapas que você executará para configurar a replicação entre grades entre intervalos em duas grades. Estas etapas são descritas em mais detalhes abaixo.
+O diagrama de fluxo de trabalho resume as etapas que você executa para configurar a replicação entre grades entre buckets em duas grades.  Essas etapas são descritas com mais detalhes abaixo do diagrama.
 
 image::../media/grid-federation-cgr-workflow.png[Fluxo de trabalho de replicação entre grade]
 
@@ -25,38 +25,41 @@ image::../media/grid-federation-cgr-workflow.png[Fluxo de trabalho de replicaç�
 
 == Configurar a replicação entre redes
 
-Antes de usar a replicação entre grade, você deve fazer login nas contas de locatário correspondentes em cada grade e criar buckets idênticos. Em seguida, é possível habilitar a replicação entre grade em um ou em ambos os buckets.
+Antes de poder usar a replicação entre grades, você deve fazer login nas contas de locatário correspondentes em cada grade e criar dois buckets.  Em seguida, você pode habilitar a replicação entre grades em um ou ambos os buckets.
 
 .Antes de começar
-* Você revisou os requisitos para replicação entre grade. link:../admin/grid-federation-what-is-cross-grid-replication.html["O que é replicação entre grades"]Consulte .
-* Você está usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
-* A conta de locatário tem a permissão *usar conexão de federação de grade* e contas de locatário idênticas existem em ambas as grades. link:../admin/grid-federation-manage-tenants.html["Gerenciar os locatários permitidos para conexão de federação de grade"]Consulte .
-* O usuário de locatário que você fará login como já existe em ambas as grades e pertence a um grupo de usuários que tem o link:tenant-management-permissions.html["Permissão de acesso à raiz"].
-* Se você estiver entrando na grade de destino do locatário como usuário local, o usuário raiz da conta do locatário definiu uma senha para sua conta de usuário nessa grade.
+* Você revisou os requisitos para replicação entre redes. Consulte link:../admin/grid-federation-what-is-cross-grid-replication.html["O que é replicação entre grades"] .
+* Você está usando umlink:../admin/web-browser-requirements.html["navegador da web suportado"] .
+* A conta do locatário tem a permissão *Usar conexão de federação de grade* e contas de locatário idênticas existem em ambas as grades. Consulte link:../admin/grid-federation-manage-tenants.html["Gerenciar os locatários permitidos para conexão de federação de grade"] .
+* O usuário locatário com o qual você está se conectando já existe em ambas as grades e pertence a um grupo de usuários que tem olink:tenant-management-permissions.html["Permissão de acesso à raiz"] .
+* Se você estiver entrando na grade de destino do locatário como um usuário local, o usuário raiz da conta do locatário definiu uma senha para sua conta de usuário nessa grade.
 
 
 
 
-=== Crie dois baldes idênticos
+=== Crie dois buckets
 
-Como primeira etapa, faça login nas contas de locatário correspondentes em cada grade e crie buckets idênticos.
+Como primeiro passo, faça login nas contas de locatários correspondentes em cada grade e crie um bucket em cada grade.
 
 .Passos
 . A partir de qualquer grade na conexão de federação de grade, crie um novo intervalo:
 +
 .. Faça login na conta de locatário usando as credenciais de um usuário de locatário que existe em ambas as grades.
 +
-
-NOTE: Se você não conseguir entrar na grade de destino do locatário como um usuário local, confirme se o usuário raiz da conta de locatário definiu uma senha para sua conta de usuário.
+Se você não conseguir fazer login na grade de destino do locatário como um usuário local, confirme se o usuário raiz da conta do locatário definiu uma senha para sua conta de usuário.
 
 .. Siga as instruções link:creating-s3-bucket.html["Crie um bucket do S3"]para .
++
+
+TIP: Os nomes dos buckets e regiões podem ser diferentes em cada grade.
+
 .. Na guia *Manage Object settings* (Gerenciar configurações de objeto), selecione *Enable Object versioning* (Ativar controle de versão de objeto).
-.. Se o bloqueio de objeto S3 estiver ativado para o seu sistema StorageGRID, não ative o bloqueio de objeto S3 para o bucket.
+.. Se o S3 Object Lock estiver habilitado para seu sistema StorageGRID , consultelink:../admin/grid-federation-what-is-cross-grid-replication.html#cgr-with-ol["Replicação entre grades com bloqueio de objeto S3"] .
 .. Selecione *criar bucket*.
 .. Selecione *Finish*.
 
 
-. Repita essas etapas para criar um intervalo idêntico para a mesma conta de locatário na outra grade na conexão de federação de grade.
+. Repita essas etapas para criar um bucket para a mesma conta de locatário na outra grade na conexão de federação da grade.
 +
 
 TIP: Conforme necessário, cada balde pode usar uma região diferente.
@@ -81,16 +84,16 @@ Você deve executar estas etapas antes de adicionar quaisquer objetos a qualquer
 .. Opcionalmente, altere a configuração de *Replicate DELETE markers* para determinar o que acontece na grade de destino se um cliente S3 emitir uma solicitação de exclusão para a grade de origem que não inclui um ID de versão:
 +
 *** *Sim* (padrão): Um marcador de exclusão é adicionado ao intervalo de origem e replicado ao intervalo de destino.
-*** *Não*: Um marcador de exclusão é adicionado ao intervalo de origem, mas não é replicado para o intervalo de destino.
+*** *Não*: Um marcador de exclusão é adicionado ao bucket de origem, mas não é replicado no bucket de destino.
 +
 image::../media/grid-federation-cross-grid-replication-client-deletes.png[imagem que mostra a eliminação do cliente replicado em ambas as grelhas]
 
 +
 
-NOTE: Se a solicitação de exclusão incluir um ID de versão, essa versão do objeto será removida permanentemente do intervalo de origem. O StorageGRID não replica solicitações de exclusão que incluem um ID de versão, portanto, a mesma versão do objeto não é excluída do destino.
+NOTE: Se a solicitação de exclusão incluir um ID de versão, essa versão do objeto será removida permanentemente do bucket de origem.  O StorageGRID não replica solicitações de exclusão que incluem um ID de versão, portanto, a mesma versão do objeto não é excluída do destino.
 
 +
-link:../admin/grid-federation-what-is-cross-grid-replication.html["O que é replicação entre grades"]Consulte para obter detalhes.
+Consultelink:../admin/grid-federation-what-is-cross-grid-replication.html["O que é replicação entre grades"] para mais detalhes.
 
 
 
@@ -103,7 +106,7 @@ link:../admin/grid-federation-what-is-cross-grid-replication.html["O que é repl
 .. Reveja as suas seleções. Você não pode alterar essas configurações a menos que ambos os buckets estejam vazios.
 .. Selecione *Ativar e testar*.
 +
-Depois de alguns momentos, uma mensagem de sucesso aparece. Os objetos adicionados a esse bucket serão replicados automaticamente para a outra grade. *A replicação entre grades* é mostrada como um recurso habilitado na página de detalhes do bucket.
+Após alguns instantes, uma mensagem de sucesso é exibida.  Os objetos adicionados a este bucket agora são replicados automaticamente para a outra grade.  *A replicação entre grades* é mostrada como um recurso habilitado na página de detalhes do bucket.
 
 
 
@@ -117,7 +120,7 @@ Depois de alguns momentos, uma mensagem de sucesso aparece. Os objetos adicionad
 Se a replicação entre grades estiver habilitada para um bucket, talvez seja necessário verificar se a conexão e a replicação entre grades estão funcionando corretamente e se os buckets de origem e destino ainda atendem a todos os requisitos (por exemplo, o controle de versão ainda está habilitado).
 
 .Antes de começar
-* Você está usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você está usando umlink:../admin/web-browser-requirements.html["navegador da web suportado"] .
 * Você pertence a um grupo de usuários que tem o link:tenant-management-permissions.html["Permissão de acesso à raiz"].
 
 
@@ -128,7 +131,7 @@ Se a replicação entre grades estiver habilitada para um bucket, talvez seja ne
 . Selecione a guia *replicação entre grades*.
 . Selecione *Test Connection*.
 +
-Se a conexão estiver saudável, um banner de sucesso será exibido. Caso contrário, uma mensagem de erro é exibida, que você e o administrador da grade podem usar para resolver o problema. Para obter detalhes, link:../admin/grid-federation-troubleshoot.html["Solucionar erros de federação de grade"]consulte .
+Se a conexão estiver saudável, um banner de sucesso será exibido.  Caso contrário, uma mensagem de erro será exibida, que você e o administrador da grade podem usar para resolver o problema. Para mais detalhes, consultelink:../admin/grid-federation-troubleshoot.html["Solucionar erros de federação de grade"] .
 
 . Se a replicação entre grades estiver configurada para ocorrer em ambas as direções, vá para o intervalo correspondente na outra grade e selecione *conexão de teste* para verificar se a replicação entre grades está funcionando na outra direção.
 
@@ -141,10 +144,10 @@ Você pode parar permanentemente a replicação entre grade se não quiser mais 
 
 Antes de desativar a replicação entre grades, observe o seguinte:
 
-* A desativação da replicação entre grades não remove nenhum objeto que já tenha sido copiado entre grades. Por exemplo, os objetos no `my-bucket` na Grade 1 que foram copiados `my-bucket` no Grid 2 não serão removidos se você desativar a replicação entre grades para esse bucket. Se você quiser excluir esses objetos, você deve removê-los manualmente.
+* Desabilitar a replicação entre grades não remove nenhum objeto que já tenha sido copiado entre grades.  Por exemplo, objetos em `my-bucket` na Grade 1 que foram copiados para `my-bucket` na Grade 2 não serão removidos se você desabilitar a replicação entre grades para esse bucket.  Se você quiser excluir esses objetos, deverá removê-los manualmente.
 * Se a replicação entre grade foi ativada para cada um dos buckets (ou seja, se a replicação ocorrer em ambas as direções), você pode desativar a replicação entre grade para um ou ambos os buckets. Por exemplo, você pode querer desativar a replicação de objetos `my-bucket` de na Grade 1 para na Grade `my-bucket` 2, enquanto continua a replicar objetos `my-bucket` de na Grade 2 para na Grade `my-bucket` 1.
-* Você deve desativar a replicação entre grade antes de remover a permissão de um locatário para usar a conexão de federação de grade. link:../admin/grid-federation-manage-tenants.html["Gerenciar locatários permitidos"]Consulte .
-* Se você desabilitar a replicação entre grade para um bucket que contém objetos, não será possível reativar a replicação entre grade a menos que você exclua todos os objetos dos buckets de origem e destino.
+* Você deve desabilitar a replicação entre redes antes de poder remover a permissão de um locatário para usar a conexão de federação de rede. Consulte link:../admin/grid-federation-manage-tenants.html["Gerenciar locatários permitidos"] .
+* Se você desabilitar a replicação entre grades para um bucket que contém objetos, não será possível habilitá-la novamente, a menos que você exclua todos os objetos dos buckets de origem e de destino.
 +
 
 CAUTION: Não é possível reativar a replicação a menos que ambos os buckets estejam vazios.
@@ -152,7 +155,7 @@ CAUTION: Não é possível reativar a replicação a menos que ambos os buckets 
 
 
 .Antes de começar
-* Você está usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você está usando umlink:../admin/web-browser-requirements.html["navegador da web suportado"] .
 * Você pertence a um grupo de usuários que tem o link:tenant-management-permissions.html["Permissão de acesso à raiz"].
 
 
@@ -164,7 +167,7 @@ CAUTION: Não é possível reativar a replicação a menos que ambos os buckets 
 .. Selecione o nome do bucket na tabela para acessar a página de detalhes do bucket.
 .. Selecione a guia *replicação entre grades*.
 .. Selecione *Desativar replicação*.
-.. Se tiver certeza de que deseja desativar a replicação entre grades para esse intervalo, digite *Yes* na caixa de texto e selecione *Disable*.
+.. Se tiver certeza de que deseja desabilitar a replicação entre grades para este bucket, digite *Sim* na caixa de texto e selecione *Desabilitar*.
 +
 Depois de alguns momentos, uma mensagem de sucesso aparece. Novos objetos adicionados a esse bucket não podem mais ser replicados automaticamente para a outra grade. *A replicação entre grades* não é mais mostrada como um recurso habilitado na página Buckets.
 

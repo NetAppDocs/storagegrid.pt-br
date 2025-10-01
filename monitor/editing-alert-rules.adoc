@@ -25,7 +25,7 @@ Ao editar uma regra de alerta padrão, você pode alterar as condições para al
 CAUTION: Tenha cuidado ao decidir editar uma regra de alerta. Se você alterar os valores do gatilho, talvez não detete um problema subjacente até que ele impeça que uma operação crítica seja concluída.
 
 .Passos
-. Selecione *ALERTAS* > *regras*.
+. Selecione *Alertas* > *Regras*.
 +
 A página regras de alerta é exibida.
 

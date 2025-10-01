@@ -22,11 +22,10 @@ Além do ICMP e das portas listadas na tabela, o StorageGRID usa o protocolo de 
 
 == Diretrizes para nós baseados em Linux
 
-Se as políticas de rede empresarial restringirem o acesso a qualquer uma dessas portas, você poderá remapear as portas no momento da implantação usando um parâmetro de configuração de implantação. Para obter mais informações sobre o mapeamento de portas e os parâmetros de configuração de implantação, consulte:
+Se as políticas de rede corporativa restringirem o acesso a qualquer uma dessas portas, você poderá remapear as portas no momento da implantação usando um parâmetro de configuração de implantação.  Para obter mais informações sobre remapeamento de porta e parâmetros de configuração de implantação, consultelink:../swnodes/index.html["Instalar StorageGRID em nós baseados em software"] .
 
-* link:../rhel/index.html["Instale o StorageGRID no Red Hat Enterprise Linux"]
-* link:../ubuntu/index.html["Instale o StorageGRID no Ubuntu ou Debian"]
 
+NOTE: O suporte para remapeamento de portas está obsoleto e será removido em uma versão futura. Para remover portas remapeadas, consultelink:../maintain/removing-port-remaps-on-bare-metal-hosts.html["Remova os remapas de portas em hosts bare metal"] .
 
 
 
@@ -34,13 +33,19 @@ Se as políticas de rede empresarial restringirem o acesso a qualquer uma dessas
 
 Configure as portas a seguir somente se você precisar definir restrições de firewall externas à rede VMware.
 
-Se as políticas de rede empresarial restringirem o acesso a qualquer uma dessas portas, você poderá remapear as portas quando implantar nós usando o VMware vSphere Web Client ou usando uma configuração de arquivo de configuração ao automatizar a implantação do nó de grade. Para obter mais informações sobre o mapeamento de portas e os parâmetros de configuração de implantação, link:../vmware/index.html["Instale o StorageGRID no VMware"]consulte .
+Se as políticas de rede corporativa restringirem o acesso a qualquer uma dessas portas, você poderá remapear as portas ao implantar nós usando o VMware vSphere Web Client ou usando uma definição de arquivo de configuração ao automatizar a implantação de nós de grade.  Para obter mais informações sobre o remapeamento de portas e os parâmetros de configuração de implantação, consulte as instruções paralink:../swnodes/index.html["instalando StorageGRID no VMware"] .
+
+
+NOTE: O suporte para remapeamento de portas está obsoleto e será removido em uma versão futura. Para remover portas remapeadas, consultelink:../maintain/removing-port-remaps-on-bare-metal-hosts.html["Remova os remapas de portas em hosts bare metal"] .
 
 
 
 == Diretrizes para nós de dispositivo
 
 Se as políticas de rede empresarial restringirem o acesso a qualquer uma dessas portas, você poderá remapear as portas usando o Instalador de dispositivos StorageGRID.  https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["Opcional: Remapear as portas de rede para o dispositivo"^]Consulte .
+
+
+NOTE: O suporte para remapeamento de portas está obsoleto e será removido em uma versão futura. Para remover portas remapeadas, consultelink:../maintain/removing-port-remaps.html["Remover remapeamentos de porta em dispositivos StorageGRID"] .
 
 
 
@@ -151,7 +156,7 @@ Todos os nós
  a| 
 Nós de storage
  a| 
-Tráfego interno relacionado a S3 e Swift.
+Tráfego interno relacionado com S3.
 
 
 
@@ -425,19 +430,6 @@ Nós de administração/storage
 Nós de storage
  a| 
 Tráfego interno relacionado com S3.
-
-
-
- a| 
-18083
- a| 
-TCP
- a| 
-Todos os nós
- a| 
-Nós de storage
- a| 
-Tráfego interno relacionado com Swift.
 
 
 

@@ -40,6 +40,7 @@ Por exemplo, não use os seguintes intervalos de sub-rede para a Rede de grade, 
 
 ====
 .Passos
+. O acesso SSH externo é bloqueado por padrão.  Se necessário,link:../admin/manage-external-ssh-access.html["permitir acesso temporariamente"] .
 . Faça login no nó de administração principal:
 +
 .. Introduza o seguinte comando: `ssh admin@_primary_Admin_Node_IP_`
@@ -102,7 +103,7 @@ image::../media/change_ip_tool_aesl_sample_input.gif[altere o exemplo aesl da fe
 . Quando estiver pronto, digite *q* para voltar à tela do menu principal. Suas alterações são mantidas até serem limpas ou aplicadas.
 +
 
-NOTE: Se você selecionou qualquer um dos modos de seleção de nó "todos" na etapa 2, pressione *Enter* (sem *q*) para chegar ao próximo nó na lista.
+NOTE: Se você selecionou qualquer um dos modos de seleção de "todos" nós na etapa 3, pressione *Enter* (sem *q*) para ir para o próximo nó na lista.
 
 . Escolha uma das seguintes opções:
 +
@@ -151,10 +152,11 @@ Updating grid network configuration on Name
 ----
 
 
-. Faça o download de um novo Pacote de recuperação do Gerenciador de Grade.
+. Baixe um novo pacote de recuperação do Grid Manager.
 +
-.. Selecione *MAINTENANCE* > *System* > *Recovery package*.
+.. Selecione *Manutenção* > *Sistema* > *Pacote de recuperação*.
 .. Introduza a frase-passe de aprovisionamento.
 
 
+. Se você permitiu acesso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear acesso"] quando terminar de adicionar ou alterar as listas de sub-redes.
 

@@ -144,3 +144,6 @@ Dependendo dos seus requisitos, você pode usar mais de um método de criptograf
 
 
 Se apenas uma pequena parte de seus objetos exigir criptografia, considere controlar a criptografia no intervalo ou no nível de objeto individual. Ativar vários níveis de criptografia tem um custo de desempenho adicional.
+
+.Informações relacionadas
+link:manage-tls-ssh-policy.html#select-a-security-policy["Saiba mais sobre as opções de criptografia certificadas pelo FIPS"]

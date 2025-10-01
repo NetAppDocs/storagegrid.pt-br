@@ -24,7 +24,7 @@ Use o Gerenciador de Grade para monitorar a conetividade e o desempenho da rede,
 Além disso, considere link:../admin/managing-traffic-classification-policies.html["criando políticas de classificação de tráfego de rede"] para que você possa monitorar o tráfego relacionado a locatários específicos, buckets, sub-redes ou pontos de extremidade do balanceador de carga. Você pode definir políticas de limitação de tráfego conforme necessário.
 
 .Passos
-. Selecione *NODES*.
+. Selecione *Nós*.
 +
 A página nós é exibida. Cada nó na grade é listado no formato de tabela.
 
@@ -54,7 +54,7 @@ image::../media/nodes_page_network_communication.png[Comunicação de rede de P�
 
 . Use as métricas associadas às suas políticas de classificação de tráfego para monitorar o tráfego de rede.
 +
-.. Selecione *CONFIGURATION* > *Network* > *Traffic Classification*.
+.. Selecione *Configuração* > *Rede* > *Classificação de tráfego*.
 +
 A página políticas de classificação de tráfego é exibida e as políticas existentes são listadas na tabela.
 
@@ -82,7 +82,7 @@ Se uma política de classificação de tráfego for projetada para limitar o tr�
 Monitore nós de grade individuais para verificar seus níveis de uso de recursos. Se os nós estiverem sobrecarregados consistentemente, mais nós poderão ser necessários para operações eficientes.
 
 .Passos
-. Na página *NÓS*, selecione o nó.
+. Na página *Nós*, selecione o nó.
 . Selecione a guia *hardware* para exibir gráficos de utilização da CPU e uso da memória.
 +
 image::../media/nodes_page_hardware_tab_graphs.png[Guia hardware da página de nós]

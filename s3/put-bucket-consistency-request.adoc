@@ -77,4 +77,4 @@ Authorization: _authorization string_
 Host: _host_
 ----
 .Informações relacionadas
-link:consistency-controls.html["Valores de consistência"]
+link:consistency.html["Consistência"]

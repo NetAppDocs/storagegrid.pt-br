@@ -13,11 +13,7 @@ summary: Siga estas etapas para adicionar uma interface na rede de administraç�
 [role="lead"]
 Siga estas etapas para adicionar uma interface na rede de administração ou na rede de cliente a um nó Linux depois de instalado.
 
-Se você não configurou ADMIN_network_TARGET ou CLIENT_network_TARGET no arquivo de configuração do nó no host Linux durante a instalação, use este procedimento para adicionar a interface. Para obter mais informações sobre o arquivo de configuração do nó, consulte as instruções do seu sistema operacional Linux:
-
-* link:../rhel/index.html["Instale o StorageGRID no Red Hat Enterprise Linux"]
-* link:../ubuntu/index.html["Instale o StorageGRID no Ubuntu ou Debian"]
-
+Se você não configurou ADMIN_NETWORK_TARGET ou CLIENT_NETWORK_TARGET no arquivo de configuração do nó no host Linux durante a instalação, use este procedimento para adicionar a interface.  Para obter mais informações sobre o arquivo de configuração do nó, consultelink:../swnodes/index.html["Instalar StorageGRID em nós baseados em software"] .
 
 Você executa este procedimento no servidor Linux que hospeda o nó que precisa da nova atribuição de rede, não dentro do nó. Este procedimento adiciona apenas a interface ao nó; ocorre um erro de validação se tentar especificar quaisquer outros parâmetros de rede.
 
