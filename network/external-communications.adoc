@@ -244,9 +244,9 @@ Navegador
  a| 
 Nós de administração
  a| 
-Usado por navegadores da Web e clientes de API de gerenciamento para acessar o Gerenciador de Grade e o Gerenciador de Tenant.
+Usado por navegadores da web e clientes de API de gerenciamento para acessar o Grid Manager e o Tenant Manager.
 
-*Nota*: Se você fechar as portas 443 ou 8443 do Gerenciador de Grade, qualquer usuário conetado atualmente em uma porta bloqueada, incluindo você, perderá o acesso ao Gerenciador de Grade, a menos que seu endereço IP tenha sido adicionado à lista de endereços privilegiados. link:../admin/configure-firewall-controls.html["Configurar controles de firewall"]Consulte para configurar endereços IP privilegiados.
+*Observação*: se você fechar as portas 443 ou 8443 do Grid Manager, todos os usuários conectados em uma porta bloqueada, incluindo você, perderão o acesso ao Grid Manager, a menos que seus endereços IP tenham sido adicionados à lista de endereços privilegiados. Consultelink:../admin/configure-firewall-controls.html["Configurar controles de firewall"] para configurar endereços IP privilegiados.
 
 
 
@@ -306,7 +306,7 @@ Todos os nós
  a| 
 Todos os nós
  a| 
-Fornece o serviço de DNS multicast (mDNS) que é usado para alterações de IP de grade completa e para descoberta de nó de administrador principal durante a instalação, expansão e recuperação.
+Fornece o serviço DNS multicast (mDNS) usado para alterações de IP de grade completa e para descoberta do nó de administração primário durante a instalação, expansão e recuperação.
 
 
 
@@ -336,9 +336,26 @@ Navegador
  a| 
 Nós de administração
  a| 
-Opcional. Usado por navegadores da Web e clientes de API de gerenciamento para acessar o Gerenciador de Grade. Pode ser usado para separar as comunicações do Grid Manager e do Tenant Manager.
+Opcional. Usado por navegadores da web e clientes de API de gerenciamento para acessar o Grid Manager. Pode ser usado para separar as comunicações do Grid Manager e do Tenant Manager.
 
-*Nota*: Se você fechar as portas 443 ou 8443 do Gerenciador de Grade, qualquer usuário conetado atualmente em uma porta bloqueada, incluindo você, perderá o acesso ao Gerenciador de Grade, a menos que seu endereço IP tenha sido adicionado à lista de endereços privilegiados. link:../admin/configure-firewall-controls.html["Configurar controles de firewall"]Consulte para configurar endereços IP privilegiados.
+*Observação*: se você fechar as portas 443 ou 8443 do Grid Manager, todos os usuários conectados em uma porta bloqueada, incluindo você, perderão o acesso ao Grid Manager, a menos que seus endereços IP tenham sido adicionados à lista de endereços privilegiados.  Consultelink:../admin/configure-firewall-controls.html["Configurar controles de firewall"] para configurar endereços IP privilegiados.
+
+
+
+ a| 
+8443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+Navegador
+ a| 
+Aparelhos
+ a| 
+Usado por navegadores da web e clientes de API de gerenciamento para acessar o instalador do StorageGRID Appliance.
+
+*Observação*: a porta 443 redireciona para a porta 8443 para o instalador do dispositivo StorageGRID .
 
 
 
@@ -400,7 +417,7 @@ Navegador
  a| 
 Nós de administração
  a| 
-Opcional. Usado por navegadores da Web e clientes de API de gerenciamento para acessar o Gerenciador de locatários. Pode ser usado para separar as comunicações do Grid Manager e do Tenant Manager.
+Opcional. Usado por navegadores da web e clientes de API de gerenciamento para acessar o Tenant Manager. Pode ser usado para separar as comunicações do Grid Manager e do Tenant Manager.
 
 
 

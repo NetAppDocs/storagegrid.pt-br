@@ -239,6 +239,19 @@ Tráfego interno de metadados.
 
 
  a| 
+5353
+ a| 
+UDP
+ a| 
+Todos os nós
+ a| 
+Todos os nós
+ a| 
+Fornece o serviço DNS multicast (mDNS) usado para alterações de IP de grade completa e para descoberta do nó de administração primário durante a instalação, expansão e recuperação.
+
+
+
+ a| 
 7001
  a| 
 TCP
@@ -412,11 +425,11 @@ Tráfego interno do serviço Data Mover para Cloud Storage Pools.
  a| 
 TCP
  a| 
-Nós de storage
+Todos os nós
  a| 
-Nós de storage
+Todos os nós
  a| 
-Tráfego interno do serviço de bloco para codificação de apagamento.
+Tráfego interno do serviço de bloco para codificação de eliminação e replicação
 
 
 
@@ -438,9 +451,9 @@ Tráfego interno relacionado com S3.
  a| 
 TCP
  a| 
-Todos os nós de grade
+Todos os nós
  a| 
-Todos os nós de storage
+Nós de storage
  a| 
 Tráfego interno relacionado ao serviço LDR.
 
