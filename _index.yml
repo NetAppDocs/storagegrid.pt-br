@@ -81,8 +81,8 @@ indexpage:
       url: https://www.youtube.com/playlist?list=PLdXI3bZJEw7nh2wGRA65iulXhtXwLiqrY
     - title: Serviços de aprendizagem NetApp
       url: https://www.netapp.com/support-and-training/netapp-university/
-    - title: Gerenciamento de StorageGRID usando o BlueXP
-      url: https://docs.netapp.com/us-en/bluexp-storagegrid/index.html
+    - title: Gerenciamento do StorageGRID usando o NetApp Console
+      url: https://docs.netapp.com/us-en/console-storagegrid/index.html
   - title: Mais recursos
     links:
     - title: Página de suporte do StorageGRID

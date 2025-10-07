@@ -13,6 +13,10 @@ summary: A tabela a seguir descreve as mensagens de erro que podem estar relacio
 [role="lead"]
 A tabela a seguir descreve as mensagens de erro que podem estar relacionadas ao uso de um servidor syslog externo e lista as ações corretivas.
 
+Esses erros são exibidos pelo assistente Configurar servidor syslog externo se você tiver problemas para enviar mensagens de teste para validar se o servidor syslog externo está configurado corretamente.
+
+Problemas em tempo de execução podem ser relatados pelolink:../monitor/alerts-reference.html#audit-and-syslog-alerts["Erro de encaminhamento do servidor syslog externo"] alerta.  Se você receber este alerta, siga as instruções no alerta para reenviar as mensagens de teste para que você possa obter mensagens de erro detalhadas.
+
 Para obter mais informações sobre como enviar informações de auditoria para um servidor syslog externo, consulte:
 
 * link:../monitor/considerations-for-external-syslog-server.html["Considerações para usar um servidor syslog externo"]
