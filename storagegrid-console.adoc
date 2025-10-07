@@ -14,7 +14,7 @@ summary: Aprenda a gerenciar seus sistemas StorageGRID no NetApp Console usando 
 
 
 [role="lead"]
-Vá para https://docs.netapp.com/us-en/console-storagegrid/index.html["Gerenciamento do StorageGRID usando o NetApp Console"^] para aprender como gerenciar seus sistemas StorageGRID no NetApp Console usando o Grid Manager e usar os serviços de dados do NetApp Console para backups, armazenamento de dados em camadas e muito mais.
+Vá para https://docs.netapp.com/us-en/storage-management-storagegrid/index.html["Gerenciamento do StorageGRID usando o NetApp Console"^] para aprender como gerenciar seus sistemas StorageGRID no NetApp Console usando o Grid Manager e usar os serviços de dados do NetApp Console para backups, armazenamento de dados em camadas e muito mais.
 
 * BlueXP agora é NetApp Console*
 
