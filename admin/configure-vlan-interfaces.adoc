@@ -11,7 +11,7 @@ summary: 'Você pode criar interfaces de LAN virtual (VLAN) em nós de administr
 
 
 [role="lead"]
-Você pode criar interfaces de LAN virtual (VLAN) em nós de administração e nós de gateway e usá-las em grupos de HA e pontos de extremidade do balanceador de carga para isolar e particionar o tráfego para obter segurança, flexibilidade e desempenho.
+Crie interfaces de LAN virtual (VLAN) em nós de administração e nós de gateway e use-as em grupos de HA e pontos de extremidade do balanceador de carga para isolar e particionar o tráfego para segurança, flexibilidade e desempenho. Os nós selecionados no grupo HA podem usar as interfaces VLAN para compartilhar até 10 endereços IP virtuais, de modo que, se um nó cair, outro nó assume o tráfego de e para os endereços IP virtuais.
 
 
 
