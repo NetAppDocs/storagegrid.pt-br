@@ -28,6 +28,10 @@ Para aumentar a segurança do sistema, o acesso SSH externo é bloqueado por pad
 +
 .. Marque a caixa de seleção para bloquear o acesso (padrão).
 .. Desmarque a caixa de seleção para permitir o acesso.
++
+
+NOTE: Requer acesso à porta 22 entre o laptop de serviço e todos os outros nós da grade.  Remova o acesso à porta 22 ao concluir a tarefa de manutenção.
+
 
 
 . Selecione *Guardar*.

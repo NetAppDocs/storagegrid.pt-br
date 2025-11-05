@@ -70,7 +70,7 @@ Se a conta de usuário federada não estiver funcionando, tente fazer login no G
 ** Se o usuário local não conseguir fazer login e tiver certeza de que as credenciais estão corretas, vá para a próxima etapa.
 
 
-. Use o Secure Shell (ssh) para fazer login no Admin Node:
+. Utilize o Secure Shell (SSH) para fazer login no nó de administração:
 +
 .. Introduza o seguinte comando: `ssh admin@Admin_Node_IP`
 .. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
