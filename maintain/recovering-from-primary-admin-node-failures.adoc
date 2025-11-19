@@ -16,8 +16,6 @@ Você deve concluir um conjunto específico de tarefas para recuperar de uma fal
 
 CAUTION: Você deve reparar ou substituir imediatamente um nó de administração principal com falha ou a grade pode perder sua capacidade de ingerir novos objetos. O período de tempo exato depende da sua taxa de ingestão de objetos: Se você precisar de uma avaliação mais precisa do período de tempo para sua grade, entre em Contato com o suporte técnico.
 
-O serviço CMN (Configuration Management Node) no nó Admin primário é responsável pela emissão de blocos de identificadores de objetos para a grade. Esses identificadores são atribuídos a objetos à medida que são ingeridos. Novos objetos não podem ser ingeridos a menos que existam identificadores disponíveis. A ingestão de objetos pode continuar enquanto o CMN não estiver disponível porque o fornecimento de identificadores de aproximadamente um mês é armazenado em cache na grade. No entanto, depois que os identificadores armazenados em cache são esgotados, nenhum novo objeto pode ser adicionado.
-
 Siga estas etapas de alto nível para recuperar um nó de administração principal:
 
 . link:copying-audit-logs-from-failed-primary-admin-node.html["Copiar registos de auditoria do nó de administração principal avariado"]
