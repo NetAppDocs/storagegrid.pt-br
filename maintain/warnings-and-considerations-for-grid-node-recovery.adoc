@@ -46,7 +46,7 @@ Todas as condições a seguir são assumidas ao recuperar nós de grade:
 
 == Ordem de recuperação de nó se um servidor que hospeda mais de um nó de grade falhar
 
-Se um servidor que hospeda mais de um nó de grade falhar, você poderá recuperar os nós em qualquer ordem. No entanto, se o servidor com falha estiver hospedando o Nó de Administração primário e não existirem Nós de Administração secundários, você deverá recuperar primeiro o Nó de Administração primário.
+Se um servidor que hospeda mais de um nó de grade falhar, você poderá recuperar os nós em qualquer ordem. Entretanto, se o servidor com falha estiver hospedando o nó de administração principal, você deverá recuperar esse nó primeiro.
 
 
 
