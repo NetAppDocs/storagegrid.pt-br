@@ -20,4 +20,4 @@ Vá para https://docs.netapp.com/us-en/storage-management-storagegrid/index.html
 
 O NetApp Console, criado com base na base aprimorada e reestruturada do BlueXP , fornece gerenciamento centralizado do armazenamento NetApp e do NetApp Data Services em ambientes locais e na nuvem em nível empresarial, fornecendo insights em tempo real, fluxos de trabalho mais rápidos e administração simplificada, de forma altamente segura e compatível.
 
-Para obter detalhes sobre o que mudou, consulte olink:https://docs.netapp.com/us-en/bluexp-relnotes/index.html["Notas de versão do NetApp Console"] .
+Para obter detalhes sobre o que mudou, consulte o link:https://docs.netapp.com/us-en/console-relnotes/index.html["Notas de versão do NetApp Console"].
