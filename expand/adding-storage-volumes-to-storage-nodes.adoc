@@ -1,10 +1,10 @@
 ---
 permalink: expand/adding-storage-volumes-to-storage-nodes.html 
 sidebar: sidebar 
-keywords: storage volumes, expand, expansion, add, storage nodes, adding storage capacity 
+keywords: storage volumes, expand, expansion, add, storage nodes, adding storage capacity, StorageGRID 
 summary: Você pode expandir a capacidade de armazenamento dos Nós de Armazenamento que estão abaixo do número máximo de volumes suportados.  Pode ser necessário adicionar volumes de armazenamento a mais de um nó de armazenamento para atender aos requisitos de ILM para cópias replicadas ou codificadas para eliminação. 
 ---
-= Adicionar volumes de storage aos nós de storage
+= Adicione volumes de armazenamento ao seu sistema StorageGRID.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

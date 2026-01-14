@@ -1,10 +1,10 @@
 ---
 permalink: expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html 
 sidebar: sidebar 
-keywords: grid node, add node, add site, expand, expansion 
+keywords: grid node, add node, add site, expand, expansion, StorageGRID 
 summary: Siga este procedimento para adicionar nós de grade a sites existentes ou para adicionar um novo site. Você só pode executar um tipo de expansão de cada vez. 
 ---
-= Adicione nós de grade ao site existente ou adicione um novo site
+= Resumo do fluxo de trabalho para adicionar nós de grade ou novos sites ao StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -24,7 +24,7 @@ NOTE: Você é impedido de iniciar uma expansão enquanto outro procedimento de 
 
 
 .Passos
-. link:updating-subnets-for-grid-network.html["Atualizar sub-redes para rede de Grade"].
-. link:deploying-new-grid-nodes.html["Implantar novos nós de grade"].
+. link:updating-subnets-for-grid-network.html["Atualizar sub-redes para a Rede Grid"].
+. link:deploying-new-grid-nodes.html["Implante os novos nós da grade."].
 . link:performing-expansion.html["Execute a expansão"].
 

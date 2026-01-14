@@ -1,17 +1,17 @@
 ---
 permalink: expand/index.html 
 sidebar: sidebar 
-keywords: expand grid 
+keywords: expand grid, StorageGRID 
 summary: Você pode expandir a capacidade ou as funcionalidades do sistema StorageGRID sem interromper as operações do sistema. 
 ---
-= Tipos de expansão
+= Saiba mais sobre como expandir seu sistema StorageGRID.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Você pode expandir a capacidade ou as funcionalidades do sistema StorageGRID sem interromper as operações do sistema.
+Saiba como expandir seu sistema StorageGRID para aumentar a capacidade ou os recursos sem interromper as operações. Você pode adicionar volumes de armazenamento a nós de armazenamento existentes, adicionar novos nós de grade a um site existente ou adicionar um novo site.
 
 Antes de expandir um nó de grade, você deve confirmar se não há trabalhos de reparo de dados ativos.  Se algum reparo falhar, você deve reiniciá-lo e esperar que ele seja concluído antes de executar o procedimento de descomissionamento ou expansão. Consulte link:../maintain/checking-data-repair-jobs.html["Verifique os trabalhos de reparação de dados"] .
 

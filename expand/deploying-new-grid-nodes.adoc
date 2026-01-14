@@ -1,10 +1,10 @@
 ---
 permalink: expand/deploying-new-grid-nodes.html 
 sidebar: sidebar 
-keywords: expansion, add nodes 
+keywords: expansion, add nodes, StorageGRID 
 summary: As etapas para implantar novos nós de grade em uma expansão são as mesmas que as etapas usadas quando a grade foi instalada pela primeira vez. Você deve implantar todos os novos nós de grade antes de executar a expansão. 
 ---
-= Implantar novos nós de grade
+= Implante novos nós de grade no StorageGRID.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

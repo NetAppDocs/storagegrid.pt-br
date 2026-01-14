@@ -1,10 +1,10 @@
 ---
 permalink: expand/considerations-for-rebalancing-erasure-coded-data.html 
 sidebar: sidebar 
-keywords: erasure coding, rebalance, ec rebalance, site rebalance 
+keywords: erasure coding, rebalance, ec rebalance, site rebalance, StorageGRID 
 summary: Se você estiver executando uma expansão para adicionar nós de storage e usar regras de ILM para apagar dados de código, talvez seja necessário executar o procedimento de rebalanceamento de EC se não for possível adicionar nós de storage suficientes para o esquema de codificação de apagamento que você está usando. 
 ---
-= Considerações para rebalanceamento de dados codificados por apagamento
+= Saiba mais sobre o rebalanceamento de EC após a expansão no StorageGRID.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

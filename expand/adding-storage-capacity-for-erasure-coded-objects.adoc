@@ -1,10 +1,10 @@
 ---
 permalink: expand/adding-storage-capacity-for-erasure-coded-objects.html 
 sidebar: sidebar 
-keywords: erasure coding, capacity, storage nodes, ec, expand, expansion 
+keywords: erasure coding, capacity, storage nodes, ec, expand, expansion, StorageGRID 
 summary: Se a política de ILM incluir uma regra que faça cópias codificadas por apagamento, você deve Planejar onde adicionar um novo storage e quando adicionar um novo storage. A quantidade de armazenamento que você adiciona e o tempo da adição podem afetar a capacidade de armazenamento utilizável da grade. 
 ---
-= Adicionar capacidade de storage para objetos codificados por apagamento
+= Planejamento de expansão para dados com codificação de apagamento (EC) no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -1,10 +1,10 @@
 ---
 permalink: expand/rebalancing-erasure-coded-data-after-adding-storage-nodes.html 
 sidebar: sidebar 
-keywords: erasure coding, EC, rebalancing, site rebalance procedure 
+keywords: erasure coding, EC, rebalancing, site rebalance procedure, StorageGRID 
 summary: Depois de adicionar nós de storage, use o procedimento de rebalancear a codificação de apagamento para redistribuir fragmentos codificados por apagamento entre os nós de storage atuais e novos. 
 ---
-= Rebalancear os dados codificados por apagamento após adicionar nós de storage
+= Reequilibre os dados codificados por apagamento após adicionar nós ao seu sistema StorageGRID.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

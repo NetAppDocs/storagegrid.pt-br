@@ -1,10 +1,10 @@
 ---
 permalink: expand/copying-prometheus-metrics.html 
 sidebar: sidebar 
-keywords: prometheus, copy metrics, Admin Node expansion 
+keywords: prometheus, copy metrics, Admin Node expansion, StorageGRID 
 summary: Depois de adicionar um novo nó Admin, você pode opcionalmente copiar as métricas históricas mantidas pelo Prometheus do nó Admin primário para o novo nó Admin. Copiar as métricas garante que as métricas históricas sejam consistentes entre os nós de administração. 
 ---
-= Copiar métricas Prometheus
+= Copiar métricas do Prometheus para novos nós de administração no StorageGRID.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

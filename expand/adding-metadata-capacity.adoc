@@ -1,10 +1,10 @@
 ---
 permalink: expand/adding-metadata-capacity.html 
 sidebar: sidebar 
-keywords: metadata capacity, add, adding, expand, expansion, guidelines, Storage Nodes, metadata storage 
+keywords: metadata capacity, add, adding, expand, expansion, guidelines, Storage Nodes, metadata storage, StorageGRID 
 summary: Para garantir que o espaço adequado esteja disponível para metadados de objetos, talvez seja necessário executar um procedimento de expansão para adicionar novos nós de storage em cada local. 
 ---
-= Adicionar capacidade de metadados
+= Diretrizes para adicionar capacidade de metadados no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
