@@ -1,10 +1,10 @@
 ---
 permalink: harden/index.html 
 sidebar: sidebar 
-keywords: Hardening guidelines, system, security 
+keywords: StorageGRID, hardening guidelines, system, security 
 summary: O fortalecimento do sistema é o processo de eliminar o maior número possível de riscos de segurança a partir de um sistema StorageGRID. 
 ---
-= Considerações gerais para o endurecimento do sistema
+= Saiba mais sobre a proteção do sistema para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

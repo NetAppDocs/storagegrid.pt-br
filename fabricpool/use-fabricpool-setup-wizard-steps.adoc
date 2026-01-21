@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/use-fabricpool-setup-wizard-steps.html 
 sidebar: sidebar 
-keywords: fabricPool, FabricPool setup wizard, ontap system manager 
+keywords: fabricPool, StorageGRID, FabricPool setup wizard, ontap system manager 
 summary: Você pode usar o assistente de configuração do FabricPool para configurar o StorageGRID como o sistema de storage de objetos para uma camada de nuvem do FabricPool. 
 ---
-= Acesse e conclua o assistente de configuração do FabricPool
+= Acesse e conclua o assistente de instalação do StorageGRID FabricPool
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

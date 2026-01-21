@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: client network topology 
 summary: 'Ter uma rede de clientes é opcional. O uso de uma rede de cliente permite que o tráfego de rede de cliente (por exemplo, S3) seja separado do tráfego interno de grade, o que permite que a rede de grade seja mais segura. O tráfego administrativo pode ser Tratado pelo Cliente ou rede de Grade quando a rede Admin não estiver configurada.' 
 ---
-= Topologia de rede do cliente
+= Topologia de rede do cliente para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: networking requirements, storagegrid networks 
 summary: Todas as implantações do StorageGRID devem ser capazes de suportar as seguintes conexões. 
 ---
-= Requisitos gerais de rede
+= Requisitos gerais de rede para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

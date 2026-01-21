@@ -1,10 +1,10 @@
 ---
 permalink: primer/how-storagegrid-manages-data.html 
 sidebar: sidebar 
-keywords: how storagegrid manages data, what an object is, how object data is protected 
+keywords: StorageGRID, how storagegrid manages data, what an object is, how object data is protected 
 summary: Com o armazenamento de objetos, a unidade de armazenamento é um objeto, em vez de um arquivo ou um bloco. Ao contrário da hierarquia semelhante a uma árvore de um sistema de arquivos ou armazenamento em bloco, o armazenamento de objetos organiza os dados em um layout plano e não estruturado. 
 ---
-= O que é um objeto
+= O que é um objeto StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

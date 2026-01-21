@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: networking after installation, dhcp networking 
 summary: Depois de concluir a implantação e a configuração do nó de grade, siga estas diretrizes para endereçamento DHCP e alterações na configuração da rede. 
 ---
-= Diretrizes de pós-instalação
+= Diretrizes pós-instalação para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

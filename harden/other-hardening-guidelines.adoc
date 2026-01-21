@@ -1,10 +1,10 @@
 ---
 permalink: harden/other-hardening-guidelines.html 
 sidebar: sidebar 
-keywords: Hardening guidelines, security 
+keywords: StorageGRID, hardening guidelines, security 
 summary: Além de seguir as diretrizes de proteção para redes e nós StorageGRID, você deve seguir as diretrizes de proteção para outras áreas do sistema StorageGRID. 
 ---
-= Outras diretrizes de endurecimento
+= Diretrizes de reforço para logs, senhas e mensagens de auditoria no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

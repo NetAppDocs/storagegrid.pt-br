@@ -1,10 +1,10 @@
 ---
 permalink: primer/ingest-data-flow.html 
 sidebar: sidebar 
-keywords: object data, ingest 
+keywords: StorageGRID, object data, ingest 
 summary: Uma operação de ingestão ou salvamento consiste em um fluxo de dados definido entre o cliente e o sistema StorageGRID. 
 ---
-= Ingira o fluxo de dados
+= Como StorageGRID lida com a ingestão de objetos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

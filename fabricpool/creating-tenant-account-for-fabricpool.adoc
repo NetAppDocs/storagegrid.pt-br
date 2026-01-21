@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/creating-tenant-account-for-fabricpool.html 
 sidebar: sidebar 
-keywords: fabricPool, tenant, SSO 
+keywords: fabricPool, StorageGRID, tenant, SSO 
 summary: Você deve criar uma conta de locatário no Gerenciador de Grade para uso do FabricPool. 
 ---
-= Crie uma conta de locatário para o FabricPool
+= Crie uma conta de locatário para FabricPool no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

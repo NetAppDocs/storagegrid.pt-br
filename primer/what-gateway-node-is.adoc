@@ -1,10 +1,10 @@
 ---
 permalink: primer/what-gateway-node-is.html 
 sidebar: sidebar 
-keywords: gateway nodes, api gateway 
+keywords: StorageGRID, gateway nodes, api gateway 
 summary: Os nós de gateway fornecem uma interface dedicada de balanceamento de carga que os aplicativos clientes S3 podem usar para se conetar ao StorageGRID. O balanceamento de carga maximiza a velocidade e a capacidade de conexão distribuindo a carga de trabalho em vários nós de storage. Os nós de gateway são opcionais. 
 ---
-= O que é um nó de gateway?
+= O que é um nó de gateway do StorageGRID?
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

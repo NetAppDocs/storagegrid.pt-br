@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, network, networking, ethernet, subnet, routing 
 summary: Use essas diretrizes para conhecer a arquitetura e as topologias de rede do StorageGRID e conhecer os requisitos de configuração e provisionamento de rede. 
 ---
-= Diretrizes de rede
+= Diretrizes de rede para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

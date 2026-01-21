@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid network requirements 
 summary: Siga estes requisitos e diretrizes para a rede de Grade. 
 ---
-= Requisitos de rede de rede
+= Requisitos de rede Grid para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network topology for storagegrid 
 summary: Você pode configurar todas as três redes em uma topologia de rede que consiste em uma rede de grade privada, redes de administração específicas de sites limitados e redes de clientes abertas. O uso de endpoints do balanceador de carga e redes de clientes não confiáveis pode fornecer segurança adicional, se necessário. 
 ---
-= Topologia para todas as três redes
+= Topologia de rede para todas as três redes StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

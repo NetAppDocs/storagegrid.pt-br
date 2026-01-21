@@ -1,10 +1,10 @@
 ---
 permalink: primer/nodes-and-services.html 
 sidebar: sidebar 
-keywords: services, grid nodes, primary admin, storage, gateway 
+keywords: StorageGRID, services, grid nodes, primary admin, storage, gateway 
 summary: O componente básico básico de um sistema StorageGRID é o nó de grade. Os nós contêm serviços, que são módulos de software que fornecem um conjunto de recursos para um nó de grade. 
 ---
-= Nós e serviços de grade
+= Nós e serviços de grid StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

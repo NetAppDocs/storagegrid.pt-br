@@ -2,8 +2,8 @@
 section: network
 title: Diretrizes de rede
 entries:
-- title: Rede StorageGRID
-  pdf-filename: Diretrizes de rede da StorageGRID
+- title: Diretrizes de rede
+  pdf-filename: Diretrizes de rede para StorageGRID
   url: "/network/index.html"
 - title: Tipos de rede StorageGRID
   url: "/network/storagegrid-network-types.html"
@@ -27,7 +27,7 @@ entries:
     url: "/network/linux-deployments.html"
   - title: Rede e portas para serviços de plataforma e Cloud Storage Pools
     url: "/network/networking-and-ports-for-platform-services-and-cloud-storage-pools.html"
-  - title: Nós do dispositivo
+  - title: Configuração de rede do appliance
     url: "/network/appliance-nodes.html"
 - title: Instalação e provisionamento de rede
   url: "/network/network-installation-and-provisioning.html"

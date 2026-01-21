@@ -1,7 +1,7 @@
 ---
 permalink: harden/hardening-guidelines-for-storagegrid-nodes.html 
 sidebar: sidebar 
-keywords: hardening guidelines, nodes, security 
+keywords: StorageGRID, hardening guidelines, nodes, security 
 summary: Os nós do StorageGRID podem ser implantados em máquinas virtuais VMware, dentro de um mecanismo de contêiner em hosts Linux ou como dispositivos de hardware dedicados. Cada tipo de plataforma e cada tipo de nó tem seu próprio conjunto de práticas recomendadas de endurecimento. 
 ---
 = Diretrizes de fortalecimento para nós de StorageGRID

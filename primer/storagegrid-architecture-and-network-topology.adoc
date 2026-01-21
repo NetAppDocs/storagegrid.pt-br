@@ -1,7 +1,7 @@
 ---
 permalink: primer/storagegrid-architecture-and-network-topology.html 
 sidebar: sidebar 
-keywords: architecture, deployment, topology, site, node redundancy, services, nodes 
+keywords: StorageGRID, architecture, deployment, topology, site, node redundancy, services, nodes 
 summary: Um sistema StorageGRID consiste em vários tipos de nós de grade em um ou mais locais de data center. 
 ---
 = Topologia de rede e arquitetura StorageGRID

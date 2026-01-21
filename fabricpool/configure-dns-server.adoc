@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/configure-dns-server.html 
 sidebar: sidebar 
-keywords: dns, vip, virtual ip, fqdn, server name 
+keywords: fabricPool, StorageGRID, dns, vip, virtual ip, fqdn, server name 
 summary: Depois de configurar grupos de alta disponibilidade, pontos de extremidade do balanceador de carga e nomes de domínio S3, você deve garantir que o DNS inclua as entradas necessárias para o StorageGRID. 
 ---
-= Configure o servidor DNS
+= Configure as entradas do servidor DNS para StorageGRID com FabricPool
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

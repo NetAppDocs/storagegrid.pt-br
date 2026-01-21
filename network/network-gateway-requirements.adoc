@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network gateway requirements 
 summary: Siga estes requisitos e diretrizes para gateways de rede ou roteadores. 
 ---
-= Requisitos de gateway de rede
+= Requisitos de gateway de rede para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

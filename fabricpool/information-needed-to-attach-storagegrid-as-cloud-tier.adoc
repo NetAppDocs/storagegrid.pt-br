@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: StorageGRID, fabricPool, ONTAP System Manager, ONTAP CLI, port, FQDN, object store name 
 summary: Antes de anexar o StorageGRID como uma categoria de nuvem para o FabricPool, você deve executar as etapas de configuração no StorageGRID e obter certos valores. 
 ---
-= Informações necessárias para anexar o StorageGRID como uma categoria de nuvem
+= Informações necessárias para conectar StorageGRID como uma camada de nuvem FabricPool
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

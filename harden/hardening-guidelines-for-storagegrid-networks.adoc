@@ -1,7 +1,7 @@
 ---
 permalink: harden/hardening-guidelines-for-storagegrid-networks.html 
 sidebar: sidebar 
-keywords: hardening guidelines, networks, networking, security 
+keywords: StorageGRID, hardening guidelines, networks, networking, security 
 summary: O sistema StorageGRID suporta até três interfaces de rede por nó de grade, permitindo que você configure a rede para cada nó de grade individual de acordo com seus requisitos de segurança e acesso. 
 ---
 = Diretrizes de fortalecimento para redes StorageGRID

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid network topology 
 summary: A topologia de rede mais simples é criada configurando apenas a rede de Grade. 
 ---
-= Topologia de rede de grade
+= Topologia de rede para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

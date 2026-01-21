@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, networking requirements, network requirements, nat 
 summary: Você deve verificar se a infraestrutura e a configuração de rede atuais podem suportar o design de rede StorageGRID planejado. 
 ---
-= Requisitos de rede
+= Requisitos de rede para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

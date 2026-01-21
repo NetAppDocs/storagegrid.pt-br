@@ -1,10 +1,10 @@
 ---
 permalink: primer/what-admin-node-is.html 
 sidebar: sidebar 
-keywords: admin nodes 
+keywords: StorageGRID, admin nodes 
 summary: Os nós de administração fornecem serviços de gerenciamento, como configuração, monitoramento e log do sistema. Os nós de administração também podem ser usados para equilibrar o tráfego de clientes S3. Cada grade deve ter um nó de administração principal e pode ter qualquer número de nós de administração não primários para redundância. 
 ---
-= O que é um nó de administração?
+= O que é um nó de administração do StorageGRID?
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

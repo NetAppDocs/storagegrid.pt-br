@@ -1,9 +1,9 @@
 ---
 section: harden
-title: Endurecimento do sistema
+title: Reforço do sistema para StorageGRID
 entries:
-- title: Considerações gerais
-  pdf-filename: Endurecimento do sistema StorageGRID
+- title: Saiba mais sobre o hardening do sistema
+  pdf-filename: Reforço do sistema para StorageGRID
   url: "/harden/index.html"
 - title: Diretrizes de fortalecimento para atualizações
   url: "/harden/hardening-guidelines-for-software-upgrades.html"
@@ -13,5 +13,5 @@ entries:
   url: "/harden/hardening-guidelines-for-storagegrid-nodes.html"
 - title: Diretrizes de fortalecimento para TLS e SSH
   url: "/harden/hardening-guideline-for-server-certificates.html"
-- title: Outras diretrizes de endurecimento
+- title: Diretrizes para reforçar a segurança de logs e senhas
   url: "/harden/other-hardening-guidelines.html"

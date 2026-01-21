@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network install, network provisioning 
 summary: Você deve entender como a rede de Grade e as redes Admin e Client opcionais são usadas durante a implantação do nó e configuração da grade. 
 ---
-= Instalação e provisionamento de rede
+= Instalação e provisionamento de rede para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

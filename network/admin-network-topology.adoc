@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: admin network topology, using admin network 
 summary: Ter uma rede de administração é opcional. Uma maneira de usar uma rede Admin e uma rede de Grade é configurar uma rede de Grade roteável e uma rede Admin limitada para cada nó. 
 ---
-= Topologia de rede de administração
+= Topologia de rede de administração para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
