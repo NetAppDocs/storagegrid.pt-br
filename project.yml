@@ -28,7 +28,7 @@ sidebar:
   - title: Software StorageGRID 12.0
     url: "/index.html"
   - title: Dispositivos StorageGRID
-    url: "/storagegrid-hardware.html"
+    url: "/swnodes/storagegrid-hardware.html"
   - title: Notas de lançamento
     url: "/release-notes/index.html"
   - title: Comece agora
@@ -41,8 +41,6 @@ sidebar:
   - title: Instale, atualize e hotfix
     url: "/landing-install-upgrade/index.html"
     entries:
-    - title: Instalar nós baseados em dispositivos
-      url: "/storagegrid-hardware.html"
     - section: swnodes
     - section: upgrade
     - title: Aplique o hotfix do StorageGRID
