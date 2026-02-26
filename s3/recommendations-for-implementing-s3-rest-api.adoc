@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: implement s3 rest api 
 summary: Você deve seguir estas recomendações ao implementar a API REST do S3 para uso com o StorageGRID. 
 ---
-= Recomendações para a implementação da API REST do S3
+= Recomendações para implementar a API REST S3 com StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

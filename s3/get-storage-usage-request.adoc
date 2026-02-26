@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, GET storage usage request 
 summary: A solicitação OBTER uso do armazenamento informa a quantidade total de armazenamento em uso por uma conta e para cada bucket associado à conta. 
 ---
-= OBTER solicitação de uso de armazenamento
+= Recupere o uso de storage da conta e do bucket no StorageGRID com a solicitação GET Storage Usage
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

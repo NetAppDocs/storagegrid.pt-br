@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure S3 object lock, object lock, default bucket retention, governance, compliance, retain-until-date, legal hold 
 summary: Se a configuração global de bloqueio de objetos S3 estiver ativada para o seu sistema StorageGRID, você poderá criar buckets com o bloqueio de objetos S3 ativado. Você pode especificar a retenção padrão para cada bucket ou configurações de retenção para cada versão do objeto. 
 ---
-= Use a API REST do S3 para configurar o bloqueio de objetos do S3
+= Use a API REST S3 para configurar o S3 Object Lock do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

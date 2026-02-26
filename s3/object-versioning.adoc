@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object version, object versioning 
 summary: Você pode definir o estado de controle de versão de um bucket se quiser manter várias versões de um objeto. Ativar o controle de versão para um bucket pode ajudar a proteger contra a exclusão acidental de objetos e permite que você recupere e restaure versões anteriores de um objeto. 
 ---
-= Controle de versão de objetos
+= Como StorageGRID usa o versionamento de objetos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

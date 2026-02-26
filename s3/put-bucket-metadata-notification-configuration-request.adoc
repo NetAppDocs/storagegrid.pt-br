@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, PUT bucket metadata notification configuration request 
 summary: A solicitação de configuração de notificação de metadados do PUT Bucket permite ativar o serviço de integração de pesquisa para buckets individuais. O XML de configuração de notificação de metadados que você fornece no corpo da solicitação especifica os objetos cujos metadados são enviados para o índice de pesquisa de destino. 
 ---
-= COLOQUE a configuração de notificação de metadados do bucket
+= Habilite o serviço de integração de pesquisa no StorageGRID com a solicitação de configuração de notificação de metadados do bucket PUT
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

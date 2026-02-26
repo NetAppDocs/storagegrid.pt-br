@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bucket policy examples 
 summary: Use os exemplos nesta seção para criar políticas de acesso ao StorageGRID para buckets. 
 ---
-= Exemplo de políticas de bucket
+= Exemplos de políticas de bucket da API REST S3 do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

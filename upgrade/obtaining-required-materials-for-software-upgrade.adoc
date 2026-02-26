@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, requirements, rhel, red hat, linux, ubuntu, debian 
 summary: Antes de iniciar a atualização de software, obtenha todos os materiais necessários. 
 ---
-= Obtenha os materiais necessários para uma atualização de software
+= Obtenha os materiais necessários para uma atualização de software StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

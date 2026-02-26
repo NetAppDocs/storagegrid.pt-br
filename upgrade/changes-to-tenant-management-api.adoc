@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tenant management api, api, api version, swagger, rest api 
 summary: O StorageGRID 12.0 usa a versão 4 da API de gerenciamento de locatários.  A versão 4 substitui a versão 3; no entanto, as versões 1, 2 e 3 ainda são suportadas. 
 ---
-= Alterações na API de gerenciamento do locatário
+= Alterações na API de gerenciamento de locatários no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

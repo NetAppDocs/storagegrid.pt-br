@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: troubleshoot low soft read-only watermark override alert, optimized watermarks 
 summary: 'Se você usar valores personalizados para marcas d"água de volume de armazenamento, talvez seja necessário resolver o alerta de substituição de marca d"água somente leitura baixa. Se possível, você deve atualizar seu sistema para começar a usar os valores otimizados.' 
 ---
-= Solucionar problemas de alertas de substituição de marca d'água somente leitura baixa
+= Resolver o alerta de sobreposição de marca d'água no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

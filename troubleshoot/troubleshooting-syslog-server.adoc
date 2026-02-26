@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot the external syslog server 
 summary: A tabela a seguir descreve as mensagens de erro que podem estar relacionadas ao uso de um servidor syslog externo e lista as ações corretivas. 
 ---
-= Solucionar problemas de um servidor syslog externo
+= Solucionar problemas de mensagens de erro do servidor syslog externo para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

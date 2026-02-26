@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, GET bucket metadata notification configuration 
 summary: A solicitação de configuração de notificação de metadados do GET Bucket permite recuperar o XML de configuração usado para configurar a integração de pesquisa para buckets individuais. 
 ---
-= OBTER configuração de notificação de metadados do bucket
+= Configurar a integração de pesquisa no StorageGRID com a solicitação GET Bucket metadata notification configuration
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

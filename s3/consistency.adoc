@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: consistency, consistency control, consistency values 
 summary: A consistência fornece um equilíbrio entre a disponibilidade dos objetos e a consistência desses objetos em diferentes nós de storage e locais. Você pode alterar a consistência conforme exigido pelo seu aplicativo. 
 ---
-= Consistência
+= Como StorageGRID API REST S3 equilibra disponibilidade e consistência
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

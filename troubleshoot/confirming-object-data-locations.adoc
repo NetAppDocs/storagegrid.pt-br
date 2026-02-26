@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to confirm object location, object metadata lookup 
 summary: Dependendo do problema, você pode querer confirmar onde os dados do objeto estão sendo armazenados. Por exemplo, você pode querer verificar se a política ILM está funcionando como esperado e os dados do objeto estão sendo armazenados onde se pretende. 
 ---
-= Confirmar localizações de dados do objeto
+= Confirme as localizações dos dados dos objetos no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

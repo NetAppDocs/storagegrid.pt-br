@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: group policy examples 
 summary: Use os exemplos nesta seção para criar políticas de acesso ao StorageGRID para grupos. 
 ---
-= Exemplo de políticas de grupo
+= Exemplos de política de grupo da API REST do StorageGRID S3
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

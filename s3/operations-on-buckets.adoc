@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bucket, buckets, operations on buckets 
 summary: O sistema StorageGRID dá suporte a um máximo de 5.000 buckets para cada conta de locatário de S3 TB. 
 ---
-= Operações em baldes
+= Operações e detalhes de implementação do bucket S3 no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

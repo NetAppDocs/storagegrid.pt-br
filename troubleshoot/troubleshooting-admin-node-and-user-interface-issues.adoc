@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot admin node issues, how to troubleshoot user interface issues 
 summary: Você pode executar várias tarefas para ajudar a determinar a origem dos problemas relacionados aos nós de administração e à interface de usuário do StorageGRID. 
 ---
-= Solucionar problemas de nó de administração e interface do usuário
+= Solucionar problemas do nó de administração e da interface de usuário no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

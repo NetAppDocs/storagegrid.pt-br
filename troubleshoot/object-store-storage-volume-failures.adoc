@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to confirm object location, object metadata lookup 
 summary: O storage subjacente em um nó de storage é dividido em armazenamentos de objetos. Os armazenamentos de objetos também são conhecidos como volumes de armazenamento. 
 ---
-= Falhas no armazenamento de objetos (volume de storage)
+= Saiba mais sobre falhas de armazenamento de objetos para volumes de storage no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

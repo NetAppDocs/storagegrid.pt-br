@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: about s3, s3 rest api, s3 overview 
 summary: 'O StorageGRID suporta a API de serviço de armazenamento simples (S3), que é implementada como um conjunto de serviços da Web de transferência de estado representacional (REST).' 
 ---
-= S3 versões e atualizações suportadas pela API REST
+= Versões e atualizações compatíveis da API REST S3 do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:  
 summary: Alguns recursos e recursos foram removidos ou obsoletos nesta versão. Revise esses itens para entender se você precisa atualizar aplicativos do cliente ou modificar sua configuração antes de atualizar. 
 ---
-= Recursos e recursos removidos ou obsoletos
+= Recursos e funcionalidades removidos ou descontinuados no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

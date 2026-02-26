@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, PUT bucket consistency request 
 summary: A solicitação de consistência do PUT Bucket permite especificar a consistência a ser aplicada às operações realizadas em um bucket. 
 ---
-= COLOQUE a consistência do balde
+= Especifique os níveis de consistência no StorageGRID com a solicitação PUT Bucket consistency
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

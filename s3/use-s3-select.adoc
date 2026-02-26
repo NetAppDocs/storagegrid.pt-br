@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use S3 Select, S3 Select 
 summary: O StorageGRID oferece suporte às seguintes cláusulas, tipos de dados, operadores e palavras-chave reservadas do Amazon S3 para o comando Selecionar objeto. 
 ---
-= Utilize S3 Select (Selecionar)
+= Operações Amazon S3 Select suportadas no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

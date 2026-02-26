@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot metadata issues 
 summary: Se ocorrerem problemas de metadados, os alertas informam sobre a origem dos problemas e as ações recomendadas a serem tomadas. Em particular, você deve adicionar novos nós de storage se o alerta de storage de metadados baixos for acionado. 
 ---
-= Solucionar problemas de metadados
+= Solucione problemas de metadados no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

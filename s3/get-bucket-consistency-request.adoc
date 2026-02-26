@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, GET bucket consistency 
 summary: A solicitação GET Bucket Consistency permite determinar a consistência que está sendo aplicada a um determinado bucket. 
 ---
-= OBTER consistência de balde
+= Recupere o nível de consistência do bucket no StorageGRID com a solicitação GET Bucket consistency
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

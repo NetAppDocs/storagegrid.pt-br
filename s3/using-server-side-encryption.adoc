@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: server side encryption, encryption, operations on objects, objects 
 summary: A criptografia do lado do servidor permite proteger os dados do objeto em repouso. O StorageGRID criptografa os dados enquanto grava o objeto e descriptografa os dados quando você acessa o objeto. 
 ---
-= Use a criptografia do lado do servidor
+= Como StorageGRID usa criptografia do lado do servidor
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, time estimate, duration, cassandra upgrade 
 summary: Considere quando atualizar, com base em quanto tempo a atualização pode demorar. Esteja ciente de quais operações você pode e não pode executar durante cada etapa da atualização. 
 ---
-= Estime o tempo para concluir uma atualização
+= Estime o tempo necessário para concluir uma atualização do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot the Low object data storage alert 
 summary: O alerta de baixo espaço de armazenamento de dados de objetos monitora quanto espaço está disponível para armazenar dados de objetos em cada nó de armazenamento. 
 ---
-= Solucionar problemas do alerta de armazenamento de dados de objetos baixos
+= Resolver o alerta de storage de dados insuficiente no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: initiate multipart upload, CreateMultipartUpload, upload ID 
 summary: A operação CreateMultipartUpload inicia um upload de várias partes para um objeto e retorna um ID de upload. 
 ---
-= CreateMultipartUpload
+= Cabeçalhos e opções de solicitação S3 CreateMultipartUpload no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

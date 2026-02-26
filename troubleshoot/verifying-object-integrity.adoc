@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to verify object integrity, object existence check, background verification 
 summary: O sistema StorageGRID verifica a integridade dos dados de objetos nos nós de storage, verificando se há objetos corrompidos ou ausentes. 
 ---
-= Verifique a integridade do objeto
+= Verifique a integridade dos dados do objeto no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
