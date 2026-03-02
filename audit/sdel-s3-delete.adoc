@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SDEL, S3 DELETE 
 summary: Quando um cliente S3 emite uma transação DE EXCLUSÃO, uma solicitação é feita para remover o objeto ou bucket especificado. Esta mensagem é emitida pelo servidor se a transação for bem-sucedida. 
 ---
-= SDEL: S3 DELETE
+= Mensagem de auditoria SDEL para transações DELETE S3 no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

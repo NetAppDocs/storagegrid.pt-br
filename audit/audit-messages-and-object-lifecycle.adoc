@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, log, object lifecycle, ingest, retrieve, delete, s3, timing, ILM, Information lifecycle management 
 summary: As mensagens de auditoria são geradas sempre que um objeto é ingerido, recuperado ou excluído. Você pode identificar essas transações no log de auditoria localizando mensagens de auditoria específicas da API do S3. 
 ---
-= Quando são geradas mensagens de auditoria?
+= Quando as mensagens de auditoria são geradas no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

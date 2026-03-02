@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object retrieve, transactions, SGET, WGET 
 summary: Você pode identificar transações de recuperação de objetos no log de auditoria localizando mensagens de auditoria específicas da API do S3. 
 ---
-= Recuperar transações objeto
+= Mensagens de auditoria para transações de recuperação de objetos no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

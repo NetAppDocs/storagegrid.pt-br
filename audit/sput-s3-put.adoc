@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SPUT, S3 PUT 
 summary: Quando um cliente S3 emite uma transação PUT, uma solicitação é feita para criar um novo objeto ou bucket. Esta mensagem é emitida pelo servidor se a transação for bem-sucedida. 
 ---
-= SPUT: S3 PUT
+= Mensagem de auditoria SPUT para transações PUT do S3 no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

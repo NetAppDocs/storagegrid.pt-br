@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, management, user request, user requests 
 summary: A categoria Gerenciamento Registra as solicitações do usuário para a API de gerenciamento. 
 ---
-= Mensagem de auditoria de gerenciamento
+= Mensagens de auditoria de gerenciamento do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

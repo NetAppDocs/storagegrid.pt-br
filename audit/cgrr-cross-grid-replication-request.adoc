@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cgrr, cross-grid replication request, audit message, 
 summary: Essa mensagem é gerada quando o StorageGRID tenta uma operação de replicação entre grades para replicar objetos entre buckets em uma conexão de federação de grade. 
 ---
-= CGRR: Solicitação de replicação de Grade cruzada
+= Mensagem de auditoria CGRR para solicitações de replicação entre grades no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

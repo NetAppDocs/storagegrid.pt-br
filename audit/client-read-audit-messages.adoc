@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, messages, client read, S3SL, SGET, SHEA, WGET, WHEA, S3 
 summary: As mensagens de auditoria de leitura do cliente são registradas quando um aplicativo cliente S3 faz uma solicitação para recuperar um objeto. 
 ---
-= O cliente lê mensagens de auditoria
+= Mensagens de auditoria para operações de leitura do cliente no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

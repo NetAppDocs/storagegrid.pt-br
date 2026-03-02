@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, OLST, System Detected Lost Object 
 summary: Esta mensagem é gerada quando o serviço DDS não consegue localizar cópias de um objeto dentro do sistema StorageGRID. 
 ---
-= OLST: O sistema detetou Objeto perdido
+= Mensagem de auditoria OLST para objetos perdidos detectados pelo sistema no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

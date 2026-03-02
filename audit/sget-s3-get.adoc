@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SGET, S3 GET 
 summary: Quando um cliente S3 emite uma transação GET, uma solicitação é feita para recuperar um objeto ou listar os objetos em um bucket. Esta mensagem é emitida pelo servidor se a transação for bem-sucedida. 
 ---
-= SGET: S3 GET
+= Mensagem de auditoria SGET para transações S3 GET no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

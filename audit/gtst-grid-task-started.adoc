@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, GTST, Grid Task Started 
 summary: Esta mensagem de auditoria indica que o serviço CMN começou a processar a tarefa de grade especificada. A mensagem de auditoria segue imediatamente a mensagem de tarefa de Grade enviada para tarefas de grade iniciadas pelo serviço de envio de tarefa de Grade interno e selecionadas para ativação automática. Para tarefas de grade enviadas para a tabela pendente, essa mensagem é gerada quando o usuário inicia a tarefa de grade. 
 ---
-= GTST: Tarefa de grade iniciada
+= Mensagem de log de auditoria GTST para tarefas de grid iniciadas no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

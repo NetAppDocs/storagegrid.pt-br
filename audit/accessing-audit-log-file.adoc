@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, log, log file, access, accessing 
 summary: O compartilhamento de auditoria contém o arquivo audit.log ativo e todos os arquivos de log de auditoria compatados. Você pode acessar arquivos de log de auditoria diretamente da linha de comando do nó Admin. 
 ---
-= Acessar o arquivo de log de auditoria
+= Acesse os arquivos de log de auditoria a partir da linha de comando do nó Admin do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

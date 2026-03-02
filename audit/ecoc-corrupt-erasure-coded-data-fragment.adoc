@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, ECOC, Corrupt Erasure-Coded Data Fragment 
 summary: Essa mensagem de auditoria indica que o sistema detetou um fragmento de dados codificado de apagamento corrompido. 
 ---
-= ECOC: Fragmento de dados codificado por apagamento corrompido
+= Mensagem de auditoria ECOC para dados corrompidos com código de apagamento em StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, OVWR, Object Overwrite 
 summary: Esta mensagem é gerada quando uma operação externa faz com que um objeto seja substituído por outro objeto. 
 ---
-= OVWR: Substituição de objetos
+= Mensagem de auditoria OVWR para sobrescritas de objetos no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

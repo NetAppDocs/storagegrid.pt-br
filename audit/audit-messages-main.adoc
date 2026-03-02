@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, messages, message 
 summary: Descrições detalhadas das mensagens de auditoria retornadas pelo sistema são listadas nas seções a seguir. Cada mensagem de auditoria é listada primeiramente em uma tabela que agrupa mensagens relacionadas pela classe de atividade que a mensagem representa. Esses agrupamentos são úteis tanto para entender os tipos de atividades auditadas quanto para selecionar o tipo desejado de filtragem de mensagens de auditoria. 
 ---
-= Descrições de mensagens de auditoria
+= Saiba mais sobre os tipos e códigos de mensagens de auditoria no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

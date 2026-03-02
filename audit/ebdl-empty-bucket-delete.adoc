@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, EBDL, Empty Bucket Delete 
 summary: 'O scanner ILM excluiu um objeto em um bucket que está excluindo todos os objetos (executando uma operação de bucket vazia).' 
 ---
-= EBDL: Apagar balde vazio
+= Mensagem de auditoria EBDL para exclusão de objetos de bucket vazio no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

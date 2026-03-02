@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SUPD, S3 Metadata Updated 
 summary: Essa mensagem é gerada pela API S3 quando um cliente S3 atualiza os metadados de um objeto ingerido. A mensagem é emitida pelo servidor se a atualização de metadados for bem-sucedida. 
 ---
-= SUPD: S3 metadados atualizados
+= Mensagem de auditoria SUPD para atualizações de metadados S3 no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

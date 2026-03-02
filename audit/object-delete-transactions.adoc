@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object delete transaction, S3 delete, SDEL, WDEL 
 summary: Você pode identificar transações de exclusão de objetos no log de auditoria localizando mensagens de auditoria específicas da API do S3. 
 ---
-= Eliminar transações
+= Mensagens de auditoria para transações de exclusão de objetos no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

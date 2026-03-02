@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, EBKR, Empty Bucket Request 
 summary: 'Essa mensagem indica que um usuário enviou uma solicitação para ativar ou desativar o bucket vazio (ou seja, para excluir objetos do bucket ou parar de excluir objetos).' 
 ---
-= EBKR: Pedido de balde vazio
+= Mensagem de log de auditoria EBKR para solicitações de bucket vazio no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

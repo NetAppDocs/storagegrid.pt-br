@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, ETAF, Security Authentication Failed 
 summary: 'Esta mensagem é gerada quando uma tentativa de conexão usando Transport Layer Security (TLS) falhou.' 
 ---
-= ETAF: Falha na autenticação de segurança
+= Mensagem de auditoria ETAF para falhas de autenticação de segurança no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

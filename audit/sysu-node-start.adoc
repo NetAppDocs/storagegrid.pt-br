@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SYSU, Node Start 
 summary: 'Quando um serviço é reiniciado, esta mensagem é gerada para indicar se o desligamento anterior foi limpo (comandado) ou desordenado (inesperado).' 
 ---
-= SYSU: Início do nó
+= Mensagem de auditoria SYSU para nó inicia no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

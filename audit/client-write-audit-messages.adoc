@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, messages, client write, OVWR, SDEL, SPOS, SPUT, SUPD, WDEL, WPUT, S3 
 summary: As mensagens de auditoria de gravação do cliente são registradas quando um aplicativo cliente S3 faz uma solicitação para criar ou modificar um objeto. 
 ---
-= O cliente escreve mensagens de auditoria
+= Mensagens de auditoria para operações de gravação do cliente no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

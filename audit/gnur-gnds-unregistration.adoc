@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, GNUR, GNDS Unregistration 
 summary: O serviço CMN gera essa mensagem de auditoria quando um serviço tem informações não registradas sobre si mesmo a partir do sistema StorageGRID. 
 ---
-= GNUR: GNDS Unregistration
+= Mensagem de auditoria GNUR para cancelamento de registro GNDS no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

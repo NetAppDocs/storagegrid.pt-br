@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SVRU, Object Store Verify Unknown 
 summary: O componente de armazenamento do serviço LDR verifica continuamente todas as cópias de dados de objetos replicados no armazenamento de objetos. Esta mensagem é emitida quando uma cópia desconhecida ou inesperada de dados de objetos replicados é detetada no armazenamento de objetos e movida para o diretório de quarentena. 
 ---
-= SVRU: Verificação do armazenamento de objetos desconhecido
+= Mensagem de auditoria SVRU para conteúdo de armazenamento de objetos desconhecido no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

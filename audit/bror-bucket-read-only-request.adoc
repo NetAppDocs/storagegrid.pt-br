@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bror, bucket read only request, empty bucket, audit message, 
 summary: O serviço LDR gera essa mensagem de auditoria quando um intervalo entra ou sai do modo somente leitura. Por exemplo, um balde entra no modo somente leitura enquanto está sendo esvaziado. 
 ---
-= BROR: Pedido apenas de leitura do balde
+= Mensagem de log de auditoria BROR para solicitações somente leitura de bucket no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

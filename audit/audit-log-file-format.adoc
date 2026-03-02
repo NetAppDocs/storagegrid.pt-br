@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, log file formats, log formats, log file format, log format 
 summary: Os arquivos de log de auditoria são encontrados em cada nó Admin e contêm uma coleção de mensagens de auditoria individuais. 
 ---
-= Formato de arquivo de log de auditoria
+= Saiba mais sobre o formato dos arquivos de log de auditoria no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
