@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is a storage pool 
 summary: Um pool de storage é um agrupamento lógico de nós de storage. 
 ---
-= O que é um pool de storage?
+= Saiba mais sobre pool de storage no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

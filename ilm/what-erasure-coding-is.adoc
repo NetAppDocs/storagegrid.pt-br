@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is erasure coding, what is ec 
 summary: A codificação de apagamento é um dos dois métodos que o StorageGRID usa para armazenar dados de objetos. Quando os objetos correspondem a uma regra ILM que usa codificação de apagamento, esses objetos são cortados em fragmentos de dados, fragmentos de paridade adicionais são computados e cada fragmento é armazenado em um nó de armazenamento diferente. 
 ---
-= O que é codificação de apagamento?
+= Saiba mais sobre codificação de apagamento no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

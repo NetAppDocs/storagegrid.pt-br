@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is a storage grade, create storage grade 
 summary: Os graus de armazenamento identificam o tipo de armazenamento usado por um nó de armazenamento. Você pode criar classes de storage se quiser que as regras do ILM coloquem determinados objetos em determinados nós de storage. 
 ---
-= Criar e atribuir notas de armazenamento
+= Crie e atribua níveis de storage no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

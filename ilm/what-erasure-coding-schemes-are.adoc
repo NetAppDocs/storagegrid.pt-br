@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: erasure-coding scheme 
 summary: Os esquemas de codificação de apagamento controlam quantos fragmentos de dados e quantos fragmentos de paridade são criados para cada objeto. 
 ---
-= O que são esquemas de codificação de apagamento?
+= Saiba mais sobre esquemas de codificação de apagamento em StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

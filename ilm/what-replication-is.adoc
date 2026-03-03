@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replication, object copies 
 summary: A replicação é um dos dois métodos que o StorageGRID usa para armazenar dados de objetos. Quando os objetos correspondem a uma regra de ILM que usa replicação, o sistema cria cópias exatas de dados de objetos e armazena as cópias em nós de storage. 
 ---
-= O que é replicação?
+= Saiba mais sobre replicação no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

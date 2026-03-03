@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: edit cloud storage pool 
 summary: Você pode editar um pool de armazenamento em nuvem para alterar seu nome, ponto de extremidade de serviço ou outros detalhes; no entanto, não é possível alterar o bucket do S3 ou o contentor do Azure para um pool de armazenamento em nuvem. 
 ---
-= Edite um pool de armazenamento em nuvem
+= Editar um Cloud Storage Pool no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

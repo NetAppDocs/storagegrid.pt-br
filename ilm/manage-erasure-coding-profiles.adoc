@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: rename erasure-coding profile, ec profile 
 summary: Você pode exibir os detalhes de um perfil de codificação de apagamento e renomear um perfil, se necessário. Você pode desativar um perfil de codificação de apagamento se ele não for usado atualmente em nenhuma regra ILM. 
 ---
-= Gerenciar perfis de codificação de apagamento
+= Gerencie perfis de codificação de apagamento no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

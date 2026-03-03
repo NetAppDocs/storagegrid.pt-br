@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create default ilm rule 
 summary: Antes de criar uma política de ILM, você deve criar uma regra padrão para colocar objetos não correspondidos por outra regra na política. A regra padrão não pode usar nenhum filtro. Ele deve se aplicar a todos os locatários, todos os buckets e todas as versões de objetos. 
 ---
-= Crie uma regra ILM padrão
+= Crie uma regra ILM padrão no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

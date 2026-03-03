@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: example ILM rule, information lifecycle rule examples 
 summary: Você pode usar as regras e a política de exemplo a seguir para garantir que imagens maiores que 1 MB sejam codificadas por apagamento e que duas cópias sejam feitas de imagens menores. 
 ---
-= Exemplo 3: Regras e política de ILM para melhor proteção para arquivos de imagem
+= Regras e política de ILM para proteger arquivos de imagem no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

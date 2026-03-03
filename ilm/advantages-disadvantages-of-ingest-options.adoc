@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ingest options, balance ingest, strict ingest, dual commit ingest 
 summary: 'Compreender as vantagens e desvantagens de cada uma das três opções para proteger dados na ingestão (equilibrada, rigorosa ou dupla confirmação) pode ajudá-lo a decidir qual escolher para uma regra ILM.' 
 ---
-= Vantagens, desvantagens e limitações das opções de ingestão
+= Vantagens, desvantagens e limitações das opções de ingest de ILM no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

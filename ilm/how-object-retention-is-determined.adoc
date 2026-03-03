@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how object retention is determined 
 summary: O StorageGRID fornece opções para administradores de grade e usuários individuais de locatários especificarem por quanto tempo armazenar objetos. Em geral, todas as instruções de retenção fornecidas por um usuário locatário têm precedência sobre as instruções de retenção fornecidas pelo administrador da grade. 
 ---
-= Como a retenção de objetos é determinada
+= Como StorageGRID determina a retenção de objetos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

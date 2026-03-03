@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object size for erasure coding, example ILM rule, information lifecycle rule examples, 1 MB 
 summary: Você pode usar as seguintes regras e políticas de exemplo como pontos de partida para definir uma política de ILM que filtra por tamanho do objeto para atender aos requisitos de EC recomendados. 
 ---
-= Exemplo 2: Regras de ILM e política para filtragem de tamanho de objeto EC
+= Regras e política de ILM para filtragem de tamanho de objetos EC no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

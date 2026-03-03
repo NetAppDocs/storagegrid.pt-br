@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: consistency error, s3 object lock and consistency 
 summary: Se um site de data center ou vários nós de storage em um local ficarem indisponíveis, talvez seja necessário ajudar S3 usuários de locatários a aplicar alterações ao bloqueio de objetos S3 ou à configuração de conformidade legada. 
 ---
-= Resolva erros de consistência ao atualizar o bloqueio de objetos S3 ou a configuração de conformidade legada
+= Resolva erros de consistência ao atualizar S3 Object Lock ou configurações de Compliance legadas no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

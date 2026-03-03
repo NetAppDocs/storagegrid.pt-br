@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object lock workflow 
 summary: Como administrador de grade, você deve coordenar estreitamente com os usuários do locatário para garantir que os objetos estejam protegidos de uma maneira que atenda aos requisitos de retenção. 
 ---
-= S3 tarefas de bloqueio de objetos
+= Fluxo de trabalho do S3 Object Lock no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

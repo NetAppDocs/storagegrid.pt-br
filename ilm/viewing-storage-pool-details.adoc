@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage pool, view details 
 summary: Você pode visualizar os detalhes de um pool de storage para determinar onde o pool de storage é usado e ver quais nós e categorias de storage estão incluídos. 
 ---
-= Veja os detalhes do pool de armazenamento
+= Veja os detalhes do pool de storage no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

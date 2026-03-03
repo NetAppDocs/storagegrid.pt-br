@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is a cloud storage pool 
 summary: Um pool de armazenamento em nuvem permite que você use o ILM para mover dados de objetos para fora do seu sistema StorageGRID. Por exemplo, você pode migrar objetos acessados com pouca frequência para storage de nuvem de baixo custo, como Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud ou a categoria Acesso de arquivamento no storage de Blobs do Microsoft Azure. Ou, talvez você queira manter um backup na nuvem de objetos do StorageGRID para aprimorar a recuperação de desastres. 
 ---
-= O que é um Cloud Storage Pool?
+= Saiba mais sobre Cloud Storage Pools no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create storage pool 
 summary: Você cria pools de storage para determinar onde o sistema StorageGRID armazena dados de objetos e o tipo de storage usado. Cada pool de storage inclui um ou mais locais e um ou mais tipos de storage. 
 ---
-= Crie um pool de armazenamento
+= Crie um pool de storage no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ILM deletion, how objects are deleted 
 summary: O StorageGRID pode excluir objetos em resposta direta a uma solicitação de cliente ou automaticamente como resultado da expiração de um ciclo de vida de bucket do S3 ou dos requisitos da política do ILM. Entender as diferentes maneiras pelas quais os objetos podem ser excluídos e como o StorageGRID lida com solicitações de exclusão pode ajudar você a gerenciar objetos com mais eficiência. 
 ---
-= Como os objetos são excluídos
+= Como StorageGRID exclui objetos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

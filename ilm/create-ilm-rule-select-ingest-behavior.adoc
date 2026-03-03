@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ilm rule step 3, define ingest behavior 
 summary: O passo 3 do assistente Create ILM Rule permite que você escolha como os objetos filtrados por esta regra são protegidos à medida que são ingeridos. 
 ---
-= Passo 3 de 3: Selecione comportamento de ingestão
+= Selecione o comportamento de ingestão para uma regra ILM do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

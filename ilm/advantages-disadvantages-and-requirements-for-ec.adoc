@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: erasure coding advantages, disadvantages, EC requirements 
 summary: Antes de decidir se deve usar a replicação ou a codificação de apagamento para proteger os dados do objeto contra perda, você deve entender as vantagens, desvantagens e os requisitos para codificação de apagamento. 
 ---
-= Vantagens, desvantagens e requisitos para codificação de apagamento
+= Vantagens, desvantagens e requisitos para codificação de apagamento no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

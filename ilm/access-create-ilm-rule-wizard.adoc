@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create ILM rule, information lifecycle rule 
 summary: Você usa o assistente criar regra ILM para criar uma regra ILM. 
 ---
-= Acesse o assistente criar uma regra ILM
+= Acesse o assistente Criar uma regra ILM no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: remove cloud storage pool 
 summary: Você pode remover um Cloud Storage Pool se ele não for usado em uma regra ILM e não contiver dados de objeto. 
 ---
-= Remova um pool de armazenamento em nuvem
+= Remover um Cloud Storage Pool no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

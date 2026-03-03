@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is a cloud storage pool, considerations for a cloud storage pool 
 summary: Se você planeja usar um pool de armazenamento em nuvem para mover objetos para fora do sistema StorageGRID, leia as considerações sobre como configurar e usar pools de armazenamento em nuvem. 
 ---
-= Considerações para pools de storage em nuvem
+= Requisitos e limites do Cloud Storage Pool no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

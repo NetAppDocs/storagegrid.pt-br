@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: requirements, s3 object lock, compliant ilm rule, compliant ilm policy 
 summary: Você deve analisar os requisitos para ativar a configuração global de bloqueio de objetos S3, os requisitos para criar regras de ILM e políticas de ILM compatíveis e as restrições que o StorageGRID coloca em buckets e objetos que usam o bloqueio de objetos S3. 
 ---
-= Requisitos para o bloqueio de objetos S3
+= Requisitos do S3 Object Lock no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

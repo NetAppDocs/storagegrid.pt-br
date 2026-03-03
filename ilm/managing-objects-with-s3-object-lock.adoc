@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 object lock, manage objects with object lock 
 summary: Como administrador de grade, você pode ativar o bloqueio de objeto S3 para seu sistema StorageGRID e implementar uma política ILM compatível para ajudar a garantir que os objetos em buckets S3 específicos não sejam excluídos ou substituídos por um período de tempo especificado. 
 ---
-= Gerencie objetos com o S3 Object Lock
+= Como o S3 Object Lock protege objetos no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use cloud storage pool, benefits of cloud storage pools 
 summary: Com o Cloud Storage Pools, é possível fazer backup ou categorizar dados em um local externo. Além disso, você pode fazer backup ou categorizar dados em mais de uma nuvem. 
 ---
-= Quando usar Cloud Storage Pools
+= Casos de uso do Cloud Storage Pool no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
