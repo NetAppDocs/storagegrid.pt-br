@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to review your configuration and complete installation 
 summary: Você deve analisar cuidadosamente as informações de configuração inseridas para garantir que a instalação seja concluída com êxito. 
 ---
-= Revise sua configuração e conclua a instalação
+= Revise sua configuração do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

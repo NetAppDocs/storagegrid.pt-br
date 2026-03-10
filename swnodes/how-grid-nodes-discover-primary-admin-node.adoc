@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how grid nodes discover the primary Admin Node 
 summary: Os nós de grade se comunicam com o nó de administração principal para configuração e gerenciamento. Cada nó de grade deve saber o endereço IP do nó de administração principal na rede de grade. 
 ---
-= Como os nós de grade descobrem o nó de administração principal
+= Como os nós da grade descobrem o nó de administração primário no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

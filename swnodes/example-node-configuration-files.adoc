@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: example debian node configuration file, example ubuntu linux node configuration file, example red hat linux node configuration file, example rhel node configuration file 
 summary: Você pode usar os arquivos de configuração de nó de exemplo para ajudar a configurar os arquivos de configuração de nó para o seu sistema StorageGRID. Os exemplos mostram arquivos de configuração de nós para todos os tipos de nós de grade. 
 ---
-= Arquivos de configuração de nó de exemplo (Linux)
+= Exemplos de arquivos de configuração para nós do StorageGRID no Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

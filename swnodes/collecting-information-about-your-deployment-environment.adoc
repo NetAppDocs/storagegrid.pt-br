@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to collect information about your vmware deployment environment 
 summary: Antes de implantar nós de grade, você deve coletar informações sobre a configuração de rede e o ambiente VMware. 
 ---
-= Colete informações sobre seu ambiente de implantação (VMware)
+= Colete informações sobre seu ambiente VMware para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

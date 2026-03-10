@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure container engine storage volume, Docker, Podman 
 summary: Antes de instalar o mecanismo de contêiner Docker ou Podman, talvez seja necessário formatar o volume de armazenamento e montá-lo. 
 ---
-= Configurar o volume de armazenamento do mecanismo de contêiner (Linux)
+= Configure o volume de armazenamento do mecanismo de contêiner para StorageGRID no Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

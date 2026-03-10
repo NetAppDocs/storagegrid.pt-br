@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to validate StorageGRID configuration 
 summary: Depois de criar arquivos de configuração em /etc/StorageGRID/nodes para cada um dos seus nós do StorageGRID, você deve validar o conteúdo desses arquivos. 
 ---
-= Validar a configuração do StorageGRID (Linux)
+= Valide a configuração do StorageGRID no Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

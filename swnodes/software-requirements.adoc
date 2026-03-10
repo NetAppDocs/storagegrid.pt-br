@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: software requirements 
 summary: Você pode usar uma máquina virtual para hospedar qualquer tipo de nó StorageGRID. Você precisa de uma máquina virtual para cada nó de grade. 
 ---
-= Requisitos de software
+= Requisitos de software para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

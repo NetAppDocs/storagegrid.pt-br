@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to deploy grid nodes in vsphere or vsphere web client, port, remap, port remap, vmware 
 summary: Você usa o VMware vSphere Web Client para implantar cada nó de grade como uma máquina virtual. Durante a implantação, cada nó de grade é criado e conetado a uma ou mais redes StorageGRID. 
 ---
-= Implantar um nó StorageGRID como uma máquina virtual (VMware)
+= Implante nós de grid como máquinas virtuais para StorageGRID com VMware vSphere
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

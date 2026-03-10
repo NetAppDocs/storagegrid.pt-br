@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: installation materials 
 summary: Antes de instalar o StorageGRID, reúna e prepare as informações e materiais necessários. 
 ---
-= Informações e materiais necessários
+= Informações e materiais necessários para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

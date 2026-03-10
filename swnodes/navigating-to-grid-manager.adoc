@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to navigate to Grid Manager 
 summary: Use o Gerenciador de Grade para definir todas as informações necessárias para configurar o sistema StorageGRID. 
 ---
-= Navegue até o Gerenciador de Grade
+= Navegue até o StorageGRID Grid Manager
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

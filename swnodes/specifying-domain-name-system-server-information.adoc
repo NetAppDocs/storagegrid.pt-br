@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to specify domain name system server information, dns 
 summary: Você deve especificar informações de DNS para seu sistema StorageGRID, para que você possa acessar servidores externos usando nomes de host em vez de endereços IP. 
 ---
-= Especifique as informações do servidor DNS
+= Especifique as informações do servidor DNS para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

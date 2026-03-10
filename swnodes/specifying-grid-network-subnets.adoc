@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to specify Grid Network subnets 
 summary: Você deve especificar as sub-redes que são usadas na rede de Grade. 
 ---
-= Especifique as sub-redes da rede de Grade
+= Especifique as sub-redes da Grid Network para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

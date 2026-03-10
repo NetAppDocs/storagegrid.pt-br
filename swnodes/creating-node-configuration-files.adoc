@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create rhel ubuntu or debian node configuration files, port, remap, port remap 
 summary: Os arquivos de configuração de nó são pequenos arquivos de texto que fornecem as informações que o serviço de host do StorageGRID precisa para iniciar um nó e conectá-lo à rede apropriada e bloquear recursos de armazenamento. Os arquivos de configuração de nós são usados para nós virtuais e não são usados para nós do dispositivo. 
 ---
-= Criar arquivos de configuração de nó para implantações Linux
+= Crie arquivos de configuração de nós do StorageGRID para implantações Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

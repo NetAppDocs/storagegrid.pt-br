@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: example etc network interfaces 
 summary: O arquivo /etc/network/interfaces inclui três seções, que definem as interfaces físicas, a interface de ligação e as interfaces VLAN. Você pode combinar as três seções de exemplo em um único arquivo, que agregará quatro interfaces físicas do Linux em uma única ligação LACP e, em seguida, estabelecer três interfaces VLAN que subtendem a ligação para uso como interfaces de rede StorageGRID, Admin e rede Cliente. 
 ---
-= Exemplo /etc/network/interfaces (Ubuntu e Debian)
+= Exemplo de agregação de interfaces físicas para StorageGRID no Ubuntu e Debian
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

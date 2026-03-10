@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to migrate a node 
 summary: O recurso de migração de nó permite mover manualmente um nó de um host para outro. Normalmente, ambos os hosts estão no mesmo data center físico. 
 ---
-= Requisitos de migração do contêiner Node (Linux)
+= Requisitos de migração de contêiner de nó do StorageGRID para Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to approve pending grid nodes 
 summary: Você deve aprovar cada nó de grade antes que ele possa ingressar no sistema StorageGRID. 
 ---
-= Aprovar nós de grade pendentes
+= Aprovar nós de grid pendentes para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
