@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Manage drives tab, hardware diagnostics, fail drive, logically replace drive 
 summary: A guia Gerenciar unidades permite acessar detalhes e executar tarefas de solução de problemas e manutenção em unidades nos dispositivos que suportam esse recurso. 
 ---
-= Veja a guia Gerenciar unidades
+= Visualize a guia Gerenciar unidades do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

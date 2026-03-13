@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: mib, snmp, monitoring 
 summary: Os arquivos MIB contêm definições e informações sobre as propriedades dos recursos e serviços gerenciados para os nós em sua grade. Você pode acessar arquivos MIB que definem os objetos e notificações do StorageGRID. Esses arquivos podem ser úteis para monitorar sua grade. 
 ---
-= Acesse arquivos MIB
+= Acesse os arquivos MIB do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

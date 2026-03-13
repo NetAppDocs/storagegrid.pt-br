@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to monitor tenant activity 
 summary: Todas as atividades do cliente S3 estão associadas às contas de inquilino do StorageGRID. Você pode usar o Gerenciador de Grade para monitorar o uso do armazenamento ou o tráfego de rede para todos os locatários ou um locatário específico. Você pode usar o log de auditoria ou os painéis do Grafana para reunir informações mais detalhadas sobre como os locatários estão usando o StorageGRID. 
 ---
-= Monitorar a atividade do locatário
+= Monitore a atividade do tenant no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

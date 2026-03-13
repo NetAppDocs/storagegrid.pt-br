@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: deployment, logs, Maintenance 
 summary: Você pode usar os logs de implantação e manutenção para solucionar problemas. 
 ---
-= Logs de implantação e manutenção
+= Registros de implantação e manutenção no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

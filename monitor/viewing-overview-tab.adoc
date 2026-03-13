@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: overview tab 
 summary: A guia Visão geral fornece informações básicas sobre cada nó. Ele também mostra todos os alertas que afetam o nó no momento. 
 ---
-= Veja a guia Visão geral
+= Veja a guia Visão geral do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

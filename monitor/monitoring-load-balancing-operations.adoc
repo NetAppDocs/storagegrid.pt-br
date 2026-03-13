@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: load balancing, monitoring 
 summary: Se você estiver usando um balanceador de carga para gerenciar conexões de cliente com o StorageGRID, monitore as operações de balanceamento de carga após configurar o sistema inicialmente e depois de fazer alterações de configuração ou executar uma expansão. 
 ---
-= Monitorar operações de balanceamento de carga
+= Monitore as operações de balanceamento de carga no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

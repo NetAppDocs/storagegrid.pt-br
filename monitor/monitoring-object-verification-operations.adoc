@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object, verification 
 summary: O sistema StorageGRID pode verificar a integridade dos dados de objetos nos nós de storage, verificando se há objetos corrompidos ou ausentes. 
 ---
-= Monitorar operações de verificação de objetos
+= Monitor operações de verificação de objetos no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

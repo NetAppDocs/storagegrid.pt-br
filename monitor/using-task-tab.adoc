@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Tasks tab, rename node, reboot node, storage state, maintenance mode 
 summary: A guia Tarefas é exibida para todos os nós.  Você pode usar esta guia para renomear ou reinicializar um nó ou colocar um nó do dispositivo no modo de manutenção.  Para nós de armazenamento, você pode definir o estado de armazenamento. 
 ---
-= Use a guia tarefas
+= Use a guia Tarefas do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

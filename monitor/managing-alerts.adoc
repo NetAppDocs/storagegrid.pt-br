@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: alert rules, managing alerts, alerts, alert notifications. edit alert rules 
 summary: O sistema de alerta fornece uma interface fácil de usar para detetar, avaliar e resolver os problemas que podem ocorrer durante a operação do StorageGRID. 
 ---
-= Gerenciar alertas
+= Gerenciar alertas no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

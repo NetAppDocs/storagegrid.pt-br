@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: prometheus, Prometheus metrics, metrics 
 summary: Consulte esta lista de métricas do Prometheus comumente usadas para entender melhor as condições nas regras de alerta padrão ou para construir as condições para regras de alerta personalizadas. 
 ---
-= Métricas de Prometheus comumente usadas
+= Métricas do Prometheus comumente usadas no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

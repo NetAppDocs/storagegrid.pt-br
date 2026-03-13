@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to review audit messages, how to view audit messages 
 summary: As mensagens de auditoria podem ajudá-lo a entender melhor as operações detalhadas do seu sistema StorageGRID. Você pode usar logs de auditoria para solucionar problemas e avaliar o desempenho. 
 ---
-= Rever mensagens de auditoria
+= Analise as mensagens de auditoria do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network tab 
 summary: A guia rede exibe um gráfico mostrando o tráfego de rede recebido e enviado por todas as interfaces de rede no nó, site ou grade. 
 ---
-= Veja a guia rede
+= Visualize a guia Rede do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

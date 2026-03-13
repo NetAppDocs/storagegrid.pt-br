@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: log, logs, log files 
 summary: O StorageGRID fornece logs que são usados para capturar eventos, mensagens de diagnóstico e condições de erro. Você pode ser solicitado a coletar arquivos de log e encaminhá-los para o suporte técnico para ajudar na solução de problemas. 
 ---
-= Referência de ficheiros de registo
+= Arquivos de log do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: when to monitor, what to monitor 
 summary: Mesmo que o sistema StorageGRID possa continuar a funcionar quando ocorrerem erros ou partes da grade não estiverem disponíveis, você deve monitorar e resolver possíveis problemas antes que eles afetem a eficiência ou a disponibilidade da grade. 
 ---
-= O que e quando monitorar
+= O que e quando monitorar no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

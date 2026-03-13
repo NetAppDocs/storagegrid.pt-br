@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to monitor system health, how to view system health 
 summary: Monitore diariamente a integridade geral do seu sistema StorageGRID. 
 ---
-= Monitorar a integridade do sistema
+= Monitore a integridade do sistema no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

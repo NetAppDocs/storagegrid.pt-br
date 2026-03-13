@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: alerts reference 
 summary: Esta referência lista os alertas padrão que aparecem no Gerenciador de Grade. As ações recomendadas estão na mensagem de alerta que você recebe. 
 ---
-= Referência de alertas
+= Alertas no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

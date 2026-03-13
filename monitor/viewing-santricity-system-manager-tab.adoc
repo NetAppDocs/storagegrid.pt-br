@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SANtricity System Manager tab, hardware diagnostics 
 summary: A guia Gerenciador de sistema do SANtricity permite que você acesse o Gerenciador de sistema do SANtricity sem ter que configurar ou conetar a porta de gerenciamento do dispositivo de storage. Pode utilizar este separador para rever as informações ambientais e de diagnóstico de hardware, bem como os problemas relacionados com as unidades. 
 ---
-= Exibir a guia Gerenciador de sistema do SANtricity (somente Série e)
+= Visualize a guia SANtricity System Manager do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

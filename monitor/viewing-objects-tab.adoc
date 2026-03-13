@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: objects tab 
 summary: A guia objetos fornece informações sobre taxas de ingestão e recuperação do S3. 
 ---
-= Exibir a guia objetos
+= Visualize a guia Objetos do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

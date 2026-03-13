@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: custom monitoring, monitoring, dashboard 
 summary: Você pode criar aplicativos e painéis de monitoramento personalizados usando as métricas do StorageGRID disponíveis na API de gerenciamento de grade. 
 ---
-= Crie aplicativos de monitoramento personalizados
+= Crie aplicativos de monitoramento personalizados para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

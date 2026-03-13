@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: load balancer tab 
 summary: 'O separador Load Balancer (balanceador de carga) inclui gráficos de desempenho e diagnóstico relacionados com o funcionamento do serviço Load Balancer.' 
 ---
-= Veja a guia balanceador de carga
+= Visualize a guia Load balancer do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

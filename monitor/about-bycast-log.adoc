@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bycast, log 
 summary: 'O ficheiro /var/local/log/bycast.log é o principal ficheiro de resolução de problemas para o software StorageGRID. Há um `bycast.log` arquivo para cada nó de grade. O arquivo contém mensagens específicas para esse nó de grade.' 
 ---
-= Sobre o bycast.log
+= Saiba mais sobre o bycast.log do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

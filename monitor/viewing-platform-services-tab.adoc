@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: platform services tab 
 summary: A guia Serviços da plataforma fornece informações sobre qualquer operação de serviço da plataforma S3 em um site. 
 ---
-= Veja a guia Serviços da Plataforma
+= Veja a aba de serviços da plataforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

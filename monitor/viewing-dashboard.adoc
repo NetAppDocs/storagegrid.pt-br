@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view dashboard, how to configure dashboard 
 summary: Você pode usar o painel para monitorar rapidamente as atividades do sistema. Você pode criar painéis personalizados para monitorar a implementação do StorageGRID. 
 ---
-= Visualizar e gerenciar o painel
+= Visualize e gerencie o dashboard no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

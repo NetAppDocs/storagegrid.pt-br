@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: lifecycle management, lifecycle, monitoring, ILM, information lifecycle management 
 summary: 'O sistema de gerenciamento do ciclo de vida das informações (ILM) fornece gerenciamento de dados para todos os objetos armazenados na grade. Você deve monitorar as operações de ILM para entender se a grade pode lidar com a carga atual ou se mais recursos são necessários.' 
 ---
-= Monitorar o gerenciamento do ciclo de vida das informações
+= Monitore o gerenciamento do ciclo de vida das informações no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

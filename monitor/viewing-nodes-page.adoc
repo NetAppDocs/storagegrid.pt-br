@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: nodes page 
 summary: Quando você precisar de informações mais detalhadas sobre o seu sistema StorageGRID do que o painel fornece, você pode usar a página nós para exibir as métricas de toda a grade, cada local na grade e cada nó em um local. 
 ---
-= Exibir a página nós
+= Veja a página de nós do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

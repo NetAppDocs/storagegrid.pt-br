@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ec repair priority, ec purge priority 
 summary: 'A priorização de entrada/saída (E/S) permite que você altere as prioridades relativas para operações de E/S na grade.' 
 ---
-= Alterar priorização de E/S
+= Alterar a priorização de E/S no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

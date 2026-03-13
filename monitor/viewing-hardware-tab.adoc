@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: hardware tab 
 summary: A guia hardware exibe a utilização da CPU e o uso da memória para cada nó e informações adicionais de hardware sobre dispositivos. 
 ---
-= Exibir a guia hardware
+= Veja a guia Hardware do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

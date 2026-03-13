@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: put, get, performance 
 summary: Você pode monitorar o desempenho de certas operações, como armazenamento e recuperação de objetos, para ajudar a identificar alterações que podem exigir mais investigação. 
 ---
-= Monitore O PUT e obtenha desempenho
+= Monitore o desempenho das operações PUT e GET no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

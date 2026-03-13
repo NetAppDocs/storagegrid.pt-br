@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to collect system data, how to collect logs 
 summary: Você pode recuperar arquivos de log do StorageGRID e dados do sistema, incluindo dados de configuração, e enviá-los ao suporte técnico. 
 ---
-= Colete arquivos de log e dados do sistema
+= Coletar arquivos de log do StorageGRID e dados do sistema
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
