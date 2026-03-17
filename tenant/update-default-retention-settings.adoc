@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: update default retention for s3 object lock bucket, default retention mode, default retention period, compliance, governance 
 summary: 'Se você ativou o bloqueio de objeto S3 quando criou o bucket, poderá editar o bucket para alterar as configurações de retenção padrão. Você pode ativar (ou desativar) a retenção padrão e definir um modo de retenção e um período de retenção padrão.' 
 ---
-= Atualização S3 retenção padrão bloqueio Objeto
+= Atualizar retenção padrão do S3 Object Lock no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

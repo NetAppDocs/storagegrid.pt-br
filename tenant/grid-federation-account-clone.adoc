@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: account clone, cloning tenant, grid federation, cross-grid replication 
 summary: 'Se um locatário foi criado ou editado para usar uma conexão de federação de grade, esse locatário é replicado de um sistema StorageGRID (o locatário de origem) para outro sistema StorageGRID (o locatário de réplica). Depois que o locatário tiver sido replicado, todos os grupos e usuários adicionados ao locatário de origem serão clonados para o locatário de réplica.' 
 ---
-= Clonar grupos de locatários e usuários
+= Clonar grupos de locatários e usuários em StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

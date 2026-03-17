@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation connection, view, clear error, last error 
 summary: Se sua conta de locatário tiver a permissão usar conexão de federação de grade, você poderá exibir as conexões permitidas. 
 ---
-= Exibir conexões de federação de grade
+= Visualizar conexões de federação de grid no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

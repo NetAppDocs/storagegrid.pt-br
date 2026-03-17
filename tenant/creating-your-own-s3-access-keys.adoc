@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create your own S3 access key 
 summary: Se você estiver usando um locatário do S3 e tiver a permissão apropriada, você poderá criar suas próprias chaves de acesso do S3. Você precisa ter uma chave de acesso para acessar seus buckets e objetos. 
 ---
-= Crie suas próprias chaves de acesso S3
+= Crie suas próprias chaves de acesso S3 no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

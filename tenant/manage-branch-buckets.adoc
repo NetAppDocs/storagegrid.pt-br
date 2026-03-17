@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create branch bucket 
 summary: Use o Gerenciador de locatários para criar e visualizar detalhes de buckets de ramificação. 
 ---
-= Gerenciar buckets de ramificação
+= Gerenciar buckets de ramificação do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

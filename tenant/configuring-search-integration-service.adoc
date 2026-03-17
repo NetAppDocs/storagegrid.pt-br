@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure search integration service 
 summary: Você ativa a integração de pesquisa para um bucket criando XML de configuração de integração de pesquisa e usando o Gerenciador de inquilinos para aplicar o XML a um bucket. 
 ---
-= Configure o serviço de integração de pesquisa
+= Configure o serviço de integração de pesquisa em StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

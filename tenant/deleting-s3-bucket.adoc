@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete S3 bucket 
 summary: Você pode usar o Gerenciador do Locatário para excluir um bucket do S3 vazio. 
 ---
-= Eliminar o balde S3
+= Excluir um bucket S3 do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create local tenant users, manage users 
 summary: 'Você pode criar usuários locais e atribuí-los a grupos locais para determinar quais recursos esses usuários podem acessar. O Gerenciador do Tenant inclui um usuário local predefinido, chamado "root". Embora seja possível adicionar e remover usuários locais, não é possível remover o usuário raiz.' 
 ---
-= Gerenciar usuários
+= Gerenciar usuários de locatários do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

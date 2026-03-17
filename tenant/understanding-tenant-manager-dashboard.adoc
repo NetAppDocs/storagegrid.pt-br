@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to understand tenant manager dashboard 
 summary: O painel do Tenant Manager fornece uma visão geral da configuração da conta de um locatário e da quantidade de espaço usado pelos objetos nos buckets S3 do locatário.  Se o locatário tiver uma cota, o painel mostrará quanto da cota foi usado e quanto resta.  Se houver algum erro relacionado à conta do locatário, os erros serão exibidos no painel. 
 ---
-= Entenda o painel do Tenant Manager
+= Painel de controle do Tenant Manager no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

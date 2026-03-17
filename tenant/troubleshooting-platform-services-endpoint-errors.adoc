@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot platform services endpoint 
 summary: Se ocorrer um erro quando o StorageGRID tenta se comunicar com um endpoint de serviços de plataforma, uma mensagem é exibida no painel. Na página pontos finais dos serviços da plataforma, a coluna último erro indica quanto tempo atrás o erro ocorreu. Nenhum erro é exibido se as permissões associadas às credenciais de um endpoint estiverem incorretas. 
 ---
-= Solucionar erros de endpoint dos serviços da plataforma
+= Solucione erros de endpoint dos serviços da plataforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

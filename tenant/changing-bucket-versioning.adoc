@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to change bucket versioning, disabled versioning, enabled versioning, suspended versioning 
 summary: Se você estiver usando um locatário S3, poderá alterar o estado de controle de versão para buckets do S3. 
 ---
-= Alterar o controle de versão de objetos para um bucket
+= Alterar o versionamento de objeto para um bucket S3 no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

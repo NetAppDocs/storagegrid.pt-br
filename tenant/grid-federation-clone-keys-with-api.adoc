@@ -2,16 +2,16 @@
 permalink: tenant/grid-federation-clone-keys-with-api.html 
 sidebar: sidebar 
 keywords: s3 access key, secret key id, account clone, tenant manager api 
-summary: Se sua conta de locatário tiver a permissão usar conexão de federação de grade, você poderá usar a API de gerenciamento de locatário para clonar manualmente as chaves de acesso S3 do locatário na grade de origem para o locatário na grade de destino. 
+summary: Se a sua conta de locatário do StorageGRID tiver a permissão Use grid federation connection, você pode usar a Tenant Management API para clonar manualmente as chaves de acesso S3. 
 ---
-= Clonar chaves de acesso S3 usando a API
+= Clone chaves de acesso S3 entre StorageGRID grids usando a Tenant Management API
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se a sua conta de locatário tiver a permissão *Use Grid Federation Connection*, você poderá usar a API de Gerenciamento do locatário para clonar manualmente as chaves de acesso S3 do locatário na grade de origem para o locatário na grade de destino.
+Se a sua conta de locatário do StorageGRID tiver a permissão *Usar conexão de federação de grid*, você pode usar a API de Gerenciamento de Locatários para clonar manualmente as chaves de acesso S3 do locatário no grid de origem para o locatário no grid de destino.
 
 .Antes de começar
 * A conta de locatário tem a permissão *Use Grid Federation Connection*.

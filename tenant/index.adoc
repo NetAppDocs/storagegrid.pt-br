@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use tenant account 
 summary: 'Uma conta de locatário permite que você use a API REST do Simple Storage Service (S3) para armazenar e recuperar objetos em um sistema StorageGRID .' 
 ---
-= Use uma conta de locatário
+= Use uma conta de locatário do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

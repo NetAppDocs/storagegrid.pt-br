@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure CloudMirror replication, replication xml 
 summary: Você ativa a replicação do CloudMirror para um bucket criando o XML de configuração de replicação de bucket e usando o Gerenciador do locatário para aplicar o XML ao bucket. 
 ---
-= Configurar a replicação do CloudMirror
+= Configure a replicação CloudMirror no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

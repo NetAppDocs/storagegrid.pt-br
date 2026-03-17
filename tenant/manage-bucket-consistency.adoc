@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to manage bucket consistency, how to change bucket consistency, read after new write, read-after-new-write, strong site, strong-site, strong global, strong-global 
 summary: Valores de consistência podem ser usados para especificar a disponibilidade de alterações de configuração de bucket, bem como para fornecer um equilíbrio entre a disponibilidade dos objetos dentro de um bucket e a consistência desses objetos em diferentes nós de storage e locais. Você pode alterar os valores de consistência para serem diferentes dos valores padrão para que os aplicativos clientes possam atender às suas necessidades operacionais. 
 ---
-= Gerenciar a consistência do balde
+= Gerenciar a consistência dos buckets do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

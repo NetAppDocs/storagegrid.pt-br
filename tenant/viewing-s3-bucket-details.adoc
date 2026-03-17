@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view bucket details 
 summary: Você pode visualizar os buckets em sua conta de locatário. 
 ---
-= Veja os detalhes do balde
+= Veja os detalhes do bucket S3 no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

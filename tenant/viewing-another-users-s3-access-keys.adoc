@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view other user access key 
 summary: Se você estiver usando um locatário do S3 e tiver permissões apropriadas, poderá visualizar as chaves de acesso do S3 de outro usuário. Você pode classificar a lista por tempo de expiração para determinar quais chaves expirarão em breve. Conforme necessário, você pode criar novas chaves e excluir chaves que não estão mais em uso. 
 ---
-= Veja as S3 chaves de acesso de outro usuário
+= Visualizar as chaves de acesso S3 de outro usuário no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

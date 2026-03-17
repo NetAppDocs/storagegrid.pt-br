@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to specify platform services urn 
 summary: 'Ao criar um endpoint de serviços de plataforma, você deve especificar um Nome de recurso exclusivo (URN). Você usará a URN para referenciar o endpoint quando criar um XML de configuração para o serviço da plataforma. A URNA para cada endpoint deve ser única.' 
 ---
-= Especifique URN para endpoint de serviços de plataforma
+= Especifique um URN para um endpoint de serviços de plataforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

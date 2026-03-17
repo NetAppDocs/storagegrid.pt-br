@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to understand tenant management api 
 summary: Você pode executar tarefas de gerenciamento do sistema usando a API REST do Gerenciamento do locatário em vez da interface de usuário do Gerenciador do locatário. Por exemplo, você pode querer usar a API para automatizar operações ou criar várias entidades, como usuários, mais rapidamente. 
 ---
-= Entenda a API de gerenciamento do locatário
+= Saiba mais sobre a StorageGRID Tenant Management API
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

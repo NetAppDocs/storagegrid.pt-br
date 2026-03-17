@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure event notifications, bucket notification 
 summary: Você ativa notificações para um bucket criando XML de configuração de notificação e usando o Gerenciador de locatário para aplicar o XML a um bucket. 
 ---
-= Configurar notificações de eventos
+= Configure as notificações de eventos no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

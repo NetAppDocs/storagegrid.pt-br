@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete bucket objects, empty bucket 
 summary: Você pode usar o Gerenciador do locatário para excluir os objetos em um ou mais buckets. 
 ---
-= Excluir objetos no bucket
+= Excluir objetos de um bucket S3 do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

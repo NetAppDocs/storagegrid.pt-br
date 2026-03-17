@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view your s3 access key 
 summary: Se você estiver usando um locatário do S3 e tiver a permissão apropriada, você poderá exibir uma lista de suas chaves de acesso do S3. Você pode classificar a lista por tempo de expiração, para que você possa determinar quais chaves expirarão em breve. Conforme necessário, você pode criar novas chaves ou excluir chaves que você não está mais usando. 
 ---
-= Veja as suas teclas de acesso S3
+= Visualize suas chaves de acesso S3 no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cloudmirror replication 
 summary: Você pode habilitar a replicação do CloudMirror para um bucket do S3 se quiser que o StorageGRID replique objetos especificados adicionados ao bucket a um ou mais buckets de destino. 
 ---
-= Entenda o serviço de replicação do CloudMirror
+= Saiba mais sobre o serviço de replicação StorageGRID CloudMirror
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

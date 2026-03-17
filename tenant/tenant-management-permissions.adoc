@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tenant management permissions 
 summary: Antes de criar um grupo de inquilinos, considere quais permissões você deseja atribuir a esse grupo. As permissões de gerenciamento do locatário determinam quais tarefas os usuários podem executar usando o Gerenciador do locatário ou a API de gerenciamento do locatário. Um usuário pode pertencer a um ou mais grupos. As permissões são cumulativas se um usuário pertencer a vários grupos. 
 ---
-= Permissões de gerenciamento do locatário
+= Permissões de gerenciamento de locatários do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

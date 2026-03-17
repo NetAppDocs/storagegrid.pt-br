@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to use identity federation, how to use federated groups with Tenant Manager 
 summary: O uso da federação de identidade torna a configuração de grupos de locatários e usuários mais rápida e permite que os usuários do locatário façam login na conta do locatário usando credenciais familiares. 
 ---
-= Use a federação de identidade
+= Use a federação de identidades no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

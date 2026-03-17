@@ -2,9 +2,9 @@
 permalink: tenant/grid-federation-manage-cross-grid-replication.html 
 sidebar: sidebar 
 keywords: grid federation, cross-grid replication, use grid federation connection, replicate client delete markers, s3 bucket 
-summary: se a sua conta de locatário recebeu a permissão usar conexão de federação de grade quando foi criada, você pode usar a replicação entre grade para replicar automaticamente objetos entre buckets na grade de origem do locatário e buckets na grade de destino do locatário. A replicação entre grades pode ocorrer em uma ou ambas as direções. 
+summary: Se a sua conta de locatário recebeu a permissão Use grid federation connection no momento da criação, você pode usar a replicação entre grades para replicar automaticamente objetos entre buckets na grade de origem do locatário e buckets na grade de destino do locatário. A replicação entre grades pode ocorrer em uma ou ambas as direções. 
 ---
-= Gerenciar a replicação entre grades
+= Gerencie a replicação entre grids no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

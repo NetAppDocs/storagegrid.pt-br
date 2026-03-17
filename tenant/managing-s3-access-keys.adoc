@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to manage s3 access key 
 summary: Cada usuário de uma conta de locatário do S3 deve ter uma chave de acesso para armazenar e recuperar objetos no sistema StorageGRID. Uma chave de acesso consiste em um ID de chave de acesso e uma chave de acesso secreta. 
 ---
-= Gerenciar S3 chaves de acesso
+= Gerencie as chaves de acesso S3 no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

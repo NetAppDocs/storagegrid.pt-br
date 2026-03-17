@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure platform services endpoint 
 summary: Antes de configurar um serviço de plataforma para um bucket, você deve configurar pelo menos um endpoint para ser o destino do serviço de plataforma. 
 ---
-= Configurar endpoints de serviços de plataforma
+= Configure os endpoints dos serviços da plataforma no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

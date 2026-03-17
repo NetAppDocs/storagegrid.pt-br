@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create S3 bucket 
 summary: Você pode usar o Gerenciador do locatário para criar buckets do S3 para dados de objetos. 
 ---
-= Crie um bucket do S3
+= Crie um bucket S3 do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

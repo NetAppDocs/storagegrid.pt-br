@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tenant management api version 
 summary: A API de gerenciamento do locatário usa o controle de versão para oferecer suporte a atualizações sem interrupções. 
 ---
-= Controle de versão da API de gerenciamento de locatário
+= StorageGRID Versionamento da API de gerenciamento de locatários do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view and edit tenant groups, manage groups, duplicate group, remove group, edit group 
 summary: Gerencie seus grupos de locatários conforme necessário para exibir, editar ou duplicar um grupo e muito mais. 
 ---
-= Gerenciar grupos
+= Gerenciar grupos de locatários do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to edit tenant group name 
 summary: Pode editar o nome de apresentação de um grupo. Não é possível editar o nome exclusivo de um grupo. 
 ---
-= Editar nome do grupo
+= Editar o nome de um grupo de locatários no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

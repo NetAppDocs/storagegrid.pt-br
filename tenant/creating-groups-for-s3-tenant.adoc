@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create S3 tenant groups, federated group, local group 
 summary: Você pode gerenciar permissões para S3 grupos de usuários importando grupos federados ou criando grupos locais. 
 ---
-= Crie grupos para um locatário do S3
+= Crie grupos para um locatário S3 no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

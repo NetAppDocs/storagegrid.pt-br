@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure open ldap 
 summary: Se você quiser usar um servidor OpenLDAP para federação de identidade, você deve configurar configurações específicas no servidor OpenLDAP. 
 ---
-= Diretrizes para configurar o servidor OpenLDAP
+= Configure um servidor OpenLDAP para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

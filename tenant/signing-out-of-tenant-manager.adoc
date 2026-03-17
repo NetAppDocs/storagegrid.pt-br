@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to sign out of tenant manager 
 summary: Quando terminar de trabalhar com o Gestor do Locatário, tem de terminar sessão para garantir que os utilizadores não autorizados não conseguem aceder ao sistema StorageGRID. Fechar seu navegador pode não sair do sistema, com base nas configurações de cookies do navegador. 
 ---
-= Sair do Tenant Manager
+= Saia do StorageGRID Tenant Manager
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
