@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, server manager, log file 
 summary: Se surgir um problema ao utilizar o Gestor de servidor, verifique o respetivo ficheiro de registo. 
 ---
-= Solucionar problemas do Server Manager
+= Solucionar problemas do Server Manager no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

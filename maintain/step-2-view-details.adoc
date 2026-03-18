@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, view details 
 summary: A partir da Etapa 2 do assistente Decommission Site, você pode analisar quais nós estão incluídos no site, ver quanto espaço foi usado em cada nó de armazenamento e avaliar quanto espaço livre está disponível nos outros sites da sua grade. 
 ---
-= Passo 2: Ver detalhes
+= Analise os detalhes do site antes da desativação no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

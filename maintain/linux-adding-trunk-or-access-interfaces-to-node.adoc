@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add extra interface to node, trunk interface, access interface 
 summary: Você pode adicionar interfaces de tronco ou acesso extras a um nó Linux depois que ele foi instalado. As interfaces adicionadas são exibidas na página interfaces VLAN e na página grupos HA. 
 ---
-= Linux: Adicione interfaces de tronco ou acesso a um nó
+= Adicionar interfaces trunk ou de acesso a um nó Linux no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

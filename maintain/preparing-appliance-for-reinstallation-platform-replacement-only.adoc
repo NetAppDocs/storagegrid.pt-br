@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance, reinstallation appliance, reinstall appliance 
 summary: Ao recuperar um nó de grade hospedado em um dispositivo de serviços, primeiro você precisa preparar o dispositivo para reinstalação do software StorageGRID. 
 ---
-= Prepare o aparelho para reinstalação (apenas substituição da plataforma)
+= Prepare StorageGRID appliance para reinstalação (somente substituição de plataforma)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

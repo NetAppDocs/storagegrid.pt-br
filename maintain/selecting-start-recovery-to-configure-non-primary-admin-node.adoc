@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, non-primary admin node 
 summary: Depois de substituir um nó Admin não primário, você deve selecionar Iniciar recuperação no Gerenciador de Grade para configurar o novo nó como um substituto para o nó com falha. 
 ---
-= Selecione Iniciar recuperação para configurar o nó de administração não primário
+= Selecione Iniciar Recuperação para configurar o nó de administração do StorageGRID que não seja o primário
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

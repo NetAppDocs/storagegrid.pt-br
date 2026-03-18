@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, storage volume failure, volume failure, system drive intact 
 summary: Você deve concluir uma série de tarefas para recuperar um nó de storage baseado em software em que um ou mais volumes de armazenamento no nó de armazenamento falharam, mas a unidade do sistema está intacta. Se apenas os volumes de armazenamento tiverem falhado, o nó de armazenamento ainda estará disponível para o sistema StorageGRID. 
 ---
-= Recuperar de uma falha no volume de armazenamento em que a unidade do sistema está intacta
+= Recuperar de falha de volume de armazenamento do StorageGRID quando a unidade do sistema está intacta
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

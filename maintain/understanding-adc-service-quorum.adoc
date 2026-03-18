@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, adc, adc quorum 
 summary: 'Talvez você não consiga desativar determinados nós de armazenamento em um local se poucos serviços de controlador de domínio administrativo (ADC) permanecessem após a desativação.' 
 ---
-= O que é o quórum ADC?
+= O que é o quorum do ADC do StorageGRID?
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

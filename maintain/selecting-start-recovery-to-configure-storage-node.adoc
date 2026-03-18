@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, storage node 
 summary: Depois de substituir um nó de armazenamento, você deve selecionar Iniciar recuperação no Gerenciador de Grade para configurar o novo nó como um substituto para o nó com falha. 
 ---
-= Selecione Iniciar recuperação para configurar o nó de armazenamento
+= Selecione Iniciar Recuperação para configurar StorageGRID Storage Node
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

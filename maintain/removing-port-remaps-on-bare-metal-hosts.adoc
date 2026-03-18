@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, linux, linux host, bare metal host, baremetal host, remove port remap, removing port remap, port remap 
 summary: Se você quiser configurar um ponto de extremidade para o serviço Load Balancer e quiser usar uma porta que já tenha sido configurada como a porta mapeada de um remapeamento de porta, primeiro remova o remapeamento de porta existente ou o ponto de extremidade não será efetivo. 
 ---
-= Remova os remapas de portas em hosts bare metal
+= Remover remapeamentos de portas do StorageGRID em hosts bare metal
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

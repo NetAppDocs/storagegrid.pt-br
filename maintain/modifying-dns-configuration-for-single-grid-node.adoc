@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, dns, modify dns 
 summary: Em vez de configurar o DNS globalmente para toda a implantação, você pode executar um script para configurar o DNS de forma diferente para cada nó de grade. 
 ---
-= Modifique a configuração DNS para um nó de grade único
+= Modificar a configuração de DNS para um único nó do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

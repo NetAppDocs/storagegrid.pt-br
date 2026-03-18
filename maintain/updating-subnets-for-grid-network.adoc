@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, subnet, grid network, update subnets 
 summary: 'O StorageGRID mantém uma lista das sub-redes de rede usadas para se comunicar entre nós de grade na rede de grade (eth0). Essas entradas incluem as sub-redes usadas para a rede de Grade por cada site em seu sistema StorageGRID, bem como quaisquer sub-redes usadas para NTP, DNS, LDAP ou outros servidores externos acessados através do gateway rede de Grade. Quando você adiciona nós de grade ou um novo site em uma expansão, talvez seja necessário atualizar ou adicionar sub-redes à rede de Grade.' 
 ---
-= Atualizar sub-redes para rede de Grade
+= Atualizar sub-redes para StorageGRID Grid Network
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

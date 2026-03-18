@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, server manager, status, version 
 summary: Para cada nó de grade, você pode exibir o status atual e a versão do Server Manager em execução nesse nó de grade. Você também pode obter o status atual de todos os serviços executados nesse nó de grade. 
 ---
-= Exibir o status e a versão do Server Manager
+= Visualizar o status e a versão do StorageGRID Server Manager
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, restore admin node database, restore database, primary admin node 
 summary: Se você quiser manter as informações históricas sobre atributos e alertas em um nó de administrador principal que falhou, você pode restaurar o banco de dados do nó de administrador. Você só pode restaurar esse banco de dados se o sistema StorageGRID incluir outro nó de administrador. 
 ---
-= Restaure o banco de dados do nó de administração ao recuperar o nó de administração primário
+= Restaurar o banco de dados do nó de administração do StorageGRID ao recuperar o nó de administração primário
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

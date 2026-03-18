@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix, download 
 summary: Tem de transferir o ficheiro de correção para poder aplicar a correção. 
 ---
-= Transfira o ficheiro de correção
+= Baixe um arquivo de hotfix do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

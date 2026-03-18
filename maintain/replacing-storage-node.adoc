@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace storage node, replacing storage node 
 summary: Se a unidade do sistema tiver falhado, tem de substituir primeiro o nó de armazenamento. 
 ---
-= Substitua o nó de storage
+= Substitua o nó de armazenamento StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

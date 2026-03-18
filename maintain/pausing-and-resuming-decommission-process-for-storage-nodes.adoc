@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to pause decommission 
 summary: Se precisar executar um segundo procedimento de manutenção, você pode pausar o procedimento de desativação de um nó de armazenamento durante determinadas etapas. Depois que o outro procedimento for concluído, você pode retomar a desativação. 
 ---
-= Pausar e retomar o processo de desativação dos nós de storage
+= Pausar e retomar o processo de desativação para nós de armazenamento do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

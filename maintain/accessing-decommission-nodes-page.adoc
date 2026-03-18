@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission nodes, decommissioning nodes, maintenance task 
 summary: Quando você acessa a página Decommission Nodes no Grid Manager, você pode ver rapidamente quais nós podem ser desativados. 
 ---
-= Acesse a página Decommission Nodes
+= Acesse a página Decommission Nodes no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

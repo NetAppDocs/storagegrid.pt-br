@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, stop service, service 
 summary: Alguns procedimentos de manutenção exigem que você pare um único serviço enquanto mantém outros serviços no nó da grade em execução. Apenas pare os serviços individuais quando for direcionado para o fazer através de um procedimento de manutenção. 
 ---
-= Pare o serviço
+= Interrompa um serviço StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

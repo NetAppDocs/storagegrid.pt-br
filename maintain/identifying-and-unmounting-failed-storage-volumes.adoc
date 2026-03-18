@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, storage volume, failed storage volume, unmount failed volume 
 summary: Ao recuperar um nó de storage com volumes de storage com falha, você deve identificar e desmontar os volumes com falha. Você deve verificar se apenas os volumes de armazenamento com falha são reformatados como parte do procedimento de recuperação. 
 ---
-= Identificar e desmontar volumes de storage com falha
+= Identifique e desmonte volumes de storage com falha no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

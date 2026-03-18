@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, dns, configuring dns, configure dns, domain name system 
 summary: Você pode adicionar, remover e atualizar servidores DNS, de modo que você possa usar nomes de host de nome de domínio totalmente qualificados em vez de endereços IP. 
 ---
-= Configurar servidores DNS
+= Configurar os servidores DNS no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission, connected nodes, decommission node 
 summary: Você pode desativar e remover permanentemente nós que estão conetados à grade. 
 ---
-= Desativar os nós de grade conetados
+= Desativar nós StorageGRID conectados
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, server manager, start server manager, start services, start all services 
 summary: Talvez seja necessário iniciar o Server Manager, que também inicia todos os serviços no nó de grade. 
 ---
-= Inicie o Server Manager e todos os serviços
+= Inicie StorageGRID Server Manager e todos os serviços
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

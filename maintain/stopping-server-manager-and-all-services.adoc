@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, stop server manager, stop all services, stop services 
 summary: O Server Manager destina-se a ser executado em todos os momentos, mas pode ser necessário parar o Server Manager e todos os serviços executados em um nó de grade. 
 ---
-= Pare o Server Manager e todos os serviços
+= Pare StorageGRID Server Manager e todos os serviços
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, grid node procedure 
 summary: Talvez seja necessário executar procedimentos de manutenção relacionados a nós de grade ou serviços de nós específicos. 
 ---
-= Procedimentos de manutenção do nó
+= Procedimentos de manutenção de nós do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

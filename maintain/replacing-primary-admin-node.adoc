@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace primary admin node, replacing primary admin node, primary admin node 
 summary: Para recuperar um nó de administrador principal, primeiro você deve substituir o hardware físico ou virtual. 
 ---
-= Substitua o nó de administração principal
+= Substituir o nó de administração primário do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, maintenance, maintain, failed storage volumes, failed volumes, cassandra, cassandra rebuild, rebuild cassandra, cassandra database 
 summary: Você deve executar um script que reformata e remonta o armazenamento em volumes de armazenamento com falha e reconstrói o banco de dados Cassandra no nó de armazenamento se o sistema determinar que é necessário. 
 ---
-= Recuperar volumes de armazenamento com falha e reconstruir o banco de dados Cassandra
+= Recuperar volumes de storage com falha e reconstruir o banco de dados Cassandra no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

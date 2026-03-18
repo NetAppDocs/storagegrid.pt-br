@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance, reinstallation appliance, reinstall appliance 
 summary: Ao recuperar um nó de storage do dispositivo, primeiro você deve preparar o dispositivo para a reinstalação do software StorageGRID. 
 ---
-= Prepare o nó de storage do dispositivo para reinstalação
+= Prepare o nó de armazenamento do appliance StorageGRID para reinstalação
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

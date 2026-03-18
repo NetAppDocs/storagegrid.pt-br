@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace gateway node, replacing gateway node 
 summary: Você pode substituir um nó de gateway com falha por um nó de gateway executado no mesmo hardware físico ou virtual, ou pode substituir um nó de gateway em execução em VMware ou em um host Linux por um nó de gateway hospedado em um dispositivo de serviços. 
 ---
-= Substitua o nó de gateway
+= Substituir o nó de gateway do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

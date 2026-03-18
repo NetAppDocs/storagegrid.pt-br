@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, services appliance, start software installation 
 summary: Para instalar um nó de gateway ou nó de administrador em um dispositivo de serviços, use o Instalador de dispositivos StorageGRID, que está incluído no dispositivo. 
 ---
-= Inicie a instalação do software no dispositivo de serviços
+= Inicie a instalação do software StorageGRID em um appliance de serviços
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

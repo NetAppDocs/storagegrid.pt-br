@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace failed node, services appliance 
 summary: Você pode usar um utilitário de serviços para recuperar um nó de gateway com falha, um nó de administrador não primário com falha ou um nó de administrador principal com falha hospedado em VMware, um host Linux ou um dispositivo de serviços. Este procedimento é uma etapa do procedimento de recuperação do nó de grade. 
 ---
-= Substitua o nó com falha pelo dispositivo de serviços
+= Substitua o nó StorageGRID com falha pelo appliance de serviços
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

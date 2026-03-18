@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission 
 summary: Antes de desativar um site, você deve obter os seguintes materiais. 
 ---
-= Reúna os materiais necessários
+= Reunir os materiais necessários para a desativação do site StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

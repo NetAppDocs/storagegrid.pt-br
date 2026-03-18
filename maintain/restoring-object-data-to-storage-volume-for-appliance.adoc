@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: restore replicated data, restore erasure-coded data, recover appliance storage node, recover storage volume 
 summary: Depois de recuperar volumes de storage para o nó de storage do dispositivo, você pode restaurar os dados de objeto replicados ou codificados por apagamento que foram perdidos quando o nó de storage falhou. 
 ---
-= Restaure os dados de objeto para o volume de storage do dispositivo
+= Restaurar dados de objeto para um volume de storage para um StorageGRID appliance
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

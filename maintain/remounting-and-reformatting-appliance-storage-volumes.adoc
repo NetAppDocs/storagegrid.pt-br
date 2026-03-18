@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance storage volume, appliance volume, remount appliance storage volume, remount volume, remounting appliance storage volume, remounting volume, reformat appliance storage volume, reformat volume, reformatting appliance storage volume, reformatting volume 
 summary: É necessário executar manualmente dois scripts para remontar volumes de storage preservados e reformatar os volumes de storage com falha. O primeiro script remonta volumes que são formatados corretamente como volumes de armazenamento StorageGRID. O segundo script reformata quaisquer volumes não montados, reconstrói o banco de dados Cassandra, se necessário, e inicia os serviços. 
 ---
-= Remontagem e reformatação dos volumes de storage do dispositivo (etapas manuais)
+= Remontar e reformatar volumes de armazenamento do appliance StorageGRID (etapas manuais)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recovery, node recovery, storage state 
 summary: Depois de recuperar um nó de armazenamento de dispositivo, você deve verificar se o estado desejado do nó de armazenamento de dispositivo está definido como on-line e garantir que o estado estará on-line por padrão sempre que o servidor nó de armazenamento for reiniciado. 
 ---
-= Verifique o estado de armazenamento após recuperar o nó de armazenamento do dispositivo
+= Verifique o estado do storage após recuperar um Storage Node do appliance StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

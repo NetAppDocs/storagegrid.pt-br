@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, data repair 
 summary: Antes de desativar um nó de grade, você deve confirmar que nenhum trabalho de reparo de dados está ativo. Se alguma reparação tiver falhado, tem de as reiniciar e permitir que sejam concluídas antes de executar o procedimento de desativação. 
 ---
-= Verifique os trabalhos de reparação de dados
+= Verifique os trabalhos de reparo de dados no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

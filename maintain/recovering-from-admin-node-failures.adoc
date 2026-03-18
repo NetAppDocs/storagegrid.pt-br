@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, admin node failure, workflow 
 summary: O processo de recuperação para um nó Admin depende se é o nó Admin primário ou um nó Admin não primário. 
 ---
-= Recuperação do nó de administração primário ou não primário
+= Recuperação do nó Admin primário ou não primário no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

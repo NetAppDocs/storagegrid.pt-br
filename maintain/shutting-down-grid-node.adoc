@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, node shutdown, shut down node, node shut down 
 summary: Você pode encerrar um nó de grade a partir do shell de comando do nó. 
 ---
-= Encerre o nó da grade
+= Desligar o nó do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

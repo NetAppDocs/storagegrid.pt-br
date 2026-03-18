@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission, remove grid node 
 summary: Você pode usar o procedimento de desativação do nó para remover um ou mais nós de grade em um ou mais locais. Não é possível desativar o nó de administração principal. 
 ---
-= Desativação do nó de grade
+= Descomissionamento de nó de grid do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

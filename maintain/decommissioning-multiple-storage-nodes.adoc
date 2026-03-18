@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission nodes, storage node, multiple storage nodes 
 summary: Se você precisar remover mais de um nó de storage, poderá desativá-los sequencialmente ou em paralelo. 
 ---
-= Desativar vários nós de storage
+= Desativar vários nós de armazenamento StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

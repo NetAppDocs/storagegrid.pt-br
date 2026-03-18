@@ -2,16 +2,16 @@
 permalink: maintain/restarting-server-manager-and-all-services.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, server manager, restart server manager 
-summary: Talvez seja necessário reiniciar o gerenciador de servidor e todos os serviços em execução em um nó de grade. 
+summary: Você pode precisar reiniciar Server Manager e todos os serviços em execução em um nó de grid. 
 ---
-= Reinicie o Server Manager e todos os serviços
+= Reinicie StorageGRID Server Manager e todos os serviços
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Talvez seja necessário reiniciar o gerenciador de servidor e todos os serviços em execução em um nó de grade.
+Você pode precisar reiniciar Server Manager e todos os serviços em execução em um nó de grid.
 
 .Antes de começar
 Você tem o `Passwords.txt` arquivo.

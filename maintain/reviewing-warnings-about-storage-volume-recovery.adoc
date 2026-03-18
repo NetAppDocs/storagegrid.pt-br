@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, volume warning 
 summary: Antes de recuperar volumes de armazenamento com falha para um nó de armazenamento, deve rever os seguintes avisos. 
 ---
-= Avisos para recuperação do volume de armazenamento
+= Avisos para recuperação de volume de armazenamento StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

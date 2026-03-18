@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, gateway node 
 summary: Depois de substituir um nó de gateway, você deve selecionar Iniciar recuperação no Gerenciador de Grade para configurar o novo nó como um substituto para o nó com falha. 
 ---
-= Selecione Iniciar recuperação para configurar o Gateway Node
+= Selecione Iniciar Recuperação para configurar o nó do StorageGRID Gateway
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

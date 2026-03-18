@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission admin node, decommission gateway node 
 summary: Reveja as considerações sobre a desativação de um nó de administrador ou de um nó de gateway. 
 ---
-= Considerações para a desativação de nós de administração ou de gateway
+= Considerações sobre a desativação do nó de administração ou gateway do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

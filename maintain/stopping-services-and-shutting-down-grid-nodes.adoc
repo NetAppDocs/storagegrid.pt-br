@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, stop services, shut down nodes, node shutdown 
 summary: Antes de poder desligar um sistema StorageGRID, você deve parar todos os serviços em execução em cada nó de grade e, em seguida, desligar todas as máquinas virtuais VMware, mecanismos de contêiner e dispositivos StorageGRID. 
 ---
-= Pare os serviços e encerre os nós da grade
+= Interrompa os serviços e desligue os nós do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

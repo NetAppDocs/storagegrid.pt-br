@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, resolve node conflict 
 summary: 'A partir da Etapa 5 (resolver conflitos de nó) do assistente do local de desativação, você pode determinar se algum nó no sistema StorageGRID está desconetado ou se algum nó no local selecionado pertence a um grupo de alta disponibilidade. Depois que qualquer conflito de nó for resolvido, você inicia o procedimento de desativação nesta página.' 
 ---
-= Etapa 5: Resolver conflitos de nó (e iniciar a desativação)
+= Resolva conflitos de nós e inicie a desativação do site no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

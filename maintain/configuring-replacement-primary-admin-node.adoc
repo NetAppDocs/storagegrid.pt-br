@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, primary admin node, replace primary admin node, replacing primary admin node 
 summary: O nó de substituição deve ser configurado como nó de administração principal para o seu sistema StorageGRID. 
 ---
-= Configure o nó de administração principal de substituição
+= Configurar um nó de administração primário substituto no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

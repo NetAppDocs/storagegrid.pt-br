@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, storage node recovery, system drive, storage state 
 summary: Depois de recuperar a unidade do sistema para um nó de armazenamento, você deve verificar se o estado desejado do nó de armazenamento está definido como on-line e garantir que o estado estará on-line por padrão sempre que o servidor nó de armazenamento for reiniciado. 
 ---
-= Verifique o estado de armazenamento depois de recuperar a unidade de sistema Storage Node
+= Verifique o estado do armazenamento após recuperar uma unidade de sistema StorageGRID Storage Node.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

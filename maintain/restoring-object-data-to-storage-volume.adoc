@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: restore replicated data, restore erasure-coded data, recover storage node, recover storage volume 
 summary: Depois de recuperar volumes de storage para um nó de storage que não seja do dispositivo, você pode restaurar os dados de objeto replicados ou codificados por apagamento que foram perdidos quando o nó de storage falhou. 
 ---
-= Restaurar dados de objetos para o volume de storage (falha na unidade do sistema)
+= Restaurar dados de objetos para o volume de armazenamento StorageGRID (falha na unidade do sistema)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix 
 summary: Você deve verificar se o sistema está pronto para acomodar o hotfix. 
 ---
-= Verifique a condição do sistema antes de aplicar o hotfix
+= Verifique a condição do sistema antes de aplicar um hotfix do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

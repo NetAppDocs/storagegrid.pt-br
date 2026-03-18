@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, power nodes, power on nodes, power off nodes, power down nodes 
 summary: Talvez seja necessário desligar todo o sistema StorageGRID, por exemplo, se você estiver movendo um data center. Estas etapas fornecem uma visão geral de alto nível da sequência recomendada para executar um desligamento controlado e inicialização. 
 ---
-= Desligue e ligue todos os nós na rede
+= Desligue e ligue todos os nós do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage node decommission, considerations, appliance node clone 
 summary: Antes de desativar um nó de storage, considere se você pode clonar o nó em vez disso. Em seguida, se você decidir desativar o nó, revise como o StorageGRID gerencia objetos e metadados durante o procedimento de desativação. 
 ---
-= Considerações para a desativação de nós de storage
+= Considerações sobre a desativação de Storage Node no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to decommission 
 summary: Você pode executar um procedimento de desativação para remover permanentemente nós de grade ou um site inteiro do sistema StorageGRID. 
 ---
-= Desativar o nó ou o local
+= Desativar um nó ou site do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

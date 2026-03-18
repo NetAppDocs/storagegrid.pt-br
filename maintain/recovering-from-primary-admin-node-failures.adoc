@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, primary admin node failure 
 summary: 'Você deve concluir um conjunto específico de tarefas para recuperar de uma falha de nó de administrador principal. O nó de administração principal hospeda o serviço do nó de gerenciamento de configuração (CMN) para a grade.' 
 ---
-= Recuperação de falhas do nó de administração principal
+= Recuperar de falhas do nó de administração primário do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

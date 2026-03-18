@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, subnet list, admin network 
 summary: Você pode adicionar, excluir ou alterar as sub-redes na Lista de sub-redes de rede Admin de um ou mais nós. 
 ---
-= Adicionar ou alterar listas de sub-rede na rede Admin
+= Adicionar ou alterar listas de sub-redes na Admin Network no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

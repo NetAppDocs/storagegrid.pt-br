@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, monitor decommission, decommission 
 summary: 'A partir do passo 6 (Monitor Decommission) do assistente de página do site Decommission, você pode monitorar o progresso à medida que o site é removido.' 
 ---
-= Passo 6: Monitorar a desintegração
+= Monitorar o progresso da desativação do site no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

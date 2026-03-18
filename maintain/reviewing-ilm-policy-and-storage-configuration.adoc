@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, restore, ilm policy, storage configuration 
 summary: Se você planeja desativar um nó de storage, deve revisar a política de ILM do sistema StorageGRID antes de iniciar o processo de desativação. 
 ---
-= Reveja a política de ILM e a configuração de armazenamento
+= Revise a política ILM do StorageGRID e a configuração de storage
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: configure ip address, change IP tool, ethernet, dhcp, ha group 
 summary: Você pode executar a configuração de rede configurando endereços IP para nós de grade usando a ferramenta alterar IP. 
 ---
-= Diretrizes de endereço IP
+= Diretrizes de endereço IP do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

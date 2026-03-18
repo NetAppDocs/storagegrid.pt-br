@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, storage volume recovery, storage state, storage volume 
 summary: Depois de recuperar volumes de armazenamento, você deve verificar se o estado desejado do nó de armazenamento está definido como on-line e garantir que o estado estará on-line por padrão sempre que o servidor nó de armazenamento for reiniciado. 
 ---
-= Verifique o estado do armazenamento depois de recuperar volumes de armazenamento
+= Verifique o estado do armazenamento após recuperar os volumes de armazenamento do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

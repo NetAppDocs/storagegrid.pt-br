@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, system drive warning, storage node 
 summary: Antes de recuperar uma unidade de sistema com falha de um nó de armazenamento, reveja os avisos e considerações gerais para a recuperação do nó de grade e os seguintes avisos específicos. 
 ---
-= Avisos para recuperação da unidade do sistema Storage Node
+= Avisos para recuperação da unidade de sistema do nó de armazenamento StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

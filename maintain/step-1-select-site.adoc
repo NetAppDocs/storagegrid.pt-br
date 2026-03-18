@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, select site 
 summary: Para determinar se um site pode ser desativado, comece acessando o assistente Decommission Site. 
 ---
-= Passo 1: Selecione Site
+= Selecione um site para desativação no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix, software update 
 summary: A correção é aplicada automaticamente primeiro ao nó de administração principal. Em seguida, você deve aprovar o aplicativo do hotfix para outros nós de grade até que todos os nós estejam executando a mesma versão de software. Você pode personalizar a sequência de aprovação selecionando para aprovar nós de grade individuais, grupos de nós de grade ou todos os nós de grade. 
 ---
-= Aplicar hotfix
+= Aplicar um hotfix no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

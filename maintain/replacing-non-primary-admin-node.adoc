@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace non-primary admin node, replacing non-primary admin node, non-primary admin node 
 summary: Para recuperar um nó de administração não primário, primeiro você deve substituir o hardware físico ou virtual. 
 ---
-= Substitua o nó de administração não primário
+= Substituir nó Admin do StorageGRID não primário
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

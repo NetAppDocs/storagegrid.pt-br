@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, disconnected nodes, decommission node 
 summary: Talvez seja necessário desativar um nó que não esteja conetado à grade no momento. 
 ---
-= Desativar nós de grade desconetados
+= Desativar nós StorageGRID desconectados
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

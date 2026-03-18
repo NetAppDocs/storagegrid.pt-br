@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, warning 
 summary: Se um nó de grade falhar, você deve recuperá-lo o mais rápido possível. Você deve rever todos os avisos e considerações sobre a recuperação do nó antes de começar. 
 ---
-= Avisos e considerações para a recuperação do nó da grade
+= Avisos e considerações para recuperação de nós do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

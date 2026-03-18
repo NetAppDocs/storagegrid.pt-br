@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, network connection, restore network connection, isolated node, restore isolated node connection 
 summary: Em certas circunstâncias, um ou mais grupos de nós podem não ser capazes de entrar em Contato com o resto da grade. Por exemplo, alterações de endereço IP em todo o local ou grade podem resultar em nós isolados. 
 ---
-= Restaure a conetividade de rede para nós isolados
+= Restaurar a conectividade de rede para nós StorageGRID isolados
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover services appliance, recover appliance, recovering appliance, recovering services appliance, install services appliance, installing services appliance, services appliance 
 summary: 'Quando você estiver recuperando um nó de grade com falha hospedado em um host VMware ou Linux e estiver usando um utilitário de serviços para o nó de substituição, primeiro instale o novo hardware de dispositivo usando o mesmo nome de nó (nome do sistema) que o nó com falha.' 
 ---
-= Instalar dispositivo de serviços (somente mudança de plataforma)
+= Instalar o appliance de serviços StorageGRID (somente alteração de plataforma)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

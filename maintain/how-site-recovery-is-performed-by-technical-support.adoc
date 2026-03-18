@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, site recovery, technical support, tech support 
 summary: Se um local StorageGRID inteiro falhar ou se vários nós de storage falharem, entre em Contato com o suporte técnico. O suporte técnico avaliará sua situação, desenvolverá um plano de recuperação e recuperará os nós ou o local com falha de uma maneira que atenda aos objetivos de negócios, otimize o tempo de recuperação e evite a perda desnecessária de dados. 
 ---
-= Como o suporte técnico recupera um site
+= Como o suporte técnico recupera um site StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

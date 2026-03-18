@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance storage node 
 summary: Você deve selecionar Iniciar recuperação no Gerenciador de Grade para configurar um nó de armazenamento de appliance como um substituto para o nó com falha. 
 ---
-= Selecione Iniciar recuperação para configurar o nó de armazenamento do dispositivo
+= Selecione Iniciar Recuperação para configurar o nó de armazenamento do dispositivo StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

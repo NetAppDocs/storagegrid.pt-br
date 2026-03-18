@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, appliance storage node failure, workflow 
 summary: O procedimento para recuperar um nó de storage de dispositivo StorageGRID com falha é o mesmo se você está se recuperando da perda da unidade do sistema ou da perda de volumes de storage somente. 
 ---
-= Avisos para recuperar os nós de storage do dispositivo
+= Avisos para recuperação de Storage Nodes do appliance StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

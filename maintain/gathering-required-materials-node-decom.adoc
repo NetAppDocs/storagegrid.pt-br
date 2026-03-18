@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, node decommission, decommission 
 summary: Antes de executar uma desativação de um nó de grade, você deve obter as seguintes informações. 
 ---
-= Reúna os materiais necessários
+= Reúna os materiais necessários para a desativação do nó StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

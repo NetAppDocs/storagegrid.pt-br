@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, restore node to host, node configuration file, start host service 
 summary: Para restaurar um nó de grade com falha para um novo host Linux, execute estas etapas para restaurar o arquivo de configuração do nó. 
 ---
-= Restaure nós de grade para o host
+= Restaurar nós do StorageGRID para o host
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

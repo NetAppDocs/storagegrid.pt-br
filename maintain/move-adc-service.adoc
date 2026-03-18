@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, move adc, adc quorum 
 summary: Você pode mover o serviço ADC para outro nó de armazenamento no mesmo site. 
 ---
-= Mover o serviço ADC
+= Mover o serviço ADC no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

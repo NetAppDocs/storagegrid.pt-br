@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: maintain overview, maintenance overview, about maintain, about maintenance 
 summary: As tarefas de manutenção de grade incluem a desativação de um nó ou local, renomeando uma grade, nó ou local e mantendo a rede. Você também pode executar procedimentos de host e middleware e procedimentos de nó de grade. 
 ---
-= Manutenção da grelha
+= Manutenção da grid StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

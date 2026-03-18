@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: rename grid, rename site, rename node, display name, system name 
 summary: Conforme necessário, você pode alterar os nomes de exibição exibidos no Gerenciador de Grade para toda a grade, cada site e cada nó. Você pode atualizar nomes de exibição com segurança e sempre que precisar. 
 ---
-= Use o procedimento de renomeação
+= Utilize o procedimento de renomeação do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

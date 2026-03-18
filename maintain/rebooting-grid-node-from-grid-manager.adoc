@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reboot grid node, tasks tab 
 summary: Você pode reinicializar um nó de grade individual a partir da guia tarefas na página nós. 
 ---
-= Reinicie o nó da grade a partir da guia tarefas
+= Reinicializar o nó StorageGRID na guia Tarefas
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

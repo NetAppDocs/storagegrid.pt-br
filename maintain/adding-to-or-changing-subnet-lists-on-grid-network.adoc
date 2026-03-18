@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, subnet list, grid network 
 summary: Você pode usar a ferramenta alterar IP para adicionar ou alterar sub-redes na rede de Grade. 
 ---
-= Adicionar ou alterar listas de sub-rede na rede de Grade
+= Adicionar ou alterar listas de sub-redes na Grid Network no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, primary admin node, hotfix 
 summary: Depois de recuperar um nó de administrador principal, determine se você precisa aplicar um hotfix. 
 ---
-= Determine o requisito de hotfix para o nó de administração principal
+= Determinar a necessidade de hotfix para o nó de administração primário no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

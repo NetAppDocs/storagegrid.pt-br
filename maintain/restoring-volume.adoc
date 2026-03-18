@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, restore, volume 
 summary: Você pode restaurar dados de objeto para um volume de armazenamento ou nó de armazenamento com falha usando o Grid Manager. Você também pode usar o Gerenciador de Grade para monitorar os processos de restauração em andamento e exibir um histórico de restauração. 
 ---
-= Restaure dados de objetos usando o Gerenciador de Grade
+= Restaurar os dados do objeto usando StorageGRID Grid Manager
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

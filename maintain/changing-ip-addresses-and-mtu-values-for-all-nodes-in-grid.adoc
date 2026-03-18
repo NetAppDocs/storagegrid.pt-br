@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, node ip address, change node ip, change node ip address, changing node ip, changing node ip address 
 summary: Se você precisar alterar o endereço IP da rede de Grade para todos os nós da grade, siga este procedimento especial. Você não pode fazer uma alteração de IP de rede de grade em toda a grade usando o procedimento para alterar nós individuais. 
 ---
-= Altere endereços IP para todos os nós na grade
+= Alterar os endereços IP de todos os nós em uma grid StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

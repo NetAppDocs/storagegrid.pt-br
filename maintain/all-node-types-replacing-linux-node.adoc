@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replace linux node 
 summary: Se uma falha exigir que você implante um ou mais novos hosts físicos ou virtuais ou reinstale o Linux em um host existente, implante e configure o host de substituição antes que você possa recuperar o nó da grade. Este procedimento é uma etapa do processo de recuperação do nó de grade para todos os tipos de nós de grade. 
 ---
-= Substitua o nó Linux
+= Substituir um nó Linux no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

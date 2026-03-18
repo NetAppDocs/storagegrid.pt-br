@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to remove site 
 summary: Antes de usar o procedimento de desativação do site para remover um site, você deve revisar as considerações. 
 ---
-= Considerações para remover um site
+= Considerações sobre a desativação de site no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

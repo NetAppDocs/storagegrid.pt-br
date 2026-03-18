@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, remove ilm reference 
 summary: 'A partir do passo 4 (Remover referências ILM) do assistente Decommission Site, você deve excluir ou editar quaisquer regras ILM não utilizadas que se referem ao site, mesmo que as regras não sejam usadas em nenhuma política ILM.' 
 ---
-= Passo 4: Remover referências ILM
+= Remova referências ILM a um site no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

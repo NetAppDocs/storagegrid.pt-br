@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, corrective action, additional recovery 
 summary: Dependendo das ações específicas que você executou para executar os nós do StorageGRID no host de substituição, talvez seja necessário executar etapas adicionais de recuperação para cada nó. 
 ---
-= O que vem a seguir: Execute etapas adicionais de recuperação, se necessário
+= Execute etapas adicionais de recuperação do nó StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

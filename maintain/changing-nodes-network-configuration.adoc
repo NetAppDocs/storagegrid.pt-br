@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, network configuration, node network configuration 
 summary: Você pode alterar a configuração de rede de um ou mais nós usando a ferramenta alterar IP. Você pode alterar a configuração da rede de Grade ou adicionar, alterar ou remover as redes Admin ou Client. 
 ---
-= Alterar a configuração da rede do nó
+= Alterar a configuração de rede do nó no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

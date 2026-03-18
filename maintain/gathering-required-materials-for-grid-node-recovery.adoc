@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recovery, grid node recovery, node recovery 
 summary: Antes de executar os procedimentos de manutenção, você deve garantir que você tenha os materiais necessários para recuperar um nó de grade com falha. 
 ---
-= Reúna os materiais necessários para a recuperação do nó da grade
+= Reúna os materiais necessários para a recuperação do nó da grade StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

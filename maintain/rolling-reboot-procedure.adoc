@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reboot nodes, rolling reboot procedure 
 summary: Você pode executar uma reinicialização contínua para reinicializar vários nós de grade sem causar uma interrupção do serviço. 
 ---
-= Execute uma reinicialização contínua
+= Execute uma reinicialização gradual do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

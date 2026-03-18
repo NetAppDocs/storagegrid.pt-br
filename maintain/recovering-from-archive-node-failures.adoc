@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, archive node failure, workflow 
 summary: O suporte para nós de arquivamento foi removido. 
 ---
-= Recuperação de falhas do nó de arquivo
+= Recuperar de falhas em nós de arquivamento do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
