@@ -38,10 +38,16 @@ A tabela a seguir descreve como o StorageGRID implementa operações de objetos 
  a| 
 DeleteObject
  a| 
-Autenticação multifator (MFA) e o cabeçalho de resposta `x-amz-mfa` não são suportados.
-
 Ao processar uma solicitação de DeleteObject, o StorageGRID tenta remover imediatamente todas as cópias do objeto de todos os locais armazenados. Se for bem-sucedido, o StorageGRID retornará uma resposta ao cliente imediatamente. Se todas as cópias não puderem ser removidas dentro de 30 segundos (por exemplo, porque um local está temporariamente indisponível), o StorageGRID coloca as cópias em fila para remoção e, em seguida, indica sucesso para o cliente.
 
+Restrições::
++
+--
+* Autenticação multifator (MFA) e o cabeçalho de resposta `x-amz-mfa` não são suportados.
+* Os  `If-None` e  `If-None-Match` cabeçalhos são aceitos, mas não funcionais.
+
+
+--
 Controle de versão:: Para remover uma versão específica, o solicitante deve ser o proprietário do bucket e usar o `versionId` subrecurso. O uso deste subrecurso exclui permanentemente a versão. Se o `versionId` corresponder a um marcador de exclusão, o cabeçalho de resposta `x-amz-delete-marker` será retornado como `true`.
 +
 --
