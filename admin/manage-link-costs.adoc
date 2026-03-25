@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: link cost, site latency, manage link costs, prioritize sites 
 summary: Os custos de link permitem que você priorize qual local do data center fornece um serviço solicitado quando existem dois ou mais locais de data center. Você pode ajustar os custos de link para refletir a latência entre sites. 
 ---
-= Gerenciar custos de link
+= Gerencie os custos de link no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

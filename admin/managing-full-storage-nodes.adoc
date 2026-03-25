@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage node is full 
 summary: 'À medida que os nós de storage atingem a capacidade, você precisa expandir o sistema StorageGRID com a adição de um novo storage. Há três opções disponíveis: Adicionar volumes de storage, adicionar compartimentos de expansão de storage e adicionar nós de storage.' 
 ---
-= Gerencie nós de storage completos
+= Gerencie nós de armazenamento completos no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

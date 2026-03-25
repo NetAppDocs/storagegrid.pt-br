@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: platform services, ports for platform services, 443, 80 
 summary: Se você permitir que um locatário do S3 use serviços de plataforma, você deve configurar a rede para a grade para garantir que as mensagens de serviços de plataforma possam ser entregues aos seus destinos. 
 ---
-= Rede e portas para serviços de plataforma
+= Rede e portas para serviços de plataforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

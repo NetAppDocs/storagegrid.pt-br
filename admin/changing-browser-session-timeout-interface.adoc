@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security, browser inactivity timeout, management API stack track 
 summary: As configurações de segurança da interface permitem que você controle se os usuários estão desconetados se estiverem inativos por mais do que o tempo especificado e se um rastreamento de pilha está incluído nas respostas de erro da API. 
 ---
-= Alterar as definições de segurança da interface
+= Alterar as configurações de segurança da interface StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

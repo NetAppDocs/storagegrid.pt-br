@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object segmentation, multipart upload 
 summary: A segmentação de objetos é o processo de dividir um objeto em uma coleção de objetos menores de tamanho fixo para otimizar o armazenamento e o uso de recursos para objetos grandes. O upload de várias partes do S3 também cria objetos segmentados, com um objeto representando cada parte. 
 ---
-= O que é segmentação de objetos?
+= Saiba mais sobre segmentação de objetos no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

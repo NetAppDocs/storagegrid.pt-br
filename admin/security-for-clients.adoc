@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security, S3, client application, TLS 
 summary: As contas de locatário do StorageGRID usam aplicativos clientes S3 para salvar dados de objeto no StorageGRID. Você deve rever as medidas de segurança implementadas para aplicativos clientes. 
 ---
-= Segurança para clientes S3
+= Segurança para clientes S3 no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

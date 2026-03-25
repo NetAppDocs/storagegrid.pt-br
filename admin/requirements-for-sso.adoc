@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, entra id, ad fs 
 summary: Antes de ativar o logon único para um sistema StorageGRID, revise os requisitos e considerações. 
 ---
-= Requisitos e considerações para SSO
+= Requisitos e considerações para SSO do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

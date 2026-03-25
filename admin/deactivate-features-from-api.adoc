@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: deactivate features from api 
 summary: Você pode usar a API de gerenciamento de grade para desativar completamente certos recursos no sistema StorageGRID. Quando um recurso é desativado, ninguém pode receber permissões para executar as tarefas relacionadas a esse recurso. 
 ---
-= Desative recursos com a API
+= Desative os recursos do StorageGRID com a API
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

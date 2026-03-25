@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid manager, sign on, log out 
 summary: Quando terminar de trabalhar com o Gerenciador de Grade, você deve sair para garantir que usuários não autorizados não possam acessar o sistema StorageGRID. Fechar seu navegador pode não sair do sistema, com base nas configurações de cookies do navegador. 
 ---
-= Saia do Grid Manager
+= Saia do StorageGRID Grid Manager
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

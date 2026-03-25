@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cross-grid replication, cgr, disaster recovery, grid federation 
 summary: A replicação entre grade é a replicação automática de objetos entre buckets S3 selecionados em dois sistemas StorageGRID que estão conetados em uma conexão de federação de grade. O clone de conta é necessário para replicação entre grades. 
 ---
-= O que é replicação entre redes?
+= Saiba mais sobre replicação entre grids no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

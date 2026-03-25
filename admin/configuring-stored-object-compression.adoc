@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object compression, compress stored objects 
 summary: Você pode ativar a compactação de objetos para reduzir o tamanho dos objetos armazenados no StorageGRID, para que os objetos consumam menos storage. 
 ---
-= Comprimir objetos armazenados
+= Compactar objetos armazenados no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

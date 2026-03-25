@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tenant, delete, remove tenant 
 summary: Você pode excluir uma conta de locatário se quiser remover permanentemente o acesso do locatário ao sistema. 
 ---
-= Eliminar conta de inquilino
+= Excluir uma conta de locatário do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

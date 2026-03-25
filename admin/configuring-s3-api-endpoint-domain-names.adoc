@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 endpoint domain names, virtual-hosted-style requests 
 summary: Para oferecer suporte a S3 solicitações de estilo hospedado virtual, você deve usar o Gerenciador de Grade para configurar a lista de S3 nomes de domínio de endpoint aos quais os clientes S3 se conetam. 
 ---
-= Configurar nomes de domínio de endpoint S3
+= Configurar os nomes de domínio dos endpoints do S3 no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

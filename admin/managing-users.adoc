@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to manage local users 
 summary: Você pode exibir usuários locais e federados. Você também pode criar usuários locais e atribuí-los a grupos de administração locais para determinar quais recursos do Gerenciador de Grade esses usuários podem acessar. 
 ---
-= Gerenciar usuários
+= Gerenciar usuários no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security certificates, grid CA certificate, types of certificates 
 summary: Certificados de segurança são pequenos arquivos de dados usados para criar conexões seguras e confiáveis entre componentes do StorageGRID e entre componentes do StorageGRID e sistemas externos. 
 ---
-= Gerenciar certificados de segurança
+= Gerenciar certificados de segurança no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

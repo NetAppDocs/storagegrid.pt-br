@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: service provider, sp connection, pingfederate, ping, single sign on, sso 
 summary: 'Você usa o PingFederate para criar uma conexão de provedor de serviços (SP) para cada nó de administrador no seu sistema. Para acelerar o processo, você importará os metadados SAML do StorageGRID.' 
 ---
-= Crie conexões de provedor de serviços (SP) no PingFederate
+= Crie conexões de provedor de serviços em PingFederate para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

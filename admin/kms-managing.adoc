@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: manage kms, manage key management server, view kms, view key management server, edit kms, edit key management server, view encrypted nodes, remove kms, remove key management server 
 summary: 'O gerenciamento de um servidor de gerenciamento de chaves (KMS) envolve a visualização ou edição de detalhes, o gerenciamento de certificados, a visualização de nós criptografados e a remoção de um KMS quando ele não for mais necessário.' 
 ---
-= Gerenciar um KMS
+= Gerencie um servidor de gerenciamento de chaves no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

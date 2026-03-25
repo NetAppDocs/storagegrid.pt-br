@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cross-grid replication, cloudmirror replication 
 summary: À medida que você começar a usar a federação de grade, analise as semelhanças e diferenças entre a replicação entre grade e o serviço de replicação do StorageGRID CloudMirror. 
 ---
-= Compare a replicação entre redes e a replicação do CloudMirror
+= Compare a replicação entre grades e a replicação CloudMirror no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

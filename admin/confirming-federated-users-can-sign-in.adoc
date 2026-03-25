@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: sso configuration 
 summary: 'Antes de ativar o início de sessão único (SSO), tem de confirmar que pelo menos um utilizador federado pode iniciar sessão no Gestor de grelha e entrar no Gestor de inquilinos para quaisquer contas de inquilinos existentes.' 
 ---
-= Confirme se os usuários federados podem entrar
+= Confirme se os usuários federados podem fazer Sign in no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

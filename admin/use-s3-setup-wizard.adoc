@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3, S3 setup wizard 
 summary: Você pode usar o assistente de configuração S3 para configurar o StorageGRID como o sistema de armazenamento de objetos para um aplicativo S3. 
 ---
-= Use o assistente de configuração S3: Considerações e requisitos
+= Considerações e requisitos do assistente de instalação do StorageGRID S3
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

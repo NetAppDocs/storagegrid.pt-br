@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network settings, vlan interface, traffic classification 
 summary: Você pode configurar várias configurações de rede do Gerenciador de Grade para ajustar a operação do sistema StorageGRID. 
 ---
-= Configure as definições de rede
+= Configurar as configurações de rede do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

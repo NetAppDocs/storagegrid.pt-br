@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to access storagegrid API if SSO is enabled with Entra ID 
 summary: 'Se você configurou e habilitou o logon único (SSO) e usa o Entra ID como o provedor de SSO, pode usar dois scripts de exemplo para obter um token de autenticação válido para a API de gerenciamento de grade ou a API de gerenciamento de locatários.' 
 ---
-= Use a API se o logon único estiver habilitado (ID Entra)
+= Use a API do StorageGRID se o single sign-on estiver ativado (Entra ID)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

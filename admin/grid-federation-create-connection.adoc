@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, create connection, configure connection 
 summary: Você pode criar uma conexão de federação de grade entre dois sistemas StorageGRID se quiser clonar detalhes do locatário e replicar dados de objeto. 
 ---
-= Crie conexões de federação de grade
+= Criar conexões de federação de grids StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

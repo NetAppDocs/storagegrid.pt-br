@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure load balancer endpoint, how to attach certificate to load balancer endpoint 
 summary: Os pontos de extremidade do balanceador de carga determinam as portas e os protocolos de rede que os clientes S3 podem usar ao se conetar ao balanceador de carga StorageGRID nos nós de gateway e administrador. Você também pode usar endpoints para acessar o Gerenciador de Grade, o Gerenciador de Tenant ou ambos. 
 ---
-= Configurar pontos de extremidade do balanceador de carga
+= Configurar os endpoints do balanceador de carga do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

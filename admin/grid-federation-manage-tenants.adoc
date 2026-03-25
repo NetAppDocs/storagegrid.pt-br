@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, manage tenant, use grid federation permission, remove permission, cross grid replication 
 summary: Você pode permitir que as contas de locatário do S3 usem uma conexão de federação de grade entre dois sistemas StorageGRID. Quando os locatários têm permissão para usar uma conexão, etapas especiais são necessárias para editar os detalhes do locatário ou para remover permanentemente a permissão do locatário para usar a conexão. 
 ---
-= Gerenciar os locatários permitidos para a federação de grade
+= Gerencie os locatários permitidos para a federação de grids do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

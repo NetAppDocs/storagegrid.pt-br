@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid management api, api versioning 
 summary: A API de gerenciamento de grade usa o controle de versão para suportar atualizações sem interrupções. 
 ---
-= Controle de versão da API Grid Management
+= Controle de versão da Grid Management API no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: troubleshoot autosupport, asup package 
 summary: 'Se uma tentativa de enviar um pacote AutoSupport falhar, o sistema StorageGRID executa ações diferentes dependendo do tipo de pacote AutoSupport. Você pode verificar o status dos pacotes do AutoSupport selecionando Support (suporte) e AutoSupport (Ferramentas).' 
 ---
-= Solucionar problemas de pacotes do AutoSupport
+= Solucionar problemas dos pacotes AutoSupport do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

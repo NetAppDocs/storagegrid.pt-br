@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Key Management Interoperability Protocol, kmip version, kms requirements, use key management server 
 summary: 'Antes de configurar um servidor de gerenciamento de chaves externo (KMS), você deve entender as considerações e os requisitos.' 
 ---
-= Considerações e requisitos para usar um servidor de gerenciamento de chaves
+= Requisitos e considerações do servidor de gerenciamento de chaves do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

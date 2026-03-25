@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: custom certificates, grid manager, tenant manager, management interface certificate 
 summary: Você pode substituir o certificado de servidor StorageGRID padrão por um único certificado de servidor personalizado que permite aos usuários acessar o Gerenciador de Grade e o Gerenciador de locatário sem encontrar avisos de segurança. Você também pode reverter para o certificado de interface de gerenciamento padrão ou gerar um novo. 
 ---
-= Configurar certificados de interface de gerenciamento
+= Configurar certificados da interface de gerenciamento no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to manage security 
 summary: Você pode configurar várias configurações de segurança do Gerenciador de Grade para ajudar a proteger seu sistema StorageGRID. 
 ---
-= Gerenciar a segurança
+= Gerenciar a segurança no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

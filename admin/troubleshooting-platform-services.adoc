@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: troubleshoot platform services, platform services endpoint error 
 summary: Os endpoints usados nos serviços de plataforma são criados e mantidos por usuários de inquilinos no Gerenciador de inquilinos; no entanto, se um locatário tiver problemas para configurar ou usar serviços de plataforma, talvez você possa usar o Gerenciador de Grade para ajudar a resolver o problema. 
 ---
-= Solucionar problemas de serviços de plataforma
+= Solucione problemas dos serviços da plataforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: admin group permissions 
 summary: Ao criar grupos de usuários admin, você seleciona uma ou mais permissões para controlar o acesso a recursos específicos do Gerenciador de Grade. Em seguida, você pode atribuir cada usuário a um ou mais desses grupos de administração para determinar quais tarefas o usuário pode executar. 
 ---
-= Permissões do grupo de administração
+= Permissões do grupo de administradores no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

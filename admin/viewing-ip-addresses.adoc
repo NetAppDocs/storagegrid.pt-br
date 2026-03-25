@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ip address, view ip addresses for nodes, what is node ip address 
 summary: Você pode exibir o endereço IP de cada nó de grade em seu sistema StorageGRID. Em seguida, você pode usar esse endereço IP para fazer login no nó da grade na linha de comando e executar vários procedimentos de manutenção. 
 ---
-= Ver endereços IP
+= Visualizar endereços IP no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

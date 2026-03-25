@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: global S3 API certificate 
 summary: Você pode substituir ou restaurar o certificado do servidor usado para conexões de cliente S3 para nós de storage ou para pontos de extremidade do balanceador de carga. O certificado de servidor personalizado de substituição é específico para a sua organização. 
 ---
-= Configure os certificados API do S3
+= Configurar os certificados da API S3 no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

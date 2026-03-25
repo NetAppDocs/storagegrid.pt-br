@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: provisioning passphrase, change passphrase 
 summary: Use este procedimento para alterar a senha de provisionamento do StorageGRID .  A senha é necessária para procedimentos de recuperação, expansão e manutenção.  A senha também é necessária para baixar backups do pacote de recuperação que incluem informações de topologia de grade, senhas do console do nó de grade e chaves de criptografia para o sistema StorageGRID . 
 ---
-= Altere a frase-passe de aprovisionamento
+= Alterar a senha de provisionamento do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

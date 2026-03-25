@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: manage load balancing, balance workload, client ingest, client retrieval, distribute connection 
 summary: Você pode usar o balanceamento de carga para lidar com cargas de trabalho de ingestão e recuperação de clientes do S3. 
 ---
-= Considerações para balanceamento de carga
+= Saiba mais sobre o balanceamento de carga do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

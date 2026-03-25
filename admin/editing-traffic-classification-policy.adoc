@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: edit traffic classification policy 
 summary: Você pode editar uma política de classificação de tráfego para alterar seu nome ou descrição, ou para criar, editar ou excluir quaisquer regras ou limites para a política. 
 ---
-= Editar política de classificação de tráfego
+= Editar uma política de classificação de tráfego do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

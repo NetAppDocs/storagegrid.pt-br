@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid manager, sign in, log in 
 summary: 'Você acessa a página de login do Gerenciador de Grade inserindo o nome de domínio totalmente qualificado (FQDN) ou o endereço IP de um nó Admin na barra de endereços de um navegador da Web suportado.' 
 ---
-= Faça login no Gerenciador de Grade
+= Sign in no StorageGRID Grid Manager
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

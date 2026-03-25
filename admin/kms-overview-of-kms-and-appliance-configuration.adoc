@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: kms, appliance configuration, node encryption 
 summary: 'Antes de poder utilizar um servidor de gestão de chaves (KMS) para proteger dados StorageGRID nos nós do dispositivo, tem de concluir duas tarefas de configuração: Configurar um ou mais servidores KMS e ativar a encriptação de nós para os nós do dispositivo. Quando essas duas tarefas de configuração são concluídas, o processo de gerenciamento de chaves ocorre automaticamente.' 
 ---
-= KMS e configuração do dispositivo
+= Configuração do servidor de gerenciamento de chaves e do dispositivo StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

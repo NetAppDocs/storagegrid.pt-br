@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 connection, connect to storagegrid, s3 setup wizard 
 summary: Como administrador de grade, você gerencia as opções de configuração que controlam como os aplicativos clientes S3 se conetam ao sistema StorageGRID para armazenar e recuperar dados. 
 ---
-= Configurar conexões de cliente S3
+= Configurar conexões do cliente S3 ao StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

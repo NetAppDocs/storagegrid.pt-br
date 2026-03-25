@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 select, selectobjectcontent, best practices, object format, s3 select requirements 
 summary: Você pode permitir que certos locatários do S3 usem o S3 Select para emitir solicitações SelectObjectContent em objetos individuais. 
 ---
-= Gerenciar S3 Selecione para contas de inquilino
+= Gerenciar o S3 Select para contas de locatário no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

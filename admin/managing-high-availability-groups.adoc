@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: manage high availability group, ha groups, admin node, gateway node, active interface, backup interface, priority order 
 summary: 'Os grupos de alta disponibilidade (HA) fornecem conexões de dados altamente disponíveis para clientes S3 e conexões altamente disponíveis para o Gerenciador de Grade e o Gerenciador de Tenant.' 
 ---
-= O que são grupos de alta disponibilidade (HA)?
+= Saiba mais sobre os grupos de alta disponibilidade do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

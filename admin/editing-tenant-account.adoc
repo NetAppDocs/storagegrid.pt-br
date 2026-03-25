@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: edit tenant account, change tenant name, allow platform services, tenant quota 
 summary: Você pode editar uma conta de locatário para alterar o nome de exibição, a cota de armazenamento ou as permissões de locatário. 
 ---
-= Editar conta de locatário
+= Editar uma conta de locatário do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

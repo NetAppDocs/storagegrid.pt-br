@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: admin nodes, more than one admin node, multiple admin nodes 
 summary: Um sistema StorageGRID pode incluir vários nós de administração para permitir que você monitore e configure continuamente seu sistema StorageGRID, mesmo se um nó de administração falhar. 
 ---
-= Use vários nós de administração
+= Use vários nós de administração no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: troubleshoot, grid federation connection, account clone, cross-grid replication, alerts, errors 
 summary: Talvez você precise solucionar alertas e erros relacionados a conexões de federação de grade, clone de conta e replicação entre grade. 
 ---
-= Solucionar erros de federação de grade
+= Solucionar problemas de erros de federação de grid no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

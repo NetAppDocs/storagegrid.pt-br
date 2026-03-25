@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, cross-grid replication, account clone, cgr, disaster recovery 
 summary: Você pode usar a federação de grade para clonar locatários e replicar seus objetos entre dois sistemas StorageGRID para recuperação de desastres. 
 ---
-= O que é a federação de grade?
+= Saiba mais sobre a federação de grids StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: manage tenants, tenant account, what is a tenant 
 summary: 'Uma conta de locatário permite que você use a API REST do serviço de armazenamento simples (S3) para armazenar e recuperar objetos em um sistema StorageGRID.' 
 ---
-= O que são contas de inquilino?
+= Contas de locatário no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

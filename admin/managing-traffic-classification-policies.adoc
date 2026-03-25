@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: QoS, quality of service, traffic classification, best practices, limit traffic, monitor traffic 
 summary: 'As políticas de classificação de tráfego permitem identificar e monitorar diferentes tipos de tráfego de rede. Essas políticas podem ajudar com a limitação de tráfego e o monitoramento para aprimorar suas ofertas de qualidade do serviço (QoS).' 
 ---
-= O que são políticas de classificação de tráfego?
+= Políticas de classificação de tráfego no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: single sign on, sso, SAML 
 summary: 'Quando o logon único (SSO) estiver habilitado, os usuários poderão acessar o Grid Manager, o Tenant Manager, a Grid Management API ou a Tenant Management API somente se suas credenciais forem autorizadas usando o processo de logon SSO implementado pela sua organização.  Usuários locais não podem fazer login no StorageGRID.' 
 ---
-= Como funciona o SSO
+= Saiba mais sobre StorageGRID SSO
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

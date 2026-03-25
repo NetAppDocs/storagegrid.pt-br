@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: primary admin node, configuration management node 
 summary: O nó de administração principal fornece mais funcionalidade do que os nós de administração não primários. Por exemplo, alguns procedimentos de manutenção devem ser executados usando o nó de administração principal. 
 ---
-= Identifique o nó de administração principal
+= Identifique o nó de administração principal no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: client certificates, prometheus 
 summary: Os certificados de cliente permitem que clientes externos autorizados acessem o banco de dados do StorageGRID Prometheus, fornecendo uma maneira segura para que ferramentas externas monitorem o StorageGRID. 
 ---
-= Configurar certificados de cliente
+= Configurar certificados de cliente no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

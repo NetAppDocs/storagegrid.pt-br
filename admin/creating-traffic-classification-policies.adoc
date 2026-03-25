@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: traffic classification, network traffic, traffic limits, policy 
 summary: Você cria políticas de classificação de tráfego se quiser monitorar e, opcionalmente, limitar o tráfego de rede por intervalo, locatário, sub-rede IP ou ponto de extremidade do balanceador de carga. Opcionalmente, você pode definir limites para uma política com base na largura de banda, no número de solicitações simultâneas ou na taxa de solicitações. 
 ---
-= Crie políticas de classificação de tráfego
+= Criar políticas de classificação de tráfego do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

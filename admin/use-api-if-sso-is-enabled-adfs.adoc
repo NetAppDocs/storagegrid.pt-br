@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to access storagegrid API if SSO is enabled with ADFS 
 summary: 'Se você configurou e ativou o logon único (SSO) e usa o ative Directory como provedor SSO, você deve emitir uma série de solicitações de API para obter um token de autenticação válido para a API de Gerenciamento de Grade ou a API de Gerenciamento do locatário.' 
 ---
-= Use a API se o logon único estiver ativado (ative Directory)
+= Use a API do StorageGRID se o logon único estiver habilitado (Active Directory)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

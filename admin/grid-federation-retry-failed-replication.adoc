@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, troubleshoot 
 summary: Depois de resolver o alerta de falha permanente de replicação entre redes, você deve determinar se algum objeto ou marcador de exclusão não foi replicado para a outra grade. Em seguida, você pode reingerir esses objetos ou usar a API de Gerenciamento de Grade para repetir a replicação. 
 ---
-= Identificar e tentar novamente operações de replicação com falha
+= Identifique e repita operações de replicação do StorageGRID que falharam
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
