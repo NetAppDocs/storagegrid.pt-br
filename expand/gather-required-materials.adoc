@@ -59,7 +59,7 @@ A frase-passe é criada e documentada quando o sistema StorageGRID é instalado 
 Documentação do StorageGRID
  a| 
 * link:../admin/index.html["Administrar o StorageGRID"]
-* link:../release-notes/index.html["Notas de lançamento"]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["Notas de lançamento"^]. Você precisa fazer login com sua conta NetApp ou criar uma conta para acessar as notas de lançamento.
 * link:../swnodes/index.html["Instruções de instalação para a sua plataforma"]
 
 

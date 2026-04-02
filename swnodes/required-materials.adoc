@@ -60,7 +60,7 @@ O computador portátil de serviço deve ter:
 Documentação do StorageGRID::
 +
 --
-* link:../release-notes/index.html["Notas de lançamento"]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["Notas de lançamento"^]. Você precisa fazer login com sua conta NetApp ou criar uma conta para acessar as notas de lançamento.
 * link:../admin/index.html["Instruções para administrar o StorageGRID"]
 
 

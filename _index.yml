@@ -17,10 +17,8 @@ indexpage:
   tiles:
   - title: Comece agora
     links:
-    - title: Notas de lançamento
-      url: "/release-notes/index.html"
     - title: O que há de novo
-      url: "/upgrade/whats-new.html"
+      url: "/release-notes/whats-new.html"
     - title: Saiba mais sobre o StorageGRID
       url: "/primer/index.html"
     - title: Diretrizes de rede

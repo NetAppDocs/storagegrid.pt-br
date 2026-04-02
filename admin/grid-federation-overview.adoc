@@ -33,7 +33,7 @@ image::../media/grid-federation-workflow.png[Fluxo de trabalho de conexão de fe
 
 * As grades usadas para federação de grade devem estar executando versões do StorageGRID que são idênticas ou não têm mais de uma diferença de versão principal entre elas.
 +
-Para obter detalhes sobre os requisitos de versão, consulte o link:../release-notes/index.html["Notas de lançamento"].
+Para obter detalhes sobre os requisitos de versão, consulte a  https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["Notas de lançamento"^]. Você precisa fazer login com sua conta NetApp ou criar uma conta para acessar as Release notes.
 
 * Uma grade pode ter uma ou mais conexões de federação de grade para outras grades. Cada conexão de federação de grade é independente de quaisquer outras conexões. Por exemplo, se o Grid 1 tiver uma conexão com o Grid 2 e uma segunda conexão com o Grid 3, não haverá conexão implícita entre o Grid 2 e o Grid 3.
 * As conexões de federação de grade são bidirecionais. Após a conexão ser estabelecida, você pode monitorar e gerenciar a conexão a partir de qualquer grade.
