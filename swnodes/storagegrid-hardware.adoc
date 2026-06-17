@@ -10,7 +10,7 @@ summary: Saiba como instalar, configurar e usar o hardware do dispositivo Storag
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

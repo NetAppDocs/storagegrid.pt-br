@@ -2,7 +2,7 @@
 permalink: maintain/recovering-from-non-primary-admin-node-failures.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, non-primary admin node failure 
-summary: 'Você deve concluir as tarefas a seguir para se recuperar de uma falha não primária do Admin Node. Um nó de administração hospeda o serviço do nó de gerenciamento de configuração (CMN) e é conhecido como nó de administração principal. Embora você possa ter vários nós de administração, cada sistema StorageGRID inclui apenas um nó de administração principal. Todos os outros nós de administração são nós de administração não primários.' 
+summary: 'Você deve concluir as tarefas a seguir para se recuperar de uma falha não primária do Admin Node. Um nó de administração hospeda o serviço CMN (Configuration Management Node) e é conhecido como nó de administração principal. Embora você possa ter vários nós de administração, cada sistema StorageGRID inclui apenas um nó de administração principal. Todos os outros nós de administração são nós de administração não primários.' 
 ---
 = Recuperar de falhas em nós administrativos não primários do StorageGRID
 :allow-uri-read: 

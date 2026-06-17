@@ -2,7 +2,7 @@
 permalink: admin/confirming-federated-users-can-sign-in.html 
 sidebar: sidebar 
 keywords: sso configuration 
-summary: 'Antes de ativar o início de sessão único (SSO), tem de confirmar que pelo menos um utilizador federado pode iniciar sessão no Gestor de grelha e entrar no Gestor de inquilinos para quaisquer contas de inquilinos existentes.' 
+summary: 'Antes de ativar o logon único (SSO), você deve confirmar que pelo menos um usuário federado pode entrar no Gerenciador de Grade e entrar no Gerenciador de locatários para quaisquer contas de locatário existentes.' 
 ---
 = Confirme se os usuários federados podem fazer Sign in no StorageGRID
 :allow-uri-read: 

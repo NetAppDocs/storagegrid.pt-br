@@ -2,7 +2,7 @@
 permalink: s3/conflicting-client-requests.html 
 sidebar: sidebar 
 keywords: conflicting client requests 
-summary: 'As solicitações de cliente conflitantes, como dois clientes escrevendo para a mesma chave, são resolvidas com base em "vitórias mais recentes".' 
+summary: Solicitações conflitantes de clientes, como dois clientes escrevendo na mesma chave, são resolvidas com base no critério de última gravação prevalecendo. 
 ---
 = Como a StorageGRID API REST resolve solicitações conflitantes do cliente
 :allow-uri-read: 

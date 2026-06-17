@@ -36,9 +36,13 @@ As seguintes restrições são impostas pelo Gerenciador de Grade durante a impl
 * Não use sub-redes que contenham os seguintes endereços IPv4 para a Rede de Grade, Rede de Administração ou Rede de Cliente de qualquer nó:
 +
 ** 192.168.130.101
+** 192.168.130.121
 ** 192.168.131.101
+** 192.168.131.121
 ** 192.168.130.102
+** 192.168.130.122
 ** 192.168.131.102
+** 192.168.131.122
 ** 198.51.100.2
 ** 198.51.100.4
 

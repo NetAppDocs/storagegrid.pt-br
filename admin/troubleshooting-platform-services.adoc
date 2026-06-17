@@ -2,7 +2,7 @@
 permalink: admin/troubleshooting-platform-services.html 
 sidebar: sidebar 
 keywords: troubleshoot platform services, platform services endpoint error 
-summary: Os endpoints usados nos serviços de plataforma são criados e mantidos por usuários de inquilinos no Gerenciador de inquilinos; no entanto, se um locatário tiver problemas para configurar ou usar serviços de plataforma, talvez você possa usar o Gerenciador de Grade para ajudar a resolver o problema. 
+summary: Os endpoints usados nos serviços da plataforma são criados e mantidos pelos usuários do tenant no Tenant Manager. No entanto, se um tenant tiver problemas para configurar ou usar os serviços da plataforma, você pode usar o Grid Manager para ajudar a resolver o problema. 
 ---
 = Solucione problemas dos serviços da plataforma StorageGRID
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Os endpoints usados nos serviços de plataforma são criados e mantidos
 
 
 [role="lead"]
-Os endpoints usados nos serviços de plataforma são criados e mantidos por usuários de inquilinos no Gerenciador de inquilinos; no entanto, se um locatário tiver problemas para configurar ou usar serviços de plataforma, talvez você possa usar o Gerenciador de Grade para ajudar a resolver o problema.
+Os endpoints usados nos serviços da plataforma são criados e mantidos pelos usuários do tenant no Tenant Manager. No entanto, se um tenant tiver problemas para configurar ou usar os serviços da plataforma, você pode usar o Grid Manager para ajudar a resolver o problema.
 
 
 

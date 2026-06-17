@@ -2,7 +2,7 @@
 permalink: maintain/decommissioning-disconnected-grid-nodes.html 
 sidebar: sidebar 
 keywords: storagegrid, disconnected nodes, decommission node 
-summary: Talvez seja necessário desativar um nó que não esteja conetado à grade no momento. 
+summary: 'Talvez seja necessário desativar um nó que não esteja conetado à grade no momento (aquele cuja Saúde é desconhecida ou administrativamente inativa).' 
 ---
 = Desativar nós StorageGRID desconectados
 :allow-uri-read: 

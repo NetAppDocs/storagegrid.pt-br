@@ -2,7 +2,7 @@
 permalink: ilm/create-ilm-rule-enter-details.html 
 sidebar: sidebar 
 keywords: ILM rule step 1, define basics 
-summary: O passo 1 do assistente criar uma regra ILM permite-lhe introduzir um nome e uma descrição para a regra e definir filtros para a regra. 
+summary: 'A Etapa 1 (Inserir detalhes) do assistente Criar uma regra ILM permite que você insira um nome e uma descrição para a regra e defina filtros para a regra.' 
 ---
 = Insira detalhes e filtros para uma regra ILM do StorageGRID
 :allow-uri-read: 

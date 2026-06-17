@@ -2,7 +2,7 @@
 permalink: network/internal-grid-node-communications.html 
 sidebar: sidebar 
 keywords: storagegrid, network port, internal communications, ports, TCP, UDP, grid communications, port 
-summary: 'O firewall interno do StorageGRID só permite conexões de entrada para portas específicas na rede de Grade, com exceção das portas 22, 80, 123 e 443 (consulte as informações sobre comunicações externas). As conexões também são aceitas em portas definidas pelos pontos de extremidade do balanceador de carga.' 
+summary: 'O firewall interno do StorageGRID permite apenas conexões de entrada para portas específicas na Grid Network, com exceção das portas 22, 80, 123 e 443 (consulte as informações sobre comunicações externas). Conexões também são aceitas em portas definidas pelos endpoints do balanceador de carga.' 
 ---
 = Comunicações internas dos nós da grade para StorageGRID
 :allow-uri-read: 

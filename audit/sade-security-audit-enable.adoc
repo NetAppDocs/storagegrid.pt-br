@@ -2,7 +2,7 @@
 permalink: audit/sade-security-audit-enable.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, SADE, Security Audit Enable 
-summary: 'Esta mensagem indica que o serviço de origem "(ID do nó) restaurou o registo de mensagens de auditoria; as mensagens de auditoria estão novamente a ser recolhidas e entregues.' 
+summary: 'Esta mensagem indica que o serviço de origem (ID do nó) restaurou o registro de mensagens de auditoria. StorageGRID está novamente coletando e entregando mensagens de auditoria.' 
 ---
 = Mensagem de auditoria SADE para ativação da auditoria de segurança no StorageGRID
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Esta mensagem indica que o serviço de origem "(ID do nó) restaurou o
 
 
 [role="lead"]
-Esta mensagem indica que o serviço de origem (ID do nó) restaurou o registo de mensagens de auditoria; as mensagens de auditoria estão novamente a ser recolhidas e entregues.
+Esta mensagem indica que o serviço de origem (ID do nó) restaurou o registro de mensagens de auditoria. StorageGRID está novamente coletando e entregando mensagens de auditoria.
 
 [cols="1a,1a,4a"]
 |===

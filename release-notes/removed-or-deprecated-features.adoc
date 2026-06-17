@@ -39,7 +39,7 @@ NOTE: Em certas situações, o NetApp pode terminar o suporte para recursos espe
 
 
  a| 
-Alarmes legados (_não alertas_)
+Alarmes, legado (_não Alertas_)
  a| 
 11,7
  a| 
@@ -104,6 +104,19 @@ Mecanismo de contêiner do Docker
 A DETERMINAR
  a| 
 O suporte ao Docker como mecanismo de contêiner para implantações somente de software está obsoleto.  O Docker será substituído por outro mecanismo de contêiner em uma versão futura.  Consulte olink:../swnodes/software-requirements.html["requisitos de software para nós baseados em software"] para obter uma lista de versões do Docker atualmente suportadas.
+
+
+
+ a| 
+Configuração de email (legado)
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+12,1
+ a| 
+https://docs.netapp.com/us-en/storagegrid-118/monitor/managing-alarms.html#configure-notifications-for-alarms-legacy-system["Configurar notificações para alarmes (sistema legado) (StorageGRID 11.8)"^]
 
 
 

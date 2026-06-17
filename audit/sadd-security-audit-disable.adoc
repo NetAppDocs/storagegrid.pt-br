@@ -2,7 +2,7 @@
 permalink: audit/sadd-security-audit-disable.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, SADD, Security Audit Disable 
-summary: 'Esta mensagem indica que o serviço de origem "(ID do nó) desativou o Registro de mensagens de auditoria; as mensagens de auditoria não estão mais sendo coletadas ou entregues.' 
+summary: 'Esta mensagem indica que o serviço de origem (ID do nó) desativou o registro de mensagens de auditoria. StorageGRID não está mais coletando nem entregando mensagens de auditoria.' 
 ---
 = Mensagem de auditoria SADD para desativação da auditoria de segurança no StorageGRID
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Esta mensagem indica que o serviço de origem "(ID do nó) desativou o
 
 
 [role="lead"]
-Essa mensagem indica que o serviço de origem (ID do nó) desativou o Registro de mensagens de auditoria; as mensagens de auditoria não estão mais sendo coletadas ou entregues.
+Esta mensagem indica que o serviço de origem (ID do nó) desativou o registro de mensagens de auditoria. StorageGRID não está mais coletando nem entregando mensagens de auditoria.
 
 [cols="1a,1a,4a"]
 |===

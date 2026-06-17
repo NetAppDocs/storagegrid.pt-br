@@ -2,7 +2,7 @@
 permalink: ilm/index.html 
 sidebar: sidebar 
 keywords: information lifecycle management overview, about information lifecycle management, ilm overview, about ilm 
-summary: As regras de gerenciamento do ciclo de vida das informações em uma política ILM instruem o StorageGRID a criar e distribuir cópias de dados de objetos e como gerenciar essas cópias ao longo do tempo. 
+summary: 'As regras de gerenciamento do ciclo de vida das informações (ILM) em uma política de ILM instruem o StorageGRID a criar e distribuir cópias de dados de objetos e como gerenciar essas cópias ao longo do tempo.' 
 ---
 = Gerencie objetos com ILM no StorageGRID
 :allow-uri-read: 

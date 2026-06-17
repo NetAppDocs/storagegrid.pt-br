@@ -2,7 +2,7 @@
 permalink: monitor/viewing-ilm-tab.html 
 sidebar: sidebar 
 keywords: ilm tab 
-summary: 'A guia ILM fornece informações sobre as operações de gerenciamento de ciclo de vida de informações (ILM).' 
+summary: 'A guia ILM fornece informações sobre as operações de gerenciamento do ciclo de vida das informações (ILM).' 
 ---
 = Visualize a guia StorageGRID ILM
 :allow-uri-read: 

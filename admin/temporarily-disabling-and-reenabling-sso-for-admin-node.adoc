@@ -2,7 +2,7 @@
 permalink: admin/temporarily-disabling-and-reenabling-sso-for-admin-node.html 
 sidebar: sidebar 
 keywords: signing in when sso is down, single sign on failure 
-summary: 'Talvez você não consiga entrar no Gerenciador de Grade se o sistema de logon único (SSO) for desativado. Nesse caso, você pode desativar e reativar temporariamente o SSO para um nó de administrador. Para desativar e reativar o SSO, você deve acessar o shell de comando do nó.' 
+summary: 'Você pode não conseguir acessar o Grid Manager se o sistema de autenticação única (SSO) estiver inativo. Nesse caso, você pode desativar e reativar temporariamente o SSO para um Admin Node. Para desativar e depois reativar o SSO, você deve acessar o shell de comando do nó.' 
 ---
 = Desative e reative temporariamente o SSO para um nó de administração do StorageGRID
 :allow-uri-read: 
