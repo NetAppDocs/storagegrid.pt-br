@@ -2,7 +2,7 @@
 permalink: ilm/data-protection-options-for-ingest.html 
 sidebar: sidebar 
 keywords: ingest options, balanced ingest, strict ingest, dual-commit ingest 
-summary: 'Ao criar uma regra ILM, você especifica uma das três opções para proteger objetos na ingestão: Dual commit, Strict ou Balanced.' 
+summary: Ao criar uma regra ILM, você pode proteger objetos na ingestão especificando Dual commit, Strict ou Balanced. 
 ---
 = Opções de ingestão de ILM no StorageGRID
 :allow-uri-read: 

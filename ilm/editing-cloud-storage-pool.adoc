@@ -2,7 +2,7 @@
 permalink: ilm/editing-cloud-storage-pool.html 
 sidebar: sidebar 
 keywords: edit cloud storage pool 
-summary: Você pode editar um pool de armazenamento em nuvem para alterar seu nome, ponto de extremidade de serviço ou outros detalhes; no entanto, você não pode alterar o bucket do S3 ou o contêiner do Azure para um pool de armazenamento em nuvem. 
+summary: Você pode editar um Cloud Storage Pool para alterar seu nome, endpoint de serviço ou outros detalhes. No entanto, você não pode alterar o bucket do S3 ou o container do Azure para um Cloud Storage Pool. 
 ---
 = Editar um Cloud Storage Pool no StorageGRID
 :allow-uri-read: 

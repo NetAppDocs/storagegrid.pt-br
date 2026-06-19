@@ -2,7 +2,7 @@
 permalink: audit/syst-node-stopping.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, SYST, Node Stopping 
-summary: 'Quando um serviço é parado graciosamente, essa mensagem é gerada para indicar que o desligamento foi solicitado e que o serviço iniciou sua sequência de desligamento. O SYST pode ser usado para determinar se o desligamento foi solicitado, antes que o serviço seja reiniciado (ao contrário do SYSD, que normalmente é enviado após o reinício do serviço).' 
+summary: 'Quando um serviço é encerrado corretamente, esta mensagem é gerada para indicar que o desligamento foi solicitado e que o serviço iniciou sua sequência de desligamento. SYST pode ser usado para determinar se o desligamento foi solicitado antes que o serviço seja reiniciado (diferentemente de SYSD, que normalmente é enviado após o serviço ser reiniciado).' 
 ---
 = Mensagem de auditoria SYST para nó parando no StorageGRID
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Quando um serviço é parado graciosamente, essa mensagem é gerada pa
 
 
 [role="lead"]
-Quando um serviço é parado graciosamente, essa mensagem é gerada para indicar que o desligamento foi solicitado e que o serviço iniciou sua sequência de desligamento. O SYST pode ser usado para determinar se o desligamento foi solicitado, antes que o serviço seja reiniciado (ao contrário do SYSD, que normalmente é enviado após o reinício do serviço).
+Quando um serviço é encerrado corretamente, esta mensagem é gerada para indicar que o desligamento foi solicitado e que o serviço iniciou sua sequência de desligamento. SYST pode ser usado para determinar se o desligamento foi solicitado antes que o serviço seja reiniciado (diferentemente de SYSD, que normalmente é enviado após o serviço ser reiniciado).
 
 [cols="1a,1a,4a"]
 |===
