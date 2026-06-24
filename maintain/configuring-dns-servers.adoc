@@ -58,6 +58,6 @@ Siga estas etapas para excluir um endereço IP de um servidor DNS.
 
 .Passos
 . Selecione *Manutenção* > *Rede* > *Servidores DNS*.
-. Selecione o ícone de eliminação image:../media/icon-x-to-remove.png["eliminar ícone"]junto ao endereço IP.
+. Selecione o ícone de exclusão image:icon-x-to-remove.png["eliminar ícone"] ao lado do endereço IP.
 . Selecione *Guardar*.
 

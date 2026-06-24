@@ -26,7 +26,7 @@ Você pode usar o assistente de configuração S3 para configurar o StorageGRID 
 . Faça login no Gerenciador de Grade usando um link:web-browser-requirements.html["navegador da web suportado"].
 . Se o banner *FabricPool and S3 setup wizard* for exibido no painel, selecione o link no banner. Se o banner não for mais exibido, selecione o ícone de ajuda na barra de cabeçalho no Gerenciador de Grade e selecione *Assistente de configuração FabricPool e S3*.
 +
-image::../media/help_menu.png[menu ajuda]
+image:help_menu.png["menu ajuda"]
 
 . Na seção S3 da aplicação da página do assistente de configuração FabricPool e S3, selecione *Configurar agora*.
 
@@ -409,7 +409,7 @@ Na etapa de download de dados, você pode baixar um ou dois arquivos para salvar
 . Se você selecionou *Create root user S3 access key automatically*, siga um ou ambos os procedimentos a seguir:
 +
 ** Selecione *Transferir chaves de acesso* para transferir um `.csv` ficheiro que contenha o nome da conta do locatário, o ID da chave de acesso e a chave de acesso secreta.
-** Selecione o ícone de cópia (image:../media/icon_tenant_copy_url.png["ícone de cópia"]) para copiar o ID da chave de acesso e a chave de acesso secreta para a área de transferência.
+** Selecione o ícone de copiar (image:icon_tenant_copy_url.png["ícone de cópia"]) para copiar o ID da chave de acesso e a chave de acesso secreta para a área de transferência.
 
 
 . Selecione *Transferir valores de configuração* para transferir um `.txt` ficheiro que contenha as definições para o terminal do balanceador de carga, locatário, bucket e utilizador raiz.

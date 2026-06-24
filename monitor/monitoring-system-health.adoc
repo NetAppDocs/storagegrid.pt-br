@@ -18,7 +18,7 @@ O sistema StorageGRID pode continuar a funcionar quando partes da grelha não es
 
 Para ser notificado de alertas assim que eles são acionados, você pode https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/setting-up-email-notifications-for-alerts.html["configurar notificações por e-mail para alertas"^] ou link:using-snmp-monitoring.html["Configurar traps SNMP"].
 
-image::../media/health_status_card.png[Cartão de estado de saúde - painel de instrumentos]
+image:health_status_card.png["Cartão de estado de saúde - painel de instrumentos"]
 
 Quando existem problemas, aparecem links que permitem visualizar detalhes adicionais:
 
@@ -66,7 +66,7 @@ Se um ou mais nós forem desconetados da grade, as operações críticas do Stor
 
 
  a| 
-image:../media/icon_alarm_blue_unknown.png["ícone de ponto de interrogação azul"]
+image:icon_alarm_blue_unknown.png["ícone de ponto de interrogação azul"]
  a| 
 *Não ligado - desconhecido*
 
@@ -83,7 +83,7 @@ Por exemplo, talvez seja necessário reiniciar um serviço que tenha parado ou r
 
 
  a| 
-image:../media/icon_alarm_gray_administratively_down.png["ícone de marca de interrogação cinzenta"]
+image:icon_alarm_gray_administratively_down.png["ícone de marca de interrogação cinzenta"]
  a| 
 *Não conetado - administrativamente para baixo*
 
@@ -100,7 +100,7 @@ Se um ou mais alertas estiverem ativos <<Ver alertas atuais e resolvidos,selecio
 
 
  a| 
-image:../media/icon_alert_green_checkmark.png["marca de verificação verde de alerta do ícone"]
+image:icon_alert_green_checkmark.png["marca de verificação verde de alerta do ícone"]
  a| 
 *Conectado*
 
@@ -140,11 +140,11 @@ Gravidade
  a| 
 A gravidade do alerta. Para alertas atuais, se vários alertas forem agrupados, a linha de título mostra quantas instâncias desse alerta estão ocorrendo em cada gravidade.
 
-image:../media/icon_alert_red_critical.png["Ícone Alerta Vermelho crítico"] *Crítico*: Existe uma condição anormal que interrompeu as operações normais de um nó ou serviço StorageGRID. Você deve abordar o problema subjacente imediatamente. A interrupção do serviço e a perda de dados podem resultar se o problema não for resolvido.
+image:icon_alert_red_critical.png["Ícone Alerta Vermelho crítico"]*Crítico*: Existe uma condição anormal que interrompeu o funcionamento normal de um nó ou serviço do StorageGRID. Você deve resolver o problema imediatamente. A não resolução do problema pode resultar em interrupção do serviço e perda de dados.
 
-image:../media/icon_alert_orange_major.png["Ícone Alerta Laranja maior"] *Major*: Existe uma condição anormal que está afetando as operações atuais ou se aproximando do limite para um alerta crítico. Você deve investigar os principais alertas e resolver quaisquer problemas subjacentes para garantir que a condição anormal não pare a operação normal de um nó ou serviço StorageGRID.
+image:icon_alert_orange_major.png["Ícone Alerta Laranja maior"]*Grave*: Existe uma condição anormal que está afetando as operações atuais ou se aproximando do limite para um alerta crítico. Você deve investigar alertas graves e resolver quaisquer problemas subjacentes para garantir que a condição anormal não interrompa a operação normal de um nó ou serviço do StorageGRID.
 
-image:../media/icon_alert_yellow_minor.png["Ícone Alerta Amarelo menor"] *Menor*: O sistema está operando normalmente, mas existe uma condição anormal que pode afetar a capacidade do sistema de operar se ele continuar. Você deve monitorar e resolver alertas menores que não sejam claros por conta própria para garantir que eles não resultem em um problema mais sério.
+image:icon_alert_yellow_minor.png["Ícone Alerta Amarelo menor"]*Menor*: O sistema está operando normalmente, mas existe uma condição anormal que pode afetar a capacidade do sistema de operar se persistir. Você deve monitorar e resolver alertas menores que não se resolvem sozinhos para garantir que não resultem em um problema mais sério.
 
 
 
@@ -208,9 +208,9 @@ A página de alertas atuais é atualizada a cada dois minutos.
 
 
 
-. Para expandir grupos de alertas, selecione o cursor para baixo image:../media/icon_alert_caret_down.png["ícone do cursor para baixo"]. Para recolher alertas individuais num grupo, selecione o cursor para cima image:../media/icon_alert_caret_up.png["Ícone de cuidado para cima"]ou selecione o nome do grupo.
+. Para expandir grupos de alertas, selecione a seta para baixo image:icon_alert_caret_down.png["ícone do cursor para baixo"]. Para recolher alertas individuais em um grupo, selecione a seta para cima image:icon_alert_caret_up.png["Ícone de cuidado para cima"] ou selecione o nome do grupo.
 . Para exibir alertas individuais em vez de grupos de alertas, desmarque a caixa de seleção *alertas de grupo*.
-. Para classificar os alertas atuais ou grupos de alertas, selecione as setas para cima/para baixo image:../media/icon_alert_sort_column.png["Ícone de setas de ordenação"]em cada cabeçalho de coluna.
+. Para classificar os alertas atuais ou grupos de alertas, selecione as setas para cima/para baixo image:icon_alert_sort_column.png["Ícone de setas de ordenação"] em cada cabeçalho de coluna.
 +
 ** Quando *alertas de grupo* é selecionado, tanto os grupos de alerta quanto os alertas individuais dentro de cada grupo são classificados. Por exemplo, você pode querer classificar os alertas em um grupo por *tempo disparado* para encontrar a instância mais recente de um alerta específico.
 ** Quando *alertas de grupo* é limpo, toda a lista de alertas é classificada. Por exemplo, você pode querer classificar todos os alertas por *nó/Site* para ver todos os alertas que afetam um nó específico.

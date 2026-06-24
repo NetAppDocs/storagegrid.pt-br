@@ -19,7 +19,7 @@ A replicação entre grade é a replicação automática de objetos entre bucket
 
 O diagrama de fluxo de trabalho resume as etapas para configurar a replicação entre grades entre buckets em duas grades.
 
-image::../media/grid-federation-cgr-workflow.png[Fluxo de trabalho de replicação entre grade]
+image:grid-federation-cgr-workflow.png["Fluxo de trabalho de replicação entre grade"]
 
 
 
@@ -50,7 +50,7 @@ Você pode configurar a replicação entre grades para ocorrer em uma direção 
 
 Se você habilitar a replicação entre grades para um bucket em apenas uma grade, os objetos adicionados a esse bucket (o bucket de origem) serão replicados para o bucket correspondente na outra grade (o bucket de destino).  No entanto, os objetos adicionados ao bucket de destino não são replicados de volta para a origem.  Na figura, a replicação entre grades está habilitada para `my-bucket` da Grade 1 para a Grade 2, mas não está habilitado na outra direção.
 
-image::../media/grid-federation-cross-grid-replication-one-direction.png[imagem mostrando a conexão de federação de grade em uma direção]
+image:grid-federation-cross-grid-replication-one-direction.png["imagem mostrando a conexão de federação de grade em uma direção"]
 
 
 
@@ -58,7 +58,7 @@ image::../media/grid-federation-cross-grid-replication-one-direction.png[imagem 
 
 Se você habilitar a replicação entre grade para o mesmo bucket em ambas as grades, os objetos adicionados a qualquer bucket serão replicados para a outra grade. Na figura, a replicação em grade cruzada é ativada para `my-bucket` em ambas as direções.
 
-image::../media/grid-federation-cross-grid-replication.png[imagem mostrando replicação em uma direção em comparação com a replicação em ambas as direções]
+image:grid-federation-cross-grid-replication.png["imagem mostrando replicação em uma direção em comparação com a replicação em ambas as direções"]
 
 
 
@@ -137,7 +137,7 @@ Quando um cliente S3 exclui um objeto de um bucket que tem replicação entre gr
 
 Na figura, *Replicar marcadores de exclusão* foi definido como *Sim* quandolink:../tenant/grid-federation-manage-cross-grid-replication.html["a replicação entre redes foi ativada"] .  Solicitações de exclusão para o bucket de origem que incluem um ID de versão não excluem objetos do bucket de destino.  Solicitações de exclusão para o bucket de origem que não incluem um ID de versão parecem excluir objetos no bucket de destino.
 
-image::../media/grid-federation-cross-grid-replication-delete.png[imagem que mostra a eliminação do cliente replicado em ambas as grelhas]
+image:grid-federation-cross-grid-replication-delete.png["imagem que mostra a eliminação do cliente replicado em ambas as grelhas"]
 
 
 NOTE: Se você quiser manter as exclusões de objetos sincronizadas entre grades, crie correspondentes link:../s3/create-s3-lifecycle-configuration.html["Configurações do ciclo de vida do S3"] para os buckets em ambas as grades.

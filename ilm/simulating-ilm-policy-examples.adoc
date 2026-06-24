@@ -28,7 +28,7 @@ Neste exemplo, a política *exemplo de ILM* está sendo simulada contra os objet
 
 Depois de simular a política, confirme se cada objeto foi correspondido pela regra correta.
 
-image::../media/simulate_policy_screen.png[Simule os resultados da política]
+image:simulate_policy_screen.png["Simule os resultados da política"]
 
 Neste exemplo:
 
@@ -57,7 +57,7 @@ Neste exemplo, a política *Demo* está sendo simulada. Esta política, que se d
 Os resultados da simulação aparecem, mostrando que o `Havok.png` objeto foi correspondido pela regra *PNGs*.
 
 +
-image::../media/simulate_reorder_rules_pngs_result.png[Exemplo 2: Reordenando regras ao simular uma política ILM]
+image:simulate_reorder_rules_pngs_result.png["Exemplo 2: Reordenando regras ao simular uma política ILM"]
 
 +
 No entanto, `Havok.png` foi feito para testar a regra *X-men*.
@@ -75,7 +75,7 @@ No entanto, `Havok.png` foi feito para testar a regra *X-men*.
 Os objetos que você testou anteriormente são reavaliados em relação à política atualizada e os novos resultados da simulação são mostrados. No exemplo, a coluna Rule Matched mostra que o `Havok.png` objeto agora corresponde à regra de metadados X-men, conforme esperado. A coluna correspondência anterior mostra que a regra PNGs correspondia ao objeto na simulação anterior.
 
 +
-image::../media/simulate_reorder_rules_correct_result.png[Exemplo 2: Reordenando regras ao simular uma política ILM]
+image:simulate_reorder_rules_correct_result.png["Exemplo 2: Reordenando regras ao simular uma política ILM"]
 
 
 
@@ -87,7 +87,7 @@ Este exemplo mostra como simular uma política, corrigir uma regra na política 
 
 Neste exemplo, a política *Demo* está sendo simulada. Esta política destina-se a localizar objetos que tenham `series=x-men` metadados de usuário. No entanto, resultados inesperados ocorreram ao simular essa política contra o `Beast.jpg` objeto. Em vez de corresponder à regra de metadados X-men, o objeto correspondia à regra padrão, duas cópias de dois data centers.
 
-image::../media/simulate_results_for_object_wrong_metadata.png[Exemplo 3: Corrigindo uma regra ao simular uma política ILM]
+image:simulate_results_for_object_wrong_metadata.png["Exemplo 3: Corrigindo uma regra ao simular uma política ILM"]
 
 Quando um objeto de teste não é correspondido pela regra esperada na política, você deve examinar cada regra na política e corrigir quaisquer erros.
 
@@ -108,6 +108,6 @@ Como exemplo, suponha que os metadados para a regra X-men foram inseridos como "
 Neste exemplo, a regra X-meN corrigida agora corresponde ao `Beast.jpg` objeto com base nos `series=x-men` metadados do usuário, conforme esperado.
 
 +
-image::../media/simulate_results_for_object_corrected_metadata.png[Exemplo 3: Corrigindo uma regra ao simular uma política ILM]
+image:simulate_results_for_object_corrected_metadata.png["Exemplo 3: Corrigindo uma regra ao simular uma política ILM"]
 
 

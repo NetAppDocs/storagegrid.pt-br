@@ -21,7 +21,7 @@ O clone de conta é necessário para link:grid-federation-what-is-cross-grid-rep
 
 O diagrama de fluxo de trabalho mostra as etapas que administradores de grade e locatários permitidos executarão para configurar o clone de conta. Estas etapas são executadas após o link:grid-federation-create-connection.html["a conexão de federação de grade está configurada"].
 
-image::../media/grid-federation-account-clone-workflow.png[fluxo de trabalho para clone de conta]
+image:grid-federation-account-clone-workflow.png["fluxo de trabalho para clone de conta"]
 
 
 

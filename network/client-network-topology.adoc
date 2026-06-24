@@ -19,9 +19,9 @@ Se você configurar uma rede de cliente para um nó durante a instalação, o ga
 
 Neste exemplo, a rede de clientes é usada para solicitações de clientes S3 e para funções administrativas, enquanto a rede de Grade é dedicada a operações internas de gerenciamento de objetos.
 
-image::../media/grid_client_networks.png[Redes de clientes Grid]
+image:grid_client_networks.png["Redes de clientes Grid"]
 
-image::../media/grid_client_networks_ips.png[IPs redes Cliente Grid]
+image:grid_client_networks_ips.png["IPs redes Cliente Grid"]
 
 .Informações relacionadas
 link:../maintain/changing-nodes-network-configuration.html["Alterar a configuração da rede do nó"]

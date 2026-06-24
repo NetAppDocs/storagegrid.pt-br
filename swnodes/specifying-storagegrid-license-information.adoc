@@ -27,7 +27,7 @@ O ficheiro de licença é validado e o número de série é apresentado.
 NOTE: O arquivo de instalação do StorageGRID inclui uma licença gratuita que não fornece nenhum direito de suporte para o produto. Você pode atualizar para uma licença que oferece suporte após a instalação.
 
 +
-image::../media/2_gmi_installer_license_page.png[Página de licença do instalador do StorageGRID]
+image:2_gmi_installer_license_page.png["Página de licença do instalador do StorageGRID"]
 
 . Selecione *seguinte*.
 

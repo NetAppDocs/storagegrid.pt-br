@@ -38,7 +38,7 @@ CAUTION: Certifique-se de que pelo menos dois nós em cada local possam acessar 
 . Especifique os endereços IPv4 para pelo menos quatro servidores NTP nas caixas de texto *Server 1* para *Server 4*.
 . Se necessário, selecione o sinal de adição ao lado da última entrada para adicionar entradas adicionais do servidor.
 +
-image::../media/8_gmi_installer_ntp_page.gif[Esta imagem é explicada pelo texto circundante.]
+image:8_gmi_installer_ntp_page.gif["Esta imagem é explicada pelo texto circundante."]
 
 . Selecione *seguinte*.
 

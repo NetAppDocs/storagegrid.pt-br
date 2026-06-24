@@ -58,7 +58,7 @@ Você pode ver detalhes de um locatário que tem permissão para usar uma conex�
 Se essa for a grade de origem do locatário (ou seja, se o locatário foi criado nessa grade), um banner aparecerá para lembrá-lo de que o locatário foi clonado para outra grade. Se você editar ou excluir esse locatário, suas alterações não serão sincronizadas com a outra grade.
 
 +
-image::../media/grid-federation-tenant-detail.png[Separador Grid Federation (federação de grelha) na página de detalhes do locatário]
+image:grid-federation-tenant-detail.png["Separador Grid Federation (federação de grelha) na página de detalhes do locatário"]
 
 . Opcionalmente, selecione a guia *Grid Federation* para link:../monitor/grid-federation-monitor-connections.html["monitore a conexão de federação de grade"].
 
@@ -96,7 +96,7 @@ Para evitar esses erros, remova a permissão do locatário para usar a conexão 
 
 Para impedir que um locatário use uma conexão de federação de grade, você deve remover a permissão *usar conexão de federação de grade*.
 
-image::../media/grid-federation-remove-permission.png[etapas para remover a conexão de federação de grade]
+image:grid-federation-remove-permission.png["etapas para remover a conexão de federação de grade"]
 
 Antes de remover a permissão de um locatário para usar uma conexão de federação de grade, observe o seguinte:
 
@@ -167,7 +167,7 @@ Depois que a replicação entre grades for desativada para buckets do locatário
 ** Se a permissão puder ser removida, você será retornado à página de detalhes e uma mensagem de sucesso será exibida. Esse locatário não pode mais usar a conexão de federação de grade.
 ** Se um ou mais buckets de inquilinos ainda tiverem a replicação entre grades ativada, um erro será exibido.
 +
-image::../media/grid-federation-remove-permission-error.png[mensagem de erro exibida se o locatário tiver cgr habilitado para um bucket]
+image:grid-federation-remove-permission-error.png["mensagem de erro exibida se o locatário tiver cgr habilitado para um bucket"]
 
 +
 Você pode fazer um dos seguintes procedimentos:

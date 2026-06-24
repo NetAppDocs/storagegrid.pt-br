@@ -24,7 +24,7 @@ NOTE: Para alterar unidades para os valores de armazenamento exibidos no Gerenci
 
 NOTE: As capturas de tela mostradas são exemplos. Seus resultados podem variar dependendo da versão do StorageGRID.
 
-image::../media/nodes_table.png[Menu de nós]
+image:nodes_table.png["Menu de nós"]
 
 
 
@@ -38,7 +38,7 @@ Se um nó for desconetado da grade, um dos ícones a seguir será exibido ao lad
 
 
  a| 
-image:../media/icon_alarm_blue_unknown.png["ícone de ponto de interrogação azul"]
+image:icon_alarm_blue_unknown.png["ícone de ponto de interrogação azul"]
  a| 
 *Não ligado - desconhecido*
 
@@ -55,7 +55,7 @@ Por exemplo, talvez seja necessário reiniciar um serviço que tenha parado ou r
 
 
  a| 
-image:../media/icon_alarm_gray_administratively_down.png["ícone de marca de interrogação cinzenta"]
+image:icon_alarm_gray_administratively_down.png["ícone de marca de interrogação cinzenta"]
  a| 
 *Não conetado - administrativamente para baixo*
 
@@ -78,11 +78,11 @@ Se um nó for desconetado da grade, ele pode ter um alerta subjacente, mas somen
 
 Se houver um alerta ativo para um nó, um dos seguintes ícones será exibido ao lado do nome do nó:
 
-image:../media/icon_alert_red_critical.png["Ícone Alerta Vermelho crítico"] *Crítico*: Existe uma condição anormal que interrompeu as operações normais de um nó ou serviço StorageGRID. Você deve abordar o problema subjacente imediatamente. A interrupção do serviço e a perda de dados podem resultar se o problema não for resolvido.
+image:icon_alert_red_critical.png["Ícone Alerta Vermelho crítico"]*Crítico*: Existe uma condição anormal que interrompeu o funcionamento normal de um nó ou serviço do StorageGRID. Você deve resolver o problema imediatamente. A não resolução do problema pode resultar em interrupção do serviço e perda de dados.
 
-image:../media/icon_alert_orange_major.png["Ícone Alerta Laranja maior"] *Major*: Existe uma condição anormal que está afetando as operações atuais ou se aproximando do limite para um alerta crítico. Você deve investigar os principais alertas e resolver quaisquer problemas subjacentes para garantir que a condição anormal não pare a operação normal de um nó ou serviço StorageGRID.
+image:icon_alert_orange_major.png["Ícone Alerta Laranja maior"]*Grave*: Existe uma condição anormal que está afetando as operações atuais ou se aproximando do limite para um alerta crítico. Você deve investigar alertas graves e resolver quaisquer problemas subjacentes para garantir que a condição anormal não interrompa a operação normal de um nó ou serviço do StorageGRID.
 
-image:../media/icon_alert_yellow_minor.png["Ícone Alerta Amarelo menor"] *Menor*: O sistema está operando normalmente, mas existe uma condição anormal que pode afetar a capacidade do sistema de operar se ele continuar. Você deve monitorar e resolver alertas menores que não sejam claros por conta própria para garantir que eles não resultem em um problema mais sério.
+image:icon_alert_yellow_minor.png["Ícone Alerta Amarelo menor"]*Menor*: O sistema está operando normalmente, mas existe uma condição anormal que pode afetar a capacidade do sistema de operar se persistir. Você deve monitorar e resolver alertas menores que não se resolvem sozinhos para garantir que não resultem em um problema mais sério.
 
 
 

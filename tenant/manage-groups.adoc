@@ -68,7 +68,7 @@ Se a conta de locatário tiver a permissão *usar conexão de federação de gra
 
 . Edite as configurações do grupo conforme necessário.  Consultelink:creating-groups-for-s3-tenant.html["Crie grupos para um locatário do S3"] para obter detalhes sobre o que inserir.
 +
-.. Na seção Visão geral , altere o nome de exibição selecionando o nome ou o ícone de edição image:../media/icon_edit_tm.png["Ícone de edição"].
+.. Na seção Visão geral, altere o nome de exibição selecionando o nome ou o ícone de edição image:icon_edit_tm.png["Ícone de edição"].
 .. Na guia *permissões de grupo*, atualize as permissões e selecione *Salvar alterações*.
 .. Na guia *Política de grupo*, faça quaisquer alterações e selecione *Salvar alterações*.
 +
@@ -80,7 +80,7 @@ Opcionalmente, selecione uma política de grupo S3 diferente ou insira a string 
 +
 .. Selecione a guia usuários.
 +
-image::../media/manage_users.png[Gerenciar usuários]
+image:manage_users.png["Gerenciar usuários"]
 
 .. Selecione *Adicionar usuários*.
 .. Selecione os usuários existentes que você deseja adicionar e selecione *Adicionar usuários*.

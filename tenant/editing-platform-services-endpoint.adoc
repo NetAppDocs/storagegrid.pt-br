@@ -34,7 +34,7 @@ A página de detalhes do ponto final é exibida.
 NOTE: Você não pode alterar a URNA DE um endpoint depois que o endpoint foi criado.
 
 +
-.. Para alterar o nome de exibição do endpoint, selecione o ícone de edição image:../media/icon_edit_tm.png["Ícone de edição"].
+.. Para alterar o nome de exibição do endpoint, selecione o ícone de edição image:icon_edit_tm.png["Ícone de edição"].
 .. Conforme necessário, altere o URI.
 .. Conforme necessário, altere o tipo de autenticação.
 +

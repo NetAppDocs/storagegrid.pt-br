@@ -47,6 +47,6 @@ Você pode usar o endereço IP do nó de administrador principal IP na rede de g
 A página usada para configurar uma grade StorageGRID é exibida.
 
 +
-image::../media/gmi_installer_first_screen.gif[Primeira tela do instalador do StorageGRID]
+image:gmi_installer_first_screen.gif["Primeira tela do instalador do StorageGRID"]
 
 

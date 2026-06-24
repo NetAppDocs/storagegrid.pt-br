@@ -76,7 +76,7 @@ Por exemplo, suponha que seu sistema StorageGRID tenha três locais de data cent
 
 Observe que não é possível usar um KMS para nós que não sejam do dispositivo ou para nenhum nó de dispositivo que não tenha a configuração *criptografia do nó* ativada durante a instalação.
 
-image::../media/kms_per_site.png[KMS por local]
+image:kms_per_site.png["KMS por local"]
 
 
 

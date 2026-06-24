@@ -32,11 +32,11 @@ NOTE: A criação do endpoint falhará se os serviços da plataforma não estive
 
 Se ocorrer um erro quando o StorageGRID tenta alcançar um endpoint existente, uma mensagem é exibida no painel no Gerenciador de inquilinos.
 
-image::../media/tenant_dashboard_endpoint_error.png[mensagem de erro de endpoint no painel]
+image:tenant_dashboard_endpoint_error.png["mensagem de erro de endpoint no painel"]
 
-Os usuários do locatário podem ir para a página Endpoints para revisar a mensagem de erro mais recente para cada endpoint e determinar quanto tempo atrás o erro ocorreu. A coluna *último erro* exibe a mensagem de erro mais recente para cada endpoint e indica quanto tempo atrás o erro ocorreu. Erros que incluem o image:../media/icon_alert_red_critical.png["Ícone X vermelho"] ícone ocorreram nos últimos 7 dias.
+Os usuários locatários podem acessar a página de Endpoints para revisar a mensagem de erro mais recente de cada endpoint e determinar há quanto tempo o erro ocorreu. A coluna *Último erro* exibe a mensagem de erro mais recente de cada endpoint e indica há quanto tempo o erro ocorreu. Erros que incluem o ícone image:icon_alert_red_critical.png["Ícone X vermelho"] ocorreram nos últimos 7 dias.
 
-image::../media/endpoints_last_error.png[Captura de tela da página Endpoints mostrando a coluna Last Error (último erro)]
+image:endpoints_last_error.png["Captura de tela da página Endpoints mostrando a coluna Last Error (último erro)"]
 
 
 NOTE: Algumas mensagens de erro na coluna *último erro* podem incluir um LOGID entre parênteses. Um administrador de grade ou suporte técnico pode usar esse ID para localizar informações mais detalhadas sobre o erro no bycast.log.
@@ -120,7 +120,7 @@ Para visualizar a taxa de falha da solicitação para serviços de plataforma:
 . Selecione *_site_* > *Serviços de Plataforma*.
 . Veja o gráfico de taxa de erro de solicitação.
 +
-image::../media/nodes_page_site_level_platform_services.gif[Serviços de plataforma em nível de site]
+image:nodes_page_site_level_platform_services.gif["Serviços de plataforma em nível de site"]
 
 
 

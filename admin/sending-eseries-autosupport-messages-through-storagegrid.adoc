@@ -44,21 +44,21 @@ NOTE: Este procedimento destina-se apenas à configuração de um servidor proxy
 É apresentada a página inicial do Gestor do sistema SANtricity.
 
 +
-image::../media/autosupport_santricity_home_page.png[Página inicial do AutoSupport SANtricity]
+image:autosupport_santricity_home_page.png["Página inicial do AutoSupport SANtricity"]
 
 . Selecione *Suporte* > *Centro de suporte* > * AutoSupport*.
 +
 É apresentada a página operations (operações de AutoSupport).
 
 +
-image::../media/autosupport_santricity_operations.png[Operações da AutoSupport SANtricity AutoSupport]
+image:autosupport_santricity_operations.png["Operações da AutoSupport SANtricity AutoSupport"]
 
 . Selecione *Configurar método de entrega AutoSupport*.
 +
 A página Configurar método de entrega AutoSupport é exibida.
 
 +
-image::../media/autosupport_configure_delivery_santricity.png[AutoSupport configure o método de entrega AutoSupport SANtricity]
+image:autosupport_configure_delivery_santricity.png["AutoSupport configure o método de entrega AutoSupport SANtricity"]
 
 . Selecione *HTTPS* para o método de entrega.
 +

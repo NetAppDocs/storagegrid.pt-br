@@ -40,7 +40,7 @@ A página Decommission Nodes (nós de desintegração) é exibida. Quando o proc
 O estágio atual é pausado e o botão *Resume* está ativado.
 
 +
-image::../media/decommission_nodes_procedure_paused.png[Procedimento de desativação dos nós em pausa]
+image:decommission_nodes_procedure_paused.png["Procedimento de desativação dos nós em pausa"]
 
 . Depois que o outro procedimento de manutenção estiver concluído, selecione *Resume* para prosseguir com a desativação.
 

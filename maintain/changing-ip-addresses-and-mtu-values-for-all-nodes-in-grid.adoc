@@ -60,7 +60,7 @@ Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
 É apresentado o menu principal. Por padrão, o `Selected nodes` campo é definido como `all`.
 
 +
-image::../media/change_ip_tool_main_menu.png[Captura de tela mostrando a tela de boas-vindas da ferramenta Change IP]
+image:change_ip_tool_main_menu.png["Captura de tela mostrando a tela de boas-vindas da ferramenta Change IP"]
 
 . No menu principal, selecione *2* para editar informações sobre máscara de IP/sub-rede, gateway e MTU para todos os nós.
 +
@@ -85,7 +85,7 @@ Suas alterações são mantidas até serem limpas ou aplicadas.
 +
 ** *5*: Mostra edições na saída que são isoladas para mostrar apenas o item alterado. As alterações são realçadas em verde (adições) ou vermelho (exclusões), como mostrado na saída do exemplo:
 +
-image::../media/change_ip_tool_edit_ip_mask_sample_output.png[captura de tela descrita pelo texto circundante]
+image:change_ip_tool_edit_ip_mask_sample_output.png["captura de tela descrita pelo texto circundante"]
 
 ** *6*: Mostra edições na saída que exibe a configuração completa. As alterações são realçadas em verde (adições) ou vermelho (exclusões).
 +
@@ -102,13 +102,13 @@ Essa validação garante que as regras da rede de Grade, como não usar sub-rede
 Neste exemplo, a validação retornou erros.
 
 +
-image::../media/change_ip_tool_validate_sample_error_messages.gif[captura de tela descrita pelo texto circundante]
+image:change_ip_tool_validate_sample_error_messages.gif["captura de tela descrita pelo texto circundante"]
 
 +
 Neste exemplo, a validação passou.
 
 +
-image::../media/change_ip_tool_validate_sample_passed_messages.gif[captura de tela descrita pelo texto circundante]
+image:change_ip_tool_validate_sample_passed_messages.gif["captura de tela descrita pelo texto circundante"]
 
 . Após a aprovação da validação, selecione *10* para aplicar a nova configuração de rede.
 . Selecione *stage* para aplicar as alterações na próxima vez que os nós forem reiniciados.

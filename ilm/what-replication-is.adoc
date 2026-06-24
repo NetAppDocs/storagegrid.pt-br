@@ -17,7 +17,7 @@ Quando você configura uma regra ILM para criar cópias replicadas, você especi
 
 No exemplo a seguir, a regra ILM especifica que duas cópias replicadas de cada objeto serão colocadas em um pool de storage que contém três nós de storage.
 
-image::../media/ilm_replication_make_2_copies.png[Regra de fazer 2 cópias]
+image:ilm_replication_make_2_copies.png["Regra de fazer 2 cópias"]
 
 Quando o StorageGRID faz a correspondência de objetos a essa regra, ele cria duas cópias do objeto, colocando cada cópia em um nó de storage diferente no pool de storage. As duas cópias podem ser colocadas em qualquer um dos três nós de storage disponíveis. Nesse caso, a regra colocou cópias de objeto nos nós de storage 2 e 3. Como há duas cópias, o objeto pode ser recuperado se algum dos nós no pool de storage falhar.
 

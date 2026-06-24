@@ -28,7 +28,7 @@ Em alternativa, pode selecionar *ações* > *Ver detalhes do grupo*.
 A página de detalhes do grupo é exibida. O exemplo a seguir mostra a página de detalhes do grupo S3.
 
 +
-image::../media/tenant_group_details.png[Ver detalhes do grupo]
+image:tenant_group_details.png["Ver detalhes do grupo"]
 
 . Faça alterações nas definições do grupo conforme necessário.
 +
@@ -36,7 +36,7 @@ image::../media/tenant_group_details.png[Ver detalhes do grupo]
 TIP: Para garantir que suas alterações sejam salvas, selecione *Salvar alterações* depois de fazer alterações em cada seção. Quando as alterações são salvas, uma mensagem de confirmação aparece no canto superior direito da página.
 
 +
-.. Opcionalmente, selecione o nome de exibição ou o ícone de edição image:../media/icon_edit_tm.png["Ícone de edição"]para atualizar o nome de exibição.
+.. Opcionalmente, selecione o nome de exibição ou o ícone de edição image:icon_edit_tm.png["Ícone de edição"] para atualizar o nome de exibição.
 +
 Não é possível alterar o nome exclusivo de um grupo. Não é possível editar o nome de exibição de um grupo federado.
 

@@ -29,4 +29,4 @@ NOTE: Os objetos em um bucket que tem o bloqueio de objeto S3 ativado não podem
 
 O diagrama resume como o ILM opera ao longo do ciclo de vida de um objeto.
 
-image::../media/overview_of_object_lifecycle.png[Visão geral do ciclo de vida do objeto]
+image:overview_of_object_lifecycle.png["Visão geral do ciclo de vida do objeto"]

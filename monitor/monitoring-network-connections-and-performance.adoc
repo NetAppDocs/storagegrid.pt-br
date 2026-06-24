@@ -29,26 +29,26 @@ Além disso, considere link:../admin/managing-traffic-classification-policies.ht
 A página nós é exibida. Cada nó na grade é listado no formato de tabela.
 
 +
-image::../media/nodes_menu.png[Menu nós]
+image:nodes_menu.png["Menu nós"]
 
 . Selecione o nome da grade, um site específico de data center ou um nó de grade e, em seguida, selecione a guia *rede*.
 +
 O gráfico tráfego de rede fornece um resumo do tráfego de rede geral para a grade como um todo, o site do data center ou para o nó.
 
 +
-image::../media/nodes_page_network_traffic_graph.png[Gráfico de tráfego de rede da página de nós]
+image:nodes_page_network_traffic_graph.png["Gráfico de tráfego de rede da página de nós"]
 
 +
 .. Se você selecionou um nó de grade, role para baixo para revisar a seção *interfaces de rede* da página.
 +
-image::../media/nodes_page_network_interfaces.png[Interfaces de rede da página de nós]
+image:nodes_page_network_interfaces.png["Interfaces de rede da página de nós"]
 
 .. Para nós de grade, role para baixo para rever a seção *Comunicação de rede* da página.
 +
 As tabelas de receção e transmissão mostram quantos bytes e pacotes foram recebidos e enviados através de cada rede, bem como outras métricas de receção e transmissão.
 
 +
-image::../media/nodes_page_network_communication.png[Comunicação de rede de Página de nós]
+image:nodes_page_network_communication.png["Comunicação de rede de Página de nós"]
 
 
 
@@ -59,7 +59,7 @@ image::../media/nodes_page_network_communication.png[Comunicação de rede de P�
 A página políticas de classificação de tráfego é exibida e as políticas existentes são listadas na tabela.
 
 +
-image::../media/traffic_classification_policies_main_screen_w_examples.png[Política de tráfego para exemplo de gráfico]
+image:traffic_classification_policies_main_screen_w_examples.png["Política de tráfego para exemplo de gráfico"]
 
 .. Para exibir gráficos que mostram as métricas de rede associadas a uma política, selecione o botão de opção à esquerda da política e clique em *métricas*.
 .. Reveja os gráficos para compreender o tráfego de rede associado à política.
@@ -85,7 +85,7 @@ Monitore nós de grade individuais para verificar seus níveis de uso de recurso
 . Na página *Nós*, selecione o nó.
 . Selecione a guia *hardware* para exibir gráficos de utilização da CPU e uso da memória.
 +
-image::../media/nodes_page_hardware_tab_graphs.png[Guia hardware da página de nós]
+image:nodes_page_hardware_tab_graphs.png["Guia hardware da página de nós"]
 
 . Para exibir um intervalo de tempo diferente, selecione um dos controles acima do gráfico ou gráfico. Você pode exibir as informações disponíveis para intervalos de 1 hora, 1 dia, 1 semana ou 1 mês. Você também pode definir um intervalo personalizado, que permite especificar intervalos de data e hora.
 . Se o nó estiver hospedado em um dispositivo de armazenamento ou em um dispositivo de serviços, role para baixo para exibir as tabelas de componentes. O estado de todos os componentes deve ser "nominal". Investigue componentes que tenham qualquer outro estado.

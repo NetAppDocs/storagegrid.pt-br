@@ -17,7 +17,7 @@ A guia ILM é mostrada para cada nó de armazenamento, cada local e toda a grade
 
 Para nós de storage, a guia ILM fornece detalhes sobre a avaliação ILM e a verificação em segundo plano para objetos codificados por apagamento.
 
-image::../media/nodes_page_ilm_tab.png[Guia ILM da página de nós]
+image:nodes_page_ilm_tab.png["Guia ILM da página de nós"]
 
 .Informações relacionadas
 * link:monitoring-information-lifecycle-management.html["Monitorar o gerenciamento do ciclo de vida das informações"]

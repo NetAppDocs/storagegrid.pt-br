@@ -47,7 +47,7 @@ NOTE: O StorageGRID considera que cada perfil de codificação de apagamento é 
 
 Neste exemplo, a política ILM ativa foi inicialmente projetada para um sistema StorageGRID de dois locais e usa duas regras ILM.
 
-image::../media/policy_6_active_policy.png[Exemplo de Política ativa de ILM 6]
+image:policy_6_active_policy.png["Exemplo de Política ativa de ILM 6"]
 
 Nesta política de ILM, os objetos pertencentes ao Tenant A são protegidos pela codificação de apagamento 2-1 em um único local, enquanto os objetos pertencentes a todos os outros locatários são protegidos em dois sites que usam replicação de cópia 2.
 

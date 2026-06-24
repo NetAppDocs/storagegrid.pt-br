@@ -24,7 +24,7 @@ Talvez seja necessário desativar um nó que não esteja conetado à grade no mo
 
 
 .Sobre esta tarefa
-Você pode identificar nós desconetados procurando o ícone desconhecido azul image:../media/icon_alarm_blue_unknown.png["Ícone desconhecido"]ou o ícone cinza administrativamente para baixo image:../media/icon_alarm_gray_administratively_down.png["Ícone administrativamente para baixo"]na coluna *Saúde*.
+Você pode identificar nós desconectados procurando o ícone azul "Desconhecido" image:icon_alarm_blue_unknown.png["Ícone desconhecido"] ou o ícone cinza "Administrativamente inativo" image:icon_alarm_gray_administratively_down.png["Ícone administrativamente para baixo"] na coluna *Saúde*.
 
 Antes de desativar qualquer nó desconetado, observe o seguinte:
 

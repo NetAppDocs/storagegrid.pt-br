@@ -60,7 +60,7 @@ Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
 É apresentado o menu principal.
 
 +
-image::../media/change_ip_tool_main_menu.png[Captura de tela mostrando a tela de boas-vindas da ferramenta Change IP]
+image:change_ip_tool_main_menu.png["Captura de tela mostrando a tela de boas-vindas da ferramenta Change IP"]
 
 . Opcionalmente, selecione *1* para escolher quais nós atualizar. Em seguida, selecione uma das seguintes opções:
 +
@@ -111,7 +111,7 @@ Suas alterações são mantidas até serem limpas ou aplicadas.
 +
 ** *5*: Mostra edições na saída que são isoladas para mostrar apenas o item alterado. As alterações são realçadas em verde (adições) ou vermelho (exclusões), como mostrado na saída do exemplo:
 +
-image::../media/change_ip_tool_edit_ip_mask_sample_output.png[captura de tela descrita pelo texto circundante]
+image:change_ip_tool_edit_ip_mask_sample_output.png["captura de tela descrita pelo texto circundante"]
 
 ** *6*: Mostra edições na saída que exibe a configuração completa. As alterações são realçadas em verde (adições) ou vermelho (exclusões).
 +
@@ -128,13 +128,13 @@ Essa validação garante que as regras para redes Grid, Admin e Client, como nã
 Neste exemplo, a validação retornou erros.
 
 +
-image::../media/change_ip_tool_validate_sample_error_messages.gif[captura de tela descrita pelo texto circundante]
+image:change_ip_tool_validate_sample_error_messages.gif["captura de tela descrita pelo texto circundante"]
 
 +
 Neste exemplo, a validação passou.
 
 +
-image::../media/change_ip_tool_validate_sample_passed_messages.gif[captura de tela descrita pelo texto circundante]
+image:change_ip_tool_validate_sample_passed_messages.gif["captura de tela descrita pelo texto circundante"]
 
 . Após a aprovação da validação, escolha uma das seguintes opções:
 +

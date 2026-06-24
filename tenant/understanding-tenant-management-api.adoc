@@ -63,7 +63,7 @@ NOTE: Se o logon único (SSO) estiver ativado para o sistema StorageGRID, você 
 
 Quando você expande cada operação da API, você pode ver sua ação HTTP, URL do endpoint, uma lista de todos os parâmetros necessários ou opcionais, um exemplo do corpo da solicitação (quando necessário) e as possíveis respostas.
 
-image::../media/tenant_api_swagger_example.gif[Exemplo mostrando a operação GET Groups na Swagger API]
+image:tenant_api_swagger_example.gif["Exemplo mostrando a operação GET Groups na Swagger API"]
 
 
 

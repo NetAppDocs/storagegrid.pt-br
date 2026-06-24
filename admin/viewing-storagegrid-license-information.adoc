@@ -19,7 +19,7 @@ Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser
 .Sobre esta tarefa
 Se houver um problema com a licença de software para este sistema StorageGRID, o cartão de status de integridade no painel inclui um ícone de status de licença e um link *Licença*. O número indica o número de problemas relacionados à licença.
 
-image::../media/dashboard_health_panel_license_status.png[Estado da licença do cartão de estado de funcionamento do tablier]
+image:dashboard_health_panel_license_status.png["Estado da licença do cartão de estado de funcionamento do tablier"]
 
 .Passos
 . Acesse a página Licença executando um dos seguintes procedimentos:

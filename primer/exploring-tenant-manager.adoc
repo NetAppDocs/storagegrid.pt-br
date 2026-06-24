@@ -28,7 +28,7 @@ O painel do Tenant Manager permite que os usuários do tenant monitorem o uso do
 
 O valor mostrado acima do gráfico de barras é uma soma do espaço usado para todos os buckets ou contentores do locatário. Se o número máximo de gigabytes, terabytes ou petabytes disponíveis para o locatário foi especificado quando a conta foi criada, a quantidade de cota usada e restante também será mostrada.
 
-image::../media/tenant_dashboard_with_buckets.png[Painel do Gerenciador do locatário]
+image:tenant_dashboard_with_buckets.png["Painel do Gerenciador do locatário"]
 
 
 

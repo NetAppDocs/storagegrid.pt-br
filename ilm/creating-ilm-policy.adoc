@@ -194,7 +194,7 @@ Simule uma política em objetos de teste antes de ativar a política e aplicá-l
 CAUTION: Revise todas as alterações no posicionamento de objetos replicados e codificados por apagamento existentes. Alterar a localização de um objeto existente pode resultar em problemas de recursos temporários quando os novos posicionamentos são avaliados e implementados.
 
 .Resultados
-Quaisquer edições nas regras da política serão refletidas nos resultados da simulação e mostrarão a nova correspondência e a correspondência anterior. A janela de política simular mantém os objetos testados até selecionar *Clear All* (Limpar tudo) ou o ícone remove (removerimage:../media/icon-x-to-remove.png["Remover ícone"]) para cada objeto na lista Simulation Results (resultados da simulação).
+Quaisquer alterações nas regras da política serão refletidas nos resultados da simulação e mostrarão a nova correspondência e a correspondência anterior. A janela "Simular política" mantém os objetos testados até que você selecione "Limpar tudo" ou o ícone de remoção image:icon-x-to-remove.png["Remover ícone"] para cada objeto na lista de resultados da simulação.
 
 .Informações relacionadas
 link:simulating-ilm-policy-examples.html["Exemplo de simulações de política ILM"]

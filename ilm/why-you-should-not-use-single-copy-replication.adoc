@@ -18,12 +18,12 @@ NOTE: Não use uma regra ILM que crie apenas uma cópia replicada para qualquer 
 
 No exemplo a seguir, a regra Make 1 Copy ILM especifica que uma cópia replicada de um objeto seja colocada em um pool de storage que contém três nós de storage. Quando um objeto é ingerido que corresponde a essa regra, o StorageGRID coloca uma única cópia em apenas um nó de storage.
 
-image::../media/ilm_replication_make_1_copy.png[ILM replicação fazer cópia 1]
+image:ilm_replication_make_1_copy.png["ILM replicação fazer cópia 1"]
 
 Quando uma regra ILM cria apenas uma cópia replicada de um objeto, o objeto fica inacessível quando o nó de armazenamento não está disponível. Neste exemplo, você perderá temporariamente o acesso ao objeto AAA sempre que o nó de armazenamento 2 estiver offline, como durante uma atualização ou outro procedimento de manutenção. Você perderá o objeto AAA inteiramente se o nó de storage 2 falhar.
 
-image::../media/ilm_replication_make_1_copy_sn_fails.png[ILM Replication Make 1 Copy SN falha]
+image:ilm_replication_make_1_copy_sn_fails.png["ILM Replication Make 1 Copy SN falha"]
 
 Para evitar a perda de dados de objetos, você sempre deve fazer pelo menos duas cópias de todos os objetos que deseja proteger com a replicação. Se existirem duas ou mais cópias, ainda poderá aceder ao objeto se um nó de armazenamento falhar ou ficar offline.
 
-image::../media/ilm_replication_make_2_copies_sn_fails.png[Replicação ILM Faça 2 cópias SN falha]
+image:ilm_replication_make_2_copies_sn_fails.png["Replicação ILM Faça 2 cópias SN falha"]

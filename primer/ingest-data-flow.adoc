@@ -19,7 +19,7 @@ Uma operação de ingestão ou salvamento consiste em um fluxo de dados definido
 
 Quando um cliente ingere um objeto ao sistema StorageGRID, o serviço LDR em nós de armazenamento processa a solicitação e armazena os metadados e dados no disco.
 
-image::../media/ingest_data_flow.png[Ingerir com posicionamento síncrono]
+image:ingest_data_flow.png["Ingerir com posicionamento síncrono"]
 
 . O aplicativo cliente cria o objeto e o envia para o sistema StorageGRID por meio de uma solicitação HTTP PUT.
 . O objeto é avaliado em relação à política ILM do sistema.

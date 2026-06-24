@@ -19,13 +19,13 @@ Se ocorrer um erro quando o StorageGRID tenta se comunicar com um endpoint de se
 
 Se algum erro de endpoint de serviços de plataforma tiver ocorrido nos últimos 7 dias, o painel do Gerenciador do Locatário exibirá uma mensagem de alerta. Você pode acessar a página de endpoints dos serviços da plataforma para ver mais detalhes sobre o erro.
 
-image::../media/tenant_dashboard_endpoint_error.png[mensagem de erro de endpoint no painel]
+image:tenant_dashboard_endpoint_error.png["mensagem de erro de endpoint no painel"]
 
 O mesmo erro que aparece no painel também aparece na parte superior da página de endpoints dos serviços da plataforma. Para ver uma mensagem de erro mais detalhada:
 
 .Passos
 . Na lista de endpoints, selecione o endpoint que tem o erro.
-. Na página de detalhes do endpoint, selecione *conexão*. Esta guia exibe apenas o erro mais recente para um endpoint e indica quanto tempo atrás o erro ocorreu. Erros que incluem o ícone X vermelho image:../media/icon_alert_red_critical.png["Ícone X vermelho"]ocorreram nos últimos 7 dias.
+. Na página de detalhes do endpoint, selecione *Conexão*. Esta aba exibe apenas o erro mais recente para um endpoint e indica há quanto tempo o erro ocorreu. Erros que incluem o ícone X vermelho image:icon_alert_red_critical.png["Ícone X vermelho"] ocorreram nos últimos 7 dias.
 
 
 

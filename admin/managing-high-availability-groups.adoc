@@ -68,7 +68,7 @@ Se a guia *Visão geral* incluir uma entrada para *grupos de HA*, o nó será at
 
 Neste exemplo, o nó de administração principal foi adicionado a dois grupos de HA. Este nó é atualmente a interface ativa para o grupo de clientes administradores e uma interface de backup para o grupo de clientes FabricPool.
 
-image::../media/ha_group_primary_interface.png[Interface Principal Grupo HA]
+image:ha_group_primary_interface.png["Interface Principal Grupo HA"]
 
 
 

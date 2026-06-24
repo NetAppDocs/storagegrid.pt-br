@@ -16,7 +16,7 @@ Na Etapa 5 (resolver conflitos de nós) do assistente do local de desativação,
 .Antes de começar
 Você deve garantir que todos os nós do sistema StorageGRID estejam no estado correto, como a seguir:
 
-* Todos os nós do sistema StorageGRID devem estar conetados (image:../media/icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"] ).
+* Todos os nós do seu sistema StorageGRID devem estar conectados (image:icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]).
 +
 
 NOTE: Se você estiver executando uma desativação do local desconetado, todos os nós do local que você está removendo devem ser desconetados e todos os nós de todos os outros locais devem estar conetados.
@@ -56,9 +56,9 @@ NOTE: Se você precisar executar outro procedimento de manutenção durante a de
 
 
 .Passos
-. Consulte a seção nós desconetados da Etapa 5 (resolver conflitos de nó) para determinar se algum nó no sistema StorageGRID tem um estado de conexão desconhecido (image:../media/icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"] ) ou administrativamente inativo ( )image:../media/icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"].
+. Revise a seção de nós desconectados da Etapa 5 (Resolver conflitos de nós) para determinar se algum nó em seu StorageGRID tem um estado de conexão Desconhecido (image:icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"]) ou Administrativamente Inativo (image:icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"]).
 +
-image::../media/decommission_site_step_5_disconnected_nodes.png[Etapa 5 resolver conflitos de nó]
+image:decommission_site_step_5_disconnected_nodes.png["Etapa 5 resolver conflitos de nó"]
 
 . Se algum nó estiver desconetado, coloque-o novamente on-line.
 +
@@ -69,7 +69,7 @@ Consulte link:../maintain/grid-node-procedures.html["Procedimentos do nó"]. Ent
 Esta tabela lista todos os nós do local selecionado que pertencem a um grupo de alta disponibilidade (HA).
 
 +
-image::../media/decommission_site_step_5_ha_groups.png[Desativar os grupos de HA do passo 5 do local]
+image:decommission_site_step_5_ha_groups.png["Desativar os grupos de HA do passo 5 do local"]
 
 . Se algum dos nós estiver listado, faça um dos seguintes procedimentos:
 +
@@ -85,21 +85,21 @@ Se todos os nós estiverem conetados e nenhum nó no local selecionado for usado
 O botão *Start Decommission* fica ativado.
 
 +
-image::../media/decommission_site_step_5_provision_passphrase.png[Desativar a frase-passe de provisão do passo 5 do local]
+image:decommission_site_step_5_provision_passphrase.png["Desativar a frase-passe de provisão do passo 5 do local"]
 
 . Se você estiver pronto para iniciar o procedimento de desativação do site, selecione *Start Decommission*.
 +
 Um aviso lista o local e os nós que serão removidos. Você é lembrado que pode levar dias, semanas ou até meses para remover completamente o site.
 
 +
-image::../media/decommission_site_step_5_warning.png[Aviso de desativação do local passo 5]
+image:decommission_site_step_5_warning.png["Aviso de desativação do local passo 5"]
 
 . Reveja o aviso. Se estiver pronto para começar, selecione *OK*.
 +
 Uma mensagem aparece quando a nova configuração de grade é gerada. Esse processo pode levar algum tempo, dependendo do tipo e do número de nós de grade desativados.
 
 +
-image::../media/decommission_site_step_5_grid_configuration.png[Desativar a Configuração da grelha do passo 5 do local]
+image:decommission_site_step_5_grid_configuration.png["Desativar a Configuração da grelha do passo 5 do local"]
 
 +
 Quando a nova configuração da grade for gerada, o passo 6 (Monitor Decommission) será exibido.

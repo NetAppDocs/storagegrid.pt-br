@@ -35,11 +35,11 @@ O painel do Grid Manager permite avaliar rapidamente a quantidade de armazenamen
 NOTE: O resumo não inclui Mídia de arquivamento.
 
 +
-image::../media/dashboard_data_and_metadata_space_usage_breakdown.png[Divisão de utilização de espaço de dados e metadados]
+image:dashboard_data_and_metadata_space_usage_breakdown.png["Divisão de utilização de espaço de dados e metadados"]
 
 .. Observe o gráfico no cartão armazenamento ao longo do tempo. Use a lista suspensa período de tempo para ajudá-lo a determinar a rapidez com que o armazenamento é consumido.
 +
-image::../media/dashboard_storage_over_time.png[Gráfico de armazenamento ao longo do tempo]
+image:dashboard_storage_over_time.png["Gráfico de armazenamento ao longo do tempo"]
 
 
 
@@ -48,7 +48,7 @@ image::../media/dashboard_storage_over_time.png[Gráfico de armazenamento ao lon
 .. Selecione *Nós*.
 .. Selecione *_Grid_* > *Storage*.
 +
-image::../media/nodes_deployment_storage_tab.png[Guia de storage de implantação de nós]
+image:nodes_deployment_storage_tab.png["Guia de storage de implantação de nós"]
 
 .. Posicione o cursor sobre os gráficos *armazenamento usado - dados de objetos* e *armazenamento usado - metadados de objetos* para ver quanto armazenamento de objetos e metadados de objetos estão disponíveis para toda a grade e quanto tem sido usado ao longo do tempo.
 +
@@ -79,7 +79,7 @@ Monitore o espaço utilizável total para cada nó de storage para garantir que 
 .Sobre esta tarefa
 Espaço utilizável é a quantidade de espaço de armazenamento disponível para armazenar objetos. O espaço utilizável total para um nó de storage é calculado adicionando o espaço disponível em todos os armazenamentos de objetos dentro do nó.
 
-image::../media/calculating_watermarks.gif[Desenho conceitual para espaço total utilizável]
+image:calculating_watermarks.gif["Desenho conceitual para espaço total utilizável"]
 
 .Passos
 . Selecione *Nós* > *_Nó de armazenamento_* > *Armazenamento*.
@@ -97,17 +97,17 @@ São apresentados os seguintes valores:
 ** *Dados codificados por apagamento*: Uma estimativa da quantidade de dados de objetos codificados por apagamento neste nó, site ou grade.
 ** *Total*: A quantidade total de espaço utilizável neste nó, site ou grade. O valor usado é a `storagegrid_storage_utilization_data_bytes` métrica.
 +
-image::../media/nodes_page_storage_used_object_data.png[Dados de objetos usados no storage de páginas de nós]
+image:nodes_page_storage_used_object_data.png["Dados de objetos usados no storage de páginas de nós"]
 
 
 
 . Reveja os valores disponíveis nas tabelas volumes e objetos armazenados, abaixo dos gráficos.
 +
 
-NOTE: Para visualizar gráficos destes valores, clique nos ícones de gráfico image:../media/icon_chart_new_for_11_5.png["Ícone de carta"]nas colunas disponíveis.
+NOTE: Para visualizar gráficos desses valores, clique nos ícones de gráfico image:icon_chart_new_for_11_5.png["Ícone de carta"] nas colunas Disponíveis.
 
 +
-image::../media/nodes_page_storage_tables.png[Objeto armazena tabelas]
+image:nodes_page_storage_tables.png["Objeto armazena tabelas"]
 
 . Monitore os valores ao longo do tempo para estimar a taxa na qual o espaço de armazenamento utilizável está sendo consumido.
 . Para manter as operações normais do sistema, adicione nós de storage, adicione volumes de storage ou arquive dados de objetos antes que o espaço utilizável seja consumido.
@@ -143,7 +143,7 @@ Alguns dos fatores que podem aumentar o uso de metadados incluem o tamanho e a q
 . Selecione *Nós* > *_Nó de armazenamento_* > *Armazenamento*.
 . Posicione o cursor sobre o gráfico armazenamento usado - metadados de objetos para ver os valores de um tempo específico.
 +
-image::../media/storage_used_object_metadata.png[Armazenamento usado - metadados Objeto]
+image:storage_used_object_metadata.png["Armazenamento usado - metadados Objeto"]
 
 +
 Usado (%):: A porcentagem do espaço de metadados permitido que foi usado neste nó de storage.
@@ -202,4 +202,4 @@ Se você tiver uma nova instalação do StorageGRID, permita que dados e metadad
 . Use esses valores para estimar quando será necessário adicionar novos nós de storage para storage de dados e metadados.
 
 
-image::../media/forecast-metadata-usage.png[Previsão do uso de metadados por local]
+image:forecast-metadata-usage.png["Previsão do uso de metadados por local"]

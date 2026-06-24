@@ -17,7 +17,7 @@ O armazenamento de objetos separa a localização física dos dados do método u
 
 Cada objeto em um sistema de storage baseado em objeto tem duas partes: Dados de objeto e metadados de objeto.
 
-image::../media/object_conceptual_drawing.png[Objeto]
+image:object_conceptual_drawing.png["Objeto"]
 
 
 
@@ -56,7 +56,7 @@ Quando o StorageGRID faz a correspondência de objetos a uma regra de gerenciame
 
 No exemplo a seguir, a regra fazer 2 cópias especifica que duas cópias replicadas de cada objeto serão colocadas em um pool de storage que contém três nós de storage.
 
-image::../media/ilm_replication_make_2_copies.png[Regra de fazer 2 cópias]
+image:ilm_replication_make_2_copies.png["Regra de fazer 2 cópias"]
 
 
 
@@ -66,7 +66,7 @@ Quando o StorageGRID faz a correspondência de objetos a uma regra ILM configura
 
 O exemplo a seguir ilustra o uso da codificação de apagamento nos dados de um objeto. Neste exemplo, a regra ILM usa um esquema de codificação de apagamento 4-2. Cada objeto é dividido em quatro fragmentos de dados iguais, e dois fragmentos de paridade são computados a partir dos dados do objeto. Cada um dos seis fragmentos é armazenado em um nó de storage diferente em três data centers para fornecer proteção de dados para falhas de nós ou perda do local.
 
-image::../media/ec_three_sites_4_plus_2.png[Codificar para apagamento três locais 4 Plus 2]
+image:ec_three_sites_4_plus_2.png["Codificar para apagamento três locais 4 Plus 2"]
 
 .Informações relacionadas
 * link:../ilm/index.html["Gerenciar objetos com ILM"]

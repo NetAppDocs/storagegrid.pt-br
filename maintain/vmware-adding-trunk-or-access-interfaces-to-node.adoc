@@ -34,7 +34,7 @@ O nó pode estar indisponível por um breve período de tempo quando você adici
 .Passos
 . No vCenter, adicione um novo adaptador de rede (tipo VMXNET3) a uma VM Admin Node e Gateway Node. Selecione as caixas de verificação *Connected* e *Connect at Power On*.
 +
-image::../media/vcenter.png[VCenter]
+image:vcenter.png["VCenter"]
 
 . Use SSH para fazer login no Admin Node ou Gateway Node.
 . Utilize `ip link show` para confirmar que foi detetada a nova interface de rede ens256.

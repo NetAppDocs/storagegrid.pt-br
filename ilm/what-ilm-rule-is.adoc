@@ -79,15 +79,15 @@ Cada regra pode definir vários posicionamentos para um único período de tempo
 
 O exemplo mostra duas instruções de posicionamento na página Definir posicionamentos do assistente criar regra ILM.
 
-image::../media/ilm_rule_multiple_placements_in_single_time_period.png[Tela de posicionamentos ILM do Gerenciador de Grade]
+image:ilm_rule_multiple_placements_in_single_time_period.png["Tela de posicionamentos ILM do Gerenciador de Grade"]
 
-A primeira instrução de colocação image:../media/icon_number_1.png["Ícone número 1"]tem duas linhas para o primeiro ano:
+A primeira instrução de colocação image:icon_number_1.png["Ícone número 1"] tem duas linhas para o primeiro ano:
 
 * A primeira linha cria duas cópias de objeto replicadas em dois locais de data center.
 * A segunda linha cria uma cópia codificada por apagamento de mais de 6 3 usando todos os sites de data center.
 
 
-A segunda instrução de colocação image:../media/icon_number_2.png["Ícone número 1"]cria duas cópias após um ano e mantém essas cópias para sempre.
+A segunda instrução de colocação image:icon_number_2.png["Ícone número 1"] cria duas cópias após um ano e guarda essas cópias para sempre.
 
 Quando você define o conjunto de instruções de colocação para uma regra, você deve garantir que pelo menos uma instrução de colocação comece no dia 0, que não haja lacunas entre os períodos de tempo definidos e que a instrução de colocação final continue para sempre ou até que você não precise mais nenhuma cópia de objeto.
 

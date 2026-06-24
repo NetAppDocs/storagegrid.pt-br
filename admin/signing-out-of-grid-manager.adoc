@@ -16,7 +16,7 @@ Quando terminar de trabalhar com o Gerenciador de Grade, você deve sair para ga
 .Passos
 . Selecione seu nome de usuário no canto superior direito.
 +
-image::../media/sign_out.png[Link de saída]
+image:sign_out.png["Link de saída"]
 
 . Selecione *Sair*.
 +

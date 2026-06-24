@@ -40,9 +40,9 @@ Por padrão, um pool de armazenamento é criado para cada local durante a instal
 
 Colocações de regra ILM:
 
-image::../media/ilm_replication_at_2_sites.png[Replicando 1 cópias cada em 2 locais]
+image:ilm_replication_at_2_sites.png["Replicando 1 cópias cada em 2 locais"]
 
-image::../media/ilm_replication_make_2_copies_2_pools_2_sites.png[Faça uma cópia 1 em cada um dos 2 locais - conjunto de armazenamento específico do local]
+image:ilm_replication_make_2_copies_2_pools_2_sites.png["Faça uma cópia 1 em cada um dos 2 locais - conjunto de armazenamento específico do local"]
 
 Se um site for perdido, cópias dos objetos estarão disponíveis no outro site.
 
@@ -58,7 +58,7 @@ Ter pools de storage compostos por mais de um local por pool de storage permite 
 
 Colocações de regra ILM:
 
-image::../media/ilm_erasure_coding_site_loss_protection_4+2.png[Pool de storage do EC 1 9 nós de storage 3 locais]
+image:ilm_erasure_coding_site_loss_protection_4+2.png["Pool de storage do EC 1 9 nós de storage 3 locais"]
 
 Neste exemplo:
 
@@ -72,8 +72,8 @@ NOTE: A codificação de apagamento é permitida em pools de armazenamento conte
 
 Regra ILM usando o esquema de codificação de apagamento 4-2:
 
-image::../media/ec_three_sites_4_plus_2_site_loss_example_template.png[Armazene objetos por codificação de apagamento usando um esquema EC 4-2 em 3 sites]
+image:ec_three_sites_4_plus_2_site_loss_example_template.png["Armazene objetos por codificação de apagamento usando um esquema EC 4-2 em 3 sites"]
 
 Se um site for perdido, os dados ainda podem ser recuperados:
 
-image::../media/ec_three_sites_4_plus_2_site_loss_example.png[Codificação de apagamento 4-2, esquema EC 1 site perdido]
+image:ec_three_sites_4_plus_2_site_loss_example.png["Codificação de apagamento 4-2, esquema EC 1 site perdido"]

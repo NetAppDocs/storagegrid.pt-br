@@ -20,7 +20,7 @@ Você deve criar pelo menos um site quando estiver instalando o StorageGRID. Voc
 Adicione tantos locais adicionais quanto necessário para a topologia da grade. Você pode adicionar até 16 sites.
 
 +
-image::../media/3_gmi_installer_sites_page.gif[Esta imagem é explicada pelo texto circundante.]
+image:3_gmi_installer_sites_page.gif["Esta imagem é explicada pelo texto circundante."]
 
 . Clique em *seguinte*.
 

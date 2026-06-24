@@ -30,21 +30,21 @@ Os nós aparecem na lista depois que eles falham, mas você não pode selecionar
 . Introduza a *frase-passe de aprovisionamento*.
 . Clique em *Iniciar recuperação*.
 +
-image::../media/4b_select_recovery_node.png[Captura de tela mostrando a página Manutenção > recuperação]
+image:4b_select_recovery_node.png["captura de tela mostrando a página Maintenance > Recovery"]
 
 . Monitore o progresso da recuperação na tabela Recovering Grid Node (Recovering Grid Node).
 +
 Quando o nó da grade atingir o estágio "aguardando etapas manuais", vá para o próximo tópico e execute as etapas manuais para remontar e reformatar os volumes de storage do dispositivo.
 
 +
-image::../media/recovery_reset_button.gif[captura de tela mostrando o estágio aguardando etapas manuais]
+image:recovery_reset_button.gif["captura de tela mostrando o estágio aguardando etapas manuais"]
 
 +
 
 NOTE: A qualquer momento durante a recuperação, você pode clicar em *Reset* para iniciar uma nova recuperação. Uma caixa de diálogo é exibida, indicando que o nó será deixado em um estado indeterminado se você redefinir o procedimento.
 
 +
-image::../media/recovery_reset_warning.gif[captura de tela mostrando a caixa de diálogo de aviso de recuperação de redefinição]
+image:recovery_reset_warning.gif["captura de tela mostrando a caixa de diálogo de aviso de recuperação de redefinição"]
 
 +
 Se pretender tentar novamente a recuperação após reiniciar o procedimento, tem de restaurar o nó do dispositivo para um estado pré-instalado executando `sgareinstall` no nó.

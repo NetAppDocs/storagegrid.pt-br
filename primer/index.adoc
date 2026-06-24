@@ -17,7 +17,7 @@ O StorageGRID fornece storage seguro e durável para dados não estruturados em 
 
 O StorageGRID é composto por nós heterogêneos, redundantes e distribuídos geograficamente, que podem ser integrados a aplicativos clientes existentes e de próxima geração.
 
-image::../media/storagegrid_system_diagram.png[Imagem com vários clientes]
+image:storagegrid_system_diagram.png["Imagem com vários clientes"]
 
 
 NOTE: O suporte para nós de arquivamento foi removido. Mover objetos de um nó de arquivo para um sistema de armazenamento de arquivamento externo por meio da API S3 foi substituído pelo link:../ilm/what-cloud-storage-pool-is.html["Pools de storage em nuvem da ILM"], que oferece mais funcionalidade.

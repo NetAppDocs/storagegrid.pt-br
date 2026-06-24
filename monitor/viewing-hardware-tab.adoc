@@ -18,13 +18,13 @@ NOTE: O Gerenciador de Grade é atualizado com cada versão e pode não correspo
 
 A guia hardware é exibida para todos os nós.
 
-image::../media/nodes_page_hardware_tab_graphs.png[Guia hardware da página de nós]
+image:nodes_page_hardware_tab_graphs.png["Guia hardware da página de nós"]
 
 Para exibir um intervalo de tempo diferente, selecione um dos controles acima do gráfico ou gráfico. Você pode exibir as informações disponíveis para intervalos de 1 hora, 1 dia, 1 semana ou 1 mês. Você também pode definir um intervalo personalizado, que permite especificar intervalos de data e hora.
 
 Para ver detalhes sobre a utilização da CPU e o uso da memória, posicione o cursor sobre cada gráfico.
 
-image::../media/nodes_page_memory_usage_details.png[Página de nós > hardware > Detalhes de uso da memória]
+image:nodes_page_memory_usage_details.png["Página de nós > Hardware > Detalhes de uso de memória"]
 
 Se o nó for um nó de dispositivo, essa guia também inclui uma seção com mais informações sobre o hardware do dispositivo.
 
@@ -45,7 +45,7 @@ A seção informações do nó da guia Visão geral exibe informações resumida
 ** *Hic*: Uma das portas físicas de 10, 25 ou 100 GbE no dispositivo. Estas portas podem ser Unidas e ligadas à rede de grelha StorageGRID (eth0) e à rede de clientes (eth2).
 ** *mtc*: Uma das portas físicas de 1 GbE no dispositivo. Uma ou mais interfaces mtc são ligadas para formar a interface de rede de administração do StorageGRID (eth1). Pode deixar outras interfaces mtc disponíveis para conetividade local temporária para um técnico no centro de dados.
 +
-image::../media/nodes_page_overview_tab_extended.png[Visão geral da página dos nós estendida]
+image:nodes_page_overview_tab_extended.png["Visão geral da página dos nós estendida"]
 
 +
 A seção Alertas da guia Visão geral exibe quaisquer alertas ativos para o nó.
@@ -56,7 +56,7 @@ A seção Alertas da guia Visão geral exibe quaisquer alertas ativos para o nó
 +
 .. Visualize os gráficos de utilização da CPU e memória para determinar as percentagens de utilização da CPU e da memória ao longo do tempo. Para exibir um intervalo de tempo diferente, selecione um dos controles acima do gráfico ou gráfico. Você pode exibir as informações disponíveis para intervalos de 1 hora, 1 dia, 1 semana ou 1 mês. Você também pode definir um intervalo personalizado, que permite especificar intervalos de data e hora.
 +
-image::../media/nodes_page_hardware_tab_graphs.png[Gráficos de hardware]
+image:nodes_page_hardware_tab_graphs.png["Gráficos de hardware"]
 
 .. Role para baixo para ver a tabela de componentes do aparelho. Esta tabela contém informações como o nome do modelo do aparelho; nomes do controlador, números de série e endereços IP; e o status de cada componente.
 +
@@ -67,7 +67,7 @@ NOTE: Alguns campos, como o BMC IP do controlador de computação e o hardware d
 Os componentes das prateleiras de armazenamento e das prateleiras de expansão, se fizerem parte da instalação, aparecerão em uma tabela separada abaixo da tabela do dispositivo.
 
 +
-image::../media/nodes_page_hardware_tab_for_appliance.png[Guia hardware da página de nós para o dispositivo]
+image:nodes_page_hardware_tab_for_appliance.png["Guia hardware da página de nós para o dispositivo"]
 
 +
 [cols="1a,2a"]
@@ -375,12 +375,12 @@ Se um estado não for "nominal", reveja quaisquer alertas atuais. Você também 
 O gráfico tráfego de rede fornece um resumo do tráfego de rede geral.
 
 +
-image::../media/nodes_page_network_traffic_graph.png[Gráfico de tráfego de rede da página de nós]
+image:nodes_page_network_traffic_graph.png["Gráfico de tráfego de rede da página de nós"]
 
 +
 .. Reveja a secção interfaces de rede.
 +
-image::../media/nodes_page_network_interfaces.png[Interfaces de rede da página de nós]
+image:nodes_page_network_interfaces.png["Interfaces de rede da página de nós"]
 
 +
 Use a tabela a seguir com os valores na coluna *velocidade* na tabela interfaces de rede para determinar se as portas de rede 10/25-GbE no dispositivo foram configuradas para usar o modo ativo/backup ou o modo LACP.
@@ -468,16 +468,16 @@ Consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/conf
 As tabelas de receção e transmissão mostram quantos bytes e pacotes foram recebidos e enviados através de cada rede, bem como outras métricas de receção e transmissão.
 
 +
-image::../media/nodes_page_network_communication.png[Comunicação de rede de Página de nós]
+image:nodes_page_network_communication.png["Comunicação de rede de Página de nós"]
 
 
 
 . Selecione *armazenamento* para visualizar gráficos que mostram as porcentagens de armazenamento usadas ao longo do tempo para dados de objetos e metadados de objetos, bem como informações sobre dispositivos de disco, volumes e armazenamentos de objetos.
 +
-image::../media/nodes_page_storage_used_object_data.png[Armazenamento usado - dados do objeto]
+image:nodes_page_storage_used_object_data.png["Armazenamento usado - dados do objeto"]
 
 +
-image::../media/storage_used_object_metadata.png[Armazenamento usado - metadados Objeto]
+image:storage_used_object_metadata.png["Armazenamento usado - metadados Objeto"]
 
 +
 .. Role para baixo para ver as quantidades de armazenamento disponível para cada volume e armazenamento de objetos.
@@ -488,7 +488,7 @@ O Nome Mundial para cada disco corresponde ao identificador mundial de volume (W
 Para ajudá-lo a interpretar estatísticas de leitura e gravação de disco relacionadas aos pontos de montagem de volume, a primeira parte do nome mostrado na coluna *Nome* da tabela dispositivos de disco (ou seja, _sdc_, _sdd_, _sde_, etc.) corresponde ao valor mostrado na coluna *dispositivo* da tabela volumes.
 
 +
-image::../media/nodes_page_storage_tables.png[Tabelas de storage de páginas de nós]
+image:nodes_page_storage_tables.png["Tabelas de storage de páginas de nós"]
 
 
 
@@ -512,7 +512,7 @@ A seção informações do nó da guia Visão geral exibe informações resumida
 ** *Hic*: Uma das portas físicas de 10, 25 ou 100 GbE no dispositivo. Estas portas podem ser Unidas e ligadas à rede de grelha StorageGRID (eth0) e à rede de clientes (eth2).
 ** *mtc*: Uma das portas físicas de 1 GbE no dispositivo. Uma ou mais interfaces mtc são ligadas para formar a interface de rede Admin (eth1). Pode deixar outras interfaces mtc disponíveis para conetividade local temporária para um técnico no centro de dados.
 +
-image::../media/nodes_page_overview_tab_services_appliance.png[Guia Visão geral da página de nós para o dispositivo de serviços]
+image:nodes_page_overview_tab_services_appliance.png["Guia Visão geral da página de nós para o dispositivo de serviços"]
 
 
 
@@ -523,11 +523,11 @@ A seção Alertas da guia Visão geral exibe quaisquer alertas ativos para o nó
 +
 .. Visualize os gráficos de utilização da CPU e memória para determinar as percentagens de utilização da CPU e da memória ao longo do tempo. Para exibir um intervalo de tempo diferente, selecione um dos controles acima do gráfico ou gráfico. Você pode exibir as informações disponíveis para intervalos de 1 hora, 1 dia, 1 semana ou 1 mês. Você também pode definir um intervalo personalizado, que permite especificar intervalos de data e hora.
 +
-image::../media/nodes_page_hardware_tab_graphs_services_appliance.png[Gráficos da guia hardware da página de nós para o dispositivo de serviços]
+image:nodes_page_hardware_tab_graphs_services_appliance.png["Gráficos da guia hardware da página de nós para o dispositivo de serviços"]
 
 .. Role para baixo para ver a tabela de componentes do aparelho. Esta tabela contém informações como o nome do modelo, o número de série, a versão do firmware do controlador e o status de cada componente.
 +
-image::../media/nodes_page_hardware_tab_services_appliance.png[Página nós guia hardware para o dispositivo de serviços]
+image:nodes_page_hardware_tab_services_appliance.png["Página nós guia hardware para o dispositivo de serviços"]
 
 +
 [cols="1a,2a"]
@@ -624,12 +624,12 @@ Se um estado não for "nominal", reveja quaisquer alertas atuais.
 O gráfico tráfego de rede fornece um resumo do tráfego de rede geral.
 
 +
-image::../media/nodes_page_network_traffic_graph.png[Gráfico de tráfego de rede da página de nós]
+image:nodes_page_network_traffic_graph.png["Gráfico de tráfego de rede da página de nós"]
 
 +
 .. Reveja a secção interfaces de rede.
 +
-image::../media/nodes_page_hardware_tab_network_services_appliance.png[Página de nós Guia hardware dispositivo de Serviços de rede]
+image:nodes_page_hardware_tab_network_services_appliance.png["Página de nós Guia hardware dispositivo de Serviços de rede"]
 
 +
 Use a tabela a seguir com os valores na coluna *velocidade* na tabela interfaces de rede para determinar se as quatro portas de rede 40/100-GbE no dispositivo foram configuradas para usar o modo ativo/backup ou o modo LACP.
@@ -714,12 +714,12 @@ Ativo/Backup
 As tabelas de receção e transmissão mostram quantos bytes e pacotes foram recebidos e enviados através de cada rede, bem como outras métricas de receção e transmissão.
 
 +
-image::../media/nodes_page_network_communication.png[Comunicação de rede de Página de nós]
+image:nodes_page_network_communication.png["Comunicação de rede de Página de nós"]
 
 
 
 . Selecione *armazenamento* para exibir informações sobre os dispositivos de disco e volumes no dispositivo de serviços.
 +
-image::../media/nodes_page_storage_tab_services_appliance.png[Dispositivo de serviços de guia de storage da página nós]
+image:nodes_page_storage_tab_services_appliance.png["Dispositivo de serviços de guia de storage da página nós"]
 
 

@@ -34,7 +34,7 @@ NOTE: O script repair-data está obsoleto e será removido em uma versão futura
 == Use o `repair-data` script para restaurar dados de objeto
 
 .Antes de começar
-* Você confirmou que o nó de armazenamento recuperado tem um estado de conexão de *Conectado*image:../media/icon_alert_green_checkmark.png["marca de verificação verde de alerta do ícone"] na aba *Nós* > *Visão geral* no Gerenciador de grade.
+* Você confirmou que o nó de armazenamento recuperado tem um estado de conexão *Conectado* image:icon_alert_green_checkmark.png["marca de verificação verde de alerta do ícone"] na guia *Nós* > *Visão geral* do Grid Manager.
 
 
 .Sobre esta tarefa

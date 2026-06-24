@@ -33,7 +33,7 @@ Cada nó de gateway ou nó de administrador pode exigir apenas alguns minutos ou
 .Passos
 . Assim que um novo pacote de recuperação for gerado, baixe o arquivo.
 +
-image::../media/decommission_site_step_6_recovery_package.png[Pacote de recuperação da Etapa 6 de descomissionamento do local]
+image:decommission_site_step_6_recovery_package.png["Pacote de recuperação da Etapa 6 de descomissionamento do local"]
 
 +
 
@@ -56,14 +56,14 @@ NOTE: O arquivo do pacote de recuperação deve ser protegido porque contém cha
 A movimentação de dados começou quando você ativou a nova política de ILM no passo 3 (revisar política de ILM). A movimentação de dados ocorrerá durante todo o procedimento de desativação.
 
 +
-image::../media/decommission_site_step_6_data_movement.png[Etapa 6 movimento de dados do local]
+image:decommission_site_step_6_data_movement.png["Etapa 6 movimento de dados do local"]
 
 . Na seção progresso do nó da página, monitore o andamento do procedimento de desativação à medida que os nós são removidos.
 +
 Quando um nó de armazenamento é removido, cada nó passa por uma série de estágios. Embora a maioria desses estágios ocorra rapidamente ou até mesmo impercetivelmente, talvez seja necessário esperar dias ou até semanas para que outros estágios sejam concluídos, com base na quantidade de dados que precisam ser movidos. É necessário tempo adicional para gerenciar dados codificados de apagamento e reavaliar o ILM.
 
 +
-image::../media/decommission_site_step_6_storage_node.png[Desativar nó de storage passo 6 do local]
+image:decommission_site_step_6_storage_node.png["Desativar nó de storage passo 6 do local"]
 
 +
 Se você estiver monitorando o progresso de uma desativação de um site conetado, consulte esta tabela para entender os estágios de desativação de um nó de armazenamento:
@@ -213,7 +213,7 @@ Minutos
 +
 ** Durante a etapa *reparar Cassandra*, o StorageGRID faz todos os reparos necessários aos clusters do Cassandra que permanecem em sua grade. Esses reparos podem levar vários dias ou mais, dependendo de quantos nós de storage permanecem na grade.
 +
-image::../media/decommission_site_step_6_repair_cassandra.png[Etapa 6 reparar Cassandra]
+image:decommission_site_step_6_repair_cassandra.png["Etapa 6 reparar Cassandra"]
 
 ** Durante a etapa *Deactivate EC Profiles & Delete Storage Pools*, as seguintes alterações de ILM são feitas:
 +
@@ -227,13 +227,13 @@ NOTE: O pool de storage de todos os nós de storage (StorageGRID 11,6 e anterior
 
 ** Finalmente, durante a etapa *Remove Configuration*, quaisquer referências restantes ao site e seus nós são removidas do resto da grade.
 +
-image::../media/decommission_site_step_6_remove_configuration.png[Etapa 6 Remover configuração do local de desativação]
+image:decommission_site_step_6_remove_configuration.png["Etapa 6 Remover configuração do local de desativação"]
 
 
 
 . Quando o procedimento de desativação for concluído, a página Decommission Site (local de desativação) mostra uma mensagem de sucesso e o local removido não é mais apresentado.
 +
-image::../media/decommission_site_success_message.png[Desativar mensagem de sucesso do local]
+image:decommission_site_success_message.png["Desativar mensagem de sucesso do local"]
 
 
 

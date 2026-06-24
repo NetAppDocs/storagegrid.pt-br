@@ -64,7 +64,7 @@ O nível de storage, _inclui todos os tipos de storage_, inclui todos os nós de
 NOTE: Você será avisado se você adicionar mais de uma entrada com diferentes graus de armazenamento para um site.
 
 +
-Para remover uma entrada, selecione o ícone de exclusão image:../media/icon-x-to-remove.png["eliminar ícone"].
+Para remover uma entrada, selecione o ícone de excluir image:icon-x-to-remove.png["eliminar ícone"].
 
 . Quando estiver satisfeito com suas seleções, selecione *Salvar*.
 +

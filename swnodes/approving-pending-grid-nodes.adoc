@@ -27,7 +27,7 @@ NOTE: Se um nó de grade estiver ausente, confirme que ele foi implantado com su
 
 . Selecione o botão de opção ao lado de um nó pendente que você deseja aprovar.
 +
-image::../media/5_gmi_installer_grid_nodes_pending.gif[Esta imagem é explicada pelo texto circundante.]
+image:5_gmi_installer_grid_nodes_pending.gif["Esta imagem é explicada pelo texto circundante."]
 
 . Clique em *Approve*.
 . Em Configurações gerais, modifique as configurações para as seguintes propriedades, conforme necessário:
@@ -125,7 +125,7 @@ Para obter informações adicionais, consulte o https://docs.netapp.com/us-en/st
 A entrada do nó de grade se move para a lista de nós aprovados.
 
 +
-image::../media/7_gmi_installer_grid_nodes_approved.gif[Esta imagem é explicada pelo texto circundante.]
+image:7_gmi_installer_grid_nodes_approved.gif["Esta imagem é explicada pelo texto circundante."]
 
 . Repita estas etapas para cada nó de grade pendente que você deseja aprovar.
 +

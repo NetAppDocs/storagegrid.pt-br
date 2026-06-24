@@ -25,7 +25,7 @@ NOTE: Quando o StorageGRID descompacta o site, ele desativará automaticamente q
 . Edite ou exclua cada regra não utilizada:
 +
 ** Para editar uma regra, acesse a página de regras do ILM e atualize todos os canais que usam um perfil de codificação de apagamento ou um pool de armazenamento que se refere ao site. Em seguida, retorne a *Etapa 4 (Remover referências ILM)*.
-** Para excluir uma regra, selecione o ícone de lixeira image:../media/icon_trash_can.png["Ícone Lixeira"]e selecione *OK*.
+** Para excluir uma regra, selecione o ícone da lixeira image:icon_trash_can.png["Ícone Lixeira"] e selecione *OK*.
 +
 
 NOTE: Você deve excluir a regra *Make 2 Copies* antes de poder desativar um site.

@@ -29,7 +29,7 @@ O sistema StorageGRID pode ser implantado em um único local de data center ou e
 
 Em uma implantação com um único local, a infraestrutura e as operações do sistema StorageGRID são centralizadas.
 
-image::../media/data_center_site_single.png[Um único local de data center]
+image:data_center_site_single.png["Um único local de data center"]
 
 
 
@@ -39,7 +39,7 @@ Em uma implantação com vários sites, diferentes tipos e números de recursos 
 
 Os locais geralmente estão localizados em locais geograficamente diferentes em diferentes domínios de falhas, como uma falha geológica causada por terremotos ou uma planície de inundação.  O compartilhamento de dados e a recuperação de desastres são obtidos pela distribuição automatizada de dados para outros sites.
 
-image::../media/data_center_sites_multiple.png[Vários locais de data center]
+image:data_center_sites_multiple.png["Vários locais de data center"]
 
 Vários sites lógicos também podem existir em um único data center para permitir o uso de replicação distribuída e codificação de eliminação para maior disponibilidade e resiliência.
 
@@ -55,7 +55,7 @@ Em uma implantação de um único local ou de vários locais, você pode incluir
 
 Este diagrama mostra como os nós de grade são organizados dentro de um sistema StorageGRID.
 
-image::../media/grid_nodes_and_components.png[diagrama descrito pelo texto circundante]
+image:grid_nodes_and_components.png["diagrama descrito pelo texto circundante"]
 
 Os clientes S3 armazenam e recuperam objetos no StorageGRID. Outros clientes são usados para enviar notificações por e-mail, acessar a interface de gerenciamento do StorageGRID e, opcionalmente, acessar o compartilhamento de auditoria.
 

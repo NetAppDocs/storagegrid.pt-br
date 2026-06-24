@@ -27,7 +27,7 @@ NOTE: A aplicação de configurações de locatário na grade pode levar 15 minu
 .Passos
 . Selecione *Inquilinos*.
 +
-image::../media/tenant_accounts_page.png[Página de contas de inquilino]
+image:tenant_accounts_page.png["Página de contas de inquilino"]
 
 . Localize a conta de locatário que você deseja editar.
 +

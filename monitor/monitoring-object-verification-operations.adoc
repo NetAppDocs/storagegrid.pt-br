@@ -45,14 +45,14 @@ Você deve rever os resultados de verificações de antecedentes e verificaçõe
 +
 *** Para verificar a verificação de dados de objetos replicados, observe os atributos na seção Verificação.
 +
-image::../media/nodes_storage_node_object_verification.png[Nós > nó de storage > Objeto > Verificação]
+image:nodes_storage_node_object_verification.png["Nós > Nó de armazenamento > Objeto > Verificação"]
 
 *** Para verificar a verificação de fragmentos codificados por apagamento, selecione *_Storage Node_* > *ILM* e veja os atributos na seção de verificação de codificação de apagamento.
 +
-image::../media/nodes_storage_node_ilm_ec_verification.png[Nós > nó de storage > ILM > Verificação de EC]
+image:nodes_storage_node_ilm_ec_verification.png["Nodes > Storage Node > ILM > Verificação EC"]
 
 +
-Selecione o ponto de interrogação image:../media/icon_nms_question.png["ponto de interrogação"]ao lado do nome de um atributo para exibir o texto da ajuda.
+Selecione o ponto de interrogação image:icon_nms_question.png["ponto de interrogação"] ao lado do nome de um atributo para exibir o texto de ajuda.
 
 
 
@@ -63,7 +63,7 @@ Selecione o ponto de interrogação image:../media/icon_nms_question.png["ponto 
 .. Selecione *Manutenção* > *Verificação de existência do objeto* > *Histórico de tarefas*.
 .. Examine a coluna Cópias de objetos ausentes detectadas.  Se algum trabalho resultou em 100 ou mais cópias de objetos ausentes e o alerta *Objetos potencialmente perdidos* foi acionado, entre em contato com o suporte técnico.
 +
-image::../media/oec_job_history.png[Histórico de trabalhos de verificação de existência de objeto]
+image:oec_job_history.png["Histórico de trabalhos de verificação de existência de objeto"]
 
 
 

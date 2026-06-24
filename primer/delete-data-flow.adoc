@@ -43,7 +43,7 @@ Consulte link:../ilm/how-objects-are-deleted.html["Como os objetos são excluíd
 
 == Fluxo de dados para exclusões do cliente
 
-image::../media/delete_data_flow.png[Fluxo de dados de eliminação do cliente]
+image:delete_data_flow.png["Fluxo de dados de eliminação do cliente"]
 
 . O serviço LDR recebe uma solicitação de exclusão do aplicativo cliente.
 . O serviço LDR atualiza o armazenamento de metadados para que o objeto pareça excluído às solicitações do cliente e instrui o mecanismo ILM a remover todas as cópias dos dados do objeto.
@@ -54,7 +54,7 @@ image::../media/delete_data_flow.png[Fluxo de dados de eliminação do cliente]
 
 == Fluxo de dados para exclusões de ILM
 
-image::../media/automatic_deletion_data_flow.png[Fluxo de dados de exclusão automática]
+image:automatic_deletion_data_flow.png["Fluxo de dados de exclusão automática"]
 
 . O mecanismo ILM determina que o objeto precisa ser excluído.
 . O mecanismo ILM notifica o armazenamento de metadados. O armazenamento de metadados atualiza os metadados de objetos para que o objeto pareça excluído para solicitações de cliente.

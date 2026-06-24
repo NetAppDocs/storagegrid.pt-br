@@ -18,7 +18,7 @@ NOTE: O tamanho lógico de todos os objetos pertencentes a este locatário inclu
 
 Quando os objetos tiverem sido carregados, o painel se parece com o seguinte exemplo:
 
-image::../media/tenant_dashboard_with_buckets.png[Painel de instrumentos - Lista de baldes]
+image:tenant_dashboard_with_buckets.png["Painel de instrumentos - Lista de baldes"]
 
 
 
@@ -48,11 +48,11 @@ CAUTION: O uso da cota é baseado em estimativas internas e pode ser excedido em
 Você pode colocar o cursor sobre qualquer um dos segmentos do gráfico para visualizar o espaço total consumido por esse intervalo ou contentor.
 
 +
-image::../media/tenant_dashboard_storage_usage_segment.png[Segmento de gráfico de barras]
+image:tenant_dashboard_storage_usage_segment.png["Segmento de gráfico de barras"]
 
 * Para corresponder ao gráfico de barras, uma lista dos maiores buckets ou contentores, incluindo a quantidade total de dados do objeto e o número de objetos para cada bucket ou contentor.
 +
-image::../media/tenant_dashboard_buckets.png[Baldes do painel do locatário]
+image:tenant_dashboard_buckets.png["Baldes do painel do locatário"]
 
 +
 Se o locatário tiver mais de nove buckets ou contêineres, todos os outros buckets ou contêineres serão combinados em uma única entrada na parte inferior da lista.
@@ -89,6 +89,6 @@ Se nenhum limite for definido para um bucket, sua capacidade será ilimitada. No
 
 Se você usou o Gerenciador de Grade para configurar um ou mais endpoints para uso com serviços de plataforma, o painel do Gerenciador do locatário exibirá um alerta se algum erro de endpoint tiver ocorrido nos últimos sete dias.
 
-image::../media/tenant_dashboard_endpoint_error.png[Painel mostrando a mensagem de endpoint]
+image:tenant_dashboard_endpoint_error.png["Painel mostrando a mensagem de endpoint"]
 
 Para ver detalhes sobre link:troubleshooting-platform-services-endpoint-errors.html["erros de endpoint dos serviços da plataforma"]o , selecione *Endpoints* para exibir a página Endpoints.

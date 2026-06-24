@@ -52,7 +52,7 @@ O exemplo a seguir mostra os resultados da pesquisa de metadados de objeto para 
 
 NOTE: A captura de tela a seguir é um exemplo. Seus resultados variam de acordo com a versão do StorageGRID.
 
-image::../media/object_lookup_results.png[Resultados da Pesquisa de objetos]
+image:object_lookup_results.png["Resultados da Pesquisa de objetos"]
 
 .Informações relacionadas
 link:../s3/index.html["USE A API REST DO S3"]

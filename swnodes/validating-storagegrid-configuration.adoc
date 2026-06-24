@@ -27,11 +27,11 @@ Se os arquivos estiverem corretos, a saída mostra *PASSADO* para cada arquivo d
 
 NOTE: Ao usar apenas um LUN em nós somente metadados, você pode receber uma mensagem de aviso que pode ser ignorada.
 
-image::../media/rhel_node_configuration_file_output.gif[Esta imagem é explicada pelo texto circundante.]
+image:rhel_node_configuration_file_output.gif["Esta imagem é explicada pelo texto circundante."]
 
 
 TIP: Para uma instalação automatizada, pode suprimir esta saída utilizando as `-q` opções ou `--quiet` do `storagegrid` comando (por exemplo, `storagegrid --quiet...` ). Se você suprimir a saída, o comando terá um valor de saída não zero se quaisquer avisos de configuração ou erros foram detetados.
 
 Se os arquivos de configuração estiverem incorretos, os problemas serão exibidos como *AVISO* e *ERRO*, conforme mostrado no exemplo. Se forem encontrados quaisquer erros de configuração, é necessário corrigi-los antes de continuar com a instalação.
 
-image::../media/rhel_node_configuration_file_output_with_errors.gif[Esta imagem é explicada pelo texto circundante.]
+image:rhel_node_configuration_file_output_with_errors.gif["Esta imagem é explicada pelo texto circundante."]

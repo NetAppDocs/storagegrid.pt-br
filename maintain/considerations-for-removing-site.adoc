@@ -32,7 +32,7 @@ Quando o procedimento de desativação do local estiver concluído:
 Você pode usar o procedimento de desativação do site para remover um site no qual todos os nós estão conetados ao StorageGRID (chamado de desativação do site conetado) ou para remover um site no qual todos os nós são desconetados do StorageGRID (chamado de desativação do site desconetado). Antes de começar, você deve entender as diferenças entre esses procedimentos.
 
 
-NOTE: Se um site contiver uma mistura de nós conetados (image:../media/icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]) e desconetados (image:../media/icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"] ou image:../media/icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"]), você deverá colocar todos os nós offline novamente online.
+NOTE: Se um site contém uma mistura de nós conectados (image:icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]) e desconectados (image:icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"] ou image:icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"]), você deve trazer todos os nós offline de volta online.
 
 * Uma desativação do site conetado permite remover um site operacional do sistema StorageGRID. Por exemplo, você pode executar uma desativação do site conetado para remover um site funcional, mas não mais necessário.
 * Quando o StorageGRID remove um site conetado, ele usa o ILM para gerenciar os dados do objeto no site. Antes de poder iniciar uma desativação do site ligado, tem de remover o site de todas as regras ILM e ativar uma nova política ILM. Os processos de ILM para migrar dados de objeto e os processos internos para remover um local podem ocorrer ao mesmo tempo, mas a prática recomendada é permitir que as etapas de ILM sejam concluídas antes de iniciar o procedimento de desativação real.
@@ -54,8 +54,8 @@ Antes de remover um local conetado ou desconetado, você deve estar ciente dos s
 
 * Não é possível desativar um site que inclua o nó Admin principal.
 * Não é possível desativar um site se algum dos nós tiver uma interface que pertence a um grupo de alta disponibilidade (HA). Você deve editar o grupo de HA para remover a interface do nó ou remover todo o grupo de HA.
-* Não é possível desativar um site se ele contiver uma mistura deimage:../media/icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"] nós conetados (image:../media/icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]) e desconetados (image:../media/icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"] ou ).
-* Não é possível desativar um site se qualquer nó em qualquer outro local estiver desconetado (image:../media/icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"] ou image:../media/icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"]).
+* Você não pode desativar um site se ele contiver uma mistura de nós conectados (image:icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]) e desconectados (image:icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"] ou image:icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"]).
+* Você não pode desativar um site se qualquer nó em qualquer outro site estiver desconectado (image:icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"] ou image:icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"]).
 * Não é possível iniciar o procedimento de desativação do local se uma operação de reparo ec-node estiver em andamento. link:checking-data-repair-jobs.html["Verifique os trabalhos de reparação de dados"]Consulte para rastrear reparos de dados codificados por apagamento.
 * Enquanto o procedimento de desativação do site está em execução:
 +
@@ -117,7 +117,7 @@ CAUTION: Nunca crie uma regra ILM de cópia única para acomodar a remoção de 
 
 Antes que o StorageGRID possa remover um site conetado, você deve garantir o seguinte:
 
-* Todos os nós do seu sistema StorageGRID devem ter um estado de conexão *conectado* (image:../media/icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]); no entanto, os nós podem ter alertas ativos.
+* Todos os nós do seu sistema StorageGRID devem ter um Estado de Conexão de *Conectado* (image:icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]); no entanto, os nós podem ter alertas ativos.
 +
 
 NOTE: Você pode concluir as etapas 1-4 do assistente Decommission Site se um ou mais nós forem desconetados. No entanto, não é possível concluir a Etapa 5 do assistente, que inicia o processo de desativação, a menos que todos os nós estejam conetados.
@@ -147,11 +147,11 @@ CAUTION: Você não deve tentar uma desativação de site desconetada se você a
 
 * Todos os nós no local devem ter um estado de conexão de um dos seguintes:
 +
-** *Desconhecido* (image:../media/icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"]): Por um motivo desconhecido, um nó é desconetado ou os serviços no nó estão inalterados inesperadamente. Por exemplo, um serviço no nó pode ser interrompido ou o nó pode ter perdido sua conexão de rede devido a uma falha de energia ou interrupção inesperada.
-** *Administrativamente para baixo* (image:../media/icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"]): O nó não está conetado à grade por um motivo esperado. Por exemplo, o nó ou os serviços no nó foram desligados graciosamente.
+** *Desconhecido* (image:icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"]): Por um motivo desconhecido, um nó está desconectado ou os serviços no nó estão inesperadamente inativos. Por exemplo, um serviço no nó pode ter sido interrompido ou o nó pode ter perdido sua conexão de rede devido a uma falha de energia ou interrupção inesperada.
+** *Administrativamente Inativo* (image:icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"]): O nó não está conectado à grid por um motivo esperado. Por exemplo, o nó ou os serviços no nó foram desligados normalmente.
 
 
-* Todos os nós em todos os outros locais devem ter um estado de conexão de *conectado* (image:../media/icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]); no entanto, esses outros nós podem ter alertas ativos.
+* Todos os nós em todos os outros sites devem ter um Estado de Conexão de *Conectado* (image:icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]); no entanto, esses outros nós podem ter alertas ativos.
 * Você deve entender que você não poderá mais usar o StorageGRID para visualizar ou recuperar quaisquer dados de objeto que foram armazenados no site. Quando o StorageGRID executa esse procedimento, ele não tenta preservar nenhum dado do local desconetado.
 +
 

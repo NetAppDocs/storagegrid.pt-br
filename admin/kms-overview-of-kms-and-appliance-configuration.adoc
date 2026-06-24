@@ -15,7 +15,7 @@ Antes de usar um servidor de gerenciamento de chaves (KMS) para proteger dados d
 
 O fluxograma mostra as etapas de alto nível para usar um KMS para proteger os dados do StorageGRID em nós do dispositivo.
 
-image::../media/kms_configuration_overview.png[Fluxo de trabalho de configuração DE KMS, que é descrito no texto seguinte]
+image:kms_configuration_overview.png["Fluxo de trabalho de configuração DE KMS, que é descrito no texto seguinte"]
 
 O fluxograma mostra a configuração do KMS e a configuração do appliance ocorrendo em paralelo; no entanto, você pode configurar os servidores de gerenciamento de chaves antes ou depois de habilitar a criptografia de nó para novos nós de dispositivo, com base em seus requisitos.
 

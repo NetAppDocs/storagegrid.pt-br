@@ -36,7 +36,7 @@ O nó de substituição deve ser configurado como nó de administração princip
 
 . Clique em *Recover a failed Primary Admin Node* (recuperar um nó de administrador principal principal)
 +
-image::../media/install_or_recover_primary_admin_node.png[Instale ou recupere o nó de administração principal]
+image:install_or_recover_primary_admin_node.png["Instale ou recupere o nó de administração principal"]
 
 . Carregue o backup mais recente do pacote de recuperação:
 +

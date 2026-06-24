@@ -39,7 +39,7 @@ Para nós de storage de dispositivo, o Nome Mundial para cada disco corresponde 
 Para ajudá-lo a interpretar estatísticas de leitura e gravação de disco relacionadas aos pontos de montagem de volume, a primeira parte do nome mostrado na coluna *Nome* da tabela dispositivos de disco (ou seja, _sdc_, _sdd_, _sde_, etc.) corresponde ao valor mostrado na coluna *dispositivo* da tabela volumes.
 
 +
-image::../media/nodes_page_storage_tables_vol_expansion.png[Tabelas de storage de páginas de nós]
+image:nodes_page_storage_tables_vol_expansion.png["Tabelas de storage de páginas de nós"]
 
 . Siga as instruções da sua plataforma para adicionar novos volumes de armazenamento ao nó de armazenamento.
 +

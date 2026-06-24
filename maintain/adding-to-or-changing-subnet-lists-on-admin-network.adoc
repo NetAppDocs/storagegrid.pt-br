@@ -62,7 +62,7 @@ Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
 É apresentado o menu principal.
 
 +
-image::../media/change_ip_tool_main_menu.png[Captura de tela mostrando a tela de boas-vindas da ferramenta Change IP]
+image:change_ip_tool_main_menu.png["Captura de tela mostrando a tela de boas-vindas da ferramenta Change IP"]
 
 . Opcionalmente, limite as redes/nós nos quais as operações são executadas. Escolha uma das seguintes opções:
 +
@@ -101,7 +101,7 @@ TIP: Você pode reduzir a quantidade de digitação necessária usando "seta par
 
 A entrada de exemplo abaixo mostra a adição de sub-redes à Lista de sub-redes de Admin Network:
 
-image::../media/change_ip_tool_aesl_sample_input.gif[altere o exemplo aesl da ferramenta ip]
+image:change_ip_tool_aesl_sample_input.gif["altere o exemplo aesl da ferramenta ip"]
 
 --
 . Quando estiver pronto, digite *q* para voltar à tela do menu principal. Suas alterações são mantidas até serem limpas ou aplicadas.
@@ -113,7 +113,7 @@ NOTE: Se você selecionou qualquer um dos modos de seleção de "todos" nós na 
 +
 ** Selecione a opção *5* para mostrar as edições na saída que estão isoladas para mostrar apenas o item alterado. As alterações são realçadas em verde (adições) ou vermelho (exclusões), como mostrado na saída de exemplo abaixo:
 +
-image::../media/change_ip_tool_aesl_sample_output.png[captura de tela descrita pelo texto circundante]
+image:change_ip_tool_aesl_sample_output.png["captura de tela descrita pelo texto circundante"]
 
 ** Selecione a opção *6* para mostrar as edições na saída que exibem a configuração completa. As alterações são realçadas em verde (adições) ou vermelho (exclusões). *Nota:* alguns emuladores de terminal podem mostrar adições e exclusões usando a formatação strikethrough.
 +

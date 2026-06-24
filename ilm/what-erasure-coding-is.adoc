@@ -19,15 +19,15 @@ Quando um objeto é acessado, ele é remontado usando os fragmentos armazenados.
 
 O exemplo a seguir ilustra o uso de um algoritmo de codificação de apagamento nos dados de um objeto. Neste exemplo, a regra ILM usa um esquema de codificação de apagamento 4-2. Cada objeto é dividido em quatro fragmentos de dados iguais, e dois fragmentos de paridade são computados a partir dos dados do objeto. Cada um dos seis fragmentos é armazenado em um nó diferente em três locais de data center para fornecer proteção de dados para falhas de nós ou perda de local.
 
-image::../media/ec_three_sites_4_plus_2.png[Codificação de apagamento três locais 4 Plus 2]
+image:ec_three_sites_4_plus_2.png["Codificação de apagamento três locais 4 Plus 2"]
 
 O esquema de codificação de apagamento 4-2 pode ser configurado de várias maneiras. Por exemplo, você pode configurar um pool de storage de um único local que contenha seis nós de storage. Para link:using-multiple-storage-pools-for-cross-site-replication.html["proteção contra perda de local"], você pode usar um pool de storage que contém três locais com três nós de storage em cada local. Um objeto pode ser recuperado desde que quaisquer quatro dos seis fragmentos (dados ou paridade) permaneçam disponíveis. Até dois fragmentos podem ser perdidos sem perda dos dados do objeto. Se um site inteiro for perdido, o objeto ainda pode ser recuperado ou reparado, desde que todos os outros fragmentos permaneçam acessíveis.
 
-image::../media/ec_recoverable_4_plus_2.png[Codificação de apagamento recuperável 4 Plus 2]
+image:ec_recoverable_4_plus_2.png["Codificação de apagamento recuperável 4 Plus 2"]
 
 Se mais de dois nós de storage forem perdidos, o objeto não poderá ser recuperado.
 
-image::../media/ec_unrecoverable_4_plus_2.png[Codificação de apagamento irrecuperável 4 Plus 2]
+image:ec_unrecoverable_4_plus_2.png["Codificação de apagamento irrecuperável 4 Plus 2"]
 
 .Informações relacionadas
 * link:what-replication-is.html["O que é replicação"]

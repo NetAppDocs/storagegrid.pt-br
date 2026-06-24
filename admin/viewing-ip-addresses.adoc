@@ -26,6 +26,6 @@ Para obter informações sobre como alterar endereços IP, link:../maintain/conf
 Os endereços IP desse nó de grade são listados em uma tabela.
 
 +
-image::../media/nodes_page_overview_tab_extended.png[Endereços IP da página de nós]
+image:nodes_page_overview_tab_extended.png["Endereços IP da página de nós"]
 
 

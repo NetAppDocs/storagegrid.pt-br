@@ -24,6 +24,6 @@ Neste exemplo, todo o tráfego compartilha a mesma rede, incluindo o tráfego re
 
 NOTE: Essa topologia é apropriada para implantações de um único local que não estão disponíveis externamente, implantações de prova de conceito ou teste ou quando um balanceador de carga de terceiros atua como limite de acesso do cliente. Quando possível, a rede de Grade deve ser usada exclusivamente para tráfego interno. Tanto a rede Admin quanto a rede Client têm restrições adicionais de firewall que bloqueiam o tráfego externo para serviços internos. O uso da rede de Grade para tráfego de cliente externo é suportado, mas esse uso oferece menos camadas de proteção.
 
-image::../media/grid_network.png[Rede de rede]
+image:grid_network.png["Rede de rede"]
 
-image::../media/grid_network_ips.png[IPs de rede de grelha]
+image:grid_network_ips.png["IPs de rede de grelha"]

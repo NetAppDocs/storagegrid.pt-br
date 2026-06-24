@@ -48,7 +48,7 @@ Você pode acessar informações sobre todos os certificados do StorageGRID em u
 .Passos
 . No Grid Manager, selecione *Configuração* > *Segurança* > *Certificados*.
 +
-image::security_certificates.png[Página certificados]
+image:security_certificates.png["Página certificados"]
 
 . Selecione uma guia na página certificados para obter informações sobre cada categoria de certificado e para acessar as configurações de certificado. Pode aceder a um separador se tiver o link:admin-group-permissions.html["permissão apropriada"].
 +

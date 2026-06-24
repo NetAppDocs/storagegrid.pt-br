@@ -32,14 +32,14 @@ CAUTION: Tenha cuidado ao decidir silenciar uma regra de alerta. Se você silenc
 É apresentada a página silêncios.
 
 +
-image::../media/alerts_silences_page.png[Página de alertas > silêncios]
+image:alerts_silences_page.png["Alertas > página de silenciamentos"]
 
 . Selecione *criar*.
 +
 A caixa de diálogo criar Silêncio é exibida.
 
 +
-image::../media/alerts_create_silence.png[Alertas > criar Silêncio]
+image:alerts_create_silence.png["Alertas > Criar Silêncio"]
 
 . Selecione ou introduza as seguintes informações:
 +

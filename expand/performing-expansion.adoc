@@ -42,7 +42,7 @@ CAUTION: Alguns passos e estágios de expansão podem levar uma quantidade signi
 A página expansão da grade é exibida. A seção Pending Nodes lista os nós que estão prontos para serem adicionados.
 
 +
-image::../media/grid_expansion_page.png[Captura de tela mostrando a página de expansão da grade]
+image:grid_expansion_page.png["Captura de tela mostrando a página de expansão da grade"]
 
 . Selecione *Configurar expansão*.
 +
@@ -60,7 +60,7 @@ A caixa de diálogo seleção de local é exibida.
 Conforme necessário, você pode posicionar o cursor sobre o *Grid Network MAC Address* de um nó para ver detalhes sobre esse nó.
 
 +
-image::../media/grid_node_details.png[Captura de tela dos detalhes do Grid Node]
+image:grid_node_details.png["Captura de tela dos detalhes do Grid Node"]
 
 +
 

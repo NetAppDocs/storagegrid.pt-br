@@ -24,7 +24,7 @@ Os custos de link permitem que você priorize qual local do data center fornece 
 
 O diagrama mostra uma grade de três sites que tem custos de link configurados entre sites:
 
-image::../media/link_costs.gif[Diagrama conceitual para custos de ligação entre data centers]
+image:link_costs.gif["Diagrama conceitual para custos de ligação entre data centers"]
 
 * O serviço Load Balancer em nós de administração e nós de gateway distribui igualmente as conexões de clientes para todos os nós de storage no mesmo local do data center e para qualquer local do data center com um custo de link de 0.
 +
@@ -74,14 +74,14 @@ Você pode atualizar os custos de link entre sites de data center para refletir 
 .Passos
 . Selecione *Suporte* > *Outro* > *Custo do link*.
 +
-image::../media/configuring_link_costs.png[Custo da ligação]
+image:configuring_link_costs.png["Custo da ligação"]
 
 . Selecione um site em *Link Source* e insira um valor de custo entre 0 e 100 em *Link Destination*.
 +
 Não é possível alterar o custo do link se a origem for a mesma do destino.
 
 +
-Para cancelar as alterações, selecione image:../media/nms_revert.gif["anular ícone"]*Revert*.
+Para cancelar as alterações, selecione image:nms_revert.gif["anular ícone"]*Reverter*.
 
 . Selecione *aplicar alterações*.
 

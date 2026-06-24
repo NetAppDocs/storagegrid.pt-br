@@ -29,6 +29,6 @@ O gráfico mostra S3 taxas de ingestão e recuperação para todo o seu sistema 
 O gráfico mostra as taxas de ingestão e recuperação para o nó. A guia também inclui métricas para contagens de objetos, consultas de metadados e operações de verificação.
 
 +
-image::../media/nodes_storage_node_objects_help.png[Captura de tela de nós > _nó de armazenamento_ > objetos > ajuda de atributo]
+image:nodes_storage_node_objects_help.png["captura de tela de Nodes > _Storage Node_ > Objects > ajuda de atributo"]
 
 

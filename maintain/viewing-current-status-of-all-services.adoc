@@ -33,7 +33,7 @@ Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
 Por exemplo, a saída para o nó de administração principal mostra o status atual dos serviços AMS, CMN e NMS como em execução. Essa saída é atualizada imediatamente se o status de um serviço mudar.
 
 +
-image::../media/storagegrid_status_output.gif[captura de tela da saída de comando da grade de armazenamento]
+image:storagegrid_status_output.gif["captura de tela da saída de comando da grade de armazenamento"]
 
 . Volte para a linha de comando, pressione *Ctrl* * C*.
 . Opcionalmente, exiba um relatório estático para todos os serviços executados no nó da grade: `/usr/local/servermanager/reader.rb`

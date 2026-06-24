@@ -33,7 +33,7 @@ NOTE: Alguns serviços do StorageGRID não foram atualizados para usar as cifras
 A guia *TLS e políticas SSH* mostra as políticas disponíveis. A política atualmente ativa é anotada por uma marca de seleção verde no bloco de política.
 
 +
-image::../media/securitysettings_tls_ssh_policies_current.png[Políticas TLS e SSH]
+image:securitysettings_tls_ssh_policies_current.png["Políticas TLS e SSH"]
 
 . Revise as guias para saber mais sobre as políticas disponíveis.
 +
@@ -119,7 +119,7 @@ Você pode criar uma política personalizada se precisar aplicar suas próprias 
 . No bloco da política que é o mais semelhante à política personalizada que você deseja criar, selecione *Exibir detalhes*.
 . Selecione *Copiar para a área de transferência* e, em seguida, selecione *Cancelar*.
 +
-image::../media/securitysettings-custom-security-policy-copy.png[copiar uma política existente para criar uma política personalizada]
+image:securitysettings-custom-security-policy-copy.png["copiar uma política existente para criar uma política personalizada"]
 
 . No bloco *Política personalizada*, selecione *Configurar e usar*.
 . Cole o JSON que você copiou e faça as alterações necessárias.

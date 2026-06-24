@@ -77,7 +77,7 @@ Como a regra ILM 1 se aplica a todas as versões do objeto, você deve criar out
 
 Para criar uma regra que use "hora não atual" como tempo de referência, selecione *Sim* para a pergunta, "aplicar esta regra apenas a versões de objetos mais antigas (em buckets S3 com controle de versão ativado)?" na Etapa 1 (Inserir detalhes) do assistente criar uma regra ILM. Quando você seleciona *Yes*, _Noncurrent Time_ é selecionado automaticamente para a hora de referência e você não pode selecionar uma hora de referência diferente.
 
-image::../media/ilm-rule-apply-only-to-older-object-verions.png[Aplicar regra ILM apenas a versões de objetos mais antigas (tempo não atual)]
+image:ilm-rule-apply-only-to-older-object-verions.png["Aplicar regra ILM apenas a versões de objetos mais antigas (tempo não atual)"]
 
 Neste exemplo, apenas duas cópias das versões não atuais são armazenadas e essas cópias serão armazenadas por dois anos.
 

@@ -24,7 +24,7 @@ Se possível, use servidores DNS que cada site pode acessar localmente para gara
 . Especifique o endereço IPv4 para pelo menos um servidor DNS na caixa de texto *Server 1*.
 . Se necessário, selecione o sinal de adição ao lado da última entrada para adicionar entradas adicionais do servidor.
 +
-image::../media/9_gmi_installer_dns_page.gif[Esta imagem é explicada pelo texto circundante.]
+image:9_gmi_installer_dns_page.gif["Esta imagem é explicada pelo texto circundante."]
 
 +
 A prática recomendada é especificar pelo menos dois servidores DNS. Você pode especificar até seis servidores DNS.

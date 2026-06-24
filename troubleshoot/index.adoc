@@ -386,7 +386,7 @@ Se você não conseguir resolver o problema sozinho, entre em Contato com o supo
 
 [cols="1a,2a,4a"]
 |===
-| image:../media/feature_checkmark.gif["marca de verificação"] | Item | Notas 
+| image:feature_checkmark.gif["marca de verificação"] | Item | Notas 
 
 
  a| 

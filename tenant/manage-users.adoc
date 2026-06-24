@@ -40,7 +40,7 @@ S3 os usuários que não pertencem a nenhum grupo não têm permissões de geren
 Se sua conta de locatário tiver a permissão *usar conexão de federação de grade*, um banner azul indica que essa é a grade de origem do locatário. Todos os usuários locais que você criar nesta grade serão clonados para a outra grade na conexão.
 
 +
-image::../media/grid-federation-tenant-user-banner.png[Imagem do banner azul na página do usuário se esta for a grade de origem do locatário]
+image:grid-federation-tenant-user-banner.png["Imagem do banner azul na página do usuário se esta for a grade de origem do locatário"]
 
 . Selecione *criar usuário*.
 
@@ -157,7 +157,7 @@ Se a conta de locatário tiver a permissão *usar conexão de federação de gra
 
 . Edite as definições do utilizador conforme necessário. Consulte <<create-user,Criar utilizador local>> para obter detalhes sobre o que introduzir.
 +
-.. Na seção Visão geral , altere o nome completo selecionando o nome ou o ícone de edição image:../media/icon_edit_tm.png["Ícone de edição"].
+.. Na seção Visão geral, altere o nome completo selecionando o nome ou o ícone de edição image:icon_edit_tm.png["Ícone de edição"].
 +
 Você não pode alterar o nome de usuário.
 

@@ -395,7 +395,7 @@ NOTE: Um nó de armazenamento de dispositivo também pode ter até 48 volumes de
 
 Como mostrado na figura, o StorageGRID reserva espaço para metadados de objetos no volume de storage 0 de cada nó de storage. Qualquer espaço restante no volume de armazenamento 0 e quaisquer outros volumes de armazenamento no nó de armazenamento são usados exclusivamente para dados de objeto.
 
-image::../media/metadata_space_storage_node.png[Nó de armazenamento de espaço de metadados]
+image:metadata_space_storage_node.png["Nó de armazenamento de espaço de metadados"]
 
 Para fornecer redundância e proteger os metadados de objetos contra perda, o StorageGRID armazena três cópias dos metadados de todos os objetos no sistema em cada local. As três cópias dos metadados de objetos são distribuídas uniformemente por todos os nós de storage em cada local.
 

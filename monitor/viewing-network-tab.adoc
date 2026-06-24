@@ -19,7 +19,7 @@ Para exibir um intervalo de tempo diferente, selecione um dos controles acima do
 
 Para nós, a tabela interfaces de rede fornece informações sobre as portas de rede física de cada nó. A tabela de comunicações de rede fornece detalhes sobre as operações de receção e transmissão de cada nó e quaisquer contadores de falhas comunicados pelo condutor.
 
-image::../media/nodes_page_network_tab.png[Página de nós separador rede]
+image:nodes_page_network_tab.png["Página de nós separador rede"]
 
 .Informações relacionadas
 link:monitoring-network-connections-and-performance.html["Monitorar conexões de rede e desempenho"]

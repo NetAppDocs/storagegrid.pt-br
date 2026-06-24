@@ -28,9 +28,9 @@ Ao iniciar sessão pela primeira vez no Gestor de grelha, pode utilizar o painel
 
 O dashboard contém informações sobre a integridade e a performance do sistema, o uso do storage, os processos de ILM, as operações S3 e os nós na grade. link:../monitor/viewing-dashboard.html["configure o painel de instrumentos"]Pode selecionar a partir de uma coleção de cartões que contêm as informações de que necessita para monitorizar eficazmente o seu sistema.
 
-image::../media/grid_manager_dashboard_and_menu.png[Painel no Gerenciador de Grade]
+image:grid_manager_dashboard_and_menu.png["Painel no Gerenciador de Grade"]
 
-Para obter uma explicação das informações apresentadas em cada cartão, selecione o ícone de ajuda image:../media/icon_nms_question.png["ícone de ponto de interrogação"]para esse cartão.
+Para obter uma explicação das informações exibidas em cada cartão, selecione o ícone de ajuda image:icon_nms_question.png["ícone de ponto de interrogação"] para esse cartão.
 
 
 
@@ -44,7 +44,7 @@ Você pode usar *Search* para encontrar entradas na barra lateral do Gerenciador
 
 == Menu Ajuda
 
-O menu de ajuda image:../media/icon-help-menu-bar.png["ícone de ajuda na barra de menus"]fornece acesso a:
+O menu de ajuda image:icon-help-menu-bar.png["ícone de ajuda na barra de menus"] fornece acesso a:
 
 * Olink:../fabricpool/use-fabricpool-setup-wizard.html["FabricPool"] elink:../admin/use-s3-setup-wizard.html["Configuração S3"] bruxos
 * O site de documentação do StorageGRID para a versão atual

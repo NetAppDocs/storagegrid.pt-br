@@ -20,15 +20,15 @@ Por exemplo:
 . Você configura inicialmente um KMS padrão que se aplica a todos os sites que não têm um KMS dedicado.
 . Quando o KMS é salvo, todos os nós de dispositivo que têm a configuração *Node Encryption* ativada conetam-se ao KMS e solicitam a chave de criptografia. Essa chave é usada para criptografar os nós do dispositivo em todos os locais. Esta mesma chave também deve ser usada para descriptografar esses aparelhos.
 +
-image::../media/kms_default_key.png[Chave padrão KMS]
+image:kms_default_key.png["Chave padrão KMS"]
 
 . Você decide adicionar um KMS específico para um site (Data Center 3 na figura). No entanto, como os nós do appliance já estão criptografados, um erro de validação ocorre quando você tenta salvar a configuração para o KMS específico do site. O erro ocorre porque o KMS específico do site não tem a chave correta para descriptografar os nós nesse site.
 +
-image::../media/kms_wrong_key.png[KMS de chave errada]
+image:kms_wrong_key.png["KMS de chave errada"]
 
 . Para resolver o problema, copie a versão atual da chave de criptografia do KMS padrão para o novo KMS. (Tecnicamente, você copia a chave original para uma nova chave com o mesmo alias. A chave original torna-se uma versão anterior da nova chave.) O KMS específico do local agora tem a chave correta para descriptografar os nós do appliance no Data Center 3, para que ele possa ser salvo no StorageGRID.
 +
-image::../media/kms_copied_key.png[Chave copiada KMS]
+image:kms_copied_key.png["Chave copiada KMS"]
 
 
 

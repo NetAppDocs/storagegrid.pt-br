@@ -23,7 +23,7 @@ Cada instrução de colocação pode ter várias linhas se você quiser criar di
 
 Neste exemplo, a regra ILM armazena uma cópia replicada no local 1 e uma cópia replicada no local 2 para o primeiro ano. Após um ano, uma cópia codificada por apagamento de 2 mais de 1 é feita e salva em apenas um local.
 
-image::../media/ilm_create_ilm_rule_wizard_2.png[Criar Assistente de regras ILM passo 2]
+image:ilm_create_ilm_rule_wizard_2.png["Criar Assistente de regras ILM passo 2"]
 
 .Passos
 . Para *tempo de referência*, selecione o tipo de tempo a ser utilizado para calcular a hora de início de uma instrução de colocação.
@@ -170,7 +170,7 @@ A seção análise de regras do diagrama de retenção afirma:
 Consulte link:using-multiple-storage-pools-for-cross-site-replication.html["Ativar a proteção contra perda de local."]
 
 +
-image::../media/ilm_rule_retention_diagram.png[Diagrama de retenção de regras ILM]
+image:ilm_rule_retention_diagram.png["Diagrama de retenção de regras ILM"]
 
 
 

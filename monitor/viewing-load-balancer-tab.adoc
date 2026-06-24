@@ -17,7 +17,7 @@ A guia Load Balancer (balanceador de carga) é exibida para nós de administraç
 
 Se não houver nenhuma e/S sendo executada pelo serviço do Load Balancer ou se não houver nenhum balanceador de carga configurado, os gráficos exibem "no data".
 
-image::../media/nodes_page_load_balancer_tab.png[Guia balanceador de carga de página de nós]
+image:nodes_page_load_balancer_tab.png["Guia balanceador de carga de página de nós"]
 
 
 

@@ -35,10 +35,10 @@ O espaço lógico usado, o uso da cota, a cota e a contagem de objetos são list
 NOTE: O tamanho lógico de todos os objetos pertencentes a este locatário inclui uploads multipartes incompletos e em andamento.  O tamanho não inclui espaço físico adicional usado para políticas de ILM.  Os valores do Espaço utilizado são estimativas.  Essas estimativas são afetadas pelo tempo de ingestão, pela conectividade de rede e pelo status do nó.
 
 +
-image::../media/tenant_accounts_page.png[Página de contas de inquilino]
+image:tenant_accounts_page.png["Página de contas de inquilino"]
 
-. Opcionalmente, faça login em uma conta de locatário selecionando o link de login image:../media/icon_tenant_sign_in.png["Ícone de login do locatário"]na coluna *Sign in/Copy URL*.
-. Opcionalmente, copie o URL da página de login de um locatário selecionando o link URL de cópia image:../media/icon_tenant_copy_url.png["Ícone de URL de cópia do locatário"]na coluna *entrar/Copiar URL*.
+. Opcionalmente, faça Sign in em uma conta de locatário selecionando o link de Sign in image:icon_tenant_sign_in.png["Ícone de login do locatário"] na coluna *Sign in/Copiar URL*.
+. Opcionalmente, copie o URL da página de Sign in de um locatário selecionando o link Copiar URL image:icon_tenant_copy_url.png["Ícone de URL de cópia do locatário"] na coluna *Sign in/Copiar URL*.
 . Opcionalmente, selecione *Exportar para CSV* para exibir e exportar um `.csv` arquivo contendo os valores de uso para todos os locatários.
 +
 Você é solicitado a abrir ou salvar o `.csv` arquivo.
@@ -47,7 +47,7 @@ Você é solicitado a abrir ou salvar o `.csv` arquivo.
 O conteúdo do `.csv` arquivo se parece com o seguinte exemplo:
 
 +
-image::../media/tenant_accounts_example_csv.png[Exemplo de contas de inquilino .csv]
+image:tenant_accounts_example_csv.png["Exemplo de contas de inquilino .csv"]
 
 +
 Você pode abrir o `.csv` arquivo em um aplicativo de Planilha ou usá-lo em automação.
@@ -70,7 +70,7 @@ Você pode exibir detalhes de um locatário específico.
 A página de detalhes do locatário é exibida.
 
 +
-image::../media/tenant_usage_modal.png[Modal de uso do locatário]
+image:tenant_usage_modal.png["Modal de uso do locatário"]
 
 . Revise a visão geral do locatário na parte superior da página.
 +
@@ -91,7 +91,7 @@ Se uma cota foi definida para esse locatário, a quantidade de cota usada e rest
 Você pode colocar o cursor sobre o gráfico de barras para ver o armazenamento usado por cada balde ou recipiente. Você pode colocar o cursor sobre o segmento de espaço livre para ver a quantidade de cota de armazenamento restante.
 
 +
-image::../media/tenant_bucket_space_consumption_GM.png[Gráfico de barras de consumo do balde do locatário]
+image:tenant_bucket_space_consumption_GM.png["Gráfico de barras de consumo do balde do locatário"]
 
 +
 
@@ -114,7 +114,7 @@ Esta tabela lista os buckets do S3 para o locatário. O espaço usado é a quant
 O conteúdo do arquivo de um locatário S3 individual `.csv` se parece com o seguinte exemplo:
 
 +
-image::../media/tenant_bucket_details_csv.png[Exemplo de CSV de detalhes do intervalo do locatário]
+image:tenant_bucket_details_csv.png["Exemplo de CSV de detalhes do intervalo do locatário"]
 
 +
 Você pode abrir o `.csv` arquivo em um aplicativo de Planilha ou usá-lo em automação.

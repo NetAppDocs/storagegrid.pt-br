@@ -15,6 +15,6 @@ A guia Serviços da plataforma fornece informações sobre qualquer operação d
 
 A guia Serviços da Plataforma é exibida para cada site. Esta guia fornece informações sobre os serviços da plataforma S3, como replicação do CloudMirror e o serviço de integração de pesquisa. Os gráficos nesta guia exibem métricas como o número de solicitações pendentes, a taxa de conclusão da solicitação e a taxa de falha da solicitação.
 
-image::../media/nodes_page_site_level_platform_services.gif[Nós página serviços de plataforma em nível de site]
+image:nodes_page_site_level_platform_services.gif["Nós página serviços de plataforma em nível de site"]
 
 Para obter mais informações sobre os serviços da plataforma S3, incluindo detalhes de solução de problemas, consulte o link:../admin/index.html["Instruções para administrar o StorageGRID"].

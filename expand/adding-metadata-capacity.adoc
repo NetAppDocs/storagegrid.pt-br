@@ -70,4 +70,4 @@ A figura a seguir mostra como o StorageGRID redistribui os metadados de objetos 
 
 O lado direito da figura mostra como os metadados existentes são redistribuídos depois que dois nós de storage são adicionados ao local. A quantidade de metadados em cada nó diminuiu, o alerta *armazenamento de metadados baixo* não é mais acionado e o espaço disponível para metadados aumentou.
 
-image::../media/metadata_space_after_expansion.png[Diagrama dos metadados redistribuídos após dois nós de storage adicionados]
+image:metadata_space_after_expansion.png["Diagrama dos metadados redistribuídos após dois nós de storage adicionados"]

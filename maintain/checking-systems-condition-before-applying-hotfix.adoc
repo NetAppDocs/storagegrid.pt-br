@@ -16,7 +16,7 @@ Você deve verificar se o sistema está pronto para acomodar o hotfix.
 . Faça login no Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
 . Se possível, verifique se o sistema está funcionando normalmente e se todos os nós da grade estão conetados à grade.
 +
-Os nós conetados têm marcas de verificação verdes image:../media/icon_alert_green_checkmark.png["marca de verificação verde de alerta do ícone"]na página nós.
+Os nós conectados têm marcas de seleção verdes image:icon_alert_green_checkmark.png["marca de verificação verde de alerta do ícone"] na página Nós.
 
 . Verifique e resolva quaisquer alertas atuais, se possível.
 . Certifique-se de que não existem outros procedimentos de manutenção em curso, como um procedimento de atualização, recuperação, expansão ou desativação.

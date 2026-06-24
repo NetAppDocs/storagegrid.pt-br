@@ -76,7 +76,7 @@ NOTE: Esta coluna mostra apenas o último erro de replicação entre grelha a oc
 Por exemplo, esse erro indica que o intervalo de destino para replicação entre grades estava em um estado inválido, possivelmente porque o controle de versão foi suspenso ou o bloqueio de objeto S3 foi ativado.
 
 +
-image::../media/grid-federation-cgr-object-example-last-error.png[grid-federation-cgr-object-example-last-error]
+image:grid-federation-cgr-object-example-last-error.png["grid-federation-cgr-object-example-last-error"]
 
 . Execute quaisquer ações recomendadas. Por exemplo, se o controle de versão foi suspenso no bucket de destino para replicação entre grades, reative o controle de versão desse bucket.
 . Selecione a ligação na tabela.

@@ -23,7 +23,7 @@ A regra padrão é a última regra a ser avaliada em uma política ILM, portanto
 
 Neste exemplo de política, a primeira regra se aplica apenas a objetos pertencentes ao test-tenant-1. A regra padrão, que é a última, aplica-se a objetos pertencentes a todas as outras contas de inquilino.
 
-image::../media/ilm_policies_page_default_rule.png[Regra padrão da página de políticas ILM]
+image:ilm_policies_page_default_rule.png["Regra padrão da página de políticas ILM"]
 
 Ao criar a regra padrão, lembre-se destes requisitos:
 

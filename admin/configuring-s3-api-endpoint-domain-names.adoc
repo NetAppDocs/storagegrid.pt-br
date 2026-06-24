@@ -91,7 +91,7 @@ Se você remover um nome usado por aplicativos S3, as solicitações de estilo h
 
 .Passos
 . Selecione *Configuração* > *Rede* > *Nomes de domínio de ponto de extremidade S3*.
-. Selecione o ícone de exclusão image:../media/icon-x-to-remove.png["eliminar ícone"]ao lado do nome de domínio.
+. Selecione o ícone de exclusão image:icon-x-to-remove.png["eliminar ícone"] ao lado do nome de domínio.
 . Selecione *Sim* para confirmar a exclusão.
 
 

@@ -15,4 +15,4 @@ A guia objetos fornece informações sobre link:../s3/index.html["S3 taxas de in
 
 A guia objetos é exibida para cada nó de armazenamento, cada local e toda a grade. Para nós de storage, a guia objetos também fornece contagens de objetos e informações sobre consultas de metadados e verificação em segundo plano.
 
-image::../media/nodes_page_objects_tab.png[Guia objetos de página de nós]
+image:nodes_page_objects_tab.png["Guia objetos de página de nós"]

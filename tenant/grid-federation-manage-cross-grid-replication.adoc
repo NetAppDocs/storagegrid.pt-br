@@ -19,7 +19,7 @@ Se a sua conta de locatário tiver sido atribuída a permissão *usar conexão d
 
 O diagrama de fluxo de trabalho resume as etapas que você executa para configurar a replicação entre grades entre buckets em duas grades.  Essas etapas são descritas com mais detalhes abaixo do diagrama.
 
-image::../media/grid-federation-cgr-workflow.png[Fluxo de trabalho de replicação entre grade]
+image:grid-federation-cgr-workflow.png["Fluxo de trabalho de replicação entre grade"]
 
 
 
@@ -86,7 +86,7 @@ Você deve executar estas etapas antes de adicionar quaisquer objetos a qualquer
 *** *Sim* (padrão): Um marcador de exclusão é adicionado ao intervalo de origem e replicado ao intervalo de destino.
 *** *Não*: Um marcador de exclusão é adicionado ao bucket de origem, mas não é replicado no bucket de destino.
 +
-image::../media/grid-federation-cross-grid-replication-client-deletes.png[imagem que mostra a eliminação do cliente replicado em ambas as grelhas]
+image:grid-federation-cross-grid-replication-client-deletes.png["imagem que mostra a eliminação do cliente replicado em ambas as grelhas"]
 
 +
 

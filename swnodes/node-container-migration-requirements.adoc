@@ -44,7 +44,7 @@ Para mover um nó de um host para outro, o serviço de host StorageGRID precisa 
 
 Suponha, por exemplo, que o StorageGRID NodeA em execução no Host1 foi configurado com os seguintes mapeamentos de interface:
 
-image::../media/eth0_bond.gif[Esta imagem é explicada pelo texto circundante.]
+image:eth0_bond.gif["Esta imagem é explicada pelo texto circundante."]
 
 O lado esquerdo das setas corresponde às interfaces tradicionais vistas de dentro de um contentor StorageGRID (ou seja, as interfaces de rede de Grade, Admin e Cliente, respetivamente). O lado direito das setas corresponde às interfaces de host reais que fornecem essas redes, que são três interfaces VLAN subordinadas à mesma ligação de interface física.
 
@@ -66,4 +66,4 @@ Dado este modo de operação, todos os dados do sistema do nó e volumes de arma
 
 O exemplo a seguir mostra uma solução para o mapeamento de dispositivos de bloco para um nó de armazenamento StorageGRID, onde o multipathing DM está em uso nos hosts, e o campo alias foi usado `/etc/multipath.conf` para fornecer nomes de dispositivos de bloco consistentes e amigáveis disponíveis em todos os hosts.
 
-image::../media/block_device_mapping_rhel.gif[Mapeamento de dispositivos de bloco]
+image:block_device_mapping_rhel.gif["Mapeamento de dispositivos de bloco"]

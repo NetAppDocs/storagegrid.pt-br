@@ -31,14 +31,14 @@ A correção é aplicada automaticamente primeiro ao nó de administração prin
 A página Atualização de software é exibida.
 
 +
-image::../media/software_update_landing.png[Página inicial de atualização de software]
+image:software_update_landing.png["Página inicial de atualização de software"]
 
 . Selecione *aplicar hotfix*.
 +
 A página de correção do StorageGRID é exibida.
 
 +
-image::../media/hotfix_choose_file.png[Escolha Arquivo]
+image:hotfix_choose_file.png["Escolha Arquivo"]
 
 . Selecione o arquivo de hotfix que você baixou no site de suporte da NetApp.
 +
@@ -81,7 +81,7 @@ Esta tabela mostra todos os nós na grade e o estágio atual da instalação do 
 
 .. A barra de progresso atinge a conclusão e, em seguida, o nó de administração principal é mostrado como "completo".
 +
-image::../media/hotfix_progress_table.png[Tabela de progresso do hotfix]
+image:hotfix_progress_table.png["Tabela de progresso do hotfix"]
 
 
 
@@ -108,7 +108,7 @@ NOTE: Tem de concluir a correção do StorageGRID antes de poder iniciar uma atu
 Quando o Estágio progride além de "enfileirado", o botão *Remover* fica oculto e você não pode mais remover o nó do processo de hotfix.
 
 +
-image::../media/approve_all_progresstable.png[Progresso do hotfix com o botão remover]
+image:approve_all_progresstable.png["Progresso do hotfix com o botão remover"]
 
 
 

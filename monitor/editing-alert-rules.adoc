@@ -35,7 +35,7 @@ A página regras de alerta é exibida.
 A caixa de diálogo Editar regra é exibida. Este exemplo mostra uma regra de alerta padrão - os campos Nome exclusivo, Descrição e ações recomendadas estão desativados e não podem ser editados.
 
 +
-image::../media/alert_rules_edit_rule.png[Alertas > Editar regra]
+image:alert_rules_edit_rule.png["Alertas > Editar regra"]
 
 . Marque ou desmarque a caixa de seleção *Enabled* para determinar se essa regra de alerta está ativada no momento.
 +
@@ -86,7 +86,7 @@ Opcionalmente, as ações recomendadas a serem tomadas quando esse alerta for ac
 NOTE: Se você quiser restaurar uma condição para uma regra de alerta padrão editada de volta ao seu valor original, selecione os três pontos à direita da condição modificada.
 
 +
-image::../media/alert_rules_edit_revert_to_default.png[Regras de alerta: Revertendo uma condição editada para o valor padrão]
+image:alert_rules_edit_revert_to_default.png["Regras de alerta: Revertendo uma condição editada para o valor padrão"]
 
 +
 

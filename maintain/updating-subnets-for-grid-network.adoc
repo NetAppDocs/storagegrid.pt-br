@@ -95,7 +95,7 @@ As sub-redes especificadas são configuradas automaticamente para o sistema Stor
 
 .Passos
 . Selecione *Manutenção* > *Rede* > *Rede de grade*.
-. Selecione o ícone de exclusão image:../media/icon-x-to-remove.png["eliminar ícone"]ao lado da sub-rede.
+. Selecione o ícone de exclusão image:icon-x-to-remove.png["eliminar ícone"] ao lado da sub-rede.
 . Introduza a frase-passe do aprovisionamento e selecione *Guardar*.
 . Selecione *Sim* na caixa de diálogo de confirmação.
 . Aguarde até que as alterações sejam aplicadas e, em seguida, baixe um novo pacote de recuperação.

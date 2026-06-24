@@ -30,7 +30,7 @@ NOTE: A desativação não será iniciada se um ou mais volumes estiverem offlin
 
 NOTE: Se um ou mais volumes ficarem offline enquanto uma desativação estiver em andamento, o processo de desativação será concluído depois que esses volumes voltarem a estar online.
 
-* Todos os nós da grade têm a saúde normal (verde) image:../media/icon_alert_green_checkmark.png["ícone de marca de verificação verde"]. Se você vir um desses ícones na coluna *Saúde*, tente resolver o problema:
+* Todos os nós da grade têm saúde Normal (verde) image:icon_alert_green_checkmark.png["ícone de marca de verificação verde"]. Se você vir um destes ícones na coluna *Saúde*, você deve tentar resolver o problema:
 +
 [cols="1a,1a,3a"]
 |===
@@ -38,7 +38,7 @@ NOTE: Se um ou mais volumes ficarem offline enquanto uma desativação estiver e
 
 
  a| 
-image:../media/icon_alarm_yellow_notice.gif["ícone quadrado amarelo"]
+image:icon_alarm_yellow_notice.gif["ícone quadrado amarelo"]
  a| 
 Amarelo
  a| 
@@ -47,7 +47,7 @@ Aviso
 
 
  a| 
-image:../media/icon_alert_yellow_minor.png["ícone de diamante laranja claro"]
+image:icon_alert_yellow_minor.png["ícone de diamante laranja claro"]
  a| 
 Laranja claro
  a| 
@@ -56,7 +56,7 @@ Menor
 
 
  a| 
-image:../media/icon_alert_orange_major.png["ícone de diamante laranja escuro"]
+image:icon_alert_orange_major.png["ícone de diamante laranja escuro"]
  a| 
 Laranja escuro
  a| 
@@ -65,7 +65,7 @@ Maior
 
 
  a| 
-image:../media/icon_alert_red_critical.png["ícone vermelho x"]
+image:icon_alert_red_critical.png["ícone vermelho x"]
  a| 
 Vermelho
  a| 

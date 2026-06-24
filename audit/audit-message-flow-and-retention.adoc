@@ -27,7 +27,7 @@ Por sua vez, cada serviço ADC atua como um relé e envia sua coleção de mensa
 
 Cada nó Admin armazena mensagens de auditoria em arquivos de log de texto; o arquivo de log ativo é `audit.log` nomeado .
 
-image::../media/audit_message_flow.gif[Diagrama que resume o fluxo de mensagens de auditoria através de relés]
+image:audit_message_flow.gif["Diagrama que resume o fluxo de mensagens de auditoria através de relés"]
 
 
 
@@ -37,7 +37,7 @@ O StorageGRID usa um processo de cópia e exclusão para garantir que nenhuma me
 
 Quando um nó gera ou retransmite uma mensagem de auditoria, a mensagem é armazenada em uma fila de mensagens de auditoria no disco do sistema do nó da grade.  Uma cópia da mensagem é sempre mantida em uma fila de mensagens de auditoria até que a mensagem seja gravada no arquivo de log de auditoria no nó de administração. `/var/local/audit/export` diretório.  Isso ajuda a evitar a perda de uma mensagem de auditoria durante o transporte.
 
-image::../media/audit_message_retention.gif[Diagrama que resume o recebimento da mensagem de auditoria no AMS]
+image:audit_message_retention.gif["Diagrama que resume o recebimento da mensagem de auditoria no AMS"]
 
 A fila de mensagens de auditoria pode aumentar temporariamente devido a problemas de conectividade de rede ou capacidade de auditoria insuficiente.  À medida que as filas aumentam, elas consomem mais espaço disponível em cada nó `/var/local/` diretório.  Se o problema persistir e o diretório de mensagens de auditoria de um nó ficar muito cheio, os nós individuais priorizarão o processamento de seu backlog e ficarão temporariamente indisponíveis para novas mensagens.
 

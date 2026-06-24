@@ -24,7 +24,7 @@ Se você estiver acessando o Gerenciador de Grade ou o Gerenciador de locatário
 
 O exemplo a seguir mostra um erro de certificado quando o certificado de interface de gerenciamento personalizado expirou:
 
-image::../media/certificate_error.png[Exemplo de erro de certificado]
+image:certificate_error.png["Exemplo de erro de certificado"]
 
 Para garantir que as operações não sejam interrompidas por um certificado de servidor com falha, o alerta *Expiration of Server certificate for Management Interface* é acionado quando o certificado do servidor está prestes a expirar.
 

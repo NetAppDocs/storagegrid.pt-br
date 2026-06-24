@@ -19,6 +19,6 @@ A rede Admin pode ser exclusiva para cada nó e pode consistir em várias sub-re
 
 Neste exemplo, a rede de Grade é usada para tráfego relacionado a solicitações de clientes S3 e gerenciamento de objetos. Enquanto a rede de administração é usada para funções administrativas.
 
-image::../media/grid_admin_networks.png[Redes de administração da grade]
+image:grid_admin_networks.png["Redes de administração da grade"]
 
-image::../media/grid_admin_networks_ips.png[IPs de redes de administrador de grade]
+image:grid_admin_networks_ips.png["IPs de redes de administrador de grade"]

@@ -205,7 +205,7 @@ Em geral, use o mesmo número de dias para os certificados em ambos os lados da 
 
 Você pode remover uma conexão de federação de grade de qualquer grade na conexão. Como mostrado na figura, você deve executar etapas de pré-requisito em ambas as grades para confirmar que a conexão não está sendo usada por nenhum locatário em qualquer grade.
 
-image::../media/grid-federation-remove-connection.png[etapas para remover a conexão de federação de grade]
+image:grid-federation-remove-connection.png["etapas para remover a conexão de federação de grade"]
 
 Antes de remover uma conexão, observe o seguinte:
 

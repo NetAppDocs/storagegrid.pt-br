@@ -15,7 +15,7 @@ Um sistema StorageGRID pode incluir vários nós de administração para permiti
 
 Se um nó Admin ficar indisponível, o processamento de atributos continua, os alertas ainda são acionados e as notificações por e-mail e os pacotes AutoSupport ainda são enviados. No entanto, ter vários nós de administração não fornece proteção contra failover, exceto notificações e pacotes de AutoSupport.
 
-image::../media/admin_node_redundancy.png[Diagrama de redundância do Admin Node]
+image:admin_node_redundancy.png["Diagrama de redundância do Admin Node"]
 
 Existem duas opções para continuar a visualizar e configurar o sistema StorageGRID se um nó de administrador falhar:
 

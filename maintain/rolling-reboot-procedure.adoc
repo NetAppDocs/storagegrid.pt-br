@@ -62,7 +62,7 @@ Como primeiro passo, acesse a página de reinicialização contínua e selecione
 . Revise o estado da conexão e os ícones de alerta na coluna *Nome do nó*.
 +
 
-TIP: Não é possível reiniciar um nó se ele estiver desconetado da grade. As caixas de verificação estão desativadas para nós com estes ícones: image:../media/icon_alarm_gray_administratively_down.png["ícone de ponto de interrogação cinzento"] Ou image:../media/icon_alarm_blue_unknown.png["ícone de ponto de interrogação azul"].
+TIP: Não é possível reinicializar um nó se ele estiver desconectado do grid. As caixas de seleção estão desabilitadas para nós com estes ícones: image:icon_alarm_gray_administratively_down.png["ícone de ponto de interrogação cinzento"] ou image:icon_alarm_blue_unknown.png["ícone de ponto de interrogação azul"].
 
 . Se algum nó tiver alertas ativos, revise a lista de alertas na coluna *Resumo de alertas*.
 +

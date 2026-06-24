@@ -15,7 +15,7 @@ Você pode criar uma conexão de federação de grade entre dois sistemas Storag
 
 Como mostrado na figura, a criação de uma conexão de federação de grade inclui etapas em ambas as grades. Você adiciona a conexão em uma grade e a completa na outra grade. Você pode começar a partir de qualquer grade.
 
-image::../media/grid-federation-create-connection.png[visão geral gráfica das etapas para criar uma conexão em duas grades]
+image:grid-federation-create-connection.png["visão geral gráfica das etapas para criar uma conexão em duas grades"]
 
 .Antes de começar
 * Você revisou o link:grid-federation-overview.html["considerações e requisitos"] para configurar conexões de federação de grade.

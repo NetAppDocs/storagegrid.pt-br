@@ -44,7 +44,7 @@ Quando o procedimento de reequilíbrio CE estiver concluído:
 Por exemplo, suponha que três nós de 200 TB estejam preenchidos a 80% (200 e 215; 0,8: 160 TB em cada nó ou 480 TB para o local). Se você adicionar um nó de 400 TB e executar o procedimento de rebalancear, todos os nós agora terão aproximadamente a mesma quantidade de dados de código de apagamento (480/4: 120 TB). No entanto, o usado (%) para o nó maior será menor do que o usado (%) para os nós menores.
 
 +
-image::../media/used_space_with_larger_node.png[Espaço usado antes da expansão]
+image:used_space_with_larger_node.png["Espaço usado antes da expansão"]
 
 
 
@@ -64,7 +64,7 @@ Considere o seguinte cenário:
 * A política ILM usa uma regra de codificação de apagamento de mais de 2 1 para todos os objetos com mais de 1,0 MB e uma regra de replicação de 2 cópias para objetos menores.
 * Todos os nós de storage ficaram completamente cheios. O alerta *Low Object Storage* foi acionado no nível de gravidade principal.
 +
-image::../media/used_space_before_expansion.png[Espaço usado antes da expansão]
+image:used_space_before_expansion.png["Espaço usado antes da expansão"]
 
 
 
@@ -74,7 +74,7 @@ image::../media/used_space_before_expansion.png[Espaço usado antes da expansão
 
 Para entender quando o rebalanceamento de EC não é necessário, suponha que você adicionou três (ou mais) novos nós de storage. Nesse caso, você não precisa executar o EC rebalanceamento. Os nós de storage originais permanecerão cheios, mas novos objetos agora usarão os três novos nós para 2 codificação de apagamento de mais de 1 e 8212; os dois fragmentos de dados e um fragmento de paridade podem ser armazenados em um nó diferente.
 
-image::../media/used_space_after_3_node_expansion.png[Espaço usado após a expansão de 3 nós]
+image:used_space_after_3_node_expansion.png["Espaço usado após a expansão de 3 nós"]
 
 
 CAUTION: Embora você possa executar o procedimento de rebalanceamento EC nesse caso, mover os dados codificados de apagamento diminuirá temporariamente o desempenho da grade, o que pode afetar as operações do cliente.
@@ -85,11 +85,11 @@ CAUTION: Embora você possa executar o procedimento de rebalanceamento EC nesse 
 
 Para entender quando o EC rebalanceamento é necessário, suponha que você só possa adicionar dois nós de storage, em vez de três. Como o esquema 2-1U requer pelo menos três nós de storage para ter espaço disponível, os nós vazios não podem ser usados para novos dados codificados por apagamento.
 
-image::../media/used_space_after_2_node_expansion.png[Espaço usado após a expansão de 2 nós]
+image:used_space_after_2_node_expansion.png["Espaço usado após a expansão de 2 nós"]
 
 Para usar os novos nós de storage, execute o procedimento de rebalanceamento de EC. Quando esse procedimento é executado, o StorageGRID redistribui dados codificados por apagamento e fragmentos de paridade entre todos os nós de storage no local. Neste exemplo, quando o procedimento de rebalanceamento do EC estiver concluído, todos os cinco nós agora estão apenas 60% cheios e os objetos podem continuar a ser ingeridos no 2 esquema de codificação de apagamento de mais de 1% em todos os nós de storage.
 
-image::../media/used_space_after_ec_rebalance.png[Espaço usado aAAfter EC reequilíbrio]
+image:used_space_after_ec_rebalance.png["Espaço usado aAAfter EC reequilíbrio"]
 
 
 

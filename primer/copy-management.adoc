@@ -25,7 +25,7 @@ Se as instruções de posicionamento de conteúdo de uma regra ILM exigirem cóp
 
 O mecanismo ILM no serviço LDR controla a replicação e garante que o número correto de cópias seja armazenado nos locais corretos e durante o período de tempo correto.
 
-image::../media/replication_data_flow.png[diagrama que mostra o processo descrito no texto circundante]
+image:replication_data_flow.png["diagrama que mostra o processo descrito no texto circundante"]
 
 . O mecanismo ILM consulta o serviço ADC para determinar o melhor serviço LDR de destino dentro do pool de armazenamento especificado pela regra ILM. Em seguida, envia um comando para iniciar a replicação ao serviço LDR.
 . O serviço LDR de destino consulta o serviço ADC para obter a melhor localização de origem. Em seguida, envia uma solicitação de replicação para o serviço LDR de origem.
@@ -42,7 +42,7 @@ Se uma regra de ILM incluir instruções para fazer cópias codificadas para apa
 
 O mecanismo ILM, que é um componente do serviço LDR, controla a codificação de apagamento e garante que o perfil de codificação de apagamento seja aplicado aos dados do objeto.
 
-image::../media/erasure_coding_data_flow.png[Fluxo de dados de codificação de apagamento]
+image:erasure_coding_data_flow.png["Fluxo de dados de codificação de apagamento"]
 
 . O mecanismo ILM consulta o serviço ADC para determinar qual serviço DDS pode executar melhor a operação de codificação de apagamento. Quando determinado, o motor ILM envia uma solicitação de "iniciar" para esse serviço.
 . O serviço DDS instrui um LDR a apagar os dados do objeto.
@@ -60,7 +60,7 @@ Se as instruções de posicionamento de conteúdo de uma regra ILM exigirem que 
 
 O mecanismo ILM, que é um componente do serviço LDR, e o serviço Data Mover controlam o movimento de objetos para o Cloud Storage Pool.
 
-image::../media/cloud_storage_pool_data_flow.png[Fluxo de dados de pool de storage de nuvem]
+image:cloud_storage_pool_data_flow.png["Fluxo de dados de pool de storage de nuvem"]
 
 . O mecanismo ILM seleciona um serviço Data Mover para replicação no Cloud Storage Pool.
 . O serviço Data Mover envia os dados do objeto para o Cloud Storage Pool.

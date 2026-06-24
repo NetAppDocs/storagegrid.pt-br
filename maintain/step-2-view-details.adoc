@@ -27,19 +27,19 @@ CAUTION: Se você estiver executando uma desativação de site desconetada, o IL
 .Passos
 . No passo 2 (Ver detalhes), reveja quaisquer avisos relacionados com o site que selecionou para remover.
 +
-image::../media/decommission_site_step_2_site_warnings.png[Desativar Site passo 2 Avisos de local]
+image:decommission_site_step_2_site_warnings.png["Desativar Site passo 2 Avisos de local"]
 
 +
 Nestes casos, aparece um aviso:
 
 +
 ** O site inclui um Gateway Node. Se os clientes S3 estiverem se conetando a esse nó, você deverá configurar um nó equivalente em outro site. Certifique-se de que os clientes podem se conetar ao nó de substituição antes de continuar com o procedimento de desativação.
-** O local contém uma mistura de nós conetados (image:../media/icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]) e desconetados (image:../media/icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"] ou image:../media/icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"]). Antes de remover este site, você deve colocar todos os nós offline de volta online.
+** O site contém uma mistura de nós conectados (image:icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]) e desconectados (image:icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"] ou image:icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"]). Antes de remover este site, você deve trazer todos os nós offline de volta online.
 
 
 . Reveja os detalhes sobre o site que selecionou para remover.
 +
-image::../media/decommission_site_step_2_view_details.png[Etapa 2 Exibir detalhes do site]
+image:decommission_site_step_2_view_details.png["Etapa 2 Exibir detalhes do site"]
 
 +
 As seguintes informações estão incluídas para o site selecionado:
@@ -54,9 +54,9 @@ As seguintes informações estão incluídas para o site selecionado:
 
 ** Nomes de nós, tipos e estados de conexão:
 +
-*** image:../media/icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"] (Ligado)
-*** image:../media/icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"] (Administrativamente para baixo)
-*** image:../media/icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"] (Desconhecido)
+*** image:icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"] (Conectado)
+*** image:icon_alarm_gray_administratively_down.png["Ícone alarme cinza administrativamente para baixo"] (Administrativamente inativo)
+*** image:icon_alarm_blue_unknown.png["Ícone alarme azul desconhecido"] (Desconhecido)
 
 
 ** Detalhes sobre cada nó:
@@ -69,7 +69,7 @@ As seguintes informações estão incluídas para o site selecionado:
 
 . Na seção Detalhes para outros sites da página, avalie quanto espaço está disponível nos outros sites da sua grade.
 +
-image::../media/decommission_site_step_2_view_details_for_other_sites.png[Etapa 2 Exibir detalhes para outros sites]
+image:decommission_site_step_2_view_details_for_other_sites.png["Etapa 2 Exibir detalhes para outros sites"]
 
 +
 Se você estiver executando uma desativação do site conetado e planeja usar o ILM para mover dados de objetos do site selecionado (em vez de apenas excluí-lo), você deve garantir que os outros sites tenham capacidade suficiente para acomodar os dados movidos e que a capacidade adequada permaneça para crescimento futuro.

@@ -18,7 +18,7 @@ TIP: Para alterar unidades para os valores de armazenamento exibidos no Gerencia
 
 Seu painel pode ser diferente com base na configuração do sistema.
 
-image::../media/grid_manager_dashboard.png[Painel do Grid Manager]
+image:grid_manager_dashboard.png["Painel do Grid Manager"]
 
 
 
@@ -69,7 +69,7 @@ Nós
 Uso de CPU, dados e memória por nó. S3 operações por nó. Distribuição nó a local.
 
 |===
-Alguns dos cartões podem ser maximizados para facilitar a visualização. Selecione o ícone maximizar image:../media/icon_dashboard_card_maximize.png["Ícone maximizar"]no canto superior direito do cartão. Para fechar um cartão maximizado, selecione o ícone minimizar image:../media/icon_dashboard_card_minimize.png["Ícone minimizar"]ou selecione *Fechar*.
+Algumas das cartas podem ser maximizadas para facilitar a visualização. Selecione o ícone de maximizar image:icon_dashboard_card_maximize.png["Ícone maximizar"] no canto superior direito da carta. Para fechar uma carta maximizada, selecione o ícone de minimizar image:icon_dashboard_card_minimize.png["Ícone minimizar"] ou selecione *Close*.
 
 
 
@@ -91,7 +91,7 @@ NOTE: Se você tiver qualquer outra permissão além do acesso root, você só p
 
 Para gerenciar painéis, selecione *ações* > *Gerenciar painéis*.
 
-image::../media/dashboard_manage.png[Gerenciar painéis]
+image:dashboard_manage.png["Gerenciar painéis"]
 
 
 
@@ -112,4 +112,4 @@ Ao configurar um dashboard, você pode:
 * Selecione o tamanho para cartões individuais selecionando *S*, *M*, *L* ou *XL* na parte superior do cartão
 
 
-image::../media/dashboard_configure.png[Configure o painel de instrumentos]
+image:dashboard_configure.png["Configure o painel de instrumentos"]

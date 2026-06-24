@@ -24,7 +24,7 @@ Para nós de storage, cada local e toda a grade, a guia Storage inclui gráficos
 
 NOTE: Quando um nó não está conetado à grade, como durante a atualização ou um estado desconetado, certas métricas podem estar indisponíveis ou excluídas dos totais do site e da grade. Depois que um nó se reconeta à grade, espere vários minutos para que os valores se estabilizem.
 
-image::../media/nodes_storage_node_storage_tab.png[Nós > nó de storage > guia Storage]
+image:nodes_storage_node_storage_tab.png["Nós > Nó de armazenamento > Aba armazenamento"]
 
 
 
@@ -32,7 +32,7 @@ image::../media/nodes_storage_node_storage_tab.png[Nós > nó de storage > guia 
 
 Para todos os nós, a guia armazenamento contém detalhes dos dispositivos de disco e volumes no nó. Para nós de storage, a tabela Object Stores fornece informações sobre cada volume de storage.
 
-image::../media/nodes_page_storage_tables.png[Tabelas de storage de páginas de nós]
+image:nodes_page_storage_tables.png["Tabelas de storage de páginas de nós"]
 
 .Informações relacionadas
 link:monitoring-storage-capacity.html["Monitorar a capacidade de armazenamento"]

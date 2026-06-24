@@ -21,7 +21,7 @@ Siga as ações recomendadas para cada alerta relacionado a metadados que é aci
 
 O StorageGRID reserva uma certa quantidade de espaço no volume 0 de cada nó de storage para metadados de objetos. Esse espaço, conhecido como _espaço reservado real_, é subdividido no espaço permitido para metadados de objetos (o espaço permitido de metadados) e no espaço necessário para operações essenciais de banco de dados, como compactação e reparo. O espaço de metadados permitido rege a capacidade geral do objeto.
 
-image::../media/metadata_allowed_space_volume_0.png[Metadados volume de espaço permitido 0]
+image:metadata_allowed_space_volume_0.png["Metadados volume de espaço permitido 0"]
 
 Se os metadados de objetos consumirem mais de 100% do espaço permitido para metadados, as operações do banco de dados não poderão ser executadas de forma eficiente e ocorrerão erros.
 

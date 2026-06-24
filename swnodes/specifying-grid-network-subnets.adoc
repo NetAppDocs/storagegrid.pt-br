@@ -25,7 +25,7 @@ Se você tiver várias sub-redes de grade, o gateway de rede de grade é necess�
 ** Se você já implantou pelo menos um nó, clique em *descobrir sub-redes de redes de Grade* para preencher automaticamente a Lista de sub-redes de rede de Grade com as sub-redes relatadas pelos nós de grade que se registraram no Gerenciador de Grade.
 ** Você deve adicionar manualmente quaisquer sub-redes para NTP, DNS, LDAP ou outros servidores externos acessados através do gateway de rede de Grade.
 +
-image::../media/4_gmi_installer_grid_network_page.gif[Especifique sub-redes]
+image:4_gmi_installer_grid_network_page.gif["Especifique sub-redes"]
 
 
 

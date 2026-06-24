@@ -85,7 +85,7 @@ Para exibir os detalhes de uma regra ILM, incluindo o diagrama de retenção e a
 . Selecione *ILM* > *regras*.
 . Selecione o nome da regra cujos detalhes você deseja exibir. Exemplo:
 +
-image::../media/ilm_rule_details_page.png[Página de detalhes da regra ILM]
+image:ilm_rule_details_page.png["Página de detalhes da regra ILM"]
 
 
 
@@ -174,9 +174,9 @@ NOTE: Como o painel pode ser personalizado, a guia ILM pode não estar disponív
 
 . Monitore as métricas na guia ILM.
 +
-Você pode selecionar o ponto de interrogação image:../media/icon_nms_question.png["ícone de ponto de interrogação"]para ver uma descrição dos itens na guia ILM.
+Você pode selecionar o ponto de interrogação image:icon_nms_question.png["ícone de ponto de interrogação"] para ver uma descrição dos itens na guia ILM.
 
 +
-image::../media/ilm_metrics_on_dashboard.png[Métricas ILM no painel do Grid Manager]
+image:ilm_metrics_on_dashboard.png["Métricas ILM no painel do Grid Manager"]
 
 

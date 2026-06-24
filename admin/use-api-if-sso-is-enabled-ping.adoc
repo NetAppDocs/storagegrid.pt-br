@@ -59,7 +59,7 @@ Quando solicitado, insira valores para os seguintes argumentos:
 ** O endereço para StorageGRID
 ** O ID da conta do locatário, se você quiser acessar a API de gerenciamento do locatário.
 +
-image::../media/sso_auth_python_script_ping.png[Script de autenticação SSO para Ping federate]
+image:sso_auth_python_script_ping.png["Script de autenticação SSO para Ping federate"]
 
 +
 O token de autorização StorageGRID é fornecido na saída. Agora você pode usar o token para outras solicitações, semelhante a como você usaria a API se o SSO não estivesse sendo usado.

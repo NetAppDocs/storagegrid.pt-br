@@ -37,7 +37,7 @@ NOTE: Você deve ter o firmware SANtricity 8,70 ou superior para acessar o Geren
 
 O separador apresenta a página inicial do Gestor do sistema SANtricity.
 
-image::../media/nodes_page_santricity_tab.png[Guia SANtricity da página de nós]
+image:nodes_page_santricity_tab.png["Guia SANtricity da página de nós"]
 
 
 NOTE: Você pode usar o link Gerenciador de sistema do SANtricity para abrir o Gerenciador de sistema do SANtricity em uma nova janela do navegador para facilitar a visualização.

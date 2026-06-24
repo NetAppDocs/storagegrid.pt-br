@@ -429,7 +429,7 @@ Você pode exibir detalhes dos endpoints existentes do balanceador de carga, inc
 * Para exibir informações básicas de todos os pontos de extremidade do balanceador de carga, revise as tabelas na página pontos de extremidade do balanceador de carga.
 * Para exibir todos os detalhes sobre um endpoint específico, incluindo metadados de certificado, selecione o nome do endpoint na tabela. As informações apresentadas variam consoante o tipo de ponto de extremidade e a forma como são configuradas.
 +
-image::../media/load_balancer_endpoint_details.png[Detalhes do ponto de extremidade do balanceador de carga]
+image:load_balancer_endpoint_details.png["Detalhes do ponto de extremidade do balanceador de carga"]
 
 * Para editar um endpoint, use o menu *ações* na página pontos de extremidade do balanceador de carga.
 +
@@ -456,7 +456,7 @@ Edite o nome do endpoint
 
  a| 
 .. Selecione o nome do endpoint para exibir os detalhes.
-.. Selecione o ícone de edição image:../media/icon_edit_tm.png["Ícone de edição"].
+.. Selecione o ícone de edição image:icon_edit_tm.png["Ícone de edição"].
 .. Introduza o novo nome.
 .. Selecione *Guardar*.
 

@@ -21,7 +21,7 @@ A vida útil de um objeto inclui as operações de ingestão, gerenciamento de c
 * *Delete*: O processo de remoção de todas as cópias de objetos da grade. Os objetos podem ser excluídos como resultado do aplicativo cliente enviando uma solicitação de exclusão para o sistema StorageGRID ou como resultado de um processo automático que o StorageGRID executa quando a vida útil do objeto expira.
 
 
-image::../media/object_lifecycle.png[diagrama mostrando a vida de um objeto]
+image:object_lifecycle.png["diagrama mostrando a vida de um objeto"]
 
 .Informações relacionadas
 * link:../ilm/index.html["Gerenciar objetos com ILM"]

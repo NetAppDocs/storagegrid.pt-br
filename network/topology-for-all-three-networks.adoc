@@ -22,4 +22,4 @@ Neste exemplo:
 
 *Exemplo de topologia: Redes Grid, Admin e Client*
 
-image::../media/grid_admin_client_networks.png[Redes de clientes Admin da grelha]
+image:grid_admin_client_networks.png["Redes de clientes Admin da grelha"]

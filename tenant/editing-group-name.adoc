@@ -26,7 +26,7 @@ Pode editar o nome de apresentação de um grupo. Não é possível editar o nom
 A caixa de diálogo Editar nome do grupo é exibida.
 
 +
-image::../media/edit_group_name.png[Editar nome do grupo]
+image:edit_group_name.png["Editar nome do grupo"]
 
 . Se estiver editando um grupo local, atualize o nome de exibição conforme necessário.
 +

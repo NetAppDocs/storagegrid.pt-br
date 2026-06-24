@@ -15,7 +15,7 @@ Os diagramas a seguir fornecem exemplos de diferentes maneiras de configurar gru
 
 Nos diagramas, azul indica a interface principal no grupo HA e amarelo indica a interface de backup no grupo HA.
 
-image::../media/high_availability_examples.png[HA exemplos]
+image:high_availability_examples.png["HA exemplos"]
 
 A tabela resume os benefícios de cada configuração de HA mostrada no diagrama.
 

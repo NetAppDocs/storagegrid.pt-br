@@ -27,7 +27,7 @@ Para determinar se um site pode ser desativado, comece acessando o assistente De
 O passo 1 (Selecionar local) do assistente Decommission Site aparece. Esta etapa inclui uma lista alfabética dos sites no seu sistema StorageGRID.
 
 +
-image::../media/decommission_site_step_select_site.png[Etapa 1 Selecione o local]
+image:decommission_site_step_select_site.png["Etapa 1 Selecione o local"]
 
 . Visualize os valores na coluna *capacidade de armazenamento usada* para determinar quanto armazenamento está sendo usado atualmente para dados de objeto em cada local.
 +
@@ -54,7 +54,7 @@ NOTE: Se houver mais de um motivo pelo qual um site não pode ser desativado, o 
 
 
  a| 
-Marca de verificação verde (image:../media/icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"])
+Marca de verificação verde (image:icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"])
  a| 
 Você pode desativar este site.
  a| 
@@ -83,7 +83,7 @@ Nenhum. Não é possível executar este procedimento.
  a| 
 Não. Todos os nós neste local estão desconetados. Contacte o representante da sua conta NetApp.
  a| 
-Não é possível executar uma desativação do site conetado a menos que cada nó no site esteja conetado (image:../media/icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]).
+Você não pode realizar a desativação de um site conectado a menos que todos os nós do site estejam conectados (image:icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]).
  a| 
 Se você quiser executar uma desativação do site desconetada, entre em Contato com seu representante da conta do NetApp, que revisará seus requisitos e ativará o restante do assistente do site de desintegração.
 
@@ -91,7 +91,7 @@ Se você quiser executar uma desativação do site desconetada, entre em Contato
 
 |===
 +
-O exemplo mostra um sistema StorageGRID com três locais. A marca de seleção verde (image:../media/icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]) para os sites Raleigh e Sunnyvale indica que você pode desativar esses sites. No entanto, você não pode desativar o site de Vancouver porque ele contém o nó de administração principal.
+O exemplo mostra um sistema StorageGRID com três sites. A marca de seleção verde (image:icon_alert_green_checkmark.png["Marca de verificação Icon Alert Green"]) para os sites de Raleigh e Sunnyvale indica que você pode descomissionar esses sites. No entanto, você não pode descomissionar o site de Vancouver porque ele contém o nó de administração principal.
 
 
 

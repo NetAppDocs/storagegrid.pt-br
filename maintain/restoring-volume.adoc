@@ -20,7 +20,7 @@ Você pode restaurar dados de objeto para um volume de armazenamento ou nó de a
 ** link:../maintain/remounting-and-reformatting-storage-volumes-manual-steps.html["Remontagem e reformatação de volumes de storage (etapas manuais)"]
 
 
-* Você confirmou que o nó de armazenamento onde você está restaurando objetos tem um estado de conexão de *Conectado*image:../media/icon_alert_green_checkmark.png["marca de verificação verde de alerta do ícone"] na aba *Nós* > *Visão geral* no Gerenciador de grade.
+* Você confirmou que o Nó de Armazenamento onde está restaurando objetos tem um Estado de Conexão *Conectado* image:icon_alert_green_checkmark.png["marca de verificação verde de alerta do ícone"] na guia *Nodes* > *Overview* do Grid Manager.
 * Você confirmou o seguinte:
 +
 ** Uma expansão de grade para adicionar um nó de storage não está em processo.

@@ -25,7 +25,7 @@ Uma conexão de federação de grade é uma conexão bidirecional, confiável e 
 
 O diagrama de fluxo de trabalho resume as etapas para configurar uma conexão de federação de grade entre duas grades.
 
-image::../media/grid-federation-workflow.png[Fluxo de trabalho de conexão de federação de grade]
+image:grid-federation-workflow.png["Fluxo de trabalho de conexão de federação de grade"]
 
 
 
@@ -85,7 +85,7 @@ Quando você configura uma conexão de federação de grade, o StorageGRID gera 
 * Certificados de servidor e cliente para autenticar e criptografar informações enviadas da grade 2 para a grade 1
 
 
-image::../media/grid-federation-certificates.png[Certificados de federação de grade]
+image:grid-federation-certificates.png["Certificados de federação de grade"]
 
 Por padrão, os certificados são válidos por 730 dias (2 anos). Quando esses certificados estiverem próximos da data de expiração, o alerta *Expiration of Grid Federation certificate* lembra que você deve girar os certificados, o que você pode fazer usando o Grid Manager.
 

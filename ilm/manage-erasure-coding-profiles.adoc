@@ -75,7 +75,7 @@ O StorageGRID impede que você desative um perfil de codificação de apagamento
 Você não pode desativar um perfil de codificação de apagamento se ele for usado em qualquer regra ILM. No exemplo, o perfil 2 mais 1 Data Center 1 é usado em pelo menos uma regra ILM.
 
 +
-image::../media/ec_profile_used_in_ilm_rule.png[Perfil EC usado na regra ILM]
+image:ec_profile_used_in_ilm_rule.png["Perfil EC usado na regra ILM"]
 
 . Se o perfil for usado em uma regra ILM, siga estas etapas:
 +

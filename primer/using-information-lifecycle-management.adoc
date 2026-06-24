@@ -81,7 +81,7 @@ Como exemplo, uma política ILM pode conter três regras ILM que especificam o s
 
 
 
-image::../media/ilm_policy_and_rules.png[Política e regras do ILM]
+image:ilm_policy_and_rules.png["Política e regras do ILM"]
 
 .Informações relacionadas
 * link:../ilm/index.html["Gerenciar objetos com ILM"]

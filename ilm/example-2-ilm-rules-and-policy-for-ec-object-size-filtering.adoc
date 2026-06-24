@@ -57,7 +57,7 @@ Colocações
 Crie uma cópia codificada por apagamento 2-1 usando três sites
 
 |===
-image::../media/policy_2_rule_1_ec_objects_adv_filtering.png[Regra ILM 1 por exemplo 2: Use EC para todos os objetos com mais de 1 MB]
+image:policy_2_rule_1_ec_objects_adv_filtering.png["Regra ILM 1 por exemplo 2: Use EC para todos os objetos com mais de 1 MB"]
 
 
 

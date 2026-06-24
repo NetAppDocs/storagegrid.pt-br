@@ -16,7 +16,7 @@ Quando terminar de trabalhar com o Gestor de Locatário, tem de terminar sessão
 .Passos
 . Localize o nome de usuário suspenso no canto superior direito da interface do usuário.
 +
-image::../media/tenant_user_sign_out.png[Link de saída]
+image:tenant_user_sign_out.png["Link de saída"]
 
 . Selecione o nome de usuário e, em seguida, selecione *Sair*.
 +

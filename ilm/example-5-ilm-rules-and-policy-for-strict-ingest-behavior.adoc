@@ -84,7 +84,7 @@ Comportamento de ingestão
 Rigoroso. Sempre use os posicionamentos desta regra na ingestão. A ingestão falha se não for possível armazenar duas cópias do objeto no data center de Paris.
 
 |===
-image::../media/ilm_rule_1_example_5_strict_ingest.png[Regra ILM 1 exemplo 5 ingestão rigorosa]
+image:ilm_rule_1_example_5_strict_ingest.png["Regra ILM 1 exemplo 5 ingestão rigorosa"]
 
 
 

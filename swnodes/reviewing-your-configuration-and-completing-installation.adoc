@@ -16,7 +16,7 @@ Você deve analisar cuidadosamente as informações de configuração inseridas 
 .Passos
 . Veja a página *Summary*.
 +
-image::../media/11_gmi_installer_summary_page.gif[Página de resumo do instalador do Grid Manager]
+image:11_gmi_installer_summary_page.gif["Página de resumo do instalador do Grid Manager"]
 
 . Verifique se todas as informações de configuração da grade estão corretas. Use os links Modificar na página Resumo para voltar e corrigir quaisquer erros.
 . Clique em *Instalar*.
@@ -38,7 +38,7 @@ CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém 
 Se a instalação ainda estiver em andamento, a página de status será exibida. Esta página indica o progresso da instalação para cada nó de grade.
 
 +
-image::../media/12_gmi_installer_status_page.gif[Esta imagem é explicada pelo texto circundante.]
+image:12_gmi_installer_status_page.gif["Esta imagem é explicada pelo texto circundante."]
 
 +
 Quando o estágio completo é alcançado para todos os nós de grade, a página de login do Gerenciador de Grade é exibida.

@@ -15,6 +15,6 @@ O storage subjacente em um nó de storage é dividido em armazenamentos de objet
 
 Você pode visualizar informações de armazenamento de objetos para cada nó de armazenamento.  Selecione *Nós* > *_Nó de Armazenamento_* > *Armazenamento*.
 
-image::../media/nodes_page_storage_nodes_storage_tables.png[Tabelas de storage de nós de storage]
+image:nodes_page_storage_nodes_storage_tables.png["Tabelas de storage de nós de storage"]
 
 Dependendo da natureza da falha, as falhas com um volume de armazenamento podem ser refletidas no link:../monitor/alerts-reference.html["alertas de volume de storage"]. Se um volume de armazenamento falhar, você deve reparar o volume de armazenamento com falha para restaurar o nó de armazenamento para a funcionalidade completa o mais rápido possível. Se necessário, você pode ir para a guia *Configuração* e link:../maintain/checking-storage-state-after-recovering-storage-volumes.html["Coloque o nó de storage em um estado somente leitura"] para que o sistema StorageGRID possa usá-lo para recuperação de dados enquanto você se prepara para uma recuperação completa do servidor.

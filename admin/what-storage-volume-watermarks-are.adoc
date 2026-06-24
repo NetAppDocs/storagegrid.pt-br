@@ -13,7 +13,7 @@ summary: 'O StorageGRID usa três marcas d"água de volume de storage para garan
 [role="lead"]
 O StorageGRID usa três marcas d'água de volume de storage para garantir que os nós de storage sejam transferidos com segurança para um estado somente leitura antes que eles sejam executados com muito pouco espaço e para permitir que os nós de storage que foram transferidos para um estado somente leitura sejam novamente lidos.
 
-image::../media/storage_volume_watermarks.png[Marcas de água do volume de armazenamento]
+image:storage_volume_watermarks.png["Marcas de água do volume de armazenamento"]
 
 
 NOTE: As marcas d'água do volume de armazenamento aplicam-se apenas ao espaço utilizado para dados de objetos replicados e codificados por apagamento. Para saber mais sobre o espaço reservado para metadados de objetos no volume 0, vá para link:managing-object-metadata-storage.html["Gerenciar o storage de metadados de objetos"].

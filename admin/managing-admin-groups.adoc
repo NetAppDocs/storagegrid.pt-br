@@ -141,7 +141,7 @@ Editar nome de exibição (apenas grupos locais)
 
  a| 
 .. Selecione o nome do grupo para exibir os detalhes.
-.. Selecione o ícone de edição image:../media/icon_edit_tm.png["Ícone de edição"].
+.. Selecione o ícone de edição image:icon_edit_tm.png["Ícone de edição"].
 .. Introduza o novo nome.
 .. Selecione *Salvar alterações*.
 

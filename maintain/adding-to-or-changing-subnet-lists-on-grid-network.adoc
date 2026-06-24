@@ -65,7 +65,7 @@ Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
 É apresentado o menu principal.
 
 +
-image::../media/change_ip_tool_main_menu.png[Captura de tela mostrando a tela de boas-vindas da ferramenta Change IP]
+image:change_ip_tool_main_menu.png["Captura de tela mostrando a tela de boas-vindas da ferramenta Change IP"]
 
 . No menu principal, selecione a opção para editar sub-redes para a rede de Grade (opção *4*).
 +
@@ -93,7 +93,7 @@ TIP: Você pode reduzir a quantidade de digitação necessária usando "seta par
 
 A entrada de exemplo abaixo mostra a configuração de sub-redes para a Lista de sub-redes de rede de Grade:
 
-image::../media/change_ip_tool_gnsl_sample_input.gif[captura de tela descrita pelo texto circundante]
+image:change_ip_tool_gnsl_sample_input.gif["captura de tela descrita pelo texto circundante"]
 
 --
 . Quando estiver pronto, digite *q* para voltar à tela do menu principal. Suas alterações são mantidas até serem limpas ou aplicadas.
@@ -101,7 +101,7 @@ image::../media/change_ip_tool_gnsl_sample_input.gif[captura de tela descrita pe
 +
 ** Selecione a opção *5* para mostrar as edições na saída que estão isoladas para mostrar apenas o item alterado. As alterações são realçadas em verde (adições) ou vermelho (exclusões), como mostrado na saída de exemplo abaixo:
 +
-image::../media/change_ip_tool_gnsl_sample_output.gif[captura de tela descrita pelo texto circundante]
+image:change_ip_tool_gnsl_sample_output.gif["captura de tela descrita pelo texto circundante"]
 
 ** Selecione a opção *6* para mostrar as edições na saída que exibem a configuração completa. As alterações são realçadas em verde (adições) ou vermelho (exclusões).
 +

@@ -36,7 +36,7 @@ CAUTION: Armazene a senha de provisionamento em um local seguro.  É necessário
 O sistema exibe um banner verde de sucesso quando a alteração da senha de provisionamento estiver concluída.
 
 +
-image::../media/change_provisioning_passphrase_success.png[Mensagem de sucesso para a senha de provisionamento alterada]
+image:change_provisioning_passphrase_success.png["Mensagem de sucesso para a senha de provisionamento alterada"]
 
 . Selecione *Pacote de recuperação*.
 . Digite a nova senha de provisionamento para baixar o novo pacote de recuperação.

@@ -48,7 +48,7 @@ A página regras de alerta é exibida.
 A caixa de diálogo criar regra personalizada é exibida.
 
 +
-image::../media/alerts_create_custom_rule.png[Alertas > criar regra personalizada]
+image:alerts_create_custom_rule.png["Alertas > Criar regra personalizada"]
 
 . Marque ou desmarque a caixa de seleção *Enabled* para determinar se essa regra de alerta está ativada no momento.
 +
@@ -98,7 +98,7 @@ Esta expressão faz com que um alerta seja acionado se a quantidade de RAM insta
 `node_memory_MemTotal_bytes < 24000000000`
 
 +
-Para ver as métricas disponíveis e testar expressões Prometheus, selecione o ícone de ajuda image:../media/icon_nms_question.png["ícone de ponto de interrogação"]e siga o link para a seção métricas da API de Gerenciamento de Grade.
+Para visualizar métricas disponíveis e testar expressões do Prometheus, selecione o ícone de ajuda image:icon_nms_question.png["ícone de ponto de interrogação"] e siga o link para a seção Métricas da API de Gerenciamento de Grid.
 
 . No campo *duração*, insira o período de tempo em que uma condição deve permanecer em vigor continuamente antes que o alerta seja acionado e selecione uma unidade de tempo.
 +

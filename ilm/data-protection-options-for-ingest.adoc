@@ -21,7 +21,7 @@ Dependendo de sua escolha, o StorageGRID faz cópias provisórias e coloca os ob
 
 O fluxograma mostra o que acontece quando os objetos são combinados por uma regra ILM que usa cada uma das três opções de ingestão.
 
-image::../media/ingest_object_lifecycle.png[Diagrama mostrando como ocorre a ingestão de objetos para cada opção de ingestão]
+image:ingest_object_lifecycle.png["Diagrama mostrando como ocorre a ingestão de objetos para cada opção de ingestão"]
 
 
 

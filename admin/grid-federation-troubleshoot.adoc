@@ -104,10 +104,7 @@ Esse problema pode ocorrer se as atualizações do status da conexão forem atra
 . Selecione o nome do locatário para exibir a página de detalhes.
 . Selecione *Repetir clone de conta*.
 +
-image::../media/grid-federation-retry-account-clone.png[Captura de tela mostrando uma mensagem de erro e o botão Repetir conta clone]
-
-+
-Se o erro tiver sido resolvido, a conta de locatário será clonada para a outra grade.
+image:grid-federation-retry-account-clone.png["Captura de tela mostrando uma mensagem de erro e o botão Repetir conta clone"]Se o erro tiver sido resolvido, a conta do locatário agora será clonada para a outra grade.
 
 
 
@@ -122,7 +119,7 @@ Se o erro tiver sido resolvido, a conta de locatário será clonada para a outra
 .Problema
 Quando link:../monitor/grid-federation-monitor-connections.html["exibindo uma conexão de federação de grade"] (ou link:grid-federation-manage-tenants.html["gerir os inquilinos permitidos"]quando para uma conexão), você percebe um erro na coluna *último erro* na página de detalhes da conexão. Por exemplo:
 
-image::../media/grid-federation-last-error.png[Captura de tela mostrando uma mensagem na coluna último erro de uma conexão de federação de grade]
+image:grid-federation-last-error.png["Captura de tela mostrando uma mensagem na coluna último erro de uma conexão de federação de grade"]
 
 .Detalhes
 Para cada conexão de federação de grade, a coluna *Último erro* mostra o erro mais recente ocorrido, se houver, quando os dados de um locatário estavam sendo replicados para a outra grade.  Esta coluna mostra apenas o último erro de replicação entre grades que ocorreu; erros anteriores que podem ter ocorrido não são mostrados.  Um erro nesta coluna pode ocorrer por um destes motivos:

@@ -66,7 +66,7 @@ Colocações
 Crie uma cópia codificada por apagamento 2-1 usando três sites
 
 |===
-image::../media/policy_3_rule_1_ec_images_adv_filtering.png[Regra ILM 1 por exemplo 3: Use EC para arquivos de imagem maiores que 1 MB]
+image:policy_3_rule_1_ec_images_adv_filtering.png["Regra ILM 1 por exemplo 3: Use EC para arquivos de imagem maiores que 1 MB"]
 
 Como essa regra é configurada como a primeira regra na política, a instrução de colocação de codificação de apagamento só se aplica a arquivos .jpg e .png maiores que 1 MB.
 
@@ -121,4 +121,4 @@ Este exemplo de política ILM inclui três regras:
 * A regra padrão se aplica a todos os objetos restantes (ou seja, quaisquer arquivos que não sejam de imagem).
 
 
-image::../media/policy_3_configured_policy.png[Política ILM, por exemplo, 3: Melhor proteção para arquivos de imagem]
+image:policy_3_configured_policy.png["Política ILM, por exemplo, 3: Melhor proteção para arquivos de imagem"]

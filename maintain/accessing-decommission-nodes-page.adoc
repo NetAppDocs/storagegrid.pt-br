@@ -36,7 +36,7 @@ A página Decommission Nodes (nós de desintegração) é exibida. Nesta página
 Neste exemplo, a coluna Decmmission possible indica que você pode desativar o Gateway Node e um dos quatro nós de armazenamento.
 
 +
-image::../media/decommission_nodes_page_all_connected.png[Desativar a página de nós]
+image:decommission_nodes_page_all_connected.png["Desativar a página de nós"]
 
 
 
@@ -68,8 +68,8 @@ Não é possível desativar um nó de grade conetado se qualquer nó de grade es
 
 A coluna *Saúde* inclui um destes ícones para nós de grade que estão desconetados:
 
-** image:../media/icon_alarm_gray_administratively_down.png["ícone de marca de interrogação cinzenta"] (Cinza): Administrativamente para baixo
-** image:../media/icon_alarm_blue_unknown.png["ícone de ponto de interrogação azul"] (Azul): Desconhecido
+** image:icon_alarm_gray_administratively_down.png["ícone de marca de interrogação cinzenta"] (cinza): Administrativamente inativo
+** image:icon_alarm_blue_unknown.png["ícone de ponto de interrogação azul"] (azul): desconhecido
 
  a| 
 Você deve colocar todos os nós desconetados novamente on-line ou link:decommissioning-disconnected-grid-nodes.html["desativar todos os nós desconetados"] antes de poder remover um nó conetado.

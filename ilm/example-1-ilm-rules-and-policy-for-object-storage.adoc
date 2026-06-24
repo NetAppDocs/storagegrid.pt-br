@@ -60,7 +60,7 @@ A seção análise de regras do diagrama de retenção afirma:
 * Os objetos processados por esta regra não serão excluídos pelo ILM.
 
 
-image::../media/ilm_rule_two_copies_two_data_centers.png[Regra ILM 1 por exemplo 1: Copiar dados de objeto para dois sites]
+image:ilm_rule_two_copies_two_data_centers.png["Regra ILM 1 por exemplo 1: Copiar dados de objeto para dois sites"]
 
 
 
@@ -102,7 +102,7 @@ Colocações
 Para objetos no bucket do S3 chamado finance-Records, crie uma cópia codificada por apagamento no pool especificado pelo perfil de codificação de apagamento. Guarde esta cópia para sempre.
 
 |===
-image::../media/ilm_rule_ec_for_s3_bucket_finance_records.png[Regra ILM 2 por exemplo 1: Perfil de codificação de apagamento com correspondência de intervalo]
+image:ilm_rule_ec_for_s3_bucket_finance_records.png["Regra ILM 2 por exemplo 1: Perfil de codificação de apagamento com correspondência de intervalo"]
 
 
 
@@ -115,7 +115,7 @@ Uma política ILM típica para uma grade de vários sites pode incluir regras IL
 * Na ingestão, armazene todos os objetos pertencentes ao bucket S3 nomeado `finance-records` em um pool de armazenamento que contém três locais. Use a codificação de apagamento 6-3.
 * Se um objeto não corresponder à primeira regra ILM, use a regra ILM padrão da política, duas cópias de dois Data Centers, para armazenar uma cópia desse objeto no Site 1 e uma cópia no Site 2.
 +
-image::../media/policy_1_configured_policy.png[Política de ILM, por exemplo, 1]
+image:policy_1_configured_policy.png["Política de ILM, por exemplo, 1"]
 
 
 

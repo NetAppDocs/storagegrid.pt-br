@@ -88,7 +88,7 @@ Você pode resolver o alerta * baixa substituição de marca d'água somente lei
 . Para cada local na grade, expanda a lista de nós.
 . Revise os valores de porcentagem mostrados na coluna *dados de objeto usados* para cada nó de armazenamento em cada local.
 +
-image::../media/nodes_page_object_data_used_with_alert.png[Página de nós mostrando dados de objeto usados para 3 SnS]
+image:nodes_page_object_data_used_with_alert.png["Página de nós mostrando dados de objeto usados para 3 SnS"]
 
 . Siga o passo apropriado:
 +

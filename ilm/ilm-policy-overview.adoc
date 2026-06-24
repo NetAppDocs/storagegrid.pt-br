@@ -40,7 +40,7 @@ Você pode ter uma ou mais políticas ILM ativas de cada vez.
 
 Se sua grade usar um esquema simples de proteção de dados com poucas regras específicas do locatário e específicas do bucket, use uma única política de ILM ativa. As regras do ILM podem conter filtros para gerenciar diferentes buckets ou locatários.
 
-image::../media/ilm-policies-single.png[Diagrama único de políticas ILM]
+image:ilm-policies-single.png["Diagrama único de políticas ILM"]
 
 Quando você tiver apenas uma política e os requisitos de um locatário mudarem, você deverá criar uma nova política de ILM ou clonar a política existente para aplicar alterações, simular e ativar a nova política de ILM. Alterações na política ILM podem resultar em movimentos de objetos que podem levar muitos dias e causar latência do sistema.
 
@@ -64,7 +64,7 @@ NOTE: Você podelink:../ilm/creating-ilm-policy.html#activate-ilm-policy["crie n
 Etiqueta de política ILM padrão:: Uma tag de política ILM padrão é criada automaticamente quando você instala o StorageGRID. Cada grade deve ter uma política ativa que é atribuída à tag padrão. A política padrão se aplica a quaisquer buckets S3 não marcados.
 
 
-image::../media/ilm-policies-tags-conceptual.png[Diagrama de várias políticas ILM]
+image:ilm-policies-tags-conceptual.png["Diagrama de várias políticas ILM"]
 
 
 
@@ -106,7 +106,7 @@ Como exemplo, uma política ILM pode conter três regras ILM que especificam o s
 
 
 
-image::../media/ilm_policy_and_rules.png[Política e regras do ILM]
+image:ilm_policy_and_rules.png["Política e regras do ILM"]
 
 
 

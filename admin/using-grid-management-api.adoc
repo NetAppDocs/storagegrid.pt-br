@@ -43,7 +43,7 @@ CAUTION: Todas as operações de API executadas usando a página da Documentaç�
 .Passos
 . No cabeçalho do Gerenciador de Grade, selecione o ícone de ajuda e selecione *Documentação da API*.
 +
-image::../media/help_menu.png[Menu Ajuda]
+image:help_menu.png["Menu Ajuda"]
 
 . Para executar uma operação com a API privada, selecione *ir para a documentação da API privada* na página da API de gerenciamento do StorageGRID.
 +
@@ -55,7 +55,7 @@ Ao expandir uma operação de API, você pode ver as ações HTTP disponíveis, 
 
 . Selecione uma ação HTTP para ver os detalhes da solicitação, incluindo o URL do endpoint, uma lista de todos os parâmetros necessários ou opcionais, um exemplo do corpo da solicitação (quando necessário) e as possíveis respostas.
 +
-image::../media/swagger_example.png[Exemplo de Swagger UI]
+image:swagger_example.png["Exemplo de Swagger UI"]
 
 . Determine se a solicitação requer parâmetros adicionais, como um grupo ou ID de usuário. Em seguida, obtenha esses valores. Talvez você precise emitir uma solicitação de API diferente primeiro para obter as informações de que precisa.
 . Determine se você precisa modificar o corpo de solicitação de exemplo. Em caso afirmativo, você pode selecionar *modelo* para aprender os requisitos para cada campo.
