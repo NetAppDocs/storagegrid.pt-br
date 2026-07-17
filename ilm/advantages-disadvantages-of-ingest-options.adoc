@@ -17,6 +17,7 @@ Para obter uma visão geral das opções de ingestão, link:data-protection-opti
 
 
 
+[[advantages-of-the-balanced-and-strict-options]]
 == Vantagens das opções equilibradas e estritas
 
 Quando comparado ao Dual Commit, que cria cópias provisórias durante a ingestão, as duas opções de posicionamento síncrono podem oferecer as seguintes vantagens:
@@ -29,6 +30,7 @@ Quando comparado ao Dual Commit, que cria cópias provisórias durante a ingest�
 
 
 
+[[disadvantages-of-the-balanced-and-strict-options]]
 == Desvantagens das opções equilibradas e estritas
 
 Quando comparado ao Dual Commit, as opções equilibradas e estritas têm algumas desvantagens:
@@ -46,6 +48,7 @@ Quando comparado ao Dual Commit, as opções equilibradas e estritas têm alguma
 
 
 
+[[limitations-on-object-placements-with-the-balanced-and-strict-options]]
 == Limitações em posicionamentos de objetos com opções equilibradas e estritas
 
 As opções equilibradas ou estritas não podem ser usadas para regras de ILM que tenham qualquer uma destas instruções de colocação:
@@ -58,6 +61,7 @@ Essas restrições existem porque o StorageGRID não pode fazer cópias sincrona
 
 
 
+[[how-ilm-rules-and-consistency-interact-to-affect-data-protection]]
 == Como as regras de ILM e a consistência interagem para afetar a proteção de dados
 
 Tanto sua regra ILM quanto sua escolha de consistência afetam a forma como os objetos são protegidos. Essas configurações podem interagir.
@@ -96,6 +100,7 @@ NOTE: Antes de selecionar um valor de consistência,link:../s3/consistency.html[
 
 
 
+[[example-of-how-consistency-and-ilm-rules-can-interact]]
 == Exemplo de como a consistência e as regras do ILM podem interagir
 
 Suponha que você tenha uma grade de três sites com a seguinte regra ILM e a seguinte consistência:

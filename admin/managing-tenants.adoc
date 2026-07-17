@@ -34,6 +34,7 @@ Para obter mais informações, link:../tenant/index.html["Use uma conta de locat
 
 
 
+[[how-do-i-create-a-tenant-account]]
 == Como faço para criar uma conta de locatário?
 
 Use o Gerenciador de Grade para criar uma conta de locatário. Ao criar uma conta de locatário, você especifica as seguintes informações:
@@ -47,6 +48,7 @@ Além disso, você pode ativar a configuração bloqueio de objeto S3 para o sis
 
 
 
+[[what-is-tenant-manager-used-for]]
 == Para que é utilizado o Tenant Manager?
 
 Depois de criar a conta de locatário, os usuários do locatário podem entrar no Gerenciador do locatário para executar tarefas como as seguintes:

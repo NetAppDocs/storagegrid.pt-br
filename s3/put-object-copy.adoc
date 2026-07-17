@@ -15,12 +15,14 @@ Você pode usar a solicitação S3 CopyObject para criar uma cópia de um objeto
 
 
 
+[[resolve-conflicts]]
 == Resolver conflitos
 
 As solicitações de cliente conflitantes, como dois clientes escrevendo para a mesma chave, são resolvidas com base em "vitórias mais recentes". O tempo para a avaliação "últimos ganhos" é baseado em quando o sistema StorageGRID completa uma determinada solicitação e não em quando os clientes S3 começam uma operação.
 
 
 
+[[object-size]]
 == Tamanho do objeto
 
 O tamanho máximo _recomendado_ para uma única operação PutObject é de 5 GiB (5.368.709.120 bytes). Se você tiver objetos maiores que 5 GiB, use link:operations-for-multipart-uploads.html["carregamento multipart"] em vez disso.
@@ -32,6 +34,7 @@ NOTE: Se você atualizou do StorageGRID 11,6 ou anterior, o alerta COLOCAR taman
 
 
 
+[[utf-8-characters-in-user-metadata]]
 == UTF-8 carateres em metadados do usuário
 
 Se uma solicitação incluir valores UTF-8 (não escapados) no nome da chave ou valor dos metadados definidos pelo usuário, o comportamento do StorageGRID é indefinido.
@@ -44,6 +47,7 @@ O StorageGRID não analisa nem interpreta carateres UTF-8 escapados incluídos n
 
 
 
+[[supported-request-headers]]
 == Cabeçalhos de solicitação suportados
 
 Os seguintes cabeçalhos de solicitação são suportados:
@@ -92,6 +96,7 @@ Consulte <<Cabeçalhos de solicitação para criptografia do lado do servidor>>
 
 
 
+[[unsupported-request-headers]]
 == Cabeçalhos de solicitação não suportados
 
 Os seguintes cabeçalhos de solicitação não são suportados:
@@ -118,6 +123,7 @@ Quando você copia um objeto, se o objeto de origem tiver um checksum, o Storage
 
 
 
+[[storage-class-options]]
 == Opções de classe de armazenamento
 
 O `x-amz-storage-class` cabeçalho de solicitação é suportado e afeta quantas cópias de objeto criadas pelo StorageGRID se a regra ILM correspondente usar o compromisso duplo ou equilibrado link:../ilm/data-protection-options-for-ingest.html["opção de ingestão"].
@@ -138,6 +144,7 @@ NOTE: Se você estiver ingerindo um objeto em um bucket com o S3 Object Lock ati
 
 
 
+[[using-x-amz-copy-source-in-copyobject]]
 == Usando x-amz-copy-source em CopyObject
 
 Se o intervalo de origem e a chave, especificados no `x-amz-copy-source` cabeçalho, forem diferentes do intervalo de destino e da chave, uma cópia dos dados do objeto de origem será gravada no destino.
@@ -153,6 +160,7 @@ Isso significa que se a regra ILM usar a opção estrita para o comportamento de
 
 
 
+[[request-headers-for-server-side-encryption]]
 == Cabeçalhos de solicitação para criptografia do lado do servidor
 
 Se link:using-server-side-encryption.html["use a criptografia do lado do servidor"]você , os cabeçalhos de solicitação fornecidos dependem se o objeto de origem está criptografado e se você planeja criptografar o objeto de destino.
@@ -188,6 +196,7 @@ NOTE: O `server-side-encryption` valor do objeto não pode ser atualizado. Em ve
 
 
 
+[[versioning]]
 == Controle de versão
 
 Se o bucket de origem for versionado, você pode usar o `x-amz-copy-source` cabeçalho para copiar a versão mais recente de um objeto. Para copiar uma versão específica de um objeto, você deve especificar explicitamente a versão a ser copiada usando o `versionId` subrecurso. Se o intervalo de destino for versionado, a versão gerada será retornada `x-amz-version-id` no cabeçalho de resposta. Se o controle de versão estiver suspenso para o bucket de destino, `x-amz-version-id` retorna um valor "nulo".

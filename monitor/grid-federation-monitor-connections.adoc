@@ -20,6 +20,7 @@ Você pode monitorar informações básicas sobre todas link:../admin/grid-feder
 
 
 
+[[view-all-connections]]
 == Ver todas as ligações
 
 A página de federação de grade mostra informações básicas sobre todas as conexões de federação de grade e sobre todas as contas de locatário que têm permissão para usar conexões de federação de grade.
@@ -59,6 +60,7 @@ image:grid-federation-permitted-tenants-tab.png["Guia locatários permitidos da 
 
 
 
+[[view-specific-connectionview-a-specific-connection]]
 == [[view-specific-Connection]]Veja uma conexão específica
 
 Você pode exibir detalhes de uma conexão de federação de grade específica.
@@ -102,6 +104,7 @@ image:grid-federation-certificates-tab.png["grid-federation-certificates-tab"]
 
 
 
+[[review-cross-grid-replication-metrics]]
 == Analise as métricas de replicação entre grades
 
 Você pode usar o painel replicação entre grades no Grafana para exibir as métricas do Prometheus sobre operações de replicação entre grades na grade.

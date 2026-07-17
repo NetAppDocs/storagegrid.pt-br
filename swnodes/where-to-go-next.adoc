@@ -15,6 +15,7 @@ Depois de concluir uma instalação, execute as tarefas de integração e config
 
 
 
+[[required-tasks]]
 == Tarefas necessárias
 
 * (Somente VMware) Configure o VMware vSphere Hypervisor para reinicialização automática.
@@ -42,6 +43,7 @@ Você deve configurar o hipervisor para reiniciar as máquinas virtuais quando o
 
 
 
+[[optional-tasks]]
 == Tarefas opcionais
 
 * link:../maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["Atualize os endereços IP do nó da grade"]se eles mudaram desde que você planejou sua implantação e gerou o pacote de recuperação.

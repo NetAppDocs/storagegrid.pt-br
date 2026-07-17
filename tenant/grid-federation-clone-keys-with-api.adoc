@@ -27,6 +27,7 @@ NOTE: Quando você clonar chaves de acesso S3 para um usuário federado, tanto o
 
 
 
+[[clone-your-own-access-keys]]
 == Clone suas próprias chaves de acesso
 
 Você pode clonar suas próprias chaves de acesso se precisar acessar os mesmos buckets em ambas as grades.
@@ -56,6 +57,7 @@ image:grid-federation-clone-access-key.png["API do Gerenciador de inquilinos ins
 
 
 
+[[clone-another-users-access-keys]]
 == Clonar chaves de acesso de outro usuário
 
 Você pode clonar as chaves de acesso de outro usuário se ele precisar acessar os mesmos buckets em ambas as grades.

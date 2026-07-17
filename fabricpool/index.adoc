@@ -22,6 +22,7 @@ Use estas instruções para:
 
 
 
+[[quick-start-for-configuring-storagegrid-for-fabricpool]]
 == Início rápido para configurar o StorageGRID para FabricPool
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"] Planeje sua configuração
@@ -69,6 +70,7 @@ Quando o sistema estiver funcionando, execute tarefas contínuas no ONTAP e no S
 
 
 
+[[what-is-fabricpool]]
 == O que é o FabricPool?
 
 O FabricPool é uma solução de storage híbrido da ONTAP que usa um agregado flash de alto desempenho como a categoria de performance e um armazenamento de objetos como a categoria de nuvem. O uso de agregados habilitados para FabricPool ajuda a reduzir custos de storage sem comprometer a performance, a eficiência ou a proteção.
@@ -79,12 +81,14 @@ Nenhuma mudança de arquitetura é necessária. Assim, você continua gerenciand
 
 
 
+[[what-is-storagegrid]]
 == O que é o StorageGRID?
 
 O NetApp StorageGRID é uma arquitetura de storage que gerencia dados como objetos, em vez de outras arquiteturas de storage, como storage de arquivos ou blocos. Os objetos são mantidos dentro de um único contentor (como um bucket) e não são aninhados como arquivos dentro de um diretório dentro de outros diretórios. Embora o storage de objetos geralmente forneça performance inferior ao storage de arquivos ou blocos, ele é significativamente mais dimensionável. Os buckets do StorageGRID podem armazenar petabytes de dados e bilhões de objetos.
 
 
 
+[[why-use-storagegrid-as-a-fabricpool-cloud-tier]]
 == Por que usar o StorageGRID como uma categoria de nuvem do FabricPool?
 
 O FabricPool pode categorizar dados do ONTAP em vários fornecedores de storage de objetos, incluindo o StorageGRID. Ao contrário de nuvens públicas que podem definir um número máximo de operações de entrada/saída por segundo (IOPS) com suporte no nível do bucket ou do contêiner, a performance do StorageGRID é dimensionada de acordo com o número de nós em um sistema. O uso do StorageGRID como uma categoria de nuvem do FabricPool permite que você mantenha os dados inativos na sua própria nuvem privada para obter a mais alta performance e controle total sobre os dados.

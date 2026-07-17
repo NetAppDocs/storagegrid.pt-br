@@ -17,6 +17,7 @@ link:configuring-client-connections.html["Configurar conexões de cliente S3"]Co
 
 
 
+[[default-storagegrid-networks]]
 == Redes StorageGRID predefinidas
 
 Por padrão, o StorageGRID oferece suporte a três interfaces de rede por nó de grade, permitindo que você configure a rede para cada nó de grade individual de acordo com seus requisitos de segurança e acesso.
@@ -25,24 +26,28 @@ Para obter mais informações sobre a topologia de rede, link:../network/index.h
 
 
 
+[[grid-network]]
 === Rede de rede
 
 Obrigatório. A rede de grade é usada para todo o tráfego interno do StorageGRID. Ele fornece conetividade entre todos os nós na grade, em todos os sites e sub-redes.
 
 
 
+[[admin-network]]
 === Rede de administração
 
 Opcional. A rede de administração é normalmente utilizada para administração e manutenção do sistema. Ele também pode ser usado para acesso ao protocolo cliente. A rede Admin é normalmente uma rede privada e não precisa ser roteável entre sites.
 
 
 
+[[client-network]]
 === Rede de clientes
 
 Opcional. A rede de clientes é uma rede aberta normalmente usada para fornecer acesso a aplicativos clientes S3, de modo que a rede de Grade pode ser isolada e protegida. A rede do cliente pode se comunicar com qualquer sub-rede acessível através do gateway local.
 
 
 
+[[guidelines]]
 == Diretrizes
 
 * Cada nó StorageGRID requer uma interface de rede dedicada, endereço IP, máscara de sub-rede e gateway para cada rede à qual está atribuído.
@@ -83,6 +88,7 @@ eth2
 
 
 
+[[optional-interfaces]]
 == Interfaces opcionais
 
 Opcionalmente, você pode adicionar interfaces extras a um nó. Por exemplo, você pode querer adicionar uma interface de tronco a um nó Admin ou Gateway, para que você possa usar link:../admin/configure-vlan-interfaces.html["Interfaces VLAN"] para segregar o tráfego pertencente a diferentes aplicativos ou locatários. Ou, talvez você queira adicionar uma interface de acesso a ser usada em um link:../admin/configure-high-availability-group.html["Grupo de alta disponibilidade (HA)"].

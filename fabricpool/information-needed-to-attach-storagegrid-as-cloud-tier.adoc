@@ -15,6 +15,7 @@ Antes de anexar o StorageGRID como uma categoria de nuvem para o FabricPool, voc
 
 
 
+[[what-values-do-i-need]]
 == Quais valores eu preciso?
 
 A tabela a seguir mostra os valores que você deve configurar no StorageGRID e como esses valores são usados pelo ONTAP e pelo servidor DNS.
@@ -79,6 +80,7 @@ Gerenciador de sistema do ONTAP > Adicionar nível de nuvem
 |===
 
 
+[[how-do-i-get-these-values]]
 == Como obtenho esses valores?
 
 Dependendo de seus requisitos, você pode fazer um dos seguintes procedimentos para obter as informações de que precisa:

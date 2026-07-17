@@ -47,12 +47,14 @@ Quando você reinicia o nó Admin principal, seu navegador perde temporariamente
 
 
 
+[[perform-a-rolling-reboot]]
 == Execute uma reinicialização contínua
 
 Selecione os nós que pretende reiniciar, reveja as suas seleções, inicie o procedimento de reinício e monitorize o progresso.
 
 
 
+[[select-nodes]]
 === Selecione nós
 
 Como primeiro passo, acesse a página de reinicialização contínua e selecione os nós que deseja reinicializar.
@@ -79,6 +81,7 @@ Você pode usar as opções de filtro da tabela para exibir subconjuntos de nós
 
 
 
+[[review-selection]]
 === Seleção de revisão
 
 Nesta etapa, você pode determinar quanto tempo o procedimento de reinicialização total pode demorar e confirmar se selecionou os nós corretos.
@@ -96,6 +99,7 @@ NOTE: O nó Admin principal será o último nó a reiniciar. Enquanto este nó e
 
 
 
+[[monitor-a-rolling-reboot]]
 === Monitore uma reinicialização contínua
 
 Enquanto o procedimento de reinicialização contínua estiver em execução, você pode monitorá-lo a partir do nó de administração principal.
@@ -124,6 +128,7 @@ As tabelas fornecem uma barra de progresso da operação em cada nó e mostram a
 
 
 
+[[stop-the-rolling-reboot-procedure]]
 == Pare o procedimento de reinicialização contínua
 
 Você pode parar o procedimento de reinicialização contínua do nó de administração principal. Quando você parar o procedimento, todos os nós que têm o status "parando serviços", "reinicializando o sistema" ou "iniciando serviços" concluirão a operação de reinicialização. No entanto, esses nós não serão mais rastreados como parte do procedimento.

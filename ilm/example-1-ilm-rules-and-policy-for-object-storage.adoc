@@ -18,6 +18,7 @@ CAUTION: As seguintes regras e políticas do ILM são apenas exemplos. Existem m
 
 
 
+[[ilm-rule-1-for-example-1-copy-object-data-to-two-sites]]
 == Regra ILM 1 por exemplo 1: Copiar dados de objeto para dois sites
 
 Este exemplo de regra de ILM copia dados de objeto para pools de storage em dois locais.
@@ -64,6 +65,7 @@ image:ilm_rule_two_copies_two_data_centers.png["Regra ILM 1 por exemplo 1: Copia
 
 
 
+[[ilm-rule-2-for-example-1-erasure-coding-profile-with-bucket-matching]]
 == Regra ILM 2 por exemplo 1: Perfil de codificação de apagamento com correspondência de intervalo
 
 Este exemplo de regra ILM usa um perfil de codificação de apagamento e um bucket do S3 para determinar onde e quanto tempo o objeto é armazenado.
@@ -106,6 +108,7 @@ image:ilm_rule_ec_for_s3_bucket_finance_records.png["Regra ILM 2 por exemplo 1: 
 
 
 
+[[ilm-policy-for-example-1]]
 == Política de ILM, por exemplo, 1
 
 Na prática, a maioria das políticas de ILM são simples, mesmo que o sistema StorageGRID permita que você projete políticas de ILM sofisticadas e complexas.

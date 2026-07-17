@@ -17,6 +17,7 @@ O sistema StorageGRID oferece suporte a solicitações virtuais de estilo hosped
 
 
 
+[[date-handling]]
 == Tratamento da data
 
 A implementação do StorageGRID da API REST S3 suporta apenas formatos de data HTTP válidos.
@@ -25,6 +26,7 @@ O sistema StorageGRID suporta apenas formatos de data HTTP válidos para qualque
 
 
 
+[[common-request-headers]]
 == Cabeçalhos de solicitação comuns
 
 O sistema StorageGRID suporta os cabeçalhos de solicitação comuns definidos pelo https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html["Referência da API do Amazon Simple Storage Service: Cabeçalhos de solicitação comuns"^], com uma exceção.
@@ -47,6 +49,7 @@ Suporte para AWS Signature versão 4, com as seguintes exceções:
 |===
 
 
+[[common-response-headers]]
 == Cabeçalhos de resposta comuns
 
 O sistema StorageGRID suporta todos os cabeçalhos de resposta comuns definidos pela _Simple Storage Service API Reference_, com uma exceção.

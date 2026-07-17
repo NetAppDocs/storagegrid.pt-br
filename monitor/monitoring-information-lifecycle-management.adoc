@@ -20,6 +20,7 @@ A ingestão de objetos e outras atividades relacionadas a objetos podem exceder 
 
 
 
+[[use-grid-manager-dashboard-tab]]
 == Use a guia Painel do Gerenciador de Grade
 
 .Passos
@@ -34,6 +35,7 @@ Picos temporários no cartão de fila ILM (objetos) no painel de instrumentos de
 
 
 
+[[use-the-nodes-page]]
 == Use a página Nós
 
 .Passos

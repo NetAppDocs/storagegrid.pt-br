@@ -82,6 +82,7 @@ NOTE: A restauração de volume depende da disponibilidade de recursos onde as c
 
 
 
+[[enable-auto-restore-modeenable-automatic-restore-mode]]
 == [[enable-auto-restore-mode]]ative o modo de restauração automática
 
 Quando ativa o modo de restauro automático, a restauração do volume é iniciada automaticamente quando os volumes estão prontos para serem restaurados.
@@ -108,6 +109,7 @@ Você pode desativar o modo de restauração automática a qualquer momento.
 
 
 
+[[manually-restoremanually-restore-failed-volume-or-node]]
 == [[manually-restore]]restaure manualmente o volume ou nó com falha
 
 Siga estas etapas para restaurar um volume ou nó com falha.
@@ -137,6 +139,7 @@ Se uma restauração de volume não puder ser iniciada, o nó retornará à guia
 
 
 
+[[view-restoration-progressview-restoration-progress]]
 == [[view-restoration-progress]]Ver o progresso da restauração
 
 A guia *progresso da Restauração* mostra o status do processo de restauração de volume e informações sobre os volumes de um nó que está sendo restaurado.
@@ -166,6 +169,7 @@ A seção Restoration Jobs (tarefas de restauração) exibe informações sobre 
 
 
 
+[[view-restoration-historyview-restoration-history]]
 == [[view-restoration-history]]Ver histórico de restauro
 
 A guia *Histórico de Restauração* mostra informações sobre todas as restaurações de volume concluídas com êxito.

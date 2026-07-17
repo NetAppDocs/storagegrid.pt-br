@@ -22,6 +22,7 @@ image:grid_manager_dashboard.png["Painel do Grid Manager"]
 
 
 
+[[view-the-dashboard]]
 == Visualizar o painel de instrumentos
 
 O painel é composto por separadores que contêm informações específicas sobre o sistema StorageGRID. Cada guia contém categorias de informações exibidas nos cartões.
@@ -73,6 +74,7 @@ Algumas das cartas podem ser maximizadas para facilitar a visualização. Seleci
 
 
 
+[[manage-dashboards]]
 == Gerenciar painéis
 
 Se você tiver acesso root (link:../admin/admin-group-permissions.html["Permissões do grupo de administração"]consulte ), poderá executar as seguintes tarefas de gerenciamento para painéis:
@@ -95,6 +97,7 @@ image:dashboard_manage.png["Gerenciar painéis"]
 
 
 
+[[configure-dashboards]]
 == Configurar painéis
 
 Para criar um novo painel clonando o painel ativo, selecione *ações* > *Clonar painel ativo*.

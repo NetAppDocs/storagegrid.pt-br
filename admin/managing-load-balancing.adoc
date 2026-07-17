@@ -15,6 +15,7 @@ Você pode usar o balanceamento de carga para lidar com cargas de trabalho de in
 
 
 
+[[what-is-load-balancing]]
 == O que é balanceamento de carga?
 
 Quando um aplicativo cliente salva ou recupera dados de um sistema StorageGRID, o StorageGRID usa um balanceador de carga para gerenciar a carga de trabalho de obtenção e recuperação. O balanceamento de carga maximiza a velocidade e a capacidade de conexão distribuindo a carga de trabalho em vários nós de storage.
@@ -28,12 +29,14 @@ NOTE: Embora o serviço StorageGRID Load Balancer seja o mecanismo de balanceame
 
 
 
+[[how-many-load-balancing-nodes-do-i-need]]
 == Quantos nós de balanceamento de carga eu preciso?
 
 Como prática recomendada geral, cada local no seu sistema StorageGRID deve incluir dois ou mais nós com o serviço de balanceador de carga. Por exemplo, um site pode incluir dois nós de Gateway ou um nó de administrador e um nó de gateway. Certifique-se de que há uma infraestrutura adequada de rede, hardware ou virtualização para cada nó de balanceamento de carga, esteja você usando dispositivos de serviços, nós bare metal ou nós baseados em máquina virtual (VM).
 
 
 
+[[what-is-a-load-balancer-endpoint]]
 == O que é um ponto de extremidade do balanceador de carga?
 
 Um ponto de extremidade do balanceador de carga define a porta e o protocolo de rede (HTTPS ou HTTP) que as solicitações de aplicativos de cliente de entrada e saída usarão para acessar os nós que contêm o serviço Load Balancer. O endpoint também define o tipo de cliente (S3), o modo de encadernação e, opcionalmente, uma lista de inquilinos permitidos ou bloqueados.
@@ -47,6 +50,7 @@ Para criar um ponto de extremidade do balanceador de carga, use o Grid Manager o
 
 
 
+[[considerations-for-load-balancer-caching]]
 === Considerações sobre o cache do balanceador de carga
 
 O armazenamento em cache melhora significativamente o desempenho quando uma carga de trabalho opera em um subconjunto de dados e acessa objetos várias vezes.  Além disso, o armazenamento em cache fornece acesso remoto ao armazenamento de objetos sem uma implantação de grade completa.  O cache do balanceador de carga está disponível somente para nós de gateway.
@@ -123,6 +127,7 @@ Quaisquer solicitações que não sejam armazenadas em cache são encaminhadas p
 
 
 
+[[considerations-for-the-port]]
 === Considerações para a porta
 
 A porta de um ponto de extremidade do balanceador de carga é padrão para 10433 para o primeiro ponto de extremidade criado, mas você pode especificar qualquer porta externa não utilizada entre 1 e 65535. Se você usar a porta 80 ou 443, o endpoint usará o serviço Load Balancer somente nos nós do Gateway. Essas portas são reservadas em nós de administração. Se você usar a mesma porta para mais de um endpoint, você deve especificar um modo de encadernação diferente para cada endpoint.
@@ -131,12 +136,14 @@ Portas usadas por outros serviços de rede não são permitidas. Ver link:../net
 
 
 
+[[considerations-for-the-network-protocol]]
 === Considerações para o protocolo de rede
 
 Na maioria dos casos, as conexões entre aplicativos cliente e StorageGRID devem usar criptografia TLS (Transport Layer Security). A conexão com o StorageGRID sem criptografia TLS é suportada, mas não é recomendada, especialmente em ambientes de produção. Ao selecionar o protocolo de rede para o ponto de extremidade do balanceador de carga do StorageGRID, deve selecionar *HTTPS*.
 
 
 
+[[considerations-for-load-balancer-endpoint-certificates]]
 === Considerações para certificados de endpoint do balanceador de carga
 
 Se selecionar *HTTPS* como protocolo de rede para o ponto de extremidade do balanceador de carga, tem de fornecer um certificado de segurança. Você pode usar qualquer uma dessas três opções ao criar o ponto de extremidade do balanceador de carga:
@@ -197,6 +204,7 @@ Para evitar problemas de expiração de certificado, siga estas práticas recome
 
 
 
+[[considerations-for-the-binding-mode]]
 === Considerações para o modo de encadernação
 
 O modo de encadernação permite controlar quais endereços IP podem ser usados para acessar um ponto de extremidade do balanceador de carga. Se um endpoint usar um modo de encadernação, os aplicativos cliente só poderão acessar o endpoint se usarem um endereço IP permitido ou seu nome de domínio totalmente qualificado (FQDN) correspondente. Os aplicativos clientes que usam qualquer outro endereço IP ou FQDN não podem acessar o endpoint.
@@ -211,6 +219,7 @@ Você pode especificar qualquer um dos seguintes modos de encadernação:
 
 
 
+[[considerations-for-tenant-access]]
 === Considerações para acesso ao locatário
 
 O acesso ao locatário é um recurso de segurança opcional que permite controlar quais contas de locatário do StorageGRID podem usar um endpoint do balanceador de carga para acessar seus buckets. Você pode permitir que todos os locatários acessem um endpoint (padrão) ou especificar uma lista dos locatários permitidos ou bloqueados para cada endpoint.
@@ -239,6 +248,7 @@ Para acessar o `top-secret.pdf`, um usuário no locatário *Top SECRET* pode emi
 
 
 
+[[cpu-availability]]
 == Disponibilidade da CPU
 
 O serviço Load Balancer em cada nó de administração e nó de gateway opera de forma independente ao encaminhar o tráfego S3 para os nós de storage. Por meio de um processo de ponderação, o serviço Load Balancer encaminha mais solicitações para nós de storage com maior disponibilidade de CPU. As informações de carga da CPU do nó são atualizadas a cada poucos minutos, mas a ponderação pode ser atualizada com mais frequência. Todos os nós de storage recebem um valor mínimo de peso básico, mesmo que um nó informe a utilização de 100% ou não consiga relatar sua utilização.

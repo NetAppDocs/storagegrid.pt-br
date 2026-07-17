@@ -33,6 +33,7 @@ NOTE: Uma alteração na consistência em toda a grade se aplica somente aos buc
 
 
 
+[[consistency-values]]
 == Valores de consistência
 
 A consistência afeta como os metadados que o StorageGRID usa para rastrear objetos são distribuídos entre os nós.  A consistência afeta a disponibilidade de objetos para solicitações de clientes.
@@ -66,6 +67,7 @@ Se necessário, você pode https://kb.netapp.com/hybrid/StorageGRID/Object_Mgmt/
 
 
 
+[[use-read-after-new-write-and-available-consistency]]
 == Use a consistência "Read-after-new-write" e "Available"
 
 Quando uma operação HEAD ou GET usa a consistência "Read-after-new-write", o StorageGRID realiza a pesquisa em várias etapas, como segue:
@@ -80,6 +82,7 @@ A menos que você exija garantias de consistência semelhantes ao Amazon S3, voc
 
 
 
+[[api-operation-consistency-controlspecify-consistency-for-api-operation]]
 == [[API-operation-consistency-control]]Especifique a consistência para a operação da API
 
 Para definir a consistência para uma operação de API individual, os valores de consistência devem ser suportados para a operação e você deve especificar a consistência no cabeçalho da solicitação. Este exemplo define a consistência como "strong-site" para uma operação GetObject.
@@ -97,6 +100,7 @@ NOTE: Você deve usar a mesma consistência para as operações PutObject e GetO
 
 
 
+[[bucket-consistencyspecify-consistency-for-bucket]]
 == [[bucket-consistency]]Especificar consistência para bucket
 
 Para definir a consistência do bucket, você pode usar a solicitação StorageGRIDlink:put-bucket-consistency-request.html["COLOQUE a consistência do balde"]. Ou você pode link:../tenant/manage-bucket-consistency.html#change-bucket-consistency["altere a consistência de um balde"] do Gerente do Locatário.
@@ -110,6 +114,7 @@ Ao definir a consistência de um balde, tenha em atenção o seguinte:
 
 
 
+[[how-consistency-and-ilm-rules-interacthow-consistency-and-ilm-rules-interact-to-affect-data-protection]]
 == [[como-as-regras-de-consistência-e-ILM-interagem]]Como a consistência e as regras de ILM interagem para afetar a proteção de dados
 
 Tanto a sua escolha de consistência quanto a sua regra ILM afetam a forma como os objetos são protegidos. Essas configurações podem interagir.
@@ -125,6 +130,7 @@ Equilibrado:: O StorageGRID tenta fazer todas as cópias especificadas na regra 
 
 
 
+[[example-of-how-the-consistency-and-ilm-rule-can-interact]]
 == Exemplo de como a consistência e a regra ILM podem interagir
 
 Suponha que você tenha uma grade de três sites com a seguinte regra ILM e a seguinte consistência:

@@ -15,6 +15,7 @@ Os clientes precisam se comunicar com nós de grade para obter e recuperar conte
 
 
 
+[[restricted-access-to-ports]]
 == Acesso restrito às portas
 
 Se as políticas de rede empresarial restringirem o acesso a qualquer uma das portas, você poderá fazer um dos seguintes procedimentos:
@@ -33,6 +34,7 @@ NOTE: O suporte para remapeamento de portas está obsoleto e será removido em u
 
 
 
+[[ports-used-for-external-communications]]
 == Portas usadas para comunicações externas
 
 A tabela a seguir mostra as portas usadas para tráfego nos nós.

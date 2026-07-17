@@ -15,6 +15,7 @@ Antes de decidir se deve usar a replicação ou a codificação de apagamento pa
 
 
 
+[[advantages-of-erasure-coding]]
 == Vantagens da codificação de apagamento
 
 Em comparação com a replicação, a codificação de apagamento oferece maior confiabilidade, disponibilidade e eficiência de storage.
@@ -35,6 +36,7 @@ NOTE: O espaço em disco para objetos codificados por apagamento é calculado co
 
 
 
+[[disadvantages-of-erasure-coding]]
 == Desvantagens da codificação de apagamento
 
 Quando comparada à replicação, a codificação de apagamento tem as seguintes desvantagens:
@@ -49,6 +51,7 @@ Quando comparada à replicação, a codificação de apagamento tem as seguintes
 
 
 
+[[when-to-use-erasure-coding]]
 == Quando usar codificação de apagamento
 
 Use a codificação de eliminação para os seguintes requisitos:

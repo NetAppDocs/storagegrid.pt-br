@@ -15,6 +15,7 @@ Conforme necessário, você pode alterar os nomes de exibição exibidos no Gere
 
 
 
+[[what-is-the-rename-procedure]]
 == Qual é o procedimento de mudança de nome?
 
 Quando você instala o StorageGRID inicialmente, você especifica um nome para a grade, cada local e cada nó. Esses nomes iniciais são conhecidos como _nomes de sistema_, e eles são os nomes inicialmente exibidos em todo o StorageGRID.
@@ -25,6 +26,7 @@ Use o procedimento de renomeação para corrigir erros de digitação, implement
 
 
 
+[[where-do-system-and-display-names-appear]]
 == Onde aparecem os nomes do sistema e do visor?
 
 A tabela a seguir resume onde nomes de sistema e nomes de exibição são exibidos na interface de usuário do StorageGRID e em arquivos StorageGRID.
@@ -121,12 +123,14 @@ Vazio a menos que os itens tenham sido renomeados; caso contrário, mapeia as ID
 |===
 
 
+[[display-name-requirements]]
 == Requisitos de nome de exibição
 
 Antes de utilizar este procedimento, reveja os requisitos para nomes de visualização.
 
 
 
+[[display-names-for-nodes]]
 === Nomes de exibição para nós
 
 Os nomes de exibição dos nós devem seguir estas regras:
@@ -144,6 +148,7 @@ Você pode renomear um nó com um nome de exibição que foi usado anteriormente
 
 
 
+[[display-names-for-grid-and-sites]]
 === Exibir nomes para grade e sites
 
 Os nomes de exibição para a grade e sites seguem as mesmas regras com estas exceções:
@@ -156,6 +161,7 @@ Os nomes de exibição para a grade e sites seguem as mesmas regras com estas ex
 
 
 
+[[display-name-best-practices]]
 == Apresentar as melhores práticas de nomes
 
 Se você pretende renomear vários itens, documente seu esquema de nomenclatura geral antes de usar este procedimento. Crie um sistema que garanta que os nomes sejam únicos, consistentes e fáceis de entender rapidamente.
@@ -171,6 +177,7 @@ Pense duas vezes antes de adicionar detalhes específicos aos nomes que provavel
 
 
 
+[[example-display-names]]
 === Exemplos de nomes de exibição
 
 Suponha que seu sistema StorageGRID tenha três data centers e tenha nós de diferentes tipos em cada data center. Seus nomes de exibição podem ser tão simples quanto estes:

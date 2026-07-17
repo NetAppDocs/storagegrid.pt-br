@@ -31,6 +31,7 @@ Estas instruções aplicam-se ao Windows Server 2016 AD FS. Se você estiver usa
 
 
 
+[[create-a-relying-party-trust-using-windows-powershell]]
 == Crie uma confiança de parte confiável usando o Windows PowerShell
 
 Você pode usar o Windows PowerShell para criar rapidamente uma ou mais trusts de parte confiáveis.
@@ -93,6 +94,7 @@ Se os metadados estiverem ausentes, confirme se o endereço de metadados da Fede
 
 
 
+[[create-a-relying-party-trust-by-importing-federation-metadata]]
 == Crie uma confiança de parte confiável importando metadados de federação
 
 Você pode importar os valores de cada confiança de parte confiável acessando os metadados SAML para cada nó de administração.
@@ -144,6 +146,7 @@ Se os metadados estiverem ausentes, confirme se o endereço de metadados da Fede
 
 
 
+[[create-a-relying-party-trust-manually]]
 == Crie uma confiança de parte confiável manualmente
 
 Se você optar por não importar os dados para as partes confiáveis, você poderá inserir os valores manualmente.

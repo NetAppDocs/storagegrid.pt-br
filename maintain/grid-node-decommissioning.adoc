@@ -15,6 +15,7 @@ Você pode usar o procedimento de desativação do nó para remover um ou mais n
 
 
 
+[[when-to-decommission-a-node]]
 == Quando desativar um nó
 
 Use o procedimento de desativação do nó quando qualquer uma das seguintes situações for verdadeira:
@@ -33,6 +34,7 @@ TIP: Se quiser substituir um aparelho mais antigo por um aparelho mais novo, con
 
 
 
+[[how-to-decommission-a-node]]
 == Como desativar um nó
 
 Você pode desativar os nós de grade conetados ou os nós de grade desconetados.
@@ -53,6 +55,7 @@ Para obter instruções, link:decommissioning-disconnected-grid-nodes.html["Desa
 
 
 
+[[what-to-consider-before-decommissioning-a-node]]
 == O que considerar antes de desativar um nó
 
 Antes de executar qualquer procedimento, reveja as considerações para cada tipo de nó:

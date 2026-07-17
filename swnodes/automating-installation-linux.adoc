@@ -35,6 +35,7 @@ O StorageGRID fornece scripts Python opcionais para automatizar a configuração
 
 
 
+[[automate-the-installation-and-configuration-of-the-storagegrid-host-service]]
 == Automatize a instalação e a configuração do serviço de host StorageGRID
 
 É possível automatizar a instalação do serviço de host StorageGRID usando estruturas de orquestração padrão, como Ansible, Puppet, Chef, Fabric ou SaltStack.
@@ -45,6 +46,7 @@ Você pode automatizar todas as etapas para preparar os hosts e implantar nós d
 
 
 
+[[example-ansible-role-and-playbook]]
 === Exemplo de função e manual de estratégia do Ansible
 
 Exemplo de função do Ansible e manual de estratégia são fornecidos com o arquivo de instalação `/extras` na pasta. O manual de estratégia do Ansible mostra como a `storagegrid` função prepara os hosts e instala o StorageGRID nos servidores de destino. Você pode personalizar a função ou o manual de estratégia conforme necessário.
@@ -75,6 +77,7 @@ Para Ubuntu ou Debian, as tarefas de instalação fornecidas `storagegrid` exemp
 ====
 
 
+[[automate-the-configuration-of-storagegrid]]
 == Automatize a configuração do StorageGRID
 
 Depois de implantar os nós de grade, você pode automatizar a configuração do sistema StorageGRID.

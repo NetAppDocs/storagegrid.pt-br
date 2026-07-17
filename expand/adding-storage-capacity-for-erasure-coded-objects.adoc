@@ -19,6 +19,7 @@ O número de nós que você precisa adicionar também depende de quão cheios os
 
 
 
+[[general-recommendation-for-adding-storage-capacity-for-erasure-coded-objects]]
 == Recomendação geral para adicionar capacidade de storage para objetos codificados por apagamento
 
 Se você quiser evitar cálculos detalhados, pode adicionar dois nós de storage por local quando os nós de storage existentes atingirem 70% de capacidade.

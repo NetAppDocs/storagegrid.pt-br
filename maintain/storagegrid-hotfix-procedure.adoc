@@ -17,6 +17,7 @@ Os hotfixes do StorageGRID contêm alterações de software que são disponibili
 
 
 
+[[considerations-for-applying-a-hotfix]]
 == Considerações para aplicar um hotfix
 
 Não é possível aplicar um hotfix do StorageGRID quando outro procedimento de manutenção estiver sendo executado. Por exemplo, não é possível aplicar um hotfix enquanto um procedimento de desativação, expansão ou recuperação estiver em execução.
@@ -32,6 +33,7 @@ Embora os nós de grade sejam atualizados com a nova versão de hotfix, as alter
 
 
 
+[[how-hotfixes-are-applied-for-recovery-and-expansion]]
 == Como os hotfixes são aplicados para recuperação e expansão
 
 Depois que um hotfix foi aplicado à sua grade, o nó de administrador principal instala automaticamente a mesma versão de hotfix para todos os nós restaurados por operações de recuperação ou adicionados em uma expansão.

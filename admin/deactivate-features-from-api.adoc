@@ -36,6 +36,7 @@ Quando a solicitação estiver concluída, o recurso alterar senha raiz do locat
 
 
 
+[[reactivate-deactivated-features]]
 == Reativar funcionalidades desativadas
 
 Por padrão, você pode usar a API de Gerenciamento de Grade para reativar um recurso que foi desativado. No entanto, se você quiser impedir que os recursos desativados sejam reativados, você pode desativar o próprio recurso *activateFeatures*.

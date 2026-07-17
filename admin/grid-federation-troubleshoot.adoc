@@ -15,6 +15,7 @@ Talvez você precise solucionar alertas e erros relacionados a conexões de fede
 
 
 
+[[grid-federation-errorsgrid-federation-connection-alerts-and-errors]]
 == [[Grid-Federation-errors]]alertas e erros de conexão de federação de grade
 
 Você pode receber alertas ou ter erros com suas conexões de federação de grade.
@@ -23,6 +24,7 @@ Depois de fazer quaisquer alterações para resolver um problema de conexão, te
 
 
 
+[[grid-federation-connection-failure-alert]]
 === Alerta de falha de conexão de federação de grade
 
 .Problema
@@ -40,6 +42,7 @@ Este alerta indica que a conexão de federação de grade entre as grades não e
 
 
 
+[[expiration-of-grid-federation-certificate-alert]]
 === Expiração do alerta de certificado de federação de grade
 
 .Problema
@@ -53,6 +56,7 @@ Consulte as instruções para obter os certificados de conexão rotativos em lin
 
 
 
+[[error-editing-a-grid-federation-connection]]
 === Erro ao editar uma conexão de federação de grade
 
 .Problema
@@ -69,10 +73,12 @@ Quando você edita uma conexão de federação de grade, o StorageGRID tenta sal
 
 
 
+[[account-clone-errors]]
 == Erros de clone de conta
 
 
 
+[[cant-sign-in-to-a-cloned-tenant-account]]
 === Não é possível entrar em uma conta de locatário clonada
 
 .Problema
@@ -88,6 +94,7 @@ Antes que um usuário local clonado possa fazer login na grade de destino do loc
 
 
 
+[[tenant-created-without-a-clone]]
 === Locatário criado sem um clone
 
 .Problema
@@ -110,10 +117,12 @@ image:grid-federation-retry-account-clone.png["Captura de tela mostrando uma men
 
 
 
+[[cross-grid-replication-alerts-and-errors]]
 == Alertas e erros de replicação entre redes
 
 
 
+[[last-error-shown-for-connection-or-tenant]]
 === Último erro mostrado para conexão ou locatário
 
 .Problema
@@ -156,6 +165,7 @@ TIP: Depois de limpar o erro, um novo *último erro* pode aparecer se os objetos
 
 
 
+[[cross-grid-replication-permanent-failure-alert]]
 === Alerta de falha permanente de replicação entre redes
 
 .Problema
@@ -204,6 +214,7 @@ NOTE: Pode levar até um dia para que o alerta seja apagado depois que ele for r
 
 
 
+[[cross-grid-replication-resource-unavailable-alert]]
 === Alerta de recurso de replicação entre redes indisponível
 
 .Problema

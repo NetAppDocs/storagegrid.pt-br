@@ -15,6 +15,7 @@ Você pode executar várias tarefas para ajudar a determinar a origem dos proble
 
 
 
+[[admin-node-sign-in-errors]]
 == Erros de login do nó de administrador
 
 Se ocorrer um erro ao iniciar sessão num nó de administração do StorageGRID, o sistema poderá ter um problema com um problema link:../troubleshoot/troubleshooting-network-hardware-and-platform-issues.html["rede"]ou, um problema com ou https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/troubleshooting-hardware-installation-sg100-and-sg1000.html["hardware"^]link:../primer/what-admin-node-is.html["Serviços do Admin Node"] um link:../maintain/recovering-failed-storage-volumes-and-rebuilding-cassandra-database.html["Problema com o banco de dados Cassandra"] em nós de armazenamento ligados.
@@ -165,6 +166,7 @@ Forneça os Registros que você coletou para o suporte técnico. Consulte també
 
 
 
+[[user-interface-issues]]
 == Problemas na interface do usuário
 
 A interface de usuário do Gerenciador de Grade ou do Gerenciador de Locatário pode não responder como esperado após o upgrade do software StorageGRID.

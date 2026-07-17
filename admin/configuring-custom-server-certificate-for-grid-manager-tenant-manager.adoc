@@ -34,6 +34,7 @@ Se você estiver acessando o Gerenciador de Grade ou o Gerenciador de locatário
 ====
 
 
+[[add-a-custom-management-interface-certificate]]
 == Adicione um certificado de interface de gerenciamento personalizado
 
 Para adicionar um certificado de interface de gerenciamento personalizado, você pode fornecer seu próprio certificado ou gerar um usando o Gerenciador de Grade.
@@ -161,6 +162,7 @@ NOTE: Depois de carregar ou gerar um novo certificado, aguarde até um dia para 
 
 
 
+[[restore-the-default-management-interface-certificate]]
 == Restaure o certificado padrão da interface de gerenciamento
 
 Você pode reverter para o uso do certificado de interface de gerenciamento padrão para conexões do Gerenciador de Grade e do Gerenciador de Tenant.
@@ -177,6 +179,7 @@ Quando você restaura o certificado de interface de gerenciamento padrão, os ar
 
 
 
+[[use-a-script-to-generate-a-new-self-signed-management-interface-certificate]]
 == Use um script para gerar um novo certificado de interface de gerenciamento autoassinado
 
 Se for necessária uma validação estrita do nome do host, você pode usar um script para gerar o certificado da interface de gerenciamento.
@@ -238,6 +241,7 @@ Inclua as tags DE INÍCIO e FIM em sua seleção.
 
 
 
+[[download-or-copy-the-management-interface-certificate]]
 == Transfira ou copie o certificado da interface de gestão
 
 Você pode salvar ou copiar o conteúdo do certificado da interface de gerenciamento para uso em outro lugar.

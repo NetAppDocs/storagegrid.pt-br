@@ -73,6 +73,7 @@ Para versões suportadas, consulte https://imt.netapp.com/matrix/#welcome["Ferra
 |===
 
 
+[[download-and-extract-the-storagegrid-installation-files]]
 == Baixe e extraia os arquivos de instalação do StorageGRID
 
 .[[download-and-extract-install-files]]
@@ -407,6 +408,7 @@ images-version-SHA.deb`.
 |===
 
 
+[[verify-hardware-and-networking]]
 == Verifique o hardware e a rede
 
 Antes de iniciar a expansão do sistema StorageGRID, verifique o seguinte:

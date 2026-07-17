@@ -20,6 +20,7 @@ CAUTION: Não inicie a atualização se precisar expandir seu armazenamento com 
 
 
 
+[[before-you-upgrade]]
 == Antes de atualizar
 
 Revise estes tópicos para saber mais sobre os novos recursos e aprimoramentos do StorageGRID 12.0, determinar se algum recurso foi descontinuado ou removido e descobrir mais sobre as alterações nas APIs do StorageGRID .

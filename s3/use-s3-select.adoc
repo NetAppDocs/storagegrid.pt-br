@@ -22,6 +22,7 @@ Apenas as contas de inquilino que tenham S3 Select ativado podem emitir consulta
 
 
 
+[[clauses]]
 == Cláusulas
 
 * Selecione a lista
@@ -32,6 +33,7 @@ Apenas as contas de inquilino que tenham S3 Select ativado podem emitir consulta
 
 
 
+[[data-types]]
 == Tipos de dados
 
 * bool
@@ -44,10 +46,12 @@ Apenas as contas de inquilino que tenham S3 Select ativado podem emitir consulta
 
 
 
+[[operators]]
 == Operadores
 
 
 
+[[logical-operators]]
 === Operadores lógicos
 
 * E
@@ -57,6 +61,7 @@ Apenas as contas de inquilino que tenham S3 Select ativado podem emitir consulta
 
 
 
+[[comparison-operators]]
 === Operadores de comparação
 
 * *
@@ -73,6 +78,7 @@ Apenas as contas de inquilino que tenham S3 Select ativado podem emitir consulta
 
 
 
+[[pattern-matching-operators]]
 === Operadores de correspondência de padrões
 
 * GOSTO
@@ -82,6 +88,7 @@ Apenas as contas de inquilino que tenham S3 Select ativado podem emitir consulta
 
 
 
+[[unitary-operators]]
 === Operadores unitários
 
 * É NULO
@@ -90,6 +97,7 @@ Apenas as contas de inquilino que tenham S3 Select ativado podem emitir consulta
 
 
 
+[[math-operators]]
 === Operadores de matemática
 
 * E
@@ -103,6 +111,7 @@ O StorageGRID segue a precedência do operador Amazon S3 Select.
 
 
 
+[[aggregate-functions]]
 == Agregar funções
 
 * MÉDIA ()
@@ -114,6 +123,7 @@ O StorageGRID segue a precedência do operador Amazon S3 Select.
 
 
 
+[[conditional-functions]]
 == Funções condicionais
 
 * CASO
@@ -123,6 +133,7 @@ O StorageGRID segue a precedência do operador Amazon S3 Select.
 
 
 
+[[conversion-functions]]
 == Funções de conversão
 
 * CAST (para tipos de dados suportados)
@@ -130,6 +141,7 @@ O StorageGRID segue a precedência do operador Amazon S3 Select.
 
 
 
+[[date-functions]]
 == Funções de data
 
 * DATE_ADD
@@ -142,6 +154,7 @@ O StorageGRID segue a precedência do operador Amazon S3 Select.
 
 
 
+[[string-functions]]
 == Funções de cadeia de carateres
 
 * CHAR_LENGTH, CHARACTER_LENGTH

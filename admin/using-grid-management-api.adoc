@@ -15,6 +15,7 @@ Você pode executar tarefas de gerenciamento do sistema usando a API REST do Gri
 
 
 
+[[top-level-resources]]
 == Recursos de nível superior
 
 A API de gerenciamento de grade fornece os seguintes recursos de nível superior:
@@ -26,6 +27,7 @@ A API de gerenciamento de grade fornece os seguintes recursos de nível superior
 
 
 
+[[issue-api-requests]]
 == Emitir solicitações de API
 
 A API de gerenciamento de grade usa a plataforma de API de código aberto Swagger. O Swagger fornece uma interface de usuário intuitiva que permite que desenvolvedores e não desenvolvedores realizem operações em tempo real no StorageGRID com a API.

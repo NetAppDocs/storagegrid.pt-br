@@ -20,6 +20,7 @@ Você pode exibir detalhes da tag de política ILM, editar uma tag ou remover um
 
 
 
+[[view-ilm-policy-tag-details]]
 == Ver detalhes da etiqueta de política ILM
 
 Para ver os detalhes de uma tag:
@@ -32,6 +33,7 @@ Para ver os detalhes de uma tag:
 
 
 
+[[edit-ilm-policy-tag]]
 == Editar etiqueta de política ILM
 
 
@@ -50,6 +52,7 @@ Em alternativa, selecione o nome da etiqueta. A página de detalhes da tag é ex
 
 
 
+[[remove-ilm-policy-tag]]
 == Remova a etiqueta de política ILM
 
 Quando você remove uma tag de política, todos os buckets atribuídos a essa tag terão a política padrão aplicada.

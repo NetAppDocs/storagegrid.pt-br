@@ -19,12 +19,14 @@ Para obter informações adicionais sobre a topologia da rede StorageGRID , requ
 
 
 
+[[deployment-topologies]]
 == Topologias de implantação
 
 O sistema StorageGRID pode ser implantado em um único local de data center ou em vários locais de data center.  O número máximo de sites por implantação é 16.
 
 
 
+[[single-site]]
 === Um único local
 
 Em uma implantação com um único local, a infraestrutura e as operações do sistema StorageGRID são centralizadas.
@@ -33,6 +35,7 @@ image:data_center_site_single.png["Um único local de data center"]
 
 
 
+[[multiple-sites]]
 === Vários locais
 
 Em uma implantação com vários sites, diferentes tipos e números de recursos do StorageGRID podem ser instalados em cada local. Por exemplo, pode ser necessário mais armazenamento em um data center do que em outro.
@@ -45,12 +48,14 @@ Vários sites lógicos também podem existir em um único data center para permi
 
 
 
+[[grid-node-redundancy]]
 === Redundância de nó de grade
 
 Em uma implantação de um único local ou de vários locais, você pode incluir opcionalmente mais de um nó de administrador ou nó de gateway para redundância. Por exemplo, você pode instalar mais de um nó de administrador em um único site ou em vários sites. No entanto, cada sistema StorageGRID só pode ter um nó de administração principal.
 
 
 
+[[system-architecture]]
 == Arquitetura do sistema
 
 Este diagrama mostra como os nós de grade são organizados dentro de um sistema StorageGRID.

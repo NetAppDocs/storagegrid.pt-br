@@ -17,6 +17,7 @@ O StorageGRID valida endpoints de serviços de plataforma à medida que os cria.
 
 
 
+[[urn-elements]]
 == URNA elementos
 
 A URNA para um endpoint de serviços de plataforma deve começar com `arn:aws` ou `urn:mysite`, da seguinte forma:
@@ -92,6 +93,7 @@ Integração de pesquisa
 |===
 
 
+[[urns-for-services-hosted-on-aws-and-gcp]]
 == Urnas para serviços hospedados na AWS e no GCP
 
 Para entidades da AWS e do GCP, a URN completa é um AWS ARN válido. Por exemplo:
@@ -122,6 +124,7 @@ NOTE: Para um endpoint de integração de pesquisa da AWS, o `domain-name` deve 
 
 
 
+[[urns-for-locally-hosted-services]]
 == Urnas para serviços hospedados localmente
 
 Ao usar serviços hospedados localmente em vez de serviços em nuvem, você pode especificar a URNA de qualquer forma que crie uma URNA válida e única, desde que a URNA inclua os elementos necessários na terceira e última posições. Você pode deixar os elementos indicados por opcional em branco, ou você pode especificá-los de qualquer forma que o ajude a identificar o recurso e tornar a URNA única. Por exemplo:

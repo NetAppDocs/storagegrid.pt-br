@@ -17,6 +17,7 @@ Nem todas as mensagens de auditoria geradas durante uma transação de recupera�
 
 
 
+[[s3-retrieval-audit-messages]]
 == S3 mensagens de auditoria de recuperação
 
 [cols="1a,1a,2a,1a,1a"]
@@ -38,6 +39,7 @@ link:sget-s3-get.html["SGET: S3 GET"]
 |===
 
 
+[[example-s3-object-retrieval]]
 == Exemplo: Recuperação de objeto S3D.
 
 Quando um cliente S3 recupera um objeto de um nó de armazenamento (serviço LDR), uma mensagem de auditoria é gerada e salva no log de auditoria.
@@ -46,6 +48,7 @@ Observe que nem todas as mensagens de auditoria geradas durante uma transação 
 
 
 
+[[sget-s3-get]]
 === SGET: S3 GET
 
 A recuperação de objetos começa quando o cliente envia uma solicitação GetObject a um serviço LDR. A mensagem contém o intervalo do qual recuperar o objeto e a chave S3 do objeto, que é usada para identificar o objeto.
@@ -64,6 +67,7 @@ Na mensagem de exemplo a seguir, o cliente envia uma solicitação GetObject par
 ----
 
 
+[[example-s3-select-on-an-object]]
 == Exemplo: S3 Selecione em um objeto
 
 Quando um cliente S3 emite uma consulta S3 Select em um objeto, as mensagens de auditoria são geradas e salvas no log de auditoria.

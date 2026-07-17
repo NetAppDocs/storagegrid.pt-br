@@ -18,6 +18,7 @@ CAUTION: As seguintes regras e políticas do ILM são apenas exemplos. Existem m
 
 
 
+[[ilm-rule-1-for-example-2-use-ec-for-objects-greater-than-1-mb]]
 == Regra ILM 1 por exemplo 2: Use EC para objetos maiores que 1 MB
 
 Este exemplo ILM regra de apagamento codifica objetos que são maiores que 1 MB.
@@ -61,6 +62,7 @@ image:policy_2_rule_1_ec_objects_adv_filtering.png["Regra ILM 1 por exemplo 2: U
 
 
 
+[[ilm-rule-2-for-example-2-two-replicated-copies]]
 == Regra ILM 2 por exemplo 2: Duas cópias replicadas
 
 Este exemplo de regra ILM cria duas cópias replicadas e não filtra pelo tamanho do objeto. Esta regra é a regra padrão da política. Como a primeira regra filtra todos os objetos com mais de 1 MB, essa regra só se aplica a objetos com 1 MB ou menos.
@@ -99,6 +101,7 @@ No dia 0 para sempre, mantenha uma cópia replicada no local 1 e uma cópia repl
 |===
 
 
+[[ilm-policy-for-example-2-use-ec-for-objects-greater-than-1-mb]]
 == Política ILM por exemplo 2: Use EC para objetos maiores que 1 MB
 
 Este exemplo de política ILM inclui duas regras ILM:

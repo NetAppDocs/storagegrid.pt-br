@@ -28,6 +28,7 @@ NOTE: Você deve criar um aplicativo empresarial para cada nó de administraçã
 
 
 
+[[access-entra-id]]
 == ID de entrada de acesso
 
 .Passos
@@ -38,6 +39,7 @@ NOTE: Você deve criar um aplicativo empresarial para cada nó de administraçã
 
 
 
+[[create-enterprise-applications-and-save-storagegrid-sso-configuration]]
 == Crie aplicativos empresariais e salve a configuração SSO do StorageGRID
 
 Para salvar a configuração de SSO para o Entra ID no StorageGRID, você deve usar o Entra ID para criar um aplicativo empresarial para cada nó de administração.  Você copiará os URLs de metadados da federação do Entra ID e os colará nos campos *URL de metadados da federação* correspondentes na página Configurar SSO.
@@ -61,6 +63,7 @@ Para salvar a configuração de SSO para o Entra ID no StorageGRID, você deve u
 
 
 
+[[download-saml-metadata-for-every-admin-node]]
 == Faça o download dos metadados SAML para cada nó de administração
 
 Depois que a configuração SSO for salva, você pode baixar um arquivo de metadados SAML para cada nó de administrador no sistema StorageGRID.
@@ -78,6 +81,7 @@ Depois que a configuração SSO for salva, você pode baixar um arquivo de metad
 
 
 
+[[upload-saml-metadata-to-each-enterprise-application]]
 == Carregue metadados SAML para cada aplicação empresarial
 
 Após baixar um arquivo de metadados SAML para cada nó de administração do StorageGRID , execute as seguintes etapas no Entra ID:

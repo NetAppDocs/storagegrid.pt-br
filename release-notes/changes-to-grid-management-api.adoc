@@ -20,6 +20,7 @@ Para saber mais, link:../admin/using-grid-management-api.html["Use a API de gere
 
 
 
+[[new-endpoints-for-branch-buckets]]
 == Novos pontos de extremidade para buckets de ramificação
 
 Os seguintes pontos de extremidade foram adicionados para permitir que vocêlink:../tenant/what-is-branch-bucket.html["gerenciar buckets de ramificação"] :
@@ -30,6 +31,7 @@ Os seguintes pontos de extremidade foram adicionados para permitir que vocêlink
 
 
 
+[[new-private-endpoints-for-move-adc]]
 == Novos endpoints privados para Move ADC
 
 Os seguintes pontos de extremidade privados foram adicionados para permitir que vocêlink:../maintain/move-adc-service.html["mover o serviço ADC"] de um nó de armazenamento para outro no mesmo site:
@@ -42,6 +44,7 @@ Os seguintes pontos de extremidade privados foram adicionados para permitir que 
 
 
 
+[[new-private-endpoints-for-convert-to-data-only-node]]
 == Novos endpoints privados para converter para nó somente de dados
 
 Os seguintes pontos de extremidade privados foram adicionados para permitir que vocêlink:../maintain/convert-to-data-only-node.html["converter um ou mais nós de armazenamento combinados"] que não contêm o serviço ADC em nós somente de dados.

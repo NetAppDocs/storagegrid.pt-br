@@ -25,6 +25,7 @@ O compartilhamento de recursos de origem cruzada (CORS) é um mecanismo de segur
 
 
 
+[[enable-cors-for-a-bucket]]
 == Ativar CORS para um balde
 
 .Passos
@@ -70,6 +71,7 @@ Para obter mais informações sobre o XML de configuração do CORS, http://docs
 
 
 
+[[modify-cors-setting]]
 == Modificar a definição CORS
 
 .Passos
@@ -79,6 +81,7 @@ Para obter mais informações sobre o XML de configuração do CORS, http://docs
 
 
 
+[[disable-cors-setting]]
 == Desativar a definição CORS
 
 .Passos

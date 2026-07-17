@@ -19,6 +19,7 @@ Você pode link:viewing-storage-tab.html["ver informações sobre a capacidade d
 
 
 
+[[monitor-storage-capacity-for-the-entire-grid]]
 == Monitore a capacidade de armazenamento de toda a grade
 
 Monitore a capacidade geral de storage da grade para garantir que haja espaço livre adequado para os dados de objetos e metadados de objetos. Entender como a capacidade de storage muda ao longo do tempo pode ajudar você a Planejar adicionar nós de storage ou volumes de storage antes que a capacidade de storage utilizável da grade seja consumida.
@@ -72,6 +73,7 @@ Para obter mais informações sobre como Planejar uma expansão de armazenamento
 
 
 
+[[monitor-storage-capacity-for-each-storage-node]]
 == Monitore a capacidade de storage para cada nó de storage
 
 Monitore o espaço utilizável total para cada nó de storage para garantir que o nó tenha espaço suficiente para novos dados de objeto.
@@ -128,6 +130,7 @@ link:../troubleshoot/troubleshooting-low-object-data-storage-alert.html["Baixo a
 
 
 
+[[monitor-object-metadata-capacity-for-each-storage-node]]
 == Monitore a capacidade dos metadados de objetos para cada nó de storage
 
 Monitore o uso de metadados para cada nó de storage para garantir que o espaço adequado permaneça disponível para operações essenciais do banco de dados. É necessário adicionar novos nós de storage em cada local antes que os metadados do objeto excedam 100% do espaço permitido dos metadados.
@@ -188,6 +191,7 @@ Quando você adiciona os novos nós, o sistema reequilibra automaticamente os me
 
 
 
+[[monitor-space-usage-forecasts]]
 == Monitorar previsões de uso de espaço
 
 Monitore as previsões de uso de espaço para dados e metadados do usuário para estimar quando será link:../expand/index.html["expanda uma grade"]necessário .

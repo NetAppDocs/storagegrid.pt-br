@@ -35,6 +35,7 @@ CBID (identificador interno do objeto)
 |===
 
 
+[[timing-of-audit-messages]]
 == Calendário das mensagens de auditoria
 
 Devido a fatores como diferenças de tempo entre nós de grade, tamanho do objeto e atrasos na rede, a ordem das mensagens de auditoria geradas pelos diferentes serviços pode variar da mostrada nos exemplos nesta seção.

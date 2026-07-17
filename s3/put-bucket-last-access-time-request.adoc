@@ -28,6 +28,7 @@ Se as atualizações da última hora de acesso estiverem desativadas para um buc
 
 
 
+[[request-examples]]
 == Exemplos de pedidos
 
 Este exemplo permite o último tempo de acesso para um bucket.

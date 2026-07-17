@@ -17,6 +17,7 @@ Os seguintes fluxos de trabalho para mensagens de auditoria e retenção de mens
 
 
 
+[[audit-message-flow]]
 == Auditoria do fluxo de mensagens
 
 As mensagens de auditoria são processadas pelos nós de administração quando o StorageGRID é configurado para *nós de administração/nós locais* ou *nó de administração e servidor syslog externo* e pelos nós de armazenamento que têm um serviço de controlador de domínio administrativo (ADC).
@@ -31,6 +32,7 @@ image:audit_message_flow.gif["Diagrama que resume o fluxo de mensagens de audito
 
 
 
+[[audit-message-retention]]
 === Retenção de mensagens de auditoria
 
 O StorageGRID usa um processo de cópia e exclusão para garantir que nenhuma mensagem de auditoria seja perdida antes que ela possa ser gravada no log de auditoria.
@@ -61,6 +63,7 @@ Os seguintes tipos de problemas podem fazer com que as filas de mensagens de aud
 
 
 
+[[large-audit-queue-alert-and-audit-messages-queued-amqs-alarm]]
 === Alerta de fila de auditoria grande e alarme de mensagens de auditoria enfileiradas (AMQS)
 
 Para ajudá-lo a monitorar o tamanho das filas de mensagens de auditoria ao longo do tempo, o alerta *fila de auditoria grande* e o alarme AMQS legado são acionados quando o número de mensagens em uma fila de nó de armazenamento ou fila de nó de administrador atinge determinados limites.
@@ -71,6 +74,7 @@ Se o alerta ou alarme persistir e aumentar em gravidade, visualize um gráfico d
 
 
 
+[[duplicate-messages]]
 === Mensagens duplicadas
 
 O sistema StorageGRID adota uma abordagem conservadora se ocorrer uma falha de rede ou nó. Por esse motivo, mensagens duplicadas podem existir no log de auditoria.

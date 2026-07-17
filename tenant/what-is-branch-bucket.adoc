@@ -33,6 +33,7 @@ Observe as seguintes características dos buckets de ramificação:
 
 
 
+[[examples-for-branch-bucket-usage]]
 == Exemplos de uso de branch bucket
 
 * Você pode usar um branch bucket para remover objetos corrompidos criando um branch bucket a partir de um ponto no tempo anterior à ocorrência da corrupção e, em seguida, apontando os aplicativos para o branch bucket em vez do bucket base que contém objetos corrompidos.
@@ -41,6 +42,7 @@ Observe as seguintes características dos buckets de ramificação:
 
 
 
+[[operations-on-objects-in-branch-buckets]]
 == Operações em objetos em buckets de ramificação
 
 * Uma operação de objeto PUT em um branch bucket cria um objeto no branch.

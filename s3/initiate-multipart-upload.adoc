@@ -49,6 +49,7 @@ NOTE: Se você estiver ingerindo um objeto em um bucket com o S3 Object Lock ati
 
 
 
+[[supported-request-headers]]
 == Cabeçalhos de solicitação suportados
 
 Os seguintes cabeçalhos de solicitação são suportados:
@@ -114,6 +115,7 @@ NOTE: Para obter informações sobre como o StorageGRID lida com carateres UTF-8
 
 
 
+[[request-headers-for-server-side-encryption]]
 == Cabeçalhos de solicitação para criptografia do lado do servidor
 
 Você pode usar os cabeçalhos de solicitação a seguir para criptografar um objeto multiparte com criptografia do lado do servidor. As opções SSE e SSE-C são mutuamente exclusivas.
@@ -137,6 +139,7 @@ CAUTION: As chaves de criptografia que você fornece nunca são armazenadas. Se 
 
 
 
+[[unsupported-request-headers]]
 == Cabeçalhos de solicitação não suportados
 
 O seguinte cabeçalho de solicitação não é suportado:
@@ -149,6 +152,7 @@ O `x-amz-website-redirect-location` cabeçalho retorna `XNotImplemented`.
 
 
 
+[[versioning]]
 == Controle de versão
 
 O upload de várias partes consiste em operações separadas para iniciar o upload, listar uploads, carregar peças, montar as peças carregadas e concluir o upload. Os objetos são criados (e versionados, se aplicável) quando a operação CompleteMultipartUpload é executada.

@@ -27,6 +27,7 @@ Os seguintes cabeçalhos de solicitação são suportados:
 
 
 
+[[request-headers-for-server-side-encryption]]
 == Cabeçalhos de solicitação para criptografia do lado do servidor
 
 Se você especificou criptografia SSE-C para a solicitação CreateMultipartUpload, você também deve incluir os seguintes cabeçalhos de solicitação em cada solicitação UploadPartCopy:
@@ -48,6 +49,7 @@ CAUTION: As chaves de criptografia que você fornece nunca são armazenadas. Se 
 
 
 
+[[versioning]]
 == Controle de versão
 
 O upload de várias partes consiste em operações separadas para iniciar o upload, listar uploads, carregar peças, montar as peças carregadas e concluir o upload. Os objetos são criados (e versionados, se aplicável) quando a operação CompleteMultipartUpload é executada.

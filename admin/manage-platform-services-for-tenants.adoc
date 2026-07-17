@@ -19,6 +19,7 @@ Os serviços de plataforma não são suportados paralink:../tenant/what-is-branc
 
 
 
+[[cloudmirror-replication]]
 == Replicação do CloudMirror
 
 O serviço de replicação do StorageGRID CloudMirror é usado para espelhar objetos específicos de um bucket do StorageGRID para um destino externo especificado.
@@ -32,6 +33,7 @@ NOTE: A replicação do CloudMirror não é suportada se o bucket de origem tive
 
 
 
+[[notifications]]
 == Notificações
 
 Notificações de eventos por bucket são usadas para enviar notificações sobre ações específicas executadas em objetos para um cluster Kafka externo especificado, endpoint webhook ou Amazon Simple Notification Service.
@@ -43,6 +45,7 @@ NOTE: Embora a notificação de evento possa ser configurada em um bucket com o 
 
 
 
+[[search-integration-service]]
 == Serviço de integração de pesquisa
 
 O serviço de integração de pesquisa é usado para enviar metadados de objeto S3 para um índice Elasticsearch especificado, onde os metadados podem ser pesquisados ou analisados usando o serviço externo.
@@ -56,6 +59,7 @@ Com os serviços de plataforma, os locatários têm a capacidade de usar recurso
 
 
 
+[[recommendations-for-using-platform-services]]
 == Recomendações para o uso de serviços de plataforma
 
 Antes de usar os serviços da plataforma, esteja ciente das seguintes recomendações:

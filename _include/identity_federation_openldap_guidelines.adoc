@@ -9,12 +9,14 @@ CAUTION: Para fontes de identidade que não sejam o Active Directory ou o Micros
 
 
 
+[[memberof-and-refint-overlays]]
 === Sobreposições de Memberof e refint
 
 As sobreposições membranadas e refinadas devem ser ativadas. Para obter mais informações, consulte as instruções para a manutenção da associação de grupo reverso no http://www.openldap.org/doc/admin24/index.html["Documentação do OpenLDAP: Guia do administrador da versão 2,4"^].
 
 
 
+[[indexing]]
 === Indexação
 
 Você deve configurar os seguintes atributos OpenLDAP com as palavras-chave de índice especificadas:

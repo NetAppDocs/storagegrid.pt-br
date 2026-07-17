@@ -26,6 +26,7 @@ image:grid-federation-create-connection.png["visão geral gráfica das etapas pa
 
 
 
+[[add-connection]]
 == Adicionar ligação
 
 Execute estas etapas em um dos dois sistemas StorageGRID.
@@ -113,6 +114,7 @@ CAUTION: Este arquivo contém segredos (mascarados como `***`) e outros detalhes
 
 
 
+[[complete-connection]]
 == Ligação completa
 
 Execute estas etapas no sistema StorageGRID ao qual você está se conetando (a outra grade).

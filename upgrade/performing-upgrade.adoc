@@ -21,6 +21,7 @@ CAUTION: Não inicie a atualização se precisar expandir seu armazenamento com 
 
 
 
+[[access-storagegrid-upgrade-page]]
 == Acesse a página Atualização do StorageGRID
 
 Como primeira etapa, acesse a página Atualização do StorageGRID no Gerenciador de Grade.
@@ -33,6 +34,7 @@ Como primeira etapa, acesse a página Atualização do StorageGRID no Gerenciado
 
 
 
+[[select-files]]
 == Selecione ficheiros
 
 O caminho de atualização na página de atualização do StorageGRID indica quais versões principais (por exemplo, 12.0.0) e hotfixes (por exemplo, 12.0.0.1) você deve instalar para obter a versão mais recente do StorageGRID .  Você deve instalar as versões e os hotfixes recomendados na ordem mostrada.
@@ -60,6 +62,7 @@ Quando o upload e a verificação da assinatura do código estiverem concluídos
 
 
 
+[[run-prechecks]]
 == Execute as pré-verificações
 
 Executar pré-verificações permite detetar e resolver quaisquer problemas de atualização antes de iniciar a atualização da grelha.
@@ -93,6 +96,7 @@ Se todos os erros tiverem sido resolvidos, você será solicitado a iniciar a at
 
 
 
+[[start-upgrade-and-upgrade-primary-admin-node]]
 == Inicie a atualização e atualize o nó de administração principal
 
 Quando você inicia a atualização, as pré-verificações de atualização são executadas novamente e o nó de administração principal é atualizado automaticamente. Esta parte da atualização pode demorar até 30 minutos.
@@ -119,6 +123,7 @@ Se a grade tiver outro nó Admin que esteja on-line e pronto, você poderá usá
 
 
 
+[[upgrade-other-nodes]]
 == Atualizar outros nós
 
 Você deve atualizar todos os nós de grade, mas pode executar várias sessões de atualização e personalizar a sequência de atualização. Por exemplo, você pode preferir atualizar os nós no local A em uma sessão e, em seguida, atualizar os nós no local B em uma sessão posterior. Se você optar por realizar a atualização em mais de uma sessão, esteja ciente de que você não pode começar a usar os novos recursos até que todos os nós tenham sido atualizados.
@@ -241,6 +246,7 @@ NOTE: Alguns modelos de appliance podem reiniciar várias vezes para atualizar o
 
 
 
+[[complete-upgrade]]
 == Atualização completa
 
 Quando todos os nós de grade tiverem concluído os estágios de atualização, a tarefa *Atualizar outros nós de grade* é mostrada como concluída. As restantes tarefas de atualização são executadas automaticamente em segundo plano.

@@ -15,6 +15,7 @@ A replicação entre grade é a replicação automática de objetos entre bucket
 
 
 
+[[workflow-for-cross-grid-replication]]
 == Fluxo de trabalho para replicação entre grades
 
 O diagrama de fluxo de trabalho resume as etapas para configurar a replicação entre grades entre buckets em duas grades.
@@ -23,6 +24,7 @@ image:grid-federation-cgr-workflow.png["Fluxo de trabalho de replicação entre 
 
 
 
+[[requirements-for-cross-grid-replication]]
 == Requisitos para replicação entre grades
 
 Se uma conta de locatário tiver a permissão *Usar conexão de federação de grade* para usar um ou maislink:grid-federation-overview.html["conexões de federação de grade"] , um usuário locatário com permissão de acesso Root pode criar buckets nas contas de locatário correspondentes em cada grade.  Esses baldes:
@@ -40,12 +42,14 @@ link:../tenant/grid-federation-manage-cross-grid-replication.html["Gerenciar a r
 
 
 
+[[how-cross-grid-replication-works]]
 == Como a replicação entre redes funciona
 
 Você pode configurar a replicação entre grades para ocorrer em uma direção ou em ambas as direções.
 
 
 
+[[replication-in-one-direction]]
 === Replicação em uma direção
 
 Se você habilitar a replicação entre grades para um bucket em apenas uma grade, os objetos adicionados a esse bucket (o bucket de origem) serão replicados para o bucket correspondente na outra grade (o bucket de destino).  No entanto, os objetos adicionados ao bucket de destino não são replicados de volta para a origem.  Na figura, a replicação entre grades está habilitada para `my-bucket` da Grade 1 para a Grade 2, mas não está habilitado na outra direção.
@@ -54,6 +58,7 @@ image:grid-federation-cross-grid-replication-one-direction.png["imagem mostrando
 
 
 
+[[replication-in-both-directions]]
 === Replicação em ambas as direções
 
 Se você habilitar a replicação entre grade para o mesmo bucket em ambas as grades, os objetos adicionados a qualquer bucket serão replicados para a outra grade. Na figura, a replicação em grade cruzada é ativada para `my-bucket` em ambas as direções.
@@ -62,6 +67,7 @@ image:grid-federation-cross-grid-replication.png["imagem mostrando replicação 
 
 
 
+[[what-happens-when-objects-are-ingested]]
 === O que acontece quando os objetos são ingeridos?
 
 Quando um cliente S3 adiciona um objeto a um bucket que tem replicação entre grades ativada, o seguinte acontece:
@@ -101,6 +107,7 @@ NOTE: O StorageGRID não oferece suporte a `x-amz-replication-status` cabeçalho
 
 
 
+[[what-happens-when-objects-are-deleted]]
 === O que acontece quando os objetos são excluídos?
 
 Conforme descrito link:../primer/delete-data-flow.html["Eliminar fluxo de dados"]no , o StorageGRID pode excluir um objeto por qualquer um destes motivos:
@@ -144,6 +151,7 @@ NOTE: Se você quiser manter as exclusões de objetos sincronizadas entre grades
 
 
 
+[[how-encrypted-objects-are-replicated]]
 === Como os objetos criptografados são replicados
 
 Quando você usa replicação entre grade para replicar objetos entre grades, é possível criptografar objetos individuais, usar criptografia de bucket padrão ou configurar criptografia em toda a grade. Você pode adicionar, modificar ou remover configurações padrão de intervalo ou criptografia em toda a grade antes ou depois de ativar a replicação entre grade para um bucket.
@@ -178,6 +186,8 @@ Ao determinar como criptografar objetos replicados, o StorageGRID aplica essas r
 
 
 
+[[cross-grid-replication-with-s3-object-lock]]
+[[cgr-with-ol]]
 === Replicação entre grades com bloqueio de objeto S3
 
 Você pode configurar a replicação entre grades entre buckets do StorageGRID com o S3 Object Lock habilitado nas seguintes circunstâncias.
@@ -230,6 +240,7 @@ Quando o bloqueio de objeto S3 no bucket de origem está desabilitado:
 
 
 
+[[putobjecttagging-and-deleteobjecttagging-arent-supported]]
 === PutObjectTagging e DeleteObjectTagging não são suportados
 
 As solicitações PutObjectTagging e DeleteObjectTagging não são suportadas para objetos em buckets que têm replicação entre grade ativada.
@@ -238,6 +249,7 @@ Se um cliente S3 emitir uma solicitação PutObjectTagging ou DeleteObjectTaggin
 
 
 
+[[putobjectretention-and-putobjectlegalhold-arent-supported]]
 === PutObjectRetention e PutObjectLegalHold não são suportados
 
 As solicitações PutObjectRetention e PutObjectLegalHold não são totalmente suportadas para objetos em buckets que têm replicação entre grades habilitada.
@@ -246,6 +258,7 @@ Se um cliente S3 emitir uma solicitação PutObjectRetention ou PutObjectLegalHo
 
 
 
+[[how-segmented-objects-are-replicated]]
 === Como os objetos segmentados são replicados
 
 O tamanho máximo do segmento da grade de origem se aplica a objetos replicados na grade de destino.  Quando objetos são replicados para outra grade, a configuração *Tamanho Máximo do Segmento* (*Configuração* > *Sistema* > *Opções de armazenamento*) da grade de origem é usada em ambas as grades.  Por exemplo, suponha que o tamanho máximo do segmento para a grade de origem seja 1 GB, enquanto o tamanho máximo do segmento da grade de destino seja 50 MB.  Se você ingerir um objeto de 2 GB na grade de origem, esse objeto será salvo como dois segmentos de 1 GB.  Ele também é replicado para a grade de destino como dois segmentos de 1 GB, embora o tamanho máximo do segmento dessa grade seja 50 MB.

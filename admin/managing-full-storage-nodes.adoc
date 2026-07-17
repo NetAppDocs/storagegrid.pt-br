@@ -15,18 +15,21 @@ summary: À medida que os nós de armazenamento atingem a capacidade, você deve
 
 
 
+[[add-storage-volumes]]
 == Adicione volumes de armazenamento
 
 Cada nó de storage oferece suporte a um número máximo de volumes de storage. O máximo definido varia de acordo com a plataforma. Se um nó de armazenamento contiver menos do que o número máximo de volumes de armazenamento, pode adicionar volumes para aumentar a sua capacidade. Consulte as instruções para link:../expand/index.html["Expandindo um sistema StorageGRID"].
 
 
 
+[[add-storage-expansion-shelves]]
 == Adicione compartimentos de expansão de storage
 
 Alguns nós de storage de dispositivos StorageGRID, como o SG6060 ou SG6160, podem dar suporte a gavetas de storage adicionais. Se você tiver dispositivos StorageGRID com funcionalidades de expansão que ainda não foram expandidas para a capacidade máxima, poderá adicionar compartimentos de storage para aumentar a capacidade. Consulte as instruções para link:../expand/index.html["Expandindo um sistema StorageGRID"].
 
 
 
+[[add-storage-nodes]]
 == Adicionar nós de storage
 
 Você pode aumentar a capacidade de storage adicionando nós de storage. Deve-se ter em consideração cuidadosamente as regras de ILM e os requisitos de capacidade atualmente ativos ao adicionar armazenamento. Consulte as instruções para link:../expand/index.html["Expandindo um sistema StorageGRID"].

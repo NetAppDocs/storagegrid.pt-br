@@ -15,6 +15,7 @@ Você pode expandir a capacidade de storage de objetos do seu sistema StorageGRI
 
 
 
+[[guidelines-for-adding-storage-volumes]]
 == Diretrizes para adicionar volumes de armazenamento
 
 Antes de adicionar volumes de storage a nós de storage existentes, consulte as diretrizes e limitações a seguir:
@@ -38,6 +39,7 @@ Depois de decidir adicionar volumes de storage e determinar quais nós de storag
 
 
 
+[[guidelines-for-adding-storage-nodes]]
 == Diretrizes para a adição de nós de storage
 
 Antes de adicionar nós de storage a sites existentes, consulte as diretrizes e limitações a seguir:
@@ -53,6 +55,7 @@ Antes de adicionar nós de storage a sites existentes, consulte as diretrizes e 
 
 
 
+[[guidelines-for-adc-service-on-storage-nodes]]
 == Diretrizes para o serviço ADC em nós de storage
 
 Ao configurar a expansão, você deve escolher se deseja incluir o serviço controlador de domínio administrativo (ADC) em cada novo nó de armazenamento. O serviço ADC mantém o controle da localização e disponibilidade dos serviços da grade.

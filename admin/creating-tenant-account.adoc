@@ -39,6 +39,7 @@ TIP: Se esse grupo de administração não existir em ambas as grades antes de c
 
 
 
+[[access-the-wizard]]
 == Acesse o assistente
 
 .Passos
@@ -48,6 +49,7 @@ TIP: Se esse grupo de administração não existir em ambas as grades antes de c
 
 
 
+[[enter-details]]
 == Introduza os detalhes
 
 .Passos
@@ -92,6 +94,7 @@ Se você quiser que esse locatário tenha uma cota de armazenamento, um valor nu
 
 
 
+[[admin-tenant-select-permissionsselect-permissions]]
 == [[admin-tenant-select-permissions]]Selecione permissões
 
 .Passos
@@ -163,6 +166,7 @@ Permita que o locatário use recursos específicos do bloqueio de objetos S3:
 
 
 
+[[define-root-access-and-create-tenant]]
 == Defina o acesso root e crie o locatário
 
 .Passos
@@ -221,12 +225,14 @@ TIP: Um usuário raiz local não pode entrar no Gerenciador do locatário na gra
 
 
 
+[[sign-in-to-tenant-optional]]
 == Iniciar sessão no locatário (opcional)
 
 Conforme necessário, você pode fazer login no novo locatário agora para concluir a configuração ou entrar no locatário mais tarde. As etapas de login dependem se você está conetado ao Gerenciador de Grade usando a porta padrão (443) ou uma porta restrita. link:controlling-access-through-firewalls.html["Controle o acesso no firewall externo"]Consulte .
 
 
 
+[[sign-in-now]]
 === Inicie sessão agora
 
 [cols="1a,3a"]
@@ -278,6 +284,7 @@ O URL do Gerenciador do Locatário tem este formato:
 |===
 
 
+[[sign-in-later]]
 === Inicie sessão mais tarde
 
 [cols="1a,3a"]
@@ -321,6 +328,7 @@ Uma porta restrita
 |===
 
 
+[[configure-the-tenant]]
 == Configure o locatário
 
 Siga as instruções em link:../tenant/index.html["Use uma conta de locatário"] para gerenciar grupos de locatários e usuários, chaves de acesso do S3, buckets, serviços de plataforma e replicação entre grades e clone de contas.

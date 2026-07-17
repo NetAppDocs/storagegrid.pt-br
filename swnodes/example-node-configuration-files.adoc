@@ -23,6 +23,7 @@ NOTE: Nos exemplos, o destino rede cliente foi configurado como uma prática rec
 
 
 
+[[example-for-primary-admin-node]]
 == Exemplo para nó de administração principal
 
 * Exemplo de nome de arquivo*: `/etc/storagegrid/nodes/dc1-adm1.conf`
@@ -54,6 +55,7 @@ ADMIN_NETWORK_ESL = 192.168.100.0/21,172.16.0.0/21,172.17.0.0/21
 ----
 
 
+[[example-for-storage-node]]
 == Exemplo para nó de storage
 
 * Exemplo de nome do arquivo:* `/etc/storagegrid/nodes/dc1-sn1.conf`
@@ -79,6 +81,7 @@ GRID_NETWORK_GATEWAY = 10.1.0.1
 ----
 
 
+[[example-for-gateway-node]]
 == Exemplo para Gateway Node
 
 * Exemplo de nome do arquivo:* `/etc/storagegrid/nodes/dc1-gw1.conf`
@@ -99,6 +102,7 @@ GRID_NETWORK_GATEWAY = 10.1.0.1
 ----
 
 
+[[example-for-a-non-primary-admin-node]]
 == Exemplo para um nó de administração não primário
 
 * Exemplo de nome do arquivo:* `/etc/storagegrid/nodes/dc1-adm2.conf`

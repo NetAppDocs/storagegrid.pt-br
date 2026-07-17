@@ -19,6 +19,7 @@ Se você quiser monitorar o StorageGRID usando o Protocolo de Gerenciamento de r
 
 
 
+[[capabilities]]
 == Recursos
 
 Cada nó do StorageGRID executa um agente SNMP, ou daemon, que fornece um MIB. O MIB do StorageGRID contém definições de tabela e notificação para alertas. O MIB também contém informações de descrição do sistema, como plataforma e número do modelo para cada nó. Cada nó StorageGRID também suporta um subconjunto de objetos MIB-II.
@@ -54,6 +55,7 @@ Cada alerta é mapeado para um dos três tipos de armadilha com base no nível d
 
 
 
+[[snmp-version-support]]
 == Suporte à versão SNMP
 
 A tabela fornece um resumo de alto nível do que é suportado para cada versão SNMP.
@@ -112,6 +114,7 @@ Utilizador USM para cada destino de armadilha
 |===
 
 
+[[limitations]]
 == Limitações
 
 * O StorageGRID suporta acesso MIB somente leitura. O acesso de leitura e gravação não é suportado.

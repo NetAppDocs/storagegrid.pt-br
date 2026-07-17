@@ -18,6 +18,7 @@ NOTE: Se você deseja enviar seus logs para um servidor syslog externo ou altera
 
 
 
+[[general-storagegrid-logs]]
 == Registos gerais do StorageGRID
 
 [cols="3a,3a,2a"]
@@ -49,6 +50,7 @@ Todos os nós
 |===
 
 
+[[cipher-related-logs]]
 == Registos relacionados com cifras
 
 [cols="3a,3a,2a"]
@@ -85,6 +87,7 @@ Todos os nós
 |===
 
 
+[[grid-federation-logs]]
 == Logs de federação de grade
 
 [cols="3a,3a,2a"]
@@ -100,6 +103,7 @@ Todos os nós
 |===
 
 
+[[nms-logs]]
 == Registos NMS
 
 [cols="3a,3a,2a"]
@@ -113,6 +117,7 @@ Todos os nós
 * Contém atualizações de pacotes XML resultantes de alterações de configuração feitas no sistema.
 * Contém mensagens de erro relacionadas ao atributo downsampling feito uma vez por dia.
 * Contém mensagens de erro do servidor Web Java, por exemplo, erros de geração de página e erros HTTP Status 500.
+* Contém registros relacionados a AutoSupport.
 
  a| 
 Nós de administração
@@ -136,6 +141,7 @@ Nós de administração
 |===
 
 
+[[server-manager-logs]]
 == Logs do Server Manager
 
 [cols="3a,3a,2a"]
@@ -165,6 +171,7 @@ Todos os nós
 |===
 
 
+[[storagegrid-services-logs]]
 == Registos de serviços do StorageGRID
 
 [cols="3a,3a,2a"]

@@ -19,6 +19,7 @@ Você deve ter a permissão S3:GetBucketConsistency, ou ser raiz da conta, para 
 
 
 
+[[request-example]]
 == Exemplo de solicitação
 
 [listing, subs="specialcharacters,quotes"]
@@ -30,6 +31,7 @@ Host: _host_
 ----
 
 
+[[response]]
 == Resposta
 
 No XML de resposta `<Consistency>`, retornará um dos seguintes valores:
@@ -75,6 +77,7 @@ Fornece consistência eventual para novos objetos e atualizações de objetos. P
 |===
 
 
+[[response-example]]
 == Exemplo de resposta
 
 [listing]

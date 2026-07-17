@@ -69,6 +69,7 @@ Acesso de cliente S3 para link:../admin/manage-s3-select-for-tenant-accounts.htm
 |===
 
 
+[[limitations-of-using-ha-groups-with-grid-manager-or-tenant-manager]]
 == Limitações do uso de grupos de HA com Grid Manager ou Tenant Manager
 
 Se um serviço do Grid Manager ou do Tenant Manager falhar, o failover do grupo HA não será acionado.

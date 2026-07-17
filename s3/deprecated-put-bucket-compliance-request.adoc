@@ -28,6 +28,7 @@ Você deve especificar um valor para cada campo das configurações de conformid
 
 
 
+[[request-example]]
 == Exemplo de solicitação
 
 Esta solicitação de exemplo modifica as configurações de conformidade para o bucket `mybucket` chamado . Neste exemplo, os objetos em `mybucket` agora serão retidos por dois anos (1.051.200 minutos) em vez de um ano, a partir de quando o objeto é ingerido na grade. Não há retenção legal neste balde. Cada objeto será automaticamente excluído após dois anos.
@@ -79,6 +80,7 @@ Autodelete
 |===
 
 
+[[consistency-for-compliance-settings]]
 == Consistência para configurações de conformidade
 
 Quando você atualiza as configurações de conformidade de um bucket do S3 com uma solicitação de conformidade de ARMAZENAMENTO, o StorageGRID tenta atualizar os metadados do bucket na grade. Por padrão, o StorageGRID usa a consistência *strong-global* para garantir que todos os sites de data center e todos os nós de storage que contêm metadados de bucket tenham consistência de leitura após gravação para as configurações de conformidade alteradas.
@@ -101,6 +103,7 @@ Consistency-Control: strong-site
 ----
 
 
+[[error-responses]]
 == Respostas de erro
 
 * Se o intervalo não foi criado para ser compatível, o código de status HTTP para a resposta é `404 Not Found`.

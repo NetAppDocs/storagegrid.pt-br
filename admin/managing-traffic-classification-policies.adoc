@@ -17,6 +17,7 @@ As políticas de classificação de tráfego são aplicadas a pontos de extremid
 
 
 
+[[matching-rules]]
 == Regras correspondentes
 
 Cada política de classificação de tráfego contém uma ou mais regras correspondentes para identificar o tráfego de rede relacionado a uma ou mais das seguintes entidades:
@@ -31,6 +32,7 @@ O StorageGRID monitora o tráfego que corresponde a qualquer regra dentro da pol
 
 
 
+[[traffic-limiting]]
 == Limitação de tráfego
 
 Opcionalmente, você pode adicionar os seguintes tipos de limite a uma política:
@@ -52,6 +54,7 @@ No Gerenciador de Grade, você pode visualizar gráficos de tráfego e verificar
 
 
 
+[[use-traffic-classification-policies-with-slas]]
 == Use políticas de classificação de tráfego com SLAs
 
 Você pode usar políticas de classificação de tráfego em conjunto com limites de capacidade e proteção de dados para aplicar acordos de nível de serviço (SLAs) que fornecem detalhes sobre capacidade, proteção de dados e desempenho.

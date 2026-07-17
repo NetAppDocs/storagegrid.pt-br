@@ -19,6 +19,7 @@ Antes de ativar o SSO (logon único), verifique como os processos de login e log
 
 
 
+[[sign-in-when-sso-is-enabled]]
 == Inicie sessão quando o SSO estiver ativado
 
 Quando o SSO está ativado e você entra no StorageGRID, você é redirecionado para a página SSO da sua organização para validar suas credenciais.
@@ -69,6 +70,7 @@ Você não precisa reinserir suas credenciais SSO.
 
 
 
+[[sign-out-when-sso-is-enabled]]
 == Sair quando o SSO estiver ativado
 
 Quando o SSO está ativado para o StorageGRID, o que acontece quando você sai depende do que você está conetado e de onde você está se saindo.

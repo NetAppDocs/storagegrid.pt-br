@@ -15,6 +15,7 @@ Com o Cloud Storage Pools, é possível fazer backup ou categorizar dados em um 
 
 
 
+[[back-up-storagegrid-data-to-external-location]]
 == Faça backup dos dados do StorageGRID em um local externo
 
 Você pode usar um pool de armazenamento em nuvem para fazer backup de objetos do StorageGRID para um local externo.
@@ -32,6 +33,7 @@ Para implementar uma solução de backup:
 
 
 
+[[tier-data-from-storagegrid-to-external-location]]
 == Categorize os dados do StorageGRID para o local externo
 
 Você pode usar um pool de armazenamento em nuvem para armazenar objetos fora do sistema StorageGRID. Por exemplo, suponha que você tenha um grande número de objetos que você precisa reter, mas você espera acessar esses objetos raramente, se nunca. Você pode usar um pool de storage de nuvem para categorizar os objetos em storage de baixo custo e liberar espaço no StorageGRID.
@@ -45,6 +47,7 @@ Para implementar uma solução de disposição em camadas:
 
 
 
+[[maintain-multiple-cloud-endpoints]]
 == Manter vários pontos de extremidade de nuvem
 
 Você pode configurar vários pontos de extremidade do Cloud Storage Pool se quiser categorizar ou fazer backup de dados de objetos em mais de uma nuvem. Os filtros nas regras do ILM permitem especificar quais objetos são armazenados em cada pool de armazenamento em nuvem. Por exemplo, você pode querer armazenar objetos de alguns locatários ou buckets no Amazon S3 Glacier e objetos de outros locatários ou buckets no storage Blob do Azure. Ou, talvez você queira mover dados entre o Amazon S3 Glacier e o storage Azure Blob.

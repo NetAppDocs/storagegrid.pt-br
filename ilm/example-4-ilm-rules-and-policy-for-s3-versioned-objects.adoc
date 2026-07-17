@@ -29,6 +29,7 @@ link:how-objects-are-deleted.html["Como os objetos são excluídos"]
 
 
 
+[[ilm-rule-1-for-example-4-save-three-copies-for-10-years]]
 == Regra ILM 1 por exemplo 4: Salve três cópias por 10 anos
 
 Este exemplo de regra ILM armazena uma cópia de cada objeto em três locais por 10 anos.
@@ -69,6 +70,7 @@ No dia 0, mantenha três cópias replicadas por 10 anos (3.652 dias), uma no loc
 |===
 
 
+[[ilm-rule-2-for-example-4-save-two-copies-of-noncurrent-versions-for-2-years]]
 == Regra ILM 2 por exemplo 4: Salve duas cópias de versões não atuais por 2 anos
 
 Este exemplo de regra ILM armazena duas cópias das versões não atuais de um objeto com versão S3 por 2 anos.
@@ -117,6 +119,7 @@ No dia 0 em relação ao tempo não atual (ou seja, a partir do dia em que a ver
 |===
 
 
+[[ilm-policy-for-example-4-s3-versioned-objects]]
 == Política ILM por exemplo 4: S3 objetos versionados
 
 Se você quiser gerenciar versões mais antigas de um objeto de forma diferente da versão atual, as regras que usam "hora não atual" como tempo de referência devem aparecer na política ILM antes das regras que se aplicam à versão atual do objeto.

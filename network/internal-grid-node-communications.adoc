@@ -20,6 +20,7 @@ Além do ICMP e das portas listadas na tabela, o StorageGRID usa o protocolo de 
 
 
 
+[[guidelines-for-linux-based-nodes]]
 == Diretrizes para nós baseados em Linux
 
 Se as políticas de rede corporativa restringirem o acesso a qualquer uma dessas portas, você poderá remapear as portas no momento da implantação usando um parâmetro de configuração de implantação.  Para obter mais informações sobre remapeamento de porta e parâmetros de configuração de implantação, consultelink:../swnodes/index.html["Instalar StorageGRID em nós baseados em software"] .
@@ -29,6 +30,7 @@ NOTE: O suporte para remapeamento de portas está obsoleto e será removido em u
 
 
 
+[[guidelines-for-vmware-based-nodes]]
 == Diretrizes para nós baseados em VMware
 
 Configure as portas a seguir somente se você precisar definir restrições de firewall externas à rede VMware.
@@ -40,6 +42,7 @@ NOTE: O suporte para remapeamento de portas está obsoleto e será removido em u
 
 
 
+[[guidelines-for-appliance-nodes]]
 == Diretrizes para nós de dispositivo
 
 Se as políticas de rede empresarial restringirem o acesso a qualquer uma dessas portas, você poderá remapear as portas usando o Instalador de dispositivos StorageGRID.  https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["Opcional: Remapear as portas de rede para o dispositivo"^]Consulte .
@@ -49,6 +52,7 @@ NOTE: O suporte para remapeamento de portas está obsoleto e será removido em u
 
 
 
+[[storagegrid-internal-ports]]
 == Portas internas do StorageGRID
 
 [cols="1a,1a,1a,1a,4a"]

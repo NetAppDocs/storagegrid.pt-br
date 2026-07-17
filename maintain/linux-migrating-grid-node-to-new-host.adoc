@@ -31,6 +31,7 @@ Outros tipos de nós, como nós de administração ou nós de gateway, podem ser
 ====
 
 
+[[export-node-from-source-host]]
 == Exportar nó do host de origem
 
 Como primeira etapa, encerre o nó de grade e exporte-o do host Linux de origem.
@@ -91,6 +92,7 @@ Você executará esse comando no host de destino na próxima etapa.
 
 
 
+[[import-node-on-target-host]]
 == Importar nó no host de destino
 
 Depois de exportar o nó do host de origem, importe e valide o nó no host de destino. A validação confirma que o nó tem acesso aos mesmos dispositivos de interface de rede e armazenamento de bloco que tinha no host de origem.
@@ -133,6 +135,7 @@ Para obter informações sobre solução de problemas, consulte o StorageGRIDlin
 
 
 
+[[start-migrated-node]]
 == Inicie o nó migrado
 
 Depois de validar o nó migrado, você inicia o nó executando um comando no _host de destino_.

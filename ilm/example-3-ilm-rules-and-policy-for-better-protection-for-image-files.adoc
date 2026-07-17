@@ -18,6 +18,7 @@ CAUTION: As seguintes regras e políticas do ILM são apenas exemplos. Existem m
 
 
 
+[[ilm-rule-1-for-example-3-use-ec-for-image-files-greater-than-1-mb]]
 == Regra ILM 1 por exemplo 3: Use EC para arquivos de imagem maiores que 1 MB
 
 Este exemplo de regra ILM usa filtragem avançada para codificar todos os arquivos de imagem com mais de 1 MB.
@@ -72,6 +73,7 @@ Como essa regra é configurada como a primeira regra na política, a instrução
 
 
 
+[[ilm-rule-2-for-example-3-create-2-replicated-copies-for-all-remaining-image-files]]
 == Regra ILM 2 por exemplo 3: Crie 2 cópias replicadas para todos os arquivos de imagem restantes
 
 Este exemplo de regra ILM usa filtragem avançada para especificar que arquivos de imagem menores sejam replicados. Como a primeira regra na política já corresponde a arquivos de imagem maiores que 1 MB, essa regra se aplica a arquivos de imagem com 1 MB ou menores.
@@ -112,6 +114,7 @@ Criar 2 cópias replicadas em dois pools de storage
 |===
 
 
+[[ilm-policy-for-example-3-better-protection-for-image-files]]
 == Política ILM, por exemplo, 3: Melhor proteção para arquivos de imagem
 
 Este exemplo de política ILM inclui três regras:

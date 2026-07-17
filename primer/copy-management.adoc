@@ -19,6 +19,7 @@ Os dados do objeto são geridos pelo serviço LDR.
 
 
 
+[[content-protection-replication]]
 == Proteção de conteúdo: Replicação
 
 Se as instruções de posicionamento de conteúdo de uma regra ILM exigirem cópias replicadas de dados de objetos, as cópias serão feitas e armazenadas no disco pelos nós de storage que compõem o pool de storage configurado.
@@ -36,6 +37,7 @@ image:replication_data_flow.png["diagrama que mostra o processo descrito no text
 
 
 
+[[content-protection-erasure-coding]]
 == Proteção de conteúdo: Codificação de apagamento
 
 Se uma regra de ILM incluir instruções para fazer cópias codificadas para apagamento de dados de objetos, o esquema de codificação de apagamento aplicável quebra os dados de objetos em dados e fragmentos de paridade e distribui esses fragmentos entre os nós de storage configurados no perfil de codificação de apagamento.
@@ -54,6 +56,7 @@ image:erasure_coding_data_flow.png["Fluxo de dados de codificação de apagament
 
 
 
+[[content-protection-cloud-storage-pool]]
 == Proteção de conteúdo: Cloud Storage Pool
 
 Se as instruções de posicionamento de conteúdo de uma regra ILM exigirem que uma cópia replicada dos dados de objetos seja armazenada em um Cloud Storage Pool, os dados de objetos serão duplicados para o bucket externo do S3 ou para o contêiner de storage Azure Blob especificado para o Cloud Storage Pool.

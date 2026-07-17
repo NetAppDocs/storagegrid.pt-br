@@ -15,6 +15,7 @@ Antes de usar o procedimento de desativação do site para remover um site, voc�
 
 
 
+[[what-happens-when-you-decommission-a-site]]
 == O que acontece quando você desativa um site
 
 Ao desativar um site, o StorageGRID remove permanentemente todos os nós do site e do próprio site do sistema StorageGRID.
@@ -27,6 +28,7 @@ Quando o procedimento de desativação do local estiver concluído:
 
 
 
+[[differences-between-connected-site-and-disconnected-site-decommission-procedures]]
 == Diferenças entre os procedimentos de desativação do local conetado e do local desconetado
 
 Você pode usar o procedimento de desativação do site para remover um site no qual todos os nós estão conetados ao StorageGRID (chamado de desativação do site conetado) ou para remover um site no qual todos os nós são desconetados do StorageGRID (chamado de desativação do site desconetado). Antes de começar, você deve entender as diferenças entre esses procedimentos.
@@ -48,6 +50,7 @@ CAUTION: Antes de executar um procedimento de desativação do local desconetado
 
 
 
+[[general-requirements-for-removing-a-connected-or-a-disconnected-site]]
 == Requisitos gerais para remover um local conetado ou desconetado
 
 Antes de remover um local conetado ou desconetado, você deve estar ciente dos seguintes requisitos:
@@ -74,6 +77,7 @@ NOTE: Se precisar executar outro procedimento de manutenção durante a desativa
 
 
 
+[[requirements-for-information-lifecycle-management-ilm]]
 == Requisitos para o gerenciamento do ciclo de vida das informações (ILM)
 
 Como parte da remoção de um site, você deve atualizar sua configuração ILM. O assistente do Decommission Site orienta você por várias etapas de pré-requisitos para garantir o seguinte:
@@ -89,6 +93,7 @@ CAUTION: Antes de remover um site, talvez seja necessário criar novas regras IL
 
 
 
+[[considerations-for-the-object-data-at-a-connected-site]]
 == Considerações para os dados do objeto em um local conetado
 
 Se você estiver executando uma desativação do site conetado, você deve decidir o que fazer com os dados de objeto existentes no site quando criar novas regras ILM e uma nova política ILM. Você pode fazer um ou ambos os seguintes procedimentos:
@@ -113,6 +118,7 @@ CAUTION: Nunca crie uma regra ILM de cópia única para acomodar a remoção de 
 
 
 
+[[additional-requirements-for-a-connected-site-decommission]]
 == Requisitos adicionais para uma desativação do local conetado
 
 Antes que o StorageGRID possa remover um site conetado, você deve garantir o seguinte:
@@ -136,6 +142,7 @@ NOTE: A migração ou exclusão de dados de objetos de um local pode levar dias,
 
 
 
+[[additional-requirements-for-a-disconnected-site-decommission]]
 == Requisitos adicionais para uma desativação do local desconetado
 
 Antes que o StorageGRID possa remover um site desconetado, você deve garantir o seguinte:
@@ -162,6 +169,7 @@ NOTE: Se suas regras e políticas de ILM foram projetadas para proteger contra a
 
 
 
+[[considerations-for-consistency-when-you-remove-a-site]]
 == Considerações sobre consistência quando você remove um site
 
 A consistência de um bucket do S3 determina se o StorageGRID replica totalmente os metadados de objetos a todos os nós e sites antes de informar ao cliente que a ingestão de objetos foi bem-sucedida. A consistência fornece um equilíbrio entre a disponibilidade dos objetos e a consistência desses objetos em diferentes nós de storage e locais.

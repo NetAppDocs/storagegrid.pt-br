@@ -17,6 +17,7 @@ Ao criar ou editar uma regra ILM, você seleciona um esquema de codificação de
 
 
 
+[[data-protection]]
 == Proteção de dados
 
 O sistema StorageGRID usa o algoritmo de codificação de apagamento de Reed-Solomon. O algoritmo corta um objeto em `k` fragmentos de dados e calcula `m` fragmentos de paridade.
@@ -31,6 +32,7 @@ A melhor proteção de dados é fornecida pelo esquema de codificação de apaga
 
 
 
+[[storage-overhead]]
 == Sobrecarga de storage
 
 A sobrecarga de armazenamento de um esquema de codificação de apagamento é calculada dividindo o número de fragmentos de paridade (`m`) pelo número de fragmentos de (`k`dados ). Você pode usar a sobrecarga de storage para calcular quanto espaço em disco cada objeto com codificação de apagamento requer:
@@ -48,6 +50,7 @@ Selecione o esquema de codificação de apagamento com o menor valor total `k+m`
 
 
 
+[[guidelines-for-storage-pools]]
 == Diretrizes para pools de armazenamento
 
 Ao selecionar o pool de armazenamento a ser usado para uma regra que criará uma cópia codificada por apagamento, use as seguintes diretrizes para pools de armazenamento:
@@ -75,6 +78,7 @@ O número mínimo de nós de storage necessário é `k+m`. No entanto, ter pelo 
 
 
 
+[[erasure-coding-schemes-for-storage-pools-containing-three-or-more-sites]]
 == Esquemas de codificação de apagamento para pools de storage que contêm três ou mais locais
 
 A tabela a seguir descreve os esquemas de codificação de apagamento atualmente compatíveis com o StorageGRID para pools de storage que incluem três ou mais locais. Todos esses esquemas fornecem proteção contra perda de sites. Um site pode ser perdido, e o objeto ainda estará acessível.
@@ -238,6 +242,7 @@ NOTE: Se você não tiver certeza de qual esquema usar, selecione 4 3 ou 2 ou 6 
 
 
 
+[[erasure-coding-schemes-for-one-site-storage-pools]]
 == Esquemas de codificação de apagamento para pools de storage de um local
 
 Um pool de storage de um local dá suporte a todos os esquemas de codificação de apagamento definidos para três ou mais locais, desde que o local tenha nós de storage suficientes.

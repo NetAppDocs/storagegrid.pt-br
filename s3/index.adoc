@@ -17,6 +17,7 @@ O suporte à API REST do S3 permite conetar aplicativos orientados a serviços d
 
 
 
+[[supported-versions]]
 == Versões suportadas
 
 O StorageGRID oferece suporte às seguintes versões específicas de STS, S3 e HTTP:
@@ -56,6 +57,8 @@ https://datatracker.ietf.org/doc/html/rfc2616["IETF RFC 2616: Protocolo de trans
 |===
 
 
+[[updates-to-s3-rest-api-support]]
+[[updates-to-rest-api-support]]
 == Atualizações para o suporte à API REST do S3
 
 [cols="1a,4a"]

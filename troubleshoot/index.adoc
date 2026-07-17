@@ -17,6 +17,7 @@ Normalmente, você pode resolver problemas sozinho. No entanto, talvez seja nece
 
 
 
+[[defineproblemdefine-the-problem]]
 == [[define_Problem]]defina o problema
 
 O primeiro passo para resolver um problema é definir o problema claramente.
@@ -78,6 +79,7 @@ Esta é a primeira vez que vi esta questão.
 |===
 
 
+[[assess-the-risk-and-impact-on-the-system]]
 == Avaliar o risco e o impactos no sistema
 
 Depois de definir o problema, avalie o risco e o impactos no sistema StorageGRID. Por exemplo, a presença de alertas críticos não significa necessariamente que o sistema não está fornecendo serviços básicos.
@@ -118,6 +120,7 @@ Sim, porque os aplicativos cliente não podem armazenar objetos no sistema Stora
 |===
 
 
+[[collect-data]]
 == Coletar dados
 
 Depois de definir o problema e avaliar o seu risco e impactos, recolha dados para análise. O tipo de dados que é mais útil para coletar depende da natureza do problema.
@@ -206,6 +209,7 @@ O suporte técnico pode solicitar que você colete dados ou revise informações
 |===
 
 
+[[createtimelinecreate-a-timeline-of-recent-changes]]
 === [[create_timeline]]Crie uma linha do tempo de mudanças recentes
 
 Quando um problema ocorre, você deve considerar o que mudou recentemente e quando essas mudanças ocorreram.
@@ -274,6 +278,7 @@ Aqui estão alguns exemplos de mudanças potencialmente significativas:
 
 
 
+[[establish-baselines]]
 === Estabeleça linhas de base
 
 Você pode estabelecer linhas de base para o seu sistema registrando os níveis normais de vários valores operacionais. No futuro, você pode comparar os valores atuais com essas linhas de base para ajudar a detetar e resolver valores anormais.
@@ -367,6 +372,7 @@ Selecione *Nós* > *_Nó de Armazenamento_* > *Objetos*.  Na tabela Consultas, v
 |===
 
 
+[[analyze-data]]
 == Analisar dados
 
 Use as informações coletadas para determinar a causa do problema e possíveis soluções.
@@ -380,6 +386,7 @@ A análise é dependente de problemas, mas em geral:
 
 
 
+[[escalation-information-checklist]]
 == Lista de verificação de informações de encaminhamento
 
 Se você não conseguir resolver o problema sozinho, entre em Contato com o suporte técnico. Antes de entrar em Contato com o suporte técnico, reúna as informações listadas na tabela a seguir para facilitar a resolução de problemas.

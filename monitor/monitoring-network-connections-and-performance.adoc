@@ -15,6 +15,7 @@ A integridade e a largura de banda da rede entre nós e locais, e o uso de recur
 
 
 
+[[monitor-network-connections-and-performance]]
 == Monitorar conexões de rede e desempenho
 
 A conetividade de rede e a largura de banda são especialmente importantes se a política de gerenciamento de ciclo de vida das informações (ILM) copiar objetos replicados entre sites ou armazenar objetos codificados por apagamento usando um esquema que fornece proteção contra perda de site. Se a rede entre sites não estiver disponível, a latência da rede for muito alta ou a largura de banda da rede for insuficiente, algumas regras do ILM podem não conseguir colocar objetos onde o esperado. Isso pode levar a falhas de ingestão (quando a opção de ingestão estrita é selecionada para regras de ILM) ou a um desempenho de ingestão ruim e backlogs de ILM.
@@ -77,6 +78,7 @@ Se uma política de classificação de tráfego for projetada para limitar o tr�
 
 
 
+[[monitor-node-level-resources]]
 == Monitore os recursos no nível do nó
 
 Monitore nós de grade individuais para verificar seus níveis de uso de recursos. Se os nós estiverem sobrecarregados consistentemente, mais nós poderão ser necessários para operações eficientes.

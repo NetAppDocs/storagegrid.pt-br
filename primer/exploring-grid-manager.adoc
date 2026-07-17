@@ -22,6 +22,7 @@ Você pode acessar o Gerenciador de Grade usando um link:../admin/web-browser-re
 
 
 
+[[grid-manager-dashboard]]
 == Painel do Grid Manager
 
 Ao iniciar sessão pela primeira vez no Gestor de grelha, pode utilizar o painel para link:../monitor/viewing-dashboard.html["monitorar as atividades do sistema"] o visualizar rapidamente.
@@ -34,6 +35,7 @@ Para obter uma explicação das informações exibidas em cada cartão, selecion
 
 
 
+[[search-field]]
 == Campo de pesquisa
 
 O campo *Search* na barra de cabeçalho permite que você navegue rapidamente para uma página específica dentro do Gerenciador de Grade. Por exemplo, você pode inserir *km* para acessar a página servidor de gerenciamento de chaves (KMS).
@@ -42,6 +44,7 @@ Você pode usar *Search* para encontrar entradas na barra lateral do Gerenciador
 
 
 
+[[help-menu]]
 == Menu Ajuda
 
 O menu de ajuda image:icon-help-menu-bar.png["ícone de ajuda na barra de menus"] fornece acesso a:
@@ -54,6 +57,7 @@ O menu de ajuda image:icon-help-menu-bar.png["ícone de ajuda na barra de menus"
 
 
 
+[[alerts-menu]]
 == Menu de alertas
 
 O menu Alertas fornece uma interface fácil de usar para detetar, avaliar e resolver problemas que possam ocorrer durante a operação do StorageGRID.
@@ -69,12 +73,14 @@ No menu Alertas, você pode fazer o seguinte paralink:../monitor/managing-alerts
 
 
 
+[[nodes-page]]
 == Página de nós
 
 Olink:../monitor/viewing-nodes-page.html["Página de nós"] exibe informações sobre toda a grade, cada site na grade e cada nó em um site.  Para visualizar informações de um site ou nó específico, selecione o site ou nó.
 
 
 
+[[tenants-page]]
 == Página de inquilinos
 
 O link:../admin/managing-tenants.html["Página de inquilinos"] permite-lhe link:../tenant/index.html["crie e monitore as contas de locatários de storage"]utilizar o seu sistema StorageGRID. Você deve criar pelo menos uma conta de locatário para especificar quem pode armazenar e recuperar objetos e qual funcionalidade está disponível para eles.
@@ -83,6 +89,7 @@ A página locatários também fornece detalhes de uso para cada locatário, incl
 
 
 
+[[ilm-menu]]
 == Menu ILM
 
 O link:using-information-lifecycle-management.html["Menu ILM"] permite que link:../ilm/index.html["Configurar as regras e políticas de gerenciamento do ciclo de vida das informações (ILM)"]você governe a durabilidade e a disponibilidade dos dados. Você também pode inserir um identificador de objeto para exibir os metadados desse objeto.
@@ -100,12 +107,14 @@ No menu ILM, você pode visualizar e gerenciar ILM:
 
 
 
+[[configuration-menu]]
 == Menu de configuração
 
 O menu Configuração permite especificar as definições de rede, as definições de segurança, as definições do sistema, as opções de monitorização e as opções de controlo de acesso.
 
 
 
+[[network-tasks]]
 === Tarefas de rede
 
 As tarefas de rede incluem:
@@ -120,6 +129,7 @@ As tarefas de rede incluem:
 
 
 
+[[security-tasks]]
 === Tarefas de segurança
 
 As tarefas de segurança incluem:
@@ -133,6 +143,7 @@ As tarefas de segurança incluem:
 
 
 
+[[system-tasks]]
 === Tarefas do sistema
 
 As tarefas do sistema incluem:
@@ -147,6 +158,7 @@ As tarefas do sistema incluem:
 
 
 
+[[monitoring-tasks]]
 === Tarefas de monitorização
 
 As tarefas de monitoramento incluem:
@@ -157,6 +169,7 @@ As tarefas de monitoramento incluem:
 
 
 
+[[access-control-tasks]]
 === Tarefas de controle de acesso
 
 As tarefas de controle de acesso incluem:
@@ -170,12 +183,14 @@ As tarefas de controle de acesso incluem:
 
 
 
+[[maintenance-menu]]
 == Menu de manutenção
 
 O menu Manutenção permite executar tarefas de manutenção, manutenção do sistema e manutenção da rede.
 
 
 
+[[tasks]]
 === Tarefas
 
 As tarefas de manutenção incluem:
@@ -191,6 +206,7 @@ As tarefas de manutenção incluem:
 
 
 
+[[system]]
 === Sistema
 
 As tarefas de manutenção do sistema que você pode executar incluem:
@@ -209,6 +225,7 @@ As tarefas de manutenção do sistema que você pode executar incluem:
 
 
 
+[[network]]
 === Rede
 
 As tarefas de manutenção de rede que você pode executar incluem:
@@ -220,12 +237,14 @@ As tarefas de manutenção de rede que você pode executar incluem:
 
 
 
+[[support-menu]]
 == Menu de suporte
 
 O menu suporte fornece opções que ajudam o suporte técnico a analisar e solucionar problemas do seu sistema.
 
 
 
+[[tools]]
 === Ferramentas
 
 Na seção Ferramentas do menu suporte, você pode:
@@ -242,6 +261,7 @@ NOTE: As ferramentas disponíveis na opção *Metrics* destinam-se a ser utiliza
 
 
 
+[[other]]
 === Outros
 
 Na outra seção do menu suporte, você pode:

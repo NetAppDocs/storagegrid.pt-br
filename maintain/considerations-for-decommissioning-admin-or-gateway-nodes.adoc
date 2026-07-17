@@ -15,6 +15,7 @@ Reveja as considerações sobre a desativação de um nó de administrador ou de
 
 
 
+[[considerations-for-admin-node]]
 == Considerações para Admin Node
 
 * Não é possível desativar o nó de administração principal.
@@ -27,6 +28,7 @@ Reveja as considerações sobre a desativação de um nó de administrador ou de
 
 
 
+[[considerations-for-gateway-node]]
 == Considerações para o Gateway Node
 
 * Não é possível desativar um Gateway Node se uma de suas interfaces de rede fizer parte de um grupo de alta disponibilidade (HA). Primeiro, é necessário remover as interfaces de rede do grupo HA. Consulte as instruções para link:../admin/managing-high-availability-groups.html["Gerenciamento de grupos de HA"].

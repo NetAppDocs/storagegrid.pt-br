@@ -15,6 +15,7 @@ A operação UploadPart carrega uma parte em um upload multipart para um objeto.
 
 
 
+[[supported-request-headers]]
 == Cabeçalhos de solicitação suportados
 
 Os seguintes cabeçalhos de solicitação são suportados:
@@ -26,6 +27,7 @@ Os seguintes cabeçalhos de solicitação são suportados:
 
 
 
+[[request-headers-for-server-side-encryption]]
 == Cabeçalhos de solicitação para criptografia do lado do servidor
 
 Se você especificou criptografia SSE-C para a solicitação CreateMultipartUpload, você também deve incluir os seguintes cabeçalhos de solicitação em cada solicitação UploadPart:
@@ -45,6 +47,7 @@ Se você especificou uma soma de verificação SHA-256 durante a solicitação C
 
 
 
+[[unsupported-request-headers]]
 == Cabeçalhos de solicitação não suportados
 
 Os seguintes cabeçalhos de solicitação não são suportados:
@@ -55,6 +58,7 @@ Os seguintes cabeçalhos de solicitação não são suportados:
 
 
 
+[[versioning]]
 == Controle de versão
 
 O upload de várias partes consiste em operações separadas para iniciar o upload, listar uploads, carregar peças, montar as peças carregadas e concluir o upload. Os objetos são criados (e versionados, se aplicável) quando a operação CompleteMultipartUpload é executada.

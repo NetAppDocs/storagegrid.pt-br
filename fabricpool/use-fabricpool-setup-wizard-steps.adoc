@@ -24,6 +24,7 @@ NOTE: Se você quiser configurar o StorageGRID para uso com qualquer outro aplic
 
 
 
+[[access-the-wizard]]
 == Acesse o assistente
 
 Você pode concluir o assistente de configuração do FabricPool quando começar a usar o Gerenciador de Grade do StorageGRID, ou você pode acessar e concluir o assistente a qualquer momento posterior.
@@ -42,6 +43,7 @@ image:help_menu.png["menu ajuda"]
 
 
 
+[[step-1-of-9-configure-ha-group]]
 == Etapa 1 de 9: Configurar o grupo HA
 
 Um grupo de alta disponibilidade (HA) é uma coleção de nós que contêm cada um o serviço de balanceador de carga do StorageGRID. Um grupo de HA pode conter nós de gateway, nós de administração ou ambos.
@@ -144,6 +146,7 @@ Pelo menos um endereço deve ser IPv4. Opcionalmente, você pode especificar end
 
 
 
+[[step-2-of-9-configure-load-balancer-endpoint]]
 == Etapa 2 de 9: Configurar o ponto final do balanceador de carga
 
 O StorageGRID usa um balanceador de carga para gerenciar a carga de trabalho de aplicativos clientes, como o FabricPool. O balanceamento de carga maximiza a velocidade e a capacidade de conexão em vários nós de storage.
@@ -347,6 +350,7 @@ Copie o certificado do servidor para o balanceador de carga externo e cole-o nes
 
 
 
+[[step-3-of-9-tenant-and-bucket]]
 == Passo 3 de 9: Locatário e balde
 
 Um locatário é uma entidade que pode usar aplicativos S3 para armazenar e recuperar objetos no StorageGRID. Cada locatário tem seus próprios usuários, chaves de acesso, buckets, objetos e um conjunto específico de recursos. Você deve criar um locatário do StorageGRID antes de criar o bucket que o FabricPool usará.
@@ -427,6 +431,7 @@ NOTE: Não selecione um bucket que tenha o bloqueio de objeto S3 ativado para us
 ====
 
 
+[[step-4-of-9-download-ontap-settings]]
 == Passo 4 de 9: Baixe as configurações do ONTAP
 
 Durante esta etapa, você faz o download de um arquivo que pode ser usado para inserir valores no Gerenciador do sistema do ONTAP.
@@ -457,6 +462,7 @@ CAUTION: Não feche esta página até que você tenha copiado ambas as chaves de
 
 
 
+[[step-5-of-9-select-a-storage-pool]]
 == Passo 5 de 9: Selecione um pool de armazenamento
 
 Um pool de storage é um grupo de nós de storage. Ao selecionar um pool de storage, você determina quais nós o StorageGRID usará para armazenar os dados dispostos em camadas no ONTAP.
@@ -474,6 +480,7 @@ O pool de storage de um local inclui todos os nós de storage nesse local.
 
 
 
+[[step-6-of-9-review-ilm-rule-for-fabricpool]]
 == Passo 6 de 9: Revise a regra ILM para FabricPool
 
 As regras de gerenciamento do ciclo de vida das informações (ILM) controlam o posicionamento, a duração e o comportamento de ingestão de todos os objetos em seu sistema StorageGRID.
@@ -539,6 +546,7 @@ Use a codificação de apagamento 2-1
 
 
 
+[[step-7-of-9-review-and-activate-ilm-policy]]
 == Passo 7 de 9: Revise e ative a política ILM
 
 Depois que o assistente de configuração do FabricPool criar a regra ILM para uso do FabricPool, ele cria uma política ILM. Você deve simular e revisar cuidadosamente esta política antes de ativá-la.
@@ -578,6 +586,8 @@ CAUTION: Erros em uma política de ILM podem causar perda de dados irreparável.
 
 
 
+[[step-8-of-9-create-traffic-classification-policy]]
+[[traffic-classification]]
 == Passo 8 de 9: Criar política de classificação de tráfego
 
 Como opção, o assistente de configuração do FabricPool pode criar uma política de classificação de tráfego que você pode usar para monitorar a carga de trabalho do FabricPool. A política criada pelo sistema usa uma regra correspondente para identificar todo o tráfego de rede relacionado ao intervalo que você criou. Esta política monitoriza apenas o tráfego; não limita o tráfego para FabricPool ou quaisquer outros clientes.
@@ -595,6 +605,7 @@ Assim que o FabricPool começar a separar dados em categorias para o StorageGRID
 
 
 
+[[step-9-of-9-review-summary]]
 == Passo 9 de 9: Rever resumo
 
 O resumo fornece detalhes sobre os itens configurados, incluindo o nome do balanceador de carga, locatário e bucket, a política de classificação de tráfego e a política ILM ativa,
@@ -606,6 +617,7 @@ O resumo fornece detalhes sobre os itens configurados, incluindo o nome do balan
 
 
 
+[[next-steps]]
 == Próximas etapas
 
 Depois de concluir o assistente FabricPool, execute estas etapas adicionais.

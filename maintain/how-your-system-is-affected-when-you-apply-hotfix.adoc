@@ -15,6 +15,7 @@ Você deve entender como seu sistema StorageGRID será afetado quando você apli
 
 
 
+[[storagegrid-hotfixes-are-non-disruptive]]
 == Os hotfixes do StorageGRID não causam interrupções
 
 O sistema StorageGRID pode obter e recuperar dados de aplicativos clientes durante todo o processo de hotfix. Se você aprovar todos os nós do mesmo tipo para hotfix (por exemplo, nós de storage), os nós serão derrubados um de cada vez, portanto, não haverá tempo em que todos os nós de grade ou todos os nós de grade de um determinado tipo não estejam disponíveis.
@@ -29,6 +30,7 @@ Para permitir disponibilidade contínua, verifique se sua política de ILM cont�
 
 
 
+[[client-applications-might-experience-short-term-disruptions]]
 == As aplicações do cliente podem sofrer interrupções de curto prazo
 
 O sistema StorageGRID pode obter e recuperar dados de aplicativos clientes durante todo o processo de hotfix; no entanto, as conexões de clientes com nós de gateway individuais ou nós de armazenamento podem ser interrompidas temporariamente se o hotfix precisar reiniciar os serviços nesses nós. A conetividade será restaurada após a conclusão do processo de correção e os serviços são retomados nos nós individuais.
@@ -40,12 +42,14 @@ NOTE: Você pode usar vários gateways e grupos de alta disponibilidade (HA) par
 
 
 
+[[alerts-and-snmp-notifications-might-be-triggered]]
 == Alertas e notificações SNMP podem ser acionados
 
 Alertas e notificações SNMP podem ser acionados quando os serviços são reiniciados e quando o sistema StorageGRID está operando como um ambiente de versão mista (alguns nós de grade executando uma versão anterior, enquanto outros foram atualizados para uma versão posterior). Em geral, esses alertas e notificações serão apagados quando o hotfix for concluído.
 
 
 
+[[configuration-changes-are-restricted]]
 == As alterações de configuração são restritas
 
 Ao aplicar um hotfix ao StorageGRID:

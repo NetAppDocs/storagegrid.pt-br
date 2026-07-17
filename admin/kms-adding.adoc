@@ -25,6 +25,7 @@ Se possível, configure qualquer servidor de gerenciamento de chaves específico
 
 
 
+[[step-1-kms-details]]
 == Passo 1: KMS detalhes
 
 Na Etapa 1 (detalhes do KMS) do assistente Adicionar um servidor de gerenciamento de chaves, você fornece detalhes sobre o cluster KMS ou KMS.
@@ -96,6 +97,7 @@ O nome de domínio ou endereço IP totalmente qualificado para o KMS.
 
 
 
+[[step-2-upload-server-certificate]]
 == Passo 2: Faça upload do certificado do servidor
 
 Na Etapa 2 (carregar certificado do servidor) do assistente Adicionar um servidor de gerenciamento de chaves, você carrega o certificado do servidor (ou pacote de certificados) para o KMS. O certificado do servidor permite que o KMS externo se autentique no StorageGRID.
@@ -115,6 +117,7 @@ NOTE: Se você carregou um pacote de certificados, os metadados de cada certific
 
 
 
+[[sg-create-keystep-3-upload-client-certificates]]
 == [[sg-create-key]]passo 3: Carregue certificados de cliente
 
 Na Etapa 3 (carregar certificados de cliente) do assistente Adicionar um servidor de gerenciamento de chaves, você carrega o certificado de cliente e a chave privada do certificado de cliente. O certificado de cliente permite que o StorageGRID se autentique no KMS.

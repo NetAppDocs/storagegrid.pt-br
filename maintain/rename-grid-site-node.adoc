@@ -22,6 +22,7 @@ Você pode usar este procedimento para adicionar ou atualizar os nomes de exibi�
 
 
 
+[[how-to-rename-grid-sites-or-nodes]]
 == Como renomear grade, sites ou nós
 
 Você pode renomear seu sistema StorageGRID, um ou mais sites ou um ou mais nós.
@@ -30,6 +31,7 @@ Você pode usar um nome de exibição que foi usado anteriormente por um nó dif
 
 
 
+[[select-items-to-rename]]
 === Selecione itens para mudar o nome
 
 Para iniciar, selecione os itens que deseja renomear.
@@ -93,6 +95,7 @@ Selecione a caixa de verificação para o nó.
 
 
 
+[[propose-new-names]]
 === Propor novos nomes
 
 Para a etapa *propor novos nomes*, você pode inserir um nome de exibição para cada item individualmente ou renomear itens em massa.
@@ -161,6 +164,7 @@ image:rename-bulk-rename-tool-after.png["Renomeie a ferramenta em massa depois"]
 ====
 
 
+[[download-recovery-packagedownload-the-recovery-package]]
 === [[download-recovery-package]]Baixe o pacote de recuperação
 
 Quando terminar de renomear os itens, baixe e salve um novo pacote de recuperação.  Os novos nomes de exibição para os itens que você renomeou estão incluídos no `Passwords.txt` arquivo.
@@ -182,6 +186,7 @@ CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém 
 
 
 
+[[revert-display-names-back-to-system-names]]
 == Reverter nomes de exibição de volta para nomes de sistema
 
 Você pode reverter uma grade renomeada, site ou nó de volta para o nome original do sistema. Quando você reverte um item de volta ao nome do sistema, as páginas do Gerenciador de Grade e outros locais do StorageGRID não mostram mais um *Nome de exibição* para esse item. Apenas o nome do sistema do item é mostrado.

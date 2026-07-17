@@ -24,6 +24,7 @@ NOTE: O controle de versão pode ser ativado somente em buckets criados com o St
 
 
 
+[[ilm-and-versioning]]
 == ILM e versionamento
 
 As políticas de ILM são aplicadas a cada versão de um objeto. Um processo de digitalização ILM verifica continuamente todos os objetos e os reavalia em relação à política ILM atual. Quaisquer alterações feitas às políticas ILM são aplicadas a todos os objetos ingeridos anteriormente. Isso inclui versões ingeridas anteriormente se o controle de versão estiver ativado. A digitalização ILM aplica novas alterações ILM a objetos ingeridos anteriormente.

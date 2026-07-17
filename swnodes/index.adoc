@@ -43,6 +43,7 @@ Quando todos os nós tiverem sido implantados, use o Gerenciador de Grade para l
 
 
 
+[[automate-the-installation]]
 == Automatize a instalação
 
 

@@ -17,6 +17,7 @@ Cada local do seu sistema StorageGRID precisa ter pelo menos três nós de stora
 
 
 
+[[types-of-storage-nodes]]
 == Tipos de nós de storage
 
 Durante a instalação, você pode selecionar o tipo de nó de armazenamento que deseja instalar. Esses tipos estão disponíveis para nós de storage baseados em software e para nós de storage baseados no dispositivo que oferecem suporte ao recurso:
@@ -34,12 +35,14 @@ Você pode selecionar o tipo de nó de armazenamento nestas situações:
 
 
 
+[[data-and-metadata-storage-node-combined]]
 === Nó de storage de dados e metadados (combinado)
 
 Por padrão, todos os novos nós de storage armazenarão dados de objetos e metadados. Esse tipo de nó de armazenamento é chamado de nó de armazenamento _combinado_.
 
 
 
+[[metadata-only-storage-node]]
 === Nó de storage somente de metadados
 
 Usar um nó de armazenamento exclusivo para metadados pode fazer sentido se sua grade armazenar um número muito grande de objetos pequenos. A instalação da capacidade de metadados dedicada fornece um melhor equilíbrio entre o espaço necessário para um grande número de pequenos objetos e o espaço necessário para os metadados desses objetos. Além disso, os nós de storage somente de metadados hospedados em dispositivos de alta performance podem aumentar a performance.
@@ -67,6 +70,7 @@ NOTE: Embora os nós de storage somente metadados contenham o <<ldr-service,Serv
 
 
 
+[[data-only-storage-node]]
 === Nó de storage somente de dados
 
 O uso de um nó de storage exclusivo para dados pode fazer sentido se seus nós de storage tiverem características de desempenho diferentes. Por exemplo, para aumentar potencialmente a performance, você pode ter nós de storage de disco giratório somente de dados e alta capacidade acompanhados por nós de storage de alta performance somente de metadados.
@@ -77,6 +81,7 @@ Você pode converter um nó de armazenamento que não contém o<<adc-service,Ser
 
 
 
+[[required-storage-nodes-per-grid-and-per-site]]
 == Nós de armazenamento necessários por grade e por site
 
 Ao selecionar quais nós de armazenamento usar em sua topologia, lembre-se de que a grade ou cada site na grade deve conter o seguinte:
@@ -88,6 +93,7 @@ Ao selecionar quais nós de armazenamento usar em sua topologia, lembre-se de qu
 
 
 
+[[primary-services-for-storage-nodes]]
 == Serviços primários para nós de storage
 
 A tabela a seguir mostra os serviços primários para nós de storage; no entanto, essa tabela não lista todos os serviços de nós.

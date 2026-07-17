@@ -15,6 +15,7 @@ O componente básico básico de um sistema StorageGRID é o nó de grade. Os nó
 
 
 
+[[types-of-grid-nodes]]
 == Tipos de nós de grade
 
 O sistema StorageGRID usa três tipos de nós de grade:
@@ -45,12 +46,14 @@ Consulte link:what-gateway-node-is.html["O que é um nó de gateway?"]
 
 
 
+[[hardware-and-software-nodes]]
 == Nós de hardware e software
 
 Os nós do StorageGRID podem ser implantados como nós de dispositivos do StorageGRID ou como nós baseados em software.  O número máximo de nós (incluindo todos os tipos de nós) por sistema é 220.
 
 
 
+[[storagegrid-appliance-nodes]]
 === Nós de dispositivos StorageGRID
 
 Os aparelhos de hardware StorageGRID são especialmente projetados para uso em um sistema StorageGRID. Alguns dispositivos podem ser usados como nós de storage. Outros dispositivos podem ser usados como nós de administrador ou nós de gateway. Você pode combinar nós de dispositivo com nós baseados em software ou implantar grades totalmente projetadas e totalmente compatíveis com dispositivos que não têm dependências de hipervisores externos, storage ou hardware de computação.
@@ -63,6 +66,7 @@ Consulte o seguinte para saber mais sobre os aparelhos disponíveis:
 
 
 
+[[software-based-nodes]]
 === Nós baseados em software
 
 Os nós de grade baseados em software podem ser implantados como máquinas virtuais VMware ou em mecanismos de contêiner em um host Linux. Ver link:../swnodes/index.html["Instalar StorageGRID em nós baseados em software"] .
@@ -71,6 +75,7 @@ Utilize o https://imt.netapp.com/matrix/#welcome["Ferramenta de Matriz de intero
 
 
 
+[[storagegrid-services]]
 == Serviços da StorageGRID
 
 A seguir está uma lista completa de serviços do StorageGRID.

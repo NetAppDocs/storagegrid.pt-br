@@ -15,6 +15,7 @@ O StorageGRID oferece várias opções para criptografar dados. Você deve anali
 
 A tabela fornece um resumo de alto nível dos métodos de criptografia disponíveis no StorageGRID.
 
+[[bucket-encryption-table]]
 [cols="1a,1a,1a"]
 |===
 | Opção de criptografia | Como funciona | Aplica-se a 
@@ -135,6 +136,7 @@ https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html["
 |===
 
 
+[[use-multiple-encryption-methods]]
 == Use vários métodos de criptografia
 
 Dependendo dos seus requisitos, você pode usar mais de um método de criptografia de cada vez. Por exemplo:

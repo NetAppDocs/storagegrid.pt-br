@@ -19,6 +19,7 @@ Opcionalmente, você pode alterar o destino dos logs de auditoria e enviar infor
 
 
 
+[[file-rotation-for-bycast-log]]
 == Rotação de ficheiros para bycast.log
 
 Quando o `bycast.log` arquivo atinge 1 GB, o arquivo existente é salvo e um novo arquivo de log é iniciado.
@@ -39,6 +40,7 @@ link:collecting-log-files-and-system-data.html["Colete arquivos de log e dados d
 
 
 
+[[messages-in-bycast-log]]
 == Mensagens em bycast.log
 
 As mensagens em `bycast.log` são escritas pelo ADE (Asynchronous Distributed Environment). ADE é o ambiente de tempo de execução usado pelos serviços de cada nó de grade.
@@ -99,6 +101,7 @@ Mensagem
 |===
 
 
+[[message-severities-in-bycast-log]]
 == Severidades da mensagem em bycast.log
 
 As mensagens em `bycast.log` são níveis de gravidade atribuídos.
@@ -113,6 +116,7 @@ Por exemplo:
 
 
 
+[[error-codes-in-bycast-log]]
 == Códigos de erro em `bycast.log`
 
 A maioria das mensagens de erro no `bycast.log` contém códigos de erro.

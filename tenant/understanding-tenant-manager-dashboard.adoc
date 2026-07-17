@@ -22,6 +22,7 @@ image:tenant_dashboard_with_buckets.png["Painel de instrumentos - Lista de balde
 
 
 
+[[tenant-account-information]]
 == Informações da conta do locatário
 
 A parte superior do painel exibe o número de buckets ou contentores configurados, grupos e usuários. Ele também exibe o número de endpoints de serviços de plataforma, se algum tiver sido configurado. Selecione as ligações para ver os detalhes.
@@ -30,6 +31,7 @@ Dependendo do link:tenant-management-permissions.html["permissões de gerenciame
 
 
 
+[[storage-and-quota-usage]]
 == Uso de storage e cota
 
 O painel uso do armazenamento contém as seguintes informações:
@@ -64,6 +66,7 @@ NOTE: Para alterar as unidades para os valores de armazenamento exibidos no Gere
 
 
 
+[[quota-usage-alerts]]
 == Alertas de uso de cota
 
 Se os alertas de uso de cota tiverem sido ativados no Gerenciador de Grade, esses alertas aparecerão no Gerenciador de Locatário quando a cota for baixa ou excedida, da seguinte forma:
@@ -77,6 +80,7 @@ Considere pedir ao administrador da grade para aumentar a cota.
 
 
 
+[[bucket-capacity-usagecapacity-limit-usage]]
 == [[Bucket-Capacity-Usage]]uso do limite de capacidade
 
 Se você definiu um limite de capacidade para seus buckets, o painel do Gerenciador do locatário exibirá uma lista dos buckets principais por uso do limite de capacidade.
@@ -85,6 +89,7 @@ Se nenhum limite for definido para um bucket, sua capacidade será ilimitada. No
 
 
 
+[[endpoint-errors]]
 == Erros de endpoint
 
 Se você usou o Gerenciador de Grade para configurar um ou mais endpoints para uso com serviços de plataforma, o painel do Gerenciador do locatário exibirá um alerta se algum erro de endpoint tiver ocorrido nos últimos sete dias.

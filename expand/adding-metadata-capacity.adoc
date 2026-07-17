@@ -27,6 +27,7 @@ Para obter mais informações, consulte o seguinte:
 
 
 
+[[guidelines-for-increasing-metadata-capacity]]
 == Diretrizes para aumentar a capacidade dos metadados
 
 Antes de adicionar nós de storage para aumentar a capacidade dos metadados, leia as diretrizes e limitações a seguir:
@@ -62,6 +63,7 @@ Consulte link:../admin/managing-object-metadata-storage.html["Descrição do que
 
 
 
+[[how-metadata-is-redistributed-when-you-add-storage-nodes]]
 == Como os metadados são redistribuídos quando você adiciona nós de storage
 
 Quando você adiciona nós de storage a uma expansão, o StorageGRID redistribui os metadados de objetos existentes aos novos nós em cada local, o que aumenta a capacidade geral dos metadados da grade. Nenhuma ação do usuário é necessária.

@@ -56,6 +56,7 @@ Existe um problema com a licença de software para este sistema StorageGRID. Voc
 |===
 
 
+[[monitor-node-connection-states]]
 == Monitorar os estados de conexão do nó
 
 Se um ou mais nós forem desconetados da grade, as operações críticas do StorageGRID podem ser afetadas. Monitore os estados de conexão dos nós e solucione quaisquer problemas imediatamente.
@@ -111,6 +112,7 @@ Nenhuma ação necessária.
 |===
 
 
+[[view-current-and-resolved-alerts]]
 == Ver alertas atuais e resolvidos
 
 *Alertas atuais*: Quando um alerta é acionado, um ícone de alerta é exibido no painel. Um ícone de alerta também é exibido para o nó na página nós. Se link:email-alert-notifications.html["as notificações por e-mail de alerta estão configuradas"], uma notificação por e-mail também será enviada, a menos que o alerta tenha sido silenciado.

@@ -17,6 +17,7 @@ Você deve ter a permissão S3:DeleteBucketMetadataNotification para um bucket, 
 
 
 
+[[request-example]]
 == Exemplo de solicitação
 
 Este exemplo mostra a desativação do serviço de integração de pesquisa para um bucket.

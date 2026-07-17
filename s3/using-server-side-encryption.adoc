@@ -32,6 +32,7 @@ NOTE: Se um objeto for criptografado com SSE ou SSE-C, quaisquer configurações
 
 
 
+[[use-sse]]
 == Use SSE
 
 Para criptografar um objeto com uma chave exclusiva gerenciada pelo StorageGRID, use o seguinte cabeçalho de solicitação:
@@ -47,6 +48,7 @@ O cabeçalho de solicitação SSE é suportado pelas seguintes operações de ob
 
 
 
+[[use-sse-c]]
 == Use SSE-C
 
 Para criptografar um objeto com uma chave exclusiva que você gerencia, use três cabeçalhos de solicitação:
@@ -89,6 +91,7 @@ Os cabeçalhos de solicitação SSE-C são suportados pelas seguintes operaçõe
 
 
 
+[[considerations-for-using-server-side-encryption-with-customer-provided-keys-sse-c]]
 == Considerações sobre o uso de criptografia no lado do servidor com chaves fornecidas pelo cliente (SSE-C)
 
 Antes de usar SSE-C, esteja ciente das seguintes considerações:

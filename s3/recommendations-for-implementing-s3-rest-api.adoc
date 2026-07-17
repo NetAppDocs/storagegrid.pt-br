@@ -15,6 +15,7 @@ Você deve seguir estas recomendações ao implementar a API REST do S3 para uso
 
 
 
+[[recommendations-for-heads-to-non-existent-objects]]
 == Recomendações para heads to non-existent objects
 
 Se o seu aplicativo verifica rotineiramente se um objeto existe em um caminho onde você não espera que o objeto realmente exista, você deve usar o "Disponível"link:consistency.html["consistência"] .  Por exemplo, você deve usar a consistência "Disponível" se seu aplicativo fizer HEAD de um local antes de fazer PUT nele.
@@ -25,6 +26,7 @@ Você pode definir a consistência "disponível" para cada bucket usando a link:
 
 
 
+[[recommendations-for-object-keys]]
 == Recomendações para chaves de objeto
 
 Siga estas recomendações para nomes de chave de objeto, com base em quando o intervalo foi criado pela primeira vez.
@@ -51,6 +53,7 @@ TIP: Uma exceção a isso é uma carga de trabalho S3 que remove continuamente t
 
 
 
+[[recommendations-for-range-reads]]
 == Recomendações para "leituras de intervalo"
 
 Se o link:../admin/configuring-stored-object-compression.html["opção global para comprimir objetos armazenados"] estiver ativado, os aplicativos cliente S3 devem evitar executar operações GetObject que especificam um intervalo de bytes que sejam retornados. Essas operações de "leitura de intervalo" são ineficientes porque o StorageGRID deve descompactar efetivamente os objetos para acessar os bytes solicitados. As operações GetObject que solicitam um pequeno intervalo de bytes de um objeto muito grande são especialmente ineficientes; por exemplo, é ineficiente ler um intervalo de 10 MB de um objeto compactado de 50 GB.

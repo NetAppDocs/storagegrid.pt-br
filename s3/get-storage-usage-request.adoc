@@ -21,6 +21,7 @@ Você deve ter a permissão S3:ListAllMyBuckets, ou ser root da conta, para conc
 
 
 
+[[request-example]]
 == Exemplo de solicitação
 
 [listing, subs="specialcharacters,quotes"]
@@ -32,6 +33,7 @@ Host: _host_
 ----
 
 
+[[response-example]]
 == Exemplo de resposta
 
 Este exemplo mostra uma conta que tem quatro objetos e 12 bytes de dados em dois buckets. Cada bucket contém dois objetos e seis bytes de dados.
@@ -67,6 +69,7 @@ Content-Type: application/xml
 ----
 
 
+[[versioning]]
 == Controle de versão
 
 Cada versão de objeto armazenada contribuirá para os `ObjectCount` valores e `DataBytes` na resposta. Excluir marcadores não são adicionados ao `ObjectCount` total.

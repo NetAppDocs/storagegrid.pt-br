@@ -15,6 +15,7 @@ As mensagens de auditoria são geradas pelos serviços do StorageGRID e armazena
 
 
 
+[[bucket-operations-tracked-in-the-audit-logs]]
 == Operações de bucket rastreadas nos logs de auditoria
 
 * CreateBucket
@@ -32,6 +33,7 @@ As mensagens de auditoria são geradas pelos serviços do StorageGRID e armazena
 
 
 
+[[object-operations-tracked-in-the-audit-logs]]
 == Operações de objeto rastreadas nos logs de auditoria
 
 * CompleteMultipartUpload

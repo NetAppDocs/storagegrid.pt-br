@@ -32,6 +32,7 @@ Siga sempre o procedimento de recuperação para o tipo específico de nó de gr
 
 
 
+[[preconditions-for-recovering-grid-nodes]]
 == Pré-condições para a recuperação de nós de grade
 
 Todas as condições a seguir são assumidas ao recuperar nós de grade:
@@ -44,12 +45,14 @@ Todas as condições a seguir são assumidas ao recuperar nós de grade:
 
 
 
+[[order-of-node-recovery-if-a-server-hosting-more-than-one-grid-node-fails]]
 == Ordem de recuperação de nó se um servidor que hospeda mais de um nó de grade falhar
 
 Se um servidor que hospeda mais de um nó de grade falhar, você poderá recuperar os nós em qualquer ordem. Entretanto, se o servidor com falha estiver hospedando o nó de administração principal, você deverá recuperar esse nó primeiro.
 
 
 
+[[ip-addresses-for-recovered-nodes]]
 == Endereços IP para nós recuperados
 
 Não tente recuperar um nó usando um endereço IP que está atualmente atribuído a qualquer outro nó. Quando você implantar o novo nó, use o endereço IP atual do nó com falha ou um endereço IP não utilizado.

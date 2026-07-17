@@ -27,6 +27,7 @@ NOTE: Se o StorageGRID AutoSupport não estiver habilitado, uma mensagem será e
 
 
 
+[[what-is-active-iq]]
 == O que é o Active IQ?
 
 O Active IQ é um consultor digital baseado na nuvem que utiliza as análises preditivas e o conhecimento da comunidade da base instalada da NetApp. Suas avaliações de risco contínuas, alertas preditivos, orientações prescritivas e ações automatizadas ajudam a evitar problemas antes que eles ocorram, levando a uma melhor integridade do sistema e maior disponibilidade do sistema.
@@ -37,6 +38,7 @@ https://docs.netapp.com/us-en/active-iq/index.html["Documentação do consultor 
 
 
 
+[[information-included-in-autosupport-package]]
 == Informações incluídas no pacote AutoSupport
 
 Um pacote AutoSupport contém os seguintes arquivos e detalhes.

@@ -20,6 +20,7 @@ Todas as atividades do cliente S3 estão associadas às contas de inquilino do S
 
 
 
+[[view-all-tenants]]
 == Ver todos os inquilinos
 
 A página inquilinos mostra informações básicas para todas as contas de inquilino atuais.
@@ -60,6 +61,7 @@ Não é possível remover uma conta de locatário se a conta incluir quaisquer b
 
 
 
+[[view-a-specific-tenant]]
 == Exibir um locatário específico
 
 Você pode exibir detalhes de um locatário específico.
@@ -128,6 +130,7 @@ link:../admin/grid-federation-overview.html["O que é a federação de grade?"]C
 
 
 
+[[view-network-traffic]]
 == Ver o tráfego de rede
 
 Se as políticas de classificação de tráfego estiverem em vigor para um locatário, revise o tráfego de rede desse locatário.
@@ -146,6 +149,7 @@ Consulte link:../admin/managing-traffic-classification-policies.html["Gerenciar 
 
 
 
+[[use-the-audit-log]]
 == Use o log de auditoria
 
 Opcionalmente, você pode usar o log de auditoria para monitoramento mais granular das atividades de um locatário.
@@ -164,6 +168,7 @@ Consulte link:../audit/index.html["Rever registos de auditoria"] para obter mais
 
 
 
+[[use-prometheus-metrics]]
 == Use métricas Prometheus
 
 Opcionalmente, use as métricas Prometheus para relatar a atividade do locatário.

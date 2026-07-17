@@ -15,6 +15,7 @@ Você deve verificar se a infraestrutura e a configuração de rede atuais podem
 
 
 
+[[general-networking-requirements]]
 == Requisitos gerais de rede
 
 Todas as implantações do StorageGRID devem ser capazes de suportar as seguintes conexões.
@@ -45,6 +46,7 @@ Apenas as conexões de cliente S3 e SSH, Grid Manager e Tenant Manager administr
 
 
 
+[[wide-area-networks-wans-for-multiple-sites]]
 == Redes de Área ampla (WANs) para vários sites
 
 Ao configurar um sistema StorageGRID com vários locais, a conexão WAN entre locais deve ter uma largura de banda mínima de 25 Mbit/segundo em cada direção antes de contabilizar o tráfego do cliente. A replicação de dados ou codificação de apagamento entre sites, nó ou expansão de site, recuperação de nós e outras operações ou configurações exigirão largura de banda adicional.
@@ -53,6 +55,7 @@ Os requisitos mínimos reais de largura de banda WAN dependem da atividade do cl
 
 
 
+[[connections-for-admin-nodes-and-gateway-nodes]]
 == Conexões para nós de administração e nós de gateway
 
 Os nós de administração devem sempre ser protegidos de clientes não confiáveis, como aqueles na Internet aberta. Você deve garantir que nenhum cliente não confiável possa acessar qualquer nó Admin na rede de Grade, na rede Admin ou na rede Cliente.
@@ -61,6 +64,7 @@ Os nós de administração e os nós de gateway que você pretende adicionar aos
 
 
 
+[[using-network-address-translation-nat]]
 == Usando a tradução de endereços de rede (NAT)
 
 Não use a tradução de endereço de rede (NAT) na rede de Grade entre nós de grade ou entre sites StorageGRID. Quando você usa endereços IPv4 privados para a rede de Grade, esses endereços devem ser roteáveis diretamente de cada nó de grade em cada local. No entanto, conforme necessário, você pode usar NAT entre clientes externos e nós de grade, como fornecer um endereço IP público para um nó de gateway. O uso de NAT para fazer a ponte de um segmento de rede pública é suportado apenas quando você emprega um aplicativo de encapsulamento transparente para todos os nós da grade, o que significa que os nós da grade não exigem conhecimento de endereços IP públicos.

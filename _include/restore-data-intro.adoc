@@ -4,6 +4,7 @@
 
 
 
+[[which-procedure-should-i-use]]
 == Que procedimento devo utilizar?
 
 Sempre que possível, restaure os dados do objeto usando a página *Restauração de volume* no Gerenciador de Grade.
@@ -20,6 +21,7 @@ NOTE: O script repair-data está obsoleto e será removido em uma versão futura
 
 
 
+[[use-the-repair-data-script-to-restore-object-data]]
 == Use o `repair-data` script para restaurar dados de objeto
 
 .Antes de começar
@@ -37,6 +39,7 @@ Observe o seguinte:
 
 
 
+[[about-the-repair-data-script]]
 == Sobre o `repair-data` script
 
 Para restaurar os dados do objeto, execute o `repair-data` script. Este script inicia o processo de restauração de dados de objeto e trabalha com a digitalização ILM para garantir que as regras ILM sejam atendidas.

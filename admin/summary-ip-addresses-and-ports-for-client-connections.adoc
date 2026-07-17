@@ -71,6 +71,7 @@ Portas S3 padrão:
 |===
 
 
+[[example-urls]]
 == Exemplos de URLs
 
 Para conetar um aplicativo cliente ao ponto de extremidade do Load Balancer de um grupo de HA de nós de Gateway, use um URL estruturado como mostrado abaixo:
@@ -83,6 +84,7 @@ Por exemplo, se o endereço IP virtual do grupo HA for 192.0.2.5 e o número da 
 
 
 
+[[where-to-find-ip-addresses]]
 == Onde encontrar endereços IP
 
 . Faça login no Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].

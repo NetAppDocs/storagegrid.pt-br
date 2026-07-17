@@ -15,6 +15,7 @@ Depois de recuperar volumes de storage para o nó de storage do dispositivo, voc
 
 
 
+[[which-procedure-should-i-use]]
 == Que procedimento devo utilizar?
 
 Sempre que possível, restaure os dados do objeto usando a página *Restauração de volume* no Gerenciador de Grade.
@@ -31,6 +32,7 @@ NOTE: O script repair-data está obsoleto e será removido em uma versão futura
 
 
 
+[[use-the-repair-data-script-to-restore-object-data]]
 == Use o `repair-data` script para restaurar dados de objeto
 
 .Antes de começar
@@ -48,6 +50,7 @@ Observe o seguinte:
 
 
 
+[[about-the-repair-data-script]]
 == Sobre o `repair-data` script
 
 Para restaurar os dados do objeto, execute o `repair-data` script. Este script inicia o processo de restauração de dados de objeto e trabalha com a digitalização ILM para garantir que as regras ILM sejam atendidas.
@@ -97,6 +100,7 @@ NOTE: O trabalho de reparação EC reserva temporariamente uma grande quantidade
 ====
 
 
+[[find-hostname-for-storage-node]]
 == Encontre o nome do host para nó de armazenamento
 
 . Efetue login em qualquer nó de administração:
@@ -115,6 +119,7 @@ Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
 
 
 
+[[repair-data-if-all-volumes-have-failed]]
 == Repare os dados se todos os volumes tiverem falhado
 
 Se todos os volumes de armazenamento tiverem falhado, repare o nó inteiro. Siga as instruções para *dados replicados*, *dados codificados por apagamento (EC)* ou ambos, com base se você usa dados replicados, dados codificados por apagamento (EC) ou ambos.
@@ -154,6 +159,7 @@ As reparações de dados codificados por apagamento podem começar enquanto algu
 ====
 
 
+[[repair-data-if-only-some-volumes-have-failed]]
 == Repare os dados se apenas alguns volumes tiverem falhado
 
 Se apenas alguns dos volumes tiverem falhado, repare os volumes afetados. Siga as instruções para *dados replicados*, *dados codificados por apagamento (EC)* ou ambos, com base se você usa dados replicados, dados codificados por apagamento (EC) ou ambos.
@@ -211,6 +217,7 @@ NOTE: As reparações de dados codificados por apagamento podem começar enquant
 ====
 
 
+[[monitor-repairs]]
 == Monitorize as reparações
 
 Monitore o status dos trabalhos de reparo, com base se você usa *dados replicados*, *dados codificados por apagamento (EC)* ou ambos.

@@ -17,6 +17,7 @@ Você deve ter a permissão S3:PutBucketMetadataNotification para um bucket, ou 
 
 
 
+[[request]]
 == Pedido
 
 A solicitação deve incluir a configuração de notificação de metadados no corpo da solicitação. Cada configuração de notificação de metadados inclui uma ou mais regras. Cada regra especifica os objetos aos quais se aplica e o destino ao qual o StorageGRID deve enviar metadados de objetos.
@@ -146,6 +147,7 @@ Sim
 |===
 
 
+[[request-examples]]
 == Exemplos de pedidos
 
 Este exemplo mostra a ativação da integração de pesquisa para um bucket. Neste exemplo, metadados de objetos para todos os objetos são enviados para o mesmo destino.
@@ -198,6 +200,7 @@ Host: _host_
 ----
 
 
+[[json-generated-by-the-search-integration-service]]
 == JSON gerado pelo serviço de integração de pesquisa
 
 Quando você ativa o serviço de integração de pesquisa para um bucket, um documento JSON é gerado e enviado para o endpoint de destino cada vez que metadados ou tags de objeto são adicionados, atualizados ou excluídos.
@@ -224,6 +227,7 @@ Este exemplo mostra um exemplo do JSON que pode ser gerado quando um objeto com 
 ----
 
 
+[[object-metadata-included-in-metadata-notifications]]
 == Metadados de objetos incluídos nas notificações de metadados
 
 A tabela lista todos os campos que estão incluídos no documento JSON que é enviado para o endpoint de destino quando a integração de pesquisa está ativada.

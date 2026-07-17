@@ -22,6 +22,8 @@ Se algum volume de armazenamento de bloco tiver sido preservado do host anterior
 
 
 
+[[restore-and-validate-grid-nodes]]
+[[restore-validate-grid-nodes]]
 == Restaure e valide nós de grade
 
 Você deve restaurar os arquivos de configuração de grade para todos os nós de grade com falha e, em seguida, validar os arquivos de configuração de grade e resolver quaisquer erros.
@@ -96,6 +98,7 @@ Você deve resolver quaisquer erros ou avisos antes de iniciar o serviço host d
 
 
 
+[[fix-missing-network-interface-errors]]
 === Corrigir erros de interface de rede ausentes
 
 Se a rede host não estiver configurada corretamente ou se um nome estiver incorreto, ocorrerá um erro quando o StorageGRID verificar o mapeamento especificado no `/etc/storagegrid/nodes/_node-name_.conf` arquivo.
@@ -118,6 +121,8 @@ Certifique-se de que a interface do host forneça acesso à porta de rede físic
 
 
 
+[[fix-missing-block-device-errors]]
+[[fix-block-errors]]
 === Corrigir erros de dispositivo de bloco em falta
 
 O sistema verifica se cada nó recuperado mapeia para um arquivo especial válido de dispositivo de bloco ou um softlink válido para um arquivo especial de dispositivo de bloco. Se o StorageGRID encontrar mapeamento inválido no `/etc/storagegrid/nodes/_node-name_.conf` arquivo, um erro de dispositivo de bloco ausente será exibido.
@@ -152,6 +157,7 @@ Execute o seguinte comando apenas para novos dispositivos de armazenamento de bl
 ====
 
 
+[[start-storagegrid-host-service]]
 == Inicie o serviço de host StorageGRID
 
 Para iniciar seus nós do StorageGRID e garantir que eles sejam reiniciados após uma reinicialização do host, você deve habilitar e iniciar o serviço de host do StorageGRID.
@@ -186,6 +192,8 @@ sudo systemctl reload-or-restart storagegrid
 
 
 
+[[recover-nodes-that-fail-to-start-normally]]
+[[recover-nodes-fail-start]]
 == Recupere nós que não forem iniciados normalmente
 
 Se um nó StorageGRID não se juntar novamente à grade normalmente e não aparecer como recuperável, ele pode estar corrompido. Você pode forçar o nó para o modo de recuperação.

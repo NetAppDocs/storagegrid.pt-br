@@ -15,6 +15,7 @@ Os nós de grade em um sistema StorageGRID processam _grid traffic_, _admin traf
 
 
 
+[[traffic-types]]
 == Tipos de tráfego
 
 [cols="1a,4a,2a"]
@@ -62,6 +63,7 @@ As portas internas só são acessíveis através da rede de Grade. As portas ext
 
 
 
+[[network-interfaces]]
 == Interfaces de rede
 
 Os nós de StorageGRID são conetados a cada rede usando as seguintes interfaces específicas:
@@ -105,6 +107,7 @@ Para obter detalhes sobre o mapeamento de portas virtuais ou físicas para inter
 
 
 
+[[network-information-for-each-node]]
 === Informações de rede para cada nó
 
 Você deve configurar o seguinte para cada rede ativa em um nó:
@@ -118,12 +121,14 @@ Você só pode configurar uma combinação de endereço IP/máscara/gateway para
 
 
 
+[[high-availability-groups]]
 === Grupos de alta disponibilidade
 
 Os grupos de alta disponibilidade (HA) fornecem a capacidade de adicionar endereços IP virtuais (VIP) à interface Grid ou Client Network. Para obter mais informações, link:../admin/managing-high-availability-groups.html["Gerenciar grupos de alta disponibilidade"]consulte .
 
 
 
+[[grid-network]]
 == Rede de rede
 
 A rede de Grade é necessária. É usado para todo o tráfego interno do StorageGRID. A rede de Grade fornece conetividade entre todos os nós da grade, em todos os sites e sub-redes. Todos os nós na rede de Grade devem ser capazes de se comunicar com todos os outros nós. A rede de Grade pode consistir em várias sub-redes. As redes que contêm serviços de grade críticos, como NTP, também podem ser adicionadas como sub-redes de grade.
@@ -146,6 +151,7 @@ Observe os seguintes requisitos e detalhes para o gateway de rede de grade:
 
 
 
+[[admin-network]]
 == Rede de administração
 
 A rede de administração é opcional. Quando configurado, ele pode ser usado para administração do sistema e tráfego de manutenção. A rede Admin é normalmente uma rede privada e não precisa ser roteável entre nós.
@@ -170,6 +176,7 @@ Observe os seguintes requisitos e detalhes para o gateway de rede de administra�
 
 
 
+[[client-network]]
 == Rede de clientes
 
 A rede do cliente é opcional. Quando configurado, ele é usado para fornecer acesso a serviços de grade para aplicativos clientes, como S3. Se você planeja tornar os dados do StorageGRID acessíveis a um recurso externo (por exemplo, um pool de armazenamento em nuvem ou o serviço de replicação do StorageGRID CloudMirror), o recurso externo também poderá usar a rede do cliente. Os nós de grade podem se comunicar com qualquer sub-rede acessível através do gateway rede cliente.
@@ -193,6 +200,7 @@ Observe o seguinte para o gateway de rede do cliente:
 
 
 
+[[optional-vlan-networks]]
 == Redes VLAN opcionais
 
 Como necessário, você pode usar opcionalmente redes LAN virtual (VLAN) para tráfego de clientes e para alguns tipos de tráfego de administração. O tráfego de grade, no entanto, não pode usar uma interface VLAN. O tráfego StorageGRID interno entre nós deve sempre usar a rede de Grade no eth0.

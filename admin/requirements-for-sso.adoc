@@ -15,6 +15,7 @@ Antes de ativar o logon único (SSO) para um sistema StorageGRID, revise os requ
 
 
 
+[[identity-provider-requirements]]
 == Requisitos do provedor de identidade
 
 O StorageGRID oferece suporte aos seguintes provedores de identidade SSO (IDP):
@@ -49,6 +50,7 @@ ID de entrada
 |===
 
 
+[[ad-fs-requirements]]
 === Requisitos do AD FS
 
 Você pode usar qualquer uma das seguintes versões do AD FS:
@@ -63,6 +65,7 @@ NOTE: O Windows Server 2016 deve estar usando o https://support.microsoft.com/en
 
 
 
+[[additional-requirements]]
 === Requisitos adicionais
 
 * Transport Layer Security (TLS) 1,2 ou 1,3
@@ -71,12 +74,14 @@ NOTE: O Windows Server 2016 deve estar usando o https://support.microsoft.com/en
 
 
 
+[[considerations-for-entra-id]]
 === Considerações para Entra ID
 
 Se você usar o Entra ID como o tipo de SSO e os usuários tiverem nomes principais de usuário que não usam o sAMAccountName como prefixo, poderão ocorrer problemas de login se o StorageGRID perder sua conexão com o servidor LDAP.  Para permitir que os usuários efetuem login, você deve restaurar a conexão com o servidor LDAP.
 
 
 
+[[server-certificate-requirements]]
 == Requisitos de certificado do servidor
 
 Por padrão, o StorageGRID usa um certificado de interface de gerenciamento em cada nó de administração para proteger o acesso ao Grid Manager, ao Tenant Manager, à Grid Management API e à Tenant Management API.  Ao configurar relações de confiança de terceira parte confiável (AD FS), aplicativos corporativos (Entra ID) ou conexões de provedor de serviços (PingFederate) para o StorageGRID, você usa o certificado do servidor como o certificado de assinatura para solicitações do StorageGRID .
@@ -90,6 +95,7 @@ Você pode acessar o certificado de servidor de um nó de administrador fazendo 
 
 
 
+[[port-requirements]]
 == Requisitos portuários
 
 O logon único (SSO) não está disponível nas portas do Gerenciador de Grade restrito ou do Gerenciador de locatário. Você deve usar a porta HTTPS padrão (443) se quiser que os usuários se autentiquem com logon único. link:controlling-access-through-firewalls.html["Controle o acesso no firewall externo"]Consulte .

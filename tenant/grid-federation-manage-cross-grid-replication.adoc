@@ -15,6 +15,7 @@ Se a sua conta de locatário tiver sido atribuída a permissão *usar conexão d
 
 
 
+[[workflow-for-cross-grid-replication]]
 == Fluxo de trabalho para replicação entre grades
 
 O diagrama de fluxo de trabalho resume as etapas que você executa para configurar a replicação entre grades entre buckets em duas grades.  Essas etapas são descritas com mais detalhes abaixo do diagrama.
@@ -23,6 +24,7 @@ image:grid-federation-cgr-workflow.png["Fluxo de trabalho de replicação entre 
 
 
 
+[[configure-cross-grid-replication]]
 == Configurar a replicação entre redes
 
 Antes de poder usar a replicação entre grades, você deve fazer login nas contas de locatário correspondentes em cada grade e criar dois buckets.  Em seguida, você pode habilitar a replicação entre grades em um ou ambos os buckets.
@@ -37,6 +39,7 @@ Antes de poder usar a replicação entre grades, você deve fazer login nas cont
 
 
 
+[[create-two-buckets]]
 === Crie dois buckets
 
 Como primeiro passo, faça login nas contas de locatários correspondentes em cada grade e crie um bucket em cada grade.
@@ -68,6 +71,7 @@ TIP: Conforme necessário, cada balde pode usar uma região diferente.
 
 
 
+[[enable-cross-grid-replication]]
 === Ative a replicação entre redes
 
 Você deve executar estas etapas antes de adicionar quaisquer objetos a qualquer bucket.
@@ -115,6 +119,7 @@ Após alguns instantes, uma mensagem de sucesso é exibida.  Os objetos adiciona
 
 
 
+[[test-replication-between-grids]]
 == Teste a replicação entre grades
 
 Se a replicação entre grades estiver habilitada para um bucket, talvez seja necessário verificar se a conexão e a replicação entre grades estão funcionando corretamente e se os buckets de origem e destino ainda atendem a todos os requisitos (por exemplo, o controle de versão ainda está habilitado).
@@ -138,6 +143,7 @@ Se a conexão estiver saudável, um banner de sucesso será exibido.  Caso contr
 
 
 
+[[disable-cross-grid-replication]]
 == Desative a replicação entre redes
 
 Você pode parar permanentemente a replicação entre grade se não quiser mais copiar objetos para a outra grade.

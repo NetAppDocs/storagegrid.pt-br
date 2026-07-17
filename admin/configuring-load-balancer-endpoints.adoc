@@ -36,12 +36,15 @@ NOTE: As alterações a um certificado de endpoint podem levar até 15 minutos p
 
 
 
+[[create-a-load-balancer-endpoint]]
+[[create-lb-endpoint]]
 == Crie um ponto de extremidade do balanceador de carga
 
 Cada ponto de extremidade do balanceador de carga do cliente S3 especifica uma porta, um tipo de cliente (S3) e um protocolo de rede (HTTP ou HTTPS).  Os pontos de extremidade do balanceador de carga da interface de gerenciamento especificam uma porta, um tipo de interface e uma rede de cliente não confiável.
 
 
 
+[[access-the-wizard]]
 === Acesse o assistente
 
 .Passos
@@ -53,6 +56,7 @@ Cada ponto de extremidade do balanceador de carga do cliente S3 especifica uma p
 
 
 
+[[enter-endpoint-details]]
 === Introduza os detalhes do endpoint
 
 .Passos
@@ -163,6 +167,7 @@ Quando você seleciona *Sim*, a porta é aberta em todas as redes de clientes n�
 
 
 
+[[select-a-binding-mode]]
 === Selecione um modo de encadernação
 
 .Passos
@@ -230,6 +235,7 @@ Se estiver a criar endpoints de interface de gestão, selecione VIPs associados 
 
 
 
+[[control-tenant-access]]
 === Controle o acesso do locatário
 
 
@@ -270,6 +276,7 @@ As contas de locatário selecionadas não podem usar esse endpoint para acessar 
 
 
 
+[[attach-certificate]]
 === Anexar certificado
 
 .Passos
@@ -396,6 +403,7 @@ O ponto final do balanceador de carga é criado. O certificado personalizado é 
 
 
 
+[[after-you-finish]]
 === Depois de terminar
 
 .Passos
@@ -422,6 +430,7 @@ Você também deve garantir que o Registro DNS faça referência a todos os nome
 
 
 
+[[view-and-edit-load-balancer-endpoints]]
 == Visualize e edite pontos de extremidade do balanceador de carga
 
 Você pode exibir detalhes dos endpoints existentes do balanceador de carga, incluindo os metadados do certificado para um endpoint seguro. Você pode alterar certas configurações para um endpoint.
@@ -532,6 +541,7 @@ Editar acesso ao locatário
 
 
 
+[[remove-load-balancer-endpoints]]
 == Remova os pontos finais do balanceador de carga
 
 Você pode remover um ou mais endpoints usando o menu *ações* ou remover um único endpoint da página de detalhes.

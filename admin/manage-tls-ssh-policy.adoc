@@ -25,6 +25,7 @@ NOTE: Alguns serviços do StorageGRID não foram atualizados para usar as cifras
 
 
 
+[[select-a-security-policy]]
 == Selecione uma política de segurança
 
 .Passos
@@ -111,6 +112,7 @@ Uma marca de seleção verde aparece ao lado de *política atual* no bloco de po
 
 
 
+[[create-a-custom-security-policy]]
 == Crie uma política de segurança personalizada
 
 Você pode criar uma política personalizada se precisar aplicar suas próprias cifras.
@@ -132,6 +134,8 @@ Uma marca de seleção verde aparece ao lado de *Current policy* no mosaico Cust
 
 
 
+[[temporarily-revert-to-the-default-security-policy]]
+[[temporarily-revert-to-default-security-policy]]
 == Reverter temporariamente para a política de segurança padrão
 
 Se você tiver configurado uma política de segurança personalizada, talvez não consiga entrar no Gerenciador de Grade se a diretiva TLS configurada for incompatível com o link:global-certificate-types.html["certificado de servidor configurado"].

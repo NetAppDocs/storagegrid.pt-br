@@ -32,6 +32,7 @@ CAUTION: Depois de configurar e criar um branch bucket, você não poderá alter
 
 
 
+[[create-branch-bucket]]
 == Criar bucket de ramificação
 
 .Passos
@@ -45,6 +46,7 @@ O botão *Criar bucket de ramificação* será desabilitado se o bucket base nã
 
 
 
+[[enter-details]]
 == Introduza os detalhes
 
 .Passos
@@ -106,6 +108,7 @@ Tipo de balde de ramificação
 
 
 
+[[manage-object-settings-optional]]
 == Gerenciar configurações de objeto (opcional)
 
 As configurações de objeto para um bucket de ramificação não afetam as versões de objeto no bucket base.

@@ -26,6 +26,7 @@ TIP: Se pretender alterar o endereço IP da rede de grelha para todos os nós da
 
 
 
+[[ethernet-interfaces]]
 == Interfaces Ethernet
 
 O endereço IP atribuído a eth0 é sempre o endereço IP da rede de Grade do nó da grade. O endereço IP atribuído ao eth1 é sempre o endereço IP da rede Admin do nó da grade. O endereço IP atribuído ao eth2 é sempre o endereço IP da rede do cliente do nó da grade.
@@ -34,12 +35,14 @@ Observe que em algumas plataformas, como dispositivos StorageGRID, eth0, eth1 e 
 
 
 
+[[dhcp]]
 == DHCP
 
 Só pode configurar o DHCP durante a fase de implementação. Não é possível configurar o DHCP durante a configuração. Você deve usar os procedimentos de alteração de endereço IP se quiser alterar endereços IP, máscaras de sub-rede e gateways padrão para um nó de grade. O uso da ferramenta Change IP fará com que os endereços DHCP fiquem estáticos.
 
 
 
+[[high-availability-ha-groups]]
 == Grupos de alta disponibilidade (HA)
 
 * Se uma interface de rede de cliente estiver contida em um grupo HA, você não poderá alterar o endereço IP da rede de cliente dessa interface para um endereço que esteja fora da sub-rede configurada para o grupo HA.

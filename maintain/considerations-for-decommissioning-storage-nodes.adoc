@@ -15,6 +15,7 @@ Antes de desativar um nó de storage, considere se você pode clonar o nó em ve
 
 
 
+[[when-to-clone-a-node-instead-of-decommissioning-it]]
 == Quando clonar um nó em vez de desativá-lo
 
 Se você quiser substituir um nó de armazenamento de dispositivo mais antigo por um dispositivo mais novo ou maior, considere clonar o nó do dispositivo em vez de adicionar um novo dispositivo em uma expansão e, em seguida, desativar o dispositivo antigo.
@@ -33,6 +34,7 @@ Você pode clonar um nó de dispositivo se precisar:
 
 
 
+[[considerations-for-connected-storage-nodes]]
 == Considerações para nós de storage conectados
 
 Reveja as considerações sobre a desativação de um nó de armazenamento ligado.
@@ -57,6 +59,8 @@ NOTE: O botão *Pausa* é ativado somente quando os estágios de avaliação ILM
 
 
 
+[[considerations-for-disconnected-storage-nodes]]
+[[considerations-disconnected-storage-nodes]]
 == Considerações para nós de storage desconetados
 
 Reveja as considerações sobre a desativação de um nó de storage desconetado.

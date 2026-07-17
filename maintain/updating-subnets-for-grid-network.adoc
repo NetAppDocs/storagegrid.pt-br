@@ -49,6 +49,7 @@ Por exemplo, não use os seguintes intervalos de sub-rede para a Rede de grade, 
 ====
 
 
+[[add-a-subnet]]
 == Adicione uma sub-rede
 
 .Passos
@@ -74,6 +75,7 @@ As sub-redes especificadas são configuradas automaticamente para o sistema Stor
 
 
 
+[[edit-a-subnet]]
 == Edite uma sub-rede
 
 .Passos
@@ -91,6 +93,7 @@ As sub-redes especificadas são configuradas automaticamente para o sistema Stor
 
 
 
+[[delete-a-subnet]]
 == Eliminar uma sub-rede
 
 .Passos

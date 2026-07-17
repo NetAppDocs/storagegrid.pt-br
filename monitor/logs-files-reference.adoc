@@ -25,6 +25,7 @@ NOTE: Os detalhes fornecidos para cada tipo de log são apenas para referência.
 
 
 
+[[access-the-logs]]
 == Aceder aos registos
 
 Para acessar os logs, você podelink:collecting-log-files-and-system-data.html["colete arquivos de log e dados do sistema"] de um ou mais nós como um único arquivo de log.  Ou você pode acessar arquivos de log individuais para cada nó da grade da seguinte maneira:
@@ -38,6 +39,7 @@ Para acessar os logs, você podelink:collecting-log-files-and-system-data.html["
 
 
 
+[[export-logs-to-the-syslog-server]]
 == Exporte logs para o servidor syslog
 
 Exportar os logs para o servidor syslog fornece estes recursos:
@@ -52,6 +54,7 @@ Para exportar os logs, consultelink:../monitor/configure-log-management.html["Co
 
 
 
+[[log-file-categories]]
 == Categorias de ficheiros de registo
 
 O arquivo de log do StorageGRID contém os logs descritos para cada categoria e arquivos adicionais que contêm métricas e saída de comando de depuração.

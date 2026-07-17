@@ -20,6 +20,7 @@ Você pode exibir usuários locais e federados. Você também pode criar usuári
 
 
 
+[[create-a-local-user]]
 == Crie um usuário local
 
 Você pode criar um ou mais usuários locais e atribuir cada usuário a um ou mais grupos locais. As permissões do grupo controlam quais recursos do Gerenciador de Grade e da API de Gerenciamento de Grade o usuário pode acessar.
@@ -33,6 +34,7 @@ NOTE: Se o logon único (SSO) estiver ativado, os usuários locais não poderão
 
 
 
+[[access-the-wizard]]
 === Acesse o assistente
 
 .Passos
@@ -42,6 +44,7 @@ NOTE: Se o logon único (SSO) estiver ativado, os usuários locais não poderão
 
 
 
+[[enter-user-credentials]]
 === Introduza as credenciais do utilizador
 
 .Passos
@@ -52,6 +55,7 @@ NOTE: Se o logon único (SSO) estiver ativado, os usuários locais não poderão
 
 
 
+[[assign-to-groups]]
 === Atribuir a grupos
 
 .Passos
@@ -67,6 +71,7 @@ Se um usuário pertencer a vários grupos, as permissões serão cumulativas. li
 
 
 
+[[view-and-edit-local-users]]
 == Ver e editar utilizadores locais
 
 Você pode exibir detalhes de usuários locais e federados existentes. Você pode modificar um usuário local para alterar o nome completo, a senha ou a associação de grupo do usuário. Você também pode impedir temporariamente que um usuário acesse o Gerenciador de Grade e a API de Gerenciamento de Grade.
@@ -175,6 +180,7 @@ Alterar grupos (somente usuários locais)
 
 
 
+[[import-federated-users]]
 == Importar usuários federados
 
 Você pode importar um ou mais usuários federados, até um máximo de 100 usuários, diretamente para a página Usuários.
@@ -202,6 +208,7 @@ Após fechar a caixa de diálogo *Importar usuários federados*, as informaçõe
 
 
 
+[[duplicate-a-user]]
 == Duplicar um usuário
 
 Você pode duplicar um usuário existente para criar um novo usuário com as mesmas permissões.
@@ -214,6 +221,7 @@ Você pode duplicar um usuário existente para criar um novo usuário com as mes
 
 
 
+[[delete-a-user]]
 == Eliminar um utilizador
 
 Você pode excluir um usuário local para remover permanentemente esse usuário do sistema.

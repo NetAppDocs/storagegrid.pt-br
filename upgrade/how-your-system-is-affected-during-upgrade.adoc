@@ -15,12 +15,14 @@ Saiba como seu sistema StorageGRID será afetado durante a atualização.
 
 
 
+[[external-ssh-access-is-allowed-until-upgrade-completes]]
 == O acesso SSH externo é permitido até que a atualização seja concluída
 
 O acesso SSH externo é permitido durante a atualização.  Quando a atualização for concluída, o acesso SSH externo será bloqueado por padrão.  Após a atualização, você pode usar a aba *Bloquear SSH* disponível na página *Grid Manager* > *Configurações de segurança* paralink:../admin/manage-external-ssh-access.html["gerenciar acesso SSH externo"] .  O acesso SSH entre nós da grade não é afetado.
 
 
 
+[[storagegrid-upgrades-are-non-disruptive]]
 == As atualizações do StorageGRID não causam interrupções
 
 O sistema StorageGRID pode obter e recuperar dados de aplicativos clientes durante todo o processo de atualização. Se aprovar a atualização de todos os nós do mesmo tipo (por exemplo, nós de storage), os nós serão derrubados um de cada vez, portanto, não haverá tempo em que todos os nós de grade ou todos os nós de grade de um determinado tipo estejam indisponíveis.
@@ -35,6 +37,7 @@ Para permitir disponibilidade contínua, verifique se sua política de ILM cont�
 
 
 
+[[client-applications-might-experience-short-term-disruptions]]
 == As aplicações do cliente podem sofrer interrupções de curto prazo
 
 O sistema StorageGRID pode obter e recuperar dados de aplicativos clientes durante todo o processo de atualização; no entanto, as conexões de clientes com nós de gateway individuais ou nós de storage podem ser interrompidas temporariamente se a atualização precisar reiniciar os serviços nesses nós. A conetividade será restaurada após a conclusão do processo de atualização e os serviços são retomados nos nós individuais.
@@ -46,12 +49,14 @@ NOTE: Você pode usar vários gateways e grupos de alta disponibilidade (HA) par
 
 
 
+[[background-repairs-wont-run-on-grids-with-mixed-version-nodes]]
 == Os reparos em segundo plano não serão executados em grades com nós de versões mistas
 
 Os reparos em segundo plano não são executados durante a atualização quando a grade contém nós de versões mistas.  Quaisquer inconsistências que ocorrerem durante uma interrupção do site não serão reparadas até que a atualização seja concluída.
 
 
 
+[[appliance-firmware-is-upgraded]]
 == O firmware do dispositivo foi atualizado
 
 Durante a atualização do StorageGRID 12.0:
@@ -64,6 +69,7 @@ Durante a atualização do StorageGRID 12.0:
 
 
 
+[[ilm-policies-are-handled-differently-according-to-their-status]]
 == As políticas de ILM são tratadas de forma diferente de acordo com seu status
 
 * A política ativa permanecerá a mesma após a atualização.
@@ -73,6 +79,7 @@ Durante a atualização do StorageGRID 12.0:
 
 
 
+[[alerts-might-be-triggered]]
 == Os alertas podem ser acionados
 
 Os alertas podem ser acionados quando os serviços começam e param e quando o sistema StorageGRID está operando como um ambiente de versão mista (alguns nós de grade executando uma versão anterior, enquanto outros foram atualizados para uma versão posterior). Outros alertas podem ser acionados após a conclusão da atualização.
@@ -85,6 +92,7 @@ Após a conclusão da atualização, você pode revisar qualquer alerta relacion
 
 
 
+[[configuration-changes-are-restricted]]
 == As alterações de configuração são restritas
 
 

@@ -17,6 +17,7 @@ Você deve ter a permissão S3:GetBucketLastAccessTime, ou ser raiz da conta, pa
 
 
 
+[[request-example]]
 == Exemplo de solicitação
 
 [listing, subs="specialcharacters,quotes"]
@@ -28,6 +29,7 @@ Host: _host_
 ----
 
 
+[[response-example]]
 == Exemplo de resposta
 
 Este exemplo mostra que as atualizações da última hora de acesso estão ativadas para o intervalo.

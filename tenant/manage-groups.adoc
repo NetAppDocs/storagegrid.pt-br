@@ -20,6 +20,7 @@ Gerencie seus grupos de locatários conforme necessário para exibir, editar ou 
 
 
 
+[[view-or-edit-group]]
 == Ver ou editar grupo
 
 Você pode exibir e editar as informações básicas e os detalhes de cada grupo.
@@ -104,6 +105,7 @@ Uma mensagem de sucesso aparece no canto superior direito.
 
 
 
+[[duplicate-group]]
 == Grupo duplicado
 
 Você pode duplicar um grupo existente para criar novos grupos mais rapidamente.
@@ -121,6 +123,7 @@ NOTE: Se sua conta de locatário tiver a permissão *usar conexão de federaçã
 
 
 
+[[clone-groupsretry-group-clone]]
 == [[clone-groups]]Repetir o clone do grupo
 
 Para tentar novamente um clone que falhou:
@@ -134,6 +137,7 @@ Para obter informações adicionais, link:grid-federation-account-clone.html["Cl
 
 
 
+[[delete-one-or-more-groups]]
 == Exclua um ou mais grupos
 
 Pode eliminar um ou mais grupos. Quaisquer usuários que pertençam apenas a um grupo que seja excluído não poderão mais entrar no Gerenciador do locatário ou usar a conta do locatário.
@@ -153,6 +157,7 @@ NOTE: Se sua conta de locatário tiver a permissão *usar conexão de federaçã
 
 
 
+[[set-up-assumerole]]
 == Configurar AssumeRole
 
 .Antes de começar
@@ -176,6 +181,7 @@ Credenciais de segurança temporárias criadas assumindo que este grupo é váli
 
 
 
+[[example-of-an-assumerole-s3-trust-policy]]
 === Exemplo de uma política de confiança AssumeRole S3
 
 [listing]

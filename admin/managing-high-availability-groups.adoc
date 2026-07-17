@@ -24,6 +24,7 @@ Cada grupo de HA fornece acesso aos serviços compartilhados nos nós selecionad
 
 
 
+[[how-do-you-create-an-ha-group]]
 == Como criar um grupo HA?
 
 . Você seleciona uma interface de rede para um ou mais nós de administrador ou nós de gateway. Você pode usar uma interface Grid Network (eth0), uma interface Client Network (eth2), uma interface VLAN ou uma interface de acesso que você adicionou ao nó.
@@ -40,6 +41,7 @@ Para obter instruções, link:configure-high-availability-group.html["Configurar
 
 
 
+[[what-is-the-active-interface]]
 == O que é a interface ativa?
 
 Durante a operação normal, todos os endereços VIP do grupo HA são adicionados à interface principal, que é a primeira interface na ordem de prioridade. Enquanto a interface principal permanecer disponível, ela é usada quando os clientes se conetam a qualquer endereço VIP do grupo. Ou seja, durante a operação normal, a interface principal é a interface "ativa" para o grupo.
@@ -48,6 +50,7 @@ Da mesma forma, durante a operação normal, quaisquer interfaces de prioridade 
 
 
 
+[[view-the-current-ha-group-status-of-a-node]]
 == Exibir o status atual do grupo de HA de um nó
 
 Para ver se um nó está atribuído a um grupo HA e determinar seu status atual, selecione *Nós* > *_nó_*.
@@ -72,6 +75,7 @@ image:ha_group_primary_interface.png["Interface Principal Grupo HA"]
 
 
 
+[[what-happens-when-the-active-interface-fails]]
 == O que acontece quando a interface ativa falha?
 
 A interface que atualmente hospeda os endereços VIP é a interface ativa. Se o grupo HA incluir mais de uma interface e a interface ativa falhar, os endereços VIP serão movidos para a primeira interface de backup disponível na ordem de prioridade. Se essa interface falhar, os endereços VIP passam para a próxima interface de backup disponível, e assim por diante.

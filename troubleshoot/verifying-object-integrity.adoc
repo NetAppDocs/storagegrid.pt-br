@@ -17,6 +17,7 @@ Existem dois processos de verificação: Verificação de fundo e verificação 
 
 
 
+[[what-is-background-verification]]
 == O que é a verificação em segundo plano?
 
 O processo de verificação em segundo plano verifica automaticamente e continuamente os nós de storage em busca de cópias corrompidas de dados de objetos e tenta reparar automaticamente quaisquer problemas encontrados.
@@ -39,6 +40,7 @@ A verificação em segundo plano é executada a uma taxa contínua que é projet
 
 
 
+[[alerts-related-to-background-verification]]
 == Alertas relacionados à verificação em segundo plano
 
 Se o sistema detetar um objeto corrompido que ele não pode corrigir automaticamente (porque a corrupção impede que o objeto seja identificado), o alerta *Objeto corrompido não identificado detetado* é acionado.
@@ -47,6 +49,7 @@ Se a verificação de antecedentes não puder substituir um objeto corrompido po
 
 
 
+[[what-is-object-existence-check]]
 == O que é verificação de existência de objeto?
 
 A verificação de existência de objeto verifica se todas as cópias replicadas esperadas de objetos e fragmentos codificados por apagamento existem em um nó de storage. A verificação de existência do objeto não verifica os dados do objeto em si (a verificação em segundo plano faz isso); em vez disso, fornece uma maneira de verificar a integridade dos dispositivos de armazenamento, especialmente se um problema de hardware recente poderia ter afetado a integridade dos dados.
@@ -61,6 +64,7 @@ A verificação de existência de objeto lê os metadados de cada objeto armazen
 
 
 
+[[run-object-existence-check]]
 == Executar verificação de existência de objeto
 
 Você cria e executa um trabalho de verificação de existência de objeto de cada vez. Ao criar uma tarefa, você seleciona os nós de storage e os volumes que deseja verificar. Você também seleciona a consistência do trabalho.

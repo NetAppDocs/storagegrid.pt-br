@@ -30,6 +30,7 @@ NOTE: Cada grade pode ter no máximo 100.000 buckets, incluindolink:../tenant/wh
 
 
 
+[[access-the-wizard]]
 == Acesse o assistente
 
 .Passos
@@ -39,6 +40,7 @@ NOTE: Cada grade pode ter no máximo 100.000 buckets, incluindolink:../tenant/wh
 
 
 
+[[enter-details]]
 == Introduza os detalhes
 
 .Passos
@@ -82,6 +84,7 @@ O administrador do StorageGRID gerencia as regiões disponíveis.  A região de 
 
 
 
+[[manage-settings]]
 == Gerir definições
 
 .Passos

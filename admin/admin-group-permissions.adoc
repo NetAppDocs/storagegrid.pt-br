@@ -27,6 +27,7 @@ Por padrão, qualquer usuário que pertença a um grupo que tenha pelo menos uma
 
 
 
+[[interaction-between-permissions-and-access-mode]]
 == Interação entre permissões e modo de acesso
 
 Para todas as permissões, a configuração *modo de acesso* do grupo determina se os usuários podem alterar configurações e executar operações ou se eles podem exibir somente as configurações e recursos relacionados. Se um usuário pertencer a vários grupos e qualquer grupo estiver definido como *somente leitura*, o usuário terá acesso somente leitura a todas as configurações e recursos selecionados.
@@ -35,12 +36,14 @@ As seções a seguir descrevem as permissões que você pode atribuir ao criar o
 
 
 
+[[root-access]]
 == Acesso à raiz
 
 Essa permissão fornece acesso a todos os recursos de administração de grade.
 
 
 
+[[change-tenant-root-password]]
 == Altere a senha raiz do locatário
 
 Essa permissão fornece acesso à opção *alterar senha de root* na página de locatários, permitindo que você controle quem pode alterar a senha para o usuário raiz local do locatário. Essa permissão também é usada para migrar chaves S3 quando o recurso de importação de chaves S3 estiver ativado. Os usuários que não têm essa permissão não podem ver a opção *alterar senha de root*.
@@ -50,6 +53,7 @@ NOTE: Para conceder acesso à página de locatários, que contém a opção *alt
 
 
 
+[[ilm]]
 == ILM
 
 Esta permissão fornece acesso às seguintes opções de menu *ILM*:
@@ -68,6 +72,7 @@ NOTE: Os usuários devem ter a permissão *Outra configuração de grade* para g
 
 
 
+[[maintenance]]
 == Manutenção
 
 Os usuários devem ter a permissão Manutenção para usar estas opções:
@@ -136,12 +141,14 @@ Os usuários que não têm a permissão Manutenção podem visualizar, mas não 
 
 
 
+[[manage-alerts]]
 == Gerenciar alertas
 
 Essa permissão fornece acesso a opções de gerenciamento de alertas. Os usuários devem ter essa permissão para gerenciar silêncios, notificações de alerta e regras de alerta.
 
 
 
+[[metrics-query]]
 == Consulta de métricas
 
 Esta permissão fornece acesso a:
@@ -153,12 +160,14 @@ Esta permissão fornece acesso a:
 
 
 
+[[object-metadata-lookup]]
 == Pesquisa de metadados de objetos
 
 Esta permissão fornece acesso à página *ILM* > *Object metadata lookup*.
 
 
 
+[[other-grid-configuration]]
 == Outra configuração de grade
 
 Esta permissão fornece acesso a estas opções adicionais de configuração de grade:
@@ -178,6 +187,7 @@ Esta permissão fornece acesso a estas opções adicionais de configuração de 
 
 
 
+[[storage-appliance-administrator]]
 == Administrador do dispositivo de storage
 
 Esta permissão fornece:
@@ -188,6 +198,7 @@ Esta permissão fornece:
 
 
 
+[[tenant-accounts]]
 == Contas de inquilino
 
 Essa permissão permite:

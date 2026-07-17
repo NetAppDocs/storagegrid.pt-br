@@ -17,6 +17,7 @@ A guia Visão geral é mostrada para todos os nós.
 
 
 
+[[node-information]]
 == Informações do nó
 
 A seção informações do nó da guia Visão geral lista informações básicas sobre o nó.
@@ -53,6 +54,7 @@ NOTE: Um nó pode aparecer como desconhecido durante operações de desligamento
 
 
 
+[[alerts]]
 == Alertas
 
 A seção Alertas da guia Visão geral lista qualquer link:monitoring-system-health.html#view-current-and-resolved-alerts["alertas que afetam atualmente esse nó que não foram silenciados"]. Selecione o nome do alerta para ver detalhes adicionais e ações recomendadas.

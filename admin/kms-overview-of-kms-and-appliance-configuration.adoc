@@ -21,6 +21,7 @@ O fluxograma mostra a configuração do KMS e a configuração do appliance ocor
 
 
 
+[[set-up-the-key-management-server-kms]]
 == Configurar o servidor de gerenciamento de chaves (KMS)
 
 A configuração de um servidor de gerenciamento de chaves inclui as seguintes etapas de alto nível.
@@ -52,6 +53,7 @@ link:kms-adding.html["Adicionar um servidor de gerenciamento de chaves (KMS)"]
 |===
 
 
+[[set-up-the-appliance]]
 == Configure o aparelho
 
 A configuração de um nó de dispositivo para uso do KMS inclui os seguintes passos de alto nível.
@@ -74,6 +76,7 @@ NOTE: Não é possível ativar a configuração *criptografia de nó* depois que
 
 
 
+[[key-management-encryption-process-occurs-automatically]]
 == Processo de criptografia de gerenciamento de chaves (ocorre automaticamente)
 
 A criptografia de gerenciamento de chaves inclui as seguintes etapas de alto nível que são executadas automaticamente.

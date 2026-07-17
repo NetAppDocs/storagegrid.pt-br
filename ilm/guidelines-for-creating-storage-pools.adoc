@@ -17,6 +17,7 @@ link:using-multiple-storage-pools-for-cross-site-replication.html["Exemplos de a
 
 
 
+[[guidelines-for-all-storage-pools]]
 == Diretrizes para todos os pools de armazenamento
 
 * Mantenha as configurações do pool de storage o mais simples possível. Não crie mais pools de armazenamento do que o necessário.
@@ -27,6 +28,7 @@ link:using-multiple-storage-pools-for-cross-site-replication.html["Exemplos de a
 
 
 
+[[guidelines-for-storage-pools-used-for-replicated-copies]]
 == Diretrizes para pools de storage usados para cópias replicadas
 
 * Para proteção contra perda de local usando link:what-replication-is.html["replicação"]o , especifique um ou mais pools de armazenamento específicos do local no link:create-ilm-rule-define-placements.html["Instruções de colocação para cada regra ILM"].
@@ -43,6 +45,7 @@ O uso de um pool de storage para cada local garante que as cópias de objetos re
 
 
 
+[[guidelines-for-storage-pools-used-for-erasure-coded-copies]]
 == Diretrizes para pools de storage usados para cópias codificadas por apagamento
 
 * Para proteção contra perda de local usando link:what-erasure-coding-is.html["codificação de apagamento"]o , crie pools de armazenamento que consistem em pelo menos três locais. Se um pool de armazenamento incluir apenas dois sites, você não poderá usar esse pool de armazenamento para codificação de apagamento. Não há esquemas de codificação de apagamento disponíveis para um pool de storage que tenha dois locais.

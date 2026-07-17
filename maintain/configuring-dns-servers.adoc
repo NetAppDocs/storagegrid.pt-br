@@ -28,6 +28,7 @@ Se possível, use servidores DNS que cada site pode acessar localmente para gara
 
 
 
+[[add-a-dns-server]]
 == Adicione um servidor DNS
 
 Siga estas etapas para adicionar um servidor DNS.
@@ -40,6 +41,7 @@ Siga estas etapas para adicionar um servidor DNS.
 
 
 
+[[modify-a-dns-server]]
 == Modifique um servidor DNS
 
 Siga estas etapas para modificar um servidor DNS.
@@ -52,6 +54,7 @@ Siga estas etapas para modificar um servidor DNS.
 
 
 
+[[delete-a-dns-server]]
 == Eliminar um servidor DNS
 
 Siga estas etapas para excluir um endereço IP de um servidor DNS.

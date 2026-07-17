@@ -15,6 +15,7 @@ Uma operação de ingestão ou salvamento consiste em um fluxo de dados definido
 
 
 
+[[data-flow]]
 == Fluxo de dados
 
 Quando um cliente ingere um objeto ao sistema StorageGRID, o serviço LDR em nós de armazenamento processa a solicitação e armazena os metadados e dados no disco.

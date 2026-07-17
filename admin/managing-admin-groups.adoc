@@ -21,12 +21,14 @@ Você pode criar grupos de administração para gerenciar as permissões de segu
 
 
 
+[[create-an-admin-group]]
 == Crie um grupo de administração
 
 Os grupos de administração permitem determinar quais usuários podem acessar quais recursos e operações no Gerenciador de Grade e na API de Gerenciamento de Grade.
 
 
 
+[[access-the-wizard]]
 === Acesse o assistente
 
 .Passos
@@ -36,6 +38,7 @@ Os grupos de administração permitem determinar quais usuários podem acessar q
 
 
 
+[[choose-a-group-type]]
 === Escolha um tipo de grupo
 
 Você pode criar um grupo local ou importar um grupo federado.
@@ -74,6 +77,7 @@ Você pode criar um grupo local ou importar um grupo federado.
 ====
 
 
+[[manage-group-permissions]]
 === Gerenciar permissões de grupo
 
 .Passos
@@ -96,6 +100,7 @@ Você deve atribuir pelo menos uma permissão a cada grupo; caso contrário, os 
 
 
 
+[[add-users-local-groups-only]]
 === Adicionar utilizadores (apenas grupos locais)
 
 .Passos
@@ -108,6 +113,7 @@ Se ainda não tiver criado utilizadores locais, pode guardar o grupo sem adicion
 
 
 
+[[view-and-edit-admin-groups]]
 == Exibir e editar grupos de administração
 
 Você pode exibir detalhes de grupos existentes, modificar um grupo ou duplicar um grupo.
@@ -169,6 +175,7 @@ Editar o modo de acesso ou permissões
 
 
 
+[[duplicate-a-group]]
 == Duplicar um grupo
 
 .Passos
@@ -179,6 +186,7 @@ Editar o modo de acesso ou permissões
 
 
 
+[[delete-a-group]]
 == Eliminar um grupo
 
 Você pode excluir um grupo de administração quando quiser remover o grupo do sistema e remover todas as permissões associadas ao grupo. A exclusão de um grupo de administração remove todos os usuários do grupo, mas não exclui os usuários.

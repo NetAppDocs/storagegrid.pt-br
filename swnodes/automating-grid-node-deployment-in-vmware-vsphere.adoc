@@ -15,6 +15,7 @@ Você pode usar a ferramenta VMware OVF para automatizar a implantação de nós
 
 
 
+[[automate-grid-node-deployment]]
 == Automatize a implantação do nó de grade
 
 Use a ferramenta VMware OVF para automatizar a implantação de nós de grade.
@@ -81,6 +82,7 @@ O exemplo de arquivo de configuração para uso com o `deploy-vsphere-ovftool.sh
 |===
 
 
+[[define-the-configuration-file-for-your-deployment]]
 === Defina o arquivo de configuração para sua implantação
 
 Você especifica as informações necessárias para implantar nós de grade virtual para o StorageGRID em um arquivo de configuração, que é usado pelo `deploy-vsphere-ovftool.sh` script Bash. Você pode modificar um exemplo de arquivo de configuração, para que você não precise criar o arquivo do zero.
@@ -97,6 +99,7 @@ Consulte <<configuration-file-settings,Definições do ficheiro de configuraçã
 
 
 
+[[configuration-file-settings]]
 === Definições do ficheiro de configuração
 
 O `deploy-vsphere-ovftool.ini` arquivo de configuração contém as configurações necessárias para implantar nós de grade virtual.
@@ -514,6 +517,7 @@ NOTE: Para nós de administração, AS INSTÂNCIAS devem sempre ser iguais a 2.
 
 
 
+[[run-the-bash-script]]
 == Execute o script Bash
 
 Você pode usar o `deploy-vsphere-ovftool.sh` script Bash e o arquivo de configuração deploy-vsphere-ovftool.ini modificado para automatizar a implantação de nós do StorageGRID no VMware vSphere.
@@ -581,6 +585,7 @@ Deployment Summary
 ----
 
 
+[[automate-the-configuration-of-storagegrid]]
 == Automatize a configuração do StorageGRID
 
 Depois de implantar os nós de grade, você pode automatizar a configuração do sistema StorageGRID.

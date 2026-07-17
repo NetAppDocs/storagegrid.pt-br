@@ -17,6 +17,7 @@ Você deve ter a permissão S3:GetBucketMetadataNotification, ou ser raiz da con
 
 
 
+[[request-example]]
 == Exemplo de solicitação
 
 Essa solicitação recupera a configuração de notificação de metadados para o bucket chamado `bucket`.
@@ -30,6 +31,7 @@ Host: _host_
 ----
 
 
+[[response]]
 == Resposta
 
 O corpo da resposta inclui a configuração de notificação de metadados para o bucket. A configuração de notificação de metadados permite determinar como o intervalo é configurado para integração de pesquisa. Ou seja, ele permite determinar quais objetos são indexados e quais endpoints seus metadados de objeto estão sendo enviados.
@@ -153,6 +155,7 @@ Sim
 |===
 
 
+[[response-example]]
 == Exemplo de resposta
 
 O XML incluído entre as  `<MetadataNotificationConfiguration></MetadataNotificationConfiguration>` tags mostra como a integração com um endpoint de integração de pesquisa é configurada para o bucket. Neste exemplo, metadados de objeto estão sendo enviados para um índice Elasticsearch nomeado `current` e tipo nomeado `2017` que está hospedado em um domínio da AWS `records` chamado .

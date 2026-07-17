@@ -15,6 +15,7 @@ Se você temlink:../admin/how-sso-works.html["Logon único configurado e habilit
 
 
 
+[[sign-in-to-the-api-if-single-sign-on-is-enabled]]
 == Faça login na API se o logon único estiver ativado
 
 Estas instruções se aplicam se você estiver usando o ative Directory como provedor de identidade SSO.
@@ -242,6 +243,7 @@ Agora você pode usar `MYTOKEN` para outras solicitações, semelhante a como vo
 
 
 
+[[sign-out-of-the-api-if-single-sign-on-is-enabled]]
 == Saia da API se o logon único estiver ativado
 
 Se o logon único (SSO) tiver sido ativado, você deverá emitir uma série de solicitações de API para sair da API de gerenciamento de grade ou da API de gerenciamento de locatário. Estas instruções se aplicam se você estiver usando o ative Directory como provedor de identidade SSO

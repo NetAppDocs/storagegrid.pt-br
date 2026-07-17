@@ -15,6 +15,7 @@ Crie interfaces de LAN virtual (VLAN) em nós de administração e nós de gatew
 
 
 
+[[considerations-for-vlan-interfaces]]
 == Considerações para interfaces VLAN
 
 * Você cria uma interface VLAN inserindo um ID de VLAN e escolhendo uma interface pai em um ou mais nós.
@@ -37,6 +38,7 @@ NOTE: "Linux" refere-se a uma implantação RHEL, Ubuntu ou Debian.  Para obter 
 
 
 
+[[create-a-vlan-interface]]
 == Crie uma interface VLAN
 
 .Antes de começar
@@ -53,6 +55,7 @@ Você pode usar o Gerenciador de Grade para criar interfaces de VLAN que permite
 
 
 
+[[access-the-wizard]]
 === Acesse o assistente
 
 .Passos
@@ -62,6 +65,7 @@ Você pode usar o Gerenciador de Grade para criar interfaces de VLAN que permite
 
 
 
+[[enter-details-for-the-vlan-interfaces]]
 === Insira os detalhes das interfaces VLAN
 
 .Passos
@@ -75,6 +79,7 @@ Os IDs de VLAN não precisam ser exclusivos. Por exemplo, você pode usar VLAN I
 
 
 
+[[choose-parent-interfaces]]
 === Escolha interfaces pai
 
 A tabela lista as interfaces disponíveis para todos os nós de administração e nós de gateway em cada local da grade. As interfaces Admin Network (eth1) não podem ser usadas como interfaces pai e não são mostradas.
@@ -92,6 +97,7 @@ image:vlan-create-parent-interfaces.png["VLAN criar interfaces pai do assistente
 
 
 
+[[confirm-the-settings]]
 === Confirme as definições
 
 .Passos
@@ -108,6 +114,7 @@ image:vlan-create-parent-interfaces.png["VLAN criar interfaces pai do assistente
 
 
 
+[[edit-a-vlan-interface]]
 == Editar uma interface VLAN
 
 Ao editar uma interface VLAN, você pode fazer os seguintes tipos de alterações:
@@ -141,6 +148,7 @@ Não é possível atualizar um ID de VLAN se a VLAN for usada em um grupo HA.
 
 
 
+[[remove-a-vlan-interface]]
 == Remova uma interface VLAN
 
 Você pode remover uma ou mais interfaces VLAN.

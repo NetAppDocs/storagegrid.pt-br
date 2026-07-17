@@ -21,6 +21,7 @@ Conforme necessário, você pode agrupar as interfaces de rede de vários nós d
 
 
 
+[[primary-services-for-gateway-nodes]]
 == Serviços primários para nós de gateway
 
 A tabela a seguir mostra os serviços primários para nós de Gateway; no entanto, essa tabela não lista todos os serviços de nós.

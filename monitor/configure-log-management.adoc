@@ -26,6 +26,7 @@ Opcionalmente, você podelink:../monitor/considerations-for-external-syslog-serv
 
 
 
+[[change-audit-message-levels]]
 == Alterar os níveis de mensagens de auditoria
 
 Você pode definir um nível de auditoria diferente para cada uma das seguintes categorias de mensagens no log de auditoria:
@@ -148,6 +149,7 @@ NOTE: Se você não precisar de um registro detalhado das operações de leitura
 
 
 
+[[define-http-request-headers]]
 == Definir cabeçalhos de solicitação HTTP
 
 Opcionalmente, você pode definir quaisquer cabeçalhos de solicitação HTTP que deseja incluir nas mensagens de auditoria de leitura e gravação do cliente.
@@ -170,6 +172,7 @@ NOTE: Os cabeçalhos de solicitação do protocolo de auditoria serão registrad
 
 
 
+[[configure-log-location]]
 == Configurar local do log
 
 Por padrão, as mensagens e os logs de auditoria são salvos nos nós onde são gerados.  Eles são rotacionados periodicamente e eventualmente excluídos para evitar que consumam espaço excessivo em disco.  Se você quiser salvar mensagens de auditoria e um subconjunto de logs externamente,<<use-external-syslog-server,use um servidor syslog externo>> .
@@ -178,6 +181,7 @@ Se você quiser salvar os arquivos de log internamente, escolha um locatário e 
 
 
 
+[[use-external-syslog-serveruse-an-external-syslog-server]]
 === [[use-external-syslog-server]]Use um servidor syslog externo
 
 Opcionalmente, você pode configurar um servidor syslog externo para salvar logs de auditoria, logs de aplicativos e logs de eventos de segurança em um local fora da grade.
@@ -579,6 +583,7 @@ NOTE: As informações de auditoria do StorageGRID não são enviadas ao servido
 
 
 
+[[select-log-location]]
 === Selecione o local do log
 
 Você pode especificar onde os logs de auditoria, logs de eventos de segurança,link:../monitor/storagegrid-software-logs.html["Logs do aplicativo StorageGRID"] , e os logs de acesso são enviados.
@@ -650,6 +655,7 @@ Os novos registos são enviados para os destinos selecionados. Os registos exist
 
 
 
+[[use-bucketuse-a-bucket]]
 === [[use-bucket]]Use um balde
 
 Os logs são rotacionados periodicamente.  Use um bucket S3 na mesma grade para armazenar logs por um longo período de tempo.

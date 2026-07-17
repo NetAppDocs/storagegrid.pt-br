@@ -15,6 +15,7 @@ Os custos de link permitem que você priorize qual local do data center fornece 
 
 
 
+[[what-are-link-costs]]
 == O que são custos de link?
 
 * Os custos de link são usados para priorizar qual cópia de objeto é usada para cumprir recuperações de objetos.
@@ -62,6 +63,7 @@ Data centers lógicos no mesmo prédio físico ou campus conetados por uma LAN.
 |===
 
 
+[[update-link-costs]]
 == Atualizar custos de link
 
 Você pode atualizar os custos de link entre sites de data center para refletir a latência entre sites.

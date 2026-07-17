@@ -27,6 +27,7 @@ Os seguintes parâmetros de solicitação são suportados:
 
 
 
+[[versioning]]
 == Controle de versão
 
 O upload de várias partes consiste em operações separadas para iniciar o upload, listar uploads, carregar peças, montar as peças carregadas e concluir o upload. Os objetos são criados (e versionados, se aplicável) quando a operação CompleteMultipartUpload é executada.

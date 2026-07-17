@@ -15,36 +15,42 @@ Se algo der errado quando você executa uma atualização, você pode resolver o
 
 
 
+[[upgrade-does-not-complete]]
 == A atualização não foi concluída
 
 As seções a seguir descrevem como recuperar de situações em que a atualização falhou parcialmente.
 
 
 
+[[upgrade-precheck-errors]]
 === Atualizar erros de pré-verificação
 
 Para detetar e resolver problemas, você pode executar manualmente as pré-verificações de atualização antes de iniciar a atualização real. A maioria dos erros de pré-verificação fornece informações sobre como resolver o problema.
 
 
 
+[[provisioning-failures]]
 === Falhas de provisionamento
 
 Se o processo de provisionamento automático falhar, entre em Contato com o suporte técnico.
 
 
 
+[[grid-node-crashes-or-fails-to-start]]
 === O nó de grade falha ou falha ao iniciar
 
 Se um nó de grade falhar durante o processo de atualização ou não conseguir iniciar com êxito após a conclusão da atualização, entre em Contato com o suporte técnico para investigar e corrigir quaisquer problemas subjacentes.
 
 
 
+[[ingest-or-data-retrieval-is-interrupted]]
 === A obtenção ou recuperação de dados é interrompida
 
 Se a ingestão ou recuperação de dados for inesperadamente interrompida quando você não estiver atualizando um nó de grade, entre em Contato com o suporte técnico.
 
 
 
+[[database-upgrade-errors]]
 === Erros de atualização do banco de dados
 
 Se a atualização do banco de dados falhar com um erro, tente novamente a atualização. Se falhar novamente, entre em Contato com o suporte técnico.
@@ -54,12 +60,14 @@ link:checking-systems-condition-before-upgrading-software.html["Verificar o esta
 
 
 
+[[user-interface-issues]]
 == Problemas na interface do usuário
 
 Você pode ter problemas com o Gerenciador de Grade ou o Gerenciador de Locatário durante ou após a atualização.
 
 
 
+[[grid-manager-displays-multiple-error-messages-during-upgrade]]
 === O Grid Manager exibe várias mensagens de erro durante a atualização
 
 Se você atualizar seu navegador ou navegar para outra página do Gerenciador de Grade enquanto o nó Admin principal estiver sendo atualizado, você poderá ver várias mensagens "503: Serviço indisponível" e "problema na conexão com o servidor". Você pode ignorar essas mensagens com segurança, elas deixarão de aparecer assim que o nó for atualizado.
@@ -68,6 +76,7 @@ Se essas mensagens forem exibidas por mais de uma hora depois de iniciar a atual
 
 
 
+[[web-interface-does-not-respond-as-expected]]
 === A interface Web não responde como esperado
 
 O Gerenciador de Grade ou o Gerente do Locatário podem não responder como esperado depois que o software StorageGRID for atualizado.
@@ -87,6 +96,7 @@ Limpar o cache remove recursos desatualizados usados pela versão anterior do so
 
 
 
+[[docker-image-availability-check-error-messages]]
 == Mensagens de erro "verificação de disponibilidade de imagem Docker"
 
 Ao tentar iniciar o processo de atualização, você pode receber uma mensagem de erro que diz "os seguintes problemas foram identificados pelo pacote de validação de verificação de disponibilidade de imagem Docker". Todos os problemas devem ser resolvidos antes que você possa concluir a atualização.

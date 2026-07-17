@@ -17,6 +17,7 @@ A guia Storage (armazenamento) é exibida para todos os nós, cada local e toda 
 
 
 
+[[storage-used-graphs]]
 == Armazenamento de gráficos usados
 
 Para nós de storage, cada local e toda a grade, a guia Storage inclui gráficos mostrando quanto de storage foi usado pelos dados de objeto e metadados de objeto ao longo do tempo.
@@ -28,6 +29,7 @@ image:nodes_storage_node_storage_tab.png["Nós > Nó de armazenamento > Aba arma
 
 
 
+[[disk-devices-volumes-and-object-stores-tables]]
 == Dispositivos de disco, volumes e objetos armazenam tabelas
 
 Para todos os nós, a guia armazenamento contém detalhes dos dispositivos de disco e volumes no nó. Para nós de storage, a tabela Object Stores fornece informações sobre cada volume de storage.

@@ -207,6 +207,7 @@ Depois de aplicar ou preparar as alterações, um novo pacote de recuperação �
 
 
 
+[[temporarily-changing-the-lacp-pdu-rate]]
 == Alteração temporária da taxa de PDU do LACP
 
 Para executar operações de manutenção em componentes de rede instalados no seu dispositivo, como atualizar o firmware da NIC, você pode verificar se a configuração atual da taxa do PDU LACP atende aos requisitos de tempo de comunicação da NIC.  Você pode alternar de forma não persistente a taxa do PDU LACP entre rápida (espera de 1 segundo) e lenta (espera de 30 segundos), se necessário.

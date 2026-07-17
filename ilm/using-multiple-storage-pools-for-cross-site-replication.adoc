@@ -24,6 +24,7 @@ CAUTION: Ao configurar sua implantação do StorageGRID para proteção contra p
 
 
 
+[[replication-example]]
 == Exemplo de replicação
 
 Por padrão, um pool de armazenamento é criado para cada local durante a instalação do StorageGRID. Ter pools de storage que consistem em apenas um local permite configurar regras de ILM que usam replicação para proteção contra perda de site. Neste exemplo:
@@ -48,6 +49,7 @@ Se um site for perdido, cópias dos objetos estarão disponíveis no outro site.
 
 
 
+[[erasure-coding-example]]
 == Exemplo de codificação de apagamento
 
 Ter pools de storage compostos por mais de um local por pool de storage permite configurar regras de ILM que usam codificação de apagamento para proteção contra perda de site. Neste exemplo:

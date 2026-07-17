@@ -17,6 +17,7 @@ Para obter detalhes sobre problemas corrigidos e problemas conhecidos nas versõ
 
 
 
+[[appliances]]
 == Aparelhos
 
 * A capacidade de armazenamento e a eficiência de custos aumentaram significativamente.
@@ -25,6 +26,7 @@ Para obter detalhes sobre problemas corrigidos e problemas conhecidos nas versõ
 
 
 
+[[artificial-intelligence-ai-and-machine-learning-ml]]
 == Inteligência artificial (IA) e aprendizado de máquina (ML)
 
 * link:../tenant/what-is-branch-bucket.html["Baldes de galhos"]permitir versões pontuais de buckets que facilitam a recuperação mais rápida de ransomware e conjuntos de dados isolados para testes e experimentação.
@@ -33,12 +35,14 @@ Para obter detalhes sobre problemas corrigidos e problemas conhecidos nas versõ
 
 
 
+[[capacity]]
 == Capacidade
 
 O StorageGRID agora suporta um trilhão de objetos, o que é mais que o dobro do limite anterior.  Consulte o https://fusion.netapp.com/["Ferramenta NetApp Fusion"^] para dimensionar e projetar o StorageGRID.
 
 
 
+[[cassandra-updates]]
 == Atualizações de Cassandra
 
 O StorageGRID agora usa uma versão mais recente do Cassandra para armazenamento de metadados.  Esta versão do Cassandra usa o espaço em disco de forma mais eficiente para armazenar mais metadados.
@@ -49,6 +53,7 @@ Consulte link:../upgrade/performing-upgrade.html#upgrade-other-nodes["Atualizar 
 
 
 
+[[federation]]
 == Federação
 
 * Agora você podelink:../admin/managing-users.html#import-federated-users["importar até 100 usuários federados"] em StorageGRID.
@@ -61,6 +66,7 @@ A NetApp recomenda usar esse recurso somente entre os buckets de origem e destin
 
 
 
+[[manageability]]
 == Gerenciabilidade
 
 * Melhoroulink:../maintain/decommission-procedure.html["procedimento de descomissionamento"] reduz o tempo e a complexidade para aumentar a eficiência operacional.
@@ -85,6 +91,7 @@ NOTE: Se você precisar reverter para o comportamento anterior para consistênci
 
 
 
+[[security]]
 == Segurança
 
 * Criptografia de dados mais forte e proteção de integridade proporcionam segurança e desempenho aprimorados.
@@ -94,6 +101,7 @@ NOTE: Se você precisar reverter para o comportamento anterior para consistênci
 
 
 
+[[tenant-groups]]
 == Grupos de inquilinos
 
 * Agora você podelink:../tenant/manage-groups.html["configurar uma nova política de confiança S3"] para dar suporte à API AssumeRole.  A função AssumeRole fornece credenciais de curto prazo para maior segurança e controle de acesso flexível.
@@ -102,6 +110,7 @@ NOTE: Se você precisar reverter para o comportamento anterior para consistênci
 
 
 
+[[user-interface]]
 == Interface do usuário
 
 * As configurações de tema escuro e tema do sistema estão disponíveis no menu Usuário do Grid Manager e do Tenant Manager.

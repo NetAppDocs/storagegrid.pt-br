@@ -15,6 +15,7 @@ Saiba mais sobre possíveis problemas com o cache do balanceador de carga e como
 
 
 
+[[determine-if-a-request-was-a-cache-hit]]
 == Determinar se uma solicitação foi um acerto de cache
 
 * O cabeçalho X-Cache é definido na resposta às solicitações manipuladas pelo serviço de cache.  Códigos possíveis:
@@ -31,6 +32,7 @@ Saiba mais sobre possíveis problemas com o cache do balanceador de carga e como
 
 
 
+[[low-cache-hit-rate]]
 == Baixa taxa de acertos de cache
 
 * Baixas taxas de acerto de cache podem ser esperadas quando uma nova carga de trabalho é adicionada ou o conjunto de trabalho acessado por uma carga de trabalho muda.  Nessas situações, espera-se que a taxa de acerto aumente ao longo do tempo.
@@ -41,6 +43,7 @@ Saiba mais sobre possíveis problemas com o cache do balanceador de carga e como
 
 
 
+[[low-performance]]
 == Baixo desempenho
 
 * Avalie a taxa de acertos do cache.  Baixas taxas de acertos de cache podem levar a um baixo desempenho geral.

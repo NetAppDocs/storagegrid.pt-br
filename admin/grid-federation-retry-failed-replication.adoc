@@ -17,6 +17,7 @@ O alerta *Falha permanente de replicação entre redes* indica que os objetos do
 
 
 
+[[determine-if-any-objects-failed-to-be-replicated]]
 == Determine se algum objeto não pôde ser replicado
 
 Para determinar se algum objeto ou marcador de exclusão não foram replicados para a outra grade, você pode pesquisar mensagens no log de auditorialink:../audit/cgrr-cross-grid-replication-request.html["CGRR (solicitação de replicação entre grades)"]. Essa mensagem é adicionada ao log quando o StorageGRID não consegue replicar um objeto, objeto multiparte ou excluir um marcador para o bucket de destino.
@@ -116,6 +117,7 @@ O tipo de erro. Se a replicação entre redes falhou, o erro é "erro geral".
 
 
 
+[[retry-failed-replications]]
 == Repetir repetições falhadas
 
 Depois de gerar uma lista de objetos e excluir marcadores que não foram replicados para o bucket de destino e resolver os problemas subjacentes, você pode repetir a replicação de duas maneiras:
@@ -150,6 +152,7 @@ NOTE: Pendente significa que a solicitação de replicação entre grade foi adi
 
 
 
+[[monitor-replication-retries]]
 == Monitorar tentativas de replicação
 
 Você deve monitorar as operações de repetição de replicação para garantir que elas sejam concluídas.

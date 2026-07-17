@@ -15,6 +15,7 @@ Antes de conectar o StorageGRID como uma categoria de nuvem do FabricPool, conhe
 
 
 
+[[what-is-an-ha-group]]
 == O que é um grupo HA?
 
 Um grupo de alta disponibilidade (HA) é um conjunto de interfaces de vários nós de gateway StorageGRID, nós de administração ou ambos. Um grupo HA ajuda a manter as conexões de dados do cliente disponíveis. Se a interface ativa no grupo de HA falhar, uma interface de backup poderá gerenciar o workload com pouco impacto nas operações do FabricPool.
@@ -25,6 +26,7 @@ Para saber mais sobre grupos de alta disponibilidade, link:../admin/managing-hig
 
 
 
+[[using-ha-groups]]
 == Usando grupos de HA
 
 As práticas recomendadas para a criação de um grupo de HA do StorageGRID para FabricPool dependem do workload.

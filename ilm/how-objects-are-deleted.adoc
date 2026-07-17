@@ -66,6 +66,7 @@ Quando os clientes S3 fazem solicitações de exclusão, o StorageGRID começa a
 
 
 
+[[time-required-to-delete-objects]]
 == Tempo necessário para excluir objetos
 
 A forma como o StorageGRID exclui objetos pode afetar o desempenho do sistema:
@@ -84,6 +85,8 @@ A quantidade de tempo necessário para liberar espaço depois que um objeto é e
 
 
 
+[[how-s3-versioned-objects-are-deleted]]
+[[delete-s3-versioned-objects]]
 == Como objetos com versão S3 são excluídos
 
 Quando o controle de versão está habilitado para um bucket do S3, o StorageGRID segue o comportamento do Amazon S3 ao responder a solicitações de exclusão, sejam elas provenientes de um cliente S3, a expiração de um ciclo de vida de bucket do S3 ou os requisitos da política do ILM.
