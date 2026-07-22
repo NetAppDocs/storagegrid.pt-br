@@ -16,147 +16,31 @@ Se você quiser que as notificações por e-mail sejam enviadas quando os alerta
 .Antes de começar
 * Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
 * Você tem o link:../admin/admin-group-permissions.html["Gerencie alertas ou permissão de acesso root"].
+* Você tem link:../monitor/configure-email-server.html["configurou um servidor de e-mail"].
 
 
 .Sobre esta tarefa
-A configuração de e-mail usada para notificações de alerta não é usada para pacotes AutoSupport. No entanto, você pode usar o mesmo servidor de e-mail para todas as notificações.
-
 Se sua implantação do StorageGRID incluir vários nós de administração, o nó de administração principal é o remetente preferido para notificações de alerta, pacotes AutoSupport e traps SNMP e informa. Se o nó de administração principal ficar indisponível, as notificações serão enviadas temporariamente por outros nós de administração. link:../primer/what-admin-node-is.html["O que é um nó de administração?"]Consulte .
 
 .Passos
-. Selecione *Alertas* > *Configuração de e-mail*.
+. Selecione *Alertas* > *E-mail de alertas*.
 +
-A página Configuração de e-mail é exibida.
+A página de e-mails de alertas é exibida.
 
-. Marque a caixa de seleção *Ativar notificações por e-mail* para indicar que deseja que os e-mails de notificação sejam enviados quando os alertas atingirem limites configurados.
-+
-As seções servidor de e-mail (SMTP), TLS (Transport Layer Security), endereços de e-mail e filtros são exibidas.
-
-. Na seção servidor de e-mail (SMTP), insira as informações que o StorageGRID precisa para acessar seu servidor SMTP.
-+
-Se o servidor SMTP exigir autenticação, você deve fornecer um nome de usuário e uma senha.
-
-+
-[cols="1a,2a"]
-|===
-| Campo | Introduza 
-
-
- a| 
-Servidor de correio
- a| 
-O nome de domínio totalmente qualificado (FQDN) ou o endereço IP do servidor SMTP.
-
-
-
- a| 
-Porta
- a| 
-A porta usada para acessar o servidor SMTP. Deve estar entre 1 e 65535.
-
-
-
- a| 
-Nome de utilizador (opcional)
- a| 
-Se o servidor SMTP exigir autenticação, insira o nome de usuário com o qual se autenticar.
-
-
-
- a| 
-Senha (opcional)
- a| 
-Se o servidor SMTP exigir autenticação, introduza a palavra-passe com a qual pretende autenticar.
-
-|===
-. Na seção endereços de e-mail, insira endereços de e-mail para o remetente e para cada destinatário.
-+
-.. Para *Endereço de e-mail do remetente*, especifique um endereço de e-mail válido para usar como endereço de para notificações de alerta.
+. Selecione a caixa de seleção *Ativar e-mail para alertas* para indicar que você deseja que e-mails de notificação sejam enviados quando os alertas atingirem os limites configurados.
+. Na seção *Receber e-mail por gravidade*, selecione o botão de opção que indica os tipos de alertas sobre os quais você deseja ser notificado.
+. Na seção Remetente, especifique um endereço de e-mail válido para usar como endereço De para notificações de alerta.
 +
 Por exemplo: `storagegrid-alerts@example.com`
 
++
 .. Na seção destinatários, insira um endereço de e-mail para cada lista de e-mail ou pessoa que deve receber um e-mail quando ocorrer um alerta.
 +
-Selecione o ícone de mais image:icon_plus_sign_black_on_white.gif["ícone plus"] para adicionar destinatários.
-
-
-
-. Se a TLS (Transport Layer Security) for necessária para comunicações com o servidor SMTP, selecione *Require TLS* na seção TLS (Transport Layer Security).
-+
-.. No campo *certificado CA*, forneça o certificado CA que será usado para verificar a identificação do servidor SMTP.
-+
-Você pode copiar e colar o conteúdo neste campo ou selecionar *Procurar* e selecionar o arquivo.
-
-+
-Você deve fornecer um único arquivo que contenha os certificados de cada autoridade de certificação de emissão intermediária (CA). O arquivo deve conter cada um dos arquivos de certificado CA codificados em PEM, concatenados em ordem de cadeia de certificados.
-
-.. Marque a caixa de seleção *Send Client Certificate* se o servidor de e-mail SMTP exigir que os remetentes de e-mail forneçam certificados de cliente para autenticação.
-.. No campo *Client Certificate*, forneça o certificado de cliente codificado em PEM para enviar para o servidor SMTP.
-+
-Você pode copiar e colar o conteúdo neste campo ou selecionar *Procurar* e selecionar o arquivo.
-
-.. No campo *chave privada*, insira a chave privada do certificado do cliente na codificação PEM não criptografada.
-+
-Você pode copiar e colar o conteúdo neste campo ou selecionar *Procurar* e selecionar o arquivo.
-
-+
-
-NOTE: Se precisar editar as configurações de e-mail, selecione o ícone de lápis image:icon_edit_tm.png["Ícone de edição"] para atualizar este campo.
-
-
-
-. Na seção filtros, selecione quais níveis de gravidade de alerta devem resultar em notificações por e-mail, a menos que a regra de um alerta específico tenha sido silenciada.
-+
-[cols="1a,2a"]
-|===
-| Gravidade | Descrição 
-
-
- a| 
-Menor, maior, crítico
- a| 
-Uma notificação por e-mail é enviada quando a condição menor, maior ou crítica de uma regra de alerta é atendida.
-
-
-
- a| 
-Importante, crítico
- a| 
-Uma notificação por e-mail é enviada quando a condição principal ou crítica de uma regra de alerta é atendida. As notificações não são enviadas para alertas menores.
-
-
-
- a| 
-Apenas crítica
- a| 
-Uma notificação por e-mail é enviada somente quando a condição crítica de uma regra de alerta é atendida. As notificações não são enviadas para alertas menores ou maiores.
-
-|===
-. Quando estiver pronto para testar suas configurações de e-mail, execute estas etapas:
-+
-.. Selecione *Enviar e-mail de teste*.
-+
-Uma mensagem de confirmação é exibida, indicando que um e-mail de teste foi enviado.
-
-.. Marque as caixas de entrada de todos os destinatários de e-mail e confirme se um e-mail de teste foi recebido.
-+
-
-NOTE: Se o e-mail não for recebido em poucos minutos ou se o alerta *Falha na notificação por e-mail* for acionado, verifique as configurações e tente novamente.
-
-.. Faça login em qualquer outro nó Admin e envie um e-mail de teste para verificar a conetividade de todos os sites.
-+
-
-NOTE: Ao testar notificações de alerta, você deve entrar em cada nó de administração para verificar a conetividade. Isso é em contraste com o teste de pacotes do AutoSupport, onde todos os nós de administração enviam o e-mail de teste.
+Selecione *Adicionar destinatário* para adicionar destinatários.
 
 
 
 . Selecione *Guardar*.
-+
-Enviar um e-mail de teste não salva suas configurações. Você deve selecionar *Salvar*.
-
-+
-As configurações de e-mail são salvas.
-
 
 
 
@@ -164,7 +48,7 @@ As configurações de e-mail são salvas.
 [[information-included-in-alert-email-notifications]]
 == Informações incluídas nas notificações por e-mail de alerta
 
-Depois de configurar o servidor de e-mail SMTP, as notificações de e-mail são enviadas aos destinatários designados quando um alerta é acionado, a menos que a regra de alerta seja suprimida por um silêncio. link:silencing-alert-notifications.html["Silenciar notificações de alerta"]Consulte .
+Após configurar o servidor de e-mail e habilitar o envio de e-mails para alertas, as notificações por e-mail são enviadas aos destinatários designados quando um alerta é acionado, a menos que a regra de alerta seja suprimida por um silenciamento. Consulte link:silencing-alert-notifications.html["Silenciar notificações de alerta"].
 
 As notificações por e-mail incluem as seguintes informações:
 
@@ -192,7 +76,7 @@ A descrição do alerta.
  a| 
 3
  a| 
-Quaisquer ações recomendadas para o alerta.
+Ações recomendadas para o alerta.
 
 
 
@@ -283,28 +167,38 @@ O StorageGRID continua a enviar notificações por e-mail uma vez a cada 7 dias 
 [[troubleshoot-alert-email-notifications]]
 == Solucionar problemas de notificações por e-mail de alerta
 
-Se o alerta *Falha na notificação por e-mail* for acionado ou você não conseguir receber a notificação por e-mail de alerta de teste, siga estas etapas para resolver o problema.
+Siga estes passos para investigar e resolver o problema caso o alerta de falha na notificação por e-mail seja acionado e você não esteja recebendo:
+
+* Testar as notificações do servidor de e-mail
+* E-mails de alerta do StorageGRID
+* E-mails de verificação de múltiplos administradores (MAV)
+
 
 .Antes de começar
 * Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
-* Você tem o link:../admin/admin-group-permissions.html["Gerencie alertas ou permissão de acesso root"].
+* Você tem a link:../admin/admin-group-permissions.html["Permissão de acesso à raiz"]. Se você tiver a permissão "Gerenciar alertas", poderá visualizar, mas não editar, a configuração do servidor de e-mail.
 
 
 .Passos
-. Verifique as suas definições.
+. Verifique suas configurações de e-mail de alerta.
 +
-.. Selecione *Alertas* > *Configuração de e-mail*.
-.. Verifique se as configurações do servidor de e-mail (SMTP) estão corretas.
 .. Verifique se você especificou endereços de e-mail válidos para os destinatários.
+.. Selecione *Configuração* > *Servidor de e-mail* e verifique se as configurações do servidor de e-mail (SMTP) estão corretas.
 
 
 . Verifique o filtro de spam e certifique-se de que o e-mail não foi enviado para uma pasta de lixo eletrônico.
 . Peça ao administrador de e-mail para confirmar que os e-mails do endereço do remetente não estão sendo bloqueados.
-. Colete um arquivo de log para o Admin Node e entre em Contato com o suporte técnico.
+. Verifique os seguintes itens relacionados à transferência de e-mail:
++
+.. Monitoramento de logs do servidor de e-mail: visualize os logs do servidor de e-mail usado pelo StorageGRID (*Configuração* > *Servidor de e-mail*). Procure por erros de retransmissão, erros de autenticação e outras falhas que correspondam ao horário em que o StorageGRID tentou enviar um e-mail.
+.. Relatórios de não entrega (e-mails devolvidos): Se os e-mails não forem recebidos e StorageGRID não reportar uma falha, o problema pode ser um e-mail devolvido. Configurar o endereço "from" para usar um endereço de e-mail válido tornará esses e-mails de resposta de devolução visíveis para você.
+
+
+. Reúna os arquivos de log do Admin Node que está enviando os e-mails. Analise os arquivos /var/local/log/prometheus.log e /var/local/log/nms.log em busca de problemas óbvios que você possa corrigir. Se você não conseguir resolver o problema, entre em contato com o suporte técnico.
 +
 O suporte técnico pode usar as informações nos logs para ajudar a determinar o que deu errado. Por exemplo, o arquivo prometheus.log pode mostrar um erro ao se conetar ao servidor especificado.
 
 +
-link:collecting-log-files-and-system-data.html["Colete arquivos de log e dados do sistema"]Consulte .
+Consulte link:collecting-log-files-and-system-data.html["Colete arquivos de log e dados do sistema"].
 
 

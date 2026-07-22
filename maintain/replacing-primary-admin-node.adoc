@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace primary admin node, replacing primary admin node, primary admin node 
 summary: Para recuperar um nó de administrador principal, primeiro você deve substituir o hardware físico ou virtual. 
 ---
-= Substituir o nó de administração primário do StorageGRID
+= Substitua o nó de administração primário do StorageGRID usando o mesmo nó de administração primário
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,7 +13,12 @@ summary: Para recuperar um nó de administrador principal, primeiro você deve s
 [role="lead"]
 Para recuperar um nó de administrador principal, primeiro você deve substituir o hardware físico ou virtual.
 
-Você pode substituir um nó de administrador principal com falha por um nó de administrador principal executado na mesma plataforma ou pode substituir um nó de administrador principal em execução em VMware ou em um host Linux por um nó de administrador principal hospedado em um dispositivo de serviços.
+Para recuperar um nó de administrador principal, primeiro você deve substituir o hardware físico ou virtual.
+
+* Você pode substituir um nó de administração primário com falha por um nó de administração primário em execução na mesma plataforma.
+* Você pode substituir um nó de administração primário em execução em um host VMware ou Linux por um nó de administração primário hospedado em um appliance de serviços StorageGRID.
+* Você pode substituir um nó de administração primário em execução em um host VMware por um appliance de serviços SG1000 ou SG100.
+
 
 Use o procedimento que corresponde à plataforma de substituição selecionada para o nó. Depois de concluir o procedimento de substituição do nó (que é adequado para todos os tipos de nó), esse procedimento irá direcioná-lo para a próxima etapa para a recuperação do nó de administração principal.
 
@@ -25,7 +30,9 @@ Use o procedimento que corresponde à plataforma de substituição selecionada p
  a| 
 VMware
  a| 
-link:all-node-types-replacing-vmware-node.html["Substitua um nó VMware"]
+link:all-node-types-replacing-vmware-node.html["Substitua um nó VMware por um nó de recuperação"]
+
+link:replace-vmware-node-with-sg1000-sg100.html["Substitua um nó VMware por um SG1000 ou SG100"]
 
 
 

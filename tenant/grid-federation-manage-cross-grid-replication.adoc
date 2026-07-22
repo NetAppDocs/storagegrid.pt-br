@@ -20,7 +20,7 @@ Se a sua conta de locatário tiver sido atribuída a permissão *usar conexão d
 
 O diagrama de fluxo de trabalho resume as etapas que você executa para configurar a replicação entre grades entre buckets em duas grades.  Essas etapas são descritas com mais detalhes abaixo do diagrama.
 
-image:grid-federation-cgr-workflow.png["Fluxo de trabalho de replicação entre grade"]
+image:grid_federation_cgr_workflow.png["Fluxo de trabalho de replicação entre grade"]
 
 
 
@@ -74,8 +74,6 @@ TIP: Conforme necessário, cada balde pode usar uma região diferente.
 [[enable-cross-grid-replication]]
 === Ative a replicação entre redes
 
-Você deve executar estas etapas antes de adicionar quaisquer objetos a qualquer bucket.
-
 .Passos
 . A partir de uma grade cujos objetos você deseja replicar, habilite link:../admin/grid-federation-what-is-cross-grid-replication.html["replicação entre grade em uma direção"]:
 +
@@ -90,7 +88,7 @@ Você deve executar estas etapas antes de adicionar quaisquer objetos a qualquer
 *** *Sim* (padrão): Um marcador de exclusão é adicionado ao intervalo de origem e replicado ao intervalo de destino.
 *** *Não*: Um marcador de exclusão é adicionado ao bucket de origem, mas não é replicado no bucket de destino.
 +
-image:grid-federation-cross-grid-replication-client-deletes.png["imagem que mostra a eliminação do cliente replicado em ambas as grelhas"]
+image:grid_federation_cross_grid_replication_client_deletes.png["imagem que mostra a eliminação do cliente replicado em ambas as grelhas"]
 
 +
 
@@ -107,7 +105,6 @@ Consultelink:../admin/grid-federation-what-is-cross-grid-replication.html["O que
 *** *Normal*: Todas as solicitações de replicação entre redes estão incluídas, o que aumenta significativamente o volume da saída da auditoria.
 
 
-.. Reveja as suas seleções. Você não pode alterar essas configurações a menos que ambos os buckets estejam vazios.
 .. Selecione *Ativar e testar*.
 +
 Após alguns instantes, uma mensagem de sucesso é exibida.  Os objetos adicionados a este bucket agora são replicados automaticamente para a outra grade.  *A replicação entre grades* é mostrada como um recurso habilitado na página de detalhes do bucket.
@@ -153,11 +150,6 @@ Antes de desativar a replicação entre grades, observe o seguinte:
 * Desabilitar a replicação entre grades não remove nenhum objeto que já tenha sido copiado entre grades.  Por exemplo, objetos em `my-bucket` na Grade 1 que foram copiados para `my-bucket` na Grade 2 não serão removidos se você desabilitar a replicação entre grades para esse bucket.  Se você quiser excluir esses objetos, deverá removê-los manualmente.
 * Se a replicação entre grade foi ativada para cada um dos buckets (ou seja, se a replicação ocorrer em ambas as direções), você pode desativar a replicação entre grade para um ou ambos os buckets. Por exemplo, você pode querer desativar a replicação de objetos `my-bucket` de na Grade 1 para na Grade `my-bucket` 2, enquanto continua a replicar objetos `my-bucket` de na Grade 2 para na Grade `my-bucket` 1.
 * Você deve desabilitar a replicação entre redes antes de poder remover a permissão de um locatário para usar a conexão de federação de rede. Consulte link:../admin/grid-federation-manage-tenants.html["Gerenciar locatários permitidos"] .
-* Se você desabilitar a replicação entre grades para um bucket que contém objetos, não será possível habilitá-la novamente, a menos que você exclua todos os objetos dos buckets de origem e de destino.
-+
-
-CAUTION: Não é possível reativar a replicação a menos que ambos os buckets estejam vazios.
-
 
 
 .Antes de começar

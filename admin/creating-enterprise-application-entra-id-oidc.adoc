@@ -1,0 +1,109 @@
+---
+permalink: admin/creating-enterprise-application-entra-id-oidc.html 
+sidebar: sidebar 
+keywords: enterprise application, entra id, single sign on, sso 
+summary: Use o Entra ID para criar um aplicativo para cada Admin Node em seu sistema. 
+---
+= Crie aplicativos corporativos no Entra ID para OIDC no StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilize o Entra ID para criar um aplicativo corporativo para cada Admin Node para OpenID Connect (OIDC) em seu sistema.
+
+.Antes de começar
+* Você possui o identificador da parte confiável e o domínio totalmente qualificado (FQDN) ou endereço IP para cada nó administrativo em seu sistema.
++
+
+NOTE: Cada nó administrativo no seu sistema StorageGRID deve ter um aplicativo corporativo. Isso garante que os usuários possam entrar e sair de qualquer nó administrativo com segurança. Você pode criar um único aplicativo corporativo para todos os nós administrativos (recomendado) ou um aplicativo corporativo diferente para cada nó administrativo.
+
+* Você tem experiência na criação de aplicativos no Entra ID.
+* Você tem uma conta Entra ID com uma assinatura ativa.
+* Você tem uma das seguintes funções na conta Entra ID: Administrador global, Administrador de aplicativo em nuvem, Administrador de aplicativo ou proprietário da entidade de serviço.
+
+
+
+
+[[step-1-access-entra-id]]
+== Passo 1: Acesse Entra ID
+
+.Passos
+. Inicie sessão no https://portal.azure.com["Portal do Azure"^].
+. Selecione link:https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Overview["ID de entrada da Microsoft"^].
+. Selecione link:https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps["Registros de aplicativo"^].
+
+
+
+
+[[step-2-register-a-new-application]]
+== Etapa 2: registre um novo aplicativo
+
+Registre um novo aplicativo corporativo para cada Admin Node em seu sistema.
+
+.Passos
+. No painel de aplicações do Entra ID Enterprise, selecione *Registros de aplicativos* > *Novo registro*.
+. Para *Nome*, insira o identificador da parte confiável.
+. Em *Tipos de conta suportados*, selecione os tipos de conta que podem usar o aplicativo ou acessar a API, por exemplo, *Somente locatário único - <tenant_name>*.
+. Em *URI de redirecionamento*, selecione *Selecionar uma plataforma* > *Web*.
+. Insira o URI de redirecionamento do domínio totalmente qualificado (FQDN) ou endereço IP para o Nó de Administração:  `https://<FQDN>/api/v4/oidc-callback` ou  `https://<IP_address>/api/v4/oidc-callback`
++
+Insira o URI de cada nó administrativo se você estiver usando um único aplicativo corporativo para todos os nós administrativos. Se você estiver usando um aplicativo corporativo diferente para cada nó administrativo, insira apenas o URI do nó administrativo correspondente.
+
+. Selecione *Registrar*.
+. Na página Visão geral do novo registro de aplicativo, anote o *ID do aplicativo (cliente)* e o *ID do diretório (locatário)*.
+
+
+
+
+[[step-3-configure-a-client-secret]]
+== Etapa 3: configure um segredo do cliente
+
+Registre um segredo do cliente para cada nova aplicação.
+
+.Passos
+. Na página Visão geral do novo registro do aplicativo, selecione *Gerenciar* > *Certificados e segredos* > *Novo segredo do cliente*.
+. Insira o segredo do cliente e defina a data de expiração desejada.
+. Selecione *Adicionar* para criar o segredo do cliente.
+. Copie o *Valor* secreto.
++
+
+NOTE: O valor secreto não fica visível depois que você atualiza ou sai da página de segredo do cliente.
+
+
+
+
+
+[[step-4-set-up-the-api-permissions]]
+== Etapa 4: configure as permissões da API
+
+Configure as permissões da API para cada novo aplicativo.
+
+.Passos
+. Na página Visão geral do novo registro do aplicativo, selecione *Gerenciar* > *Permissões de API* > *Adicionar uma permissão*.
+. Selecione *Microsoft APIs* > *Microsoft Graph* > *Permissões delegadas*.
+. Expanda *OpenId permissões*, depois selecione *email*, *offline_access*, *openid* e *profile*.
+. Selecione *Adicionar permissões*.
+. Selecione *Conceder consentimento de administrador para <tenant>*, depois selecione *Sim*.
+
+
+
+
+[[step-5-add-the-logged-out-redirect-uri]]
+== Etapa 5: adicione o URI de redirecionamento para usuários deslogados
+
+Adicione o URI de redirecionamento após logout para cada nova aplicação.
+
+.Passos
+. Na página Visão geral do novo registro de aplicativo, selecione *Gerenciar* > *Autenticação*.
+. Selecione *Adicionar URI de redirecionamento* > *Web*.
+. Insira o URI de redirecionamento do domínio totalmente qualificado (FQDN) ou endereço IP para o Nó de Administração: `https://<FQDN>/api/v4/oidc-logged-out` ou `https://<IP_address>/api/v4/oidc-logged-out`
++
+Insira o URI de cada nó administrativo se você estiver usando um grupo de aplicativos para todos os nós administrativos. Se você estiver usando um grupo de aplicativos diferente para cada nó administrativo, insira apenas o URI do nó administrativo correspondente.
+
+. Selecione *Configurar*.
+
+
+.O que vem a seguir
+Após a criação de aplicativos empresariais, link:configure-sso-oidc.html["configurar SSO usando OIDC"].

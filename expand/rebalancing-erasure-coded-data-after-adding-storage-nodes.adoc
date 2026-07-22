@@ -37,7 +37,7 @@ NOTE: As operações de API S3D para fazer upload de objetos (ou partes de objet
 * *Condições de conclusão de trabalho*. O procedimento de reequilíbrio CE é considerado completo quando qualquer uma das seguintes situações for verdadeira:
 +
 ** Ele não pode mover mais dados codificados por apagamento.
-** Os dados em todos os nós estão dentro de um desvio de 5% da partição de dados de destino.
+** Os dados em todos os nós estão dentro de um desvio de 5% da partição de espaço utilizável alvo.
 ** O procedimento está em execução há 30 dias.
 
 
@@ -105,11 +105,11 @@ Para obter ajuda sobre o comando rebalanceamento-data:
 Acesse a página Nós para avaliar a distribuição de dados entre os Nós de Armazenamento no site.
 
 +
-O trabalho EC reequilíbrio é considerado concluído e será interrompido quando os dados em todos os nós estiverem dentro de um desvio de 5% da partição de dados de destino.
+A tarefa de rebalanceamento do EC é considerada concluída e será interrompida quando o espaço utilizável em todos os nós estiver dentro de um desvio de 5% da partição de espaço utilizável alvo.
 
 ** Se `State` for `Success`, opcionalmente <<review_object_storage,revise o armazenamento de objetos>> para ver os detalhes atualizados do site.
 +
-Agora, os dados codificados por apagamento devem ser mais equilibrados entre os nós de storage no local.
+O espaço utilizável agora deve estar mais equilibrado entre os Storage Nodes no site.
 
 **  `State`Se for `Failure`:
 +

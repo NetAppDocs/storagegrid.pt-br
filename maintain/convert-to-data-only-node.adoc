@@ -22,9 +22,8 @@ Ao converter nós somente de dados, a grade deve conter no mínimo três nós de
 .Antes de começar
 * Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
 * Você tem o link:../admin/admin-group-permissions.html["Permissão de manutenção ou acesso root"].
-* O nó de armazenamento que você deseja converter não contém o serviço ADC ou você temlink:../maintain/move-adc-service.html["moveu o serviço ADC"] para outro nó.
 * O nó de armazenamento não é um nó somente de metadados ou um nó somente de dados.
-* O nó de armazenamento que você deseja converter não contém o serviço ADC ou você temlink:../maintain/move-adc-service.html["moveu o serviço ADC"] para outro nó.
+* Se o Nó de Armazenamento contiver o serviço ADC, mais de dois Nós de Armazenamento ADC estiverem online na grid e Nós de Armazenamento não-ADC estiverem disponíveis no mesmo site para hospedar o serviço ADC.
 * Há espaço de metadados suficiente em outros nós no site (ou você temlink:../expand/index.html["expandiu sua grade"] ) para acomodar os metadados que migrarão do nó de armazenamento que você está convertendo.
 +
 [CAUTION]
@@ -37,12 +36,15 @@ Ao converter nós somente de dados, a grade deve conter no mínimo três nós de
 
 
 .Sobre esta tarefa
-Use este procedimento para converter um ou mais nós de armazenamento combinados que não contêm o serviço ADC em nós somente de dados.
+Use este procedimento para converter um ou mais nós de armazenamento combinados em nós somente de dados. Se um nó de armazenamento contiver o serviço ADC, o serviço será movido automaticamente para outro nó de armazenamento no mesmo site durante a conversão.
 
 Além de converter o nó de armazenamento, este procedimento descomissiona o Cassandra do nó.  Todos os metadados migrarão para nós de armazenamento combinados ou somente de metadados.  Dependendo da quantidade de metadados que precisam ser migrados, esse procedimento pode levar vários dias por nó para ser concluído.
 
 
 TIP: Geralmente, você pode converter até 10 nós por vez se o uso de metadados por nó for menor que 1 TB.  Se o uso de metadados por nó for maior que 1 TB, converta até 5 nós por procedimento.
+
+
+NOTE: StorageGRID move o serviço ADC para os Storage Nodes mais recentes que atendem aos requisitos para hospedar o serviço.
 
 .Passos
 . Registre os IDs dos nós de armazenamento não ADC que você deseja converter.

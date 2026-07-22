@@ -19,12 +19,12 @@ Você deve analisar cuidadosamente as informações de configuração inseridas 
 image:11_gmi_installer_summary_page.gif["Página de resumo do instalador do Grid Manager"]
 
 . Verifique se todas as informações de configuração da grade estão corretas. Use os links Modificar na página Resumo para voltar e corrigir quaisquer erros.
-. Clique em *Instalar*.
+. Selecione *Instalar*.
 +
 
-NOTE: Se um nó estiver configurado para usar a rede do cliente, o gateway padrão para esse nó alterna da rede da grade para a rede do cliente quando você clica em *Instalar*. Se você perder a conetividade, deve garantir que está acessando o nó de administração principal por meio de uma sub-rede acessível. link:../network/index.html["Diretrizes de rede"]Consulte para obter detalhes.
+NOTE: Se um nó estiver configurado para usar a Client Network, o gateway padrão desse nó mudará da Grid Network para a Client Network quando você selecionar *Install*. Se você perder a conectividade, você deve garantir que está acessando o primary Admin Node por meio de uma sub-rede acessível. Consulte link:../network/index.html["Diretrizes de rede"] para detalhes.
 
-. Clique em *Download Recovery Package*.
+. Selecione *Baixar pacote de recuperação*.
 +
 Quando a instalação progride até o ponto em que a topologia da grade é definida, você será solicitado a baixar o arquivo do Pacote de recuperação (`.zip`) e confirmar que você pode acessar com êxito o conteúdo desse arquivo. Você deve baixar o arquivo do pacote de recuperação para que você possa recuperar o sistema StorageGRID se um ou mais nós de grade falharem. A instalação continua em segundo plano, mas você não pode concluir a instalação e acessar o sistema StorageGRID até baixar e verificar esse arquivo.
 
@@ -33,7 +33,7 @@ Quando a instalação progride até o ponto em que a topologia da grade é defin
 
 CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID.
 
-. Marque a caixa de seleção *Eu baixei e verifiquei com êxito o arquivo do pacote de recuperação* e clique em *Avançar*.
+. Selecione a caixa de seleção *Baixei e verifiquei o arquivo do Recovery Package com sucesso* e selecione *Avançar*.
 +
 Se a instalação ainda estiver em andamento, a página de status será exibida. Esta página indica o progresso da instalação para cada nó de grade.
 

@@ -26,6 +26,8 @@ Se algum volume de armazenamento de bloco tiver sido preservado do host anterior
 [[restore-validate-grid-nodes]]
 == Restaure e valide nós de grade
 
+Se você recuperar um nó de um nó de administração não primário, defina ADMIN_IP para o endereço IP da Rede de Grade do nó de administração não primário, para que o nó recuperado se registre no nó de administração não primário em vez do nó de administração primário. Para visualizar as regras para chaves de Rede de Administração, consulte link:../swnodes/creating-node-configuration-files.html["Crie arquivos de configuração de nós do StorageGRID para implantações Linux"].
+
 Você deve restaurar os arquivos de configuração de grade para todos os nós de grade com falha e, em seguida, validar os arquivos de configuração de grade e resolver quaisquer erros.
 
 .Sobre esta tarefa

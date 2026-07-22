@@ -23,10 +23,8 @@ entries:
     url: "/tenant/protecting-against-cross-site-request-forgery-csrf.html"
 - title: Use conexões de federação de grade
   entries:
-  - title: Clonar grupos de locatários e usuários
-    url: "/tenant/grid-federation-account-clone.html"
-  - title: Clonar chaves de acesso S3 usando a API
-    url: "/tenant/grid-federation-clone-keys-with-api.html"
+  - title: Sincronizar grupos de locatários e usuários
+    url: "/tenant/grid-federation-account-sync.html"
   - title: Gerenciar a replicação entre grades
     url: "/tenant/grid-federation-manage-cross-grid-replication.html"
   - title: Exibir conexões de federação de grade

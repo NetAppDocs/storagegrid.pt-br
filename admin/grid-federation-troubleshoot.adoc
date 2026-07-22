@@ -1,8 +1,8 @@
 ---
 permalink: admin/grid-federation-troubleshoot.html 
 sidebar: sidebar 
-keywords: troubleshoot, grid federation connection, account clone, cross-grid replication, alerts, errors 
-summary: Talvez você precise solucionar alertas e erros relacionados a conexões de federação de grade, clone de conta e replicação entre grade. 
+keywords: troubleshoot, grid federation connection, account sync, cross-grid replication, alerts, errors 
+summary: Você pode precisar solucionar problemas relacionados a alertas e erros referentes a conexões de federação de grids, sincronização de contas e replicação entre grids. 
 ---
 = Solucionar problemas de erros de federação de grid no StorageGRID
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Talvez você precise solucionar alertas e erros relacionados a conexõe
 
 
 [role="lead"]
-Talvez você precise solucionar alertas e erros relacionados a conexões de federação de grade, clone de conta e replicação entre grade.
+Você pode precisar solucionar problemas relacionados a alertas e erros referentes a conexões de federação de grids, sincronização de contas e replicação entre grids.
 
 
 
@@ -73,32 +73,30 @@ Quando você edita uma conexão de federação de grade, o StorageGRID tenta sal
 
 
 
-[[account-clone-errors]]
-== Erros de clone de conta
+[[account-sync-errors]]
+== Erros de sincronização de conta
 
 
 
-[[cant-sign-in-to-a-cloned-tenant-account]]
-=== Não é possível entrar em uma conta de locatário clonada
+[[cant-sign-in-to-a-synced-tenant-account]]
+=== Não é possível iniciar sessão em uma conta de locatário sincronizada
 
 .Problema
-Você não pode entrar em uma conta de locatário clonada. A mensagem de erro na página de início de sessão do Gestor do Locatário é "as suas credenciais para esta conta eram inválidas. Tente novamente."
+Você não pode iniciar sessão em uma conta de locatário sincronizada. A mensagem de erro na página de início de sessão do Tenant Manager é "Suas credenciais para esta conta são inválidas. Tente novamente."
 
 .Detalhes
-Por motivos de segurança, quando uma conta de locatário é clonada da grade de origem do locatário para a grade de destino do locatário, a senha definida para o usuário raiz local do locatário não é clonada. Da mesma forma, quando um locatário cria usuários locais em sua grade de origem, as senhas de usuário local não são clonadas para a grade de destino.
+A senha que você define para o usuário raiz do locatário e para outros usuários locais é sincronizada automaticamente. No entanto, talvez seja necessário alterar a senha do usuário raiz do locatário no grid de destino antes de poder fazer login na conta do locatário nesse grid.
 
 .Ações recomendadas
 Antes que o usuário raiz possa fazer login na grade de destino do locatário, um administrador de grade deve primeiro link:changing-password-for-tenant-local-root-user.html["altere a senha do usuário raiz local"] na grade de destino.
 
-Antes que um usuário local clonado possa fazer login na grade de destino do locatário, o usuário raiz do locatário clonado deve adicionar uma senha para o usuário na grade de destino.  Para obter instruções, consultelink:../tenant/manage-users.html["Gerenciar usuários"] nas instruções de uso do Gerenciador de Inquilinos.
 
 
-
-[[tenant-created-without-a-clone]]
-=== Locatário criado sem um clone
+[[tenant-created-without-a-sync]]
+=== Locatário criado sem sincronização
 
 .Problema
-Você verá a mensagem "Tenant created without a clone" após criar um novo locatário com a permissão *Use Grid Federation Connection*.
+Você vê a mensagem "Tenant created without a sync" após criar um novo tenant com a permissão *Use grid federation connection*.
 
 .Detalhes
 Esse problema pode ocorrer se as atualizações do status da conexão forem atrasadas, o que pode fazer com que uma conexão não-saudável seja listada como *conectado*.
@@ -107,12 +105,9 @@ Esse problema pode ocorrer se as atualizações do status da conexão forem atra
 . Revise o motivo listado na mensagem de erro e resolva quaisquer problemas de rede ou outros que possam estar impedindo que a conexão funcione. <<grid-federation-errors,Alertas e erros de conexão de federação de grade>>Consulte .
 . Siga as instruções para testar uma conexão de federação de grade em link:grid-federation-manage-connection.html["Gerenciar conexões de federação de grade"]para confirmar que o problema foi corrigido.
 . Na grade de origem do locatário, selecione *Locatários*.
-. Localize a conta de locatário que não foi clonada.
+. Localize a conta do tenant que não foi sincronizada.
 . Selecione o nome do locatário para exibir a página de detalhes.
-. Selecione *Repetir clone de conta*.
-+
-image:grid-federation-retry-account-clone.png["Captura de tela mostrando uma mensagem de erro e o botão Repetir conta clone"]Se o erro tiver sido resolvido, a conta do locatário agora será clonada para a outra grade.
-
+. Selecione *Tentar sincronizar novamente*. Se o erro tiver sido resolvido, a conta do locatário será sincronizada com a outra grid.
 
 
 
@@ -128,7 +123,7 @@ image:grid-federation-retry-account-clone.png["Captura de tela mostrando uma men
 .Problema
 Quando link:../monitor/grid-federation-monitor-connections.html["exibindo uma conexão de federação de grade"] (ou link:grid-federation-manage-tenants.html["gerir os inquilinos permitidos"]quando para uma conexão), você percebe um erro na coluna *último erro* na página de detalhes da conexão. Por exemplo:
 
-image:grid-federation-last-error.png["Captura de tela mostrando uma mensagem na coluna último erro de uma conexão de federação de grade"]
+image:grid_federation_last_error.png["Captura de tela mostrando uma mensagem na coluna último erro de uma conexão de federação de grade"]
 
 .Detalhes
 Para cada conexão de federação de grade, a coluna *Último erro* mostra o erro mais recente ocorrido, se houver, quando os dados de um locatário estavam sendo replicados para a outra grade.  Esta coluna mostra apenas o último erro de replicação entre grades que ocorreu; erros anteriores que podem ter ocorrido não são mostrados.  Um erro nesta coluna pode ocorrer por um destes motivos:
@@ -147,7 +142,10 @@ Para cada conexão de federação de grade, a coluna *Último erro* mostra o err
 Se aparecer uma mensagem de erro na coluna *último erro*, siga estes passos:
 
 . Reveja o texto da mensagem.
-. Execute quaisquer ações recomendadas. Por exemplo, se o controle de versão foi suspenso no bucket de destino para replicação entre grades, reative o controle de versão desse bucket.
+. Execute todas as ações recomendadas.
++
+Por exemplo, se o versionamento foi suspenso no bucket de destino para replicação entre grids, reative o versionamento para esse bucket. Ou, se o S3 Object Lock foi desativado no bucket de destino para replicação entre grids, ative o S3 Object Lock para esse bucket.
+
 . Selecione a conta de conexão ou locatário na tabela.
 . Selecione *Clear error*.
 . Selecione *Sim* para limpar a mensagem e atualizar o estado do sistema.

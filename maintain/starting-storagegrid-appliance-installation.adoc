@@ -16,7 +16,12 @@ Para instalar o StorageGRID em um nó de armazenamento de dispositivos, use o In
 .Antes de começar
 * O dispositivo foi instalado em um rack, conetado às redes e ligado.
 * Os links de rede e endereços IP foram configurados para o dispositivo usando o Instalador de dispositivos StorageGRID.
-* Você sabe o endereço IP do nó de administrador principal para a grade StorageGRID.
+* Você conhece o endereço IP de um dos seguintes Admin Nodes:
++
+** O nó de administração principal para a grade StorageGRID
+** Um nó administrativo não primário, se disponível
+
+
 * Todas as sub-redes de rede listadas na página Configuração IP do Instalador de dispositivos StorageGRID foram definidas na Lista de sub-redes de rede de Grade no nó de administração principal.
 * Concluiu estas tarefas de pré-requisito seguindo as instruções de instalação do seu dispositivo de armazenamento.  https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["Início rápido para instalação de hardware"^]Consulte .
 * Você está usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
@@ -26,7 +31,7 @@ Para instalar o StorageGRID em um nó de armazenamento de dispositivos, use o In
 .Sobre esta tarefa
 Para instalar o StorageGRID em um nó de storage do dispositivo:
 
-* Especifique ou confirme o endereço IP do nó de administração principal e o nome do host (nome do sistema) do nó.
+* Você especifica o endereço IP do nó de administração primário. Se o nó de administração primário estiver indisponível, você especifica o endereço IP do nó de administração não primário, se disponível. Você também confirma o nome do host (nome do sistema) do nó.
 * Inicie a instalação e aguarde à medida que os volumes estão configurados e o software está instalado.
 +
 
@@ -86,17 +91,17 @@ Detecção automática de todos os nós de administração principal conetados
 |===
 
 
-. No campo *Nome do nó*, insira o mesmo nome de host (nome do sistema) usado para o nó que você está recuperando e clique em *Salvar*.
-. Na seção Instalação, confirme se o estado atual é "Pronto para iniciar a instalação `_node name_` no grid com o nó Admin principal "_admin_ip_" e que o botão *Start Installation* está ativado.
+. No campo *Nome do nó*, insira o mesmo nome de host (nome do sistema) que foi usado para o nó que você está recuperando e selecione *Salvar*.
+. Na seção Instalação, confirme se o estado atual é "Pronto para iniciar a instalação `_node name_` na grid com o Nó de Administração Primário `_admin_ip_`" e se o botão *Iniciar instalação* está habilitado.
 +
 Se o botão *Start Installation* (Iniciar instalação) não estiver ativado, poderá ser necessário alterar a configuração da rede ou as definições da porta. Para obter instruções, consulte as instruções de manutenção do seu aparelho.
 
-. Na página inicial do Instalador de dispositivos StorageGRID, clique em *Iniciar instalação*.
+. Na página inicial do instalador do StorageGRID Appliance, selecione *Iniciar instalação*.
 +
-O estado atual muda para "a instalação está em andamento" e a página Instalação do monitor é exibida.
+O estado atual muda para "A instalação está em andamento" e a página de instalação do monitor é exibida.
 
 +
 
-NOTE: Se você precisar acessar a página Instalação do Monitor manualmente, clique em *Instalação do Monitor* na barra de menus.  https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/monitoring-appliance-installation.html["Monitore a instalação do dispositivo"^]Consulte .
+NOTE: Se você precisar acessar a página de instalação do Monitor manualmente, selecione *Monitor installation* na barra de menus. Consulte  https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/monitoring-appliance-installation.html["Monitore a instalação do dispositivo"^].
 
 

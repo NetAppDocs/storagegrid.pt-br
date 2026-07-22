@@ -30,7 +30,21 @@ As solicitações de cliente conflitantes, como dois clientes escrevendo para a 
 
 Os seguintes cabeçalhos de solicitação são suportados:
 
-* `x-amz-checksum-sha256`
+* Cabeçalhos de solicitação de checksum:
++
+--
+** `x-amz-checksum-crc32`
+** `x-amz-checksum-crc32c`
+** `x-amz-checksum-crc64nvme`
+** `x-amz-checksum-sha256`
+** `x-amz-checksum-type`
+
+
+--
++
+
+NOTE: Se uma CreateMultipartUpload solicitação não especificar um checksum, StorageGRID não calculará um checksum CRC-64/NVME padrão para um objeto.
+
 * `x-amz-storage-class`
 +
 O `x-amz-storage-class` cabeçalho afeta quantas cópias de objeto criadas pelo StorageGRID se a regra ILM correspondente especificar o link:../ilm/data-protection-options-for-ingest.html["Opção de confirmação dupla ou ingestão equilibrada"].
@@ -64,14 +78,18 @@ Os seguintes cabeçalhos de solicitação não são suportados:
 
 * `If-Match`
 +
-O  `If-Match header`é aceito, mas não funcional.
+O  `If-Match`cabeçalho se comporta de maneira diferente dependendo da sua configuração do StorageGRID. Fornecer este cabeçalho pode retornar uma mensagem de erro (501 Not Implemented). Se o  `If-Match`cabeçalho for aceito, mas não funcional, um alerta pode ser acionado com instruções sobre como habilitar o comportamento de erro mais rigoroso 501 Not Implemented.
 
 * `If-None-Match`
 +
-O  `If-None-Match header` é aceito, mas não funcional.
+O  `If-None-Match`cabeçalho se comporta de maneira diferente dependendo da sua configuração do StorageGRID. Fornecer este cabeçalho pode retornar uma mensagem de erro (501 Not Implemented). Se o  `If-None-Match`cabeçalho for aceito, mas não funcional, um alerta pode ser acionado com instruções sobre como habilitar o comportamento de erro mais rigoroso 501 Not Implemented.
 
-* `x-amz-sdk-checksum-algorithm`
-* `x-amz-trailer`
+* `x-amz-checksum-md5`
+* `x-amz-checksum-sha1`
+* `x-amz-checksum-sha512`
+* `x-amz-checksum-xxhash3`
+* `x-amz-checksum-xxhash64`
+* `x-amz-checksum-xxhash128`
 
 
 

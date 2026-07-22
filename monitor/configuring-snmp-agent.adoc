@@ -444,3 +444,6 @@ O utilizador USM é criado e adicionado à tabela.
 A nova configuração do agente SNMP fica ativa.
 
 
+
+.Informações relacionadas
+link:../network/external-communications.html["Portas usadas para comunicações externas"]

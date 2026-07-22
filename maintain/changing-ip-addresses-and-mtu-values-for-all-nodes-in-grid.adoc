@@ -36,7 +36,7 @@ NOTE: Se os servidores DNS existentes não estiverem acessíveis à grade nos no
 
 +
 
-NOTE: Se o SSO estiver habilitado para seu sistema StorageGRID e quaisquer trusts de terceira parte confiável tiverem sido configurados usando endereços IP do nó de administração (em vez de nomes de domínio totalmente qualificados, conforme recomendado), esteja preparado para atualizar ou reconfigurar esses trusts de terceira parte confiável nos Serviços de Federação do Active Directory (AD FS) imediatamente após alterar os endereços IP. Ver link:../admin/configure-sso.html["Configurar o logon único"] .
+NOTE: Se o SSO estiver habilitado para o seu sistema StorageGRID e quaisquer relações de confiança com terceiros tiverem sido configuradas usando endereços IP do nó de administração (em vez de nomes de domínio totalmente qualificados, conforme recomendado), prepare-se para atualizar ou reconfigurar essas relações de confiança com terceiros no Active Directory Federation Services (AD FS) imediatamente após você alterar os endereços IP. Consulte configurar o SSO usando link:../admin/learn-about-setting-up-sso-oidc.html["OIDC"] ou link:../admin/learn-about-setting-up-sso-saml.html["SAML"].
 
 +
 

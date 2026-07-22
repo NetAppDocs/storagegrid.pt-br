@@ -1,0 +1,96 @@
+---
+permalink: admin/creating-relying-party-trusts-in-ad-fs-oidc.html 
+sidebar: sidebar 
+keywords: application group, active directory, ad fs, single sign on, sso 
+summary: 'Você deve usar o Active Directory Federation Services (AD FS) para criar um grupo de aplicativos para cada nó Admin em seu sistema.' 
+---
+= Crie grupos de aplicativos no AD FS para OIDC no StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve usar o Active Directory Federation Services (AD FS) para criar um grupo de aplicativos para cada Admin Node do OpenID Connect (OIDC) em seu sistema.
+
+.Antes de começar
+* Você possui o domínio totalmente qualificado (ou o endereço IP) e o identificador da parte confiável para cada nó de administração em seu sistema.
++
+
+NOTE: Cada nó administrativo no seu sistema StorageGRID deve ter um grupo de aplicativos. Isso garante que os usuários possam entrar e sair de qualquer nó administrativo com segurança. Você pode criar um único grupo de aplicativos para todos os nós administrativos (recomendado) ou um grupo de aplicativos diferente para cada nó administrativo.
+
+* Você tem experiência na criação de grupos de aplicativos no AD FS ou tem acesso à documentação do Microsoft AD FS.
+* Você está usando o snap-in Gerenciamento do AD FS e pertence ao grupo Administradores.
+
+
+.Sobre esta tarefa
+Estas instruções aplicam-se ao Windows Server 2022 AD FS. Se você estiver usando uma versão diferente do AD FS, notará pequenas diferenças no procedimento. Consulte a documentação do Microsoft AD FS se você tiver dúvidas.
+
+
+
+[[step-1-create-an-application-group]]
+== Etapa 1: Crie um grupo de aplicativos
+
+Você pode usar o Windows PowerShell para criar rapidamente um grupo de aplicativos.
+
+.Passos
+. No Gerenciador do Windows Server, selecione *Ferramentas* > *Gerenciamento do AD FS*.
+. Selecione *Grupos de Aplicativos* > *Adicionar Grupo de Aplicativos*
+. Para *Nome*, insira o identificador da parte confiável.
+. Em Modelo, selecione *Aplicações Cliente-Servidor* > *Aplicação servidor que acessa uma API da web*.
+. Selecione *seguinte*.
+. Anote o valor de *Client Identifier*.
+. Em *URI de redirecionamento*, insira o FQDN (ou endereço IP) `callback` e `logged-out` URIs para o nó de administração:
++
+** `https://<FQDN>/api/v4/oidc-callback` ou `https://<IP_address>/api/v4/oidc-callback`
+** `https://<FQDN>/api/v4/oidc-logged-out` ou `https://<IP_address>/api/v4/oidc-logged-out`
+
+
++
+Insira os URIs para cada nó administrativo se você estiver usando um único grupo de aplicativos para todos os nós administrativos. Se você estiver usando um grupo de aplicativos diferente para cada nó administrativo, insira apenas os URIs do nó administrativo correspondente.
+
+. Selecione *Adicionar*.
+. Selecione *Gerar um segredo compartilhado*, anote o valor de *Segredo* e selecione *Avançar*.
+. Insira o identificador do cliente para *Identificador*.
+. Selecione *Adicionar* e, em seguida, selecione *Avançar*.
+. Selecione *Permitir a todos*.
+. Verifique se o aplicativo servidor está selecionado em *Client application (caller)*.
+. Em *Escopos permitidos*, verifique se apenas as seguintes opções estão selecionadas:
++
+** allatclaims
+** e-mail
+** openid
+** perfil
+
+
+. Selecione *Próximo* > *Próximo*.
+. Selecione *Fechar*.
+
+
+
+
+[[step-2-configure-issuance-transform-rules]]
+== Etapa 2: configurar regras de transformação de emissão
+
+Configure as regras de transformação de emissão para cada grupo de aplicativos.
+
+.Passos
+. Na página *Gerenciamento do AD FS*, clique com o botão direito do mouse no grupo de aplicativos e selecione *Propriedades*.
+. Selecione a API web criada anteriormente e, em seguida, selecione *Edit*.
+. Selecione *Regras de Transformação de Emissão* > *Adicionar Regra ...*.
+. Em *Modelo de regra de declaração:*, selecione *Enviar atributo LDAP como declarações*.
+. Selecione *seguinte*.
+. Insira um nome de regra de reivindicação.
+. Selecione *Active Directory* para o armazenamento de atributos.
+. Adicione os mapeamentos de atributos LDAP aos tipos de declaração de saída:
++
+** `E-Mail Addresses - E-Mail Address`
+** `Token-Groups - Unqualified Names - Group`
+
+
+. Selecione *Finish*.
+. Selecione *Aplicar* > *OK* > *OK*.
+
+
+.O que vem a seguir
+Após criar os grupos de aplicativos, link:configure-sso-oidc.html["configurar SSO usando OIDC"].

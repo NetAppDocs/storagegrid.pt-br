@@ -67,10 +67,37 @@ https://datatracker.ietf.org/doc/html/rfc2616["IETF RFC 2616: Protocolo de trans
 
 
  a| 
+12.1.0
+ a| 
+* `If-Match`
++
+O  `If-Match`cabeçalho se comporta de maneira diferente dependendo da sua configuração do StorageGRID. Fornecer este cabeçalho pode retornar uma mensagem de erro (501 Not Implemented). Se o  `If-Match`cabeçalho for aceito, mas não funcional, um alerta pode ser acionado com instruções sobre como habilitar o comportamento de erro mais rigoroso 501 Not Implemented.
+
+* `If-None-Match`
++
+O  `If-None-Match`cabeçalho se comporta de maneira diferente dependendo da sua configuração do StorageGRID. Fornecer este cabeçalho pode retornar uma mensagem de erro (501 Not Implemented). Se o  `If-None-Match`cabeçalho for aceito, mas não funcional, um alerta pode ser acionado com instruções sobre como habilitar o comportamento de erro mais rigoroso 501 Not Implemented.
+
+* Adicionado suporte para valores de checksum pré-calculados para as seguintes requisições e cabeçalhos suportados:
++
+** CompleteMultipartUpload: `x-amz-checksum-crc32`, `x-amz-checksum-crc32c`, e `x-amz-checksum-crc64nvme`
+** CreateMultipartUpload: `CRC32`, `CRC32C`, e `CRC64NVME` para `x-amz-checksum-algorithm`
+** CopyObject: `CRC32`, `CRC32C`, `CRC64NVME`, e `SHA256` para `x-amz-checksum-algorithm`
+** PutObject: `x-amz-checksum-crc32`, `x-amz-checksum-crc32c`, e `x-amz-checksum-crc64nvme`
+** UploadPart: `x-amz-checksum-crc32`, `x-amz-checksum-crc32c`, e `x-amz-checksum-crc64nvme`
+
+
+* Adicionado suporte para  `x-amz-checksum-type` para CreateMultipartUpload e CompleteMultipartUpload.
+* Adicionado suporte para a  `s3:x-amz-copy-source` chave de condição da política.
+* Permitir que o bloqueio de objetos do S3 seja ativado em buckets existentes.
+
+
+
+
+ a| 
 12,0
  a| 
 * Adicionado suporte para compartilhamento de recursos entre origens (CORS) para uma interface de gerenciamento, o que permite que outro domínio acesse dados no StorageGRID usando APIs de gerenciamento. link:../admin/enable-cross-origin-resource-sharing-for-management-interface.html["Saiba mais"] .
-* Adicionado suporte para STS AssumeRole e política de sessão. Ver link:example-session-policies.html["um exemplo de uma política de sessão"] .  Você pode configurar AssumeRole em grupos de locatários.
+* Adicionado suporte para STS AssumeRole e política de sessão. Consulte link:../s3/example-session-policies.html["um exemplo de uma política de sessão"]. Você pode configurar AssumeRole em grupos de locatários.
 
 
 
@@ -115,7 +142,7 @@ Atualizado os nomes das operações S3 para corresponder aos nomes usados no htt
  a| 
 11,7
  a| 
-* Adicionado link:quick-reference-support-for-aws-apis.html["Referência rápida: Solicitações de API S3 suportadas"].
+* Adicionado link:../s3/quick-reference-support-for-aws-apis.html["Referência rápida: Solicitações de API S3 suportadas"].
 * Adicionado suporte para usar o modo DE GOVERNANÇA com o bloqueio de objetos S3.
 * Adicionado suporte para o cabeçalho de resposta específico do StorageGRID `x-ntap-sg-cgr-replication-status` para OBTER solicitações DE objeto e objeto PRINCIPAL. Este cabeçalho fornece o status de replicação de um objeto para replicação entre grade.
 * As solicitações SelectObjectContent agora suportam objetos Parquet.
@@ -215,7 +242,7 @@ Adicionado suporte para políticas de acesso de grupo e bucket, e para cópia de
  a| 
 10,1
  a| 
-Adicionado suporte para upload em várias partes, solicitações virtuais de estilo hospedado e autenticação v4.1X.
+Adicionado suporte para upload multipart, solicitações no estilo virtual-hosted e autenticação v4.
 
 
 

@@ -14,7 +14,7 @@ summary: Antes de iniciar a atualização, verifique se a versão anterior do St
 Antes de iniciar a atualização, verifique se a versão anterior do StorageGRID está atualmente instalada com o hotfix disponível mais recente aplicado.
 
 .Sobre esta tarefa
-Antes de atualizar para o StorageGRID 12.0, sua grade deve ter o StorageGRID 11.9.0.8 ou posterior instalado.  Se você estiver usando uma versão anterior do StorageGRID, deverá instalar todos os arquivos de atualização anteriores junto com seus hotfixes mais recentes (altamente recomendado) até que a versão atual da sua grade seja pelo menos StorageGRID 11.9.0.8.
+Antes de atualizar para StorageGRID 12.1, seu grid deve ter StorageGRID 12.0 ou posterior instalado. Se você estiver usando uma versão anterior do StorageGRID, você deve instalar todos os arquivos de atualização anteriores junto com seus hotfixes mais recentes (altamente recomendado) até que a versão atual do seu grid seja pelo menos StorageGRID 12.0.0.
 
 Um possível caminho de atualização é mostrado no <<example-upgrade-path,exemplo>>.
 
@@ -41,7 +41,7 @@ Consulte o exemplo de atualização a seguir.
 [[example-upgrade-pathexample-upgrade-to-storagegrid-12-0-from-version-11-8]]
 == [[example-upgrade-path]]Exemplo: Atualizar para o StorageGRID 12.0 da versão 11.8
 
-O exemplo a seguir mostra as etapas para atualizar do StorageGRID versão 11.8 para a versão 11.9 em preparação para uma atualização do StorageGRID 12.0.
+O exemplo a seguir mostra os passos para atualizar do StorageGRID versão 11.9 para a versão 12.0 em preparação para uma atualização do StorageGRID 12.1.
 
 Transfira e instale o software na seguinte sequência para preparar o seu sistema para a atualização:
 

@@ -13,7 +13,7 @@ summary: 'Se você enviar pacotes AutoSupport usando HTTP ou HTTPS, poderá conf
 [role="lead"]
 Se você enviar pacotes AutoSupport usando HTTP ou HTTPS, poderá configurar um servidor proxy não transparente entre nós de administração e suporte técnico (AutoSupport).
 
-Para obter mais informações sobre o AutoSupport, link:configure-autosupport-grid-manager.html["Configurar o AutoSupport"]consulte .
+Para obter mais informações sobre AutoSupport, consulte link:../monitor/configure-autosupport-grid-manager.html["Configurar o AutoSupport"].
 
 .Antes de começar
 * Você link:admin-group-permissions.html["permissões de acesso específicas"]tem .

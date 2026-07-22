@@ -77,11 +77,11 @@ Os seguintes cabeçalhos de solicitação são suportados:
 * `Content-Disposition`
 * `Content-Encoding`
 +
-Quando você especifica `aws-chunked` para ``Content-Encoding``o StorageGRID não verifica os seguintes itens:
+Ao especificar  `aws-chunked` para  `Content-Encoding`, StorageGRID não verifica os seguintes itens:
 
 +
-** O StorageGRID não verifica o `chunk-signature` contra os dados de bloco.
-** O StorageGRID não verifica o valor que você fornece `x-amz-decoded-content-length` em relação ao objeto.
+** StorageGRID não verifica o  `chunk-signature` em relação aos dados do bloco.
+** StorageGRID não verifica o valor que você fornece para  `x-amz-decoded-content-length` em relação ao objeto.
 
 
 * `Content-Language`
@@ -93,7 +93,20 @@ Quando você especifica `aws-chunked` para ``Content-Encoding``o StorageGRID nã
 +
 A codificação de transferência Chunked é suportada se `aws-chunked` a assinatura de payload também for usada.
 
-* `x-amz-checksum-sha256`
+* Cabeçalhos de solicitação de checksum:
++
+--
+** `x-amz-checksum-crc32`
+** `x-amz-checksum-crc32c`
+** `x-amz-checksum-crc64nvme`
+** `x-amz-checksum-sha256`
+
+
+--
++
+
+NOTE: Se uma solicitação PutObject não especificar um checksum, o StorageGRID não calculará um checksum CRC-64/NVME padrão para um objeto.
+
 * `x-amz-meta-`, seguido por um par de nome-valor contendo metadados definidos pelo usuário.
 +
 Ao especificar o par nome-valor para metadados definidos pelo usuário, use este formato geral:
@@ -151,13 +164,19 @@ Os seguintes cabeçalhos de solicitação não são suportados:
 
 * `If-Match`
 +
-O  `If-Match header`é aceito, mas não funcional.
+O  `If-Match`cabeçalho se comporta de maneira diferente dependendo da sua configuração do StorageGRID. Fornecer este cabeçalho pode retornar uma mensagem de erro (501 Not Implemented). Se o  `If-Match`cabeçalho for aceito, mas não funcional, um alerta pode ser acionado com instruções sobre como habilitar o comportamento de erro mais rigoroso 501 Not Implemented.
 
 * `If-None-Match`
 +
-O  `If-None-Match header` é aceito, mas não funcional.
+O  `If-None-Match`cabeçalho se comporta de maneira diferente dependendo da sua configuração do StorageGRID. Fornecer este cabeçalho pode retornar uma mensagem de erro (501 Not Implemented). Se o  `If-None-Match`cabeçalho for aceito, mas não funcional, um alerta pode ser acionado com instruções sobre como habilitar o comportamento de erro mais rigoroso 501 Not Implemented.
 
 * `x-amz-acl`
+* `x-amz-checksum-md5`
+* `x-amz-checksum-sha1`
+* `x-amz-checksum-sha512`
+* `x-amz-checksum-xxhash3`
+* `x-amz-checksum-xxhash64`
+* `x-amz-checksum-xxhash128`
 * `x-amz-sdk-checksum-algorithm`
 * `x-amz-trailer`
 * `x-amz-website-redirect-location`

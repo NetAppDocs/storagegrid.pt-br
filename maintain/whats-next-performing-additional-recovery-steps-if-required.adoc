@@ -38,7 +38,9 @@ Se você tomou *alguma* dessas ações corretivas, você deve executar etapas ad
  a| 
 Nó de administração principal
  a| 
-link:configuring-replacement-primary-admin-node.html["Configure o nó de administração principal de substituição"]
+* link:selecting-start-recovery-to-configure-primary-admin-node.html["Selecione Iniciar Recuperação para configurar o nó Admin primário"]
+* link:selecting-start-recovery-to-configure-non-primary-admin-node.html["Recupere o nó de administração primário usando um nó de administração não primário"]
+
 
 
 
@@ -74,6 +76,6 @@ Nó de storage (baseado em software):
 * Se, para qualquer `<PURPOSE>`, o valor `BLOCK_DEVICE_<PURPOSE>` da variável de arquivo de configuração se referir a um dispositivo de bloco que não contém os mesmos dados que fez antes da falha do host.
 
  a| 
-link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["Recuperar de uma falha no volume de armazenamento em que a unidade do sistema está intacta"]
+link:reviewing-warnings-about-storage-volume-recovery.html["Recuperar de uma falha no volume de armazenamento em que a unidade do sistema está intacta"]
 
 |===

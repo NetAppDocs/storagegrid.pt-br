@@ -77,17 +77,17 @@ NOTE: Os usuários devem ter a permissão *Outra configuração de grade* para g
 
 Os usuários devem ter a permissão Manutenção para usar estas opções:
 
-* *Configuração* > *Controle de acesso*:
+* *Configuração* > *Controle de acesso*
 +
 ** Senhas de grade
 
 
-* *Configuração* > *Rede*:
+* *Configuração* > *Rede*
 +
 ** S3 nomes de domínio de endpoint
 
 
-* *Manutenção* > *Tarefas*:
+* *Manutenção* > *Tarefas*
 +
 ** Descomissionar
 ** Expansão
@@ -95,13 +95,13 @@ Os usuários devem ter a permissão Manutenção para usar estas opções:
 ** Recuperação
 
 
-* *Manutenção* > *Sistema*:
+* *Manutenção* > *Sistema*
 +
 ** Pacote de recuperação
 ** Atualização de software
 
 
-* *Suporte* > *Ferramentas*:
+* *Suporte* > *Ferramentas*
 +
 ** Registos
 
@@ -110,29 +110,29 @@ Os usuários devem ter a permissão Manutenção para usar estas opções:
 
 Os usuários que não têm a permissão Manutenção podem visualizar, mas não editar, estas páginas:
 
-* *Manutenção* > *Rede*:
+* *Manutenção* > *Rede*
 +
 ** Servidores DNS
 ** Rede de rede
 ** Servidores NTP
 
 
-* *Manutenção* > *Sistema*:
+* *Manutenção* > *Sistema*
 +
 ** Licença
 
 
-* *Configuração* > *Rede*:
+* *Configuração* > *Rede*
 +
 ** S3 nomes de domínio de endpoint
 
 
-* *Configuração* > *Segurança*:
+* *Configuração* > *Segurança*
 +
 ** Certificados
 
 
-* *Configuração* > *Monitoramento*:
+* *Configuração* > *Monitoramento*
 +
 ** Servidor de auditoria e syslog
 
@@ -172,18 +172,23 @@ Esta permissão fornece acesso à página *ILM* > *Object metadata lookup*.
 
 Esta permissão fornece acesso a estas opções adicionais de configuração de grade:
 
-* *ILM*:
+* *ILM*
 +
 ** Classes de armazenamento
 
 
-* *Configuração* > *Sistema*:
-* *Suporte* > *Outros*:
+* *Configuração* > *Sistema*
+* *Suporte* > *Outros*
 +
-** Custo da ligação
+** Priorização de E/S
+** Serviços de nó
+** Marcos de armazenamento
 
 
 
+
+
+NOTE: O custo do link requer acesso root.
 
 
 

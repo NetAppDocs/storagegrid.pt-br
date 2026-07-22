@@ -1,0 +1,40 @@
+---
+permalink: admin/request-mav-approval-for-protected-ops.html 
+sidebar: sidebar 
+keywords: multi-admin verification, mav 
+summary: Como administrador ou usuário do StorageGRID, ao iniciar uma operação protegida por MAV no StorageGRID, uma solicitação é gerada automaticamente. Uma mensagem é exibida para informar que a operação requer aprovação. 
+---
+= Solicitar aprovação para operações protegidas por MAV no StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Como administrador ou usuário do StorageGRID, ao iniciar uma operação protegida por MAV no StorageGRID, uma solicitação é gerada automaticamente. Uma mensagem é exibida para informar que a operação requer aprovação.
+
+O sistema StorageGRID define quais operações são protegidas pelo MAV. Quando você inicia uma operação protegida pelo MAV, a solicitação é enviada aos administradores do MAV para aprovação.
+
+.Passos
+O sistema StorageGRID informa que você iniciou uma operação protegida por MAV.
+
+. Conforme necessário, execute qualquer uma das seguintes tarefas:
++
+.. Verifique o status da sua solicitação selecionando *Configuração* > *Controle de acesso* > *Verificação de múltiplos administradores* > *Minhas solicitações*.
++
+*** *Pendente*. A solicitação foi iniciada.
+*** *Expirado*. A solicitação não foi atendida em 30 dias. Ou um usuário com permissão de acesso Root desativou o MAV, o que significa que todas as solicitações pendentes expiraram.
+*** *Retirado*. Um usuário retirou sua solicitação.
+*** *Aprovado*. Um administrador do MAV aprovou a solicitação pendente.
+*** *Rejeitado*. Um administrador do MAV rejeitou a solicitação pendente.
+
+
+.. Verifique as solicitações pendentes de outros usuários selecionando *Configuração* > *Controle de acesso* > *Verificação de vários administradores* > *Outras solicitações*.
+.. Para cancelar uma operação, selecione *Meus pedidos* > *_o pedido que você deseja cancelar_* > *Retirar*.
+
+
+
+
+Após a aprovação da solicitação por um administrador do MAV, a operação é realizada automaticamente.
+
+Caso sua solicitação seja rejeitada, a operação não é realizada e você pode enviar uma nova solicitação, se necessário.

@@ -48,9 +48,9 @@ Os valores-limite são impostos por balanceador de carga. Se o tráfego for dist
 
 NOTE: Você pode criar políticas para limitar a largura de banda agregada ou limitar a largura de banda por solicitação. No entanto, o StorageGRID não pode limitar ambos os tipos de largura de banda ao mesmo tempo. Os limites de largura de banda agregada podem impor um impactos menor no desempenho adicional no tráfego não limitado.
 
-Para limites de largura de banda agregada ou por solicitação, as solicitações são transmitidas ou enviadas pela taxa definida. O StorageGRID só pode impor uma velocidade, então a correspondência de política mais específica, por tipo matcher, é a aplicada. A largura de banda consumida pela solicitação não conta com outras políticas de correspondência menos específicas que contenham políticas de limite de largura de banda agregada. Para todos os outros tipos de limite, as solicitações do cliente são atrasadas em 250 milissegundos e recebem uma resposta de retardo 503 para solicitações que excedem qualquer limite de política correspondente.
+Para limites de largura de banda agregada ou por solicitação, as solicitações fluem de entrada ou saída na taxa que você definir. O StorageGRID só pode impor uma velocidade, então a correspondência de política mais específica, por tipo de correspondência, é a que será aplicada. A largura de banda consumida pela solicitação não é contabilizada em outras políticas de correspondência menos específicas que contenham políticas de limite de largura de banda de agregado. Para todos os outros tipos de limite, as solicitações do cliente são atrasadas em 250 milissegundos e recebem uma resposta 503 Slow Down para solicitações que excedam qualquer limite de política correspondente.
 
-No Gerenciador de Grade, você pode visualizar gráficos de tráfego e verificar se as políticas estão aplicando os limites de tráfego esperados.
+No Grid Manager, você pode visualizar gráficos de tráfego e verificar se as políticas estão aplicando os limites de tráfego que você espera.
 
 
 

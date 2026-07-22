@@ -37,12 +37,9 @@ CAUTION: Alguns passos e estágios de expansão podem levar uma quantidade signi
 
 
 .Passos
-. Selecione *Manutenção* > *Tarefas* > *Expansão*.
+. Selecione *Manutenção* > *Tarefas* > *Expansão da grid*.
 +
-A página expansão da grade é exibida. A seção Pending Nodes lista os nós que estão prontos para serem adicionados.
-
-+
-image:grid_expansion_page.png["Captura de tela mostrando a página de expansão da grade"]
+A página de expansão da grid é exibida. A seção Nós Pendentes lista os nós que estão prontos para serem adicionados.
 
 . Selecione *Configurar expansão*.
 +
@@ -166,7 +163,7 @@ NOTE: Se possível, você deve aprovar todas as notas de grade pendentes e execu
 
 
 
-. Quando tiver aprovado todos os nós de grade, digite a *frase-passe de provisionamento* e selecione *expandir*.
+. Quando você tiver aprovado todos os nós da grade, insira a *senha de provisionamento* e selecione *Expand*.
 +
 Após alguns minutos, esta página é atualizada para exibir o status do procedimento de expansão. Quando as tarefas que afetam os nós de grade individuais estão em andamento, a seção Status do nó de grade lista o status atual de cada nó de grade.
 

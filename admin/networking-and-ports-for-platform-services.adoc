@@ -45,4 +45,6 @@ NOTE: Se uma implantação do StorageGRID for usada como destino para a replica�
 Se você usar um servidor proxy não transparente, também deverá link:configuring-storage-proxy-settings.html["configure as configurações de proxy de armazenamento"]permitir que as mensagens sejam enviadas para endpoints externos, como um endpoint na Internet.
 
 .Informações relacionadas
-link:../tenant/index.html["Use uma conta de locatário"]
+* link:../tenant/index.html["Use uma conta de locatário"]
+* link:../network/external-communications.html["Portas usadas para comunicações externas"]
+

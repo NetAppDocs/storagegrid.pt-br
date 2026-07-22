@@ -1,0 +1,112 @@
+---
+permalink: admin/configure-multi-admin-verify.html 
+sidebar: sidebar 
+keywords: multi-admin verification, mav, mav administrators, mav approval groups 
+summary: 'Gerenciar um sistema de verificação multi-administrador (MAV) do StorageGRID envolve criar e gerenciar grupos e usuários administradores de MAV, habilitar a função MAV e configurar ou selecionar operações protegidas.' 
+---
+= Configurar a verificação de múltiplos administradores do StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Configurar um sistema de verificação multi-administrador (MAV) do StorageGRID envolve criar e gerenciar grupos e usuários administradores de MAV, ativar a função MAV e selecionar ou configurar operações protegidas.
+
+Os administradores de MAV têm autoridade de aprovação e veto para operações protegidas.
+
+.Antes de começar
+* Você tem o link:../admin/admin-group-permissions.html["Permissão de acesso à raiz"].
+* Você está conectado ao Grid Manager a partir do nó de administração principal.
+
+
+
+
+[[step-1-create-mav-administrator-groups-and-users]]
+== Etapa 1: criar grupos e usuários administradores do MAV
+
+Você pode adicionar administradores existentes a um grupo MAV ou criar novos administradores.
+
+Você pode configurar usuários do Active Directory (AD) como administradores do MAV. O usuário do AD deve ser configurado como administrador do StorageGRID.
+
+.Passos
+. Para criar um grupo de administradores MAV, siga os passos para link:../admin/managing-admin-groups.html["criar um grupo local ou federado"].
+. Para permissões de grupo, selecione *Acesso root* ou *Solicitações de verificação de vários administradores*.
+. Adicione usuários locais ou federados ao grupo ou crie novos usuários locais e adicione-os ao grupo seguindo os passos para link:../admin/managing-users.html#create-a-local-user["criar um usuário local"].
+
+
+
+
+[[step-2-enable-or-disable-mav]]
+== Etapa 2: ativar ou desativar o MAV
+
+Você precisa habilitar explicitamente a verificação multi-admin (MAV). Se a MAV estiver habilitada e você decidir desabilitá-la quando houver solicitações de MAV pendentes, uma notificação informa que as solicitações pendentes serão excluídas.
+
+.Passos
+. Selecione *Configuração* > *Controle de acesso* > *Verificação de múltiplos administradores* > *Configurações de MAV*.
+. Selecione a caixa de seleção *Ativar MAV* para habilitar a verificação por múltiplos administradores.
+. A seção Grupos de aprovadores lista os grupos de administradores MAV e aprovadores.
+. Na seção Operações, selecione as caixas de seleção das operações que você deseja proteger com MAV.
+. (Opcional) Se você quiser usar notificações por e-mail para alertar os administradores do MAV sobre solicitações de aprovação pendentes:
++
+.. Se você ainda não configurou um servidor de e-mail, siga os passos para link:../monitor/configure-email-server.html["configurar um servidor de e-mail"].
+.. Digite o endereço de e-mail do remetente.
+.. Insira um ou mais destinatários para as notificações por e-mail.
+
+
+. Selecione *Salvar* para salvar suas alterações.
++
+
+NOTE: Caso você opte por não configurar notificações por e-mail, os administradores do MAV podem visualizar o painel do Grid Manager ou verificar a fila de aprovação para solicitações de aprovação pendentes. Para verificar a fila de aprovação, selecione *Other requests* na página de verificação de múltiplos administradores.
+
+
+
+
+
+[[step-3-manage-protected-operations]]
+== Etapa 3: gerenciar operações protegidas
+
+Após ativar a verificação multiadministrador, você pode gerenciar as operações protegidas selecionando ou desmarcando as caixas de seleção das operações que deseja proteger com MAV.
+
+
+NOTE: Para StorageGRID 12.1, a única operação protegida é a ativação da política ILM. Você deve selecionar a caixa de seleção para ativação da política ILM se você quiser habilitar o MAV.
+
+Uma solicitação MAV pode ter um dos seguintes status:
+
+* *Pendente*. A solicitação foi iniciada.
+* *Expirado*. A solicitação não foi atendida em 30 dias. Ou um usuário com permissão de acesso Root desativou o MAV, o que significa que todas as solicitações pendentes expiraram.
+* *Retirado*. Um usuário retirou sua solicitação.
+* *Aprovado*. Um administrador do MAV aprovou a solicitação pendente.
+* *Rejeitado*. Um administrador do MAV rejeitou a solicitação pendente.
+
+
+
+
+[[troubleshoot-mav-email-notifications]]
+== Solucione problemas com notificações de e-mail do MAV
+
+Se os administradores do MAV não receberem notificações por e-mail sobre solicitações pendentes, siga estas etapas para resolver o problema.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:../admin/admin-group-permissions.html["Gerencie alertas ou permissão de acesso root"].
+
+
+.Passos
+. Verifique as suas definições.
++
+.. Selecione *Configuração* > *Monitoramento* > *Servidor de e-mail*.
+.. Verifique se as configurações do servidor de e-mail (SMTP) estão corretas.
+.. Verifique se você especificou endereços de e-mail válidos para os destinatários.
+
+
+. Verifique o filtro de spam e certifique-se de que o e-mail não foi enviado para uma pasta de lixo eletrônico.
+. Peça ao administrador de e-mail para confirmar que os e-mails do endereço do remetente não estão sendo bloqueados.
+. Colete um arquivo de log para o Admin Node e entre em Contato com o suporte técnico.
++
+O suporte técnico pode usar as informações nos logs para ajudar a determinar o que deu errado. Por exemplo, o arquivo prometheus.log pode mostrar um erro ao se conetar ao servidor especificado.
+
++
+Consulte link:../monitor/collecting-log-files-and-system-data.html["Colete arquivos de log e dados do sistema"].
+
+

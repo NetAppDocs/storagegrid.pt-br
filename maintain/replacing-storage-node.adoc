@@ -20,7 +20,7 @@ NOTE: Este procedimento aplica-se apenas a nós de storage baseados em software.
 
 * Linux:* se você não tiver certeza se a unidade de sistema falhou, siga as instruções para substituir o nó para determinar quais etapas de recuperação são necessárias.
 
-[cols="1a,2a"]
+[cols="1a,3a"]
 |===
 | Plataforma | Procedimento 
 

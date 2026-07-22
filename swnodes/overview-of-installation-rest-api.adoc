@@ -31,12 +31,12 @@ Para acessar a documentação da API, vá para a página da Web de instalação 
 
 A API de instalação do StorageGRID inclui as seguintes seções:
 
-* *Config* -- operações relacionadas à versão do produto e versões da API. Você pode listar a versão de lançamento do produto e as principais versões da API suportadas por essa versão.
-* *Grid* -- operações de configuração em nível de grade. Você pode obter e atualizar configurações de grade, incluindo detalhes de grade, sub-redes de rede de grade, senhas de grade e endereços IP de servidor NTP e DNS.
-* *Nodes* -- operações de configuração em nível de nó. Você pode recuperar uma lista de nós de grade, excluir um nó de grade, configurar um nó de grade, exibir um nó de grade e redefinir a configuração de um nó de grade.
-* *Provisão* -- operações de provisionamento. Você pode iniciar a operação de provisionamento e exibir o status da operação de provisionamento.
-* *Recovery* -- operações de recuperação do nó de administração principal. Você pode redefinir informações, carregar o pacote de recuperação, iniciar a recuperação e exibir o status da operação de recuperação.
-* *Recovery-package* -- operações para baixar o Recovery Package.
-* *Sites* -- operações de configuração no nível do local. Você pode criar, exibir, excluir e modificar um site.
-* *Temporary-password* -- operações na senha temporária para proteger a mgmt-api durante a instalação.
+* *config*: Operações relacionadas à versão do produto e às versões da API. Você pode listar a versão de lançamento do produto e as principais versões da API suportadas por esse lançamento.
+* *grid*: Operações de configuração em nível de grid. Você pode obter e atualizar as configurações do grid, incluindo detalhes do grid, sub-redes da Grid Network, senhas do grid e endereços IP dos servidores NTP e do servidor DNS.
+* *nós*: Operações de configuração em nível de nó. Você pode recuperar uma lista de nós da grade, excluir um nó da grade, configurar um nó da grade, visualizar um nó da grade e redefinir a configuração de um nó da grade.
+* *Provisionamento*: Operações de provisionamento. Você pode iniciar a operação de provisionamento e visualizar o status da operação de provisionamento.
+* *Recuperação*: Operações de recuperação do nó de administração principal. Você pode redefinir informações, carregar o pacote de recuperação, iniciar a recuperação e visualizar o status da operação de recuperação.
+* *pacote de recuperação*: Operações para baixar o pacote de recuperação.
+* *sites*: Operações de configuração em nível de site. Você pode criar, visualizar, excluir e modificar um site.
+* *senha-temporária*: Operações na senha temporária para proteger a mgmt-api durante a instalação.
 

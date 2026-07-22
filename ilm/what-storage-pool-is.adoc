@@ -21,7 +21,7 @@ NOTE: Os nós de armazenamento podem ser configurados durante a instalação par
 Os pools de armazenamento têm dois atributos:
 
 * *Storage grade*: Para nós de storage, o desempenho relativo do armazenamento de backup.
-* *Site*: O centro de dados onde os objetos serão armazenados.
+* *Local*: O data center onde os objetos são armazenados.
 
 
 Os pools de armazenamento são usados em regras ILM para determinar onde os dados do objeto são armazenados e o tipo de armazenamento usado. Ao configurar regras de ILM para replicação, você seleciona um ou mais pools de armazenamento.

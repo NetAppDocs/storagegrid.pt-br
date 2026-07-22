@@ -19,6 +19,28 @@ Quando um cliente S3 emite uma solicitação POST Object, essa mensagem é emiti
 
 
  a| 
+ASRS
+ a| 
+URN da sessão de função assumida
+ a| 
+O identificador único da sessão de função assumida.
+
+Presente somente quando a solicitação S3 está usando credenciais de segurança temporárias de uma solicitação AssumeRole.
+
+
+
+ a| 
+ASRU
+ a| 
+URN de função assumida
+ a| 
+O identificador único da função assumida.
+
+Presente somente quando a solicitação S3 está usando credenciais de segurança temporárias de uma solicitação AssumeRole.
+
+
+
+ a| 
 CBID
  a| 
 Identificador do bloco de conteúdo

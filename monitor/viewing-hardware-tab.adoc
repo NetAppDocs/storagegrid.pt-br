@@ -55,7 +55,7 @@ A seção Alertas da guia Visão geral exibe quaisquer alertas ativos para o nó
 
 . Selecione *hardware* para ver mais informações sobre o aparelho.
 +
-.. Visualize os gráficos de utilização da CPU e memória para determinar as percentagens de utilização da CPU e da memória ao longo do tempo. Para exibir um intervalo de tempo diferente, selecione um dos controles acima do gráfico ou gráfico. Você pode exibir as informações disponíveis para intervalos de 1 hora, 1 dia, 1 semana ou 1 mês. Você também pode definir um intervalo personalizado, que permite especificar intervalos de data e hora.
+.. Visualize os gráficos de utilização da CPU e de uso de memória para determinar as porcentagens de uso da CPU e da memória ao longo do tempo. Para exibir um intervalo de tempo diferente, selecione um dos controles acima do gráfico. Você pode exibir as informações disponíveis para intervalos de 1 hora, 1 dia, 1 semana ou 1 mês. Você também pode definir um intervalo personalizado, que permite especificar intervalos de data e hora.
 +
 image:nodes_page_hardware_tab_graphs.png["Gráficos de hardware"]
 
@@ -66,9 +66,6 @@ NOTE: Alguns campos, como o BMC IP do controlador de computação e o hardware d
 
 +
 Os componentes das prateleiras de armazenamento e das prateleiras de expansão, se fizerem parte da instalação, aparecerão em uma tabela separada abaixo da tabela do dispositivo.
-
-+
-image:nodes_page_hardware_tab_for_appliance.png["Guia hardware da página de nós para o dispositivo"]
 
 +
 [cols="1a,2a"]
@@ -261,6 +258,20 @@ Temperatura do chassi do controlador de computação
  a| 
 O status da temperatura do controlador de computação.
 
+
+
+ a| 
+Fonte de alimentação do controlador de computação A
+ a| 
+O status da fonte de alimentação A para o controlador de computação.
+
+
+
+ a| 
+Fonte de alimentação do controlador de computação B
+ a| 
+O status da fonte de alimentação B para o controlador de computação.
+
 |===
 +
 [cols="1a,2a"]
@@ -379,12 +390,12 @@ O gráfico tráfego de rede fornece um resumo do tráfego de rede geral.
 image:nodes_page_network_traffic_graph.png["Gráfico de tráfego de rede da página de nós"]
 
 +
-.. Reveja a secção interfaces de rede.
+.. Revise a seção Interfaces de rede.
 +
 image:nodes_page_network_interfaces.png["Interfaces de rede da página de nós"]
 
 +
-Use a tabela a seguir com os valores na coluna *velocidade* na tabela interfaces de rede para determinar se as portas de rede 10/25-GbE no dispositivo foram configuradas para usar o modo ativo/backup ou o modo LACP.
+Utilize a tabela a seguir com os valores da coluna *Velocidade* na tabela Interfaces de rede para determinar se as portas de rede 10/25-GbE do appliance foram configuradas para usar o modo ativo/backup ou o modo LACP.
 
 +
 
@@ -464,12 +475,9 @@ Ativo/Backup
 +
 Consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-network-links.html["Configurar ligações de rede"^] para obter mais informações sobre como configurar as portas 10/25-GbE.
 
-.. Reveja a secção Comunicação de rede.
+.. Analise a seção de comunicação de rede.
 +
 As tabelas de receção e transmissão mostram quantos bytes e pacotes foram recebidos e enviados através de cada rede, bem como outras métricas de receção e transmissão.
-
-+
-image:nodes_page_network_communication.png["Comunicação de rede de Página de nós"]
 
 
 
@@ -488,9 +496,6 @@ O Nome Mundial para cada disco corresponde ao identificador mundial de volume (W
 +
 Para ajudá-lo a interpretar estatísticas de leitura e gravação de disco relacionadas aos pontos de montagem de volume, a primeira parte do nome mostrado na coluna *Nome* da tabela dispositivos de disco (ou seja, _sdc_, _sdd_, _sde_, etc.) corresponde ao valor mostrado na coluna *dispositivo* da tabela volumes.
 
-+
-image:nodes_page_storage_tables.png["Tabelas de storage de páginas de nós"]
-
 
 
 
@@ -504,7 +509,7 @@ A página nós lista informações sobre a integridade do serviço e todos os re
 
 .Passos
 . Na página nós, selecione um nó de administração do dispositivo ou um nó de gateway do dispositivo.
-. Selecione *Visão geral*.
+. Selecione a guia *Visão geral*.
 +
 A seção informações do nó da guia Visão geral exibe informações resumidas do nó, como nome, tipo, ID e estado da conexão do nó. A lista de endereços IP inclui o nome da interface para cada endereço, da seguinte forma:
 
@@ -521,16 +526,13 @@ image:nodes_page_overview_tab_services_appliance.png["Guia Visão geral da pági
 +
 A seção Alertas da guia Visão geral exibe quaisquer alertas ativos para o nó.
 
-. Selecione *hardware* para ver mais informações sobre o aparelho.
+. Selecione a guia *Hardware* para ver mais informações sobre o appliance.
 +
 .. Visualize os gráficos de utilização da CPU e memória para determinar as percentagens de utilização da CPU e da memória ao longo do tempo. Para exibir um intervalo de tempo diferente, selecione um dos controles acima do gráfico ou gráfico. Você pode exibir as informações disponíveis para intervalos de 1 hora, 1 dia, 1 semana ou 1 mês. Você também pode definir um intervalo personalizado, que permite especificar intervalos de data e hora.
 +
 image:nodes_page_hardware_tab_graphs_services_appliance.png["Gráficos da guia hardware da página de nós para o dispositivo de serviços"]
 
-.. Role para baixo para ver a tabela de componentes do aparelho. Esta tabela contém informações como o nome do modelo, o número de série, a versão do firmware do controlador e o status de cada componente.
-+
-image:nodes_page_hardware_tab_services_appliance.png["Página nós guia hardware para o dispositivo de serviços"]
-
+.. Deslize a tela para baixo para visualizar a tabela de componentes do appliance. A tabela contém informações como o nome do modelo, o número de série, a versão do firmware do controlador e o status de cada componente.
 +
 [cols="1a,2a"]
 |===
@@ -621,7 +623,7 @@ Se um estado não for "nominal", reveja quaisquer alertas atuais.
 
 
 
-. Selecione *rede* para ver as informações de cada rede.
+. Selecione a aba *Rede* para visualizar informações de cada rede.
 +
 O gráfico tráfego de rede fornece um resumo do tráfego de rede geral.
 
@@ -629,12 +631,9 @@ O gráfico tráfego de rede fornece um resumo do tráfego de rede geral.
 image:nodes_page_network_traffic_graph.png["Gráfico de tráfego de rede da página de nós"]
 
 +
-.. Reveja a secção interfaces de rede.
+.. Revise a seção Interfaces de rede.
 +
-image:nodes_page_hardware_tab_network_services_appliance.png["Página de nós Guia hardware dispositivo de Serviços de rede"]
-
-+
-Use a tabela a seguir com os valores na coluna *velocidade* na tabela interfaces de rede para determinar se as quatro portas de rede 40/100-GbE no dispositivo foram configuradas para usar o modo ativo/backup ou o modo LACP.
+Utilize a tabela a seguir com os valores da coluna *Velocidade* na tabela Interfaces de rede para determinar se as quatro portas de rede 40/100-GbE do appliance foram configuradas para usar o modo ativo/backup ou o modo LACP.
 
 +
 
@@ -711,17 +710,11 @@ Ativo/Backup
 40
 
 |===
-.. Reveja a secção Comunicação de rede.
+.. Analise a seção de comunicação de rede.
 +
 As tabelas de receção e transmissão mostram quantos bytes e pacotes foram recebidos e enviados através de cada rede, bem como outras métricas de receção e transmissão.
 
-+
-image:nodes_page_network_communication.png["Comunicação de rede de Página de nós"]
 
 
-
-. Selecione *armazenamento* para exibir informações sobre os dispositivos de disco e volumes no dispositivo de serviços.
-+
-image:nodes_page_storage_tab_services_appliance.png["Dispositivo de serviços de guia de storage da página nós"]
-
+. Selecione a guia *Armazenamento* para visualizar informações sobre os dispositivos de disco e volumes no appliance de serviços.
 

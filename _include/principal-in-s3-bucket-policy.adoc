@@ -1,0 +1,9 @@
+= 
+:allow-uri-read: 
+
+
+* `"Principal": "*"`Corresponde a todos, incluindo solicitações anônimas (não assinadas)
+* `"Principal": { "AWS": "*" }`Corresponde a qualquer identidade ou usuário autenticado (não corresponde a solicitações anônimas)
+* Aplica-se somente a políticas de bucket
+* O principal é a(s) conta(s)/usuário(s) que está recebendo ou sendo negada as permissões
+

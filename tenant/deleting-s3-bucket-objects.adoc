@@ -82,7 +82,7 @@ Após alguns minutos:
 
 
 +
-image:delete-bucket-objects-in-progress.png["captura de tela mostrando objetos de bucket sendo excluídos"]
+image:delete_bucket_objects_in_progress.png["captura de tela mostrando objetos de bucket sendo excluídos"]
 
 . Conforme necessário enquanto a operação estiver em execução, selecione *Parar de excluir objetos* para interromper o processo. Em seguida, opcionalmente, selecione *Excluir objetos no bucket* para retomar o processo.
 +
@@ -93,7 +93,7 @@ Quando você seleciona *Parar de excluir objetos*, o bucket é retornado ao modo
 Quando o intervalo está vazio, o banner de status é atualizado, mas o intervalo permanece somente leitura.
 
 +
-image:delete-bucket-objects-complete.png["captura de tela mostrando todos os objetos bucket excluídos"]
+image:delete_bucket_objects_complete.png["captura de tela mostrando todos os objetos bucket excluídos"]
 
 . Execute um dos seguintes procedimentos:
 +

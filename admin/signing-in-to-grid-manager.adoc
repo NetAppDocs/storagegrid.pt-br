@@ -18,14 +18,14 @@ Cada sistema StorageGRID inclui um nó de administração principal e qualquer n
 
 
 [[connect-to-ha-group]]
-=== Ligar ao grupo HA
+== Ligar ao grupo HA
 
 Se os nós de administração estiverem incluídos em um grupo de alta disponibilidade (HA), você se conetará usando o endereço IP virtual do grupo de HA ou um nome de domínio totalmente qualificado que mapeia para o endereço IP virtual. O nó de administração principal deve ser selecionado como a interface principal do grupo, de modo que, quando você acessa o Gerenciador de grade, você o acessa no nó de administração principal, a menos que o nó de administração principal não esteja disponível. link:managing-high-availability-groups.html["Gerenciar grupos de alta disponibilidade"]Consulte .
 
 
 
 [[use-sso]]
-=== Use SSO
+== Use SSO
 
 As etapas de login são ligeiramente diferentes selink:how-sso-works.html["Logon único (SSO) foi configurado"] .
 
@@ -51,10 +51,6 @@ Para acessar o Gerenciador de Grade em uma porta diferente da porta padrão para
 
 +
 `https://_FQDN_or_Admin_Node_IP:port_/`
-
-+
-
-NOTE: O SSO não está disponível na porta do Gerenciador de Grade restrito. Tem de utilizar a porta 443.
 
 
 

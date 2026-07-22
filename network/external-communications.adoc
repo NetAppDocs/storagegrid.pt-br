@@ -315,6 +315,21 @@ Solicitações do Cloud Storage Pools enviadas para destinos da AWS que usam HTT
 
 
  a| 
+636
+ a| 
+TCP/UDP
+ a| 
+LDAP
+ a| 
+Nós de storage com ADC
+ a| 
+Ative Directory/LDAP
+ a| 
+Usado para conetar-se a um servidor ative Directory ou LDAP para Federação de identidade.
+
+
+
+ a| 
 5353
  a| 
 UDP

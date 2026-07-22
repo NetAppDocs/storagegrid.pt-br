@@ -18,6 +18,7 @@ As etapas de alto nível para recuperar um nó de administração primário ou n
 Siga sempre o procedimento de recuperação correto para o nó Admin que está a recuperar. Os procedimentos parecem os mesmos em um nível alto, mas diferem nos detalhes.
 
 .Opções
-* link:recovering-from-primary-admin-node-failures.html["Recuperação de falhas do nó de administração principal"]
+* link:recovering-from-primary-admin-node-failures.html["Recupere o nó de administração primário usando o mesmo nó de administração primário"]
+* link:recovering-from-primary-admin-node-failures-using-npan.html["Recupere falhas do nó de administração primário usando um nó de administração não primário"]
 * link:recovering-from-non-primary-admin-node-failures.html["Recuperação de falhas não primárias no nó de administração"]
 

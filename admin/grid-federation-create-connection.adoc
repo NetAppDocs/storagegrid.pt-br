@@ -2,7 +2,7 @@
 permalink: admin/grid-federation-create-connection.html 
 sidebar: sidebar 
 keywords: grid federation, create connection, configure connection 
-summary: Você pode criar uma conexão de federação de grade entre dois sistemas StorageGRID se quiser clonar detalhes do locatário e replicar dados de objeto. 
+summary: Você pode criar conexões de federação de grid entre sistemas StorageGRID se desejar sincronizar detalhes de locatários e replicar dados de objetos. 
 ---
 = Criar conexões de federação de grids StorageGRID
 :allow-uri-read: 
@@ -11,11 +11,14 @@ summary: Você pode criar uma conexão de federação de grade entre dois sistem
 
 
 [role="lead"]
-Você pode criar uma conexão de federação de grade entre dois sistemas StorageGRID se quiser clonar detalhes do locatário e replicar dados de objeto.
+Você pode criar conexões de federação de grid entre sistemas StorageGRID se desejar sincronizar detalhes de locatários e replicar dados de objetos.
 
 Como mostrado na figura, a criação de uma conexão de federação de grade inclui etapas em ambas as grades. Você adiciona a conexão em uma grade e a completa na outra grade. Você pode começar a partir de qualquer grade.
 
-image:grid-federation-create-connection.png["visão geral gráfica das etapas para criar uma conexão em duas grades"]
+
+TIP: Opcionalmente, você pode link:../admin/grid-federation-automate-connections.html["Automatize a criação, edição e manutenção de conexões de federação de grid"].
+
+image:grid_federation_create_connection.png["visão geral gráfica das etapas para criar uma conexão em duas grades"]
 
 .Antes de começar
 * Você revisou o link:grid-federation-overview.html["considerações e requisitos"] para configurar conexões de federação de grade.
@@ -35,18 +38,15 @@ Execute estas etapas em um dos dois sistemas StorageGRID.
 . Faça login no Gerenciador de Grade a partir do nó Admin primário em qualquer grade.
 . Selecione *Configuração* > *Sistema* > *Federação de grade*.
 . Selecione *Adicionar conexão*.
-. Introduza os detalhes da ligação.
-+
+. Insira um nome de conexão, que seja um nome exclusivo para ajudar você a reconhecer esta conexão. Por exemplo,  `Grid 1-Grid 2`.
+. Se você quiser link:../admin/configure-global-namespace.html["configurar um namespace global"], selecione *Ativar namespace global*.
+. Selecione *continuar*.
+. Insira os detalhes da grid, conforme segue:
+
+
 [cols="1a,2a"]
 |===
 | Campo | Descrição 
-
-
- a| 
-Nome da ligação
- a| 
-Um nome exclusivo para ajudá-lo a reconhecer esta conexão, por exemplo, "Grid 1-Grid 2".
-
 
 
  a| 
@@ -54,9 +54,9 @@ FQDN ou IP para esta grade
  a| 
 Uma das seguintes opções:
 
-** O FQDN da grade em que você está conetado atualmente
-** Um endereço VIP de um grupo HA nesta grelha
-** Um endereço IP de um nó de administrador ou nó de gateway nesta grade. O IP pode estar em qualquer rede que a grade de destino possa alcançar.
+* O FQDN da grade em que você está conetado atualmente
+* Um endereço VIP de um grupo HA nesta grelha
+* Um endereço IP de um nó de administrador ou nó de gateway nesta grade. O IP pode estar em qualquer rede que a grade de destino possa alcançar.
 
 
 
@@ -91,9 +91,9 @@ FQDN ou IP para a outra grade
  a| 
 Uma das seguintes opções:
 
-** O FQDN da grade à qual você deseja se conetar
-** Um endereço VIP de um grupo HA na outra grade
-** Um endereço IP de um nó de administrador ou nó de gateway na outra grade. O IP pode estar em qualquer rede que a grade de origem possa alcançar.
+* O FQDN da grade à qual você deseja se conetar
+* Um endereço VIP de um grupo HA na outra grade
+* Um endereço IP de um nó de administrador ou nó de gateway na outra grade. O IP pode estar em qualquer rede que a grade de origem possa alcançar.
 
 
 |===
@@ -155,5 +155,5 @@ Se editar esta ligação, será criado um novo ficheiro de verificação. O arqu
 * link:creating-tenant-account.html["Crie uma ou mais novas contas de inquilino"], Atribua a permissão *Use Grid Federation Connection* e selecione a nova conexão.
 * link:grid-federation-manage-connection.html["Gerencie a conexão"] conforme necessário. Você pode editar valores de conexão, testar uma conexão, girar certificados de conexão ou remover uma conexão.
 * link:../monitor/grid-federation-monitor-connections.html["Monitorize a ligação"] Como parte de suas atividades normais de monitoramento do StorageGRID.
-* link:grid-federation-troubleshoot.html["Solucionar problemas da conexão"], incluindo a resolução de quaisquer alertas e erros relacionados ao clone de conta e replicação entre grades.
+* link:grid-federation-troubleshoot.html["Solucionar problemas da conexão"], incluindo a resolução de quaisquer alertas e erros relacionados à sincronização de contas e à replicação entre grids.
 

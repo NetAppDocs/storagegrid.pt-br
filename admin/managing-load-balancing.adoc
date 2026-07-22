@@ -176,7 +176,7 @@ Subject DN: /C=Country/ST=State/O=Company,Inc./CN=s3.storagegrid.example.com
 ----
 Conforme necessário, o certificado pode usar curingas para representar os nomes de domínio totalmente qualificados de todos os nós de administração e nós de gateway que executam o serviço Load Balancer. Por exemplo, `*.storagegrid._example_.com` usa o caractere curinga * para representar `adm1.storagegrid._example_.com` e `gn1.storagegrid._example_.com`.
 
-Se você planeja usar S3 solicitações virtuais de estilo hospedado, o certificado também deve incluir uma entrada *Nome alternativo* para cada link:../admin/configuring-s3-api-endpoint-domain-names.html["Nome de domínio do endpoint S3"] um que você configurou, incluindo nomes curinga. Por exemplo:
+Se você planeja usar solicitações no estilo de hospedagem virtual do S3, o certificado também deve incluir uma entrada de *Nome Alternativo* para cada link:../admin/configuring-s3-api-endpoint-domain-names.html["Nome de domínio do endpoint S3"] que você configurou, incluindo quaisquer nomes curinga. Por exemplo:
 
 [listing]
 ----

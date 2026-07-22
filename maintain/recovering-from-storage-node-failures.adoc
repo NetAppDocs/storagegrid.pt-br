@@ -21,16 +21,15 @@ Use esta tabela para selecionar o procedimento de recuperação para um nó de a
 
 
  a| 
-* Mais de um nó de storage falhou.
-
+Mais de um nó de storage falhou.
  a| 
 Entre em Contato com o suporte técnico.
  a| 
-Recuperar mais de um nó de armazenamento pode afetar a integridade do banco de dados Cassandra, o que pode causar perda de dados.
+Caso mais de um nó de armazenamento apresente falha, o suporte técnico deverá auxiliar na recuperação para evitar inconsistências no banco de dados Cassandra que possam levar à perda de dados. Um procedimento de recuperação do site pode ser necessário.
 
-O suporte técnico pode determinar quando é seguro iniciar a recuperação de um segundo nó de armazenamento.
+O suporte técnico pode determinar quando é seguro iniciar a recuperação de um segundo Storage Node.
 
-*Nota*: Se mais de um nó de armazenamento que contém o serviço ADC falhar em um site, você perderá quaisquer solicitações de serviço de plataforma pendentes para esse site.
+*Nota*: Se mais de um Nó de Armazenamento que contenha o serviço ADC falhar em um determinado site, quaisquer solicitações de serviço de plataforma pendentes para esse site serão perdidas.
 
 
 
@@ -55,7 +54,7 @@ O procedimento de recuperação para nós de storage do dispositivo é o mesmo p
  a| 
 Um ou mais volumes de armazenamento falharam, mas a unidade do sistema está intacta
  a| 
-link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["Recuperar de uma falha no volume de armazenamento em que a unidade do sistema está intacta"]
+link:reviewing-warnings-about-storage-volume-recovery.html["Recuperar de uma falha no volume de armazenamento em que a unidade do sistema está intacta"]
  a| 
 Este procedimento é usado para nós de storage baseados em software.
 

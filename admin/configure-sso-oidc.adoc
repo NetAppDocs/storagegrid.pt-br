@@ -1,0 +1,133 @@
+---
+permalink: admin/configure-sso-oidc.html 
+sidebar: sidebar 
+keywords: use sandbox mode for sso, how to test single sign-on 
+summary: 'Você pode seguir o assistente de configuração de SSO para OIDC e entrar no modo sandbox para configurar e testar o logon único (SSO) antes de habilitá-lo para todos os usuários do StorageGRID. Após a ativação do SSO, você pode retornar ao modo sandbox quando necessário para alterar ou testar novamente a configuração.' 
+---
+= Configure o SSO no StorageGRID usando OIDC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga o assistente de configuração de SSO para OpenID Connect (OIDC) e entre no modo sandbox para configurar e testar o logon único (SSO) antes de habilitá-lo para todos os usuários do StorageGRID. Após habilitar o SSO, você pode retornar ao modo sandbox quando necessário para alterar ou testar novamente a configuração.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:admin-group-permissions.html["Permissão de acesso à raiz"].
+* Você configurou o cliente OIDC no provedor de identidade SSO para o seu sistema StorageGRID.
+* Você tem link:using-identity-federation.html["federação de identidade configurada"] para o seu sistema StorageGRID.
+
+
+
+
+[[step-1-provide-identity-provider-details]]
+== Etapa 1: forneça os detalhes do provedor de identidade
+
+Acesse o assistente e preencha os campos na página Fornecer detalhes do provedor de identidade.
+
+.Passos
+. Acesse o assistente para configurar as configurações de SSO:
++
+.. Selecione *Configuração* > *Controle de acesso* > *Logon único*.  A página de logon único é exibida.
++
+
+NOTE: Se o botão Configurar configurações de SSO estiver desabilitado, confirme se você configurou o provedor de identidade como a fonte de identidade federada. Consulte link:requirements-for-sso.html["Requisitos e considerações para logon único"] .
+
+.. Selecione *Configurar configurações de SSO*.  A página Fornecer detalhes do provedor de identidade é exibida.
+
+
+. Em *Protocolo*, selecione *OIDC*.
+. Selecione o *SSO type* na lista suspensa.
+. Especifique qual certificado TLS será usado para proteger a conexão quando o provedor de identidade enviar informações de configuração SSO em resposta a solicitações StorageGRID.
++
+** *Use o certificado CA do sistema operacional*: Use o certificado CA padrão instalado no sistema operacional para proteger a conexão.
+** *Usar certificado CA personalizado*: Use um certificado CA personalizado para proteger a conexão.
++
+Se você selecionar esta configuração:
+
++
+... Navegue até o local do certificado da CA.
+... Carregue o ficheiro de certificado da CA.
+
+
+** *Não utilize TLS*: Não utilize um certificado TLS para proteger a conexão.
++
+
+CAUTION: Se você alterar o certificado da CA, link:../maintain/starting-or-restarting-service.html["Reinicie o serviço mgmt-api nos nós de administração"]imediatamente e testar se há um SSO bem-sucedido no Gerenciador de Grade.
+
+
+
+. Selecione *Continuar*.  A página Fornecer identificador de parte confiável é exibida.
+
+
+
+
+[[enter-sandbox-modestep-2-enter-client-information]]
+== [[enter-sandbox-mode]]Etapa 2: insira as informações do cliente
+
+Preencha os campos na etapa "Inserir informações do cliente" do assistente.
+
+.Passos
+. Especifique o *Identificador da parte confiável* para StorageGRID. Esse valor controla o nome que você usa para cada configuração OIDC.
++
+** Por exemplo, se sua grade tiver apenas um nó Admin e você não antecipar a adição de mais nós Admin no futuro, digite `SG` ou `StorageGRID`.
+** Se sua grade incluir mais de um Nó de Administração, inclua a string `[HOSTNAME]` no identificador. Por exemplo, `SG-[HOSTNAME]`. Incluir essa string resulta em uma tabela que mostra a configuração OIDC para cada Nó de Administração na grade, com base no nome do host do nó.
++
+
+NOTE: Você deve configurar o OIDC para os Nós de Administração no seu sistema StorageGRID. Isso garante que os usuários possam entrar e sair de qualquer Nó de Administração com segurança. Você pode usar a mesma configuração de OIDC para todos os Nós de Administração (recomendado) ou configurar uma configuração de OIDC diferente para cada Nó de Administração.
+
+
+
+. Insira o *Client ID*, o *Client secret* e o *OpenID endpoint URL* para cada identificador de parte confiável.
+. Selecione *Salvar e entrar no modo sandbox*.
+
+
+
+
+[[step-3-test-configuration]]
+== Etapa 3: testar a configuração
+
+Após entrar no modo sandbox, você pode concluir e testar a configuração do tipo de SSO que você selecionou.
+
+O modo sandbox facilita a configuração bidirecional e o teste de todas as suas configurações antes de você ativar o SSO. StorageGRID pode permanecer no modo sandbox pelo tempo necessário. No entanto, somente usuários federados e usuários locais podem fazer login.
+
+.Passos
+. Na página Configurar SSO, localize o link na etapa Testar configuração do assistente.
++
+O URL é derivado do valor inserido no campo *Nome do serviço de Federação*.
+
+. [[select-link]]Selecione o link ou copie e cole o URL em uma nova aba para acessar a página de login do seu provedor de identidade.
+. [[enter-credentials]]Digite seu nome de usuário e senha federados.
++
+** Se as operações de login e logout do SSO forem bem-sucedidas, uma faixa verde aparece.
+** Se a operação SSO não for bem-sucedida, será exibida uma mensagem de erro. Corrija o problema, limpe os cookies do navegador e tente novamente.
+
+
+. Siga os passos do assistente para acessar a página Test configuration para cada Admin Node em sua grade.
+. Repita os passos <<select-link,2>> e <<enter-credentials,3>> para verificar a conexão SSO em cada Admin Node.
+
+
+
+
+[[enable-sso-oidcstep-4-enable-single-sign-on]]
+== [[enable-sso-oidc]]Etapa 4: habilitar logon único
+
+Após confirmar que é possível usar o SSO para fazer login em cada nó de administração, você pode habilitar o SSO para todo o seu sistema StorageGRID.
+
+
+TIP: Quando o SSO está habilitado, todos os usuários devem usar o SSO para acessar o Grid Manager, o Tenant Manager, a Grid Management API e a Tenant Management API. Usuários locais não podem mais acessar o StorageGRID. O StorageGRID não fornece um script de autenticação de exemplo para todos os provedores de SSO suportados.
+
+.Passos
+. Na etapa de configuração de teste do assistente de configuração de SSO, selecione *Ativar SSO*.
+. Revise a mensagem de aviso e selecione *Ativar SSO*.
++
+O logon único agora está habilitado.  A página de logon único é exibida e agora inclui os detalhes do SSO que você acabou de configurar.
+
+. Para editar a configuração, selecione *Editar*.
+. Para desativar o single sign-on, selecione *Desativar*.
+
+
+
+TIP: Se você estiver usando o Portal do Azure e acessar o StorageGRID do mesmo computador que usa para acessar o Entra ID, certifique-se de que o usuário do portal do Azure também seja um usuário autorizado do StorageGRID (um usuário em um grupo federado que foi importado para o StorageGRID) ou efetue logout do portal do Azure antes de tentar entrar no StorageGRID.

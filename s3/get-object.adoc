@@ -31,10 +31,14 @@ O StorageGRID não analisa nem interpreta carateres UTF-8 escapados em metadados
 
 
 
-[[supported-request-header]]
-== Cabeçalho de solicitação suportado
+[[supported-request-headers]]
+== Cabeçalhos de solicitação suportados
 
-O seguinte cabeçalho de solicitação é suportado:
+Os seguintes cabeçalhos de solicitação são suportados:
+
+* `Accept-Encoding`
++
+Quando um objeto não possui  `Content-Encoding` armazenado, uma solicitação GET com  `Accept-Encoding: gzip` aplica compressão em tempo real à resposta. Apenas  `gzip` afeta a codificação da resposta GET;  `deflate`,  `br` e  `identity` não afetam. Para objetos que já possuem  `Content-Encoding` armazenado, StorageGRID retorna a codificação armazenada e não aplica compressão adicional em tempo real com base em  `Accept-Encoding`. StorageGRID não oferece suporte a operações de leitura de intervalo para solicitações GET com  `Accept-Encoding: gzip`.
 
 * `x-amz-checksum-mode`: Especificar `ENABLED`
 +

@@ -138,7 +138,7 @@ A última coluna mostra o valor otimizado máximo da marca d'água somente leitu
 . Repita estas etapas para cada nó de armazenamento online:
 +
 .. Selecione *_Storage Node_* > *Storage*.
-.. Role para baixo até a tabela Object Stores.
+.. Desça a página até a tabela de armazenamentos de objetos.
 .. Compare o valor *disponível* para cada armazenamento de objetos (volume) com a marca d'água máxima otimizada que você anotou para esse nó de armazenamento.
 
 

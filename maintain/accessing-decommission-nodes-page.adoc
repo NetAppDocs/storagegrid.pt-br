@@ -33,10 +33,10 @@ A página Decommission Nodes (nós de desintegração) é exibida. Nesta página
 ** Classifique a lista em ordem crescente ou decrescente por *Nome*, *Site*, *tipo* ou *ADC*.
 ** Insira termos de pesquisa para encontrar rapidamente nós específicos.
 +
-Neste exemplo, a coluna Decmmission possible indica que você pode desativar o Gateway Node e um dos quatro nós de armazenamento.
+Neste exemplo, uma marca de seleção verde na coluna "Desativação Possível" indica que você pode desativar o Nó do Gateway de API e o Nó de Armazenamento somente de dados. Os outros nós não podem ser desativados por vários motivos. Por exemplo, o Nó de Administração principal não pode ser desativado porque a desativação desse tipo de nó não é suportada. O Nó de Armazenamento somente de metadados não pode ser desativado porque o site deixaria de atender aos requisitos link:../maintain/understanding-adc-service-quorum.html["Quórum de ADC"].
 
 +
-image:decommission_nodes_page_all_connected.png["Desativar a página de nós"]
+image:decommission_nodes_page.png["Desativar a página de nós"]
 
 
 
@@ -106,11 +106,11 @@ Edite o grupo de HA para remover a interface do nó ou remover todo o grupo de H
 
 
  a| 
-Não, o local _x_ requer um mínimo de _n_ nós de armazenamento com serviços ADC.
+Não, o site _x_ precisa de pelo menos 3 nós de armazenamento com serviços ADC ou nós não-ADC disponíveis para mover os serviços ADC. O descomissionamento de nó ADC não está disponível se algum nó estiver offline.
  a| 
-*Somente nós de armazenamento* (nós de armazenamento combinados ou somente de metadados).  Não é possível desativar um nó de armazenamento se não houver nós suficientes no local para dar suporte aos requisitos de quórum do ADC.  No entanto, você pode mover o serviço ADC para outro nó de armazenamento.
+*Apenas nós de armazenamento* (nós de armazenamento combinados ou somente de metadados). Você não pode desativar um nó de armazenamento se não restarem nós suficientes no local para atender aos requisitos de quorum do ADC e o serviço ADC não puder ser movido automaticamente. A movimentação automática exige que mais de dois nós de armazenamento ADC estejam online na grid e que haja nós de armazenamento não-ADC disponíveis no mesmo local.
  a| 
-link:../maintain/move-adc-service.html["Mover o serviço ADC para outro nó de armazenamento no mesmo site"], ou executar uma expansão adicionando um novo nó de armazenamento ao site e especificando que ele deve ter um serviço ADC. Consulte link:understanding-adc-service-quorum.html["Quórum de ADC"] .
+Certifique-se de que as condições para a movimentação automática do serviço ADC sejam atendidas (consulte link:../maintain/understanding-adc-service-quorum.html["Quórum de ADC"]), ou link:../maintain/move-adc-service.html["mover manualmente o serviço ADC"] para outro Storage Node no mesmo site. Você também pode realizar uma expansão adicionando um novo Storage Node ao site e especificando que ele deve ter um serviço ADC. Consulte link:../expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html["Resumo do fluxo de trabalho para adicionar nós de grid ao StorageGRID"].
 
 
 

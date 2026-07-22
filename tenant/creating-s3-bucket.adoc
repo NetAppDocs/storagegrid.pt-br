@@ -21,10 +21,10 @@ Você pode usar o Gerenciador do locatário para criar buckets do S3 para dados 
 NOTE: Permissões para definir ou modificar propriedades de bloqueio de objeto S3 de buckets ou objetos podem ser concedidas porlink:../s3/use-access-policies.html["política de bucket ou política de grupo"] .
 
 * Se você planeja habilitar o bloqueio de objeto S3 para um bucket, um administrador de grade ativou a configuração global de bloqueio de objeto S3 para o sistema StorageGRID e revisou os requisitos para buckets e objetos do bloqueio de objeto S3.
-* Se cada locatário tiver 5.000 buckets, cada nó de armazenamento na grade tem um mínimo de 64 GB de RAM.
+* Caso vários locatários tenham até 5.000 buckets cada, cada Storage Node na grid deverá ter no mínimo 64 GB de RAM.
 +
 
-NOTE: Cada grade pode ter no máximo 100.000 buckets, incluindolink:../tenant/what-is-branch-bucket.html["baldes de galhos"] .
+NOTE: O sistema StorageGRID suporta um máximo de 20.000 buckets para cada conta de tenant do S3. Cada grid pode ter um máximo de 100.000 buckets, incluindo link:../tenant/what-is-branch-bucket.html["baldes de galhos"]. Há também um limite para link:../tenant/manage-branch-buckets.html["profundidade do bucket de branch"].
 
 
 
@@ -63,7 +63,7 @@ Um nome para o bucket que está em conformidade com estas regras:
 ** Não deve conter períodos em solicitações de estilo hospedadas virtuais. Os períodos causarão problemas com a verificação do certificado curinga do servidor.
 
 
-Para obter mais informações, consulte https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html["Documentação da Amazon Web Services (AWS) sobre regras de nomenclatura de bucket"^] .
+Para mais informações, consulte a https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html["Documentação da Amazon Web Services (AWS) sobre regras de nomenclatura de bucket"^].
 
 *Nota*: Não é possível alterar o nome do bucket depois de criar o bucket.
 

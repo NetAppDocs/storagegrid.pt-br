@@ -64,6 +64,11 @@ O arquivo de log do StorageGRID contém os logs descritos para cada categoria e 
 | Localização do arquivo | Descrição 
 
 
+| acct-tunnel.log  a| 
+Registro do auxiliar de túnel da conta que funciona com o balanceador de carga.
+
+
+
 | auditoria  a| 
 Mensagens de auditoria geradas durante a operação normal do sistema.
 
@@ -114,6 +119,11 @@ A alta disponibilidade agrupa métricas e logs.
 
 
 
+| internal-access.log  a| 
+Registro de tráfego interno do proxy HTTP.
+
+
+
 | Lambda-árbitro  a| 
 Logs relacionados à solicitação de proxy S3 Select.
 
@@ -126,6 +136,11 @@ Logs do serviço vazado.
 
 | lumberjack.log  a| 
 Depurar mensagens relacionadas à coleção de logs.
+
+
+
+| manage-audit.log  a| 
+`mgmt-api`acessar registros de auditoria.
 
 
 
@@ -174,6 +189,10 @@ Arquivos e logs de configuração de federação de grade e balanceador de carga
 
 
 * `nginx-gw-dns-check.log`: Relacionado com o novo alerta de verificação de DNS.
+* stream-access.log: Sessões de proxy de stream TCP/TLS (camada 4) para o bloco de stream.
++
+*Nota*: Isto não é um log de requisições HTTP.
+
 
 
 
@@ -220,6 +239,16 @@ Registros do cluster de jangada usados em serviços de plataforma.
 
 
 
+| revision_history.json  a| 
+Histórico de revisões.
+
+
+
+| routed-s3-access.log.gz  a| 
+Registro de acesso para tráfego de federação de grid roteado como S3 (global namespace/URLs de federação).
+
+
+
 | ssh  a| 
 Logs relacionados à configuração e serviço SSH.
 
@@ -235,6 +264,11 @@ Dados de sockets para depuração de rede.
 
 
 
+| system-bucket.log  a| 
+`update-system-bucket-configuration.log`: Registros do bucket do sistema.
+
+
+
 | system-commands.txt  a| 
 Saída de comandos StorageGRID Container. Contém informações do sistema, como utilização de rede e disco.
 
@@ -242,5 +276,15 @@ Saída de comandos StorageGRID Container. Contém informações do sistema, como
 
 | sincronizar-recuperação-pacote  a| 
 Relacionado à manutenção da consistência do pacote de recuperação mais recente em todos os nós de administração e nós de armazenamento que hospedam o serviço ADC.
+
+
+
+| update-cipher-configurations.log  a| 
+`update-cors-configurations.log`: Registra logs relacionados a alterações de TLS/cipher e CORS.
+
+
+
+| update-leakd-configurations.log  a| 
+Registro de configuração de detecção de órfãos.
 
 |===

@@ -44,3 +44,6 @@ NOTE: As alterações de proxy podem levar até 10 minutos para entrarem em vigo
 . Verifique as configurações do servidor proxy para garantir que as mensagens relacionadas ao serviço da plataforma do StorageGRID não sejam bloqueadas.
 . Se você precisar desativar um proxy de armazenamento, desmarque a caixa de seleção e selecione *Salvar*.
 
+
+.Informações relacionadas
+link:../network/external-communications.html["Portas usadas para comunicações externas"]

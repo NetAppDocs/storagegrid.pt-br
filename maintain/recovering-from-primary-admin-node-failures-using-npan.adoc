@@ -1,0 +1,24 @@
+---
+permalink: maintain/recovering-from-primary-admin-node-failures-using-npan.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, primary admin node, non-primary admin node 
+summary: Execute um conjunto específico de tarefas para se recuperar de uma falha no nó de administração primário usando um nó de administração não primário. 
+---
+= Recupere de falhas do nó administrativo primário do StorageGRID usando um nó administrativo não primário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve concluir um conjunto específico de tarefas para se recuperar de uma falha no nó administrativo primário usando um nó administrativo não primário. O nó administrativo primário hospeda o serviço Configuration Management Node (CMN) para a grid.
+
+Siga estas etapas de alto nível para recuperar um nó de administração primário usando um nó de administração não primário:
+
+. link:copying-audit-logs-from-failed-primary-admin-node-using-npan.html["Copiar registos de auditoria do nó de administração principal avariado"]
+. link:replacing-primary-admin-node-using-npan.html["Substitua o nó de administração principal"]
+. link:selecting-start-recovery-to-configure-primary-admin-node.html["Selecione Iniciar recuperação para configurar o nó de administração primário"]
+. link:assess-hotfix-requirement-during-primary-admin-node-recovery-using-npan.html["Determine o requisito de hotfix para o nó de administração principal"]
+. link:restoring-audit-log-on-recovered-primary-admin-node-using-npan.html["Restaure o log de auditoria no nó de administração primário recuperado"]
+. link:restoring-prometheus-metrics-primary-admin-node-using-npan.html["Restaure as métricas do Prometheus ao recuperar o nó de administração principal"]
+

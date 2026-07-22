@@ -111,7 +111,7 @@ Siga estas etapas para inserir um nome de exibição para cada item que você de
 +
 link:../maintain/rename-grid-site-node-overview.html["Renomeie grade, sites e nós"]Consulte para saber os requisitos de nomenclatura.
 
-. Para remover os itens que você não deseja renomear, selecione image:icon-x-to-remove.png["Ícone X."] na coluna *Remover da lista*.
+. Para remover os itens que você não deseja renomear, selecione image:icon_x_to_remove.png["Ícone X."] na coluna *Remover da lista*.
 +
 Se você não vai propor um novo nome para um item, você deve removê-lo da tabela.
 
@@ -135,12 +135,12 @@ A visualização *Renomear* inclui todos os itens que foram mostrados para a eta
 +
 À medida que você digita, seu texto é realçado onde quer que seja encontrado nos nomes à esquerda.
 
-. Selecione image:icon-x-to-remove.png["Ícone X."] para remover quaisquer itens que você não queira renomear com esta ferramenta.
+. Selecione image:icon_x_to_remove.png["Ícone X."] para remover quaisquer itens que você não queira renomear com esta ferramenta.
 +
-Por exemplo, suponha que você queira renomear todos os nós que contenham a string  `Data-Center-1`, mas não queira renomear o site  `Data-Center-1` em si. Selecione image:icon-x-to-remove.png["Ícone X."] para remover o site da pré-visualização de renomeação.
+Por exemplo, suponha que você queira renomear todos os nós que contenham a string  `Data-Center-1`, mas não queira renomear o site  `Data-Center-1` em si. Selecione image:icon_x_to_remove.png["Ícone X."] para remover o site da pré-visualização de renomeação.
 
 +
-image:rename-bulk-rename-tool.png["Ferramenta de renomeação em massa antes"]
+image:rename_bulk_rename_tool.png["Ferramenta de renomeação em massa antes"]
 
 . No campo *New string*, insira a string de substituição que deseja usar. Por exemplo, digite *DC1*.
 +
@@ -150,10 +150,10 @@ link:../maintain/rename-grid-site-node-overview.html["Renomeie grade, sites e n�
 À medida que você digita a string de substituição, os nomes à esquerda são atualizados, para que você possa verificar se os novos nomes estarão corretos.
 
 +
-image:rename-bulk-rename-tool-after.png["Renomeie a ferramenta em massa depois"]
+image:rename_bulk_rename_tool_after.png["Renomeie a ferramenta em massa depois"]
 
 . Quando estiver satisfeito com os nomes mostrados na pré-visualização, selecione *Adicionar nomes* para adicionar os nomes à tabela para a etapa *propor novos nomes*.
-. Faça as alterações adicionais necessárias ou selecione image:icon-x-to-remove.png["Ícone X."] para remover os itens que você não quer renomear.
+. Faça as alterações adicionais necessárias ou selecione image:icon_x_to_remove.png["Ícone X."] para remover os itens que você não quer renomear.
 . Quando estiver pronto para renomear todos os itens da tabela, selecione *Renomear*.
 +
 É apresentada uma mensagem de sucesso. Os novos nomes de exibição agora são usados em todo o Gerenciador de Grade.
@@ -201,7 +201,7 @@ Você pode reverter uma grade renomeada, site ou nó de volta para o nome origin
 ====
 .Reverta para nomes de sistema individualmente
 --
-.. Copie o nome original de cada item no sistema e cole-o no campo *Nome de exibição*, ou selecione image:icon-x-to-remove.png["Ícone X."] para remover os itens que você não deseja reverter.
+.. Copie o nome original de cada item no sistema e cole-o no campo *Nome de exibição*, ou selecione image:icon_x_to_remove.png["Ícone X."] para remover os itens que você não deseja reverter.
 +
 Para reverter um nome de exibição, o nome do sistema deve aparecer no campo *Nome de exibição*, mas o nome não diferencia maiúsculas de minúsculas.
 
@@ -218,7 +218,7 @@ Para reverter um nome de exibição, o nome do sistema deve aparecer no campo *N
 .. No campo *string existente*, insira a string de nome de exibição que deseja substituir.
 .. No campo *Nova cadeia*, insira a cadeia de nomes de sistema que deseja usar.
 .. Selecione *Adicionar nomes* para adicionar os nomes à tabela para a etapa *propor novos nomes*.
-.. Confirme se cada entrada no campo *Nome de exibição* corresponde ao nome no campo *Nome do sistema*. Faça as alterações desejadas ou selecione image:icon-x-to-remove.png["Ícone X."] para remover os itens que você não deseja reverter.
+.. Confirme se cada entrada no campo *Nome de exibição* corresponde ao nome no campo *Nome do sistema*. Faça as alterações desejadas ou selecione image:icon_x_to_remove.png["Ícone X."] para remover os itens que você não deseja reverter.
 +
 Para reverter um nome de exibição, o nome do sistema deve aparecer no campo *Nome de exibição*, mas o nome não diferencia maiúsculas de minúsculas.
 

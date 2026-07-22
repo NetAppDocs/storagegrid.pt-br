@@ -11,11 +11,11 @@ summary: Conforme necessário, configure níveis de auditoria, cabeçalhos de pr
 
 
 [role="lead"]
-Conforme necessário, configure níveis de auditoria, cabeçalhos de protocolo e o local de mensagens e logs de auditoria.
+Conforme necessário, configure os níveis de auditoria, os cabeçalhos de protocolo, a localização das mensagens e logs de auditoria e a retenção dos logs.
 
 Todos os nós do StorageGRID geram mensagens de auditoria e logs para rastrear atividades e eventos do sistema.  Mensagens e logs de auditoria são ferramentas essenciais para monitoramento e solução de problemas.
 
-Opcionalmente, você podelink:../monitor/considerations-for-external-syslog-server.html["configurar um servidor syslog externo"] para salvar informações de auditoria remotamente.  Usar um servidor externo minimiza o impacto no desempenho do registro de mensagens de auditoria sem reduzir a integridade dos dados de auditoria.  Um servidor syslog externo é especialmente útil se você tiver uma grade grande, usar vários tipos de aplicativos S3 ou quiser reter todos os dados de auditoria.
+Opcionalmente, você pode link:../monitor/considerations-for-external-syslog-server.html["configurar um servidor syslog externo"] salvar informações de auditoria remotamente. Você pode minimizar o impacto no desempenho do registro de mensagens de auditoria sem reduzir a integridade dos dados de auditoria usando um servidor externo. Um servidor syslog externo é especialmente útil se você tiver uma grade grande, usar vários tipos de aplicativos S3 ou quiser reter todos os dados de auditoria.
 
 .Antes de começar
 * Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
@@ -161,7 +161,7 @@ Use um asterisco (*) como curinga para corresponder a zero ou mais carateres. Us
 
 . Selecione *Adicionar outro cabeçalho* para criar cabeçalhos adicionais, se necessário.
 +
-Quando cabeçalhos HTTP são encontrados em uma solicitação, eles são incluídos na mensagem de auditoria sob o campo HTRH.
+Quando StorageGRID encontra cabeçalhos HTTP em uma solicitação, ele os inclui na mensagem de auditoria no campo HTRH.
 
 +
 
@@ -175,7 +175,7 @@ NOTE: Os cabeçalhos de solicitação do protocolo de auditoria serão registrad
 [[configure-log-location]]
 == Configurar local do log
 
-Por padrão, as mensagens e os logs de auditoria são salvos nos nós onde são gerados.  Eles são rotacionados periodicamente e eventualmente excluídos para evitar que consumam espaço excessivo em disco.  Se você quiser salvar mensagens de auditoria e um subconjunto de logs externamente,<<use-external-syslog-server,use um servidor syslog externo>> .
+Por padrão, as mensagens de auditoria e os logs são salvos nos nós onde são gerados. O StorageGRID rotaciona regularmente e, eventualmente, exclui as mensagens de auditoria e os logs para evitar que consumam espaço de disco excessivo. Para salvar as mensagens de auditoria e um subconjunto dos logs externamente, <<use-external-syslog-server,use um servidor syslog externo>>.
 
 Se você quiser salvar os arquivos de log internamente, escolha um locatário e um bucket para armazenamento de log e habilite o arquivamento de log.
 
@@ -262,7 +262,7 @@ Definir os valores de gravidade e facilidade pode ajudá-lo a agregar os logs de
 +
 .. Para *severidade*, selecione *passagem* ou selecione um valor de gravidade entre 0 e 7.
 +
-Se selecionar um valor, o valor selecionado será aplicado a todas as mensagens deste tipo. As informações sobre diferentes gravidades serão perdidas se você substituir a gravidade com um valor fixo.
+Se você selecionar um valor, StorageGRID aplicará o valor selecionado a todas as mensagens desse tipo. Você perderá detalhes sobre diferentes níveis de severidade se substituir a severidade por um valor fixo.
 
 +
 [cols="1a,3a"]
@@ -547,7 +547,7 @@ local7
 
 ==== Enviar mensagens de teste
 
-Antes de começar a usar um servidor syslog externo, você deve solicitar que todos os nós da grade enviem mensagens de teste para o servidor syslog externo. Você deve usar essas mensagens de teste para ajudá-lo a validar toda a infraestrutura de coleta de logs antes de se comprometer a enviar dados para o servidor syslog externo.
+Antes de usar um servidor syslog externo, solicite que todos os nós da sua grid enviem mensagens de teste para o servidor syslog externo. Essas mensagens de teste ajudam você a validar toda a sua infraestrutura de coleta de logs antes de se comprometer a enviar dados para o servidor syslog externo.
 
 
 CAUTION: Não use a configuração do servidor syslog externo até confirmar que o servidor syslog externo recebeu uma mensagem de teste de cada nó na grade e que a mensagem foi processada conforme esperado.
@@ -704,3 +704,52 @@ Por exemplo:
 system-logs/DC1-SN1/var/local/log/localaudit.log--2025-05-12_13:41:44.gz
 ----
 
+
+
+
+[[manage-log-retention]]
+== Gerenciar retenção de logs
+
+Você pode gerenciar por quanto tempo o StorageGRID retém os logs criando uma regra ILM ou configurando uma política de ciclo de vida do bucket S3.
+
+[role="tabbed-block"]
+====
+.Regra ILM
+--
+Crie uma regra ILM para o bucket e adicione essa regra à política ILM ativa.
+
+.Passos
+. Selecione *ILM* > *regras*.
+. Selecione *Criar*. link:../ilm/create-ilm-rule-enter-details.html["Passo 1 (introduzir detalhes)"]O assistente Criar uma regra ILM será exibido:
++
+.. Insira um nome exclusivo para a regra. Por exemplo: regra ILM para logs arquivados.
+.. Selecione a conta de locatário S3 de arquivamento de log.
+.. Especifique o bucket S3 de arquivamento de logs.
+
+
+. Continue para link:../ilm/create-ilm-rule-define-placements.html["Passo 2 (definir posicionamentos)"] e defina o local de armazenamento para a regra de logs arquivados. Por exemplo, a regra ILM armazena uma cópia replicada no Site 1 e uma cópia replicada no Site 2 durante o primeiro ano. Após um ano, uma cópia codificada por eliminação 2+1 é criada e salva em apenas um site.
+. Após criar a regra, adicione-a a uma política ILM ativa.
+
+
+--
+.Ciclo de vida do bucket S3
+--
+Configure uma política de ciclo de vida do bucket S3 no bucket S3 de arquivamento de logs:
+
+[listing]
+----
+{
+      "Rules": [
+        {
+            "ID": "Retain logs forever",
+            "Filter": {},
+            "Status": "Enabled"，
+            "Expiration": {}
+        }
+      ]
+}
+----
+Quando você configura uma política de ciclo de vida do bucket S3 no bucket S3 de arquivamento de logs, as ações de expiração do ciclo de vida substituem a política ILM para objetos que correspondem ao filtro de ciclo de vida do bucket. Objetos que não correspondem ao filtro de ciclo de vida do bucket usam as configurações de retenção da política ILM. Se um objeto corresponder a um filtro de ciclo de vida do bucket e nenhuma ação de expiração for especificada explicitamente, as configurações de retenção da política ILM não são usadas e entende-se que as versões do objeto serão retidas para sempre.
+
+--
+====

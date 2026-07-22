@@ -17,7 +17,7 @@ Você pode excluir uma conta de locatário se quiser remover permanentemente o a
 * Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
 * Você link:admin-group-permissions.html["permissões de acesso específicas"]tem .
 * Você removeu todos os buckets e objetos do S3 associados à conta de locatário.
-* Se o locatário tiver permissão para usar uma conexão de federação de grade, você revisou as considerações para link:grid-federation-manage-tenants.html["Excluindo um locatário com a permissão usar conexão de federação de grade"].
+* Se o locatário tiver permissão para usar conexões de federação de grid, você já analisou as considerações para link:../admin/grid-federation-manage-tenants.html["Excluindo um locatário com a permissão usar conexão de federação de grade"]. As exclusões são sincronizadas, então se um locatário for excluído em qualquer grid, ele será excluído em todas as grids selecionadas.
 
 
 .Passos

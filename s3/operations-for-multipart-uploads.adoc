@@ -33,7 +33,14 @@ As seguintes condições e notas aplicam-se a todas as operações de carregamen
 * Todas as operações de upload multipartes oferecem suporte ao StorageGRIDlink:consistency.html["valores de consistência"] .
 * Quando um objeto é ingerido utilizando o carregamento em várias partes, o link:../admin/what-object-segmentation-is.html["Limite de segmentação de objetos (1 GiB)"]não é aplicado.
 * Conforme necessário, você pode usar link:using-server-side-encryption.html["criptografia do lado do servidor"] com uploads de várias partes. Para usar SSE (criptografia do lado do servidor com chaves gerenciadas pelo StorageGRID), você inclui o `x-amz-server-side-encryption` cabeçalho da solicitação somente na solicitação CreateMultipartUpload. Para usar SSE-C (criptografia do lado do servidor com chaves fornecidas pelo cliente), você especifica os mesmos três cabeçalhos de solicitação de chave de criptografia na solicitação CreateMultipartUpload e em cada solicitação de UploadPart subsequente.
-* Um objeto carregado em várias partes é incluído em umlink:../tenant/what-is-branch-bucket.html["balde de galhos"] se a ingestão foi iniciada antes do registro de data e hora Before do bucket base, independentemente de quando o upload for concluído.
+* Se um objeto carregado em várias partes está incluído em um link:../tenant/what-is-branch-bucket.html["balde de galhos"] depende do horário em que a ingestão foi iniciada e do filtro de tempo para o bucket da ramificação:
++
+** *Antes*. Se a ingestão foi iniciada antes do carimbo de data/hora *Antes* do bucket da ramificação, o objeto multipart carregado será incluído, independentemente de quando o upload for concluído.
+** *Após*. Se a ingestão foi iniciada após o carimbo de data/hora _After_ do bucket de ramificação, o objeto multipart carregado é incluído.
+** *Entre*. Se a ingestão foi iniciada entre os carimbos de data/hora _De_ e _Para_ do bucket da ramificação, o objeto multipart carregado será incluído, independentemente de quando o upload for concluído.
+** *Excluir*. Se a ingestão foi iniciada antes do horário _Excluir de_ do bucket de ramificação ou depois do horário _Excluir até_, o objeto multipart carregado é incluído.
+
+
 
 
 [cols="2a,3a"]

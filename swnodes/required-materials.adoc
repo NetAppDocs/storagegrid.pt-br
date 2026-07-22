@@ -21,7 +21,7 @@ Antes de instalar o StorageGRID, reúna e prepare as informações e materiais n
 Plano de rede:: Quais redes você pretende anexar a cada nó do StorageGRID. O StorageGRID suporta várias redes para separação de tráfego, segurança e conveniência administrativa.
 +
 --
-Consulte o StorageGRID link:../network/index.html["Diretrizes de rede"].
+Consulte link:../network/index.html["Diretrizes de rede"].
 
 --
 Informações de rede:: Endereços IP para atribuir a cada nó de grade e aos endereços IP dos servidores DNS e NTP.
@@ -62,7 +62,7 @@ O computador portátil de serviço deve ter:
 Documentação do StorageGRID::
 +
 --
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["Notas de lançamento"^]. Você precisa fazer login com sua conta NetApp ou criar uma conta para acessar as notas de lançamento.
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3373065["Notas de lançamento"^]. Você precisa fazer login com sua NetApp conta ou criar uma conta para acessar as notas de versão.
 * link:../admin/index.html["Instruções para administrar o StorageGRID"]
 
 

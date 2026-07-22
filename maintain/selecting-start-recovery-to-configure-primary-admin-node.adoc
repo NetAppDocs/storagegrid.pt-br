@@ -1,0 +1,53 @@
+---
+permalink: maintain/selecting-start-recovery-to-configure-primary-admin-node.html 
+sidebar: sidebar 
+keywords: storagegrid, start recovery, non-primary admin node 
+summary: Selecione Iniciar Recuperação para configurar o nó de administração primário durante a recuperação do nó de administração primário. 
+---
+= Selecione Iniciar Recuperação para configurar o nó Admin primário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Após substituir um nó de administração primário, você deve selecionar Start Recovery no Grid Manager para configurar o novo nó como substituto do nó com falha.
+
+.Antes de começar
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+* Você tem o link:../admin/admin-group-permissions.html["Permissão de manutenção ou acesso root"].
+* Você tem a senha de provisionamento.
+* Você implantou e configurou o nó de substituição.
+
+
+.Passos
+. No Grid Manager, selecione *Manutenção* > *Tarefas* > *Recuperação de nó*.
+. Selecione o nó de grade que você deseja recuperar na lista de nós pendentes.
++
+Os nós aparecem na lista depois que eles falham, mas você não pode selecionar um nó até que ele seja reinstalado e esteja pronto para recuperação.
+
+. Digite a *senha de provisionamento*.
+. Selecione *Iniciar recuperação*.
++
+image:4b_select_recovery_node.png["captura de tela mostrando a página Maintenance > Recovery"]
+
+. Monitore o progresso da recuperação na tabela Recovering Grid Node (Recovering Grid Node).
++
+
+NOTE: Enquanto o procedimento de recuperação estiver em execução, você pode selecionar *Redefinir* para iniciar uma nova recuperação. Uma caixa de diálogo será exibida, indicando que o nó ficará em um estado indeterminado se você redefinir o procedimento.
+
++
+Se pretender tentar novamente a recuperação após reiniciar o procedimento, tem de restaurar o nó para um estado pré-instalado, da seguinte forma:
+
++
+** *VMware*: Exclua o nó de grade virtual implantado. Em seguida, quando estiver pronto para reiniciar a recuperação, reimplante o nó.
+** * Linux*: Reinicie o nó executando este comando no host Linux: `storagegrid node force-recovery _node-name_`
+** *Appliance*: Se você quiser repetir a recuperação após redefinir o procedimento, você deve restaurar o nó do dispositivo para um estado pré-instalado executando `sgareinstall` no nó. link:preparing-appliance-for-reinstallation-platform-replacement-only.html["Prepare o aparelho para reinstalação (apenas substituição da plataforma)"]Consulte .
+
+
+. Se o logon único (SSO) estiver ativado para o seu sistema StorageGRID e a confiança da parte confiável para o nó Admin que você recuperou foi configurada para usar o certificado de interface de gerenciamento padrão, atualizar (ou excluir e recriar) a confiança da parte confiável do nó nos Serviços de Federação do ative Directory (AD FS). Use o novo certificado de servidor padrão que foi gerado durante o processo de recuperação do Admin Node.
++
+
+NOTE: Para configurar uma confiança de terceira parte confiável, consultelink:../admin/configure-sso.html["Configurar o logon único"] .  Para acessar o certificado do servidor padrão, efetue login no shell de comando do nó de administração.  Vá para o `/var/local/mgmt-api` diretório e selecione o `server.crt` arquivo.
+
+

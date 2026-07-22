@@ -1,0 +1,149 @@
+---
+permalink: admin/create-okta-application-oidc.html 
+sidebar: sidebar 
+keywords: okta, application, single sign on, sso 
+summary: 'Crie um aplicativo Okta para todos os nós de administração para OpenID Connect (OIDC) em seu sistema StorageGRID.' 
+---
+= Criar aplicativo Okta para OIDC no StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Crie um aplicativo Okta para todos os nós de administração para OpenID Connect (OIDC) em seu sistema StorageGRID.
+
+.Antes de começar
+* Você tem experiência na criação de aplicativos Okta ou tem acesso à documentação do Okta.
+* Você tem acesso de administrador do Okta.
+
+
+.Sobre esta tarefa
+Um aplicativo Okta deve conter URIs de redirecionamento de login e logout para todos os Admin Nodes. Os URIs de redirecionamento garantem que os usuários possam entrar e sair de qualquer Admin Node com segurança. Você pode criar um único aplicativo Okta para todos os Admin Nodes (recomendado) ou um aplicativo diferente para cada Admin Node.
+
+Utilize as configurações padrão, a menos que seja especificado o contrário. Em alguns casos, você pode usar as configurações exigidas pela sua organização.
+
+
+
+[[step-1-create-an-okta-application]]
+== Etapa 1: Crie um aplicativo Okta
+
+Crie um aplicativo Okta usando a interface do usuário do Okta.
+
+.Passos
+. No Okta, acesse *Aplicativos* > *Aplicativos*.
+. Selecione *Criar integração de aplicativo* e insira as seguintes informações:
++
+** Método de login: *OIDC - OpenID Connect*
+** Tipo de aplicação: *Aplicação Web*
+
+
+. Selecione *seguinte*.
+. Insira um nome para o aplicativo no campo App Integration.
+. Verifique se Código de Autorização está selecionado (padrão) para concessões do Core.
+. Adicione os URIs de redirecionamento de login e logout para cada Admin Node:
++
+** URI de redirecionamento de login: `\https://<Admin_IP_address_or_FQDN>/api/v4/oidc-callback`
+** URI de redirecionamento para sign-out: `\https://<Admin_IP_address_or_FQDN>/api/v4/oidc-logged-out`
++
+
+NOTE: Se um ou mais endpoints de balanceador de carga estiverem configurados para a interface de gerenciamento, adicione os URIs de redirecionamento para cada porta. Por exemplo: `\https://<Admin_IP_address_or_FQDN>:<port>/api/v4/oidc-callback` e `\https://<Admin_IP_address_or_FQDN>:<port>/api/v4/oidc-logged-out`
+
+
+
+. Selecione *Salvar*. Salve os valores de ID do cliente e segredo do cliente para uso posterior.
+
+
+
+
+[[step-2-add-a-federate-group]]
+== Etapa 2: Adicione um grupo federado
+
+Crie um grupo ou utilize um grupo existente do servidor Active Directory Federation Service (AD FS) para StorageGRID.
+
+.Passos
+. No GRID Manager, selecione *Configuração* > *Grupos de administração* > *Criar grupo* > *Grupo federado*.
+. Insira o nome do grupo de servidores do AD FS.
+. Selecione *Leitura e gravação* para o modo de acesso e *Acesso root* para as permissões.
+. Selecione *criar grupo*.
+
+
+
+
+[[step-3-import-ad-fs-server-groups-and-users]]
+== Etapa 3: importar grupos e usuários do servidor AD FS
+
+Instale o cliente Okta Active Directory no servidor AD FS. Em seguida, importe os grupos e usuários do servidor AD FS.
+
+.Passos
+. No Okta, acesse *Diretório* > *Integrações de diretório* > *Adicionar diretório* > *Adicionar Active Directory*.
+. Selecione *Configurar Active Directory* > *Baixar Agent*.
+. Siga imediatamente o processo de configuração.
++
+
+NOTE: Se você demorar, a configuração pode travar e você precisará começar de novo.
+
++
+.. Selecione o domínio do Active Directory.
+.. Crie uma conta OktaService em vez de vincular um usuário existente.
+.. Selecione as unidades organizacionais que contêm os usuários e as unidades organizacionais que contêm os grupos.
+.. Selecione o Nome Principal do Usuário (UPN) que usa o UPN do Active Directory como nome de usuário do Okta. Por exemplo: user@domain.com
+
+
+. Procure pelo aplicativo *Utilitário de Gerenciamento do Agente do Okta AD*. Em seguida, execute o aplicativo e confirme que a mensagem de status  `The agent is running` aparece.
++
+
+NOTE: O cliente Okta AD deve estar em execução sempre que você quiser realizar uma sincronização e importação do servidor AD FS com o Okta.
+
+. No Okta, acesse *Diretório* > *Integrações de diretório*.
+. Selecione a integração de diretório que você criou.
+. Selecione *Importar* > *Importar agora*.
+. Selecione o usuário que você deseja importar e, em seguida, selecione *Confirmar atribuições*.
+. Acesse *Diretório* > *Pessoas* e confirme se o usuário foi importado com sucesso.
++
+Se o status do usuário não for Ativo, selecione *Ativar* e continue atualizando a página até que o usuário tenha o status Ativo.
+
+. Acesse *Diretório* > *Grupos* e confirme que o grupo do usuário importado foi importado automaticamente.
+. Selecione o grupo e verifique se o usuário importado faz parte desse grupo.
+
+
+
+
+[[step-4-set-up-a-claim]]
+== Etapa 4: configure uma reivindicação
+
+Configure uma declaração para incluir os grupos do servidor AD FS no token de acesso. Em seguida, verifique se a declaração inclui o grupo importado para o usuário importado e o aplicativo Okta.
+
+.Passos
+. No Okta, vá para *Diretório* > *Grupos*.
+. Selecione o grupo importado para o usuário importado.
+. Selecione *Applications* > *Assign applications* > *Assign*.
+. Acesse *Segurança* > *API*.
+. Selecione o servidor de autorização *padrão*.
+. Selecione *Reivindicações* > *Adicionar reivindicação*. Em seguida, crie uma reivindicação com as seguintes credenciais:
++
+** Nome: *grupos*
+** Incluir no tipo de token: *ID Token - Sempre*
+** Tipo de valor: *Expressão*
+** Valor: *Grupos.startsWith("active_directory","",100)*
+** Incluir em: *Qualquer escopo*
+
+
+. Acesse *Segurança* > *API*.
+. Selecione o servidor de autorização *padrão*.
+. Selecione a guia *Visualização do Token* e insira as seguintes credenciais em Propriedades da Solicitação:
++
+** OAuth/OIDC cliente: *<application name>*
+** Tipo de concessão: *Código de autorização*
+** Usuário: *Usuário importado (endereço de e-mail)*
+** Escopos: *email, perfil, openid*
+
+
+. Selecione *Executar*.
++
+O grupo importado aparece na aba "Visualização id_token" do Payload.
+
+
+
+.O que vem a seguir
+Após criar um aplicativo Okta, link:configure-sso-oidc.html["configurar SSO usando OIDC"].

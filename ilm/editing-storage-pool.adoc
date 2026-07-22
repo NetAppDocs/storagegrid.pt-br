@@ -43,4 +43,4 @@ CAUTION: Adicionar ou remover sites de um pool de armazenamento existente não m
 
 
 .Depois de terminar
-Se você adicionou um novo local ou nível de armazenamento a um pool de armazenamento usado na política ILM ativa, ative uma nova política ILM para forçar o StorageGRID a usar o novo local ou nível de armazenamento. Por exemplo, clone sua política ILM existente e, em seguida, ative o clone. link:working-with-ilm-rules-and-ilm-policies.html["Trabalhe com regras ILM e políticas ILM"]Consulte .
+Se você adicionou um novo site ou nível de armazenamento a um pool de storage usado na política ILM ativa, ative uma nova política ILM para forçar o StorageGRID a usar o novo site ou nível de armazenamento. Por exemplo, clone sua política ILM existente e ative o clone. Consulte link:working-with-ilm-rules-and-ilm-policies.html["Trabalhe com regras ILM e políticas ILM"].

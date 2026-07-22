@@ -1,0 +1,42 @@
+---
+permalink: admin/about-multi-admin-verify.html 
+sidebar: sidebar 
+keywords: multi-admin verification, mav 
+summary: 'Como administrador do StorageGRID, você pode usar a verificação multiadministradora (MAV) para garantir que determinadas operações só possam ser executadas após a aprovação de administradores designados. A MAV ajuda a evitar alterações acidentais ou não autorizadas no seu sistema StorageGRID.' 
+---
+= Saiba mais sobre a verificação de múltiplos administradores do StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Como administrador do StorageGRID, você pode usar a verificação multiadministradora (MAV) para garantir que determinadas operações só possam ser executadas após a aprovação de administradores designados. A MAV ajuda a evitar alterações acidentais ou não autorizadas no seu sistema StorageGRID.
+
+O MAV está desativado por padrão.
+
+
+
+[[mav-configuration-overview]]
+== Visão geral da configuração do MAV
+
+Para configurar o MAV, você executará estas tarefas:
+
+* Crie um ou mais grupos de administradores. Os administradores do MAV têm poder de aprovação e veto.
+* Ative a função de verificação multi-admin.
+* Selecione dentre um conjunto de operações protegidas.
+
+
+O usuário precisa ter permissão de acesso Root para realizar a configuração inicial e fazer modificações posteriormente.
+
+
+
+[[how-protected-operations-are-handled-under-mav]]
+== Como as operações protegidas são tratadas sob o MAV
+
+Quando o MAV está ativado, a conclusão de cada operação protegida requer estas etapas:
+
+. Quando um usuário inicia a operação, uma solicitação é gerada.
+. Antes que a operação possa ser realizada, pelo menos um administrador do MAV deve aprovar.
+. Após aprovada, a operação protegida por MAV é realizada automaticamente.
+

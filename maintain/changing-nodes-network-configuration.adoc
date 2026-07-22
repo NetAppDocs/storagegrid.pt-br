@@ -1,8 +1,8 @@
 ---
 permalink: maintain/changing-nodes-network-configuration.html 
 sidebar: sidebar 
-keywords: storagegrid, network configuration, node network configuration 
-summary: Você pode alterar a configuração de rede de um ou mais nós usando a ferramenta alterar IP. Você pode alterar a configuração da rede de Grade ou adicionar, alterar ou remover as redes Admin ou Client. 
+keywords: storagegrid, network configuration, node network configuration, bmc ip 
+summary: Você pode alterar a configuração de rede de um ou mais nós usando a ferramenta Alterar IP. Você pode alterar a configuração da Grid Network ou adicionar, alterar ou remover as Admin ou Client Networks. Você também pode alterar as configurações de IP da LAN para um nó de appliance BMC. 
 ---
 = Alterar a configuração de rede do nó no StorageGRID
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Você pode alterar a configuração de rede de um ou mais nós usando a
 
 
 [role="lead"]
-Você pode alterar a configuração de rede de um ou mais nós usando a ferramenta alterar IP. Você pode alterar a configuração da rede de Grade ou adicionar, alterar ou remover as redes Admin ou Client.
+Você pode alterar a configuração de rede de um ou mais nós usando a ferramenta Alterar IP. Você pode alterar a configuração da Grid Network ou adicionar, alterar ou remover as Admin ou Client Networks. Você também pode alterar as configurações de IP da LAN para um nó de appliance BMC.
 
 .Antes de começar
 Você tem o `Passwords.txt` arquivo.
@@ -36,7 +36,7 @@ Os nós não podem ser removidos da rede de Grade.
 NOTE: Swaps de endereço IP não são permitidos. Se for necessário trocar endereços IP entre nós de grade, você deverá usar um endereço IP intermediário temporário.
 
 
-NOTE: Se o logon único (SSO) estiver habilitado para seu sistema StorageGRID e você estiver alterando o endereço IP de um nó de administração, esteja ciente de que qualquer confiança de parte confiável que foi configurada usando o endereço IP do nó de administração (em vez de seu nome de domínio totalmente qualificado, conforme recomendado) se tornará inválida.  Você não poderá mais fazer login no nó.  Imediatamente após alterar o endereço IP, você deve atualizar ou reconfigurar a parte confiável do nó nos Serviços de Federação do Active Directory (AD FS) com o novo endereço IP.  Veja as instruções paralink:../admin/configure-sso.html["Configurando o SSO"] .
+NOTE: Se o logon único (SSO) estiver habilitado para o seu sistema StorageGRID e você estiver alterando o endereço IP de um Nó de Administração, esteja ciente de que qualquer relação de confiança com terceiros configurada usando o endereço IP do Nó de Administração (em vez do seu domínio totalmente qualificado, conforme recomendado) se tornará inválida. Você não poderá mais fazer logon no nó. Imediatamente após alterar o endereço IP, você deve atualizar ou reconfigurar a relação de confiança com terceiros do nó no Active Directory Federation Services (AD FS) com o novo endereço IP. Consulte as instruções para configurar o SSO usando link:../admin/learn-about-setting-up-sso-oidc.html["OIDC"] ou link:../admin/learn-about-setting-up-sso-saml.html["SAML"].
 
 
 NOTE: Todas as alterações feitas na rede usando a ferramenta Change IP são propagadas para o firmware do instalador dos dispositivos StorageGRID. Dessa forma, se o software StorageGRID for reinstalado em um dispositivo ou se um dispositivo for colocado no modo de manutenção, a configuração de rede estará correta.
@@ -246,3 +246,18 @@ onde `_<speed>_` é `fast` ou `slow` .
 
 
 A taxa do PDU LACP retornará à configuração anterior na próxima reinicialização do dispositivo.
+
+
+
+[[change-appliance-node-bmc-lan-ip-settings]]
+== Alterar as configurações de endereço IP da LAN do BMC do nó do appliance
+
+Você pode alterar as configurações de IP da LAN para um nó de appliance BMC.
+
+. No Grid Manager, vá para *Nodes* > *_grid node_* > *BMC settings*.
+. Na seção de configurações de IP da LAN, selecione um tipo de atribuição de IP como *Estático* ou *DHCP*.
+. Insira o endereço MAC, o endereço IPv4 (CIDR) e o gateway padrão para o BMC.
+. Selecione *Guardar*.
+
+
+Você também pode alterar ou visualizar as configurações de endereço IP da LAN do BMC usando a  `PUT /bmc-configuration/root-password` ou  `GET /bmc-configuration/root-password` API.

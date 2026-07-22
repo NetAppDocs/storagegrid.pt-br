@@ -39,7 +39,7 @@ Configure a federação de identidade e o SSO:: Se você planeja usar federaçã
 Obter e configurar nomes de domínio:: Você sabe qual nome de domínio totalmente qualificado (FQDN) usar para o StorageGRID. As entradas do servidor de nomes de domínio (DNS) mapearão esse FQDN para os endereços IP virtuais (VIP) do grupo HA criado usando o assistente.
 +
 --
-Se você planeja usar S3 solicitações virtuais de estilo hospedado, você deve ter link:../admin/configuring-s3-api-endpoint-domain-names.html["Configurados S3 nomes de domínio de endpoint"]o . Recomenda-se o uso de solicitações virtuais de estilo hospedado.
+Se você planeja usar solicitações no estilo virtual-hosted do S3, você deve ter link:../admin/configuring-s3-api-endpoint-domain-names.html["Configurados S3 nomes de domínio de endpoint"]. O uso de solicitações no estilo virtual-hosted é recomendado.
 
 --
 Revise os requisitos do balanceador de carga e do certificado de segurança:: Se você planeja usar o balanceador de carga do StorageGRID, analisou as considerações gerais sobre o balanceamento de carga. Você tem os certificados que você vai carregar ou os valores que você precisa para gerar um certificado.
@@ -48,7 +48,7 @@ Revise os requisitos do balanceador de carga e do certificado de segurança:: Se
 Se você planeja usar um endpoint de balanceador de carga externo (de terceiros), terá o nome de domínio totalmente qualificado (FQDN), a porta e o certificado para esse balanceador de carga.
 
 --
-Configure todas as conexões de federação de grade:: Se você quiser permitir que o locatário do S3 clone dados de conta e replique objetos de bucket para outra grade usando uma conexão de federação de grade, confirme o seguinte antes de iniciar o assistente:
+Configure todas as conexões de federação de grade:: Se você deseja permitir que o locatário do S3 sincronize dados da conta e replique objetos do bucket para outra grid usando uma conexão de federação de grid, confirme o seguinte antes de iniciar o assistente:
 +
 --
 * Você link:grid-federation-manage-connection.html["configurada a conexão de federação de grade"]tem .

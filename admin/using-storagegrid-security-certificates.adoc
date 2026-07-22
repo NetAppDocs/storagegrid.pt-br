@@ -186,7 +186,7 @@ Você pode:
 *** link:grid-federation-manage-connection.html#rotate-connection-certificates["Girar certificados de conexão de federação de grade"]
 *** link:using-identity-federation.html["Exibir e editar um certificado de federação de identidade"]
 *** link:kms-adding.html["Carregar certificados de servidor de gerenciamento de chaves (KMS) e cliente"]
-*** link:creating-relying-party-trusts-in-ad-fs.html#create-a-relying-party-trust-manually["Especifique manualmente um certificado SSO para uma confiança de parte dependente"]
+*** link:creating-relying-party-trusts-in-ad-fs-saml.html#create-a-relying-party-trust-manually["Especifique manualmente um certificado SSO para uma confiança de parte dependente"]
 
 
 --
@@ -317,7 +317,7 @@ Você também pode usar uma versão personalizada do certificado global <<Certif
  a| 
 Servidor
  a| 
-Autentica a conexão de um pool de storage de nuvem do StorageGRID para um local de storage externo, como o S3 Glacier ou o storage Microsoft Azure Blob. Um certificado diferente é necessário para cada tipo de provedor de nuvem.
+Autentica a conexão de um StorageGRID Cloud Storage Pool para um local de armazenamento externo, como Amazon S3 Glacier ou Microsoft Azure Blob Storage. É necessário um certificado diferente para cada tipo de provedor de nuvem.
  a| 
 *ILM* > *conjuntos de armazenamento*
  a| 

@@ -22,31 +22,28 @@ Você deve selecionar Iniciar recuperação no Gerenciador de Grade para configu
 
 
 .Passos
-. No Grid Manager, selecione *Manutenção* > *Tarefas* > *Recuperação*.
+. No Grid Manager, selecione *Manutenção* > *Tarefas* > *Recuperação de nó*.
 . Selecione o nó de grade que você deseja recuperar na lista de nós pendentes.
 +
 Os nós aparecem na lista depois que eles falham, mas você não pode selecionar um nó até que ele seja reinstalado e esteja pronto para recuperação.
 
-. Introduza a *frase-passe de aprovisionamento*.
-. Clique em *Iniciar recuperação*.
+. Digite a *senha de provisionamento*.
+. Selecione *Iniciar recuperação*.
 +
 image:4b_select_recovery_node.png["captura de tela mostrando a página Maintenance > Recovery"]
 
 . Monitore o progresso da recuperação na tabela Recovering Grid Node (Recovering Grid Node).
 +
-Quando o nó da grade atingir o estágio "aguardando etapas manuais", vá para o próximo tópico e execute as etapas manuais para remontar e reformatar os volumes de storage do dispositivo.
+** Se o nó da grade atingir o estágio "Aguardando etapas manuais", você deve link:../maintain/remounting-and-reformatting-appliance-storage-volumes.html["Remonte e reformate manualmente os volumes de armazenamento do appliance"].
+** Se a mensagem "Aguardando etapas manuais" não aparecer, significa que os volumes de armazenamento foram remontados e reformatados automaticamente e você pode link:../maintain/restoring-object-data-to-storage-volume-for-appliance.html["restaurar dados de objetos para os volumes"].
 
-+
-image:recovery_reset_button.gif["captura de tela mostrando o estágio aguardando etapas manuais"]
 
-+
 
-NOTE: A qualquer momento durante a recuperação, você pode clicar em *Reset* para iniciar uma nova recuperação. Uma caixa de diálogo é exibida, indicando que o nó será deixado em um estado indeterminado se você redefinir o procedimento.
 
-+
-image:recovery_reset_warning.gif["captura de tela mostrando a caixa de diálogo de aviso de recuperação de redefinição"]
+[NOTE]
+====
+A qualquer momento durante a recuperação, você pode selecionar *Redefinir* para iniciar uma nova recuperação. Uma caixa de diálogo será exibida, indicando que o nó ficará em um estado indeterminado se você redefinir o procedimento.
 
-+
 Se pretender tentar novamente a recuperação após reiniciar o procedimento, tem de restaurar o nó do dispositivo para um estado pré-instalado executando `sgareinstall` no nó.
 
-
+====

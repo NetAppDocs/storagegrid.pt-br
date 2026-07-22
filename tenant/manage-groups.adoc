@@ -32,8 +32,7 @@ Você pode exibir e editar as informações básicas e os detalhes de cada grupo
 Se a conta de locatário tiver a permissão *usar conexão de federação de grade* e você estiver visualizando grupos na grade de origem do locatário:
 
 +
-** Uma mensagem de banner indica que, se você editar ou remover um grupo, suas alterações não serão sincronizadas com a outra grade.
-** Conforme necessário, uma mensagem de banner indica se os grupos não foram clonados ao locatário na grade de destino. Você pode <<clone-groups,tente novamente um clone de grupo>> que falhou.
+** Se algum grupo não foi sincronizado com o locatário na grade de destino, siga os passos para <<sync-groups,tentar novamente uma sincronização de grupo>>.
 
 
 . Se quiser alterar o nome do grupo:
@@ -61,8 +60,8 @@ Se a conta de locatário tiver a permissão *usar conexão de federação de gra
 ** Número de usuários neste grupo
 ** Campos adicionais se a conta de locatário tiver a permissão *usar conexão de federação de grade* e você estiver visualizando o grupo na grade de origem do locatário:
 +
-*** Status da clonagem, *sucesso* ou *falha*
-*** Um banner azul indicando que, se você editar ou excluir esse grupo, suas alterações não serão sincronizadas com a outra grade.
+*** Status da sincronização, *Concluída com sucesso* ou *Falha*
+*** Para grupos federados, uma faixa azul indica que, se você editar ou excluir esse grupo, suas alterações não serão sincronizadas com a outra grid.
 
 
 
@@ -111,7 +110,7 @@ Uma mensagem de sucesso aparece no canto superior direito.
 Você pode duplicar um grupo existente para criar novos grupos mais rapidamente.
 
 
-NOTE: Se sua conta de locatário tiver a permissão *usar conexão de federação de grade* e você duplicar um grupo da grade de origem do locatário, o grupo duplicado será clonado para a grade de destino do locatário.
+NOTE: Se a sua conta de locatário tiver a permissão *Usar conexão de federação de grid* e você duplicar um grupo da grid de origem do locatário, o grupo duplicado será sincronizado com a grid de destino do locatário.
 
 .Passos
 . Selecione *Gerenciamento de acesso* > *Grupos*.
@@ -123,17 +122,22 @@ NOTE: Se sua conta de locatário tiver a permissão *usar conexão de federaçã
 
 
 
-[[clone-groupsretry-group-clone]]
-== [[clone-groups]]Repetir o clone do grupo
+[[sync-groupsretry-group-sync]]
+== [[sync-groups]]Tentar novamente a sincronização do grupo
 
-Para tentar novamente um clone que falhou:
+Se algum grupo não sincronizar, "Failed" aparecerá na coluna de status de sincronização do grupo. Um banner aparecerá acima da tabela para indicar que um ou mais grupos não sincronizaram.
 
-. Selecione cada grupo que indica _(Falha na clonagem)_ abaixo do nome do grupo.
-. Selecione *ações* > *Clone groups*.
-. Veja o status da operação de clone na página de detalhes de cada grupo que você está clonando.
+.Passos
+Para tentar sincronizar novamente:
+
+. No banner, selecione *Tentar sincronizar novamente*. Esta operação tenta sincronizar novamente todos os grupos que não foram sincronizados.
+. Para tentar sincronizar um grupo específico novamente, selecione o nome do grupo. Na página de detalhes do grupo, selecione *Tentar sincronizar novamente*.
+. Veja o status da operação de sincronização na página de detalhes de cada grupo que você está sincronizando.
 
 
-Para obter informações adicionais, link:grid-federation-account-clone.html["Clonar grupos de locatários e usuários"]consulte .
+Se a nova tentativa for bem-sucedida, "Succeeded" aparecerá na coluna de status de sincronização para cada grupo que foi sincronizado com êxito, e o banner desaparecerá.
+
+Para obter informações adicionais, consulte link:grid-federation-account-sync.html["Sincronizar grupos de locatários e usuários"].
 
 
 
@@ -141,9 +145,6 @@ Para obter informações adicionais, link:grid-federation-account-clone.html["Cl
 == Exclua um ou mais grupos
 
 Pode eliminar um ou mais grupos. Quaisquer usuários que pertençam apenas a um grupo que seja excluído não poderão mais entrar no Gerenciador do locatário ou usar a conta do locatário.
-
-
-NOTE: Se sua conta de locatário tiver a permissão *usar conexão de federação de grade* e você excluir um grupo, o StorageGRID não excluirá o grupo correspondente na outra grade. Se você precisar manter essas informações em sincronia, exclua o mesmo grupo de ambas as grades.
 
 .Passos
 . Selecione *Gerenciamento de acesso* > *Grupos*.
@@ -170,7 +171,7 @@ Credenciais de segurança temporárias criadas assumindo que este grupo é váli
 
 .Passos
 . Selecione *Gerenciamento de acesso* > *Grupos*.
-. Clique no nome do grupo.
+. Selecione o nome do grupo.
 . Selecione a aba *Política de confiança S3*.
 . Adicione sua política de confiança do S3, incluindo uma lista de usuários que podem executar AssumeRole.
 . Selecione *Salvar alterações*.
@@ -201,4 +202,12 @@ Credenciais de segurança temporárias criadas assumindo que este grupo é váli
     ]
 }
 ----
+O principal:
+
+* `"Principal": "*"`Corresponde a todos, incluindo solicitações anônimas (não assinadas)
+* `"Principal": { "AWS": "*" }`Corresponde a qualquer identidade ou usuário autenticado (não corresponde a solicitações anônimas)
+* Aplica-se somente a políticas de bucket
+* O principal é a(s) conta(s)/usuário(s) que está recebendo ou sendo negada as permissões
+
+
 Após a conclusão da configuração, os usuários listados na política de confiança do S3 podem executar AssumeRole e receber credenciais.  As permissões finais são determinadas pela política de grupo, política de bucket e política de sessão. Para mais informações, consulte link:../s3/use-access-policies.html["Usar políticas de acesso"] .

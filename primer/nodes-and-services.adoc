@@ -20,7 +20,7 @@ O componente básico básico de um sistema StorageGRID é o nó de grade. Os nó
 
 O sistema StorageGRID usa três tipos de nós de grade:
 
-Nós de administração:: Fornecer serviços de gerenciamento, como configuração do sistema, monitoramento e logs. Quando você entra no Gerenciador de Grade, você está se conetando a um nó Admin. Cada grade deve ter um nó de administração principal e pode ter nós de administração não primários adicionais para redundância. Você pode se conetar a qualquer nó de administrador e cada nó de administrador exibe uma exibição semelhante do sistema StorageGRID. No entanto, os procedimentos de manutenção devem ser executados usando o nó de administração principal.
+Nós de administração:: Forneça serviços de gerenciamento, como configuração do sistema, monitoramento e registro de logs. Ao fazer login no Grid Manager, você está se conectando a um Nó de Administração. Cada grid deve ter um Nó de Administração primário e pode ter Nós de Administração adicionais não primários para redundância. Você pode se conectar a qualquer Nó de Administração, e cada Nó de Administração exibe uma visão semelhante do sistema StorageGRID. No entanto, você deve realizar a maioria dos procedimentos de manutenção usando o Nó de Administração primário.
 +
 --
 Os nós de administração também podem ser usados para equilibrar o tráfego de clientes S3.
@@ -31,7 +31,7 @@ Consulte link:what-admin-node-is.html["O que é um nó de administração?"]
 Nós de storage:: Gerenciar e armazenar dados e metadados de objetos. Cada local do seu sistema StorageGRID precisa ter pelo menos três nós de storage.
 +
 --
-Durante a instalação inicial de um novo nó de armazenamento, você pode especificar que ele seja usado apenas paralink:../primer/what-storage-node-is.html#types-of-storage-nodes["armazenar metadados"] .
+Durante a instalação inicial de um novo Nó de Armazenamento, você pode especificar que ele seja usado apenas para link:../primer/what-storage-node-is.html#types-of-storage-nodes["armazenar metadados ou dados"].
 
 Consulte link:what-storage-node-is.html["O que é um nó de storage?"]
 
@@ -60,7 +60,7 @@ Os aparelhos de hardware StorageGRID são especialmente projetados para uso em u
 
 Consulte o seguinte para saber mais sobre os aparelhos disponíveis:
 
-* https://docs.netapp.com/us-en/storagegrid-appliances/["Documentação do StorageGRID Appliance"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/["Documentação do appliance StorageGRID"^]
 * https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 
@@ -107,15 +107,6 @@ Pelo menos três nós de storage que contêm o serviço ADC em cada local
 AMS (sistema de Gestão de Auditoria)
  a| 
 Monitora e Registra todos os eventos e transações do sistema auditados em um arquivo de log de texto.
- a| 
-Nós de administração
-
-
-
- a| 
-Apache Tomcat
- a| 
-Servidor web para aplicativos baseados em Java.
  a| 
 Nós de administração
 
@@ -203,6 +194,15 @@ Todos os nós
 
 
  a| 
+gdu-server
+ a| 
+O executor de tarefas de backend para ações de manutenção e provisionamento da grid. Aceita solicitações de  `mgmt-api` e outros scripts utilitários, valida-as e encaminha cada ação para o manipulador de tarefas GDU apropriado, como provisionamento, expansão, desativação e atualizações.
+ a| 
+Nós de administração
+
+
+
+ a| 
 Grafana
  a| 
 Usado para visualização de métricas no Gerenciador de Grade.
@@ -214,7 +214,7 @@ Nós de administração
  a| 
 Alta disponibilidade
  a| 
-Gerencia IPs virtuais de alta disponibilidade em nós configurados na página grupos de alta disponibilidade. Este serviço também é conhecido como o serviço keepalived.
+Gerencia IPs virtuais de alta disponibilidade em nós configurados na página Grupos de Alta Disponibilidade. Este serviço também é conhecido como o serviço _keepalived_.
  a| 
 Nós de administrador e gateway
 
@@ -241,7 +241,7 @@ Todos os nós
  a| 
 Balanceador de carga (nginx-gw)
  a| 
-Fornece balanceamento de carga de tráfego S3 de clientes para nós de storage. O serviço Load Balancer pode ser configurado através da página de configuração Load Balancer Endpoints. Este serviço também é conhecido como o serviço nginx-gw.
+Fornece balanceamento de carga de tráfego S3 de clientes para nós de storage.
  a| 
 Nós de administrador e gateway
 
@@ -253,6 +253,15 @@ LDR (router de distribuição local)
 Gerencia o armazenamento e a transferência de conteúdo dentro da grade.
  a| 
 Nós de storage
+
+
+
+ a| 
+mgmt-api
+ a| 
+A API de backend do Grid Manager. Expõe endpoints REST autenticados para administrar a grid (configuração, monitoramento e fluxos de trabalho de manutenção), aplica validações e permissões e orquestra operações de longa duração. A principal API do plano de controle usada pela interface do Grid Manager e pelos clientes de automação.
+ a| 
+Nós de administração
 
 
 
@@ -277,7 +286,7 @@ Todos os nós
  a| 
 Balanceador de carga nginx-gw
  a| 
-Fornece balanceamento de carga de tráfego S3 de clientes para nós de storage. O serviço Load Balancer pode ser configurado através da página de configuração Load Balancer Endpoints. Este serviço também é conhecido como o serviço nginx-gw.
+Fornece balanceamento de carga de tráfego S3 de clientes para nós de storage.
  a| 
 Nós de administrador e gateway
 
@@ -302,7 +311,7 @@ Todos os nós
 
 
  a| 
-ntp
+NTP
  a| 
 Serviço de protocolo de tempo de rede (NTP).
  a| 

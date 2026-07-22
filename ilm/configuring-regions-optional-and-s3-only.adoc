@@ -66,7 +66,7 @@ NOTE: Você não pode remover ou modificar a região padrão na aba *Todas as re
 +
 Você deve usar esse nome exato da região como o elemento de solicitação LocationConstraint ao criar o bucket S3 correspondente.
 
-.. Para remover uma região não utilizada, selecione o ícone de excluir image:icon-x-to-remove.png["Remover ícone"].
+.. Para remover uma região não utilizada, selecione o ícone de excluir image:icon_x_to_remove.png["Remover ícone"].
 +
 Uma mensagem de erro será exibida se você tentar remover uma região atualmente usada em qualquer política (ativa ou inativa).
 

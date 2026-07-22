@@ -116,7 +116,7 @@ Entrada de IP manual
  a| 
 .. Desmarque a caixa de seleção *Ativar descoberta de nó de administrador*.
 .. Introduza o endereço IP manualmente.
-.. Clique em *Salvar*.
+.. Selecione *Guardar*.
 .. Aguarde até que o estado da ligação para que o novo endereço IP fique pronto.
 
 
@@ -128,7 +128,7 @@ Detecção automática de todos os nós de administração principal conetados
 .. Marque a caixa de seleção *Enable Admin Node Discovery* (Ativar descoberta de nó de administrador).
 .. Aguarde até que a lista de endereços IP descobertos seja exibida.
 .. Selecione o nó de administração principal para a grade onde este nó de storage do dispositivo será implantado.
-.. Clique em *Salvar*.
+.. Selecione *Guardar*.
 .. Aguarde até que o estado da ligação para que o novo endereço IP fique pronto.
 
 
@@ -143,16 +143,16 @@ Se o botão *Start Installation* (Iniciar instalação) não estiver ativado, po
 
 . Na página inicial do Instalador de dispositivos StorageGRID, selecione *Iniciar instalação*.
 +
-O estado atual muda para "a instalação está em andamento" e a página Instalação do monitor é exibida.
+O estado atual muda para "A instalação está em andamento" e a página de instalação do monitor é exibida.
 
 . Se a expansão incluir vários nós de dispositivo, repita as etapas anteriores para cada dispositivo.
 +
 
 NOTE: Se você precisar implantar vários nós de storage de dispositivos de uma só vez, poderá automatizar o processo de instalação usando o script de instalação do dispositivo configure-sga.py.
 
-. Se precisar acessar manualmente a página Instalação do Monitor, selecione *Instalação do Monitor* na barra de menus.
+. Se você precisar acessar manualmente a página de instalação do Monitor, selecione *Monitor Installation* na barra de menu.
 +
-A página Instalação do monitor mostra o progresso da instalação.
+A página de instalação do Monitor mostra o progresso da instalação.
 
 +
 A barra de status azul indica qual tarefa está atualmente em andamento. As barras de estado verdes indicam tarefas concluídas com êxito.

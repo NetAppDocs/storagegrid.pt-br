@@ -8,6 +8,7 @@ Administrador de grade::
 +
 --
 * Ative a configuração global de bloqueio de objetos S3D para todo o sistema StorageGRID.
+* Permitir que os usuários habilitem o S3 Object Lock para buckets existentes.
 * Certifique-se de que as políticas de gerenciamento do ciclo de vida das informações (ILM) sejam _compatíveis_; ou seja, elas atendem link:../ilm/managing-objects-with-s3-object-lock.html["Requisitos de buckets com bloqueio de objeto S3 ativado"]ao .
 * Conforme necessário, permita que um locatário use a conformidade como modo de retenção. Caso contrário, somente o modo Governança é permitido.
 * Conforme necessário, defina um período máximo de retenção para um locatário.
@@ -18,8 +19,14 @@ Utilizador inquilino::
 +
 --
 * Considerações de revisão para buckets e objetos com o S3 Object Lock.
-* Conforme necessário, entre em Contato com o administrador de grade para habilitar a configuração global de bloqueio de objetos S3D e definir permissões.
+* Se necessário, entre em contato com um administrador do grid para ativar uma das seguintes configurações:
++
+** Bloqueio global de objetos S3
+** Permitir que o bloqueio de objetos S3 seja ativado para buckets existentes
+
+
 * Crie buckets com o S3 Object Lock ativado.
+* Ativar o bloqueio de objetos S3 em buckets existentes.
 * Opcionalmente, configure as configurações de retenção padrão para um bucket:
 +
 ** Modo de retenção padrão: Governança ou conformidade, se permitido pelo administrador da grade.

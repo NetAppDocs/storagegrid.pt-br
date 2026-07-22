@@ -29,7 +29,7 @@ NOTE: Se um nó de grade estiver ausente, confirme que ele foi implantado com su
 +
 image:5_gmi_installer_grid_nodes_pending.gif["Esta imagem é explicada pelo texto circundante."]
 
-. Clique em *Approve*.
+. Selecione *Approve*.
 . Em Configurações gerais, modifique as configurações para as seguintes propriedades, conforme necessário:
 +
 ** *Site*: O nome do sistema do site para este nó de grade.
@@ -85,7 +85,7 @@ A reinicialização pode levar vários minutos.
 
 .. Selecione *Configure Networking* > *Link Configuration* e ative as redes apropriadas.
 .. Selecione *Configurar rede* > *Configuração IP* e configure as redes ativadas.
-.. Volte à página inicial e clique em *Iniciar instalação*.
+.. Retorne à página inicial e selecione *Iniciar instalação*.
 .. No Gerenciador de Grade: Se o nó estiver listado na tabela de nós aprovados, remova o nó.
 .. Remova o nó da tabela nós pendentes.
 .. Aguarde que o nó reapareça na lista de nós pendentes.
@@ -110,7 +110,7 @@ A reinicialização pode levar vários minutos.
 
 .. Selecione *Configure Networking* > *Link Configuration* e ative as redes apropriadas.
 .. Selecione *Configurar rede* > *Configuração IP* e configure as redes ativadas.
-.. Volte à página inicial e clique em *Iniciar instalação*.
+.. Retorne à página inicial e selecione *Iniciar instalação*.
 .. No Gerenciador de Grade: Se o nó estiver listado na tabela de nós aprovados, remova o nó.
 .. Remova o nó da tabela nós pendentes.
 .. Aguarde que o nó reapareça na lista de nós pendentes.
@@ -120,7 +120,7 @@ Para obter informações adicionais, consulte o https://docs.netapp.com/us-en/st
 
 
 
-. Clique em *Salvar*.
+. Selecione *Guardar*.
 +
 A entrada do nó de grade se move para a lista de nós aprovados.
 
@@ -129,7 +129,7 @@ image:7_gmi_installer_grid_nodes_approved.gif["Esta imagem é explicada pelo tex
 
 . Repita estas etapas para cada nó de grade pendente que você deseja aprovar.
 +
-Você deve aprovar todos os nós que deseja na grade. No entanto, você pode retornar a esta página a qualquer momento antes de clicar em *Instalar* na página Resumo. Você pode modificar as propriedades de um nó de grade aprovado selecionando seu botão de opção e clicando em *Editar*.
+Você deve aprovar todos os nós que deseja na grid. No entanto, você pode retornar a esta página a qualquer momento antes de selecionar *Instalar* na página Summary. Você pode modificar as propriedades de um nó de grid aprovado selecionando seu botão de opção e selecionando *Editar*.
 
-. Quando terminar de aprovar nós de grade, clique em *Next*.
+. Quando você terminar de aprovar os nós da grade, selecione *Avançar*.
 

@@ -60,5 +60,4 @@ CAUTION: Não feche esta caixa de diálogo até que você tenha copiado ou baixa
 +
 A nova chave está listada na guia teclas de acesso da página de detalhes do usuário.
 
-. Se a sua conta de locatário tiver a permissão *Use Grid Federation Connection*, opcionalmente use a API de Gerenciamento do locatário para clonar manualmente as chaves de acesso S3 do locatário na grade de origem para o locatário na grade de destino. link:grid-federation-clone-keys-with-api.html["Clonar chaves de acesso S3 usando a API"]Consulte .
 

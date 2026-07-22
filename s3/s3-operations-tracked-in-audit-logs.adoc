@@ -20,13 +20,18 @@ As mensagens de auditoria são geradas pelos serviços do StorageGRID e armazena
 
 * CreateBucket
 * DeleteBucket
+* DeleteBucketPolicy
 * DeleteBucketTagging
 * DeleteObjects
+* GetBucketLifecycleConfiguration
+* Política de GetBucketPolicy
 * GetBucketTagging
 * Balde para a cabeça
 * ListObjects
 * ListObjectVersions
 * COLOQUE a conformidade do balde
+* PutBucketLifecycleConfiguration
+* Política de PutBucketPolicy
 * PutBucketTagging
 * PutBucketControle de versão
 

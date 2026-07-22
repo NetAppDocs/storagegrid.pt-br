@@ -26,7 +26,7 @@ O gerenciamento de conexões de federação de grade entre sistemas StorageGRID 
 Você pode editar uma conexão de federação de grade entrando no nó de administração principal em qualquer grade da conexão. Depois de fazer alterações na primeira grade, você deve baixar um novo arquivo de verificação e enviá-lo para a outra grade.
 
 
-NOTE: Enquanto a conexão está sendo editada, as solicitações de replicação entre redes ou clone de conta continuarão a usar as configurações de conexão existentes. Todas as edições feitas na primeira grade são salvas localmente, mas não são usadas até que tenham sido carregadas na segunda grade, salvas e testadas.
+NOTE: Enquanto a conexão estiver sendo editada, as solicitações de sincronização de conta ou replicação entre grades continuarão usando as configurações de conexão existentes. Você deve editar uma conexão por vez e enviar um arquivo de verificação para a grade remota para cada conexão. As edições são aplicadas após serem enviadas para as grades remotas.
 
 
 
@@ -211,7 +211,7 @@ Em geral, use o mesmo número de dias para os certificados em ambos os lados da 
 
 Você pode remover uma conexão de federação de grade de qualquer grade na conexão. Como mostrado na figura, você deve executar etapas de pré-requisito em ambas as grades para confirmar que a conexão não está sendo usada por nenhum locatário em qualquer grade.
 
-image:grid-federation-remove-connection.png["etapas para remover a conexão de federação de grade"]
+image:grid_federation_remove_connection.png["etapas para remover a conexão de federação de grade"]
 
 Antes de remover uma conexão, observe o seguinte:
 

@@ -80,7 +80,7 @@ TCP
  a| 
 Aparelhos
  a| 
-Nó de administração principal
+Nó de administração primário e nó de administração não primário
  a| 
 Usado pelos dispositivos StorageGRID para se comunicar com o nó de administração principal para iniciar a instalação.
 
@@ -106,7 +106,7 @@ TCP
  a| 
 Todos os nós
  a| 
-Nó de administração principal
+Nó de administração primário e nó de administração não primário
  a| 
 Utilizado para comunicar o estado ao nó de administração principal durante a instalação e outros procedimentos de manutenção.
 
@@ -119,7 +119,7 @@ TCP
  a| 
 Todos os nós
  a| 
-Nó de administração principal
+Nó de administração primário e nó de administração não primário
  a| 
 Tráfego interno para instalação, expansão, recuperação e outros procedimentos de manutenção.
 
@@ -277,7 +277,7 @@ TCP
  a| 
 Todos os nós
  a| 
-Nó de administração principal
+Nó de administração primário e nó de administração não primário
  a| 
 Tráfego interno para instalação, expansão, recuperação, outros procedimentos de manutenção e relatórios de erros.
 
@@ -290,7 +290,7 @@ TCP
  a| 
 Todos os nós
  a| 
-Nó de administração principal
+Nó de administração primário e nó de administração não primário
  a| 
 Tráfego interno para instalação, expansão, recuperação e outros procedimentos de manutenção.
 
@@ -355,7 +355,7 @@ TCP
  a| 
 Todos os nós
  a| 
-Nó de administração principal
+Nó de administração primário e nó de administração não primário
  a| 
 Tráfego interno para instalação, expansão, recuperação e outros procedimentos de manutenção.
 
@@ -366,7 +366,7 @@ Tráfego interno para instalação, expansão, recuperação e outros procedimen
  a| 
 TCP
  a| 
-Nós de administração/storage
+Todos os nós
  a| 
 Nós de storage com ADC
  a| 
@@ -379,7 +379,7 @@ Tráfego interno do serviço de conta.
  a| 
 TCP
  a| 
-Nós de administração/storage
+Todos os nós
  a| 
 Nós de storage com ADC
  a| 
@@ -392,7 +392,7 @@ Tráfego interno da Federação de identidades.
  a| 
 TCP
  a| 
-Nós de administração/storage
+Todos os nós
  a| 
 Nós de storage
  a| 
@@ -405,7 +405,7 @@ Tráfego interno da API relacionado a protocolos de objeto.
  a| 
 TCP
  a| 
-Nós de administração/storage
+Todos os nós
  a| 
 Nós de storage com ADC
  a| 

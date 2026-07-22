@@ -90,7 +90,7 @@ A tabela lista as interfaces disponíveis para todos os nós de administração 
 Por exemplo, você pode querer anexar uma VLAN à interface de rede de cliente (eth2) para um nó de gateway e um nó de administrador.
 
 +
-image:vlan-create-parent-interfaces.png["VLAN criar interfaces pai do assistente"]
+image:vlan_create_parent_interfaces.png["VLAN criar interfaces pai do assistente"]
 
 . Selecione *continuar*.
 
@@ -105,7 +105,7 @@ image:vlan-create-parent-interfaces.png["VLAN criar interfaces pai do assistente
 +
 ** Se você precisar alterar a ID ou a descrição da VLAN, selecione *Digite os detalhes da VLAN* na parte superior da página.
 ** Se você precisar alterar uma interface pai, selecione *escolha interfaces pai* na parte superior da página ou selecione *anterior*.
-** Se você precisar remover uma interface principal, selecione a lixeira image:icon-trash-can.png["ícone da lata de lixo"].
+** Se você precisar remover uma interface principal, selecione a lixeira image:icon_trash_can.png["ícone da lata de lixo"].
 
 
 . Selecione *Guardar*.

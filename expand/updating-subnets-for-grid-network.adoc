@@ -27,7 +27,7 @@ Se algum dos novos nós tiver um endereço IP de rede de Grade em uma sub-rede n
 
 [NOTE]
 ====
-Não use sub-redes que contenham os seguintes endereços IPv4 para a Rede de Grade, Rede de Administração ou Rede de Cliente de qualquer nó:
+Não utilize sub-redes que contenham os seguintes endereços IPv4 para a Grid Network, Admin Network ou Client Network de qualquer nó:
 
 * 192.168.130.101
 * 192.168.130.121
@@ -41,7 +41,7 @@ Não use sub-redes que contenham os seguintes endereços IPv4 para a Rede de Gra
 * 198.51.100.4
 
 
-Por exemplo, não use os seguintes intervalos de sub-rede para a Rede de grade, Rede de administração ou Rede de cliente de nenhum nó:
+Por exemplo, não utilize os seguintes intervalos de sub-redes para a Grid Network, Admin Network ou Client Network de qualquer nó:
 
 * 192.168.130.0/24 porque este intervalo de sub-rede contém os endereços IP 192.168.130.101 e 192.168.130.102
 * 192.168.131.0/24 porque este intervalo de sub-rede contém os endereços IP 192.168.131.101 e 192.168.131.102
@@ -59,7 +59,7 @@ Por exemplo, introduza `10.96.104.0/22`.
 . Aguarde até que as alterações sejam aplicadas e, em seguida, baixe um novo pacote de recuperação.
 +
 .. Selecione *Manutenção* > *Sistema* > *Pacote de recuperação*.
-.. Introduza a *frase-passe de aprovisionamento*.
+.. Digite a *senha de provisionamento*.
 +
 
 CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID .  Ele também é usado para recuperar o nó de administração primário.

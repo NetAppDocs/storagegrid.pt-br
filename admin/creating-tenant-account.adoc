@@ -19,7 +19,7 @@ As etapas para criar uma conta de locatário variam dependendo selink:using-iden
 * Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
 * Você tem o link:admin-group-permissions.html["Acesso root ou permissão de contas do locatário"].
 * Se a conta de locatário usar a origem de identidade configurada para o Gerenciador de Grade e você quiser conceder permissão de acesso raiz para a conta de locatário a um grupo federado, você importou esse grupo federado para o Gerenciador de Grade. Você não precisa atribuir nenhuma permissão do Gerenciador de Grade a esse grupo de administradores. link:managing-admin-groups.html["Gerenciar grupos de administradores"]Consulte .
-* Se você quiser permitir que um locatário do S3 clone dados de conta e replique objetos de bucket para outra grade usando uma conexão de federação de grade:
+* Se você deseja permitir que um locatário do S3 sincronize dados de conta e replique objetos de bucket para outra grid usando uma conexão de federação de grid:
 +
 ** Você link:grid-federation-create-connection.html["configurada a conexão de federação de grade"]tem .
 ** O estado da ligação é *ligado*.
@@ -141,9 +141,13 @@ O locatário pode emitir S3 solicitações de API SelectObjectContent para filtr
  a| 
 Conexão de federação de grade
  a| 
-O locatário pode usar uma conexão de federação de grade, que:
+O tenant pode usar conexões de federação de grid, que:
 
-** Faz com que esse locatário e todos os grupos de locatários e usuários adicionados à conta sejam clonados dessa grade (a _grade de origem_) para a outra grade na conexão selecionada (a _grade de destino_).
+** Faz com que esta conta de locatário e todos os grupos de locatário, usuários e chaves de acesso S3 sejam sincronizados entre esta grid e as outras grids nas conexões selecionadas.
++
+
+TIP: Se necessário por motivos de segurança ou conformidade, você pode desmarcar a opção *Enable access key sync*.
+
 ** Permite que esse locatário configure a replicação entre grade entre intervalos correspondentes em cada grade.
 
 
@@ -207,19 +211,10 @@ Uma mensagem de sucesso é exibida e o novo locatário é listado na página de 
 
 NOTE: A aplicação de configurações de locatário na grade pode levar 15 minutos ou mais com base na conetividade de rede, no status do nó e nas operações do Cassandra.
 
-. Se você selecionou a permissão *usar conexão de federação de grade* para o locatário:
-+
-.. Confirme se um locatário idêntico foi replicado para a outra grade na conexão. Os locatários em ambas as grades terão o mesmo ID de conta, nome, descrição, cota e permissões de 20 dígitos.
+. Se você selecionou a permissão *Usar conexão de federação de grid* para o tenant, confirme se um tenant idêntico foi replicado para o outro grid na conexão. Os tenants em ambos os grids terão o mesmo ID de conta de 20 dígitos, nome, descrição, cota e permissões.
 +
 
-NOTE: Se você vir a mensagem de erro "Tenant created without a clone", consulte as instruções em link:grid-federation-troubleshoot.html["Solucionar erros de federação de grade"].
-
-.. Se você forneceu uma senha de usuário raiz local ao definir o acesso root, link:changing-password-for-tenant-local-root-user.html["altere a senha do usuário raiz local"] para o locatário replicado.
-+
-
-TIP: Um usuário raiz local não pode entrar no Gerenciador do locatário na grade de destino até que a senha seja alterada.
-
-
+NOTE: Se você vir uma mensagem de erro indicando que a conta do locatário foi criada nesta grid, mas não foi sincronizada com as outras grids, consulte as instruções em link:grid-federation-troubleshoot.html["Solucionar erros de federação de grade"].
 
 
 
@@ -331,4 +326,4 @@ Uma porta restrita
 [[configure-the-tenant]]
 == Configure o locatário
 
-Siga as instruções em link:../tenant/index.html["Use uma conta de locatário"] para gerenciar grupos de locatários e usuários, chaves de acesso do S3, buckets, serviços de plataforma e replicação entre grades e clone de contas.
+Siga as instruções em link:../tenant/index.html["Use uma conta de locatário"] para gerenciar grupos de locatários e usuários, chaves de acesso S3, buckets, serviços de plataforma, sincronização de contas e replicação entre grids.

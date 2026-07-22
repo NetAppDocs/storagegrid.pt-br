@@ -36,11 +36,11 @@ Embora os nós de grade sejam atualizados com a nova versão de hotfix, as alter
 [[how-hotfixes-are-applied-for-recovery-and-expansion]]
 == Como os hotfixes são aplicados para recuperação e expansão
 
-Depois que um hotfix foi aplicado à sua grade, o nó de administrador principal instala automaticamente a mesma versão de hotfix para todos os nós restaurados por operações de recuperação ou adicionados em uma expansão.
+Após um hotfix ser aplicado à sua grid, o nó de administração primário ou um nó de administração não primário instala automaticamente a mesma versão do hotfix em quaisquer nós restaurados por operações de recuperação ou adicionados em uma expansão. Você pode recuperar qualquer nó (incluindo o nó de administração primário) quando estiver conectado a um nó de administração não primário. Se você recuperar um nó a partir de um nó de administração não primário, esse nó de administração aplicará o hotfix ao nó recuperado.
 
-No entanto, se você precisar recuperar o nó de administração principal, você deve instalar manualmente a versão correta do StorageGRID e, em seguida, aplicar o hotfix. A versão final do StorageGRID do nó de administração principal deve corresponder à versão dos outros nós na grade.
+Se você precisar recuperar o nó de administração primário a partir do instalador do StorageGRID, deverá instalar manualmente a versão correta do StorageGRID e, em seguida, aplicar o hotfix. A versão final do StorageGRID no nó de administração primário deve corresponder à versão dos outros nós na grade.
 
-O exemplo a seguir ilustra como aplicar um hotfix ao recuperar o nó de administrador principal:
+O exemplo a seguir ilustra como aplicar uma hotfix ao recuperar o nó de administração primário enquanto você está conectado ao nó de administração não primário:
 
 . Suponha que a grade esteja executando uma versão do StorageGRID 11._A.B_ com o hotfix mais recente. A "versão de grade" é 11._A.B.y_.
 . O nó de administração principal falha.
@@ -51,5 +51,3 @@ NOTE: Conforme necessário para corresponder à versão da grade, você pode usa
 
 . Em seguida, aplique o hotfix 11._A.B.y_ ao nó de administração principal.
 
-
-Para obter mais informações, link:configuring-replacement-primary-admin-node.html["Configure o nó de administração principal de substituição"]consulte .

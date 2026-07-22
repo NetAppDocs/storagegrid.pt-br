@@ -14,4 +14,4 @@ summary: Saiba como instalar, configurar e usar o hardware do dispositivo Storag
 
 
 [role="lead"]
- https://docs.netapp.com/us-en/storagegrid-appliances/index.html["Documentação do StorageGRID Appliance"^]Acesse para saber como instalar, configurar e manter dispositivos de armazenamento e serviços StorageGRID.
+Acesse  https://docs.netapp.com/us-en/storagegrid-appliances/index.html["Documentação do appliance StorageGRID"^] para aprender como instalar, configurar e manter os appliances de storage e serviços StorageGRID.

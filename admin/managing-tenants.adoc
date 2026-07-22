@@ -55,7 +55,7 @@ Depois de criar a conta de locatário, os usuários do locatário podem entrar n
 
 * Configurar federação de identidade (a menos que a origem de identidade seja compartilhada com a grade)
 * Gerenciar grupos e usuários
-* Use a federação de grade para clone de conta e replicação entre grade
+* Use a federação de grids para sincronização de contas e replicação entre grids
 * Gerenciar S3 chaves de acesso
 * Crie e gerencie buckets do S3
 * Use os serviços da plataforma S3

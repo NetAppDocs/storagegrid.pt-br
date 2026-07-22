@@ -2,7 +2,7 @@
 permalink: maintain/understanding-adc-service-quorum.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, adc, adc quorum 
-summary: 'Talvez você não consiga desativar determinados nós de armazenamento em um local se poucos serviços do controlador de domínio administrativo (ADC) permanecessem após a desativação.' 
+summary: 'O quórum do ADC garante que um número mínimo de serviços do Controlador de Domínio Administrativo (ADC) permaneça disponível em cada site. O StorageGRID move automaticamente o serviço do ADC durante a desativação, quando necessário.' 
 ---
 = O que é o quorum do ADC do StorageGRID?
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Talvez você não consiga desativar determinados nós de armazenamento
 
 
 [role="lead"]
-Talvez você não consiga desativar determinados nós de armazenamento em um local se poucos serviços do controlador de domínio administrativo (ADC) permanecessem após a desativação.
+O quórum do ADC garante que um número mínimo de serviços do Controlador de Domínio Administrativo (ADC) permaneça disponível em cada site. O StorageGRID move automaticamente o serviço do ADC durante a desativação, quando necessário.
 
 O serviço ADC, que é encontrado em alguns nós de storage, mantém informações de topologia de grade e fornece serviços de configuração para a grade. O sistema StorageGRID requer que um quórum de serviços ADC esteja disponível em cada local e em todos os momentos.
 
@@ -26,4 +26,6 @@ Por exemplo, suponha que um site inclua atualmente seis nós de storage com serv
 * No segundo procedimento de descomissionamento, você pode remover o terceiro nó de armazenamento porque o quorum do ADC agora requer apenas três serviços do ADC para permanecerem disponíveis: `((0.5 * 4) + 1)` .
 
 
-Se precisar desativar um Nó de Armazenamento, você pode continuar atendendo ao requisito de quorum do ADC link:../release-notes/changes-to-grid-management-api.html#new-private-endpoints-for-move-adc["Movendo o serviço ADC para outro nó de armazenamento no mesmo site"] ou adicionando um novo Nó de Armazenamento em um link:../expand/index.html["expansão"] e especificando que ele deve ter um serviço ADC. Em seguida, você pode desativar o Nó de Armazenamento existente sem afetar o quorum.
+Ao desativar um Nó de Armazenamento que possui o serviço ADC, StorageGRID move automaticamente o serviço ADC para outro Nó de Armazenamento no mesmo site, caso a desativação reduza o número de ADCs do site a um número inferior ao quórum. A movimentação automática requer que todos os nós na grid estejam conectados e que haja Nós de Armazenamento sem ADC disponíveis no mesmo site para receber o serviço. O procedimento de desativação mantém um mínimo de três Nós de Armazenamento com ADC por site. Por exemplo, se você desativar quatro ou seis nós com ADC em um site, três Nós de Armazenamento com ADC permanecerão após o procedimento, desde que haja nós sem ADC disponíveis no mesmo site.
+
+Se o serviço ADC não puder ser movido automaticamente, você pode link:move-adc-service.html["mover manualmente o serviço ADC"] movê-lo para outro Storage Node no mesmo site ou link:../expand/index.html["Adicionar um novo Storage Node em uma expansão"] e especificar que ele deve ter um serviço ADC. Em seguida, você pode descomissionar o Storage Node existente sem afetar o quorum.

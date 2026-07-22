@@ -17,6 +17,11 @@ A operação UploadPartCopy é implementada com todo o comportamento da API REST
 
 Essa solicitação lê e grava os dados de objeto especificados no `x-amz-copy-source-range` sistema StorageGRID.
 
+
+
+[[supported-request-headers]]
+== Cabeçalhos de solicitação suportados
+
 Os seguintes cabeçalhos de solicitação são suportados:
 
 * `x-amz-copy-source-if-match`
@@ -53,3 +58,10 @@ CAUTION: As chaves de criptografia que você fornece nunca são armazenadas. Se 
 == Controle de versão
 
 O upload de várias partes consiste em operações separadas para iniciar o upload, listar uploads, carregar peças, montar as peças carregadas e concluir o upload. Os objetos são criados (e versionados, se aplicável) quando a operação CompleteMultipartUpload é executada.
+
+
+
+[[s3-checksum-support]]
+== Suporte para checksum S3
+
+StorageGRID detecta automaticamente se um checksum foi especificado durante uma solicitação CreateMultipartUpload e usa esse checksum na operação UploadPartCopy. Você não precisa especificar um checksum em uma solicitação UploadPartCopy. Se uma solicitação CreateMultipartUpload não especificar um checksum, o StorageGRID não calcula um checksum CRC-64/NVME padrão para um objeto. O StorageGRID não inclui um checksum para a parte copiada quando a solicitação CreateMultipartUpload não especificou um checksum.

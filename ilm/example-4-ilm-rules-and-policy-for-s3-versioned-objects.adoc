@@ -24,9 +24,6 @@ CAUTION: As seguintes regras e políticas do ILM são apenas exemplos. Existem m
 
 NOTE: Para executar a simulação de política ILM em uma versão não atual de um objeto, você deve conhecer o UUID ou CBID da versão do objeto. Para localizar UUID e CBID, use link:verifying-ilm-policy-with-object-metadata-lookup.html["pesquisa de metadados de objetos"] enquanto o objeto ainda estiver atual.
 
-.Informações relacionadas
-link:how-objects-are-deleted.html["Como os objetos são excluídos"]
-
 
 
 [[ilm-rule-1-for-example-4-save-three-copies-for-10-years]]
@@ -79,7 +76,7 @@ Como a regra ILM 1 se aplica a todas as versões do objeto, você deve criar out
 
 Para criar uma regra que use "hora não atual" como tempo de referência, selecione *Sim* para a pergunta, "aplicar esta regra apenas a versões de objetos mais antigas (em buckets S3 com controle de versão ativado)?" na Etapa 1 (Inserir detalhes) do assistente criar uma regra ILM. Quando você seleciona *Yes*, _Noncurrent Time_ é selecionado automaticamente para a hora de referência e você não pode selecionar uma hora de referência diferente.
 
-image:ilm-rule-apply-only-to-older-object-verions.png["Aplicar regra ILM apenas a versões de objetos mais antigas (tempo não atual)"]
+image:ilm_rule_apply_only_to_older_object_verions.png["Aplicar regra ILM apenas a versões de objetos mais antigas (tempo não atual)"]
 
 Neste exemplo, apenas duas cópias das versões não atuais são armazenadas e essas cópias serão armazenadas por dois anos.
 
@@ -139,3 +136,6 @@ Ao simular a política de exemplo, você espera que os objetos de teste sejam av
 * Qualquer versão de objeto não atual seria correspondida pela primeira regra. Se uma versão de objeto não atual tiver mais de 2 anos, ela será excluída permanentemente pelo ILM (todas as cópias da versão não atual removidas da grade).
 * A versão atual do objeto seria correspondida pela segunda regra. Quando a versão atual do objeto é armazenada por 10 anos, o processo ILM adiciona um marcador de exclusão como a versão atual do objeto e torna a versão anterior do objeto "não atual". Na próxima vez que a avaliação do ILM ocorrer, essa versão não atual é correspondida pela primeira regra. Como resultado, a cópia no local 3 é purgada e as duas cópias no local 1 e no local 2 são armazenadas por mais 2 anos.
 
+
+.Informações relacionadas
+link:how-objects-are-deleted.html["Como os objetos são excluídos"]

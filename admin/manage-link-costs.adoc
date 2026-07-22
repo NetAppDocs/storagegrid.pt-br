@@ -20,12 +20,12 @@ Os custos de link permitem que você priorize qual local do data center fornece 
 
 * Os custos de link são usados para priorizar qual cópia de objeto é usada para cumprir recuperações de objetos.
 * Os custos de link são usados pela API de gerenciamento de grade e pela API de gerenciamento de locatário para determinar quais serviços internos do StorageGRID devem ser usados.
-* Os custos de link são usados pelo serviço Load Balancer em nós de administração e nós de gateway para direcionar as conexões do cliente. link:../admin/managing-load-balancing.html["Considerações para balanceamento de carga"]Consulte .
+* Os custos de link são usados pelo serviço Load Balancer nos nós de administração e nos nós de gateway para direcionar as conexões dos clientes. Consulte link:../admin/managing-load-balancing.html["Considerações para balanceamento de carga"].
 
 
-O diagrama mostra uma grade de três sites que tem custos de link configurados entre sites:
+O diagrama mostra uma grade de três sites com custos de enlace configurados entre os sites:
 
-image:link_costs.gif["Diagrama conceitual para custos de ligação entre data centers"]
+image:link_costs.png["Diagrama conceitual para custos de ligação entre data centers"]
 
 * O serviço Load Balancer em nós de administração e nós de gateway distribui igualmente as conexões de clientes para todos os nós de storage no mesmo local do data center e para qualquer local do data center com um custo de link de 0.
 +
@@ -70,20 +70,19 @@ Você pode atualizar os custos de link entre sites de data center para refletir 
 
 .Antes de começar
 * Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
-* Você tem olink:admin-group-permissions.html["Outras permissões de configuração de grade"] .
+* Você tem o link:../admin/admin-group-permissions.html["Permissão de acesso à raiz"].
 
 
 .Passos
 . Selecione *Suporte* > *Outro* > *Custo do link*.
-+
-image:configuring_link_costs.png["Custo da ligação"]
-
-. Selecione um site em *Link Source* e insira um valor de custo entre 0 e 100 em *Link Destination*.
+. Para cada site listado na coluna Custo do Site/Link, insira um valor de custo de 0 a 100 para os outros sites.
 +
 Não é possível alterar o custo do link se a origem for a mesma do destino.
 
+. Descartar ou salvar alterações:
 +
-Para cancelar as alterações, selecione image:nms_revert.gif["anular ícone"]*Reverter*.
+** Para descartar as alterações, selecione *Limpar alterações*.
+** Para salvar as alterações, selecione *Salvar*.
 
-. Selecione *aplicar alterações*.
+
 

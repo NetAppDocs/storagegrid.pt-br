@@ -57,9 +57,9 @@ Use a política Common Criteria se precisar da certificação Common Criteria.
 --
 .FIPS rigoroso
 --
-Use a política rigorosa do FIPS se precisar da certificação Common Criteria e usar o módulo NetApp Cryptographic Security Module (NCSM) 3.0.8 ou o módulo NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 para conexões de clientes externos com pontos de extremidade do balanceador de carga, Tenant Manager e Grid Manager.  Usar esta política pode reduzir o desempenho.
+Use a política FIPS estrita se você precisar de certificação Common Criteria e precisar usar o NetApp Cryptographic Security Module (NCSM) 3.1.2 ou o módulo NetApp StorageGRID Kernel Crypto API 6.12.63-1+ntap1 para conexões de clientes externos com os endpoints do balanceador de carga, Tenant Manager e Grid Manager. Usar essa política pode reduzir o desempenho.
 
-O módulo NCSM 3.0.8 e NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 são usados ​​nas seguintes operações:
+O NCSM 3.1.2 e o módulo NetApp StorageGRID Kernel Crypto API 6.12.63-1+ntap1 são usados nas seguintes operações:
 
 ** NCSM
 +
@@ -71,7 +71,7 @@ O módulo NCSM 3.0.8 e NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd6
 
 
 +
-Para mais informações, consulte o Programa de Validação de Algoritmos Criptográficos do NISTlink:https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4838["Certificado nº 4838"^] .
+Para obter mais informações, consulte o Programa de Validação de Algoritmos Criptográficos do NIST link:https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/details?validation=40426["Certificado nº A7816"^].
 
 ** Módulo NetApp StorageGRID Kernel Crypto API
 +
@@ -80,10 +80,13 @@ O módulo NetApp StorageGRID Kernel Crypto API está presente apenas em platafor
 +
 *** Coleção de entropia
 *** Criptografia de nó
++
+*Nota*: Este módulo não foi submetido para certificação.
+
 
 
 +
-Para mais informações, consulte o Programa de Validação de Algoritmos Criptográficos do NISTlink:https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/validation-search?searchMode=implementation&product=NetApp+StorageGRID+Kernel+Crypto+API&productType=-1&ipp=50["Certificados #A6242 a #A6257"^] elink:https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/223["Certificado de Entropia #E223"^] .
+Para obter mais informações, consulte o Programa de Validação de Algoritmos Criptográficos do NIST link:https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/223["Certificado de Entropia #E223"^].
 
 
 
@@ -94,7 +97,7 @@ Para mais informações, consulte o Programa de Validação de Algoritmos Cripto
 --
 Crie uma política personalizada se você precisar aplicar seus próprios cifras.
 
-Opcionalmente, se o seu StorageGRID tiver requisitos de criptografia FIPS 140, ative o recurso do modo FIPS para usar o NCSM 3.0.8 e o módulo NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64:
+Opcionalmente, se o seu StorageGRID tiver requisitos de criptografia FIPS 140, habilite o recurso de modo FIPS para usar o NCSM 3.1.2 e o módulo NetApp StorageGRID Kernel Crypto API 6.12.63-1+ntap1:
 
 .. Defina o `fipsMode` parâmetro para `true` .
 .. Quando solicitado,link:../maintain/rolling-reboot-procedure.html["executar uma reinicialização contínua"] para todos os nós ativarem os módulos de criptografia.  Use *Manutenção* > *Reinicialização contínua* para iniciar e monitorar reinicializações.
@@ -121,7 +124,7 @@ Você pode criar uma política personalizada se precisar aplicar suas próprias 
 . No bloco da política que é o mais semelhante à política personalizada que você deseja criar, selecione *Exibir detalhes*.
 . Selecione *Copiar para a área de transferência* e, em seguida, selecione *Cancelar*.
 +
-image:securitysettings-custom-security-policy-copy.png["copiar uma política existente para criar uma política personalizada"]
+image:securitysettings_custom_security_policy_copy.png["copiar uma política existente para criar uma política personalizada"]
 
 . No bloco *Política personalizada*, selecione *Configurar e usar*.
 . Cole o JSON que você copiou e faça as alterações necessárias.

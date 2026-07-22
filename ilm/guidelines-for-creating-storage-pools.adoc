@@ -13,7 +13,7 @@ summary: Configure e use pools de storage para se proteger contra a perda de dad
 [role="lead"]
 Configure e use pools de storage para se proteger contra a perda de dados, distribuindo dados em vários locais. As cópias replicadas e as cópias codificadas por apagamento exigem configurações de pool de storage diferentes.
 
-link:using-multiple-storage-pools-for-cross-site-replication.html["Exemplos de ativação da proteção contra perda de sites usando replicação e codificação de apagamento"]Consulte .
+Consulte link:using-multiple-storage-pools-for-cross-site-replication.html["Exemplos de ativação da proteção contra perda de sites usando replicação e codificação de apagamento"].
 
 
 
@@ -54,7 +54,7 @@ O uso de um pool de storage para cada local garante que as cópias de objetos re
 * Distribua os nós de storage entre locais da forma mais uniforme possível. Por exemplo, para dar suporte a um 3 esquema de codificação de apagamento de mais de 6 horas por dia, configure um pool de storage que inclua pelo menos três nós de storage em três locais.
 * Se você tiver altos requisitos de taxa de transferência, usar um pool de armazenamento que inclua vários locais não é recomendado se a latência de rede entre locais for maior que 100 ms. À medida que a latência aumenta, a taxa na qual o StorageGRID pode criar, colocar e recuperar fragmentos de objetos diminui drasticamente devido à diminuição da taxa de transferência da rede TCP.
 +
-A diminuição na taxa de transferência afeta as taxas máximas alcançáveis de ingestão e recuperação de objetos (quando balanceado ou rigoroso são selecionados como o comportamento de ingestão) ou pode levar a backlogs de fila ILM (quando Dual Commit é selecionado como o comportamento de ingestão). link:what-ilm-rule-is.html#ilm-rule-ingest-behavior["Comportamento de ingestão de regra de ILM"]Consulte .
+A diminuição da taxa de transferência afeta as taxas máximas alcançáveis de ingestão e recuperação de objetos (quando Balanced ou Strict são selecionados como comportamento de ingestão) ou pode levar a atrasos na fila ILM (quando Dual commit é selecionado como comportamento de ingestão). Consulte link:what-ilm-rule-is.html#ilm-rule-ingest-behavior["Comportamento de ingestão de regra de ILM"].
 
 +
 

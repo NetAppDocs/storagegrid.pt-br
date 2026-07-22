@@ -16,7 +16,13 @@ Para instalar um nó de gateway ou nó de administrador em um dispositivo de ser
 .Antes de começar
 * O dispositivo é instalado em um rack, conetado às redes e ligado.
 * Os links de rede e endereços IP são configurados para o dispositivo usando o Instalador de dispositivos StorageGRID.
-* Se você estiver instalando um nó de gateway ou um nó de administrador não primário, você saberá o endereço IP do nó de administrador principal para a grade StorageGRID.
+* Se você estiver instalando um Nó de Gateway ou um Nó de Administração não primário, você conhece o endereço IP de um dos seguintes Nós de Administração:
++
+** O nó de administração principal para a grade StorageGRID
+** Um nó Admin não primário, se houver um disponível e se estiver sendo usado para recuperar o nó
+
+
+* Se você estiver recuperando um nó (incluindo o Nó de Administração Primário) usando um Nó de Administração não primário, poderá especificar o endereço IP desse Nó de Administração.
 * Todas as sub-redes de rede de grade listadas na página Configuração IP do Instalador de dispositivos StorageGRID são definidas na Lista de sub-redes de rede de grade no nó de administração principal.
 +
  https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["Início rápido para instalação de hardware"^]Consulte .
@@ -33,7 +39,7 @@ NOTE: Uma versão recente do software StorageGRID é pré-carregada no equipamen
 .Sobre esta tarefa
 Para instalar o software StorageGRID em um dispositivo de serviços:
 
-* Para um nó de administração principal, especifique o nome do nó e, em seguida, carregue os pacotes de software apropriados (se necessário).
+* Para um Nó de Administração primário, você especifica o nome do nó e, em seguida, carrega os pacotes de software apropriados (se necessário). Se você estiver recuperando o Nó de Administração primário e tiver um Nó de Administração não primário em sua grid, você tem a opção de recuperar o nó usando um Nó de Administração não primário e especificando o endereço IP desse Nó de Administração ou pode instalar ou recuperar o nó usando sua configuração atual.
 * Para um nó de administração não primário ou um nó de gateway, especifique ou confirme o endereço IP do nó de administração principal e o nome do nó.
 * Inicie a instalação e aguarde à medida que os volumes estão configurados e o software está instalado.
 * No decorrer do processo, a instalação é interrompida. Para retomar a instalação, você deve entrar no Gerenciador de Grade e configurar o nó pendente como um substituto para o nó com falha.
@@ -51,26 +57,38 @@ A página inicial do instalador do dispositivo StorageGRID é exibida.
 . Para instalar um nó de administração primário:
 +
 .. Na seção este nó, para *tipo de nó*, selecione *Admin principal*.
-.. No campo *Nome do nó*, insira o mesmo nome que foi usado para o nó que você está recuperando e clique em *Salvar*.
-.. Na seção Instalação, verifique a versão do software listada no estado atual
+.. No campo *Nome do nó*, insira o mesmo nome que foi usado para o nó que você está recuperando e selecione *Salvar*.
+.. Selecione um modo apropriado dentre os dois disponíveis na seção Modo de Instalação. Você pode selecionar o método Instalar um nó ou recuperar este nó usando a configuração atual ou o método Recuperar este nó usando um nó de administração não primário.
 +
-Se a versão do software que está pronta para instalar estiver correta, avance para o <<installation_section_step,Etapa de instalação>>.
+[role="tabbed-block"]
+====
+.Método de configuração atual
+--
+Instale um nó ou recupere este nó usando a configuração atual.
 
-.. Se você precisar fazer o upload de uma versão diferente do software, no menu *Avançado*, selecione *carregar software StorageGRID*.
-+
-A página Upload StorageGRID Software é exibida.
+... Na seção Instalação, verifique a versão do software listada em Estado atual. Se a versão do software pronta para instalar estiver correta, pule para a <<installation_section_step,Etapa de instalação>>.
+... Se você precisar carregar uma versão diferente do software, no menu *Avançado*, selecione *Upload StorageGRID software*. A página Upload StorageGRID Software será exibida.
+... Selecione *Procurar* para fazer upload do *pacote de software* e do *arquivo de checksum* do StorageGRID. Os arquivos são carregados automaticamente após você selecioná-los.
+... Selecione *Início* para retornar à página inicial do instalador do dispositivo StorageGRID.
 
-.. Clique em *Procurar* para carregar o *Pacote de software* e o *Arquivo de soma de verificação* para o software StorageGRID.
-+
-Os arquivos são carregados automaticamente depois de selecioná-los.
 
-.. Clique em *Início* para retornar à página inicial do instalador do StorageGRID Appliance.
+--
+.Método de nó Admin não primário
+--
+Recupere este nó usando um nó de administração não primário.
+
+... No campo "IP do nó de administração não primário", insira o endereço IP da rede de grid do nó de administração não primário que você deseja usar para a recuperação e selecione *Salvar*.
+... Se a versão do software que está pronta para instalar estiver correta, avance para o <<installation_section_step,Etapa de instalação>>.
+
+
+--
+====
 
 
 . Para instalar um nó de gateway ou um nó de administração não primário:
 +
 .. Na seção este nó, para *tipo de nó*, selecione *Gateway* ou *Admin não primário*, dependendo do tipo de nó que você está restaurando.
-.. No campo *Nome do nó*, insira o mesmo nome que foi usado para o nó que você está recuperando e clique em *Salvar*.
+.. No campo *Nome do nó*, insira o mesmo nome que foi usado para o nó que você está recuperando e selecione *Salvar*.
 .. Na seção conexão nó de administrador principal, determine se você precisa especificar o endereço IP do nó de administrador principal.
 +
 O Instalador do StorageGRID Appliance pode descobrir esse endereço IP automaticamente, assumindo que o nó de administrador principal, ou pelo menos um outro nó de grade com ADMIN_IP configurado, está presente na mesma sub-rede.
@@ -89,7 +107,7 @@ Entrada de IP manual
  a| 
 .. Desmarque a caixa de seleção *Ativar descoberta de nó de administrador*.
 .. Introduza o endereço IP manualmente.
-.. Clique em *Salvar*.
+.. Selecione *Guardar*.
 .. Aguarde enquanto o estado de conexão para o novo endereço IP se torna "pronto".
 
 
@@ -100,7 +118,7 @@ Detecção automática de todos os nós de administração principal conetados
  a| 
 .. Marque a caixa de seleção *Enable Admin Node Discovery* (Ativar descoberta de nó de administrador).
 .. Na lista de endereços IP descobertos, selecione o nó de administração principal para a grade em que esse dispositivo de serviços será implantado.
-.. Clique em *Salvar*.
+.. Selecione *Guardar*.
 .. Aguarde enquanto o estado de conexão para o novo endereço IP se torna "pronto".
 
 
@@ -109,12 +127,12 @@ Detecção automática de todos os nós de administração principal conetados
 +
 Se o botão *Iniciar instalação* não estiver habilitado, talvez seja necessário alterar a configuração de rede ou as configurações de porta.  Consulte as instruções de manutenção do seu aparelho.
 
-. Na página inicial do Instalador de dispositivos StorageGRID, clique em *Iniciar instalação*.
+. Na página inicial do instalador do StorageGRID Appliance, selecione *Iniciar instalação*.
 +
-O estado atual muda para "a instalação está em andamento" e a página Instalação do monitor é exibida.
+O estado atual muda para "A instalação está em andamento" e a página de instalação do monitor é exibida.
 
 +
 
-NOTE: Se você precisar acessar a página Instalação do Monitor manualmente, clique em *Instalação do Monitor* na barra de menus.
+NOTE: Se você precisar acessar a página de instalação do Monitor manualmente, selecione *Monitor installation* na barra de menu.
 
 

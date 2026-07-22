@@ -43,10 +43,7 @@ A interface do usuário Swagger fornece detalhes completos e documentação para
 CAUTION: Todas as operações de API executadas usando a página da Documentação da API são operações ativas. Tenha cuidado para não criar, atualizar ou excluir dados de configuração ou outros dados por engano.
 
 .Passos
-. No cabeçalho do Gerenciador de Grade, selecione o ícone de ajuda e selecione *Documentação da API*.
-+
-image:help_menu.png["Menu Ajuda"]
-
+. No cabeçalho do Gerenciador de Grade, selecione o ícone de ajuda image:icon_help_menu_bar.png["Ícone de ajuda"] e selecione *API documentation*.
 . Para executar uma operação com a API privada, selecione *ir para a documentação da API privada* na página da API de gerenciamento do StorageGRID.
 +
 As APIs privadas estão sujeitas a alterações sem aviso prévio. Os endpoints privados do StorageGRID também ignoram a versão da API da solicitação.

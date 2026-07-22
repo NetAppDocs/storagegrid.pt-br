@@ -39,7 +39,7 @@ Todas as condições a seguir são assumidas ao recuperar nós de grade:
 
 * O hardware físico ou virtual com falha foi substituído e configurado.
 * A versão do Instalador de dispositivos StorageGRID no dispositivo de substituição corresponde à versão de software do seu sistema StorageGRID, conforme descrito em https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/verifying-and-upgrading-storagegrid-appliance-installer-version.html["Verifique e atualize a versão do instalador do StorageGRID Appliance"^].
-* Se você estiver recuperando um nó de grade diferente do nó de administração principal, haverá conectividade entre o nó de grade que está sendo recuperado e o nó de administração que gerencia o procedimento de recuperação.
+* Se você estiver recuperando um nó da grade que não seja o nó de administração principal, deve haver conectividade entre o nó da grade que está sendo recuperado e o nó de administração que gerencia o procedimento de recuperação.
 * Se estiver recuperando um nó de armazenamento do dispositivo, você deverá especificar o mesmo tipo de armazenamento do dispositivo original (combinado, somente metadados ou somente dados) durante a instalação do dispositivo.  Se você especificar um tipo de armazenamento diferente, a recuperação falhará e exigirá a reinstalação do dispositivo com o tipo de armazenamento correto especificado.
 
 
@@ -48,7 +48,7 @@ Todas as condições a seguir são assumidas ao recuperar nós de grade:
 [[order-of-node-recovery-if-a-server-hosting-more-than-one-grid-node-fails]]
 == Ordem de recuperação de nó se um servidor que hospeda mais de um nó de grade falhar
 
-Se um servidor que hospeda mais de um nó de grade falhar, você poderá recuperar os nós em qualquer ordem. Entretanto, se o servidor com falha estiver hospedando o nó de administração principal, você deverá recuperar esse nó primeiro.
+Se um servidor que hospeda mais de um nó de grid falhar, você pode recuperar os nós em qualquer ordem. No entanto, se o servidor com falha estiver hospedando o Admin Node primário e não existirem Admin Nodes não primários, você deve recuperar primeiro o Admin Node primário.
 
 
 

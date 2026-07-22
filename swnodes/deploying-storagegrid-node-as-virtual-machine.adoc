@@ -180,10 +180,6 @@ NOTE: A senha de instalação temporária só é usada durante a instalação do
 
 .. No campo *Primary Admin IP* (IP de administrador principal), introduza o endereço IP do nó de administração principal para a rede de grelha.
 +
-
-NOTE: Esta etapa não se aplica se o nó que você está implantando for o nó Admin principal.
-
-+
 Se você omitir o endereço IP do nó de administrador principal, o endereço IP será automaticamente descoberto se o nó de administrador principal, ou pelo menos um outro nó de grade com ADMIN_IP configurado, estiver presente na mesma sub-rede. No entanto, recomenda-se definir aqui o endereço IP do nó de administração principal.
 
 .. Na seção *Admin Network (eth1)*, selecione ESTÁTICO, DHCP ou DESATIVADO para a *Admin network IP Configuration*.
@@ -222,7 +218,7 @@ Observe as seguintes diretrizes importantes:
 
 . [[VMware-remap-ports]]se você precisar remapear as portas usadas por esse nó, siga estas etapas.
 +
-Talvez seja necessário remapear uma porta se as políticas de rede corporativa restringirem o acesso a uma ou mais portas usadas pelo StorageGRID. Consulte link:../network/index.html["diretrizes de rede"]para obter informações sobre as portas usadas pelo StorageGRID.
+Você pode precisar remapear uma porta se as políticas de rede da sua empresa restringirem o acesso a uma ou mais portas usadas pelo StorageGRID. Consulte link:../network/index.html["Diretrizes de rede"] para ver as portas usadas pelo StorageGRID.
 
 +
 

@@ -86,6 +86,8 @@ A porta StorageGRID que você deseja usar para balanceamento de carga. Este camp
 
 Se você digitar *80* ou *8443*, o endpoint será configurado somente em nós de Gateway, a menos que você tenha liberado a porta 8443. Em seguida, você pode usar a porta 8443 como um endpoint S3 e a porta será configurada nos nós Gateway e Admin.
 
+Se você estiver configurando pontos de extremidade do balanceador de carga para um link:../admin/configure-global-namespace.html["espaço de nomes global"], use a mesma porta para cada ponto de extremidade.
+
 
 
  a| 

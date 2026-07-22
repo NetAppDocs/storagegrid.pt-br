@@ -58,15 +58,15 @@ CAUTION: Tenha cuidado ao escolher desativar mais de um nó de grade desconetado
 +
 O botão *Start Decommission* está ativado.
 
-. Clique em *Start Decommission*.
+. Selecione *Iniciar desativação*.
 +
 Um aviso é exibido, indicando que você selecionou um nó desconetado e que os dados do objeto serão perdidos se o nó tiver a única cópia de um objeto.
 
-. Revise a lista de nós e clique em *OK*.
+. Analise a lista de nós e selecione *OK*.
 +
 O procedimento de descomissionamento é iniciado e o progresso é exibido para cada nó.  Durante o procedimento, um novo pacote de recuperação é gerado contendo a alteração da configuração da grade.
 
-. Assim que o novo pacote de recuperação estiver disponível, clique no link ou selecione *Manutenção* > *Sistema* > *Pacote de recuperação* para acessar a página do pacote de recuperação.  Em seguida, baixe o `.zip` arquivo.
+. Assim que o novo pacote de recuperação estiver disponível, selecione o link ou selecione *Manutenção* > *Sistema* > *Pacote de recuperação* para acessar a página do pacote de recuperação. Em seguida, faça o download do  `.zip`arquivo.
 +
 Veja as instruções paralink:downloading-recovery-package.html["baixando o pacote de recuperação"] .
 
@@ -87,41 +87,36 @@ Os nós de storage podem levar dias ou semanas para serem desativados. Quando to
 
 CAUTION: Não execute esta etapa até que os nós sejam desligados automaticamente.
 
-. Se você estiver desativando um nó de storage, monitore o status dos trabalhos de reparo *dados replicados* e *dados codificados por apagamento (EC)* que são iniciados automaticamente durante o processo de desativação.
-
-
+. Se você estiver desativando um nó de armazenamento, monitore o status das tarefas de reparo de *dados replicados* e *dados com código de apagamento (EC)* que são iniciadas automaticamente durante o processo de desativação.
++
 [role="tabbed-block"]
 ====
 .Dados replicados
 --
-* Para obter uma conclusão percentual estimada para o reparo replicado, adicione a `show-replicated-repair-status` opção ao comando repair-data.
+** Para determinar se as reparações estão concluídas:
 +
-`repair-data show-replicated-repair-status`
-
-* Para determinar se as reparações estão concluídas:
-+
-.. Selecione *Nós* > *_Nó de armazenamento sendo reparado_* > *ILM*.
-.. Reveja os atributos na secção avaliação. Quando os reparos estiverem concluídos, o atributo *aguardando - All* indica objetos 0D.
+... Selecione *Nós* > *_Nó de armazenamento sendo reparado_* > *ILM*.
+... Reveja os atributos na secção avaliação. Quando os reparos estiverem concluídos, o atributo *aguardando - All* indica objetos 0D.
 
 
-* Para monitorizar a reparação em mais detalhes:
+** Para monitorizar a reparação em mais detalhes:
 +
-.. Selecione *Nós*.
-.. Selecione *_grid name_* > *ILM*.
-.. Posicione o cursor sobre o gráfico da fila do ILM para ver o valor do atributo *Taxa de varredura (objetos/seg)*, que é a taxa na qual os objetos na grade são varridos e colocados na fila para o ILM.
-.. Na seção Fila do ILM, observe os seguintes atributos:
+... Selecione *Nós*.
+... Selecione *_grid name_* > *ILM*.
+... Posicione o cursor sobre o gráfico da fila do ILM para ver o valor do atributo *Taxa de varredura (objetos/seg)*, que é a taxa na qual os objetos na grade são varridos e colocados na fila para o ILM.
+... Na seção Fila do ILM, observe os seguintes atributos:
 +
-*** *Período de digitalização - estimado*: O tempo estimado para concluir uma varredura ILM completa de todos os objetos.
+**** *Período de digitalização - estimado*: O tempo estimado para concluir uma varredura ILM completa de todos os objetos.
 +
 Uma verificação completa não garante que o ILM foi aplicado a todos os objetos.
 
-*** *Tentativas de reparo*: O número total de tentativas de operações de reparo de objetos para dados replicados que são consideradas de alto risco.  Objetos de alto risco são quaisquer objetos com uma cópia restante, seja especificado pela política de ILM ou como resultado de cópias perdidas.  Essa contagem aumenta cada vez que um nó de armazenamento tenta reparar um objeto de alto risco.  Reparos de ILM de alto risco são priorizados se a rede ficar ocupada.
+**** *Tentativas de reparo*: O número total de tentativas de operações de reparo de objetos para dados replicados que são consideradas de alto risco.  Objetos de alto risco são quaisquer objetos com uma cópia restante, seja especificado pela política de ILM ou como resultado de cópias perdidas.  Essa contagem aumenta cada vez que um nó de armazenamento tenta reparar um objeto de alto risco.  Reparos de ILM de alto risco são priorizados se a rede ficar ocupada.
 +
 O mesmo reparo de objeto pode ser incrementado novamente se a replicação falhar após o reparo.  + Esses atributos podem ser úteis quando você estiver monitorando o progresso da recuperação do volume do nó de armazenamento.  Se o número de tentativas de reparo parou de aumentar e uma verificação completa foi concluída, o reparo provavelmente foi concluído.
 
 
 
-.. Alternativamente, envie uma consulta Prometheus para `storagegrid_ilm_scan_period_estimated_minutes` e `storagegrid_ilm_repairs_attempted` .
+... Alternativamente, envie uma consulta Prometheus para `storagegrid_ilm_scan_period_estimated_minutes` e `storagegrid_ilm_repairs_attempted` .
 
 
 
@@ -129,41 +124,12 @@ O mesmo reparo de objeto pode ser incrementado novamente se a replicação falha
 --
 .Dados codificados por apagamento (EC)
 --
-Para monitorar o reparo de dados codificados por apagamento e tentar novamente quaisquer solicitações que possam ter falhado:
-
-. Determinar o status dos reparos de dados codificados por apagamento:
-+
-** Selecione *Suporte* > *Ferramentas* > *Métricas* para visualizar o tempo estimado para conclusão e a porcentagem de conclusão do trabalho atual.  Em seguida, selecione *Visão geral do EC* na seção Grafana.  Veja os painéis *Tempo estimado para conclusão do trabalho do Grid EC* e *Porcentagem concluída do trabalho do Grid EC*.
-** Use este comando para ver o status de uma operação específica `repair-data`:
-+
-`repair-data show-ec-repair-status --repair-id repair ID`
-
-** Utilize este comando para listar todas as reparações:
-+
-`repair-data show-ec-repair-status`
-
-+
-A saída lista informações, `repair ID`incluindo , para todas as reparações anteriores e atualmente em execução.
-
-
-
-. Se a saída mostrar que a operação de reparo falhou, use a `--repair-id` opção para tentar novamente a reparação.
-+
-Este comando tenta novamente um reparo de nó com falha, usando a ID de reparo 6949309319275667690:
-
-+
-`repair-data start-ec-node-repair --repair-id 6949309319275667690`
-
-+
-Este comando tenta novamente uma reparação de volume com falha, utilizando a ID de reparação 6949309319275667690:
-
-+
-`repair-data start-ec-volume-repair --repair-id 6949309319275667690`
-
-
+Para monitorar o reparo de dados codificados em apagamento e tentar novamente quaisquer solicitações que possam ter falhado, selecione *Support* > *Tools* > *Metrics* para visualizar o tempo estimado de conclusão e a porcentagem de conclusão da tarefa atual. Em seguida, selecione *EC Overview* na seção Grafana. Observe os painéis *Grid EC Job Estimated Time to Completion* e *Grid EC Job Percentage Completed*.
 
 --
 ====
+
+
 .Depois de terminar
 Assim que os nós desconetados forem desativados e todos os trabalhos de reparo de dados tiverem sido concluídos, você poderá desativar todos os nós de grade conetados conforme necessário.
 

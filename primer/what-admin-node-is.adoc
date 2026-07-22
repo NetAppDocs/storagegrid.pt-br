@@ -149,7 +149,7 @@ Pode recuperar o nó de administração primário
  a| 
 Sim
  a| 
-Não
+Sim
 
 
 

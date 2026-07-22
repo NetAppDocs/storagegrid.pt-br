@@ -35,7 +35,7 @@ Você deve baixar o arquivo de hotfix do StorageGRID.
 
 
  a| 
-pacote de recuperação(`.zip` ) arquivo
+Arquivo do pacote de recuperação (`.zip`)
  a| 
 Antes de aplicar um hotfix,link:downloading-recovery-package.html["baixe o arquivo do pacote de recuperação mais recente"] caso ocorra algum problema durante o hotfix.  Depois que o hotfix for aplicado, baixe uma nova cópia do arquivo do pacote de recuperação e salve-o em um local seguro.  O arquivo do pacote de recuperação atualizado permite restaurar o sistema caso ocorra uma falha.
 

@@ -1,21 +1,21 @@
 ---
-permalink: admin/creating-relying-party-trusts-in-ad-fs.html 
+permalink: admin/creating-relying-party-trusts-in-ad-fs-saml.html 
 sidebar: sidebar 
 keywords: relying party trust, active directory, ad fs, single sign on, sso 
 summary: 'Você deve usar os Serviços de Federação do ative Directory (AD FS) para criar uma confiança de parte confiável para cada nó de administração em seu sistema. Você pode criar trusts confiáveis de parte usando comandos do PowerShell, importando metadados SAML do StorageGRID ou inserindo os dados manualmente.' 
 ---
-= Crie relações de confiança com terceiros confiáveis no AD FS para StorageGRID
+= Crie relações de confiança com terceiros confiáveis no AD FS para SAML no StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Você deve usar os Serviços de Federação do ative Directory (AD FS) para criar uma confiança de parte confiável para cada nó de administração em seu sistema. Você pode criar trusts confiáveis de parte usando comandos do PowerShell, importando metadados SAML do StorageGRID ou inserindo os dados manualmente.
+Você deve usar o Active Directory Federation Services (AD FS) para criar uma relação de confiança de terceiros para cada nó Admin para SAML em seu sistema. Você pode criar relações de confiança de terceiros usando comandos PowerShell, importando metadados SAML do StorageGRID ou inserindo os dados manualmente.
 
 .Antes de começar
 * Você configurou o logon único para o StorageGRID e selecionou *AD FS* como o tipo SSO.
-* Você temlink:../admin/configure-sso.html["entrou no modo sandbox"] no Grid Manager.
+* Você tem link:../admin/configure-sso-saml.html["entrou no modo sandbox"] no Grid Manager.
 * Você conhece o nome de domínio totalmente qualificado (ou o endereço IP) e o identificador da parte confiável para cada nó de administração no seu sistema.  Você pode encontrar esses valores na tabela de detalhes dos Nós de administração na página Configurar SSO do StorageGRID .
 +
 
@@ -89,7 +89,7 @@ Se os metadados estiverem ausentes, confirme se o endereço de metadados da Fede
 
 
 . Repita essas etapas para configurar uma confiança de parte confiável para todos os nós de administração no sistema StorageGRID.
-. Quando terminar, volte para StorageGRID elink:../admin/configure-sso.html#test-sso["testar todos os trusts de terceiros confiáveis"] para confirmar se estão configurados corretamente.
+. Ao concluir, retorne ao StorageGRID e link:../admin/configure-sso-saml.html#test-sso["testar todos os trusts de terceiros confiáveis"] para confirmar que estão configurados corretamente.
 
 
 
@@ -141,7 +141,7 @@ Se os metadados estiverem ausentes, confirme se o endereço de metadados da Fede
 
 
 . Repita essas etapas para configurar uma confiança de parte confiável para todos os nós de administração no sistema StorageGRID.
-. Quando terminar, volte para StorageGRID elink:../admin/configure-sso.html#test-sso["testar todos os trusts de terceiros confiáveis"] para confirmar se estão configurados corretamente.
+. Ao concluir, retorne ao StorageGRID e link:../admin/configure-sso-saml.html#test-sso["testar todos os trusts de terceiros confiáveis"] para confirmar que estão configuradas corretamente.
 
 
 
@@ -236,5 +236,5 @@ As propriedades da parte dependente são salvas e fechadas.
 
 
 . Repita essas etapas para configurar uma confiança de parte confiável para todos os nós de administração no sistema StorageGRID.
-. Quando terminar, volte para StorageGRID elink:../admin/configure-sso.html#test-sso["testar todos os trusts de terceiros confiáveis"] para confirmar se estão configurados corretamente.
+. Ao concluir, retorne ao StorageGRID e link:../admin/configure-sso-saml.html#test-sso["testar todos os trusts de terceiros confiáveis"] para confirmar que estão configuradas corretamente.
 

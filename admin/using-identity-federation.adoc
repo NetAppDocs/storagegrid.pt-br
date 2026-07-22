@@ -244,3 +244,6 @@ Você deve configurar os seguintes atributos OpenLDAP com as palavras-chave de �
 Além disso, certifique-se de que os campos mencionados na ajuda do Nome de usuário sejam indexados para um desempenho ideal.
 
 Consulte as informações sobre a manutenção da associação de grupo reverso no http://www.openldap.org/doc/admin24/index.html["Documentação do OpenLDAP: Guia do administrador da versão 2,4"^].
+
+.Informações relacionadas
+link:../network/external-communications.html["Portas usadas para comunicações externas"]

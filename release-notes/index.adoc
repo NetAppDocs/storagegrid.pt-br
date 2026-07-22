@@ -1,0 +1,16 @@
+---
+permalink: release-notes/index.html 
+sidebar: sidebar 
+keywords: release notes 
+summary: Obtenha informações específicas da versão sobre problemas corrigidos e problemas conhecidos. 
+---
+= Notas de lançamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Obtenha informações específicas da versão sobre problemas corrigidos e problemas conhecidos.
+
+Faça login no NetApp site de suporte da NetApp para  https://library.netapp.com/ecm/ecm_download_file/ECMLP3373065["visualize ou baixe um arquivo PDF"^] acessar as notas de lançamento do StorageGRID 12.1.

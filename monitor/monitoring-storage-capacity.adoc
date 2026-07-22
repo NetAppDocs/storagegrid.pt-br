@@ -106,10 +106,7 @@ image:nodes_page_storage_used_object_data.png["Dados de objetos usados no storag
 . Reveja os valores disponíveis nas tabelas volumes e objetos armazenados, abaixo dos gráficos.
 +
 
-NOTE: Para visualizar gráficos desses valores, clique nos ícones de gráfico image:icon_chart_new_for_11_5.png["Ícone de carta"] nas colunas Disponíveis.
-
-+
-image:nodes_page_storage_tables.png["Objeto armazena tabelas"]
+NOTE: Para visualizar gráficos desses valores, selecione os ícones de gráfico nas colunas disponíveis.
 
 . Monitore os valores ao longo do tempo para estimar a taxa na qual o espaço de armazenamento utilizável está sendo consumido.
 . Para manter as operações normais do sistema, adicione nós de storage, adicione volumes de storage ou arquive dados de objetos antes que o espaço utilizável seja consumido.
@@ -206,4 +203,4 @@ Se você tiver uma nova instalação do StorageGRID, permita que dados e metadad
 . Use esses valores para estimar quando será necessário adicionar novos nós de storage para storage de dados e metadados.
 
 
-image:forecast-metadata-usage.png["Previsão do uso de metadados por local"]
+image:forecast_metadata_usage.png["Previsão do uso de metadados por local"]

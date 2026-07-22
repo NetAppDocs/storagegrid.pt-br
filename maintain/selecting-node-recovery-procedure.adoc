@@ -2,7 +2,7 @@
 permalink: maintain/selecting-node-recovery-procedure.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, procedure 
-summary: Você deve selecionar o procedimento de recuperação correto para o tipo de nó que falhou. 
+summary: Selecione o procedimento de recuperação correto para o tipo de nó que apresentou falha. 
 ---
 = Selecione o procedimento de recuperação do nó StorageGRID
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Você deve selecionar o procedimento de recuperação correto para o ti
 
 
 [role="lead"]
-Você deve selecionar o procedimento de recuperação correto para o tipo de nó que falhou.
+Selecione o procedimento de recuperação correto para o tipo de nó que apresentou falha.
 
 [cols="1a,2a"]
 |===
@@ -19,18 +19,9 @@ Você deve selecionar o procedimento de recuperação correto para o tipo de nó
 
 
  a| 
-Mais de um nó de storage
+Nó de storage
  a| 
-Entre em Contato com o suporte técnico. Se mais de um nó de storage falhar, o suporte técnico deve ajudar na recuperação para evitar inconsistências no banco de dados que podem levar à perda de dados. Um procedimento de recuperação de local pode ser necessário.
-
-link:how-site-recovery-is-performed-by-technical-support.html["Como o suporte técnico recupera um site"]
-
-
-
- a| 
-Um único nó de storage
- a| 
-O procedimento de recuperação do nó de armazenamento depende do tipo e duração da falha.
+O procedimento de recuperação do nó de armazenamento depende do tipo de falha.
 
 link:recovering-from-storage-node-failures.html["Recuperar de falhas no nó de storage"]
 
@@ -59,4 +50,4 @@ https://docs.netapp.com/us-en/storagegrid-118/maintain/recovering-from-archive-n
 
 |===
 
-NOTE: Se um servidor que hospeda mais de um nó de grade falhar, você poderá recuperar os nós em qualquer ordem. Entretanto, se o servidor com falha estiver hospedando o nó de administração principal, você deverá recuperar esse nó primeiro. Recuperar primeiro o nó de administração primário evita que outras recuperações de nós sejam interrompidas enquanto aguardam para entrar em contato com o nó de administração primário.
+NOTE: Se um servidor que hospeda mais de um nó de grid falhar, você pode recuperar os nós em qualquer ordem. No entanto, se o servidor com falha estiver hospedando o nó de administração primário e não houver nós de administração não primários, você deve recuperar o nó de administração primário primeiro. Recuperar o nó de administração primário primeiro evita que a recuperação de outros nós seja interrompida enquanto eles tentam contatar o nó de administração primário. Se um nó de administração não primário estiver disponível, você também pode usá-lo para recuperar outros nós, permitindo que essas recuperações prossigam sem contatar o nó de administração primário.

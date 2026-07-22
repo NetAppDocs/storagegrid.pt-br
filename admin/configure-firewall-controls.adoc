@@ -29,9 +29,9 @@ O StorageGRID inclui um firewall interno em cada nó que permite abrir ou fechar
 
 Limitar o número de portas abertas para endereços IP fora da sua grade a apenas aquelas que são absolutamente necessárias aumenta a segurança da sua grade. Você usa as configurações em cada uma das três guias de controle do Firewall para garantir que somente as portas necessárias estejam abertas.
 
-Para obter mais informações sobre como usar controles de firewall, incluindo exemplos, link:../admin/manage-firewall-controls.html["Gerenciar controles de firewall"]consulte .
+Para obter mais informações sobre como usar os controles de firewall, incluindo exemplos, consulte link:../admin/manage-firewall-controls.html["Gerenciar controles de firewall"].
 
-Para obter mais informações sobre firewalls externos e segurança de rede, link:../admin/controlling-access-through-firewalls.html["Controle o acesso no firewall externo"]consulte .
+Para obter mais informações sobre firewalls externos e segurança de rede, consulte link:../admin/controlling-access-through-firewalls.html["Controle o acesso no firewall externo"].
 
 
 
@@ -60,16 +60,16 @@ Use a guia lista de endereços privilegiados para conceder aos hosts acesso a po
 Endereços IP privilegiados e sub-redes não têm acesso interno à grade por padrão. Além disso, os pontos de extremidade do balanceador de carga e as portas adicionais abertas na guia Lista de endereços privilegiados são acessíveis mesmo que estejam bloqueados na guia Gerenciar acesso externo.
 
 
-NOTE: As configurações na guia lista de endereços privilegiados não podem substituir as configurações na guia rede cliente não confiável.
+NOTE: As configurações na guia Lista de endereços privilegiados podem substituir as configurações na guia Rede de cliente não confiável.
 
 .Passos
 . Na guia lista de endereços privilegiados, insira o endereço ou a sub-rede IP que deseja conceder acesso a portas fechadas.
-. Opcionalmente, selecione *Adicionar outro endereço IP ou sub-rede na notação CIDR* para adicionar clientes privilegiados adicionais.
+. Opcionalmente, selecione *Adicionar outro IP ou uma sub-rede na notação CIDR* para adicionar clientes privilegiados adicionais.
 +
 
 TIP: Adicione o mínimo possível de endereços à lista privilegiada.
 
-. Opcionalmente, selecione *permitir endereços IP privilegiados para acessar portas internas do StorageGRID*. link:../network/internal-grid-node-communications.html["Portas internas do StorageGRID"]Consulte .
+. Opcionalmente, selecione *Permitir que endereços IP privilegiados acessem as portas internas do StorageGRID*. Consulte link:../network/internal-grid-node-communications.html["Portas internas do StorageGRID"].
 +
 
 TIP: Esta opção remove algumas proteções para serviços internos. Deixe-o desativado, se possível.
@@ -96,7 +96,7 @@ NOTE: As configurações na guia Gerenciar acesso externo não podem substituir 
 ** Selecione *Fechar todas as portas exibidas* para fechar todas as portas listadas na tabela.
 +
 
-CAUTION: Se você fechar as portas 443 ou 8443 do Gerenciador de Grade, qualquer usuário conetado atualmente em uma porta bloqueada, incluindo você, perderá o acesso ao Gerenciador de Grade, a menos que seu endereço IP tenha sido adicionado à lista de endereços privilegiados.
+CAUTION: Se você fechar as portas 443 ou 8443 do Grid Manager, todos os usuários atualmente conectados a uma porta bloqueada, incluindo você, perderão o acesso ao Grid Manager, a menos que seu endereço IP tenha sido adicionado à lista de endereços privilegiados.
 
 +
 
@@ -150,6 +150,6 @@ NOTE: Use a barra de rolagem no lado direito da tabela para ter certeza de que v
 
 . Selecione *Guardar*.
 +
-As novas configurações de firewall são imediatamente aplicadas e aplicadas. As conexões de cliente existentes podem falhar se os pontos de extremidade do balanceador de carga não tiverem sido configurados.
+As novas configurações do firewall são aplicadas e entram em vigor imediatamente. As conexões de cliente existentes podem falhar se os endpoints do balanceador de carga não tiverem sido configurados.
 
 

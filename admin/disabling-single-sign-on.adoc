@@ -23,7 +23,7 @@ Você pode desativar o logon único (SSO) se não quiser mais usar essa funciona
 +
 É apresentada a página Single Sign-on (Início de sessão único).
 
-. Selecione *Desativar SSO*.
+. Selecione *Desativar*.
 . Selecione *Sim*.
 +
 É apresentada uma mensagem de aviso indicando que os utilizadores locais poderão iniciar sessão.

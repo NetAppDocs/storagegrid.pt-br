@@ -27,9 +27,10 @@ O procedimento de reequilíbrio CE:
 * Move apenas dados de objetos codificados por apagamento. Ele não move dados de objetos replicados.
 * Redistribui os dados em um local. Ele não move dados entre sites.
 * Redistribui dados entre todos os nós de storage em um local. Ele não redistribui dados dentro de volumes de storage.
-* Tenta distribuir o mesmo número de bytes para cada nó.  Os nós que contêm mais dados replicados armazenarão menos dados codificados por eliminação após a conclusão do rebalanceamento.
-* Redistribui dados codificados para eliminação uniformemente entre os nós de armazenamento sem considerar as capacidades relativas de cada nó.  Dados replicados são incluídos no cálculo.
-* Não distribuirá dados codificados para eliminação para nós de armazenamento que estejam mais de 80% cheios.
+* Tentativas de distribuir bytes de dados para que cada nó tenha o mesmo espaço utilizável. Nós que contêm mais dados replicados podem armazenar menos dados codificados por paridade após a conclusão do rebalanceamento.
+* Redistribui o espaço utilizável uniformemente entre os nós de armazenamento, sem considerar as capacidades relativas de cada nó. Os dados replicados estão incluídos no cálculo.
+* O procedimento de rebalanceamento é considerado completo se não for possível mover mais dados codificados por apagamento, mesmo que o espaço utilizável ainda não esteja distribuído uniformemente.
+* Não distribuirá dados com código de apagamento para Storage Nodes que estejam com mais de 80% de sua capacidade preenchida ou para Storage Nodes que contenham apenas metadados.
 * Pode diminuir o desempenho das operações ILM e das operações de cliente S3 quando executa& n.o 8212;recursos adicionais são necessários para redistribuir os fragmentos de codificação de apagamento.
 
 
@@ -40,9 +41,9 @@ Quando o procedimento de reequilíbrio CE estiver concluído:
 * Os valores usados (%) podem ser diferentes entre nós de storage por dois motivos:
 +
 ** As cópias de objetos replicadas continuarão a consumir espaço nos nós existentes& n.o 8212; o procedimento de rebalanceamento EC não move dados replicados.
-** Nós de maior capacidade estarão relativamente menos cheios do que nós de menor capacidade, mesmo que todos os nós acabem com aproximadamente a mesma quantidade de dados.
+** Nós com maior capacidade podem estar relativamente menos cheios do que nós com menor capacidade, embora todos os nós acabem com aproximadamente a mesma quantidade de espaço utilizável.
 +
-Por exemplo, suponha que três nós de 200 TB estejam preenchidos a 80% (200 e 215; 0,8: 160 TB em cada nó ou 480 TB para o local). Se você adicionar um nó de 400 TB e executar o procedimento de rebalancear, todos os nós agora terão aproximadamente a mesma quantidade de dados de código de apagamento (480/4: 120 TB). No entanto, o usado (%) para o nó maior será menor do que o usado (%) para os nós menores.
+Por exemplo, com um esquema de Codificação de Apagamento 2+1, suponha que três nós de 200 TB estejam preenchidos com 80% de sua capacidade (200 × 0,8 = 160 TB em cada nó, ou 480 TB para o site). Se você adicionar um nó de 400 TB e executar o procedimento de rebalanceamento, todos os nós mais antigos terão aproximadamente a mesma quantidade de dados codificados por apagamento (106,66 TB ou 53% de uso). O novo nó terá 160 TB de dados (40% de uso). Nesse caso, a porcentagem de uso do nó maior será menor que a porcentagem de uso dos nós menores. O procedimento de rebalanceamento é concluído antes que o espaço utilizável seja totalmente balanceado, pois não é possível mover mais dados codificados por apagamento sem violar as restrições do esquema de codificação de apagamento.
 
 +
 image:used_space_with_larger_node.png["Espaço usado antes da expansão"]
@@ -72,8 +73,8 @@ image:used_space_before_expansion.png["Espaço usado antes da expansão"]
 
 
 
-[[rebalance-is-not-required-if-you-add-enough-nodes]]
-=== O rebalancear não será necessário se você adicionar nós suficientes
+[[rebalance-isnt-required-if-you-add-enough-nodes]]
+=== Não é necessário rebalancear se você adicionar nós suficientes
 
 Para entender quando o rebalanceamento de EC não é necessário, suponha que você adicionou três (ou mais) novos nós de storage. Nesse caso, você não precisa executar o EC rebalanceamento. Os nós de storage originais permanecerão cheios, mas novos objetos agora usarão os três novos nós para 2 codificação de apagamento de mais de 1 e 8212; os dois fragmentos de dados e um fragmento de paridade podem ser armazenados em um nó diferente.
 
@@ -91,7 +92,7 @@ Para entender quando o EC rebalanceamento é necessário, suponha que você só 
 
 image:used_space_after_2_node_expansion.png["Espaço usado após a expansão de 2 nós"]
 
-Para usar os novos nós de storage, execute o procedimento de rebalanceamento de EC. Quando esse procedimento é executado, o StorageGRID redistribui dados codificados por apagamento e fragmentos de paridade entre todos os nós de storage no local. Neste exemplo, quando o procedimento de rebalanceamento do EC estiver concluído, todos os cinco nós agora estão apenas 60% cheios e os objetos podem continuar a ser ingeridos no 2 esquema de codificação de apagamento de mais de 1% em todos os nós de storage.
+Para utilizar os novos Nós de Armazenamento, você deve executar o procedimento de rebalanceamento EC. Quando esse procedimento é executado, o StorageGRID redistribui os dados codificados por apagamento e os fragmentos de paridade existentes, de forma que o espaço utilizável seja distribuído uniformemente entre todos os Nós de Armazenamento no site. Neste exemplo, quando o procedimento de rebalanceamento EC é concluído, todos os cinco nós estão agora com 60% de sua capacidade ocupada e 40% de espaço utilizável, e os objetos podem continuar sendo inseridos no esquema de codificação de apagamento 2+1 em todos os Nós de Armazenamento.
 
 image:used_space_after_ec_rebalance.png["Espaço usado aAAfter EC reequilíbrio"]
 

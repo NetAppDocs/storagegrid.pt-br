@@ -18,13 +18,33 @@ Antes de ativar o logon único (SSO) para um sistema StorageGRID, revise os requ
 [[identity-provider-requirements]]
 == Requisitos do provedor de identidade
 
-O StorageGRID oferece suporte aos seguintes provedores de identidade SSO (IDP):
+StorageGRID suporta vários provedores de identidade SSO (IdP).
+
+[role="tabbed-block"]
+====
+.OIDC
+--
+Os seguintes SSO IdPs são suportados para OpenID Connect (OIDC):
+
+* Serviço de Federação do ative Directory (AD FS)
+* ID de entrada da Microsoft
+* Keycloak
+* PingFederate
+* Okta
+
+
+--
+.SAML
+--
+Os seguintes SSO IdPs são compatíveis com Security Assertion Markup Language 2.0 (SAML 2.0):
 
 * Serviço de Federação do ative Directory (AD FS)
 * ID de entrada da Microsoft
 * PingFederate
 
 
+--
+====
 Você deve configurar a federação de identidade para o seu sistema StorageGRID antes de poder configurar um provedor de identidade SSO. O tipo de serviço LDAP que você usa para controles de federação de identidade que tipo de SSO você pode implementar.
 
 [cols="1a,1a"]
@@ -36,6 +56,8 @@ Você deve configurar a federação de identidade para o seu sistema StorageGRID
 Ative Directory
  a| 
 * Ative Directory
+* Keycloak
+* Okta
 * ID de entrada
 * PingFederate
 

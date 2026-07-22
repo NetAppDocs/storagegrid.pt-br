@@ -363,9 +363,9 @@ Use o certificado de CA de grade padrão instalado no sistema operacional para p
 
 |===
 --
-.Somente endpoints de webhook
+.Webhooks e endpoints Kafka
 --
-Verifique a conexão TLS para endpoints de webhook.
+Verifique a conexão TLS para webhook ou endpoints Kafka.
 
 [cols="1a,2a"]
 |===
@@ -397,6 +397,15 @@ A verificação do certificado está desativada.  Esta opção não é segura.
 Use certificado CA personalizado
  a| 
 O certificado CA personalizado é usado para verificar a identidade do servidor ao se conectar ao ponto de extremidade.
+
+
+
+ a| 
+Use o certificado CA do sistema operacional
+ a| 
+Use o certificado de CA de grade padrão instalado no sistema operacional para proteger conexões.
+
+*Nota*: Endpoints de webhook não possuem essa opção.
 
 |===
 Quando você seleciona *mTLS*, essas opções ficam disponíveis.
@@ -454,4 +463,5 @@ Depois de configurar um endpoint, você pode usar seu URN para configurar um ser
 * link:configuring-cloudmirror-replication.html["Configurar a replicação do CloudMirror"]
 * link:configuring-event-notifications.html["Configurar notificações de eventos"]
 * link:configuring-search-integration-service.html["Configurar o serviço de integração de pesquisa"]
+* link:../network/external-communications.html["Portas usadas para comunicações externas"]
 

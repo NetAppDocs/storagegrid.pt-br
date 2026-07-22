@@ -50,7 +50,7 @@ Para implementar uma solução de disposição em camadas:
 [[maintain-multiple-cloud-endpoints]]
 == Manter vários pontos de extremidade de nuvem
 
-Você pode configurar vários pontos de extremidade do Cloud Storage Pool se quiser categorizar ou fazer backup de dados de objetos em mais de uma nuvem. Os filtros nas regras do ILM permitem especificar quais objetos são armazenados em cada pool de armazenamento em nuvem. Por exemplo, você pode querer armazenar objetos de alguns locatários ou buckets no Amazon S3 Glacier e objetos de outros locatários ou buckets no storage Blob do Azure. Ou, talvez você queira mover dados entre o Amazon S3 Glacier e o storage Azure Blob.
+Você pode configurar vários endpoints do Cloud Storage Pool se quiser fazer tiering ou backup de dados de objetos em mais de uma nuvem. Os filtros em suas regras de ILM permitem que você especifique quais objetos são armazenados em cada Cloud Storage Pool. Por exemplo, você pode querer armazenar objetos de alguns tenants ou buckets no Amazon S3 Glacier e objetos de outros tenants ou buckets no Azure Blob Storage. Ou você pode querer mover dados entre Amazon S3 Glacier e Azure Blob Storage.
 
 
 NOTE: Ao usar vários pontos de extremidade do Cloud Storage Pool, lembre-se de que um objeto pode ser armazenado em apenas um pool de armazenamento em nuvem de cada vez.

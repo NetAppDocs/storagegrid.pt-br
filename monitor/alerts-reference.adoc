@@ -114,7 +114,7 @@ Os dois controladores no dispositivo têm tamanhos de cache diferentes.
  a| 
 Avaria na bateria CMOS do aparelho
  a| 
-Foi detetado um problema com a bateria CMOS no aparelho.
+Foi detectado um problema com a bateria CMOS no appliance.
 
 
 
@@ -255,6 +255,13 @@ A alimentação de um aparelho StorageGRID desviou-se da tensão de funcionament
 Atualização do software do sistema operacional SANtricity do dispositivo necessária
  a| 
 A versão do software SANtricity é inferior ao mínimo recomendado para esta versão do StorageGRID.
+
+
+
+ a| 
+Falha detectada no appliance SFP
+ a| 
+Foi detectada uma falha no SFP no controlador de computação de um appliance StorageGRID.
 
 
 
@@ -427,6 +434,13 @@ Um bucket do FabricPool usa o nível de consistência disponível ou de sites fo
 O bucket do FabricPool não tem configuração de controle de versão sem suporte
  a| 
 Um bucket do FabricPool tem controle de versão ou bloqueio de objeto S3 habilitado, que não são suportados.
+
+
+
+ a| 
+ListBucket verificação de permissão para objeto Get/Head desativada
+ a| 
+ListBucket a verificação de permissões para GetObject/HeadObject em chaves inexistentes está desativada.
 
 |===
 
@@ -669,6 +683,13 @@ Nas últimas 24 horas, um usuário fez login com o Web Console ou SSH.
 
 
  a| 
+Serviço de chunks com alta contagem de goroutines
+ a| 
+O serviço de fragmentação apresenta um número excepcionalmente alto de goroutines, o que pode indicar um deadlock ou vazamento de recursos.
+
+
+
+ a| 
 Falha no rebalanceamento EC
  a| 
 O procedimento de reequilíbrio CE falhou ou foi interrompido.
@@ -693,6 +714,13 @@ Um trabalho de reparação para dados CE parou.
 Erro de verificação de fragmentos codificados por apagamento
  a| 
 Fragmentos codificados por apagamento não podem mais ser verificados. Fragmentos corrompidos podem não ser reparados.
+
+
+
+ a| 
+Grupos codificados por apagamento no estado Needs Repair
+ a| 
+Um ou mais grupos codificados para apagamento estão no estado "Necessita de Reparo" quando nenhum reparo de dados codificados para apagamento está em andamento.
 
 |===
 
@@ -807,13 +835,6 @@ A conexão de federação de grade entre a grade local e remota não está funci
 [cols="1a,2a"]
 |===
 | Nome do alerta | Descrição 
-
-
- a| 
-Alto uso de heap Java
- a| 
-Uma alta porcentagem de espaço de heap Java está sendo usada.
-
 
 
  a| 
@@ -1309,9 +1330,30 @@ Objetos órfãos foram detectados.
 
 
  a| 
+O tamanho da parte do upload multipart do S3 é muito grande
+ a| 
+Um cliente está tentando realizar uma operação de upload multipart que excede o limite de tamanho da parte.
+
+
+
+ a| 
 S3 COLOQUE o tamanho do objeto muito grande
  a| 
 Um cliente está tentando uma operação PUT Object que excede os limites de tamanho S3.
+
+
+
+ a| 
+Requisições S3 usando cabeçalhos condicionais não suportados
+ a| 
+Um cliente S3 está usando cabeçalhos condicionais não suportados (If-Match ou If-None-Match) para determinadas operações.
+
+
+
+ a| 
+Solicitações S3 usando região incorreta com namespace global ativado
+ a| 
+Um cliente S3 está usando a região de assinatura incorreta para acessar os buckets deste grid.
 
 
 

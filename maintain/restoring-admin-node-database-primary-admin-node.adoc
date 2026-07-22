@@ -59,7 +59,6 @@ NOTE: Copiar o banco de dados Admin Node pode levar várias horas. Alguns recurs
 .. Pare o serviço mgmt-api: `service mgmt-api stop`
 .. Adicione a chave privada SSH ao agente SSH. Introduza:``ssh-add``
 .. Insira a senha de acesso SSH listada no `Passwords.txt` arquivo.
-.. Copie o banco de dados do Admin Node de origem para o Admin Node recuperado: `/usr/local/mi/bin/mi-clone-db.sh Source_Admin_Node_IP`
 .. Quando solicitado, confirme se você deseja substituir o banco de dados MI no Admin Node recuperado.
 +
 O banco de dados e seus dados históricos são copiados para o Admin Node recuperado. Quando a operação de cópia é concluída, o script inicia o nó Admin recuperado.

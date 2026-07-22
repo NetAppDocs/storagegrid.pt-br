@@ -23,10 +23,10 @@ CAUTION: Não inicie a atualização se precisar expandir seu armazenamento com 
 [[before-you-upgrade]]
 == Antes de atualizar
 
-Revise estes tópicos para saber mais sobre os novos recursos e aprimoramentos do StorageGRID 12.0, determinar se algum recurso foi descontinuado ou removido e descobrir mais sobre as alterações nas APIs do StorageGRID .
+Consulte estes tópicos para saber mais sobre os novos recursos e melhorias do StorageGRID 12.1, verificar se algum recurso foi descontinuado ou removido e ficar por dentro das alterações nas APIs do StorageGRID.
 
 * link:how-your-system-is-affected-during-upgrade.html["Como seu sistema é afetado durante a atualização"]
-* link:../release-notes/whats-new.html["Novidades no StorageGRID 12.0"]
+* link:../release-notes/whats-new.html["Novidades no StorageGRID 12.1"]
 * link:../release-notes/removed-or-deprecated-features.html["Recursos removidos ou obsoletos"]
 * link:../release-notes/changes-to-grid-management-api.html["Alterações na API Grid Management"]
 * link:../release-notes/changes-to-tenant-management-api.html["Alterações na API de gerenciamento do locatário"]

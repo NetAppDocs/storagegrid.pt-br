@@ -31,8 +31,10 @@ indexpage:
     links:
     - title: Substitua o nó Linux
       url: "../maintain/all-node-types-replacing-linux-node.html"
-    - title: Substitua o nó VMware
+    - title: Substitua o nó VMware por um nó de recuperação
       url: "../maintain/all-node-types-replacing-vmware-node.html"
+    - title: Substitua o nó VMware por SG1000 ou SG100
+      url: "../maintain/replace-vmware-node-with-sg1000-sg100.html"
     - title: Substitua o nó Linux ou VMware pelo dispositivo de serviços
       url: "../maintain/installing-services-appliance-platform-change-only.html"
     - title: Nó do dispositivo clone

@@ -42,8 +42,8 @@ indexpage:
       url: "../tenant/deleting-s3-bucket.html"
   - title: Use os recursos do locatário
     links:
-    - title: Clone de conta
-      url: "../tenant/grid-federation-account-clone.html"
+    - title: Sincronização de contas
+      url: "../tenant/grid-federation-account-sync.html"
     - title: Replicação entre grade
       url: "../tenant/grid-federation-manage-cross-grid-replication.html"
     - title: Serviços de plataforma

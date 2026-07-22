@@ -22,11 +22,11 @@ Antes de adicionar um site, revise os seguintes requisitos e limitações:
 
 * Só é possível adicionar um local por operação de expansão.
 * Não é possível adicionar nós de grade a um site existente como parte da mesma expansão.
-* Todos os locais devem incluir pelo menos três nós de storage.
-* Adicionar um novo site não aumenta automaticamente o número de objetos que você pode armazenar. A capacidade total de objeto de uma grade depende da quantidade de storage disponível, da política de ILM e da capacidade de metadados em cada local.
+* Todos os sites devem incluir pelo menos três nós de armazenamento. Eles podem ser qualquer combinação de nós de armazenamento combinados e somente de metadados. Se houver mais de três nós de armazenamento, eles podem ser qualquer combinação de nós de armazenamento combinados, somente de metadados e somente de dados, desde que três serviços ADC estejam disponíveis. Para mais informações, consulte link:../primer/what-storage-node-is.html#required-storage-nodes-per-grid-and-per-site["Nós de armazenamento necessários por grade e por site"].
+* Ao adicionar um novo site, o número de objetos que você pode armazenar não aumenta automaticamente. A capacidade total de objetos de uma grid depende da quantidade de storage disponível, da política ILM e da capacidade de metadados em cada site.
 * Ao dimensionar um novo local, você deve garantir que ele inclua capacidade suficiente de metadados.
 +
-O StorageGRID mantém uma cópia de todos os metadados de objetos em cada local. Ao adicionar um novo local, você deve garantir que ele inclua capacidade de metadados suficiente para os metadados de objetos existentes e capacidade de metadados suficiente para crescimento.
+StorageGRID mantém uma cópia de todos os metadados em cada site. Ao adicionar um novo site, certifique-se de que ele inclua capacidade de metadados suficiente para os metadados de objeto existentes e capacidade de metadados suficiente para o crescimento.
 
 +
 Para obter mais informações, consulte o seguinte:
@@ -37,11 +37,19 @@ Para obter mais informações, consulte o seguinte:
 
 
 * Você deve considerar a largura de banda de rede disponível entre sites e o nível de latência de rede. As atualizações de metadados são continuamente replicadas entre sites, mesmo que todos os objetos sejam armazenados apenas no local onde são ingeridos.
-* Como o sistema StorageGRID permanece operacional durante a expansão, você deve revisar as regras do ILM antes de iniciar o procedimento de expansão. Você deve garantir que as cópias de objeto não sejam armazenadas no novo local até que o procedimento de expansão seja concluído.
 +
-Por exemplo, antes de iniciar a expansão, determine se alguma regra usa o pool de storage padrão (todos os nós de storage). Se isso acontecer, você deverá criar um novo pool de storage que contenha os nós de storage existentes e atualizar suas regras de ILM para usar o novo pool de storage. Caso contrário, os objetos serão copiados para o novo site assim que o primeiro nó nesse site se tornar ativo.
+Para ajudar a evitar baixo desempenho devido à latência:
 
 +
-Para obter mais informações sobre como alterar o ILM ao adicionar um novo site, consulte link:../ilm/example-6-changing-ilm-policy.html["Exemplo para alterar uma política ILM"].
+** A codificação de apagamento não é recomendada entre sites com latência superior a 100 ms.
+** Os sites no seu sistema StorageGRID não devem abranger grandes distâncias geográficas, por exemplo, atravessando vários continentes.
+
+
+* Como o sistema StorageGRID permanece operacional durante a expansão, você deve revisar as regras do ILM antes de iniciar o procedimento de expansão. Você deve garantir que as cópias de objeto não sejam armazenadas no novo local até que o procedimento de expansão seja concluído.
++
+Por exemplo, antes de iniciar a expansão, verifique se alguma regra utiliza o pool de storage padrão (All Storage Nodes). Se utilizar, crie um novo pool de storage com os Storage Nodes existentes e atualize suas regras de ILM para usar o novo pool de storage. Caso contrário, os objetos são copiados para o novo site assim que o primeiro nó desse site se tornar ativo.
+
++
+Para obter mais informações sobre como alterar uma política ILM ao adicionar um novo site, consulte o link:../ilm/example-6-changing-ilm-policy.html["Exemplo para alterar uma política ILM"].
 
 

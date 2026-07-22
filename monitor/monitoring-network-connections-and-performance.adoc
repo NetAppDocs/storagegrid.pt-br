@@ -48,9 +48,6 @@ image:nodes_page_network_interfaces.png["Interfaces de rede da página de nós"]
 +
 As tabelas de receção e transmissão mostram quantos bytes e pacotes foram recebidos e enviados através de cada rede, bem como outras métricas de receção e transmissão.
 
-+
-image:nodes_page_network_communication.png["Comunicação de rede de Página de nós"]
-
 
 
 . Use as métricas associadas às suas políticas de classificação de tráfego para monitorar o tráfego de rede.
@@ -62,7 +59,7 @@ A página políticas de classificação de tráfego é exibida e as políticas e
 +
 image:traffic_classification_policies_main_screen_w_examples.png["Política de tráfego para exemplo de gráfico"]
 
-.. Para exibir gráficos que mostram as métricas de rede associadas a uma política, selecione o botão de opção à esquerda da política e clique em *métricas*.
+.. Para visualizar gráficos que mostram as métricas de rede associadas a uma política, selecione o botão de opção à esquerda da política e, em seguida, selecione *Métricas*.
 .. Reveja os gráficos para compreender o tráfego de rede associado à política.
 +
 Se uma política de classificação de tráfego for projetada para limitar o tráfego de rede, analise a frequência com que o tráfego é limitado e decida se a política continua atendendo às suas necessidades. De tempos em temposlink:../admin/managing-traffic-classification-policies.html["ajuste cada política de classificação de tráfego conforme necessário"], .

@@ -1,8 +1,8 @@
 ---
 permalink: admin/grid-federation-overview.html 
 sidebar: sidebar 
-keywords: grid federation, cross-grid replication, account clone, cgr, disaster recovery 
-summary: Você pode usar a federação de grade para clonar locatários e replicar seus objetos entre dois sistemas StorageGRID para recuperação de desastres. 
+keywords: grid federation, cross-grid replication, account sync, cgr, disaster recovery 
+summary: Você pode usar a federação de grids para sincronizar tenants e replicar seus objetos entre vários sistemas StorageGRID para recuperação de desastres. 
 ---
 = Saiba mais sobre a federação de grids StorageGRID
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Você pode usar a federação de grade para clonar locatários e replic
 
 
 [role="lead"]
-Você pode usar a federação de grade para clonar locatários e replicar seus objetos entre dois sistemas StorageGRID para recuperação de desastres.
+Você pode usar a federação de grids para sincronizar tenants e replicar seus objetos entre vários sistemas StorageGRID para recuperação de desastres.
 
 
 
@@ -27,7 +27,7 @@ Uma conexão de federação de grade é uma conexão bidirecional, confiável e 
 
 O diagrama de fluxo de trabalho resume as etapas para configurar uma conexão de federação de grade entre duas grades.
 
-image:grid-federation-workflow.png["Fluxo de trabalho de conexão de federação de grade"]
+image:grid_federation_workflow.png["Fluxo de trabalho de conexão de federação de grade"]
 
 
 
@@ -36,11 +36,11 @@ image:grid-federation-workflow.png["Fluxo de trabalho de conexão de federação
 
 * As grades usadas para federação de grade devem estar executando versões do StorageGRID que são idênticas ou não têm mais de uma diferença de versão principal entre elas.
 +
-Para obter detalhes sobre os requisitos de versão, consulte a  https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["Notas de lançamento"^]. Você precisa fazer login com sua conta NetApp ou criar uma conta para acessar as Release notes.
+Para obter detalhes sobre os requisitos de versão, consulte a  https://library.netapp.com/ecm/ecm_download_file/ECMLP3373065["Notas de lançamento"^]. Você precisa fazer login com sua NetApp conta ou criar uma conta para acessar as notas de versão.
 
 * Uma grade pode ter uma ou mais conexões de federação de grade para outras grades. Cada conexão de federação de grade é independente de quaisquer outras conexões. Por exemplo, se o Grid 1 tiver uma conexão com o Grid 2 e uma segunda conexão com o Grid 3, não haverá conexão implícita entre o Grid 2 e o Grid 3.
 * As conexões de federação de grade são bidirecionais. Após a conexão ser estabelecida, você pode monitorar e gerenciar a conexão a partir de qualquer grade.
-* Deve existir pelo menos uma ligação de federação de grelha antes de poder utilizar link:grid-federation-what-is-account-clone.html["clone de conta"] ou link:grid-federation-what-is-cross-grid-replication.html["replicação entre grade"].
+* É necessário que exista pelo menos uma conexão de federação de grid antes de você poder usar link:grid-federation-what-is-account-sync.html["sincronização de contas"] ou link:grid-federation-what-is-cross-grid-replication.html["replicação entre grade"].
 
 
 
@@ -92,7 +92,7 @@ Quando você configura uma conexão de federação de grade, o StorageGRID gera 
 * Certificados de servidor e cliente para autenticar e criptografar informações enviadas da grade 2 para a grade 1
 
 
-image:grid-federation-certificates.png["Certificados de federação de grade"]
+image:grid_federation_certificates.png["Certificados de federação de grade"]
 
 Por padrão, os certificados são válidos por 730 dias (2 anos). Quando esses certificados estiverem próximos da data de expiração, o alerta *Expiration of Grid Federation certificate* lembra que você deve girar os certificados, o que você pode fazer usando o Grid Manager.
 

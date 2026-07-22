@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, non-primary admin node 
 summary: Depois de substituir um nó Admin não primário, você deve selecionar Iniciar recuperação no Gerenciador de Grade para configurar o novo nó como um substituto para o nó com falha. 
 ---
-= Selecione Iniciar Recuperação para configurar o nó de administração do StorageGRID que não seja o primário
+= Selecione Iniciar Recuperação para configurar o nó de administração não primário do StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -21,23 +21,20 @@ Depois de substituir um nó Admin não primário, você deve selecionar Iniciar 
 
 
 .Passos
-. No Grid Manager, selecione *Manutenção* > *Tarefas* > *Recuperação*.
+. No Grid Manager, selecione *Manutenção* > *Tarefas* > *Recuperação de nó*.
 . Selecione o nó de grade que você deseja recuperar na lista de nós pendentes.
 +
 Os nós aparecem na lista depois que eles falham, mas você não pode selecionar um nó até que ele seja reinstalado e esteja pronto para recuperação.
 
-. Introduza a *frase-passe de aprovisionamento*.
-. Clique em *Iniciar recuperação*.
+. Digite a *senha de provisionamento*.
+. Selecione *Iniciar recuperação*.
 +
 image:4b_select_recovery_node.png["captura de tela mostrando a página Maintenance > Recovery"]
 
 . Monitore o progresso da recuperação na tabela Recovering Grid Node (Recovering Grid Node).
 +
 
-NOTE: Enquanto o procedimento de recuperação estiver em execução, você pode clicar em *Reset* para iniciar uma nova recuperação. Uma caixa de diálogo é exibida, indicando que o nó será deixado em um estado indeterminado se você redefinir o procedimento.
-
-+
-image:recovery_reset_warning.gif["captura de tela mostrando a caixa de diálogo de aviso de recuperação de redefinição"]
+NOTE: Enquanto o procedimento de recuperação estiver em execução, você pode selecionar *Redefinir* para iniciar uma nova recuperação. Uma caixa de diálogo será exibida, indicando que o nó ficará em um estado indeterminado se você redefinir o procedimento.
 
 +
 Se pretender tentar novamente a recuperação após reiniciar o procedimento, tem de restaurar o nó para um estado pré-instalado, da seguinte forma:

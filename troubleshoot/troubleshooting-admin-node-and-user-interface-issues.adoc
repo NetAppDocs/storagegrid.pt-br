@@ -47,13 +47,9 @@ Se o erro não for resolvido automaticamente, vá para a próxima etapa.
 
 
 . Determine se o hardware do nó está offline.
-. Se o logon único (SSO) estiver habilitado para seu sistema StorageGRID , consulte as etapas paralink:../admin/configure-sso.html["configurando logon único"] .
+. Se o login único (SSO) estiver habilitado para o seu sistema StorageGRID, consulte como configurar o SSO usando link:../admin/learn-about-setting-up-sso-oidc.html["OIDC"] ou link:../admin/learn-about-setting-up-sso-saml.html["SAML"].
 +
 Talvez seja necessário desativar e reativar temporariamente o SSO para um único nó de administração para resolver quaisquer problemas.
-
-+
-
-NOTE: Se o SSO estiver ativado, você não poderá fazer logon usando uma porta restrita. Tem de utilizar a porta 443.
 
 . Determine se a conta que você está usando pertence a um usuário federado.
 +
@@ -64,7 +60,7 @@ Se a conta de usuário federada não estiver funcionando, tente fazer login no G
 +
 ... Reveja alertas.
 ... Selecione *Configuração* > *Controle de acesso* > *Federação de identidade*.
-... Clique em *Test Connection* para validar as configurações de conexão para o servidor LDAP.
+... Selecione *Test connection* para validar suas configurações de conexão com o servidor LDAP.
 ... Se o teste falhar, resolva quaisquer erros de configuração.
 
 

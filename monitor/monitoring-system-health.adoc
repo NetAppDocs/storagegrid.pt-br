@@ -245,7 +245,7 @@ CAUTION: Tenha cuidado ao decidir silenciar uma regra de alerta. Se uma regra de
 +
 Uma janela pop-up é exibida, listando a expressão Prometheus para cada gravidade definida.
 
-.. Para fechar o pop-up, clique em qualquer lugar fora do pop-up.
+.. Para fechar a janela pop-up, selecione qualquer local fora da janela pop-up.
 
 
 . Opcionalmente, selecione *Editar regra* para editar a regra de alerta que fez com que esse alerta fosse acionado.

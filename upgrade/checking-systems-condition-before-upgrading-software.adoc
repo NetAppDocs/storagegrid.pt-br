@@ -16,9 +16,9 @@ Antes de atualizar um sistema StorageGRID, verifique se o sistema está pronto p
 .Passos
 . Faça login no Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
 . Verifique e resolva quaisquer alertas ativos.
-. Consultelink:../network/internal-grid-node-communications.html["Comunicações internas do nó da grade"] elink:../network/external-communications.html["Comunicações externas"] para garantir que todas as portas necessárias para o StorageGRID 12.0 sejam abertas antes da atualização.
+. Consulte link:../network/internal-grid-node-communications.html["Comunicações internas do nó da grade"] e link:../network/external-communications.html["Comunicações externas"] para garantir que todas as portas necessárias para StorageGRID 12.1 estejam abertas antes de você realizar a atualização.
 +
 
-NOTE: Nenhuma porta adicional é necessária ao atualizar para o StorageGRID 12.0.
+NOTE: Não são necessárias portas adicionais ao atualizar para StorageGRID 12.1.
 
 

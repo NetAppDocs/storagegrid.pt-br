@@ -268,18 +268,9 @@ Você pode ver problemas com a conetividade de rede para nós StorageGRID hosped
 Em alguns casos, problemas de rede podem ser resolvidos usando clonagem de endereço MAC.  Se você estiver usando hosts virtuais, defina o valor da chave de clonagem de endereço MAC para cada uma das suas redes como "true" no arquivo de configuração do nó.  Esta configuração faz com que o endereço MAC do contêiner StorageGRID use o endereço MAC do host.  Veja as instruções paralink:../swnodes/creating-node-configuration-files.html["criar arquivos de configuração de nó"] .
 
 
-NOTE: Crie interfaces de rede virtuais separadas para uso pelo sistema operacional host Linux. Usar as mesmas interfaces de rede para o sistema operacional host Linux e o contentor StorageGRID pode fazer com que o sistema operacional do host se torne inacessível se o modo promíscuo não tiver sido ativado no hypervisor.
+NOTE: Crie interfaces de rede virtuais separadas para uso pelo sistema operacional Linux do host. Usar as mesmas interfaces de rede para o sistema operacional Linux do host e o contêiner StorageGRID pode fazer com que o sistema operacional do host fique inacessível.
 
 Para mais informações, consulte as instruções paralink:../swnodes/configuring-host-network.html["habilitando clonagem de MAC"] .
-
-
-
-[[promiscuous-mode]]
-=== Modo promíscuo
-
-Se você não quiser usar a clonagem de endereços MAC e preferir permitir que todas as interfaces recebam e transmitam dados para endereços MAC diferentes dos atribuídos pelo hypervisor, verifique se as propriedades de segurança nos níveis de switch virtual e grupo de portas estão definidas como *Accept* para modo promíscuo, alterações de endereço MAC e transmissões forjadas. Os valores definidos no switch virtual podem ser substituídos pelos valores no nível do grupo de portas, portanto, certifique-se de que as configurações sejam as mesmas em ambos os locais.
-
-Para obter mais informações sobre o uso do Modo Promíscuo, consulte as instruções paralink:../swnodes/configuring-host-network.html["como configurar a rede host"] .
 
 
 

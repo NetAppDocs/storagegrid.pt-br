@@ -13,7 +13,7 @@ summary: Talvez seja necessário desligar todo o sistema StorageGRID, por exempl
 [role="lead"]
 Talvez seja necessário desligar todo o sistema StorageGRID, por exemplo, se você estiver movendo um data center. Estas etapas fornecem uma visão geral de alto nível da sequência recomendada para executar um desligamento controlado e inicialização.
 
-Quando você desliga todos os nós em um local ou grade, não será possível acessar objetos ingeridos enquanto os nós de storage estiverem offline.
+Ao desligar todos os nós em um site ou grid, você não poderá acessar os objetos ingeridos enquanto os Storage Nodes estiverem offline.
 
 
 
@@ -23,7 +23,7 @@ Quando você desliga todos os nós em um local ou grade, não será possível ac
 Antes de poder desligar um sistema StorageGRID, você deve parar todos os serviços em execução em cada nó de grade e, em seguida, desligar todas as máquinas virtuais VMware, mecanismos de contêiner e dispositivos StorageGRID.
 
 .Sobre esta tarefa
-Pare primeiro os serviços em nós de administração e nós de gateway e, em seguida, pare os serviços em nós de storage.
+Primeiro, pare os serviços nos nós de administração e nos nós de gateway, depois pare os serviços nos nós de armazenamento.
 
 Essa abordagem permite que você use o nó de administração principal para monitorar o status dos outros nós de grade pelo maior tempo possível.
 
@@ -151,9 +151,6 @@ A grelha StorageGRID foi agora desligada.
 [[start-up-grid-nodes]]
 == Inicie os nós de grade
 
-
-CAUTION: Se toda a grade tiver sido desligada por mais de 15 dias, entre em Contato com o suporte técnico antes de iniciar qualquer nó de grade. Não tente os procedimentos de recuperação que reconstroem dados do Cassandra. Isso pode resultar em perda de dados.
-
 Se possível, ligue os nós da grade nesta ordem:
 
 * Aplique o poder aos nós de administração primeiro.
@@ -161,13 +158,13 @@ Se possível, ligue os nós da grade nesta ordem:
 
 
 
-NOTE: Se um host incluir vários nós de grade, os nós retornarão online automaticamente quando você ligar o host.
+NOTE: Se um host incluir vários nós de grid, os nós voltam a ficar online automaticamente quando você liga o host.
 
 .Passos
 . Ligue os hosts para o nó de administração principal e quaisquer nós de administração não primários.
 +
 
-NOTE: Você não poderá fazer login nos nós de administração até que os nós de storage tenham sido reiniciados.
+NOTE: Você não pode fazer login nos Nós de Administração até que os Nós de Armazenamento sejam reiniciados.
 
 . Ligue os hosts para todos os nós de storage.
 +

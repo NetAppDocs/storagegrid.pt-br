@@ -38,6 +38,7 @@ Observe as seguintes características dos buckets de ramificação:
 
 * Você pode usar um branch bucket para remover objetos corrompidos criando um branch bucket a partir de um ponto no tempo anterior à ocorrência da corrupção e, em seguida, apontando os aplicativos para o branch bucket em vez do bucket base que contém objetos corrompidos.
 * Você está salvando dados em um bucket versionado.  Houve uma vulnerabilidade acidental que fez com que muitos objetos indesejados fossem ingeridos após o tempo _T_.  Você pode criar um bucket de ramificação para o valor de tempo anterior, _T_, e redirecionar as operações do cliente para esse bucket de ramificação.  Então, somente objetos ingeridos antes do tempo Before _T_ são expostos aos clientes.
+* Você está salvando dados em um bucket versionado. Ocorreu uma vulnerabilidade acidental que causou a ingestão de muitos objetos indesejados entre os instantes _T1_ e _T2_. Você pode criar um bucket de ramificação para os valores de tempo _Exclude_, _T1_ e _T2_, e redirecionar as operações do cliente para esse bucket de ramificação. Assim, somente os objetos ingeridos antes de _T1_ e depois de _T2_ serão expostos aos clientes.
 
 
 

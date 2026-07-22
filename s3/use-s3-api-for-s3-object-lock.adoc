@@ -14,6 +14,9 @@ summary: Se a configuração global de bloqueio de objetos S3 estiver ativada pa
 Se a configuração global de bloqueio de objetos S3 estiver ativada para o seu sistema StorageGRID, você poderá criar buckets com o bloqueio de objetos S3 ativado. Você pode especificar a retenção padrão para cada bucket ou configurações de retenção para cada versão do objeto.
 
 
+NOTE: StorageGRID não suporta o  `x-amz-sdk-checksum-algorithm` cabeçalho de solicitação.
+
+
 
 [[how-to-enable-s3-object-lock-for-a-bucket]]
 == Como ativar o bloqueio de objetos S3D para um balde
@@ -22,10 +25,11 @@ Se a configuração global de bloqueio de objetos S3 estiver ativada para o seu 
 
 S3 Object Lock é uma configuração permanente que só pode ser ativada quando você cria um bucket. Não é possível adicionar ou desativar o bloqueio de objetos S3 após a criação de um bucket.
 
-Para ativar o bloqueio de objetos S3D para um bucket, use um destes métodos:
+Para ativar o S3 Object Lock para um bucket, use um destes métodos:
 
 * Crie o bucket usando o Gerenciador do locatário. link:../tenant/creating-s3-bucket.html["Crie um balde S3D."]Consulte .
 * Crie o bucket usando uma solicitação CreateBucket com o `x-amz-bucket-object-lock-enabled` cabeçalho da solicitação. link:operations-on-buckets.html["Operações em baldes"]Consulte .
+* Gerencie as configurações do bucket a partir do Tenant Manager. Consulte link:../tenant/update-default-retention-settings.html["Atualização S3 retenção padrão bloqueio Objeto"].
 
 
 O bloqueio de objetos S3 requer o controle de versão do bucket, que é ativado automaticamente quando o bucket é criado. Não é possível suspender o controle de versão para o bucket. link:object-versioning.html["Controle de versão de objetos"]Consulte .
@@ -83,19 +87,27 @@ Para definir a retenção padrão para um bucket, use um destes métodos:
 
 A solicitação PutObjectLockConfiguration permite que você defina e modifique o modo de retenção padrão e o período de retenção padrão para um bucket com o bloqueio de objetos S3 ativado. Você também pode remover as configurações de retenção padrão configuradas anteriormente.
 
-Quando novas versões de objetos são ingeridas para o bucket, o modo de retenção padrão é aplicado se `x-amz-object-lock-mode` e `x-amz-object-lock-retain-until-date` não forem especificados. O período de retenção padrão é usado para calcular a data de retenção até se `x-amz-object-lock-retain-until-date` não for especificado.
+Quando novas versões de objetos são ingeridas no bucket, o modo de retenção padrão é aplicado se  `x-amz-object-lock-mode` e  `x-amz-object-lock-retain-until-date` não forem especificados. O período de retenção padrão é usado para calcular a data de retenção até se  `x-amz-object-lock-retain-until-date` não for especificado.
 
-Se o período de retenção padrão for modificado após a ingestão de uma versão de objeto, a data de retenção até a versão do objeto permanecerá a mesma e não será recalculada usando o novo período de retenção padrão.
+Se o período de retenção padrão for modificado após a ingestão de uma versão de objeto, a data de retenção da versão do objeto permanecerá a mesma e não será recalculada usando o novo período de retenção padrão.
 
 Você deve ter a `s3:PutBucketObjectLockConfiguration` permissão, ou ser raiz da conta, para concluir esta operação.
 
-O `Content-MD5` cabeçalho da solicitação deve ser especificado na solicitação DE COLOCAÇÃO.
+Você deve especificar um dos seguintes cabeçalhos de solicitação na requisição PutObjectLockConfiguration:
+
+[listing]
+----
+Content-MD5
+x-amz-checksum-*
+----
+
+NOTE: StorageGRID não valida o conteúdo do cabeçalho x-amz-checksum-* para esta operação.
 
 
 
 ==== Exemplo de solicitação
 
-Este exemplo habilita o bloqueio de objetos S3 para um bucket e define o modo de retenção padrão para CONFORMIDADE e o período de retenção padrão para 6 anos.
+Este exemplo habilita o S3 Object Lock para um bucket (se o administrador da sua grid tiver concedido permissão) e define o modo de retenção padrão como COMPLIANCE e o período de retenção padrão como 6 anos.
 
 [listing, subs="specialcharacters,quotes"]
 ----
@@ -137,7 +149,7 @@ Para determinar se o bloqueio de objeto S3 está ativado para um bucket e para v
 
 A solicitação GetObjectLockConfiguration permite que você determine se o bloqueio de objeto S3 está ativado para um bucket e, se ele está ativado, veja se há um modo de retenção padrão e período de retenção configurados para o bucket.
 
-Quando novas versões de objetos são ingeridas para o bucket, o modo de retenção padrão é aplicado se `x-amz-object-lock-mode` não for especificado. O período de retenção padrão é usado para calcular a data de retenção até se `x-amz-object-lock-retain-until-date` não for especificado.
+Quando novas versões de objetos são ingeridas no bucket, o modo de retenção padrão é aplicado se  `x-amz-object-lock-mode`não for especificado. O período de retenção padrão é usado para calcular a data de retenção (retain-until-date) se  `x-amz-object-lock-retain-until-date`não for especificado.
 
 Você deve ter a `s3:GetBucketObjectLockConfiguration` permissão, ou ser raiz da conta, para concluir esta operação.
 
@@ -226,8 +238,17 @@ Se a retenção legal estiver ATIVADA (sensível a maiúsculas e minúsculas), o
 
 Se você usar qualquer um desses cabeçalhos de solicitação, esteja ciente dessas restrições:
 
-* O `Content-MD5` cabeçalho de solicitação é necessário se qualquer `x-amz-object-lock-*` cabeçalho de solicitação estiver presente na solicitação PutObject. `Content-MD5` Não é necessário para CopyObject ou CreateMultipartUpload.
-* Se o bucket não tiver o bloqueio de objeto S3 ativado e um `x-amz-object-lock-*` cabeçalho de solicitação estiver presente, um erro de solicitação incorreta 400 (InvalidRequest) será retornado.
+* Você deve incluir um dos seguintes cabeçalhos de solicitação se algum cabeçalho de solicitação x-amz-object-lock-* estiver presente na solicitação PutObject:
++
+[listing]
+----
+Content-MD5
+x-amz-checksum-*
+----
++
+Esses cabeçalhos não são necessários para CopyObject ou CreateMultipartUpload.
+
+* Se o bucket não tiver o S3 Object Lock ativado e um cabeçalho de solicitação x-amz-object-lock-* estiver presente, um erro 400 Bad Request (InvalidRequest) será retornado.
 * A solicitação PutObject suporta o uso do `x-amz-storage-class: REDUCED_REDUNDANCY` para corresponder ao comportamento da AWS. No entanto, quando um objeto é ingerido em um bucket com o bloqueio de objeto S3 ativado, o StorageGRID sempre realizará uma ingestão de confirmação dupla.
 * Uma resposta DE versão GET ou HeadObject posterior incluirá os cabeçalhos `x-amz-object-lock-mode`, `x-amz-object-lock-retain-until-date`, e `x-amz-object-lock-legal-hold`, se configurado e se o remetente da solicitação tiver as permissões corretas `s3:Get*`.
 
@@ -254,6 +275,16 @@ Se o novo valor de retenção legal estiver ATIVADO, o objeto será colocado sob
 
 
 
+Você deve especificar um dos seguintes cabeçalhos de solicitação na solicitação:
+
+[listing]
+----
+Content-MD5
+x-amz-checksum-*
+----
+
+NOTE: StorageGRID não valida o conteúdo do cabeçalho x-amz-checksum-* para essas operações.
+
 
 
 [[how-to-use-governance-mode]]
@@ -264,6 +295,9 @@ Os usuários que têm a `s3:BypassGovernanceRetention` permissão podem ignorar 
 * Execute as operações DeleteObject ou DeleteObjects para excluir uma versão do objeto antes de seu período de retenção ter decorrido.
 +
 Os objetos que estão sob uma retenção legal não podem ser excluídos. A retenção legal deve estar DESLIGADA.
+
++
+O  `x-amz-bypass-governance-retention`cabeçalho não tem efeito em objetos sem S3 Object Lock.
 
 * Execute as operações PutObjectRetention que alteram o modo DE uma versão DE objeto DE GOVERNANÇA para CONFORMIDADE antes que o período de retenção do objeto tenha decorrido.
 +

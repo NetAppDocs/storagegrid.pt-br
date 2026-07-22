@@ -29,7 +29,7 @@ Quando o Cassandra é reconstruído, o sistema usa informações de outros nós 
 CAUTION: Se mais de um nó de armazenamento falhar (ou estiver offline), entre em contato com o suporte técnico.  Não execute o seguinte procedimento de recuperação.  Pode ocorrer perda de dados. Para mais informações, consulte link:how-site-recovery-is-performed-by-technical-support.html["Como o suporte técnico recupera um site"] .
 
 
-CAUTION: Se este nó de armazenamento estiver no modo de manutenção somente leitura para permitir a recuperação de objetos por outro nó de armazenamento com volumes de armazenamento com falha, recupere volumes no nó de armazenamento com volumes de armazenamento com falha antes de recuperar este nó de armazenamento com falha. Consulte as instruções para link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["recuperar de uma falha no volume de armazenamento em que a unidade do sistema está intacta"].
+CAUTION: Se este Nó de Armazenamento estiver em modo de manutenção somente leitura para permitir a recuperação de objetos por outro Nó de Armazenamento com volumes de armazenamento com falha, recupere os volumes no Nó de Armazenamento com falha antes de recuperar este Nó de Armazenamento com falha. Veja as instruções para link:reviewing-warnings-about-storage-volume-recovery.html["recuperar de uma falha no volume de armazenamento em que a unidade do sistema está intacta"].
 
 
 CAUTION: Se as regras ILM estiverem configuradas para armazenar apenas uma cópia replicada e a cópia existir num volume de armazenamento que falhou, não será possível recuperar o objeto.

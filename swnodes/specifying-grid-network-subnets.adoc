@@ -20,14 +20,14 @@ Se você tiver várias sub-redes de grade, o gateway de rede de grade é necess�
 
 .Passos
 . Especifique o endereço de rede CIDR para pelo menos uma rede de Grade na caixa de texto *Subnet 1*.
-. Clique no sinal de mais ao lado da última entrada para adicionar uma entrada de rede adicional. Você deve especificar todas as sub-redes para todos os sites na rede de Grade.
+. Selecione o sinal de mais ao lado da última entrada para adicionar uma entrada de rede adicional. Você deve especificar todas as sub-redes para todos os sites na Grid Network.
 +
-** Se você já implantou pelo menos um nó, clique em *descobrir sub-redes de redes de Grade* para preencher automaticamente a Lista de sub-redes de rede de Grade com as sub-redes relatadas pelos nós de grade que se registraram no Gerenciador de Grade.
+** Se você já implantou pelo menos um nó, selecione *Descobrir sub-redes da Grid Networks* para preencher automaticamente a lista de sub-redes da Grid Network com as sub-redes relatadas pelos nós da grid que se registraram no Grid Manager.
 ** Você deve adicionar manualmente quaisquer sub-redes para NTP, DNS, LDAP ou outros servidores externos acessados através do gateway de rede de Grade.
 +
 image:4_gmi_installer_grid_network_page.gif["Especifique sub-redes"]
 
 
 
-. Clique em *seguinte*.
+. Selecione *seguinte*.
 

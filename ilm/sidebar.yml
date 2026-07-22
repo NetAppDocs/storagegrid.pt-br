@@ -113,8 +113,8 @@ entries:
     url: "/ilm/workflow-for-s3-object-lock.html"
   - title: Requisitos para o bloqueio de objetos S3
     url: "/ilm/requirements-for-s3-object-lock.html"
-  - title: Ative o bloqueio de objetos S3 globalmente
-    url: "/ilm/enabling-s3-object-lock-globally.html"
+  - title: Ativar bloqueio de objeto S3
+    url: "/ilm/enabling-s3-object-lock.html"
   - title: Resolva erros de consistência ao atualizar o bloqueio de objetos do S3
       ou a configuração de conformidade legada
     url: "/ilm/resolving-consistency-errors-when-updating-bucket-s3-object-lock-configuration.html"

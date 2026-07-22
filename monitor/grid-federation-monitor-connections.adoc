@@ -40,7 +40,7 @@ Nesta guia, você pode:
 
 
 +
-image:grid-federation-connections-tab.png["Separador ligações de federação de grelha"]
+image:grid_federation_connections_tab.png["Separador ligações de federação de grelha"]
 
 . Para ver as informações básicas de todas as contas de inquilino nesta grade que têm a permissão *Use Grid Federation Connection*, selecione a guia *allowed tenants*.
 +
@@ -52,7 +52,7 @@ Nesta guia, você pode:
 ** Selecione um locatário permitido e link:../admin/grid-federation-manage-tenants.html["remova a permissão"].
 ** Verifique se há erros de replicação entre grades e limpe o último erro, se houver. link:../admin/grid-federation-troubleshoot.html["Solucionar erros de federação de grade"]Consulte .
 +
-image:grid-federation-permitted-tenants-tab.png["Guia locatários permitidos da federação de grade"]
+image:grid_federation_permitted_tenants_tab.png["Guia locatários permitidos da federação de grade"]
 
 
 
@@ -84,7 +84,7 @@ Nesta guia, você pode:
 ** link:../admin/grid-federation-manage-tenants.html["Remova a permissão de um locatário"] para utilizar a ligação.
 ** Verifique se há erros de replicação entre redes e limpe o último erro. link:../admin/grid-federation-troubleshoot.html["Solucionar erros de federação de grade"]Consulte .
 +
-image:grid-federation-permitted-tenants-tab-for-connection.png["grid-federação-permitida-tenants-tab-for-connection"]
+image:grid_federation_permitted_tenants_tab_for_connection.png["grid-federação-permitida-tenants-tab-for-connection"]
 
 
 
@@ -96,7 +96,7 @@ Nesta guia, você pode:
 ** link:../admin/grid-federation-manage-connection.html["Rode os certificados de ligação"].
 ** Selecione *Server* ou *Client* para visualizar ou baixar o certificado associado ou copiar o PEM do certificado.
 +
-image:grid-federation-certificates-tab.png["grid-federation-certificates-tab"]
+image:grid_federation_certificates_tab.png["grid-federation-certificates-tab"]
 
 
 

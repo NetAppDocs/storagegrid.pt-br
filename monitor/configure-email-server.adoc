@@ -1,0 +1,73 @@
+---
+permalink: monitor/configure-email-server.html 
+sidebar: sidebar 
+keywords: notifications, email, system events, technical support 
+summary: Como administrador do StorageGRID, você precisa configurar um servidor de e-mail para enviar notificações dos sistemas de alerta e monitoramento do StorageGRID, que informam você, outros administradores e o suporte técnico sobre eventos e problemas do sistema. 
+---
+= Configurar servidor de e-mail
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Como administrador do StorageGRID, você precisa configurar um servidor de e-mail para enviar notificações dos sistemas de alerta e monitoramento do StorageGRID, que informam você, outros administradores e o suporte técnico sobre eventos e problemas do sistema.
+
+Os recursos do StorageGRID que utilizam o servidor de e-mail para notificações incluem alertas, AutoSupport e verificação multiadministradora (MAV). Você pode usar o mesmo servidor de e-mail para todas as notificações.
+
+.Antes de começar
+* Você tem o link:../admin/admin-group-permissions.html["Permissão de acesso à raiz"].
+* Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
+
+
+.Passos
+. Selecione *Configuração* > *Monitoramento* > *Servidor de e-mail*.
++
+A página do servidor de e-mail aparece.
+
+. Selecione a opção suspensa *Exibir recursos que podem exigir um servidor de e-mail*. Se você quiser visualizar os detalhes e as informações necessárias para configurar as notificações por e-mail para um recurso, selecione *Exibir*.
++
+Você é levado para a página de configuração do recurso no Grid Manager. A página de configuração de cada recurso contém uma notificação informando que você precisa de um servidor de e-mail para enviar notificações por e-mail.
+
+. Para configurar um servidor de e-mail na página Servidor de e-mail:
++
+.. Insira o endereço IP ou o FQDN do servidor de e-mail.
+.. Selecione o número da porta utilizado pelo servidor de e-mail. O padrão é 25.
+.. Para exigir autenticação, selecione *Usar autenticação* e insira o nome de usuário e a senha.
+.. Para exigir a verificação da identidade do servidor SMTP, selecione *Usar Segurança da Camada de Transporte (TLS)*. Em seguida:
++
+... Forneça um pacote de CA.
+... Se o servidor de e-mail SMTP exigir que os remetentes forneçam certificados de cliente para autenticação, selecione *Enviar certificado de cliente*. Em seguida, forneça o certificado de cliente e a chave privada.
+
+
+.. Para garantir que suas configurações de e-mail estejam corretas, envie um e-mail de teste inserindo o remetente e o destinatário. Selecione *Enviar*.
++
+Uma mensagem de confirmação é exibida, indicando que um e-mail de teste foi enviado.
+
+.. Marque as caixas de entrada de todos os destinatários de e-mail e confirme se um e-mail de teste foi recebido.
++
+
+NOTE: Se o e-mail não for recebido em poucos minutos ou se o alerta *Falha na notificação por e-mail* for acionado, verifique as configurações e tente novamente.
+
+.. Faça login em qualquer outro nó Admin e envie um e-mail de teste para verificar a conetividade de todos os sites.
++
+
+NOTE: Ao testar notificações de alerta, você deve entrar em cada nó de administração para verificar a conetividade. Isso é em contraste com o teste de pacotes do AutoSupport, onde todos os nós de administração enviam o e-mail de teste.
+
+
+
+. Selecione *Guardar*.
++
+Enviar um e-mail de teste não salva suas configurações. Você deve selecionar *Salvar*.
+
++
+As configurações de e-mail são salvas.
+
+. Acesse as páginas de configuração dos recursos que utilizam o servidor de e-mail e conclua as configurações de notificação por e-mail.
++
+** link:../monitor/email-alert-notifications.html["Alertas"]. Para alertas, você também pode link:../monitor/snmp-alert-notifications.html["Configurar notificações SNMP"].
+** link:../monitor/configure-autosupport-grid-manager.html["AutoSupport"]. Você pode enviar pacotes do AutoSupport por e-mail, HTTPS ou HTTP (HTTP não é recomendado).
+** link:../admin/configure-multi-admin-verify.html["Verificação multi-admin (MAV)"].
+
+
+

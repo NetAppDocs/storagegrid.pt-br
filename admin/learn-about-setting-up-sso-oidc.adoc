@@ -1,0 +1,50 @@
+---
+permalink: admin/learn-about-setting-up-sso-oidc.html 
+sidebar: sidebar 
+keywords: use sandbox mode for sso, how to test single sign-on 
+summary: 'A configuração de autenticação única (SSO) no StorageGRID permite que StorageGRID (o provedor de serviços) e o provedor de identidade SSO se comuniquem de forma segura sobre as solicitações de autenticação do usuário.' 
+---
+= Saiba como configurar o SSO no StorageGRID usando OIDC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A configuração de autenticação única (SSO) no StorageGRID permite que StorageGRID (o provedor de serviços) e o provedor de identidade SSO se comuniquem de forma segura sobre as solicitações de autenticação do usuário.
+
+Você pode configurar o SSO no StorageGRID usando OpenID Connect (OIDC) ou SAML. Siga estas etapas de alto nível para configurar o SSO no StorageGRID usando OIDC ou saiba mais sobre link:learn-about-setting-up-sso-saml.html["Configurando o SSO usando SAML"].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]Configurar provedor de identidade
+[role="quick-margin-para"]
+Dependendo do provedor de identidade SSO que você planeja usar, você pode selecionar Active Directory ou Entra ID para o tipo de serviço LDAP de federação de identidade.
+
+[role="quick-margin-list"]
+* Para o Active Directory Federation Service (AD FS), você pode usar o AD FS, Entra ID, Keycloak, Okta ou PingFederate como provedor de identidade.
+* Para o Entra ID, você só pode usar o provedor de identidade Entra ID.
+
+
+[role="quick-margin-para"]
+Utilize o software do provedor de identidade SSO para configurar o OIDC para cada Admin Node em sua grade.
+
+[role="quick-margin-list"]
+* Saiba mais sobre link:creating-relying-party-trusts-in-ad-fs-oidc.html["Criando um grupo de aplicativos para cada Admin Node"] no Active Directory
+* Saiba mais sobre link:creating-enterprise-application-entra-id-oidc.html["Criando um aplicativo para cada nó de administração"] em Entra ID
+* Saiba mais sobre link:create-client-keycloak-oidc.html["Criando um cliente para cada Admin Node"] no Keycloak
+* Saiba mais sobrelink:create-okta-application-oidc.html["Criando um aplicativo Okta para cada Admin Node"]
+* Saiba mais sobre link:creating-sp-connection-ping-oidc.html["Criando uma conexão de provedor de serviços para cada Admin Node"] em PingFederate
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]Configurar SSO
+[role="quick-margin-para"]
+Selecione o assistente Configurar SSO para OIDC. Em seguida, configure o SSO com seu provedor de identidade e entre no modo sandbox para configurar e testar o SSO antes de habilitá-lo para os usuários do StorageGRID.
+
+[role="quick-margin-para"]
+Saiba mais sobrelink:configure-sso-oidc.html["configurando SSO usando OIDC"]
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"] Habilitar SSO
+[role="quick-margin-para"]
+Após confirmar que é possível usar o SSO para fazer login em cada nó de administração, habilite o SSO para todos os usuários do StorageGRID.
+
+[role="quick-margin-para"]
+Saiba mais sobrelink:configure-sso-oidc.html#enable-sso-oidc["Habilitando SSO para usuários do StorageGRID"]

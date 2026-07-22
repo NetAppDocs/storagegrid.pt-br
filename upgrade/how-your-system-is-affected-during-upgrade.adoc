@@ -59,12 +59,12 @@ Os reparos em segundo plano não são executados durante a atualização quando 
 [[appliance-firmware-is-upgraded]]
 == O firmware do dispositivo foi atualizado
 
-Durante a atualização do StorageGRID 12.0:
+Durante a atualização do StorageGRID 12.1:
 
-* Todos os nós do dispositivo StorageGRID são atualizados automaticamente para a versão de firmware 12.0 do StorageGRID Appliance Installer.
+* Todos os nós do dispositivo StorageGRID são atualizados automaticamente para a versão 12.1 do firmware do StorageGRID Appliance Installer.
 * Os dispositivos SG6060 e SGF6024 são atualizados automaticamente para a versão de firmware do BIOS 3B08.EX e a versão de firmware do BMC 4.01.07.
 * Os dispositivos SG100 e SG1000 são atualizados automaticamente para a versão de firmware do BIOS 3B13.EC e a versão de firmware do BMC 4.75.07.
-* Os dispositivos SGF6112, SG6160, SG110 e SG1100 são atualizados automaticamente para a versão de firmware do BIOS 3A14.QD e a versão de firmware do BMC 3.19.07.
+* Os dispositivos SGF6112, SG6160, SG110 e SG1100 são atualizados automaticamente para o firmware da BIOS versão 3A14.QD e o firmware do BMC versão 3.21.07.
 
 
 
@@ -84,9 +84,9 @@ Durante a atualização do StorageGRID 12.0:
 
 Os alertas podem ser acionados quando os serviços começam e param e quando o sistema StorageGRID está operando como um ambiente de versão mista (alguns nós de grade executando uma versão anterior, enquanto outros foram atualizados para uma versão posterior). Outros alertas podem ser acionados após a conclusão da atualização.
 
-Por exemplo, você pode ver o alerta *Não foi possível comunicar com o nó* quando os serviços são interrompidos, ou pode ver o alerta *Erro de comunicação do Cassandra* quando alguns nós foram atualizados para o StorageGRID 12.0, mas outros nós ainda estão executando o StorageGRID 11.9.  Em geral, esses alertas serão apagados quando a atualização for concluída.
+Por exemplo, você pode ver o alerta *Não foi possível comunicar com o nó* quando os serviços são interrompidos, ou o alerta *Erro de comunicação do Cassandra* quando alguns nós foram atualizados para StorageGRID 12.0 ou posterior, mas outros ainda estão executando uma versão anterior do StorageGRID. Em geral, esses alertas desaparecem quando a atualização é concluída.
 
-O alerta *Posicionamento do ILM inatingível* pode ser acionado quando os nós de armazenamento são interrompidos durante a atualização para o StorageGRID 12.0.  Este alerta pode persistir por 1 dia após a conclusão da atualização.
+O alerta *Posicionamento ILM inatingível* pode ser acionado quando os nós de armazenamento são interrompidos durante a atualização para StorageGRID 12.0 ou posterior. Esse alerta pode persistir por 1 dia após a conclusão da atualização.
 
 Após a conclusão da atualização, você pode revisar qualquer alerta relacionado a atualização selecionando *alertas resolvidos recentemente* ou *alertas atuais* no painel do Gerenciador de Grade.
 
@@ -96,7 +96,7 @@ Após a conclusão da atualização, você pode revisar qualquer alerta relacion
 == As alterações de configuração são restritas
 
 
-NOTE: Esta lista se aplica especificamente a atualizações do StorageGRID 11.9 para o StorageGRID 12.0.  Se você estiver atualizando para outra versão do StorageGRID , consulte a lista de alterações restritas nas instruções de atualização dessa versão.
+NOTE: As restrições de alteração de configuração são específicas da versão. Se você estiver atualizando para outra versão do StorageGRID, consulte a lista de alterações restritas nas instruções de atualização dessa versão.
 
 Até que a tarefa *Ativar novo recurso* seja concluída:
 
@@ -108,8 +108,8 @@ Até que a tarefa *Ativar novo recurso* seja concluída:
 
 NOTE: Entre em Contato com o suporte técnico se precisar recuperar um nó durante a atualização.
 
-* Você não deve gerenciar grupos de HA, interfaces de VLAN ou pontos de extremidade do balanceador de carga enquanto estiver atualizando para o StorageGRID 12.0.
-* Não exclua nenhum grupo de HA até que a atualização para o StorageGRID 12.0 seja concluída.  Endereços IP virtuais em outros grupos de HA podem se tornar inacessíveis.
+* Você não deve gerenciar grupos de alta disponibilidade (HA), interfaces VLAN ou endpoints de balanceamento de carga enquanto estiver atualizando.
+* Não exclua nenhum grupo HA até que a atualização esteja concluída. Endereços IP virtuais em outros grupos HA podem ficar inacessíveis.
 
 
 Até que a tarefa *etapas de atualização final* seja concluída:

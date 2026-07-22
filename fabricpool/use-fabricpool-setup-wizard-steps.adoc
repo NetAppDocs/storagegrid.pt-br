@@ -31,10 +31,7 @@ Você pode concluir o assistente de configuração do FabricPool quando começar
 
 .Passos
 . Faça login no Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
-. Se o banner *FabricPool and S3 setup wizard* for exibido no painel, selecione o link no banner. Se o banner não for mais exibido, selecione o ícone de ajuda na barra de cabeçalho no Gerenciador de Grade e selecione *Assistente de configuração FabricPool e S3*.
-+
-image:help_menu.png["menu ajuda"]
-
+. Se o banner *FabricPool and S3 setup wizard* aparecer no painel, selecione o link no banner. Se o banner não aparecer mais, selecione o ícone de ajuda image:icon_help_menu_bar.png["Ícone de ajuda"] na barra de cabeçalho no Grid Manager e selecione *FabricPool and S3 setup wizard*.
 . Na seção FabricPool da página do assistente de configuração FabricPool e S3, selecione *Configurar agora*.
 +
 *Etapa 1 de 9: Configurar grupo HA* é exibido.

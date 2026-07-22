@@ -13,9 +13,6 @@ summary: Você pode editar uma conta de locatário para alterar o nome de exibi�
 [role="lead"]
 Você pode editar uma conta de locatário para alterar o nome de exibição, a cota de armazenamento ou as permissões de locatário.
 
-
-TIP: Se um locatário tiver a permissão *usar conexão de federação de grade*, você poderá editar os detalhes do locatário de qualquer grade na conexão. No entanto, quaisquer alterações feitas em uma grade na conexão não serão copiadas para a outra grade. Se você quiser manter os detalhes do locatário exatamente em sincronia entre grades, faça as mesmas edições em ambas as grades. link:grid-federation-manage-tenants.html["Gerenciar os locatários permitidos para conexão de federação de grade"]Consulte .
-
 .Antes de começar
 * Você está conetado ao Gerenciador de Grade usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
 * Você tem o link:admin-group-permissions.html["Acesso root ou permissão de contas do locatário"].
@@ -62,7 +59,8 @@ Se *usar a própria fonte de identidade* for:
 ** Selecione ou desmarque a permissão *Allow S3 Select* conforme necessário. link:manage-s3-select-for-tenant-accounts.html["Gerenciar S3 Selecione para contas de inquilino"]Consulte .
 ** Para remover a permissão *Use Grid Federation Connection*:
 +
-... Selecione a guia *Grid Federation*.
+... Selecione a aba Grid federation na página de detalhes do locatário.
+... Selecione a conexão que você deseja remover.
 ... Selecione *Remover permissão*.
 
 
@@ -71,6 +69,10 @@ Se *usar a própria fonte de identidade* for:
 ... Selecione a guia *Grid Federation*.
 ... Marque a caixa de seleção *usar conexão de federação de grade*.
 ... Opcionalmente, selecione *Clonar usuários locais existentes e grupos* para cloná-los para a grade remota. Se desejar, você pode parar a clonagem em andamento ou tentar novamente a clonagem se alguns usuários ou grupos locais não tiverem sido clonados após a última operação de clone ter sido concluída.
++
+
+TIP: Se necessário por motivos de segurança ou conformidade, você pode desmarcar a opção *Enable access key sync*.
+
 
 
 ** Para definir um período de retenção máximo ou permitir o modo de conformidade:

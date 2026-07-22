@@ -31,8 +31,9 @@ NOTE: A replicação do CloudMirror tem semelhanças e diferenças importantes c
 Observe os seguintes requisitos e caraterísticas ao configurar a replicação do CloudMirror:
 
 * Quando você cria e aplica um XML de configuração de replicação de bucket válido, ele deve usar a URN de um endpoint de bucket S3 para cada destino.
-* A replicação não é suportada para buckets de origem ou destino com o bloqueio de objetos S3 ativado.
+* A replicação só é compatível com buckets de origem ou destino que tenham o S3 Object Lock ativado para buckets Amazon S3 ou StorageGRID S3. Os cabeçalhos do object lock não são replicados para o objeto de destino.
 * Se você habilitar a replicação do CloudMirror em um bucket que contém objetos, novos objetos adicionados ao bucket serão replicados, mas os objetos existentes no bucket não serão replicados. Você deve atualizar objetos existentes para acionar a replicação.
+* Se você habilitar o S3 Object Lock no bucket de destino após configurar a replicação CloudMirror, talvez seja necessário link:../tenant/editing-platform-services-endpoint.html["Salve novamente o endpoint"] para permitir que a replicação seja retomada.
 * Se você especificar uma classe de armazenamento no XML de configuração de replicação, o StorageGRID usará essa classe ao executar operações no endpoint S3 de destino. O endpoint de destino também deve suportar a classe de armazenamento especificada. Certifique-se de seguir quaisquer recomendações fornecidas pelo fornecedor do sistema de destino.
 
 

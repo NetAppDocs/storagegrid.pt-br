@@ -60,3 +60,5 @@ Esta documentação não concede nenhuma licença ou outros direitos sobre a API
 Os arquivos de aviso fornecem informações sobre direitos autorais de terceiros e licenças usadas no software NetApp.
 
 https://library.netapp.com/ecm/ecm_download_file/ECMLP3351268[]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMLP3373066[]

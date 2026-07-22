@@ -47,7 +47,7 @@ Você pode usar *Search* para encontrar entradas na barra lateral do Gerenciador
 [[help-menu]]
 == Menu Ajuda
 
-O menu de ajuda image:icon-help-menu-bar.png["ícone de ajuda na barra de menus"] fornece acesso a:
+O menu de ajuda image:icon_help_menu_bar.png["ícone de ajuda na barra de menus"] fornece acesso a:
 
 * Olink:../fabricpool/use-fabricpool-setup-wizard.html["FabricPool"] elink:../admin/use-s3-setup-wizard.html["Configuração S3"] bruxos
 * O site de documentação do StorageGRID para a versão atual
@@ -68,7 +68,7 @@ No menu Alertas, você pode fazer o seguinte paralink:../monitor/managing-alerts
 * Reveja os alertas resolvidos
 * Configure silêncios para suprimir notificações de alerta
 * Defina regras de alerta para condições que acionam alertas
-* Configure o servidor de e-mail para receber notificações de alerta
+* Configure as notificações por e-mail para alertas do StorageGRID
 
 
 
@@ -148,7 +148,7 @@ As tarefas de segurança incluem:
 
 As tarefas do sistema incluem:
 
-* Usarlink:../admin/grid-federation-overview.html["federação de grade"] para clonar informações de conta de locatário e replicar dados de objeto entre dois sistemas StorageGRID
+* Use link:../admin/grid-federation-overview.html["federação de grade"] para sincronizar informações de contas de locatários e replicar dados de objetos entre dois sistemas StorageGRID
 * Opcionalmente, habilite olink:../admin/configuring-stored-object-compression.html["Comprimir objetos armazenados"] opção
 * Opcionalmente, configure olink:../s3/consistency.html["configuração de consistência de bucket padrão"]
 * link:../ilm/managing-objects-with-s3-object-lock.html["Gerenciar bloqueio de objeto S3"]
@@ -163,6 +163,7 @@ As tarefas do sistema incluem:
 
 As tarefas de monitoramento incluem:
 
+* link:../monitor/configure-email-server.html["Configurar servidor de e-mail"]
 * link:../monitor/configure-log-management.html["Configurar gerenciamento de log"]
 * link:../monitor/using-snmp-monitoring.html["Utilize a monitorização SNMP"]
 
@@ -179,6 +180,7 @@ As tarefas de controle de acesso incluem:
 * Mudar olink:../admin/changing-provisioning-passphrase.html["frase-passe do aprovisionamento"] oulink:../admin/change-node-console-password.html["senhas do console do nó"]
 * link:../admin/using-identity-federation.html["Use a federação de identidade"]
 * link:../admin/how-sso-works.html["Configurar SSO"]
+* link:../admin/about-multi-admin-verify.html["Configurar verificação multi-admin"]
 
 
 
@@ -201,7 +203,13 @@ As tarefas de manutenção incluem:
 * link:../maintain/rename-grid-site-node-overview.html["Mudar o nome dos procedimentos"] para alterar os nomes de exibição de sua grade, sites e nós
 * link:../troubleshoot/verifying-object-integrity.html["Operações de verificação de existência de objeto"] verificar a existência (embora não a correção) de dados de objeto
 * Executar umlink:../maintain/rolling-reboot-procedure.html["reinício contínuo"] para reiniciar vários nós de grade
-* link:../maintain/restoring-volume.html["Operações de restauração de volume"]
+* Restauração de dados de objetos
++
+** link:../maintain/restoring-object-data-to-storage-volume-for-appliance.html["Restaure os dados de objeto para o volume de storage do dispositivo"]
+** link:../maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["Restaure os dados de objetos para o volume de storage em que a unidade do sistema esteja intacta"]
+** link:../maintain/restoring-object-data-to-storage-volume.html["Restaurar dados de objetos para o volume de storage (falha na unidade do sistema)"]
+
+
 
 
 
@@ -249,7 +257,7 @@ O menu suporte fornece opções que ajudam o suporte técnico a analisar e soluc
 
 Na seção Ferramentas do menu suporte, você pode:
 
-* link:../admin/configure-autosupport-grid-manager.html["Configurar o AutoSupport"]
+* link:../monitor/configure-autosupport-grid-manager.html["Configurar o AutoSupport"]
 * link:../monitor/running-diagnostics.html["Execute o diagnóstico"] no estado atual da grelha
 * link:../monitor/collecting-log-files-and-system-data.html["Colete arquivos de log e dados do sistema"]
 * link:../monitor/reviewing-support-metrics.html["Analise as métricas de suporte"]
@@ -267,7 +275,6 @@ NOTE: As ferramentas disponíveis na opção *Metrics* destinam-se a ser utiliza
 Na outra seção do menu suporte, você pode:
 
 * Configurarlink:../monitor/manage-io-prioritization.html["Priorização de E/S"]
-* Configurarlink:../admin/configure-autosupport-grid-manager.html["Configuração de e-mail do AutoSupport (antigo)"]
 * Gerenciar link:../admin/manage-link-costs.html["custo da ligação"]
 * Exibir IDs de serviço de nó
 * Gerenciar link:../admin/what-storage-volume-watermarks-are.html["marcas de água de armazenamento"]

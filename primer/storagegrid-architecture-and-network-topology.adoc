@@ -15,7 +15,7 @@ Um sistema StorageGRID consiste em vários tipos de nós de grade em um ou mais 
 
 Aprenda sobre olink:nodes-and-services.html["tipos de nós de grade"] .
 
-Para obter informações adicionais sobre a topologia da rede StorageGRID , requisitos e comunicações de grade, consulte olink:../network/index.html["Diretrizes de rede"] .
+Para obter informações adicionais sobre a topologia de rede do StorageGRID, requisitos e comunicações da grid, consulte link:../network/index.html["Diretrizes de rede"].
 
 
 
@@ -62,8 +62,8 @@ Este diagrama mostra como os nós de grade são organizados dentro de um sistema
 
 image:grid_nodes_and_components.png["diagrama descrito pelo texto circundante"]
 
-Os clientes S3 armazenam e recuperam objetos no StorageGRID. Outros clientes são usados para enviar notificações por e-mail, acessar a interface de gerenciamento do StorageGRID e, opcionalmente, acessar o compartilhamento de auditoria.
+Os clientes S3 armazenam e recuperam objetos no StorageGRID. Outros clientes são usados para acessar a interface de gerenciamento do StorageGRID e, opcionalmente, para acessar o compartilhamento de auditoria. Além disso, o StorageGRID pode, opcionalmente, enviar alertas por e-mail por meio de um servidor SMTP externo.
 
 Os clientes S3 podem se conetar a um nó de gateway ou a um nó de administrador para usar a interface de balanceamento de carga aos nós de storage. Como alternativa, os clientes S3 podem se conectar diretamente aos nós de storage usando HTTPS.
 
-Os objetos podem ser armazenados no StorageGRID em nós de armazenamento baseados em software ou hardware, ou em pools de armazenamento em nuvem, que consistem em buckets S3 externos ou contêineres de armazenamento de Blobs do Azure.
+Os objetos podem ser armazenados no StorageGRID em nós de armazenamento baseados em software ou baseado em hardware, ou em pools de storage de nuvem, que consistem em buckets S3 externos ou contêineres do Azure Blob Storage.

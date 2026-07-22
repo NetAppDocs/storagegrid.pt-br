@@ -2,7 +2,7 @@
 permalink: admin/grid-federation-what-is-cross-grid-replication.html 
 sidebar: sidebar 
 keywords: cross-grid replication, cgr, disaster recovery, grid federation 
-summary: A replicação entre grade é a replicação automática de objetos entre buckets S3 selecionados em dois sistemas StorageGRID que estão conetados em uma conexão de federação de grade. O clone de conta é necessário para replicação entre grades. 
+summary: A replicação entre grids é a replicação automática de objetos entre buckets S3 selecionados em dois sistemas StorageGRID conectados por uma conexão de federação de grids. A sincronização de contas é necessária para a replicação entre grids. 
 ---
 = Saiba mais sobre replicação entre grids no StorageGRID
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: A replicação entre grade é a replicação automática de objetos ent
 
 
 [role="lead"]
-A replicação entre grade é a replicação automática de objetos entre buckets S3 selecionados em dois sistemas StorageGRID que estão conetados em um link:grid-federation-overview.html["conexão de federação de grade"]. link:grid-federation-what-is-account-clone.html["Clone de conta"] é necessário para replicação entre grades.
+A replicação entre grades é a replicação automática de objetos entre buckets S3 selecionados em dois sistemas StorageGRID conectados em uma link:grid-federation-overview.html["conexão de federação de grade"]. link:grid-federation-what-is-account-sync.html["Sincronização de contas"]é necessário para a replicação entre grades.
 
 
 
@@ -20,22 +20,28 @@ A replicação entre grade é a replicação automática de objetos entre bucket
 
 O diagrama de fluxo de trabalho resume as etapas para configurar a replicação entre grades entre buckets em duas grades.
 
-image:grid-federation-cgr-workflow.png["Fluxo de trabalho de replicação entre grade"]
+image:grid_federation_cgr_workflow.png["Fluxo de trabalho de replicação entre grade"]
 
 
 
 [[requirements-for-cross-grid-replication]]
 == Requisitos para replicação entre grades
 
-Se uma conta de locatário tiver a permissão *Usar conexão de federação de grade* para usar um ou maislink:grid-federation-overview.html["conexões de federação de grade"] , um usuário locatário com permissão de acesso Root pode criar buckets nas contas de locatário correspondentes em cada grade.  Esses baldes:
+Se uma conta de locatário tiver a permissão *Usar conexão de federação de grid* para usar uma ou mais link:grid-federation-overview.html["conexões de federação de grade"], um usuário de locatário com permissão de acesso Root pode criar buckets ("source" e "destination" buckets) nas contas de locatário correspondentes em cada grid. Esses buckets:
 
 * Podem ter nomes diferentes uns dos outros
 * Pode ter regiões diferentes
 * Deve ter o controle de versão habilitado
-* Deve estar vazio
+* Deve possuir uma das seguintes configurações de S3 Object Lock:
++
+** origem: *desativada*, destino: *desativada*
+** origem: *ativada*, destino: *ativada*
+** origem: *desativada*, destino: *ativada*
 
 
-Depois que ambos os buckets tiverem sido criados, a replicação entre grades pode ser configurada para um ou ambos os buckets.
+
+
+Depois de criar os dois buckets, você pode configurar a replicação entre grades para um ou ambos os buckets.
 
 .Saiba mais
 link:../tenant/grid-federation-manage-cross-grid-replication.html["Gerenciar a replicação entre grades"]
@@ -54,7 +60,7 @@ Você pode configurar a replicação entre grades para ocorrer em uma direção 
 
 Se você habilitar a replicação entre grades para um bucket em apenas uma grade, os objetos adicionados a esse bucket (o bucket de origem) serão replicados para o bucket correspondente na outra grade (o bucket de destino).  No entanto, os objetos adicionados ao bucket de destino não são replicados de volta para a origem.  Na figura, a replicação entre grades está habilitada para `my-bucket` da Grade 1 para a Grade 2, mas não está habilitado na outra direção.
 
-image:grid-federation-cross-grid-replication-one-direction.png["imagem mostrando a conexão de federação de grade em uma direção"]
+image:grid_federation_cross_grid_replication_one_direction.png["imagem mostrando a conexão de federação de grade em uma direção"]
 
 
 
@@ -63,7 +69,7 @@ image:grid-federation-cross-grid-replication-one-direction.png["imagem mostrando
 
 Se você habilitar a replicação entre grade para o mesmo bucket em ambas as grades, os objetos adicionados a qualquer bucket serão replicados para a outra grade. Na figura, a replicação em grade cruzada é ativada para `my-bucket` em ambas as direções.
 
-image:grid-federation-cross-grid-replication.png["imagem mostrando replicação em uma direção em comparação com a replicação em ambas as direções"]
+image:grid_federation_cross_grid_replication.png["imagem mostrando replicação em uma direção em comparação com a replicação em ambas as direções"]
 
 
 
@@ -144,7 +150,7 @@ Quando um cliente S3 exclui um objeto de um bucket que tem replicação entre gr
 
 Na figura, *Replicar marcadores de exclusão* foi definido como *Sim* quandolink:../tenant/grid-federation-manage-cross-grid-replication.html["a replicação entre redes foi ativada"] .  Solicitações de exclusão para o bucket de origem que incluem um ID de versão não excluem objetos do bucket de destino.  Solicitações de exclusão para o bucket de origem que não incluem um ID de versão parecem excluir objetos no bucket de destino.
 
-image:grid-federation-cross-grid-replication-delete.png["imagem que mostra a eliminação do cliente replicado em ambas as grelhas"]
+image:grid_federation_cross_grid_replication_delete.png["imagem que mostra a eliminação do cliente replicado em ambas as grelhas"]
 
 
 NOTE: Se você quiser manter as exclusões de objetos sincronizadas entre grades, crie correspondentes link:../s3/create-s3-lifecycle-configuration.html["Configurações do ciclo de vida do S3"] para os buckets em ambas as grades.
@@ -210,6 +216,12 @@ Desabilitado
 Habilitado
 
 |===
+
+CAUTION: Você pode habilitar o Bloqueio de Objetos S3 em buckets existentes, o que pode levar a uma configuração incorreta posteriormente.
+
+
+NOTE: Quando o S3 Object Lock estiver ativado no bucket de origem, certifique-se de que ele também esteja ativado no bucket de destino. Se o S3 Object Lock estiver desativado no bucket de destino, ocorrerá um erro durante a replicação. Consulte link:../admin/grid-federation-troubleshoot.html#cross-grid-replication-alerts-and-errors["Alertas e erros de replicação entre redes"].
+
 Quando o bloqueio de objeto S3 no bucket de origem está habilitado:
 
 * Os objetos são bloqueados com configurações de retenção no destino nesta ordem:

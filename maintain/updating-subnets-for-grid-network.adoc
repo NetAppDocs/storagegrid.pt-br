@@ -62,7 +62,7 @@ Por exemplo, introduza `10.96.104.0/22`.
 . Aguarde até que as alterações sejam aplicadas e, em seguida, baixe um novo pacote de recuperação.
 +
 .. Selecione *Manutenção* > *Sistema* > *Pacote de recuperação*.
-.. Introduza a *frase-passe de aprovisionamento*.
+.. Digite a *senha de provisionamento*.
 +
 
 CAUTION: O arquivo do pacote de recuperação deve ser protegido porque contém chaves de criptografia e senhas que podem ser usadas para obter dados do sistema StorageGRID .  Ele também é usado para recuperar o nó de administração primário.
@@ -81,12 +81,12 @@ As sub-redes especificadas são configuradas automaticamente para o sistema Stor
 .Passos
 . Selecione *Manutenção* > *Rede* > *Rede de grade*.
 . Selecione a sub-rede que deseja editar e faça as alterações necessárias.
-. Introduza a frase-passe do aprovisionamento e selecione *Guardar*.
+. Insira a senha de provisionamento e selecione *Salvar*.
 . Selecione *Sim* na caixa de diálogo de confirmação.
 . Aguarde até que as alterações sejam aplicadas e, em seguida, baixe um novo pacote de recuperação.
 +
 .. Selecione *Manutenção* > *Sistema* > *Pacote de recuperação*.
-.. Introduza a *frase-passe de aprovisionamento*.
+.. Digite a *senha de provisionamento*.
 
 
 
@@ -98,13 +98,13 @@ As sub-redes especificadas são configuradas automaticamente para o sistema Stor
 
 .Passos
 . Selecione *Manutenção* > *Rede* > *Rede de grade*.
-. Selecione o ícone de exclusão image:icon-x-to-remove.png["eliminar ícone"] ao lado da sub-rede.
+. Selecione o ícone de exclusão image:icon_x_to_remove.png["eliminar ícone"] ao lado da sub-rede.
 . Introduza a frase-passe do aprovisionamento e selecione *Guardar*.
 . Selecione *Sim* na caixa de diálogo de confirmação.
 . Aguarde até que as alterações sejam aplicadas e, em seguida, baixe um novo pacote de recuperação.
 +
 .. Selecione *Manutenção* > *Sistema* > *Pacote de recuperação*.
-.. Introduza a *frase-passe de aprovisionamento*.
+.. Digite a *senha de provisionamento*.
 
 
 

@@ -38,9 +38,24 @@ Se o problema subjacente tiver sido resolvido, a mensagem de erro já não é ap
 [[error-health-check-failed-error-from-endpoint]]
 == Erro: Falha na verificação de integridade. Erro do endpoint
 
-Você pode encontrar esse erro ao ativar o bloqueio de objetos S3 com retenção padrão para o bucket do Amazon S3 depois de começar a usar esse bucket em um pool de armazenamento em nuvem. Esse erro ocorre quando a operação PUT não tem um cabeçalho HTTP com um valor de checksum de payload, como `Content-MD5`. Esse valor de cabeçalho é exigido pela AWS para COLOCAR operações em buckets com o S3 Object Lock ativado.
+Você pode encontrar esse erro em um destes casos:
 
-Para corrigir esse problema, siga as etapas em link:editing-cloud-storage-pool.html["Edite um pool de armazenamento em nuvem"] sem fazer alterações. Essa ação aciona a validação da configuração do Cloud Storage Pool que deteta e atualiza automaticamente o sinalizador S3 Object Lock em uma configuração de endpoint do Cloud Storage Pool.
+* Ao ativar o S3 Object Lock com retenção padrão para seu bucket Amazon S3 após começar a usá-lo para um Cloud Storage Pool. Esse erro ocorre quando a operação PUT não possui um cabeçalho HTTP com um valor de checksum de carga, como  `Content-MD5`. Esse valor de cabeçalho é exigido pela AWS para operações PUT em buckets com S3 Object Lock ativado.
++
+Para corrigir esse problema, siga os passos em link:../ilm/editing-cloud-storage-pool.html["Edite um pool de armazenamento em nuvem"] sem fazer nenhuma alteração. Essa ação aciona a validação da configuração do pool de storage de nuvem, que detecta e atualiza automaticamente o sinalizador S3 Object Lock na configuração do endpoint do pool de storage de nuvem.
+
+* Ao ativar o S3 Object Lock com retenção padrão para o seu bucket S3 do StorageGRID após começar a usar esse bucket para um pool de storage de nuvem.
++
+Para corrigir esse problema:
+
++
+** Se você estiver usando HTTP: os pools de Cloud Storage com o S3 Object Lock ativado não são compatíveis. Edite a conexão do endpoint para usar HTTPS.
+** Se você estiver usando HTTPS: siga os passos em link:../ilm/editing-cloud-storage-pool.html["Edite um pool de armazenamento em nuvem"] sem fazer nenhuma alteração. Essa ação aciona a validação da configuração do pool de storage de nuvem, que detecta e atualiza automaticamente o sinalizador S3 Object Lock na configuração do endpoint do pool de storage de nuvem.
+
+
+
+
+Caso surjam mais problemas, entre em contato com o suporte técnico.
 
 
 

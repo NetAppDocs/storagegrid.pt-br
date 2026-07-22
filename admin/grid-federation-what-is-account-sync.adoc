@@ -1,0 +1,122 @@
+---
+permalink: admin/grid-federation-what-is-account-sync.html 
+sidebar: sidebar 
+keywords: account sync, tenant replication, disaster recovery, grid federation 
+summary: A sincronização de contas é a replicação automática e contínua de uma conta de locatário, grupos de locatários, usuários de locatários e chaves de acesso S3 entre os sistemas StorageGRID em uma ou mais conexões de federação de grid. 
+---
+= Saiba mais sobre a sincronização de contas no StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A sincronização de contas é a replicação automática e contínua de uma conta de locatário, grupos de locatários, usuários de locatários e, opcionalmente, chaves de acesso S3 entre os sistemas StorageGRID em um ou mais link:grid-federation-overview.html["conexões de federação de grade"].
+
+A sincronização de contas é necessária para link:grid-federation-what-is-cross-grid-replication.html["replicação entre grade"]. A sincronização das informações da conta entre sistemas StorageGRID garante que os usuários e grupos de locatários possam acessar os buckets e objetos correspondentes em qualquer grid conectado.
+
+
+
+[[workflow-for-account-sync]]
+== Fluxo de trabalho para sincronização de contas
+
+O diagrama de fluxo de trabalho mostra as etapas que os administradores da grade e os locatários autorizados executarão para configurar a sincronização de contas. Essas etapas são executadas após a link:grid-federation-create-connection.html["a conexão de federação de grade está configurada"].
+
+image:grid_federation_account_sync_workflow.png["Fluxo de trabalho para sincronização de contas"]
+
+
+
+[[grid-admin-workflow]]
+== Fluxo de trabalho de administração de grade
+
+As etapas que os administradores de grade executam dependem se os sistemas StorageGRID na link:grid-federation-overview.html["conexão de federação de grade"]federação usar logon único (SSO) ou identidade.
+
+
+
+[[account-sync-ssoconfigure-sso-for-account-sync-optional]]
+=== [[account-sync-sso]]Configurar SSO para sincronização de contas (opcional)
+
+Se qualquer um dos sistemas StorageGRID na conexão de federação de grade usar SSO, ambas as grades devem usar SSO. Antes de criar as contas de locatário para federação de grade, os administradores de grade para as grades de origem e destino do locatário devem executar essas etapas.
+
+.Passos
+. Configure a mesma fonte de identidade para ambas as grades. link:using-identity-federation.html["Use a federação de identidade"]Consulte .
+. Configure o mesmo provedor de identidade SSO (IdP) para ambas as grades. Ver link:how-sso-works.html["Configurar o logon único"] .
+. link:managing-admin-groups.html["Crie o mesmo grupo de administração"] em ambas as grades importando o mesmo grupo federado.
++
+Ao criar o locatário, você selecionará esse grupo para ter a permissão de acesso raiz inicial para as contas de locatário de origem e destino.
+
++
+
+NOTE: Se esse grupo de administração não existir em ambas as grades antes de criar o locatário, o locatário não será replicado para o destino.
+
+
+
+
+
+[[account-sync-identity-federationconfigure-grid-level-identity-federation-for-account-sync-optional]]
+=== [[account-sync-identity-federation]]Configurar a federação de identidades em nível de grid para sincronização de contas (opcional)
+
+Se um dos sistemas StorageGRID usar federação de identidade sem SSO, ambas as grades devem usar federação de identidade. Antes de criar as contas de locatário para federação de grade, os administradores de grade para as grades de origem e destino do locatário devem executar essas etapas.
+
+.Passos
+. Configure a mesma fonte de identidade para ambas as grades. link:using-identity-federation.html["Use a federação de identidade"]Consulte .
+. Opcionalmente, se um grupo federado tiver permissão de acesso raiz inicial para as contas de locatário de origem e destino, link:managing-admin-groups.html["crie o mesmo grupo de administração"] em ambas as grades importando o mesmo grupo federado.
++
+
+NOTE: Se você atribuir permissão de acesso root a um grupo federado que não existe em ambas as grades, o locatário não será replicado para a grade de destino.
+
+. Se você não quiser que um grupo federado tenha permissão de acesso raiz inicial para ambas as contas, especifique uma senha para o usuário raiz local.
+
+
+
+
+[[create-permitted-s3-tenant-account]]
+=== Crie uma conta de locatário S3 permitida
+
+Depois de configurar opcionalmente o SSO ou a federação de identidade, um administrador de grade executa essas etapas para determinar quais locatários podem replicar objetos de bucket para outros sistemas StorageGRID.
+
+.Passos
+. Determine qual grid você deseja que seja o grid de origem do tenant para operações de sincronização de contas.
++
+A grade onde o locatário é originalmente criado é conhecida como _source grid_ do locatário. A grade onde o locatário é replicado é conhecida como _grade de destino_ do locatário.
+
+. Nessa grade, crie uma nova conta de locatário do S3 ou edite uma conta existente.
+. Atribua a permissão *Use Grid Federation Connection*.
+. Se a conta de locatário gerenciar seus próprios usuários federados, atribua a permissão *Use own Identity source*.
++
+Se essa permissão for atribuída, tanto as contas de locatário de origem quanto as de destino devem configurar a mesma fonte de identidade antes de criar grupos federados. Os grupos federados adicionados ao locatário de origem não podem ser sincronizados com o locatário de destino, a menos que ambas as grades usem a mesma fonte de identidade.
+
+. Selecione uma conexão de federação de grade específica.
+. Salve o locatário novo ou modificado.
++
+Quando um novo locatário com a permissão *usar conexão de federação de grade* é salvo, o StorageGRID cria automaticamente uma réplica desse locatário na outra grade, da seguinte forma:
+
++
+** Ambas as contas de inquilino têm o mesmo ID de conta, nome, cota de armazenamento e permissões atribuídas.
+** Se você selecionou um grupo federado com permissão de acesso de usuário raiz para o tenant, esse grupo é clonado para o tenant de destino. No entanto, a sincronização contínua não ocorre para grupos e usuários federados. Apenas uma clonagem única ocorre.
+** Se você selecionou um usuário local com permissão de acesso de usuário raiz para o locatário, esse usuário é sincronizado com o locatário de destino.
+
+
+
+
+Para detalhes, consulte link:grid-federation-manage-tenants.html["Gerenciar locatários permitidos para federação de grade"].
+
+
+
+[[permitted-tenant-account-workflow]]
+== Fluxo de trabalho de conta de locatário permitido
+
+Após um locatário com a permissão *Usar conexão de federação de grid* ser replicado para o grid de destino, as contas de locatário permitidas podem executar estas etapas para sincronizar grupos de locatários, usuários e chaves de acesso S3.
+
+.Passos
+. Faça login na conta do locatário em qualquer grid conectado.
+. Se permitido, configure a federação de identidades nas contas de locatário de origem e de destino.
+. Crie grupos e usuários em qualquer grid conectada.
++
+Quando novos grupos ou usuários são criados em um locatário, StorageGRID os sincroniza automaticamente com o locatário de destino.
+
+. Crie S3 chaves de acesso.
+. Opcionalmente, sincronize as chaves de acesso S3 do locatário de origem para o locatário de destino.
+
+
+Para obter detalhes sobre o fluxo de trabalho permitido para contas de locatários e para saber como grupos, usuários e chaves de acesso ao S3 são sincronizados, consulte link:../tenant/grid-federation-account-sync.html["Sincronizar grupos de locatários e usuários"].

@@ -29,9 +29,6 @@ Por exemplo, você pode usar a replicação do CloudMirror para espelhar Registr
 A replicação do CloudMirror tem algumas semelhanças e diferenças importantes com o recurso de replicação entre grades. Para saber mais, link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["Compare a replicação entre redes e a replicação do CloudMirror"]consulte .
 
 
-NOTE: A replicação do CloudMirror não é suportada se o bucket de origem tiver o S3 Object Lock habilitado.
-
-
 
 [[notifications]]
 == Notificações

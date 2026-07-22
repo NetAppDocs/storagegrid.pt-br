@@ -59,7 +59,7 @@ image:erasure_coding_data_flow.png["Fluxo de dados de codificação de apagament
 [[content-protection-cloud-storage-pool]]
 == Proteção de conteúdo: Cloud Storage Pool
 
-Se as instruções de posicionamento de conteúdo de uma regra ILM exigirem que uma cópia replicada dos dados de objetos seja armazenada em um Cloud Storage Pool, os dados de objetos serão duplicados para o bucket externo do S3 ou para o contêiner de storage Azure Blob especificado para o Cloud Storage Pool.
+Se as instruções de posicionamento de conteúdo de uma regra ILM exigirem que uma cópia replicada dos dados do objeto seja armazenada em um Cloud Storage Pool, os dados do objeto serão duplicados para o bucket S3 externo ou para o contêiner Azure Blob Storage especificado para o Cloud Storage Pool.
 
 O mecanismo ILM, que é um componente do serviço LDR, e o serviço Data Mover controlam o movimento de objetos para o Cloud Storage Pool.
 

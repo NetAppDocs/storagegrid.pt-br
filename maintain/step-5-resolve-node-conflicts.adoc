@@ -78,7 +78,7 @@ image:decommission_site_step_5_ha_groups.png["Desativar os grupos de HA do passo
 
 
 +
-Se todos os nós estiverem conetados e nenhum nó no local selecionado for usado em um grupo de HA, o campo *frase-passe de provisionamento* será ativado.
+Se todos os nós estiverem conectados e nenhum nó no site selecionado for usado em um grupo de HA, o campo *Senha de provisionamento* será habilitado.
 
 . Introduza a frase-passe de aprovisionamento.
 +

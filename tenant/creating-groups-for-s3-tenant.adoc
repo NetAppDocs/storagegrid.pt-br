@@ -17,7 +17,7 @@ Você pode gerenciar permissões para S3 grupos de usuários importando grupos f
 * Você está conetado ao Gerenciador do Locatário usando um link:../admin/web-browser-requirements.html["navegador da web suportado"].
 * Você pertence a um grupo de usuários que tem o link:tenant-management-permissions.html["Permissão de acesso à raiz"].
 * Se você pretende importar um grupo federado, o link:using-identity-federation.html["federação de identidade configurada"], e o grupo federado já existe na origem de identidade configurada.
-* Se sua conta de locatário tiver a permissão *usar conexão de federação de grade*, você revisou o fluxo de trabalho e as considerações para link:grid-federation-account-clone.html["clonar grupos de locatários e usuários"], e você estará conetado à grade de origem do locatário.
+* Se a sua conta de locatário tiver a permissão *Usar conexão de federação de grid*, você tiver revisado o fluxo de trabalho e as considerações para link:grid-federation-account-sync.html["Sincronizando grupos de locatários e usuários"], e estiver conectado à grid de origem do locatário.
 
 
 
@@ -29,10 +29,6 @@ Como primeira etapa, acesse o assistente criar grupo.
 
 .Passos
 . Selecione *Gerenciamento de acesso* > *Grupos*.
-. Se sua conta de locatário tiver a permissão *Use Grid Federation Connection*, confirme se um banner azul aparece, indicando que novos grupos criados nessa grade serão clonados para o mesmo locatário na outra grade na conexão. Se este banner não aparecer, você pode estar conetado à grade de destino do locatário.
-+
-image:grid-federation-tenant-group-banner.png["Imagem do banner azul na página de grupos da grade de origem do locatário"]
-
 . Selecione *criar grupo*.
 
 
@@ -151,9 +147,6 @@ Para obter informações detalhadas sobre políticas de grupo, incluindo sintaxe
 
 Você pode salvar o grupo sem adicionar usuários ou, opcionalmente, adicionar usuários locais que já existem.
 
-
-NOTE: Se sua conta de locatário tiver a permissão *usar conexão de federação de grade*, os usuários selecionados ao criar um grupo local na grade de origem não serão incluídos quando o grupo for clonado para a grade de destino. Por esse motivo, não selecione usuários quando você criar o grupo. Em vez disso, selecione o grupo quando você criar os usuários.
-
 .Passos
 . Opcionalmente, selecione um ou mais usuários locais para este grupo.
 . Selecione *criar grupo* e *concluir*.
@@ -161,6 +154,6 @@ NOTE: Se sua conta de locatário tiver a permissão *usar conexão de federaçã
 O grupo criado aparece na lista de grupos.
 
 +
-Se sua conta de locatário tiver a permissão *usar conexão de federação de grade* e você estiver na grade de origem do locatário, o novo grupo será clonado para a grade de destino do locatário. *Success* aparece como *status de clonagem* na seção Visão geral da página de detalhes do grupo.
+Se a sua conta de locatário tiver a permissão *Usar conexão de federação de grid* e você estiver no grid de origem do locatário, o novo grupo será sincronizado com o grid de destino do locatário. *Concluído com êxito* aparece como o status de sincronização na seção Visão geral da página de detalhes do grupo.
 
 

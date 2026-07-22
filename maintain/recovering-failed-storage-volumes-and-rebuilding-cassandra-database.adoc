@@ -97,4 +97,5 @@ restore copies of data.
 
 
 
-Depois que os volumes de armazenamento forem reformatados e remontados e as operações necessárias do Cassandra estiverem concluídas, você poderá link:../maintain/restoring-volume.html["Restaure dados de objetos usando o Gerenciador de Grade"].
+.Qual é o próximo passo?
+Após os volumes de armazenamento serem reformatados e remontados e as operações necessárias do Cassandra serem concluídas, você pode link:../maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["Restaure dados de objetos usando o Gerenciador de Grade"].

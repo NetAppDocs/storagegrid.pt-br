@@ -202,7 +202,7 @@ Coletar dados para suporte técnico
 O suporte técnico pode solicitar que você colete dados ou revise informações específicas para ajudar a solucionar problemas.
  a| 
 * link:../monitor/collecting-log-files-and-system-data.html["Colete arquivos de log e dados do sistema"]
-* link:../monitor/manually-triggering-autosupport-message.html["Acione manualmente um pacote AutoSupport"]
+* link:../monitor/manually-triggering-autosupport-package.html["Acione manualmente um pacote AutoSupport"]
 * link:../monitor/reviewing-support-metrics.html["Analise as métricas de suporte"]
 
 

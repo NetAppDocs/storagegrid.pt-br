@@ -15,10 +15,12 @@ indexpage:
   tiles:
   - title: Comece agora
     links:
+    - title: Requisitos do navegador da Web
+      url: "../admin/web-browser-requirements.html"
     - title: Faça login no Gerenciador de Grade
       url: "../admin/signing-in-to-grid-manager.html"
-    - title: Configurar o AutoSupport
-      url: "../admin/configure-autosupport-grid-manager.html"
+    - title: Saia do Grid Manager
+      url: "../admin/signing-out-of-grid-manager.html"
     - title: Use a API de gerenciamento de grade
       url: "../admin/using-grid-management-api.html"
   - title: Gerenciar grupos e usuários de administradores
@@ -27,8 +29,8 @@ indexpage:
       url: "../admin/using-identity-federation.html"
     - title: Gerenciar grupos de administradores
       url: "../admin/managing-admin-groups.html"
-    - title: Permissões do grupo de administração
-      url: "../admin/admin-group-permissions.html"
+    - title: Saiba mais sobre verificação multi-admin.
+      url: "../admin/about-multi-admin-verify.html"
     - title: Configurar o logon único
       url: "../admin/how-sso-works.html"
   - title: Use a federação de grade
@@ -41,6 +43,8 @@ indexpage:
       url: "../admin/grid-federation-create-connection.html"
     - title: Gerenciar locatários permitidos
       url: "../admin/grid-federation-manage-tenants.html"
+    - title: Configurar o namespace global
+      url: "../admin/configure-global-namespace.html"
   - title: Gerenciar conexões de clientes e locatários
     links:
     - title: Configurar nomes de domínio de endpoint S3

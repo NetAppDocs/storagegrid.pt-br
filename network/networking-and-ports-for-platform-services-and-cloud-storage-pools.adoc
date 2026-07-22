@@ -31,7 +31,7 @@ Os serviços de plataforma exigem acesso de nós de storage que hospedam o servi
 [[networking-for-cloud-storage-pools]]
 == Rede para pools de armazenamento em nuvem
 
-Os Cloud Storage Pools também exigem acesso dos nós de storage aos pontos de extremidade fornecidos pelo serviço externo usado, como o storage Amazon S3 Glacier ou Microsoft Azure Blob. Para obter informações, link:../ilm/what-cloud-storage-pool-is.html["O que é um Cloud Storage Pool"]consulte .
+Os pools de storage de nuvem também exigem acesso dos nós de armazenamento aos endpoints fornecidos pelo serviço externo utilizado, como Amazon S3 Glacier ou Microsoft Azure Blob Storage. Para obter informações, consulte link:../ilm/what-cloud-storage-pool-is.html["O que é um Cloud Storage Pool"].
 
 
 

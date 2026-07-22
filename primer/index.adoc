@@ -37,7 +37,7 @@ As vantagens do sistema StorageGRID incluem o seguinte:
 * Alta disponibilidade de storage de dados e algumas funções de gerenciamento, com balanceamento de carga integrado para otimizar a carga de dados entre os recursos da StorageGRID.
 * Suporte para várias contas de inquilinos de storage para segregar os objetos armazenados em seu sistema por diferentes entidades.
 * Várias ferramentas para monitorar a integridade do seu sistema StorageGRID, incluindo um sistema de alerta abrangente, um painel gráfico e status detalhado para todos os nós e sites.
-* Suporte para implantação baseada em software ou hardware. Você pode implantar o StorageGRID em qualquer uma das seguintes opções:
+* Suporte para implantação baseada em software ou baseada em hardware. Você pode implantar StorageGRID em qualquer um dos seguintes:
 +
 ** Máquinas virtuais em execução no VMware.
 ** Motores de contentor em hosts Linux.
@@ -57,5 +57,5 @@ As vantagens do sistema StorageGRID incluem o seguinte:
 
 
 * Operações de atualização e manutenção sem interrupções. Mantenha o acesso ao conteúdo durante os procedimentos de atualização, expansão, desativação e manutenção.
-* Gerenciamento de identidade federado. Integra-se com ative Directory, OpenLDAP ou Oracle Directory Service para autenticação de usuário. Suporta logon único (SSO) usando o padrão SAML 2,0 (Security Assertion Markup Language 2,0) para trocar dados de autenticação e autorização entre o StorageGRID e o AD FS (Serviços de Federação do ative Directory).
+* Gerenciamento de identidade federada. Integra-se com Active Directory, OpenLDAP ou Oracle Directory Service para autenticação de usuário. Suporta logon único (SSO) usando Security Assertion Markup Language 2.0 (SAML 2.0) ou OpenID Connect (OIDC) para trocar dados de autenticação e autorização entre StorageGRID e um provedor de identidade externo, como Active Directory Federation Services (AD FS).
 

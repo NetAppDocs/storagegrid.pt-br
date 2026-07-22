@@ -72,6 +72,23 @@ O _Metadata reserved space_ é uma configuração em todo o sistema que represen
 
 
  a| 
+12,1
+ a| 
+128 GB ou mais em cada nó de storage na grade
+ a| 
+20 TB (20.000 GB)
+
+
+
+ a| 
+ a| 
+Menos de 128 GB em qualquer nó de armazenamento na grade
+ a| 
+3 TB (3.000 GB)
+
+
+
+ a| 
 11,5 a 12,0
  a| 
 128 GB ou mais em cada nó de storage na grade
@@ -127,7 +144,7 @@ Siga estas etapas para visualizar a configuração espaço reservado metadados p
 
 Para o StorageGRID 11,8 ou superior, o valor de espaço reservado de metadados deve ser de pelo menos 100 GB e não mais de 1 PB.
 
-A configuração padrão para uma nova instalação do StorageGRID 11,6 ou superior na qual cada nó de armazenamento tem 128 GB ou mais de RAM é de 8.000 GB (8 TB).
+A configuração padrão para uma nova instalação do StorageGRID 12.1 ou superior, na qual cada nó de armazenamento possui 128 GB ou mais de RAM, é de 20.000 GB (20 TB).
 
 
 
@@ -176,17 +193,17 @@ image:storage_used_object_metadata_actual_reserved.png["Armazenamento usado - me
 
 
 
-Na captura de tela, o valor *atual reservado* é de 8 TB. Esta captura de tela é para um nó de armazenamento grande em uma nova instalação do StorageGRID 11,6. Como a configuração espaço reservado de metadados em todo o sistema é menor que o volume 0 para este nó de armazenamento, o espaço reservado real para esse nó é igual à configuração espaço reservado de metadados.
+Na captura de tela, o valor reservado real é de 20 TB. Esta captura de tela é de um Storage Node grande em uma nova instalação do StorageGRID 12.1. O volume 0 tem pelo menos 20 TB, então usa a configuração padrão de espaço reservado para metadados em todo o sistema.
 
 
 
 [[example-for-actual-reserved-metadata-space]]
 === Exemplo de espaço reservado real de metadados
 
-Suponha que você instale um novo sistema StorageGRID usando a versão 11,7 ou posterior. Para este exemplo, suponha que cada nó de armazenamento tem mais de 128 GB de RAM e que o volume 0 do nó de armazenamento 1 (SN1) é de 6 TB. Com base nestes valores:
+Suponha que você instale um novo sistema StorageGRID usando a versão 12.1 ou posterior. Para este exemplo, suponha que cada Storage Node tenha mais de 128 GB de RAM e que o volume 0 do Storage Node 1 (SN1) tenha 6 TB. Com base nesses valores:
 
-* O *espaço reservado de metadados* em todo o sistema está definido para 8 TB. (Este é o valor padrão para uma nova instalação do StorageGRID 11,6 ou superior se cada nó de armazenamento tiver mais de 128 GB de RAM.)
-* O espaço reservado real para metadados para SN1 é de 6 TB. (Todo o volume é reservado porque o volume 0 é menor do que a configuração *espaço reservado de metadados*.)
+* O *espaço reservado de metadados* em todo o sistema está definido como 20 TB. (Este é o valor padrão para uma nova instalação do StorageGRID 12.1 ou superior se cada Storage Node tiver mais de 128 GB de RAM.)
+* O espaço *realmente reservado* para metadados no SN1 é de 6 TB. (Todo o volume está reservado porque o volume 0 é menor que a configuração de *Espaço reservado para metadados*.)
 
 
 
@@ -226,18 +243,18 @@ A tabela a seguir mostra como o StorageGRID calcula o espaço de metadados permi
  a| 
 &Lt; 4 TB
  a| 
-60% do espaço reservado real para metadados, até um máximo de 1,32 TB
+75% do espaço reservado real para metadados, até um máximo de 1,32 TB
  a| 
-60% do espaço reservado real para metadados, até um máximo de 1,98 TB
+75% do espaço reservado real para metadados, até um máximo de 1,98 TB
 
 
 
  a| 
 &Gt; 4 TB
  a| 
-(Espaço reservado real para metadados - 1 TB) x 60%, até um máximo de 1,32 TB
+(espaço reservado para metadados − 1 TB) × 75%, até um máximo de 1,32 TB
  a| 
-(Espaço reservado real para metadados - 1 TB) x 60%, até um máximo de 3,96 TB
+(espaço reservado para metadados − 1 TB) × 75%, até um máximo de 7,92 TB
 
 |===
 
@@ -257,7 +274,7 @@ image:storage_used_object_metadata_allowed.png["Armazenamento usado - metadados 
 
 
 
-Na captura de tela, o valor *permitido* é de 3,96 TB, que é o valor máximo para um nó de armazenamento cujo espaço reservado real para metadados é superior a 4 TB.
+Na captura de tela, o valor *Permitido* é 7,92 TB, que é o valor máximo para um Storage Node cujo espaço reservado para metadados é superior a 4 TB.
 
 O valor *allowed* corresponde a esta métrica Prometheus:
 
@@ -266,13 +283,13 @@ O valor *allowed* corresponde a esta métrica Prometheus:
 
 
 [[example-for-allowed-metadata-space]]
-== Exemplo de espaço permitido de metadados
+=== Exemplo de espaço permitido de metadados
 
-Suponha que você instale um sistema StorageGRID usando a versão 11,6. Para este exemplo, suponha que cada nó de armazenamento tem mais de 128 GB de RAM e que o volume 0 do nó de armazenamento 1 (SN1) é de 6 TB. Com base nestes valores:
+Suponha que você instale um novo sistema StorageGRID usando a versão 12.1 ou posterior. Para este exemplo, suponha que cada Storage Node tenha mais de 128 GB de RAM e que o volume 0 do Storage Node 1 (SN1) tenha 6 TB. Com base nesses valores:
 
-* O *espaço reservado de metadados* em todo o sistema está definido para 8 TB. (Este é o valor padrão para o StorageGRID 11,6 ou superior quando cada nó de armazenamento tem mais de 128 GB de RAM.)
-* O espaço reservado real para metadados para SN1 é de 6 TB. (Todo o volume é reservado porque o volume 0 é menor do que a configuração *espaço reservado de metadados*.)
-* O espaço permitido para metadados no SN1 é de 3 TB, com base no cálculo mostrado no <<table-allowed-space-for-metadata,tabela para espaço permitido para metadados>>: (espaço reservado real para metadados - 1 TB) x 60%, até um máximo de 3,96 TB.
+* O *espaço reservado de metadados* em todo o sistema está definido como 20 TB. (Este é o valor padrão para uma nova instalação do StorageGRID 12.1 ou superior se cada Storage Node tiver mais de 128 GB de RAM.)
+* O espaço *realmente reservado* para metadados no SN1 é de 6 TB. (Todo o volume está reservado porque o volume 0 é menor que a configuração de *Espaço reservado para metadados*.)
+* O espaço *permitido* para metadados no SN1 é de 3,75 TB, com base no cálculo mostrado em <<table-allowed-space-for-metadata,tabela para espaço permitido para metadados>>: (espaço reservado para metadados − 1 TB) × 75%, até um máximo de 7,92 TB.
 
 
 

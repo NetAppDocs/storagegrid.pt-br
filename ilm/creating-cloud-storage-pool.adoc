@@ -2,7 +2,7 @@
 permalink: ilm/creating-cloud-storage-pool.html 
 sidebar: sidebar 
 keywords: how to create cloud storage pool 
-summary: Um Cloud Storage Pool especifica um único bucket externo do Amazon S3 ou outro fornecedor compatível com o S3 ou um contêiner de storage Azure Blob. 
+summary: Um pool de storage em nuvem especifica um único bucket externo do Amazon S3, outro provedor compatível com S3 ou um contêiner do Azure Blob Storage. 
 ---
 = Criar um Cloud Storage Pool no StorageGRID
 :allow-uri-read: 
@@ -11,9 +11,9 @@ summary: Um Cloud Storage Pool especifica um único bucket externo do Amazon S3 
 
 
 [role="lead"]
-Um Cloud Storage Pool especifica um único bucket externo do Amazon S3 ou outro fornecedor compatível com o S3 ou um contêiner de storage Azure Blob.
+Um pool de storage em nuvem especifica um único bucket externo do Amazon S3, outro provedor compatível com S3 ou um contêiner do Azure Blob Storage.
 
-Ao criar um pool de storage de nuvem, especifique o nome e o local do bucket ou do contêiner externo que o StorageGRID usará para armazenar objetos, o tipo de fornecedor de nuvem (storage Amazon S3/GCP ou Azure Blob) e as informações que o StorageGRID precisa para acessar o bucket ou o contêiner externo.
+Ao criar um pool de storage em nuvem, você especifica o nome e a localização do bucket ou contêiner externo que StorageGRID usará para armazenar objetos, o tipo de provedor de nuvem (Amazon S3/GCP ou Azure Blob Storage) e as informações que o StorageGRID precisa para acessar o bucket ou contêiner externo.
 
 O StorageGRID valida o pool de armazenamento em nuvem assim que você o salva, portanto, você deve garantir que o bucket ou o contentor especificado no pool de armazenamento em nuvem existe e está acessível.
 
@@ -227,3 +227,6 @@ Se a validação do Cloud Storage Pool falhar, você receberá uma mensagem de e
 
 . Se ocorrer um erro, consulte o link:troubleshooting-cloud-storage-pools.html["Instruções para solução de problemas de Cloud Storage Pools"], resolva quaisquer problemas e, em seguida, tente salvar o pool de armazenamento em nuvem novamente.
 
+
+.Informações relacionadas
+link:../network/external-communications.html["Portas usadas para comunicações externas"]

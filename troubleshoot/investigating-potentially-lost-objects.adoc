@@ -129,7 +129,12 @@ Localização: 0
  a| 
 Se não houver locais listados na saída, o objeto está potencialmente ausente.  Entre em contato com o suporte técnico.
 
-O suporte técnico pode pedir-lhe para determinar se existe um procedimento de recuperação de armazenamento em curso. Consulte as informações sobre link:../maintain/restoring-volume.html["Restaurando dados de objetos usando o Grid Manager"] e link:../maintain/restoring-object-data-to-storage-volume.html["restaurar dados de objeto para um volume de armazenamento"].
+O suporte técnico poderá solicitar que você verifique se há algum procedimento de recuperação de armazenamento em andamento. Consulte:
+
+*** link:../maintain/restoring-object-data-to-storage-volume-for-appliance.html["Restaure os dados de objeto para o volume de storage do dispositivo"]
+*** link:../maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["Restaure os dados de objetos para o volume de storage em que a unidade do sistema esteja intacta"]
+*** link:../maintain/restoring-object-data-to-storage-volume.html["Restaurar dados de objetos para o volume de storage (falha na unidade do sistema)"]
+
 
 |===
 

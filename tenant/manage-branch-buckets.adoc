@@ -23,8 +23,27 @@ Use o Gerenciador de locatários para criar e visualizar detalhes de buckets de 
 .Sobre esta tarefa
 Observe as seguintes informações para buckets de ramificação:
 
-* Permissões para definir propriedades de bloqueio de objeto S3 de buckets ou objetos podem ser concedidas porlink:../s3/use-access-policies.html["política de bucket ou política de grupo"] .
-* Se você suspender o controle de versão no bucket base, o conteúdo do bucket base não ficará mais visível em seus buckets de ramificação.
+Limite de profundidade do bucket de branch:: Um bucket de ramificação pode ter no máximo 20 buckets base. À medida que a profundidade dos buckets de ramificação aumenta, a latência de acesso S3 pode aumentar, especialmente para chamadas ListObjectVersions.
++
+--
+* Se você criar um bucket de ramificação a partir de um bucket base que seja um bucket regular (um bucket que foi inicialmente criado como um bucket base), o novo bucket de ramificação terá um bucket base.
+* Se o bucket base for ele próprio um bucket de ramificação, o novo bucket de ramificação herda todos os buckets base desse bucket de ramificação. Os usuários especificam apenas um bucket base diretamente; os buckets base herdados são implícitos.
+* O número total de buckets base (explícitos e implícitos) não pode exceder 20.
++
+Por exemplo, suponha que o bucket *A* seja um bucket comum com versionamento ativado:
+
++
+** O bucket de ramificação *B*, criado a partir de *A*, tem um bucket base: *A*.
+** O bucket de ramificação *C*, criado a partir de *B*, possui dois buckets base: *B* (explícito) e *A* (implícito).
+** O bucket de ramificação *D*, criado a partir de *C*, possui três buckets base: *C* (explícito), *B* (implícito) e *A* (implícito).
+** Esse padrão se repete até uma profundidade máxima de 20 base buckets.
+
+
+
+
+--
+Permissões de bloqueio de objetos S3:: As permissões para definir as propriedades de bloqueio de objetos S3 de buckets ou objetos podem ser concedidas por link:../tenant/using-s3-object-lock.html["política de bucket ou política de grupo"].
+Versionamento suspenso:: Se você suspender o controle de versão no bucket base, o conteúdo do bucket base não ficará mais visível em seus buckets de ramificação.
 
 
 
@@ -85,15 +104,6 @@ A região do bucket de ramificação deve corresponder à região do bucket base
 
 
  a| 
-Antes do tempo
- a| 
-O tempo limite para que versões de objetos criadas no bucket base sejam acessíveis a partir do bucket de ramificação.  O branch bucket fornece acesso a versões de objetos criadas antes do tempo Before.
-
-Antes do tempo deve haver uma data e hora que já passaram.  Não pode ser uma data futura.
-
-
-
- a| 
 Tipo de balde de ramificação
  a| 
 ** *Leitura e gravação*: você pode adicionar ou excluir objetos ou versões de objetos no branch bucket.
@@ -104,6 +114,24 @@ Tipo de balde de ramificação
 
 |===
 . Selecione *continuar*.
+
+
+
+
+[[time-filter]]
+== Filtro de tempo
+
+Escolha o intervalo de tempo para incluir as versões de objetos do bucket base. Para qualquer filtro de tempo, selecione qualquer data dentro do seguinte intervalo:
+
+* Data mínima: 1 de janeiro de 2010 (UTC)
+* Data máxima: cinco anos a partir da data de hoje (UTC)
++
+Antes:: O bucket de ramificação fornece acesso a versões de objetos criadas antes do horário _Before_.
+Depois:: O bucket de ramificação fornece acesso a versões de objetos criadas após o horário _After_.
+Entre:: O bucket de ramificação fornece acesso às versões de objetos criadas entre os horários _De_ e _Para_.
+Excluir:: O bucket de ramificação não fornece acesso às versões de objetos criadas entre os horários _Excluir de_ e _Excluir até_.
+
+
 
 
 

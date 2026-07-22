@@ -66,6 +66,14 @@ Principal/NotPrincipal
  a| 
 Você pode permitir que usuários, grupos e contas acessem recursos específicos e executem ações específicas. Se nenhuma assinatura S3 estiver incluída na solicitação, o acesso anônimo será permitido especificando o caractere curinga (*) como principal. Por padrão, somente a raiz da conta tem acesso aos recursos de propriedade da conta.
 
+O principal:
+
+* `"Principal": "*"`Corresponde a todos, incluindo solicitações anônimas (não assinadas)
+* `"Principal": { "AWS": "*" }`Corresponde a qualquer identidade ou usuário autenticado (não corresponde a solicitações anônimas)
+* Aplica-se somente a políticas de bucket
+* O principal é a(s) conta(s)/usuário(s) que está recebendo ou sendo negada as permissões
+
+
 Você só precisa especificar o elemento principal em uma política de bucket. Para políticas de grupo, o grupo ao qual a política está anexada é o elemento principal implícito.
 
 
@@ -186,7 +194,7 @@ arn:aws:iam::account_id:federated-group/group_name
 Outras considerações:
 
 * Você pode usar o asterisco (*) como curinga para corresponder a zero ou mais carateres dentro da chave de objeto.
-* Carateres internacionais, que podem ser especificados na chave do objeto, devem ser codificados usando JSON UTF-8 ou usando sequências de escape JSON. A codificação percentual não é suportada.
+* Caracteres internacionais, que podem ser especificados na chave do objeto, devem ser codificados usando JSON UTF-8 ou usando sequências de escape JSON \u. A codificação percentual não é suportada.
 +
 https://www.ietf.org/rfc/rfc2141.txt["RFC 2141 sintaxe de URNA"^]
 
@@ -215,7 +223,7 @@ Em declarações de política, você pode usar o elemento recurso para especific
 ----
 "Resource": "arn:aws:s3:::mybucket/home/${aws:username}/*"
 ----
-* O valor do recurso pode especificar um intervalo que ainda não existe quando uma política de grupo é criada.
+* O valor do recurso pode especificar um bucket que ainda não existe quando uma política de grupo é criada.
 
 
 
@@ -486,9 +494,10 @@ Sim, para OBTER uso de armazenamento.
  a| 
 S3: ListBucket
  a| 
-* ListObjects
+* GetObject
 * Balde para a cabeça
-* RestoreObject
+* HeadObject
+* ListObjects
 
  a| 
 
@@ -498,7 +507,6 @@ S3: ListBucket
 S3:ListBucketMultipartUploads
  a| 
 * ListMultipartUploads
-* RestoreObject
 
  a| 
 
@@ -644,7 +652,6 @@ Sim, permissões separadas para COLOCAR e EXCLUIR
 S3:AbortMultipartUpload
  a| 
 * AbortMultipartUpload
-* RestoreObject
 
  a| 
 
@@ -666,7 +673,6 @@ S3:DeleteObject
  a| 
 * DeleteObject
 * DeleteObjects
-* RestoreObject
 
  a| 
 
@@ -701,7 +707,6 @@ S3:GetObject
  a| 
 * GetObject
 * HeadObject
-* RestoreObject
 * Selecione ObjectContent
 
  a| 
@@ -759,7 +764,7 @@ GetObject (uma versão específica do objeto)
  a| 
 S3:ListMultipartUploadParts
  a| 
-ListParts, RestoreObject
+ListParts
  a| 
 
 
@@ -767,11 +772,10 @@ ListParts, RestoreObject
  a| 
 S3:PutObject
  a| 
-* PutObject
 * CopyObject
-* RestoreObject
-* CreateMultipartUpload
 * CompleteMultipartUpload
+* CreateMultipartUpload
+* PutObject
 * UploadPart
 * UploadPartCopy
 
@@ -814,11 +818,11 @@ PutObjectTagging (uma versão específica do objeto)
  a| 
 S3:PutOverwriteObject
  a| 
-* PutObject
-* CopyObject
-* Marcação de objetos
-* DeleteObjectTagging
 * CompleteMultipartUpload
+* CopyObject
+* DeleteObjectTagging
+* PutObject
+* Marcação de objetos
 
  a| 
 Sim
@@ -854,7 +858,7 @@ As configurações possíveis para essa permissão incluem:
 ** Se um objeto existente não for encontrado, essa permissão não terá efeito.
 
 
-* Quando esta permissão não está presente, o efeito é o mesmo que se permitir foi definido.
+* Quando essa permissão não está presente, o efeito é o mesmo que se Allow estivesse ativado.
 
 
 
@@ -1020,7 +1024,7 @@ Verifica se uma chave de condição está presente no contexto de solicitação 
  a| 
 Se existir
  a| 
-Acrescentado a qualquer operador de condição, exceto a condição Nula, para verificar a ausência dessa chave de condição.  Retorna TRUE se a chave de condição não estiver presente.
+Adicionado a qualquer operador de condição, exceto a condição Null, para verificar a ausência da chave de condição. Retorna VERDADEIRO se a chave de condição não estiver presente.
 
 |===
 
@@ -1038,11 +1042,11 @@ AWS:SourceIp
  a| 
 Operadores IP
  a| 
-Irá comparar com o endereço IP a partir do qual a solicitação foi enviada. Pode ser usado para operações de balde ou objetos.
+Compara com o endereço IP de onde a solicitação foi enviada. Pode ser usado para operações de bucket ou objeto.
 
-*Observação:* se a solicitação S3 tiver sido enviada pelo serviço Load Balancer nos nós Admin e Gateways, isso será comparado ao endereço IP upstream do serviço Load Balancer.
+*Nota:* Se a solicitação S3 foi enviada através do serviço Load Balancer nos nós Admin e nos nós Gateway, isso se compara ao endereço IP upstream do serviço Load Balancer.
 
-*Nota*: Se um balanceador de carga não transparente de terceiros for usado, isso será comparado ao endereço IP desse balanceador de carga. Qualquer `X-Forwarded-For` cabeçalho será ignorado porque sua validade não pode ser determinada.
+*Nota*: Se um balanceador de carga de terceiro não transparente for usado, isso será comparado ao endereço IP desse balanceador de carga. Qualquer  `X-Forwarded-For` cabeçalho será ignorado, pois sua validade não pode ser verificada.
 
 
 
@@ -1051,7 +1055,7 @@ aws:nome de usuário
  a| 
 Recurso/identidade
  a| 
-Irá comparar com o nome de usuário do remetente a partir do qual a solicitação foi enviada. Pode ser usado para operações de balde ou objetos.
+Compara com o nome de usuário do remetente a partir do qual a solicitação foi enviada. Pode ser usado para operações de bucket ou objeto.
 
 
 
@@ -1062,7 +1066,7 @@ S3: ListBucket e.
 
 S3:ListBucketVersions Permissions
  a| 
-Irá comparar com o parâmetro delimitador especificado em uma solicitação ListObjects ou ListObjectVersions.
+Compara com o parâmetro delimitador especificado em uma solicitação ListObjects ou ListObjectVersions.
 
 
 
@@ -1093,7 +1097,7 @@ S3:PutObjectVersionAcl
 
 S3:PutObjectVersionTagging
  a| 
-Exigirá que o objeto existente tenha a chave e o valor específicos da tag.
+Requer que o objeto existente tenha a chave e o valor de tag específicos.
 
 
 
@@ -1104,7 +1108,7 @@ S3: ListBucket e.
 
 S3:ListBucketVersions Permissions
  a| 
-Irá comparar com o parâmetro Max-keys especificado em uma solicitação ListObjects ou ListObjectVersions.
+Compara com o parâmetro max-keys especificado em uma solicitação ListObjects ou ListObjectVersions.
 
 
 
@@ -1156,7 +1160,7 @@ S3: ListBucket e.
 
 S3:ListBucketVersions Permissions
  a| 
-Irá comparar com o parâmetro prefix especificado em uma solicitação ListObjects ou ListObjectVersions.
+Compara com o parâmetro de prefixo especificado em uma solicitação ListObjects ou ListObjectVersions, ou com a chave especificada para GetObject ou HeadObject.
 
 
 
@@ -1169,7 +1173,16 @@ S3:PutObjectTagging
 
 S3:PutObjectVersionTagging
  a| 
-Exigirá uma chave de tag específica e um valor quando a solicitação de objeto incluir marcação.
+Requer uma chave e um valor de tag específicos quando a solicitação do objeto inclui tagging.
+
+
+
+ a| 
+s3:x-amz-copy-source
+ a| 
+S3:PutObject
+ a| 
+Compara-se com o x-amz-copy-source expandido do cabeçalho da solicitação nas solicitações PutObject e UploadPartCopy.
 
 
 
@@ -1374,7 +1387,7 @@ A política concede a uma conta que não seja proprietária (incluindo contas an
  a| 
 Balde
  a| 
-Válido. Os objetos são propriedade da conta de criador e a política de bucket não se aplica. A conta de criador deve conceder permissões de acesso ao objeto usando ACLs de objeto.
+Válido. Os objetos pertencem à conta do criador e a política do bucket não se aplica. A conta do criador deve conceder permissões de acesso ao objeto usando ACLs de objeto.
  a| 
 Válido. Os objetos são propriedade da conta de proprietário do bucket. Aplica-se a política de bucket.
 
@@ -1399,7 +1412,7 @@ Para garantir que as substituições sejam sempre negadas, você pode:
 
 
 
-NOTE: A configuração DeleteObject para NEGAR em uma diretiva S3 não impede que o ILM exclua objetos quando uma regra como "zero cópias após 30 dias" existir.
+NOTE: Configurar DeleteObject como NEGAR em uma política do S3 não impede que o ILM exclua objetos quando existe uma regra como "zero cópias após 30 dias".
 
 
 NOTE: Mesmo quando todas essas regras e políticas são aplicadas, elas não se protegem contra gravações simultâneas (ver situação A). Eles protegem contra substituições concluídas sequenciais (ver situação B).

@@ -16,13 +16,14 @@ Você pode recuperar arquivos de log do StorageGRID e dados do sistema, incluind
 .Antes de começar
 * Você está conectado ao Grid Manager em qualquer nó de administração usando umlink:../admin/web-browser-requirements.html["navegador da web suportado"] .
 * Você link:../admin/admin-group-permissions.html["permissões de acesso específicas"]tem .
-* Você tem a senha de provisionamento.
 
 
 .Sobre esta tarefa
 Use o Grid Manager para reunirlink:logs-files-reference.html["ficheiros de registo"] , dados do sistema e dados de configuração de qualquer nó de grade para o período de tempo selecionado.  Os dados são coletados e arquivados em um `.tar.gz` arquivo que você pode baixar para seu computador local ou enviar para o suporte técnico.
 
 Opcionalmente, você pode alterar o destino dos logs de auditoria e enviar informações de auditoria para um servidor syslog externo.  Os logs locais dos registros de auditoria continuam sendo gerados e armazenados quando um servidor syslog externo é configurado. Ver link:../monitor/configure-log-management.html["Configurar gerenciamento de log e servidor syslog externo"] .
+
+Se o nó de administração usado para iniciar a coleta de logs ficar offline durante a coleta, StorageGRID não reterá os resultados. Você precisa reinicializar o nó e reiniciar a coleta de logs após a reinicialização ser concluída.
 
 .Passos
 . Selecione *Suporte* > *Ferramentas* > *Coleta de logs*.  Uma tabela de nós é exibida.
@@ -47,7 +48,6 @@ Se você selecionar um período de tempo muito longo ou coletar logs de todos os
 +
 Você pode usar essas notas para fornecer informações de suporte técnico sobre o problema que o levou a coletar os arquivos de log. Suas anotações são adicionadas a um arquivo `info.txt` chamado , juntamente com outras informações sobre a coleção de arquivos de log. O `info.txt` ficheiro é guardado no pacote de arquivo de registo.
 
-. Na caixa de texto *Senha de provisionamento*, insira a senha de provisionamento para seu sistema StorageGRID .
 . Selecione *Coletar registros*.
 +
 Você pode usar a página Coleta de logs para monitorar o progresso da coleta de arquivos de log para cada nó da grade.
@@ -57,9 +57,15 @@ Se você receber uma mensagem de erro sobre o tamanho do log, tente coletar logs
 
 . Se a coleta de logs falhar:
 +
+--
 ** Se a mensagem "Falha na coleta de logs" for exibida, você poderá tentar coletar logs novamente ou encerrar a sessão sem tentar novamente.
 ** Se a mensagem "Falha parcial na coleta de logs" for exibida, você poderá tentar novamente a coleta de logs, finalizar a sessão, baixar o arquivo de log parcial ou enviá-lo ao AutoSupport.
 
+
+--
++
+
+NOTE: Você pode optar por deixar o campo Senha de provisionamento vazio para uma nova tentativa padrão ou pode inserir a senha para tentar novamente usando SSH.
 
 . Quando a coleta do arquivo de log estiver concluída:
 +

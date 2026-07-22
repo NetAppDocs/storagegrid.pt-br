@@ -54,6 +54,7 @@ NOTE: Se o logon único (SSO) estiver ativado para o sistema StorageGRID, você 
 * *ilm*: Operações nas configurações de gerenciamento do ciclo de vida da informação (ILM).
 * *Regions*: Operações para determinar quais regiões foram configuradas para o sistema StorageGRID.
 * *S3*: Operações para gerenciar S3 chaves de acesso para usuários arrendatários.
+* *s3-configurations*: Operações para recuperar configurações globais do S3.
 * *S3-object-lock*: Operações em configurações globais de bloqueio de objetos S3D, usadas para suportar a conformidade regulamentar.
 * *Usuários*: Operações para visualizar e gerenciar usuários de inquilinos.
 

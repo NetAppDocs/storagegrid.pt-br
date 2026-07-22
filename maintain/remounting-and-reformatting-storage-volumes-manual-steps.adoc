@@ -2,7 +2,7 @@
 permalink: maintain/remounting-and-reformatting-storage-volumes-manual-steps.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, appliance storage volume, appliance volume, remount manually, reformat manually 
-summary: É necessário executar manualmente dois scripts para remontar volumes de storage preservados e reformatar os volumes de storage com falha. O primeiro script remonta volumes que são formatados corretamente como volumes de armazenamento StorageGRID. O segundo script reformata quaisquer volumes não montados, reconstrói Cassandra, se necessário, e inicia serviços. 
+summary: Se o procedimento automático falhar ao remontar os volumes de armazenamento preservados e reformatar os volumes de armazenamento com falha, você deve executar manualmente dois scripts para concluir essas operações. O primeiro script remonta os volumes que estão formatados corretamente como volumes de armazenamento StorageGRID. O segundo script reformata quaisquer volumes desmontados, reconstrói o banco de dados Cassandra, se necessário, e inicia os serviços. 
 ---
 = Remontar e reformatar volumes de armazenamento do StorageGRID (etapas manuais)
 :allow-uri-read: 
@@ -11,7 +11,9 @@ summary: É necessário executar manualmente dois scripts para remontar volumes 
 
 
 [role="lead"]
-É necessário executar manualmente dois scripts para remontar volumes de storage preservados e reformatar os volumes de storage com falha. O primeiro script remonta volumes que são formatados corretamente como volumes de armazenamento StorageGRID. O segundo script reformata quaisquer volumes não montados, reconstrói Cassandra, se necessário, e inicia serviços.
+Se o procedimento automático falhar ao remontar os volumes de armazenamento preservados e reformatar os volumes de armazenamento com falha, você deve executar manualmente dois scripts para concluir essas operações. O primeiro script remonta os volumes que estão formatados corretamente como volumes de armazenamento StorageGRID. O segundo script reformata quaisquer volumes desmontados, reconstrói o banco de dados Cassandra, se necessário, e inicia os serviços.
+
+Durante a recuperação de um nó de armazenamento, se a mensagem "Aguardando etapas manuais" aparecer no Grid Manager, siga estas etapas para remontar e reformatar os volumes de armazenamento. Se você não vir esta mensagem, as operações de remontagem e reformatação foram concluídas automaticamente, e você pode ignorar _este_ procedimento e link:../maintain/restoring-object-data-to-storage-volume.html["restaurar dados do objeto"].
 
 .Antes de começar
 * Você já substituiu o hardware para quaisquer volumes de armazenamento com falha que você sabe que precisam ser substituídos.
@@ -191,9 +193,6 @@ CAUTION: Se um volume de armazenamento for comunicado como pertencente a outro n
 
 NOTE: Deve reparar ou substituir quaisquer dispositivos de armazenamento que não possam ser montados.
 
-+
-Você usará o nome do dispositivo para procurar o ID do volume, que é a entrada necessária quando você executar `repair-data` o script para restaurar os dados do objeto para o volume (o próximo procedimento).
-
 .. Depois de reparar ou substituir todos os dispositivos não montáveis, execute o `sn-remount-volumes` script novamente para confirmar que todos os volumes de armazenamento que podem ser remontados foram remontados.
 +
 
@@ -240,21 +239,8 @@ image:recovering_cassandra.png["Captura de tela mostrando o progresso da recuper
 O script pergunta se você deseja usar o processo de restauração de volume do Gerenciador de Grade.
 
 +
-** Na maioria dos casos, você deve link:../maintain/restoring-volume.html["Restaure dados de objetos usando o Gerenciador de Grade"]. Resposta `y` para usar o Gerenciador de Grade.
-** Em casos raros, como quando instruído pelo suporte técnico ou quando você souber que o nó de substituição tem menos volumes disponíveis para storage de objetos do que o nó original, você deve link:restoring-object-data-to-storage-volume.html["restaure os dados do objeto manualmente"] usar o `repair-data` script. Se um desses casos se aplicar, responda `n`.
-+
-[NOTE]
-====
-Se você responder `n` ao uso do processo de restauração de volume do Gerenciador de Grade (restaurar dados de objeto manualmente):
-
-*** Não é possível restaurar dados de objetos usando o Gerenciador de Grade.
-*** Você pode monitorar o progresso dos trabalhos de restauração manual usando o Gerenciador de Grade.
-
-
-====
-+
-Depois de fazer sua seleção, o script é concluído e os próximos passos para recuperar dados de objeto são mostrados. Depois de rever estes passos, prima qualquer tecla para regressar à linha de comando.
-
+** Na maioria dos casos, você deve link:../maintain/restoring-object-data-to-storage-volume.html["Restaure dados de objetos usando o Gerenciador de Grade"]. Responda `y` para usar o Grid Manager.
+** Em casos raros, como quando você sabe que o nó de substituição tem menos volumes disponíveis para storage de objetos do que o nó original, entre em contato com o suporte técnico para restaurar os dados do objeto manualmente. Se um desses casos se aplicar, responda `n` e pressione qualquer tecla para retornar à linha de comando.
 
 
 

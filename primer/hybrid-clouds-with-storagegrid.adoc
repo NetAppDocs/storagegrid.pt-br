@@ -18,7 +18,7 @@ Use o StorageGRID em uma configuração de nuvem híbrida implementando gerencia
 [[cloud-storage-pools]]
 == Pools de storage de nuvem
 
-Os pools de armazenamento em nuvem permitem armazenar objetos fora do sistema StorageGRID. Por exemplo, você pode migrar objetos acessados com pouca frequência para storage de nuvem de baixo custo, como Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud ou a categoria Acesso de arquivamento no storage de Blobs do Microsoft Azure. Ou, talvez você queira manter um backup em nuvem de objetos StorageGRID, que pode ser usado para recuperar dados perdidos devido a uma falha de volume de storage ou nó de storage.
+Os Cloud Storage Pools permitem que você armazene objetos fora do sistema StorageGRID. Por exemplo, você pode querer mover objetos acessados com pouca frequência para storage de nuvem de menor custo, como Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud ou a camada de acesso Archive no Microsoft Azure Blob Storage. Ou você pode querer manter um backup em nuvem dos objetos do StorageGRID, que pode ser usado para recuperar dados perdidos devido a uma falha de volume de armazenamento ou de um Storage Node.
 
 O armazenamento de parceiros de terceiros também é suportado, incluindo armazenamento em disco e fita.
 

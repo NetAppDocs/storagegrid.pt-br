@@ -17,7 +17,7 @@ Depois de concluir a instalação do Linux em seus hosts, você pode precisar ex
 NOTE: "Linux" refere-se a uma implantação RHEL, Ubuntu ou Debian.  Para obter uma lista de versões suportadas, consulte o https://imt.netapp.com/matrix/#welcome["Ferramenta de Matriz de interoperabilidade NetApp (IMT)"^] .
 
 .Antes de começar
-* Você revisou o link:../network/index.html["Diretrizes de rede da StorageGRID"].
+* Você analisou as informações em link:../network/index.html["Diretrizes de rede"].
 * Você revisou as informações link:node-container-migration-requirements.html["requisitos de migração de contêiner de nós"]sobre .
 * Se você estiver usando hosts virtuais, você leu o<<mac_address_cloning,Considerações e recomendações para clonagem de endereços MAC>> antes de configurar a rede host.
 
@@ -43,14 +43,14 @@ NOTE: Não use dispositivos bond ou bridge diretamente como a interface de rede 
 == Considerações e recomendações para clonagem de endereços MAC
 
 .[[clonagem_de_endereço_mac]]
-A clonagem de endereços MAC faz com que o contentor use o endereço MAC do host e o host use o endereço MAC de um endereço especificado ou gerado aleatoriamente. Você deve usar a clonagem de endereços MAC para evitar o uso de configurações de rede de modo promíscuo.
+A clonagem de endereço MAC faz com que o contêiner use o endereço MAC do host e o host use o endereço MAC de um endereço especificado por você ou de um endereço gerado aleatoriamente.
 
 
 
 [[enabling-mac-cloning]]
 === Ativar a clonagem MAC
 
-Em certos ambientes, a segurança pode ser aprimorada por meio da clonagem de endereços MAC, pois permite que você use uma NIC virtual dedicada para a rede Admin, rede Grid e rede Client. Ter o contentor usar o endereço MAC da NIC dedicada no host permite evitar o uso de configurações de rede de modo promíscuas.
+Em determinados ambientes, a segurança pode ser aprimorada por meio da clonagem de endereço MAC, pois permite que você use uma NIC virtual dedicada para a Rede Administrativa, a Grid Network e a Rede Cliente.
 
 
 NOTE: A clonagem de endereços MAC destina-se a ser usada com instalações de servidores virtuais e pode não funcionar corretamente com todas as configurações de dispositivos físicos.
@@ -70,21 +70,18 @@ Há uma chave para cada rede:
 Definir a chave como "verdadeiro" faz com que o contentor use o endereço MAC da NIC do host. Além disso, o host usará o endereço MAC da rede de contentores especificada. Por padrão, o endereço do contentor é um endereço gerado aleatoriamente, mas se você tiver definido um usando a `_NETWORK_MAC` chave de configuração do nó, esse endereço será usado em vez disso. O host e o contentor sempre terão endereços MAC diferentes.
 
 
-NOTE: Ativar a clonagem MAC em um host virtual sem também ativar o modo promíscuo no hypervisor pode fazer com que a rede de host Linux usando a interface do host pare de funcionar.
-
-
 
 [[mac-cloning-use-cases]]
 === Casos de uso de clonagem DE MAC
 
 Existem dois casos de uso a considerar com clonagem MAC:
 
-* Clonagem DE MAC não ativada: Quando a `_CLONE_MAC` chave no arquivo de configuração do nó não estiver definida ou definida como "falsa", o host usará o MAC da NIC do host e o contentor terá um MAC gerado pelo StorageGRID, a menos que um MAC seja especificado na `_NETWORK_MAC` chave. Se um endereço for definido na `_NETWORK_MAC` chave, o contentor terá o endereço especificado na `_NETWORK_MAC` chave. Esta configuração de chaves requer o uso do modo promíscuo.
-* Clonagem DO MAC ativada: Quando a `_CLONE_MAC` chave no arquivo de configuração do nó é definida como "verdadeiro", o contentor usa o MAC da NIC do host e o host usa um MAC gerado pelo StorageGRID, a menos que um MAC seja especificado na `_NETWORK_MAC` chave. Se um endereço for definido na `_NETWORK_MAC` chave, o host usará o endereço especificado em vez de um gerado. Nesta configuração de chaves, você não deve usar o modo promíscuo.
+* Clonagem de MAC não habilitada: quando a  `_CLONE_MAC` chave no arquivo de configuração do nó não está definida ou está definida como "false", o host usará o MAC da NIC do host e o contêiner terá um MAC gerado pelo StorageGRID, a menos que um MAC seja especificado na  `_NETWORK_MAC` chave. Se um endereço for definido na  `_NETWORK_MAC` chave, o contêiner terá o endereço especificado na  `_NETWORK_MAC` chave.
+* Clonagem de MAC ativada: quando a  `_CLONE_MAC` chave no arquivo de configuração do nó está definida como "true", o contêiner usa o MAC da NIC do host e o host usa um MAC gerado pelo StorageGRID, a menos que um MAC seja especificado na  `_NETWORK_MAC` chave. Se um endereço for definido na  `_NETWORK_MAC` chave, o host usará o endereço especificado em vez de um endereço gerado.
 
 
 
-NOTE: Se você não quiser usar a clonagem de endereços MAC e preferir permitir que todas as interfaces recebam e transmitam dados para endereços MAC diferentes dos atribuídos pelo hypervisor, verifique se as propriedades de segurança nos níveis de switch virtual e grupo de portas estão definidas como *Accept* para modo promíscuo, alterações de endereço MAC e transmissões forjadas. Os valores definidos no switch virtual podem ser substituídos pelos valores no nível do grupo de portas, portanto, certifique-se de que as configurações sejam as mesmas em ambos os locais.
+NOTE: Se você não deseja usar clonagem de endereço MAC e prefere permitir que todas as interfaces recebam e transmitam dados para endereços MAC diferentes dos atribuídos pelo hipervisor, certifique-se de que as propriedades de segurança nos níveis do switch virtual e do grupo de portas estejam definidas como *Aceitar* para Alterações de Endereço MAC e Transmissões Falsificadas. Os valores definidos no switch virtual podem ser substituídos pelos valores no nível do grupo de portas, então certifique-se de que as configurações sejam as mesmas em ambos os locais.
 
 Para ativar a clonagem MAC, consulte o link:creating-node-configuration-files.html["instruções para criar arquivos de configuração de nó"].
 

@@ -13,14 +13,10 @@ summary: A guia armazenamento resume a disponibilidade de armazenamento e outras
 [role="lead"]
 A guia armazenamento resume a disponibilidade de armazenamento e outras métricas de armazenamento.
 
-A guia Storage (armazenamento) é exibida para todos os nós, cada local e toda a grade.
+A aba Armazenamento é exibida para todos os nós, cada site e toda a grade. Esta aba contém as seguintes informações:
 
+Armazenamento de gráficos usados:: Para nós de storage, cada local e toda a grade, a guia Storage inclui gráficos mostrando quanto de storage foi usado pelos dados de objeto e metadados de objeto ao longo do tempo.
 
-
-[[storage-used-graphs]]
-== Armazenamento de gráficos usados
-
-Para nós de storage, cada local e toda a grade, a guia Storage inclui gráficos mostrando quanto de storage foi usado pelos dados de objeto e metadados de objeto ao longo do tempo.
 
 
 NOTE: Quando um nó não está conetado à grade, como durante a atualização ou um estado desconetado, certas métricas podem estar indisponíveis ou excluídas dos totais do site e da grade. Depois que um nó se reconeta à grade, espere vários minutos para que os valores se estabilizem.

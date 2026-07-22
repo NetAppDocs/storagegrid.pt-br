@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to administer storagegrid 
 summary: Use estas instruções para configurar e administrar um sistema StorageGRID. 
 ---
-= Administrar o StorageGRID
+= Guia rápido para administrar StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,24 +14,67 @@ summary: Use estas instruções para configurar e administrar um sistema Storage
 Use estas instruções para configurar e administrar um sistema StorageGRID.
 
 
+NOTE: Certifique-se de ter uma compreensão geral do sistema StorageGRID e um conhecimento bastante detalhado de shells de comando Linux, rede e configuração e instalação de hardware de servidor.
 
-[[about-these-instructions]]
-== Sobre estas instruções
-
-As principais tarefas de configuração e administração do StorageGRID permitem:
-
-* Use o Gerenciador de Grade para configurar grupos e usuários
-* Crie contas de inquilino para permitir que aplicativos clientes S3 armazenem e recuperem objetos
-* Configurar e gerenciar redes StorageGRID
-* Configurar o AutoSupport
-* Gerencie as configurações do nó
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]Comece a usar o Grid Manager
+[role="quick-margin-list"]
+* link:../admin/web-browser-requirements.html["Aprenda os passos básicos para usar a interface de usuário do Grid Manager"]
+* link:../admin/viewing-storagegrid-license-information.html["Saiba mais sobre informações de licença"]
+* link:../admin/using-grid-management-api.html["Aprenda a usar a API de Gerenciamento de Grid"]
 
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]Controle o acesso ao StorageGRID
+[role="quick-margin-list"]
+* link:../admin/controlling-storagegrid-access.html["Aprenda sobre frases-senha, senhas e permissões"]
+* link:../admin/using-identity-federation.html["Configurar federação de identidades"]
+* link:../admin/managing-admin-groups.html["Gerenciar grupos de administradores"]
+* link:../admin/managing-users.html["Gerenciar usuários"]
+* link:../admin/how-sso-works.html["Configurar autenticação única (SSO)"]
 
 
-[[before-you-begin]]
-== Antes de começar
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]Use a federação de grid
+[role="quick-margin-list"]
+* link:../admin/grid-federation-overview.html["Configurar conexões de federação de grid"]
+* link:../admin/grid-federation-what-is-account-sync.html["Saiba mais sobre a sincronização de contas"]
+* link:../admin/grid-federation-what-is-cross-grid-replication.html["Saiba mais sobre replicação entre grades"]
+* link:../admin/learn-about-global-namespace.html["Configurar o namespace global"]
 
-* Você tem uma compreensão geral do sistema StorageGRID.
-* Você tem conhecimento bastante detalhado de shells de comando do Linux, rede e configuração e configuração de hardware do servidor.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"] Gerenciar segurança
+[role="quick-margin-list"]
+* link:../admin/reviewing-storagegrid-encryption-methods.html["Reveja os métodos de encriptação StorageGRID"]
+* link:../admin/using-storagegrid-security-certificates.html["Gerenciar certificados"]
+* link:../admin/manage-tls-ssh-policy.html["Configure as definições de segurança"]
+* link:../admin/kms-configuring.html["Configurar servidores de gerenciamento de chaves"]
+* link:../admin/configuring-storage-proxy-settings.html["Gerenciar configurações de proxy"]
+* link:../admin/controlling-access-through-firewalls.html["Controle firewalls"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]Gerenciar tenants
+[role="quick-margin-list"]
+* link:../admin/managing-tenants.html["Saiba mais e gerencie contas de locatários"]
+* link:../admin/manage-platform-services-for-tenants.html["Gerenciar serviços de plataforma para locatários"]
+* link:../admin/manage-s3-select-for-tenant-accounts.html["Gerenciar S3 Selecione para contas de inquilino"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]Configurar conexões de cliente
+[role="quick-margin-list"]
+* link:../admin/security-for-clients.html["Saiba mais sobre segurança para clientes S3"]
+* link:../admin/use-s3-setup-wizard.html["Utilize o assistente de configuração S3"]
+* link:../admin/managing-high-availability-groups.html["Gerenciar grupos de alta disponibilidade"]
+* link:../admin/configuring-s3-api-endpoint-domain-names.html["Configurar nomes de domínio de endpoint S3"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sete"]Gerenciar redes e conexões
+[role="quick-margin-list"]
+* link:../admin/configuring-network-settings.html["Configure as definições de rede"]
+* link:../admin/configure-vlan-interfaces.html["Configurar interfaces VLAN"]
+* link:../admin/managing-traffic-classification-policies.html["Gerenciar políticas de classificação de tráfego"]
+* link:../admin/manage-link-costs.html["Gerenciar custos de link"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["Oito"]Gerenciar nós
+[role="quick-margin-list"]
+* link:../admin/what-object-segmentation-is.html["Gerenciar nós de storage"]
+* link:../admin/using-multiple-admin-nodes.html["Gerenciar nós de administração"]
 

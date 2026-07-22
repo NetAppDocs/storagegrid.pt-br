@@ -37,7 +37,21 @@ Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
 
 
 
-. Execute o seguinte comando:``disable-saml``
+. Dependendo da sua configuração de SSO, execute um dos seguintes comandos:
++
+[role="tabbed-block"]
+====
+.SAML
+--
+`disable-saml`
+
+--
+.OIDC
+--
+`disable-oidc`
+
+--
+====
 +
 Uma mensagem indica que o comando se aplica somente a esse nó Admin.
 

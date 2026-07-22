@@ -8,11 +8,9 @@
 == Requisitos para buckets com bloqueio de objeto S3 ativado
 
 * Se a configuração global de bloqueio de objeto S3 estiver ativada para o sistema StorageGRID, você poderá usar o Gerenciador de locatário, a API de gerenciamento de locatário ou a API REST S3 para criar buckets com o bloqueio de objeto S3 ativado.
-* Se você planeja usar o bloqueio de objetos S3D, você deve ativar o bloqueio de objetos S3D ao criar o bucket. Não é possível ativar o bloqueio de objetos S3 para um bucket existente.
 * Quando o bloqueio de objeto S3 está ativado para um bucket, o StorageGRID ativa automaticamente o controle de versão desse bucket. Não é possível desativar o bloqueio de objetos S3 ou suspender o controle de versão para o bucket.
 * Opcionalmente, você pode especificar um modo de retenção padrão e um período de retenção para cada bucket usando o Gerenciador de locatários, a API de gerenciamento do locatário ou a API REST do S3. As configurações de retenção padrão do bucket se aplicam somente a novos objetos adicionados ao bucket que não têm suas próprias configurações de retenção. Você pode substituir essas configurações padrão especificando um modo de retenção e manter-até-data para cada versão do objeto quando ele é carregado.
 * A configuração do ciclo de vida do bucket é compatível com buckets com o S3 Object Lock ativado.
-* A replicação do CloudMirror não é compatível com buckets com o S3 Object Lock ativado.
 
 
 

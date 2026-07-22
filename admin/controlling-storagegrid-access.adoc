@@ -11,7 +11,7 @@ summary: 'Você controla quem pode acessar o StorageGRID e quais tarefas os usu�
 
 
 [role="lead"]
-Você controla quem pode acessar o StorageGRID e quais tarefas os usuários podem executar criando ou importando grupos e usuários e atribuindo permissões a cada grupo. Opcionalmente, você pode ativar o logon único (SSO), criar certificados de cliente e alterar senhas de grade.
+Você controla quem pode acessar StorageGRID e quais tarefas os usuários podem executar, criando ou importando grupos e usuários e atribuindo permissões a cada grupo. Opcionalmente, você pode habilitar o logon único (SSO), criar certificados de cliente, alterar senhas do grid e usar a verificação multi-admin.
 
 
 
@@ -34,7 +34,7 @@ Opcionalmente, você pode configurar um grupo para ser somente leitura. Os usuá
 [[enable-single-sign-on]]
 == Ative o logon único
 
-O sistema StorageGRID oferece suporte ao logon único (SSO) usando o padrão Security Assertion Markup Language 2.0 (SAML 2.0).  Depois de vocêlink:how-sso-works.html["Configurar e ativar SSO"] , todos os usuários devem ser autenticados por um provedor de identidade externo antes de poderem acessar o Grid Manager, o Tenant Manager, a Grid Management API ou a Tenant Management API.  Usuários locais não podem fazer login no StorageGRID.
+O sistema StorageGRID suporta autenticação única (SSO) usando o padrão Security Assertion Markup Language 2.0 (SAML 2.0) ou OpenID Connect (OIDC). Após você link:how-sso-works.html["Configurar e ativar SSO"], todos os usuários devem ser autenticados por um provedor de identidade externo antes de acessar o Grid Manager, o Tenant Manager, a API de gerenciamento do Grid ou a API de gerenciamento do Tenant. Usuários locais não podem fazer login no StorageGRID.
 
 
 
@@ -49,3 +49,10 @@ A senha de provisionamento é necessária para muitos procedimentos de instalaç
 == Altere as senhas do console do nó
 
 Cada nó na sua grade tem uma senha de console de nó, que você precisa para efetuar login no nó como "admin" usando SSH, ou como usuário root em uma conexão de console físico/VM.  Conforme necessário, você podelink:change-node-console-password.html["altere a senha do console do nó"] para cada nó.
+
+
+
+[[use-multi-admin-verification]]
+== Use a verificação multi-admin
+
+Você pode usar a verificação multiadministrador (MAV) para garantir que determinadas operações do StorageGRID só possam ser executadas após a aprovação de administradores designados. A MAV impede que administradores comprometidos, maliciosos ou inexperientes façam alterações indesejáveis ou excluam dados.

@@ -46,3 +46,7 @@ Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
 . Repita estas etapas em cada nó de administração e nó de gateway que tenha portas remapeadas conflitantes.
 . Se você permitiu acesso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear acesso"] quando você terminar de remover os remapeamentos de portas.
 
+
+.Informações relacionadas
+* link:../network/external-communications.html["Portas usadas para comunicações externas"]
+

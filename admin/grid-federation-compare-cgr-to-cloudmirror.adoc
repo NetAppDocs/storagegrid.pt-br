@@ -36,8 +36,8 @@ A replicação do CloudMirror cria uma cópia independente de um objeto em uma i
 Como é configurado?
  a| 
 . Configure uma conexão de federação de grade entre duas grades.
-. Adicione novas contas de inquilino, que são clonadas automaticamente para a outra grade.
-. Adicione novos grupos de inquilinos e usuários, que também são clonados.
+. Adicione novas contas de locatário, que são sincronizadas automaticamente com a outra grid.
+. Adicione novos grupos de locatários e usuários, que também são sincronizados.
 . Crie buckets correspondentes em cada grade e permita que a replicação entre grade ocorra em uma ou ambas as direções.
 
  a| 

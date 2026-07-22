@@ -13,7 +13,7 @@ summary: Você pode criar uma configuração de ciclo de vida do S3 para control
 [role="lead"]
 Você pode criar uma configuração de ciclo de vida do S3 para controlar quando objetos específicos são excluídos do sistema StorageGRID.
 
-O exemplo simples nesta seção ilustra como uma configuração do ciclo de vida do S3 pode controlar quando certos objetos são excluídos (expirados) de buckets específicos do S3. O exemplo nesta seção é apenas para fins ilustrativos. Para obter detalhes completos sobre como criar configurações de ciclo de vida do S3, https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html["Guia do usuário do Amazon Simple Storage Service: Gerenciamento do ciclo de vida do objeto"^] consulte . Observe que o StorageGRID suporta apenas ações de expiração; ele não oferece suporte a ações de transição.
+O exemplo simples nesta seção ilustra como uma configuração de ciclo de vida do S3 pode controlar quando determinados objetos são excluídos (expirados) de buckets específicos do S3. O exemplo nesta seção é apenas para fins ilustrativos. Para obter detalhes completos sobre a criação de configurações de ciclo de vida do S3, consulte  https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html["Guia do usuário do Amazon Simple Storage Service: gerenciando o ciclo de vida dos objetos"^]. Observe que StorageGRID oferece suporte apenas a ações de Expiração; ele não oferece suporte a ações de Transição.
 
 
 

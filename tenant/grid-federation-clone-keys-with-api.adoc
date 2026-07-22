@@ -40,7 +40,7 @@ Você pode clonar suas próprias chaves de acesso se precisar acessar os mesmos 
 `POST /org/users/current-user/replicate-s3-access-key`
 
 +
-image:grid-federation-post-current-user-replicate.png["POST endpoint para replicar a própria chave de acesso"]
+image:grid_federation_post_current_user_replicate.png["POST endpoint para replicar a própria chave de acesso"]
 
 . Selecione *Experimente*.
 . Na caixa de texto *body*, substitua as entradas de exemplo para *accessKey* e *secretAccessKey* pelos valores do arquivo *.csv* que você baixou.
@@ -48,7 +48,7 @@ image:grid-federation-post-current-user-replicate.png["POST endpoint para replic
 Certifique-se de manter as aspas duplas em torno de cada string.
 
 +
-image:grid-federation-clone-access-key.png["API do Gerenciador de inquilinos inserindo valores para clonar a chave de acesso"]
+image:grid_federation_clone_access_key.png["API do Gerenciador de inquilinos inserindo valores para clonar a chave de acesso"]
 
 . Se a chave expirar, substitua a entrada de exemplo para *Expires* pela data e hora de expiração como uma string no formato de data-hora ISO 8601 (por exemplo, `2024-02-28T22:46:33-08:00` ). Se a chave não expirar, digite *null* como o valor da entrada *expira* (ou remova a linha *expira* e a vírgula anterior).
 . Selecione *Executar*.
@@ -82,7 +82,7 @@ Você pode clonar as chaves de acesso de outro usuário se ele precisar acessar 
 `POST /org/users/{userId}/replicate-s3-access-key`
 
 +
-image:grid-federation-post-other-user.png["POST endpoint para replicar a chave de acesso de outro usuário"]
+image:grid_federation_post_other_user.png["POST endpoint para replicar a chave de acesso de outro usuário"]
 
 . Selecione *Experimente*.
 . Na caixa de texto *UserId*, cole o ID de usuário que você copiou.
