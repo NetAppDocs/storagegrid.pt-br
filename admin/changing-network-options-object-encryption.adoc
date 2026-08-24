@@ -65,6 +65,10 @@ link:summary-ip-addresses-and-ports-for-client-connections.html["Resumo: Endere�
 . Selecione *Configuração* > *Segurança* > *Configurações de segurança*.
 . Selecione a guia *rede e objetos*.
 . Para criptografia de objetos armazenados, use a configuração *nenhum* (padrão) se você não quiser que objetos armazenados sejam criptografados ou selecione *AES-128* ou *AES-256* para criptografar objetos armazenados.
++
+
+NOTE: A partir do StorageGRID 12.1.0, o suporte para criptografia AES-128 de novos dados de objetos armazenados em repouso está obsoleto. O suporte continua para a recuperação de objetos armazenados que foram originalmente criptografados com AES-128.
+
 . Opcionalmente, selecione *impedir modificação do cliente* se você quiser impedir que clientes S3 façam solicitações específicas.
 +
 
