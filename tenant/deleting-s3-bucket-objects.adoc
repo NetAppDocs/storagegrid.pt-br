@@ -32,7 +32,7 @@ TIP: Um bucket que usa o bloqueio de objeto S3 permanecerá no estado *excluindo
 
 
 * Se um bucket tiver o controle de versão de objetos ativado, excluir marcadores criados no StorageGRID 11,8 ou posterior poderá ser removido usando o recurso Excluir objetos em operações de bucket.
-* Se um bucket tiver o controle de versão de objeto ativado, a operação excluir objetos não removerá marcadores de exclusão criados no StorageGRID 11,7 ou anterior. Consulte informações sobre como excluir objetos em um bucket no link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["Como objetos com versão S3 são excluídos"].
+* Se um bucket tiver o versionamento de objetos ativado, a operação de exclusão de objetos não removerá os marcadores de exclusão criados no StorageGRID 11.7 ou anterior. Consulte informações sobre como excluir objetos em um bucket em link:../ilm/how-objects-and-delete-markers-are-deleted.html#delete-s3-versioned-objects["Como objetos com versão S3 são excluídos"].
 * Se utilizar link:grid-federation-manage-cross-grid-replication.html["replicação entre grade"]o , tenha em atenção o seguinte:
 +
 ** Usar essa opção não exclui nenhum objeto do bucket na outra grade.

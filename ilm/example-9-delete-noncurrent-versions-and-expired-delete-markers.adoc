@@ -1,0 +1,49 @@
+---
+permalink: ilm/example-9-delete-noncurrent-versions-and-expired-delete-markers.html 
+sidebar: sidebar 
+keywords: retention priority, example S3 bucket lifecycle, example ILM policy 
+summary: Dependendo da configuração do ciclo de vida, os objetos seguem as configurações de retenção do ciclo de vida do bucket do S3 ou de uma política ILM. 
+---
+= Exclua versões desatualizadas e marcadores de exclusão expirados no StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ao suspender o versionamento em um bucket, você precisa configurar o ciclo de vida do bucket para lidar com versões não atuais e marcadores de exclusão com versão nula expirados.
+
+Exemplo de configuração de ciclo de vida de um bucket que lida com versões não atuais e marcadores de exclusão expirados:: Essas etapas são executadas em um bucket com uma política ILM ativa:
++
+--
+. Ative o versionamento. Quando objetos com o mesmo nome são ingeridos, as versões anteriores permanecem disponíveis como versões não atuais e as solicitações de exclusão criam marcadores de exclusão. As versões não atuais são acessíveis, mas utilizam espaço de storage.
+. Suspenda o versionamento, pois a configuração desejada é manter apenas uma versão e liberar o espaço de storage usado por versões não atuais. Isso é configurado na próxima etapa.
+. Configure um ciclo de vida de bucket para lidar com as versões não atuais e os marcadores de exclusão que permanecerem após a suspensão do versionamento.
+
+
+--
+Política de ILM::
++
+--
+Regra baseada na referência de tempo de ingestão (padrão): No dia 0, mantenha X cópias para sempre
+
+--
+Ciclo de vida do bucket::
++
+--
+`"Filter": {}, "Expiration": {"ExpiredObjectDeleteMarker": true}, "NoncurrentVersionExpiration": {"NoncurrentDays": 1}`
+
+--
+Resultado:: O ciclo de vida do bucket está configurado para lidar com versões não atuais e marcadores de exclusão expirados:
++
+--
+. Versões que estiverem desatualizadas por mais de um dia são excluídas. Apenas a versão atual permanece para sempre.
+. Um objeto chamado  `draftdoc` é ingerido e possui o ID de versão  `NULL`.
+. Se outro objeto for inserido com o mesmo nome (`draftdoc`, ele sobrescreve e substitui a versão nula e exclui imediatamente a versão anterior.
+. Se uma solicitação de exclusão for feita para  `draftdoc` sem especificar um ID de versão, será criado um marcador de exclusão com versão nula, substituindo e excluindo o objeto com versão nula.
+. O marcador de exclusão com versão nula expirou porque não existem versões não atuais.
+. Logo em seguida, o marcador de exclusão de versão nula expirada é excluído.
+
+
+--
+

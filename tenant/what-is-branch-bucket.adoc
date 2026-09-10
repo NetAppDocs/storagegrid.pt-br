@@ -44,6 +44,7 @@ Observe as seguintes características dos buckets de ramificação:
 
 
 [[operations-on-objects-in-branch-buckets]]
+[[operations-in-branch-buckets]]
 == Operações em objetos em buckets de ramificação
 
 * Uma operação de objeto PUT em um branch bucket cria um objeto no branch.
@@ -110,4 +111,4 @@ HEAD/GET retorna Versão do objeto não existe
 |===
 
 
-Consulte tambémlink:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["Como objetos com versão S3 são excluídos"] .
+Consulte também link:../ilm/how-objects-and-delete-markers-are-deleted.html#delete-s3-versioned-objects["Como objetos com versão S3 são excluídos"].
