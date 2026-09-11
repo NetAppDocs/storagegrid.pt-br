@@ -31,7 +31,7 @@ Para obter mais informações, consulte o seguinte:
 
 * link:../s3/object-versioning.html["Controle de versão de objetos"]
 * link:../ilm/example-4-ilm-rules-and-policy-for-s3-versioned-objects.html["Regras e políticas do ILM para objetos com versão S3 (exemplo 4)"]
-* link:../ilm/how-objects-and-delete-markers-are-deleted.html["Como os objetos e a exclusão são excluídos"]
+* link:../ilm/how-objects-and-delete-markers-are-deleted.html["Como os objetos e os marcadores de exclusão são excluídos"]
 
 
 .Passos
