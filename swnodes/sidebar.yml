@@ -9,38 +9,36 @@ entries:
   - title: Início rápido
     pdf-filename: Instalar StorageGRID em nós baseados em software
     url: "/swnodes/index.html"
-  - title: Planejar e preparar a instalação em nós baseados em software
+  - title: Informações e materiais necessários
+    url: "/swnodes/required-materials.html"
+  - title: Baixe e extraia arquivos de instalação do StorageGRID
+    url: "/swnodes/downloading-and-extracting-storagegrid-installation-files.html"
+  - title: Verifique manualmente os arquivos de instalação
+    url: "/swnodes/download-files-verify.html"
+  - title: Requisitos de software
+    url: "/swnodes/software-requirements.html"
+  - title: Requisitos de CPU e RAM
+    url: "/swnodes/cpu-and-ram-requirements.html"
+  - title: Requisitos de storage e desempenho
+    url: "/swnodes/storage-and-performance-requirements.html"
+  - title: Requisitos de migração do contêiner Node (Linux)
+    url: "/swnodes/node-container-migration-requirements.html"
+  - title: Preparar os hosts (Linux)
     entries:
-    - title: Informações e materiais necessários
-      url: "/swnodes/required-materials.html"
-    - title: Baixe e extraia arquivos de instalação do StorageGRID
-      url: "/swnodes/downloading-and-extracting-storagegrid-installation-files.html"
-    - title: Verifique manualmente os arquivos de instalação
-      url: "/swnodes/download-files-verify.html"
-    - title: Requisitos de software
-      url: "/swnodes/software-requirements.html"
-    - title: Requisitos de CPU e RAM
-      url: "/swnodes/cpu-and-ram-requirements.html"
-    - title: Requisitos de storage e desempenho
-      url: "/swnodes/storage-and-performance-requirements.html"
-    - title: Requisitos de migração do contêiner Node (Linux)
-      url: "/swnodes/node-container-migration-requirements.html"
-    - title: Preparar os hosts (Linux)
-      entries:
-      - title: Como as configurações de todo o host mudam
-        url: "/swnodes/how-host-wide-settings-change.html"
-      - title: Instale o Linux
-        url: "/swnodes/installing-linux.html"
-      - title: Instalação do perfil do AppArmor (somente Ubuntu e Debian)
-        url: "/swnodes/understanding-apparmor-profile-installation.html"
-      - title: Configure a rede host
-        url: "/swnodes/configuring-host-network.html"
-      - title: Configurar o armazenamento do host
-        url: "/swnodes/configuring-host-storage.html"
-      - title: Configurar o volume de armazenamento do mecanismo de contêiner
-        url: "/swnodes/configuring-docker-storage-volume.html"
-      - title: Instalar os serviços de host do StorageGRID
-        url: "/swnodes/installing-storagegrid-webscale-host-services.html"
+    - title: Como as configurações de todo o host mudam
+      url: "/swnodes/how-host-wide-settings-change.html"
+    - title: Instale o Linux
+      url: "/swnodes/installing-linux.html"
+    - title: Instalação do perfil do AppArmor (somente Ubuntu e Debian)
+      url: "/swnodes/understanding-apparmor-profile-installation.html"
+    - title: Configure a rede host
+      url: "/swnodes/configuring-host-network.html"
+    - title: Configurar o armazenamento do host
+      url: "/swnodes/configuring-host-storage.html"
+    - title: Configurar o volume de armazenamento do mecanismo de contêiner
+      url: "/swnodes/configuring-docker-storage-volume.html"
+    - title: Instalar os serviços de host do StorageGRID
+      url: "/swnodes/installing-storagegrid-webscale-host-services.html"
   - title: Automatize a instalação baseada em software dos nodes
     entries:
     - title: Automatizar instalação (Linux)
