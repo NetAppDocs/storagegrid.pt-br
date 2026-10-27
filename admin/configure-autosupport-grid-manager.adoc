@@ -133,7 +133,7 @@ Conforme necessário, você pode opcionalmente desativar a verificação de atua
 [[add-an-additional-autosupport-destination]]
 == Adicione um destino AutoSupport adicional
 
-Quando você ativa o AutoSupport, os pacotes heath e status são enviados para o suporte técnico. Você pode especificar um destino adicional para todos os pacotes AutoSupport.
+Ao ativar o AutoSupport, os pacotes de integridade e status são enviados para o suporte técnico. Você pode especificar um destino adicional para todos os pacotes do AutoSupport.
 
 Para verificar ou alterar o protocolo usado para enviar pacotes AutoSupport, consulte as instruções para <<specify-protocol-for-autosupport-packages,Especifique o protocolo para pacotes AutoSupport>>.
 
